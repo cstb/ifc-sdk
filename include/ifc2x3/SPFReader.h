@@ -46,7 +46,7 @@ namespace ifc2x3 {
          * @param inputSize the size of the stream to read from if available, used for the callback
          * @return Success.
          */
-        virtual bool read(std::istream &ifs, size_t inputSize = 0);
+        bool read(std::istream &ifs, size_t inputSize = 0) override;
 
     protected:
         /**
@@ -2669,7 +2669,7 @@ namespace ifc2x3 {
         /**
          * @param s
          */
-        bool callLoadFunction(const std::string &s);
+        bool callLoadFunction(const std::string &s) override;
 
     };
 

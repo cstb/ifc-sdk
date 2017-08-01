@@ -14,23 +14,23 @@ public:
    //! Constructor
    CreateGeometricRepresentationVisitor(ifc2x3::ExpressDataSet * eds);
 
-   virtual bool visitIfcBuildingElementPart(ifc2x3::IfcBuildingElementPart * value);
-   virtual bool visitIfcWallStandardCase(ifc2x3::IfcWallStandardCase * value);
-   virtual bool visitIfcSpatialStructureElement(ifc2x3::IfcSpatialStructureElement * value);
-   virtual bool visitIfcSlab(ifc2x3::IfcSlab * value);
-   virtual bool visitIfcBeam(ifc2x3::IfcBeam * value);
-   virtual bool visitIfcSpace(ifc2x3::IfcSpace * value);
-   virtual bool visitIfcOpeningElement(ifc2x3::IfcOpeningElement * value);
-   virtual bool visitIfcWindow(ifc2x3::IfcWindow * value);
-   virtual bool visitIfcProduct(ifc2x3::IfcProduct * value);
-   virtual bool visitIfcProductRepresentation(ifc2x3::IfcProductRepresentation * value);
-   virtual bool visitIfcRepresentation(ifc2x3::IfcRepresentation * value);
-   virtual bool visitIfcSweptAreaSolid(ifc2x3::IfcSweptAreaSolid * value);
-   virtual bool visitIfcExtrudedAreaSolid(ifc2x3::IfcExtrudedAreaSolid * value);
-   virtual bool visitIfcPlacement(ifc2x3::IfcPlacement * value);
-   virtual bool visitIfcLocalPlacement(ifc2x3::IfcLocalPlacement * value);
-   virtual bool visitIfcArbitraryClosedProfileDef(ifc2x3::IfcArbitraryClosedProfileDef * value);
-   virtual bool visitIfcPolyline(ifc2x3::IfcPolyline * value);
+   bool visitIfcBuildingElementPart(ifc2x3::IfcBuildingElementPart * value) override;
+   bool visitIfcWallStandardCase(ifc2x3::IfcWallStandardCase * value) override;
+   bool visitIfcSpatialStructureElement(ifc2x3::IfcSpatialStructureElement * value) override;
+   bool visitIfcSlab(ifc2x3::IfcSlab * value) override;
+   bool visitIfcBeam(ifc2x3::IfcBeam * value) override;
+   bool visitIfcSpace(ifc2x3::IfcSpace * value) override;
+   bool visitIfcOpeningElement(ifc2x3::IfcOpeningElement * value) override;
+   bool visitIfcWindow(ifc2x3::IfcWindow * value) override;
+   bool visitIfcProduct(ifc2x3::IfcProduct * value) override;
+   bool visitIfcProductRepresentation(ifc2x3::IfcProductRepresentation * value) override;
+   bool visitIfcRepresentation(ifc2x3::IfcRepresentation * value) override;
+   bool visitIfcSweptAreaSolid(ifc2x3::IfcSweptAreaSolid * value) override;
+   bool visitIfcExtrudedAreaSolid(ifc2x3::IfcExtrudedAreaSolid * value) override;
+   bool visitIfcPlacement(ifc2x3::IfcPlacement * value) override;
+   bool visitIfcLocalPlacement(ifc2x3::IfcLocalPlacement * value) override;
+   bool visitIfcArbitraryClosedProfileDef(ifc2x3::IfcArbitraryClosedProfileDef * value) override;
+   bool visitIfcPolyline(ifc2x3::IfcPolyline * value) override;
 
    void set2DPolyline(std::vector<double> &poly) { m2DPolyline = poly; mUpdateGeometry = true; }
    void set3DPolyline(std::vector<double> &poly) { m3DPolyline = poly; mUpdateGeometry = true; }

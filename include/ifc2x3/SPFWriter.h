@@ -740,27 +740,27 @@ namespace ifc2x3 {
          * @param expressDataSet The instance content to be written
          */
         SPFWriter(ExpressDataSet *expressDataSet);
-        virtual ~SPFWriter();
+        ~SPFWriter() override;
 
         /**
          * Call this method to write the content of the ExpressDataSet instance to a stream.
          *
          * @param filestream Stream to write to.
          */
-        virtual bool write(std::ostream& filestream);
+        bool write(std::ostream& filestream) override;
 
         /**
          * write the Ifc2DCompositeCurve datatype to m_out.
          *
          * @param value the Ifc2DCompositeCurve datatype to write
          */
-        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *value);
+        bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *value) override;
         /**
          * write the IfcActionRequest datatype to m_out.
          *
          * @param value the IfcActionRequest datatype to write
          */
-        virtual bool visitIfcActionRequest(IfcActionRequest *value);
+        bool visitIfcActionRequest(IfcActionRequest *value) override;
         /**
          * @param selectData
          */
@@ -770,7 +770,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcActor datatype to write
          */
-        virtual bool visitIfcActor(IfcActor *value);
+        bool visitIfcActor(IfcActor *value) override;
         /**
          * @param enumData
          */
@@ -780,7 +780,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcActorRole datatype to write
          */
-        virtual bool visitIfcActorRole(IfcActorRole *value);
+        bool visitIfcActorRole(IfcActorRole *value) override;
         /**
          * @param enumData
          */
@@ -790,7 +790,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcActuatorType datatype to write
          */
-        virtual bool visitIfcActuatorType(IfcActuatorType *value);
+        bool visitIfcActuatorType(IfcActuatorType *value) override;
         /**
          * @param enumData
          */
@@ -800,7 +800,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcAddress datatype to write
          */
-        virtual bool visitIfcAddress(IfcAddress *value);
+        bool visitIfcAddress(IfcAddress *value) override;
         /**
          * @param enumData
          */
@@ -810,7 +810,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcAirTerminalBoxType datatype to write
          */
-        virtual bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *value);
+        bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *value) override;
         /**
          * @param enumData
          */
@@ -820,7 +820,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcAirTerminalType datatype to write
          */
-        virtual bool visitIfcAirTerminalType(IfcAirTerminalType *value);
+        bool visitIfcAirTerminalType(IfcAirTerminalType *value) override;
         /**
          * @param enumData
          */
@@ -830,7 +830,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcAirToAirHeatRecoveryType datatype to write
          */
-        virtual bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *value);
+        bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *value) override;
         /**
          * @param enumData
          */
@@ -840,7 +840,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcAlarmType datatype to write
          */
-        virtual bool visitIfcAlarmType(IfcAlarmType *value);
+        bool visitIfcAlarmType(IfcAlarmType *value) override;
         /**
          * @param selectData
          */
@@ -850,25 +850,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcAngularDimension datatype to write
          */
-        virtual bool visitIfcAngularDimension(IfcAngularDimension *value);
+        bool visitIfcAngularDimension(IfcAngularDimension *value) override;
         /**
          * write the IfcAnnotation datatype to m_out.
          *
          * @param value the IfcAnnotation datatype to write
          */
-        virtual bool visitIfcAnnotation(IfcAnnotation *value);
+        bool visitIfcAnnotation(IfcAnnotation *value) override;
         /**
          * write the IfcAnnotationCurveOccurrence datatype to m_out.
          *
          * @param value the IfcAnnotationCurveOccurrence datatype to write
          */
-        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *value);
+        bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *value) override;
         /**
          * write the IfcAnnotationFillArea datatype to m_out.
          *
          * @param value the IfcAnnotationFillArea datatype to write
          */
-        virtual bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *value);
+        bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *value) override;
         /**
          * @param enumData
          */
@@ -878,43 +878,43 @@ namespace ifc2x3 {
          *
          * @param value the IfcAnnotationFillAreaOccurrence datatype to write
          */
-        virtual bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *value);
+        bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *value) override;
         /**
          * write the IfcAnnotationOccurrence datatype to m_out.
          *
          * @param value the IfcAnnotationOccurrence datatype to write
          */
-        virtual bool visitIfcAnnotationOccurrence(IfcAnnotationOccurrence *value);
+        bool visitIfcAnnotationOccurrence(IfcAnnotationOccurrence *value) override;
         /**
          * write the IfcAnnotationSurface datatype to m_out.
          *
          * @param value the IfcAnnotationSurface datatype to write
          */
-        virtual bool visitIfcAnnotationSurface(IfcAnnotationSurface *value);
+        bool visitIfcAnnotationSurface(IfcAnnotationSurface *value) override;
         /**
          * write the IfcAnnotationSurfaceOccurrence datatype to m_out.
          *
          * @param value the IfcAnnotationSurfaceOccurrence datatype to write
          */
-        virtual bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *value);
+        bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *value) override;
         /**
          * write the IfcAnnotationSymbolOccurrence datatype to m_out.
          *
          * @param value the IfcAnnotationSymbolOccurrence datatype to write
          */
-        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *value);
+        bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *value) override;
         /**
          * write the IfcAnnotationTextOccurrence datatype to m_out.
          *
          * @param value the IfcAnnotationTextOccurrence datatype to write
          */
-        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *value);
+        bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *value) override;
         /**
          * write the IfcApplication datatype to m_out.
          *
          * @param value the IfcApplication datatype to write
          */
-        virtual bool visitIfcApplication(IfcApplication *value);
+        bool visitIfcApplication(IfcApplication *value) override;
         /**
          * @param selectData
          */
@@ -928,7 +928,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcAppliedValue datatype to write
          */
-        virtual bool visitIfcAppliedValue(IfcAppliedValue *value);
+        bool visitIfcAppliedValue(IfcAppliedValue *value) override;
         /**
          * @param enumData
          */
@@ -938,31 +938,31 @@ namespace ifc2x3 {
          *
          * @param value the IfcAppliedValueRelationship datatype to write
          */
-        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *value);
+        bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *value) override;
         /**
          * write the IfcApproval datatype to m_out.
          *
          * @param value the IfcApproval datatype to write
          */
-        virtual bool visitIfcApproval(IfcApproval *value);
+        bool visitIfcApproval(IfcApproval *value) override;
         /**
          * write the IfcApprovalActorRelationship datatype to m_out.
          *
          * @param value the IfcApprovalActorRelationship datatype to write
          */
-        virtual bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *value);
+        bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *value) override;
         /**
          * write the IfcApprovalPropertyRelationship datatype to m_out.
          *
          * @param value the IfcApprovalPropertyRelationship datatype to write
          */
-        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *value);
+        bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *value) override;
         /**
          * write the IfcApprovalRelationship datatype to m_out.
          *
          * @param value the IfcApprovalRelationship datatype to write
          */
-        virtual bool visitIfcApprovalRelationship(IfcApprovalRelationship *value);
+        bool visitIfcApprovalRelationship(IfcApprovalRelationship *value) override;
         /**
          * @param enumData
          */
@@ -972,49 +972,49 @@ namespace ifc2x3 {
          *
          * @param value the IfcArbitraryClosedProfileDef datatype to write
          */
-        virtual bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *value);
+        bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *value) override;
         /**
          * write the IfcArbitraryOpenProfileDef datatype to m_out.
          *
          * @param value the IfcArbitraryOpenProfileDef datatype to write
          */
-        virtual bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *value);
+        bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *value) override;
         /**
          * write the IfcArbitraryProfileDefWithVoids datatype to m_out.
          *
          * @param value the IfcArbitraryProfileDefWithVoids datatype to write
          */
-        virtual bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *value);
+        bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *value) override;
         /**
          * write the IfcAsset datatype to m_out.
          *
          * @param value the IfcAsset datatype to write
          */
-        virtual bool visitIfcAsset(IfcAsset *value);
+        bool visitIfcAsset(IfcAsset *value) override;
         /**
          * write the IfcAsymmetricIShapeProfileDef datatype to m_out.
          *
          * @param value the IfcAsymmetricIShapeProfileDef datatype to write
          */
-        virtual bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *value);
+        bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *value) override;
         /**
          * write the IfcAxis1Placement datatype to m_out.
          *
          * @param value the IfcAxis1Placement datatype to write
          */
-        virtual bool visitIfcAxis1Placement(IfcAxis1Placement *value);
+        bool visitIfcAxis1Placement(IfcAxis1Placement *value) override;
         /**
          * write the IfcAxis2Placement2D datatype to m_out.
          *
          * @param value the IfcAxis2Placement2D datatype to write
          */
-        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *value);
+        bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *value) override;
         /**
          * write the IfcAxis2Placement3D datatype to m_out.
          *
          * @param value the IfcAxis2Placement3D datatype to write
          */
-        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *value);
+        bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *value) override;
         /**
          * @param enumData
          */
@@ -1024,13 +1024,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcBSplineCurve datatype to write
          */
-        virtual bool visitIfcBSplineCurve(IfcBSplineCurve *value);
+        bool visitIfcBSplineCurve(IfcBSplineCurve *value) override;
         /**
          * write the IfcBeam datatype to m_out.
          *
          * @param value the IfcBeam datatype to write
          */
-        virtual bool visitIfcBeam(IfcBeam *value);
+        bool visitIfcBeam(IfcBeam *value) override;
         /**
          * @param enumData
          */
@@ -1040,13 +1040,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcBeamType datatype to write
          */
-        virtual bool visitIfcBeamType(IfcBeamType *value);
+        bool visitIfcBeamType(IfcBeamType *value) override;
         /**
          * write the IfcBezierCurve datatype to m_out.
          *
          * @param value the IfcBezierCurve datatype to write
          */
-        virtual bool visitIfcBezierCurve(IfcBezierCurve *value);
+        bool visitIfcBezierCurve(IfcBezierCurve *value) override;
         /**
          * @param enumData
          */
@@ -1056,13 +1056,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcBlobTexture datatype to write
          */
-        virtual bool visitIfcBlobTexture(IfcBlobTexture *value);
+        bool visitIfcBlobTexture(IfcBlobTexture *value) override;
         /**
          * write the IfcBlock datatype to m_out.
          *
          * @param value the IfcBlock datatype to write
          */
-        virtual bool visitIfcBlock(IfcBlock *value);
+        bool visitIfcBlock(IfcBlock *value) override;
         /**
          * @param enumData
          */
@@ -1072,7 +1072,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcBoilerType datatype to write
          */
-        virtual bool visitIfcBoilerType(IfcBoilerType *value);
+        bool visitIfcBoilerType(IfcBoilerType *value) override;
         /**
          * @param enumData
          */
@@ -1086,67 +1086,67 @@ namespace ifc2x3 {
          *
          * @param value the IfcBooleanClippingResult datatype to write
          */
-        virtual bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *value);
+        bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *value) override;
         /**
          * write the IfcBooleanResult datatype to m_out.
          *
          * @param value the IfcBooleanResult datatype to write
          */
-        virtual bool visitIfcBooleanResult(IfcBooleanResult *value);
+        bool visitIfcBooleanResult(IfcBooleanResult *value) override;
         /**
          * write the IfcBoundaryCondition datatype to m_out.
          *
          * @param value the IfcBoundaryCondition datatype to write
          */
-        virtual bool visitIfcBoundaryCondition(IfcBoundaryCondition *value);
+        bool visitIfcBoundaryCondition(IfcBoundaryCondition *value) override;
         /**
          * write the IfcBoundaryEdgeCondition datatype to m_out.
          *
          * @param value the IfcBoundaryEdgeCondition datatype to write
          */
-        virtual bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *value);
+        bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *value) override;
         /**
          * write the IfcBoundaryFaceCondition datatype to m_out.
          *
          * @param value the IfcBoundaryFaceCondition datatype to write
          */
-        virtual bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *value);
+        bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *value) override;
         /**
          * write the IfcBoundaryNodeCondition datatype to m_out.
          *
          * @param value the IfcBoundaryNodeCondition datatype to write
          */
-        virtual bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *value);
+        bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *value) override;
         /**
          * write the IfcBoundaryNodeConditionWarping datatype to m_out.
          *
          * @param value the IfcBoundaryNodeConditionWarping datatype to write
          */
-        virtual bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *value);
+        bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *value) override;
         /**
          * write the IfcBoundedCurve datatype to m_out.
          *
          * @param value the IfcBoundedCurve datatype to write
          */
-        virtual bool visitIfcBoundedCurve(IfcBoundedCurve *value);
+        bool visitIfcBoundedCurve(IfcBoundedCurve *value) override;
         /**
          * write the IfcBoundedSurface datatype to m_out.
          *
          * @param value the IfcBoundedSurface datatype to write
          */
-        virtual bool visitIfcBoundedSurface(IfcBoundedSurface *value);
+        bool visitIfcBoundedSurface(IfcBoundedSurface *value) override;
         /**
          * write the IfcBoundingBox datatype to m_out.
          *
          * @param value the IfcBoundingBox datatype to write
          */
-        virtual bool visitIfcBoundingBox(IfcBoundingBox *value);
+        bool visitIfcBoundingBox(IfcBoundingBox *value) override;
         /**
          * write the IfcBoxedHalfSpace datatype to m_out.
          *
          * @param value the IfcBoxedHalfSpace datatype to write
          */
-        virtual bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *value);
+        bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *value) override;
         /**
          * @param enumData
          */
@@ -1156,31 +1156,31 @@ namespace ifc2x3 {
          *
          * @param value the IfcBuilding datatype to write
          */
-        virtual bool visitIfcBuilding(IfcBuilding *value);
+        bool visitIfcBuilding(IfcBuilding *value) override;
         /**
          * write the IfcBuildingElement datatype to m_out.
          *
          * @param value the IfcBuildingElement datatype to write
          */
-        virtual bool visitIfcBuildingElement(IfcBuildingElement *value);
+        bool visitIfcBuildingElement(IfcBuildingElement *value) override;
         /**
          * write the IfcBuildingElementComponent datatype to m_out.
          *
          * @param value the IfcBuildingElementComponent datatype to write
          */
-        virtual bool visitIfcBuildingElementComponent(IfcBuildingElementComponent *value);
+        bool visitIfcBuildingElementComponent(IfcBuildingElementComponent *value) override;
         /**
          * write the IfcBuildingElementPart datatype to m_out.
          *
          * @param value the IfcBuildingElementPart datatype to write
          */
-        virtual bool visitIfcBuildingElementPart(IfcBuildingElementPart *value);
+        bool visitIfcBuildingElementPart(IfcBuildingElementPart *value) override;
         /**
          * write the IfcBuildingElementProxy datatype to m_out.
          *
          * @param value the IfcBuildingElementProxy datatype to write
          */
-        virtual bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *value);
+        bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *value) override;
         /**
          * @param enumData
          */
@@ -1190,25 +1190,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcBuildingElementProxyType datatype to write
          */
-        virtual bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *value);
+        bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *value) override;
         /**
          * write the IfcBuildingElementType datatype to m_out.
          *
          * @param value the IfcBuildingElementType datatype to write
          */
-        virtual bool visitIfcBuildingElementType(IfcBuildingElementType *value);
+        bool visitIfcBuildingElementType(IfcBuildingElementType *value) override;
         /**
          * write the IfcBuildingStorey datatype to m_out.
          *
          * @param value the IfcBuildingStorey datatype to write
          */
-        virtual bool visitIfcBuildingStorey(IfcBuildingStorey *value);
+        bool visitIfcBuildingStorey(IfcBuildingStorey *value) override;
         /**
          * write the IfcCShapeProfileDef datatype to m_out.
          *
          * @param value the IfcCShapeProfileDef datatype to write
          */
-        virtual bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *value);
+        bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *value) override;
         /**
          * @param enumData
          */
@@ -1218,7 +1218,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcCableCarrierFittingType datatype to write
          */
-        virtual bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *value);
+        bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *value) override;
         /**
          * @param enumData
          */
@@ -1228,7 +1228,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcCableCarrierSegmentType datatype to write
          */
-        virtual bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *value);
+        bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *value) override;
         /**
          * @param enumData
          */
@@ -1238,61 +1238,61 @@ namespace ifc2x3 {
          *
          * @param value the IfcCableSegmentType datatype to write
          */
-        virtual bool visitIfcCableSegmentType(IfcCableSegmentType *value);
+        bool visitIfcCableSegmentType(IfcCableSegmentType *value) override;
         /**
          * write the IfcCalendarDate datatype to m_out.
          *
          * @param value the IfcCalendarDate datatype to write
          */
-        virtual bool visitIfcCalendarDate(IfcCalendarDate *value);
+        bool visitIfcCalendarDate(IfcCalendarDate *value) override;
         /**
          * write the IfcCartesianPoint datatype to m_out.
          *
          * @param value the IfcCartesianPoint datatype to write
          */
-        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *value);
+        bool visitIfcCartesianPoint(IfcCartesianPoint *value) override;
         /**
          * write the IfcCartesianTransformationOperator datatype to m_out.
          *
          * @param value the IfcCartesianTransformationOperator datatype to write
          */
-        virtual bool visitIfcCartesianTransformationOperator(IfcCartesianTransformationOperator *value);
+        bool visitIfcCartesianTransformationOperator(IfcCartesianTransformationOperator *value) override;
         /**
          * write the IfcCartesianTransformationOperator2D datatype to m_out.
          *
          * @param value the IfcCartesianTransformationOperator2D datatype to write
          */
-        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *value);
+        bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *value) override;
         /**
          * write the IfcCartesianTransformationOperator2DnonUniform datatype to m_out.
          *
          * @param value the IfcCartesianTransformationOperator2DnonUniform datatype to write
          */
-        virtual bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *value);
+        bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *value) override;
         /**
          * write the IfcCartesianTransformationOperator3D datatype to m_out.
          *
          * @param value the IfcCartesianTransformationOperator3D datatype to write
          */
-        virtual bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *value);
+        bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *value) override;
         /**
          * write the IfcCartesianTransformationOperator3DnonUniform datatype to m_out.
          *
          * @param value the IfcCartesianTransformationOperator3DnonUniform datatype to write
          */
-        virtual bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *value);
+        bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *value) override;
         /**
          * write the IfcCenterLineProfileDef datatype to m_out.
          *
          * @param value the IfcCenterLineProfileDef datatype to write
          */
-        virtual bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *value);
+        bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *value) override;
         /**
          * write the IfcChamferEdgeFeature datatype to m_out.
          *
          * @param value the IfcChamferEdgeFeature datatype to write
          */
-        virtual bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *value);
+        bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *value) override;
         /**
          * @param enumData
          */
@@ -1302,7 +1302,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcChillerType datatype to write
          */
-        virtual bool visitIfcChillerType(IfcChillerType *value);
+        bool visitIfcChillerType(IfcChillerType *value) override;
         /**
          * @param selectData
          */
@@ -1312,61 +1312,61 @@ namespace ifc2x3 {
          *
          * @param value the IfcCircle datatype to write
          */
-        virtual bool visitIfcCircle(IfcCircle *value);
+        bool visitIfcCircle(IfcCircle *value) override;
         /**
          * write the IfcCircleHollowProfileDef datatype to m_out.
          *
          * @param value the IfcCircleHollowProfileDef datatype to write
          */
-        virtual bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *value);
+        bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *value) override;
         /**
          * write the IfcCircleProfileDef datatype to m_out.
          *
          * @param value the IfcCircleProfileDef datatype to write
          */
-        virtual bool visitIfcCircleProfileDef(IfcCircleProfileDef *value);
+        bool visitIfcCircleProfileDef(IfcCircleProfileDef *value) override;
         /**
          * write the IfcClassification datatype to m_out.
          *
          * @param value the IfcClassification datatype to write
          */
-        virtual bool visitIfcClassification(IfcClassification *value);
+        bool visitIfcClassification(IfcClassification *value) override;
         /**
          * write the IfcClassificationItem datatype to m_out.
          *
          * @param value the IfcClassificationItem datatype to write
          */
-        virtual bool visitIfcClassificationItem(IfcClassificationItem *value);
+        bool visitIfcClassificationItem(IfcClassificationItem *value) override;
         /**
          * write the IfcClassificationItemRelationship datatype to m_out.
          *
          * @param value the IfcClassificationItemRelationship datatype to write
          */
-        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *value);
+        bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *value) override;
         /**
          * write the IfcClassificationNotation datatype to m_out.
          *
          * @param value the IfcClassificationNotation datatype to write
          */
-        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *value);
+        bool visitIfcClassificationNotation(IfcClassificationNotation *value) override;
         /**
          * write the IfcClassificationNotationFacet datatype to m_out.
          *
          * @param value the IfcClassificationNotationFacet datatype to write
          */
-        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *value);
+        bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *value) override;
         /**
          * write the IfcClassificationReference datatype to m_out.
          *
          * @param value the IfcClassificationReference datatype to write
          */
-        virtual bool visitIfcClassificationReference(IfcClassificationReference *value);
+        bool visitIfcClassificationReference(IfcClassificationReference *value) override;
         /**
          * write the IfcClosedShell datatype to m_out.
          *
          * @param value the IfcClosedShell datatype to write
          */
-        virtual bool visitIfcClosedShell(IfcClosedShell *value);
+        bool visitIfcClosedShell(IfcClosedShell *value) override;
         /**
          * @param enumData
          */
@@ -1376,25 +1376,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcCoilType datatype to write
          */
-        virtual bool visitIfcCoilType(IfcCoilType *value);
+        bool visitIfcCoilType(IfcCoilType *value) override;
         /**
          * write the IfcColourRgb datatype to m_out.
          *
          * @param value the IfcColourRgb datatype to write
          */
-        virtual bool visitIfcColourRgb(IfcColourRgb *value);
+        bool visitIfcColourRgb(IfcColourRgb *value) override;
         /**
          * write the IfcColourSpecification datatype to m_out.
          *
          * @param value the IfcColourSpecification datatype to write
          */
-        virtual bool visitIfcColourSpecification(IfcColourSpecification *value);
+        bool visitIfcColourSpecification(IfcColourSpecification *value) override;
         /**
          * write the IfcColumn datatype to m_out.
          *
          * @param value the IfcColumn datatype to write
          */
-        virtual bool visitIfcColumn(IfcColumn *value);
+        bool visitIfcColumn(IfcColumn *value) override;
         /**
          * @param enumData
          */
@@ -1404,19 +1404,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcColumnType datatype to write
          */
-        virtual bool visitIfcColumnType(IfcColumnType *value);
+        bool visitIfcColumnType(IfcColumnType *value) override;
         /**
          * write the IfcComplexProperty datatype to m_out.
          *
          * @param value the IfcComplexProperty datatype to write
          */
-        virtual bool visitIfcComplexProperty(IfcComplexProperty *value);
+        bool visitIfcComplexProperty(IfcComplexProperty *value) override;
         /**
          * write the IfcCompositeCurve datatype to m_out.
          *
          * @param value the IfcCompositeCurve datatype to write
          */
-        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *value);
+        bool visitIfcCompositeCurve(IfcCompositeCurve *value) override;
         /**
          * @param enumData
          */
@@ -1426,13 +1426,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcCompositeCurveSegment datatype to write
          */
-        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *value);
+        bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *value) override;
         /**
          * write the IfcCompositeProfileDef datatype to m_out.
          *
          * @param value the IfcCompositeProfileDef datatype to write
          */
-        virtual bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *value);
+        bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *value) override;
         /**
          * @param enumData
          */
@@ -1442,7 +1442,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcCompressorType datatype to write
          */
-        virtual bool visitIfcCompressorType(IfcCompressorType *value);
+        bool visitIfcCompressorType(IfcCompressorType *value) override;
         /**
          * @param enumData
          */
@@ -1452,13 +1452,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcCondenserType datatype to write
          */
-        virtual bool visitIfcCondenserType(IfcCondenserType *value);
+        bool visitIfcCondenserType(IfcCondenserType *value) override;
         /**
          * write the IfcCondition datatype to m_out.
          *
          * @param value the IfcCondition datatype to write
          */
-        virtual bool visitIfcCondition(IfcCondition *value);
+        bool visitIfcCondition(IfcCondition *value) override;
         /**
          * @param selectData
          */
@@ -1468,19 +1468,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcConditionCriterion datatype to write
          */
-        virtual bool visitIfcConditionCriterion(IfcConditionCriterion *value);
+        bool visitIfcConditionCriterion(IfcConditionCriterion *value) override;
         /**
          * write the IfcConic datatype to m_out.
          *
          * @param value the IfcConic datatype to write
          */
-        virtual bool visitIfcConic(IfcConic *value);
+        bool visitIfcConic(IfcConic *value) override;
         /**
          * write the IfcConnectedFaceSet datatype to m_out.
          *
          * @param value the IfcConnectedFaceSet datatype to write
          */
-        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *value);
+        bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *value) override;
         /**
          * @param selectData
          */
@@ -1490,13 +1490,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcConnectionCurveGeometry datatype to write
          */
-        virtual bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *value);
+        bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *value) override;
         /**
          * write the IfcConnectionGeometry datatype to m_out.
          *
          * @param value the IfcConnectionGeometry datatype to write
          */
-        virtual bool visitIfcConnectionGeometry(IfcConnectionGeometry *value);
+        bool visitIfcConnectionGeometry(IfcConnectionGeometry *value) override;
         /**
          * @param selectData
          */
@@ -1506,19 +1506,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcConnectionPointEccentricity datatype to write
          */
-        virtual bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *value);
+        bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *value) override;
         /**
          * write the IfcConnectionPointGeometry datatype to m_out.
          *
          * @param value the IfcConnectionPointGeometry datatype to write
          */
-        virtual bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *value);
+        bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *value) override;
         /**
          * write the IfcConnectionPortGeometry datatype to m_out.
          *
          * @param value the IfcConnectionPortGeometry datatype to write
          */
-        virtual bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *value);
+        bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *value) override;
         /**
          * @param selectData
          */
@@ -1528,7 +1528,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcConnectionSurfaceGeometry datatype to write
          */
-        virtual bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *value);
+        bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *value) override;
         /**
          * @param enumData
          */
@@ -1538,7 +1538,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcConstraint datatype to write
          */
-        virtual bool visitIfcConstraint(IfcConstraint *value);
+        bool visitIfcConstraint(IfcConstraint *value) override;
         /**
          * @param enumData
          */
@@ -1548,7 +1548,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcConstraintAggregationRelationship datatype to write
          */
-        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *value);
+        bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *value) override;
         /**
          * @param selectData
          */
@@ -1558,13 +1558,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcConstraintClassificationRelationship datatype to write
          */
-        virtual bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *value);
+        bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *value) override;
         /**
          * write the IfcConstraintRelationship datatype to m_out.
          *
          * @param value the IfcConstraintRelationship datatype to write
          */
-        virtual bool visitIfcConstraintRelationship(IfcConstraintRelationship *value);
+        bool visitIfcConstraintRelationship(IfcConstraintRelationship *value) override;
         /**
          * @param enumData
          */
@@ -1574,25 +1574,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcConstructionEquipmentResource datatype to write
          */
-        virtual bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *value);
+        bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *value) override;
         /**
          * write the IfcConstructionMaterialResource datatype to m_out.
          *
          * @param value the IfcConstructionMaterialResource datatype to write
          */
-        virtual bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *value);
+        bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *value) override;
         /**
          * write the IfcConstructionProductResource datatype to m_out.
          *
          * @param value the IfcConstructionProductResource datatype to write
          */
-        virtual bool visitIfcConstructionProductResource(IfcConstructionProductResource *value);
+        bool visitIfcConstructionProductResource(IfcConstructionProductResource *value) override;
         /**
          * write the IfcConstructionResource datatype to m_out.
          *
          * @param value the IfcConstructionResource datatype to write
          */
-        virtual bool visitIfcConstructionResource(IfcConstructionResource *value);
+        bool visitIfcConstructionResource(IfcConstructionResource *value) override;
         /**
          * @param enumData
          */
@@ -1602,13 +1602,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcContextDependentUnit datatype to write
          */
-        virtual bool visitIfcContextDependentUnit(IfcContextDependentUnit *value);
+        bool visitIfcContextDependentUnit(IfcContextDependentUnit *value) override;
         /**
          * write the IfcControl datatype to m_out.
          *
          * @param value the IfcControl datatype to write
          */
-        virtual bool visitIfcControl(IfcControl *value);
+        bool visitIfcControl(IfcControl *value) override;
         /**
          * @param enumData
          */
@@ -1618,13 +1618,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcControllerType datatype to write
          */
-        virtual bool visitIfcControllerType(IfcControllerType *value);
+        bool visitIfcControllerType(IfcControllerType *value) override;
         /**
          * write the IfcConversionBasedUnit datatype to m_out.
          *
          * @param value the IfcConversionBasedUnit datatype to write
          */
-        virtual bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *value);
+        bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *value) override;
         /**
          * @param enumData
          */
@@ -1634,7 +1634,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcCooledBeamType datatype to write
          */
-        virtual bool visitIfcCooledBeamType(IfcCooledBeamType *value);
+        bool visitIfcCooledBeamType(IfcCooledBeamType *value) override;
         /**
          * @param enumData
          */
@@ -1644,7 +1644,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcCoolingTowerType datatype to write
          */
-        virtual bool visitIfcCoolingTowerType(IfcCoolingTowerType *value);
+        bool visitIfcCoolingTowerType(IfcCoolingTowerType *value) override;
         /**
          * @param enumData
          */
@@ -1654,13 +1654,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcCoordinatedUniversalTimeOffset datatype to write
          */
-        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *value);
+        bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *value) override;
         /**
          * write the IfcCostItem datatype to m_out.
          *
          * @param value the IfcCostItem datatype to write
          */
-        virtual bool visitIfcCostItem(IfcCostItem *value);
+        bool visitIfcCostItem(IfcCostItem *value) override;
         /**
          * @param enumData
          */
@@ -1670,13 +1670,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcCostSchedule datatype to write
          */
-        virtual bool visitIfcCostSchedule(IfcCostSchedule *value);
+        bool visitIfcCostSchedule(IfcCostSchedule *value) override;
         /**
          * write the IfcCostValue datatype to m_out.
          *
          * @param value the IfcCostValue datatype to write
          */
-        virtual bool visitIfcCostValue(IfcCostValue *value);
+        bool visitIfcCostValue(IfcCostValue *value) override;
         /**
          * @param enumData
          */
@@ -1686,37 +1686,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcCovering datatype to write
          */
-        virtual bool visitIfcCovering(IfcCovering *value);
+        bool visitIfcCovering(IfcCovering *value) override;
         /**
          * write the IfcCoveringType datatype to m_out.
          *
          * @param value the IfcCoveringType datatype to write
          */
-        virtual bool visitIfcCoveringType(IfcCoveringType *value);
+        bool visitIfcCoveringType(IfcCoveringType *value) override;
         /**
          * write the IfcCraneRailAShapeProfileDef datatype to m_out.
          *
          * @param value the IfcCraneRailAShapeProfileDef datatype to write
          */
-        virtual bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *value);
+        bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *value) override;
         /**
          * write the IfcCraneRailFShapeProfileDef datatype to m_out.
          *
          * @param value the IfcCraneRailFShapeProfileDef datatype to write
          */
-        virtual bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *value);
+        bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *value) override;
         /**
          * write the IfcCrewResource datatype to m_out.
          *
          * @param value the IfcCrewResource datatype to write
          */
-        virtual bool visitIfcCrewResource(IfcCrewResource *value);
+        bool visitIfcCrewResource(IfcCrewResource *value) override;
         /**
          * write the IfcCsgPrimitive3D datatype to m_out.
          *
          * @param value the IfcCsgPrimitive3D datatype to write
          */
-        virtual bool visitIfcCsgPrimitive3D(IfcCsgPrimitive3D *value);
+        bool visitIfcCsgPrimitive3D(IfcCsgPrimitive3D *value) override;
         /**
          * @param selectData
          */
@@ -1726,19 +1726,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcCsgSolid datatype to write
          */
-        virtual bool visitIfcCsgSolid(IfcCsgSolid *value);
+        bool visitIfcCsgSolid(IfcCsgSolid *value) override;
         /**
          * write the IfcCurrencyRelationship datatype to m_out.
          *
          * @param value the IfcCurrencyRelationship datatype to write
          */
-        virtual bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *value);
+        bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *value) override;
         /**
          * write the IfcCurtainWall datatype to m_out.
          *
          * @param value the IfcCurtainWall datatype to write
          */
-        virtual bool visitIfcCurtainWall(IfcCurtainWall *value);
+        bool visitIfcCurtainWall(IfcCurtainWall *value) override;
         /**
          * @param enumData
          */
@@ -1748,19 +1748,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcCurtainWallType datatype to write
          */
-        virtual bool visitIfcCurtainWallType(IfcCurtainWallType *value);
+        bool visitIfcCurtainWallType(IfcCurtainWallType *value) override;
         /**
          * write the IfcCurve datatype to m_out.
          *
          * @param value the IfcCurve datatype to write
          */
-        virtual bool visitIfcCurve(IfcCurve *value);
+        bool visitIfcCurve(IfcCurve *value) override;
         /**
          * write the IfcCurveBoundedPlane datatype to m_out.
          *
          * @param value the IfcCurveBoundedPlane datatype to write
          */
-        virtual bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *value);
+        bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *value) override;
         /**
          * @param selectData
          */
@@ -1778,13 +1778,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcCurveStyle datatype to write
          */
-        virtual bool visitIfcCurveStyle(IfcCurveStyle *value);
+        bool visitIfcCurveStyle(IfcCurveStyle *value) override;
         /**
          * write the IfcCurveStyleFont datatype to m_out.
          *
          * @param value the IfcCurveStyleFont datatype to write
          */
-        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *value);
+        bool visitIfcCurveStyleFont(IfcCurveStyleFont *value) override;
         /**
          * @param selectData
          */
@@ -1794,13 +1794,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcCurveStyleFontAndScaling datatype to write
          */
-        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *value);
+        bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *value) override;
         /**
          * write the IfcCurveStyleFontPattern datatype to m_out.
          *
          * @param value the IfcCurveStyleFontPattern datatype to write
          */
-        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *value);
+        bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *value) override;
         /**
          * @param enumData
          */
@@ -1810,13 +1810,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcDamperType datatype to write
          */
-        virtual bool visitIfcDamperType(IfcDamperType *value);
+        bool visitIfcDamperType(IfcDamperType *value) override;
         /**
          * write the IfcDateAndTime datatype to m_out.
          *
          * @param value the IfcDateAndTime datatype to write
          */
-        virtual bool visitIfcDateAndTime(IfcDateAndTime *value);
+        bool visitIfcDateAndTime(IfcDateAndTime *value) override;
         /**
          * @param selectData
          */
@@ -1826,13 +1826,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcDefinedSymbol datatype to write
          */
-        virtual bool visitIfcDefinedSymbol(IfcDefinedSymbol *value);
+        bool visitIfcDefinedSymbol(IfcDefinedSymbol *value) override;
         /**
          * write the IfcDerivedProfileDef datatype to m_out.
          *
          * @param value the IfcDerivedProfileDef datatype to write
          */
-        virtual bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *value);
+        bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *value) override;
         /**
          * @param enumData
          */
@@ -1842,37 +1842,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcDerivedUnit datatype to write
          */
-        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *value);
+        bool visitIfcDerivedUnit(IfcDerivedUnit *value) override;
         /**
          * write the IfcDerivedUnitElement datatype to m_out.
          *
          * @param value the IfcDerivedUnitElement datatype to write
          */
-        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *value);
+        bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *value) override;
         /**
          * write the IfcDiameterDimension datatype to m_out.
          *
          * @param value the IfcDiameterDimension datatype to write
          */
-        virtual bool visitIfcDiameterDimension(IfcDiameterDimension *value);
+        bool visitIfcDiameterDimension(IfcDiameterDimension *value) override;
         /**
          * write the IfcDimensionCalloutRelationship datatype to m_out.
          *
          * @param value the IfcDimensionCalloutRelationship datatype to write
          */
-        virtual bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *value);
+        bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *value) override;
         /**
          * write the IfcDimensionCurve datatype to m_out.
          *
          * @param value the IfcDimensionCurve datatype to write
          */
-        virtual bool visitIfcDimensionCurve(IfcDimensionCurve *value);
+        bool visitIfcDimensionCurve(IfcDimensionCurve *value) override;
         /**
          * write the IfcDimensionCurveDirectedCallout datatype to m_out.
          *
          * @param value the IfcDimensionCurveDirectedCallout datatype to write
          */
-        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *value);
+        bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *value) override;
         /**
          * @param enumData
          */
@@ -1882,43 +1882,43 @@ namespace ifc2x3 {
          *
          * @param value the IfcDimensionCurveTerminator datatype to write
          */
-        virtual bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *value);
+        bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *value) override;
         /**
          * write the IfcDimensionPair datatype to m_out.
          *
          * @param value the IfcDimensionPair datatype to write
          */
-        virtual bool visitIfcDimensionPair(IfcDimensionPair *value);
+        bool visitIfcDimensionPair(IfcDimensionPair *value) override;
         /**
          * write the IfcDimensionalExponents datatype to m_out.
          *
          * @param value the IfcDimensionalExponents datatype to write
          */
-        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *value);
+        bool visitIfcDimensionalExponents(IfcDimensionalExponents *value) override;
         /**
          * write the IfcDirection datatype to m_out.
          *
          * @param value the IfcDirection datatype to write
          */
-        virtual bool visitIfcDirection(IfcDirection *value);
+        bool visitIfcDirection(IfcDirection *value) override;
         /**
          * write the IfcDiscreteAccessory datatype to m_out.
          *
          * @param value the IfcDiscreteAccessory datatype to write
          */
-        virtual bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *value);
+        bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *value) override;
         /**
          * write the IfcDiscreteAccessoryType datatype to m_out.
          *
          * @param value the IfcDiscreteAccessoryType datatype to write
          */
-        virtual bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *value);
+        bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *value) override;
         /**
          * write the IfcDistributionChamberElement datatype to m_out.
          *
          * @param value the IfcDistributionChamberElement datatype to write
          */
-        virtual bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *value);
+        bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *value) override;
         /**
          * @param enumData
          */
@@ -1928,43 +1928,43 @@ namespace ifc2x3 {
          *
          * @param value the IfcDistributionChamberElementType datatype to write
          */
-        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *value);
+        bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *value) override;
         /**
          * write the IfcDistributionControlElement datatype to m_out.
          *
          * @param value the IfcDistributionControlElement datatype to write
          */
-        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *value);
+        bool visitIfcDistributionControlElement(IfcDistributionControlElement *value) override;
         /**
          * write the IfcDistributionControlElementType datatype to m_out.
          *
          * @param value the IfcDistributionControlElementType datatype to write
          */
-        virtual bool visitIfcDistributionControlElementType(IfcDistributionControlElementType *value);
+        bool visitIfcDistributionControlElementType(IfcDistributionControlElementType *value) override;
         /**
          * write the IfcDistributionElement datatype to m_out.
          *
          * @param value the IfcDistributionElement datatype to write
          */
-        virtual bool visitIfcDistributionElement(IfcDistributionElement *value);
+        bool visitIfcDistributionElement(IfcDistributionElement *value) override;
         /**
          * write the IfcDistributionElementType datatype to m_out.
          *
          * @param value the IfcDistributionElementType datatype to write
          */
-        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *value);
+        bool visitIfcDistributionElementType(IfcDistributionElementType *value) override;
         /**
          * write the IfcDistributionFlowElement datatype to m_out.
          *
          * @param value the IfcDistributionFlowElement datatype to write
          */
-        virtual bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *value);
+        bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *value) override;
         /**
          * write the IfcDistributionFlowElementType datatype to m_out.
          *
          * @param value the IfcDistributionFlowElementType datatype to write
          */
-        virtual bool visitIfcDistributionFlowElementType(IfcDistributionFlowElementType *value);
+        bool visitIfcDistributionFlowElementType(IfcDistributionFlowElementType *value) override;
         /**
          * @param enumData
          */
@@ -1974,13 +1974,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcDistributionPort datatype to write
          */
-        virtual bool visitIfcDistributionPort(IfcDistributionPort *value);
+        bool visitIfcDistributionPort(IfcDistributionPort *value) override;
         /**
          * write the IfcDocumentElectronicFormat datatype to m_out.
          *
          * @param value the IfcDocumentElectronicFormat datatype to write
          */
-        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *value);
+        bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *value) override;
         /**
          * @param enumData
          */
@@ -1994,31 +1994,31 @@ namespace ifc2x3 {
          *
          * @param value the IfcDocumentInformation datatype to write
          */
-        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *value);
+        bool visitIfcDocumentInformation(IfcDocumentInformation *value) override;
         /**
          * write the IfcDocumentInformationRelationship datatype to m_out.
          *
          * @param value the IfcDocumentInformationRelationship datatype to write
          */
-        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *value);
+        bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *value) override;
         /**
          * write the IfcDocumentReference datatype to m_out.
          *
          * @param value the IfcDocumentReference datatype to write
          */
-        virtual bool visitIfcDocumentReference(IfcDocumentReference *value);
+        bool visitIfcDocumentReference(IfcDocumentReference *value) override;
         /**
          * write the IfcDoor datatype to m_out.
          *
          * @param value the IfcDoor datatype to write
          */
-        virtual bool visitIfcDoor(IfcDoor *value);
+        bool visitIfcDoor(IfcDoor *value) override;
         /**
          * write the IfcDoorLiningProperties datatype to m_out.
          *
          * @param value the IfcDoorLiningProperties datatype to write
          */
-        virtual bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *value);
+        bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *value) override;
         /**
          * @param enumData
          */
@@ -2032,7 +2032,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcDoorPanelProperties datatype to write
          */
-        virtual bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *value);
+        bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *value) override;
         /**
          * @param enumData
          */
@@ -2046,37 +2046,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcDoorStyle datatype to write
          */
-        virtual bool visitIfcDoorStyle(IfcDoorStyle *value);
+        bool visitIfcDoorStyle(IfcDoorStyle *value) override;
         /**
          * write the IfcDraughtingCallout datatype to m_out.
          *
          * @param value the IfcDraughtingCallout datatype to write
          */
-        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *value);
+        bool visitIfcDraughtingCallout(IfcDraughtingCallout *value) override;
         /**
          * write the IfcDraughtingCalloutRelationship datatype to m_out.
          *
          * @param value the IfcDraughtingCalloutRelationship datatype to write
          */
-        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *value);
+        bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *value) override;
         /**
          * write the IfcDraughtingPreDefinedColour datatype to m_out.
          *
          * @param value the IfcDraughtingPreDefinedColour datatype to write
          */
-        virtual bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *value);
+        bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *value) override;
         /**
          * write the IfcDraughtingPreDefinedCurveFont datatype to m_out.
          *
          * @param value the IfcDraughtingPreDefinedCurveFont datatype to write
          */
-        virtual bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *value);
+        bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *value) override;
         /**
          * write the IfcDraughtingPreDefinedTextFont datatype to m_out.
          *
          * @param value the IfcDraughtingPreDefinedTextFont datatype to write
          */
-        virtual bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *value);
+        bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *value) override;
         /**
          * @param enumData
          */
@@ -2086,7 +2086,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcDuctFittingType datatype to write
          */
-        virtual bool visitIfcDuctFittingType(IfcDuctFittingType *value);
+        bool visitIfcDuctFittingType(IfcDuctFittingType *value) override;
         /**
          * @param enumData
          */
@@ -2096,7 +2096,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcDuctSegmentType datatype to write
          */
-        virtual bool visitIfcDuctSegmentType(IfcDuctSegmentType *value);
+        bool visitIfcDuctSegmentType(IfcDuctSegmentType *value) override;
         /**
          * @param enumData
          */
@@ -2106,31 +2106,31 @@ namespace ifc2x3 {
          *
          * @param value the IfcDuctSilencerType datatype to write
          */
-        virtual bool visitIfcDuctSilencerType(IfcDuctSilencerType *value);
+        bool visitIfcDuctSilencerType(IfcDuctSilencerType *value) override;
         /**
          * write the IfcEdge datatype to m_out.
          *
          * @param value the IfcEdge datatype to write
          */
-        virtual bool visitIfcEdge(IfcEdge *value);
+        bool visitIfcEdge(IfcEdge *value) override;
         /**
          * write the IfcEdgeCurve datatype to m_out.
          *
          * @param value the IfcEdgeCurve datatype to write
          */
-        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *value);
+        bool visitIfcEdgeCurve(IfcEdgeCurve *value) override;
         /**
          * write the IfcEdgeFeature datatype to m_out.
          *
          * @param value the IfcEdgeFeature datatype to write
          */
-        virtual bool visitIfcEdgeFeature(IfcEdgeFeature *value);
+        bool visitIfcEdgeFeature(IfcEdgeFeature *value) override;
         /**
          * write the IfcEdgeLoop datatype to m_out.
          *
          * @param value the IfcEdgeLoop datatype to write
          */
-        virtual bool visitIfcEdgeLoop(IfcEdgeLoop *value);
+        bool visitIfcEdgeLoop(IfcEdgeLoop *value) override;
         /**
          * @param enumData
          */
@@ -2140,7 +2140,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcElectricApplianceType datatype to write
          */
-        virtual bool visitIfcElectricApplianceType(IfcElectricApplianceType *value);
+        bool visitIfcElectricApplianceType(IfcElectricApplianceType *value) override;
         /**
          * @param enumData
          */
@@ -2150,7 +2150,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcElectricDistributionPoint datatype to write
          */
-        virtual bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *value);
+        bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *value) override;
         /**
          * @param enumData
          */
@@ -2160,7 +2160,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcElectricFlowStorageDeviceType datatype to write
          */
-        virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *value);
+        bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *value) override;
         /**
          * @param enumData
          */
@@ -2170,7 +2170,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcElectricGeneratorType datatype to write
          */
-        virtual bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *value);
+        bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *value) override;
         /**
          * @param enumData
          */
@@ -2180,7 +2180,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcElectricHeaterType datatype to write
          */
-        virtual bool visitIfcElectricHeaterType(IfcElectricHeaterType *value);
+        bool visitIfcElectricHeaterType(IfcElectricHeaterType *value) override;
         /**
          * @param enumData
          */
@@ -2190,7 +2190,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcElectricMotorType datatype to write
          */
-        virtual bool visitIfcElectricMotorType(IfcElectricMotorType *value);
+        bool visitIfcElectricMotorType(IfcElectricMotorType *value) override;
         /**
          * @param enumData
          */
@@ -2200,7 +2200,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcElectricTimeControlType datatype to write
          */
-        virtual bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *value);
+        bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *value) override;
         /**
          * @param enumData
          */
@@ -2214,25 +2214,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcElectricalBaseProperties datatype to write
          */
-        virtual bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *value);
+        bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *value) override;
         /**
          * write the IfcElectricalCircuit datatype to m_out.
          *
          * @param value the IfcElectricalCircuit datatype to write
          */
-        virtual bool visitIfcElectricalCircuit(IfcElectricalCircuit *value);
+        bool visitIfcElectricalCircuit(IfcElectricalCircuit *value) override;
         /**
          * write the IfcElectricalElement datatype to m_out.
          *
          * @param value the IfcElectricalElement datatype to write
          */
-        virtual bool visitIfcElectricalElement(IfcElectricalElement *value);
+        bool visitIfcElectricalElement(IfcElectricalElement *value) override;
         /**
          * write the IfcElement datatype to m_out.
          *
          * @param value the IfcElement datatype to write
          */
-        virtual bool visitIfcElement(IfcElement *value);
+        bool visitIfcElement(IfcElement *value) override;
         /**
          * @param enumData
          */
@@ -2246,67 +2246,67 @@ namespace ifc2x3 {
          *
          * @param value the IfcElementAssembly datatype to write
          */
-        virtual bool visitIfcElementAssembly(IfcElementAssembly *value);
+        bool visitIfcElementAssembly(IfcElementAssembly *value) override;
         /**
          * write the IfcElementComponent datatype to m_out.
          *
          * @param value the IfcElementComponent datatype to write
          */
-        virtual bool visitIfcElementComponent(IfcElementComponent *value);
+        bool visitIfcElementComponent(IfcElementComponent *value) override;
         /**
          * write the IfcElementComponentType datatype to m_out.
          *
          * @param value the IfcElementComponentType datatype to write
          */
-        virtual bool visitIfcElementComponentType(IfcElementComponentType *value);
+        bool visitIfcElementComponentType(IfcElementComponentType *value) override;
         /**
          * write the IfcElementQuantity datatype to m_out.
          *
          * @param value the IfcElementQuantity datatype to write
          */
-        virtual bool visitIfcElementQuantity(IfcElementQuantity *value);
+        bool visitIfcElementQuantity(IfcElementQuantity *value) override;
         /**
          * write the IfcElementType datatype to m_out.
          *
          * @param value the IfcElementType datatype to write
          */
-        virtual bool visitIfcElementType(IfcElementType *value);
+        bool visitIfcElementType(IfcElementType *value) override;
         /**
          * write the IfcElementarySurface datatype to m_out.
          *
          * @param value the IfcElementarySurface datatype to write
          */
-        virtual bool visitIfcElementarySurface(IfcElementarySurface *value);
+        bool visitIfcElementarySurface(IfcElementarySurface *value) override;
         /**
          * write the IfcEllipse datatype to m_out.
          *
          * @param value the IfcEllipse datatype to write
          */
-        virtual bool visitIfcEllipse(IfcEllipse *value);
+        bool visitIfcEllipse(IfcEllipse *value) override;
         /**
          * write the IfcEllipseProfileDef datatype to m_out.
          *
          * @param value the IfcEllipseProfileDef datatype to write
          */
-        virtual bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *value);
+        bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *value) override;
         /**
          * write the IfcEnergyConversionDevice datatype to m_out.
          *
          * @param value the IfcEnergyConversionDevice datatype to write
          */
-        virtual bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *value);
+        bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *value) override;
         /**
          * write the IfcEnergyConversionDeviceType datatype to m_out.
          *
          * @param value the IfcEnergyConversionDeviceType datatype to write
          */
-        virtual bool visitIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType *value);
+        bool visitIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType *value) override;
         /**
          * write the IfcEnergyProperties datatype to m_out.
          *
          * @param value the IfcEnergyProperties datatype to write
          */
-        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *value);
+        bool visitIfcEnergyProperties(IfcEnergyProperties *value) override;
         /**
          * @param enumData
          */
@@ -2316,19 +2316,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcEnvironmentalImpactValue datatype to write
          */
-        virtual bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *value);
+        bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *value) override;
         /**
          * write the IfcEquipmentElement datatype to m_out.
          *
          * @param value the IfcEquipmentElement datatype to write
          */
-        virtual bool visitIfcEquipmentElement(IfcEquipmentElement *value);
+        bool visitIfcEquipmentElement(IfcEquipmentElement *value) override;
         /**
          * write the IfcEquipmentStandard datatype to m_out.
          *
          * @param value the IfcEquipmentStandard datatype to write
          */
-        virtual bool visitIfcEquipmentStandard(IfcEquipmentStandard *value);
+        bool visitIfcEquipmentStandard(IfcEquipmentStandard *value) override;
         /**
          * @param enumData
          */
@@ -2338,7 +2338,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcEvaporativeCoolerType datatype to write
          */
-        virtual bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *value);
+        bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *value) override;
         /**
          * @param enumData
          */
@@ -2348,97 +2348,97 @@ namespace ifc2x3 {
          *
          * @param value the IfcEvaporatorType datatype to write
          */
-        virtual bool visitIfcEvaporatorType(IfcEvaporatorType *value);
+        bool visitIfcEvaporatorType(IfcEvaporatorType *value) override;
         /**
          * write the IfcExtendedMaterialProperties datatype to m_out.
          *
          * @param value the IfcExtendedMaterialProperties datatype to write
          */
-        virtual bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *value);
+        bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *value) override;
         /**
          * write the IfcExternalReference datatype to m_out.
          *
          * @param value the IfcExternalReference datatype to write
          */
-        virtual bool visitIfcExternalReference(IfcExternalReference *value);
+        bool visitIfcExternalReference(IfcExternalReference *value) override;
         /**
          * write the IfcExternallyDefinedHatchStyle datatype to m_out.
          *
          * @param value the IfcExternallyDefinedHatchStyle datatype to write
          */
-        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *value);
+        bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *value) override;
         /**
          * write the IfcExternallyDefinedSurfaceStyle datatype to m_out.
          *
          * @param value the IfcExternallyDefinedSurfaceStyle datatype to write
          */
-        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *value);
+        bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *value) override;
         /**
          * write the IfcExternallyDefinedSymbol datatype to m_out.
          *
          * @param value the IfcExternallyDefinedSymbol datatype to write
          */
-        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *value);
+        bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *value) override;
         /**
          * write the IfcExternallyDefinedTextFont datatype to m_out.
          *
          * @param value the IfcExternallyDefinedTextFont datatype to write
          */
-        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *value);
+        bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *value) override;
         /**
          * write the IfcExtrudedAreaSolid datatype to m_out.
          *
          * @param value the IfcExtrudedAreaSolid datatype to write
          */
-        virtual bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *value);
+        bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *value) override;
         /**
          * write the IfcFace datatype to m_out.
          *
          * @param value the IfcFace datatype to write
          */
-        virtual bool visitIfcFace(IfcFace *value);
+        bool visitIfcFace(IfcFace *value) override;
         /**
          * write the IfcFaceBasedSurfaceModel datatype to m_out.
          *
          * @param value the IfcFaceBasedSurfaceModel datatype to write
          */
-        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *value);
+        bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *value) override;
         /**
          * write the IfcFaceBound datatype to m_out.
          *
          * @param value the IfcFaceBound datatype to write
          */
-        virtual bool visitIfcFaceBound(IfcFaceBound *value);
+        bool visitIfcFaceBound(IfcFaceBound *value) override;
         /**
          * write the IfcFaceOuterBound datatype to m_out.
          *
          * @param value the IfcFaceOuterBound datatype to write
          */
-        virtual bool visitIfcFaceOuterBound(IfcFaceOuterBound *value);
+        bool visitIfcFaceOuterBound(IfcFaceOuterBound *value) override;
         /**
          * write the IfcFaceSurface datatype to m_out.
          *
          * @param value the IfcFaceSurface datatype to write
          */
-        virtual bool visitIfcFaceSurface(IfcFaceSurface *value);
+        bool visitIfcFaceSurface(IfcFaceSurface *value) override;
         /**
          * write the IfcFacetedBrep datatype to m_out.
          *
          * @param value the IfcFacetedBrep datatype to write
          */
-        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *value);
+        bool visitIfcFacetedBrep(IfcFacetedBrep *value) override;
         /**
          * write the IfcFacetedBrepWithVoids datatype to m_out.
          *
          * @param value the IfcFacetedBrepWithVoids datatype to write
          */
-        virtual bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *value);
+        bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *value) override;
         /**
          * write the IfcFailureConnectionCondition datatype to m_out.
          *
          * @param value the IfcFailureConnectionCondition datatype to write
          */
-        virtual bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *value);
+        bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *value) override;
         /**
          * @param enumData
          */
@@ -2448,37 +2448,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcFanType datatype to write
          */
-        virtual bool visitIfcFanType(IfcFanType *value);
+        bool visitIfcFanType(IfcFanType *value) override;
         /**
          * write the IfcFastener datatype to m_out.
          *
          * @param value the IfcFastener datatype to write
          */
-        virtual bool visitIfcFastener(IfcFastener *value);
+        bool visitIfcFastener(IfcFastener *value) override;
         /**
          * write the IfcFastenerType datatype to m_out.
          *
          * @param value the IfcFastenerType datatype to write
          */
-        virtual bool visitIfcFastenerType(IfcFastenerType *value);
+        bool visitIfcFastenerType(IfcFastenerType *value) override;
         /**
          * write the IfcFeatureElement datatype to m_out.
          *
          * @param value the IfcFeatureElement datatype to write
          */
-        virtual bool visitIfcFeatureElement(IfcFeatureElement *value);
+        bool visitIfcFeatureElement(IfcFeatureElement *value) override;
         /**
          * write the IfcFeatureElementAddition datatype to m_out.
          *
          * @param value the IfcFeatureElementAddition datatype to write
          */
-        virtual bool visitIfcFeatureElementAddition(IfcFeatureElementAddition *value);
+        bool visitIfcFeatureElementAddition(IfcFeatureElementAddition *value) override;
         /**
          * write the IfcFeatureElementSubtraction datatype to m_out.
          *
          * @param value the IfcFeatureElementSubtraction datatype to write
          */
-        virtual bool visitIfcFeatureElementSubtraction(IfcFeatureElementSubtraction *value);
+        bool visitIfcFeatureElementSubtraction(IfcFeatureElementSubtraction *value) override;
         /**
          * @param selectData
          */
@@ -2488,7 +2488,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcFillAreaStyle datatype to write
          */
-        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *value);
+        bool visitIfcFillAreaStyle(IfcFillAreaStyle *value) override;
         /**
          * @param selectData
          */
@@ -2498,13 +2498,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcFillAreaStyleHatching datatype to write
          */
-        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *value);
+        bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *value) override;
         /**
          * write the IfcFillAreaStyleTileSymbolWithStyle datatype to m_out.
          *
          * @param value the IfcFillAreaStyleTileSymbolWithStyle datatype to write
          */
-        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *value);
+        bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *value) override;
         /**
          * @param selectData
          */
@@ -2514,7 +2514,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcFillAreaStyleTiles datatype to write
          */
-        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *value);
+        bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *value) override;
         /**
          * @param enumData
          */
@@ -2524,7 +2524,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcFilterType datatype to write
          */
-        virtual bool visitIfcFilterType(IfcFilterType *value);
+        bool visitIfcFilterType(IfcFilterType *value) override;
         /**
          * @param enumData
          */
@@ -2534,31 +2534,31 @@ namespace ifc2x3 {
          *
          * @param value the IfcFireSuppressionTerminalType datatype to write
          */
-        virtual bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *value);
+        bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *value) override;
         /**
          * write the IfcFlowController datatype to m_out.
          *
          * @param value the IfcFlowController datatype to write
          */
-        virtual bool visitIfcFlowController(IfcFlowController *value);
+        bool visitIfcFlowController(IfcFlowController *value) override;
         /**
          * write the IfcFlowControllerType datatype to m_out.
          *
          * @param value the IfcFlowControllerType datatype to write
          */
-        virtual bool visitIfcFlowControllerType(IfcFlowControllerType *value);
+        bool visitIfcFlowControllerType(IfcFlowControllerType *value) override;
         /**
          * write the IfcFlowFitting datatype to m_out.
          *
          * @param value the IfcFlowFitting datatype to write
          */
-        virtual bool visitIfcFlowFitting(IfcFlowFitting *value);
+        bool visitIfcFlowFitting(IfcFlowFitting *value) override;
         /**
          * write the IfcFlowFittingType datatype to m_out.
          *
          * @param value the IfcFlowFittingType datatype to write
          */
-        virtual bool visitIfcFlowFittingType(IfcFlowFittingType *value);
+        bool visitIfcFlowFittingType(IfcFlowFittingType *value) override;
         /**
          * @param enumData
          */
@@ -2568,7 +2568,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcFlowInstrumentType datatype to write
          */
-        virtual bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *value);
+        bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *value) override;
         /**
          * @param enumData
          */
@@ -2578,67 +2578,67 @@ namespace ifc2x3 {
          *
          * @param value the IfcFlowMeterType datatype to write
          */
-        virtual bool visitIfcFlowMeterType(IfcFlowMeterType *value);
+        bool visitIfcFlowMeterType(IfcFlowMeterType *value) override;
         /**
          * write the IfcFlowMovingDevice datatype to m_out.
          *
          * @param value the IfcFlowMovingDevice datatype to write
          */
-        virtual bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *value);
+        bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *value) override;
         /**
          * write the IfcFlowMovingDeviceType datatype to m_out.
          *
          * @param value the IfcFlowMovingDeviceType datatype to write
          */
-        virtual bool visitIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *value);
+        bool visitIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *value) override;
         /**
          * write the IfcFlowSegment datatype to m_out.
          *
          * @param value the IfcFlowSegment datatype to write
          */
-        virtual bool visitIfcFlowSegment(IfcFlowSegment *value);
+        bool visitIfcFlowSegment(IfcFlowSegment *value) override;
         /**
          * write the IfcFlowSegmentType datatype to m_out.
          *
          * @param value the IfcFlowSegmentType datatype to write
          */
-        virtual bool visitIfcFlowSegmentType(IfcFlowSegmentType *value);
+        bool visitIfcFlowSegmentType(IfcFlowSegmentType *value) override;
         /**
          * write the IfcFlowStorageDevice datatype to m_out.
          *
          * @param value the IfcFlowStorageDevice datatype to write
          */
-        virtual bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *value);
+        bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *value) override;
         /**
          * write the IfcFlowStorageDeviceType datatype to m_out.
          *
          * @param value the IfcFlowStorageDeviceType datatype to write
          */
-        virtual bool visitIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *value);
+        bool visitIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *value) override;
         /**
          * write the IfcFlowTerminal datatype to m_out.
          *
          * @param value the IfcFlowTerminal datatype to write
          */
-        virtual bool visitIfcFlowTerminal(IfcFlowTerminal *value);
+        bool visitIfcFlowTerminal(IfcFlowTerminal *value) override;
         /**
          * write the IfcFlowTerminalType datatype to m_out.
          *
          * @param value the IfcFlowTerminalType datatype to write
          */
-        virtual bool visitIfcFlowTerminalType(IfcFlowTerminalType *value);
+        bool visitIfcFlowTerminalType(IfcFlowTerminalType *value) override;
         /**
          * write the IfcFlowTreatmentDevice datatype to m_out.
          *
          * @param value the IfcFlowTreatmentDevice datatype to write
          */
-        virtual bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *value);
+        bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *value) override;
         /**
          * write the IfcFlowTreatmentDeviceType datatype to m_out.
          *
          * @param value the IfcFlowTreatmentDeviceType datatype to write
          */
-        virtual bool visitIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *value);
+        bool visitIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *value) override;
         /**
          * @param enumData
          */
@@ -2652,7 +2652,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcFluidFlowProperties datatype to write
          */
-        virtual bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *value);
+        bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *value) override;
         /**
          * @param enumData
          */
@@ -2662,37 +2662,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcFooting datatype to write
          */
-        virtual bool visitIfcFooting(IfcFooting *value);
+        bool visitIfcFooting(IfcFooting *value) override;
         /**
          * write the IfcFuelProperties datatype to m_out.
          *
          * @param value the IfcFuelProperties datatype to write
          */
-        virtual bool visitIfcFuelProperties(IfcFuelProperties *value);
+        bool visitIfcFuelProperties(IfcFuelProperties *value) override;
         /**
          * write the IfcFurnishingElement datatype to m_out.
          *
          * @param value the IfcFurnishingElement datatype to write
          */
-        virtual bool visitIfcFurnishingElement(IfcFurnishingElement *value);
+        bool visitIfcFurnishingElement(IfcFurnishingElement *value) override;
         /**
          * write the IfcFurnishingElementType datatype to m_out.
          *
          * @param value the IfcFurnishingElementType datatype to write
          */
-        virtual bool visitIfcFurnishingElementType(IfcFurnishingElementType *value);
+        bool visitIfcFurnishingElementType(IfcFurnishingElementType *value) override;
         /**
          * write the IfcFurnitureStandard datatype to m_out.
          *
          * @param value the IfcFurnitureStandard datatype to write
          */
-        virtual bool visitIfcFurnitureStandard(IfcFurnitureStandard *value);
+        bool visitIfcFurnitureStandard(IfcFurnitureStandard *value) override;
         /**
          * write the IfcFurnitureType datatype to m_out.
          *
          * @param value the IfcFurnitureType datatype to write
          */
-        virtual bool visitIfcFurnitureType(IfcFurnitureType *value);
+        bool visitIfcFurnitureType(IfcFurnitureType *value) override;
         /**
          * @param enumData
          */
@@ -2702,19 +2702,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcGasTerminalType datatype to write
          */
-        virtual bool visitIfcGasTerminalType(IfcGasTerminalType *value);
+        bool visitIfcGasTerminalType(IfcGasTerminalType *value) override;
         /**
          * write the IfcGeneralMaterialProperties datatype to m_out.
          *
          * @param value the IfcGeneralMaterialProperties datatype to write
          */
-        virtual bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *value);
+        bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *value) override;
         /**
          * write the IfcGeneralProfileProperties datatype to m_out.
          *
          * @param value the IfcGeneralProfileProperties datatype to write
          */
-        virtual bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *value);
+        bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *value) override;
         /**
          * @param selectData
          */
@@ -2724,19 +2724,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcGeometricCurveSet datatype to write
          */
-        virtual bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *value);
+        bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *value) override;
         /**
          * write the IfcGeometricRepresentationContext datatype to m_out.
          *
          * @param value the IfcGeometricRepresentationContext datatype to write
          */
-        virtual bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *value);
+        bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *value) override;
         /**
          * write the IfcGeometricRepresentationItem datatype to m_out.
          *
          * @param value the IfcGeometricRepresentationItem datatype to write
          */
-        virtual bool visitIfcGeometricRepresentationItem(IfcGeometricRepresentationItem *value);
+        bool visitIfcGeometricRepresentationItem(IfcGeometricRepresentationItem *value) override;
         /**
          * @param enumData
          */
@@ -2746,43 +2746,43 @@ namespace ifc2x3 {
          *
          * @param value the IfcGeometricRepresentationSubContext datatype to write
          */
-        virtual bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *value);
+        bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *value) override;
         /**
          * write the IfcGeometricSet datatype to m_out.
          *
          * @param value the IfcGeometricSet datatype to write
          */
-        virtual bool visitIfcGeometricSet(IfcGeometricSet *value);
+        bool visitIfcGeometricSet(IfcGeometricSet *value) override;
         /**
          * write the IfcGrid datatype to m_out.
          *
          * @param value the IfcGrid datatype to write
          */
-        virtual bool visitIfcGrid(IfcGrid *value);
+        bool visitIfcGrid(IfcGrid *value) override;
         /**
          * write the IfcGridAxis datatype to m_out.
          *
          * @param value the IfcGridAxis datatype to write
          */
-        virtual bool visitIfcGridAxis(IfcGridAxis *value);
+        bool visitIfcGridAxis(IfcGridAxis *value) override;
         /**
          * write the IfcGridPlacement datatype to m_out.
          *
          * @param value the IfcGridPlacement datatype to write
          */
-        virtual bool visitIfcGridPlacement(IfcGridPlacement *value);
+        bool visitIfcGridPlacement(IfcGridPlacement *value) override;
         /**
          * write the IfcGroup datatype to m_out.
          *
          * @param value the IfcGroup datatype to write
          */
-        virtual bool visitIfcGroup(IfcGroup *value);
+        bool visitIfcGroup(IfcGroup *value) override;
         /**
          * write the IfcHalfSpaceSolid datatype to m_out.
          *
          * @param value the IfcHalfSpaceSolid datatype to write
          */
-        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *value);
+        bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *value) override;
         /**
          * @param enumData
          */
@@ -2792,7 +2792,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcHeatExchangerType datatype to write
          */
-        virtual bool visitIfcHeatExchangerType(IfcHeatExchangerType *value);
+        bool visitIfcHeatExchangerType(IfcHeatExchangerType *value) override;
         /**
          * @param enumData
          */
@@ -2802,25 +2802,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcHumidifierType datatype to write
          */
-        virtual bool visitIfcHumidifierType(IfcHumidifierType *value);
+        bool visitIfcHumidifierType(IfcHumidifierType *value) override;
         /**
          * write the IfcHygroscopicMaterialProperties datatype to m_out.
          *
          * @param value the IfcHygroscopicMaterialProperties datatype to write
          */
-        virtual bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *value);
+        bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *value) override;
         /**
          * write the IfcIShapeProfileDef datatype to m_out.
          *
          * @param value the IfcIShapeProfileDef datatype to write
          */
-        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *value);
+        bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *value) override;
         /**
          * write the IfcImageTexture datatype to m_out.
          *
          * @param value the IfcImageTexture datatype to write
          */
-        virtual bool visitIfcImageTexture(IfcImageTexture *value);
+        bool visitIfcImageTexture(IfcImageTexture *value) override;
         /**
          * @param enumData
          */
@@ -2830,7 +2830,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcInventory datatype to write
          */
-        virtual bool visitIfcInventory(IfcInventory *value);
+        bool visitIfcInventory(IfcInventory *value) override;
         /**
          * @param enumData
          */
@@ -2848,7 +2848,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcIrregularTimeSeries datatype to write
          */
-        virtual bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *value);
+        bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *value) override;
         /**
          * @param selectData
          */
@@ -2858,7 +2858,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcIrregularTimeSeriesValue datatype to write
          */
-        virtual bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *value);
+        bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *value) override;
         /**
          * @param enumData
          */
@@ -2868,19 +2868,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcJunctionBoxType datatype to write
          */
-        virtual bool visitIfcJunctionBoxType(IfcJunctionBoxType *value);
+        bool visitIfcJunctionBoxType(IfcJunctionBoxType *value) override;
         /**
          * write the IfcLShapeProfileDef datatype to m_out.
          *
          * @param value the IfcLShapeProfileDef datatype to write
          */
-        virtual bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *value);
+        bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *value) override;
         /**
          * write the IfcLaborResource datatype to m_out.
          *
          * @param value the IfcLaborResource datatype to write
          */
-        virtual bool visitIfcLaborResource(IfcLaborResource *value);
+        bool visitIfcLaborResource(IfcLaborResource *value) override;
         /**
          * @param enumData
          */
@@ -2890,25 +2890,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcLampType datatype to write
          */
-        virtual bool visitIfcLampType(IfcLampType *value);
+        bool visitIfcLampType(IfcLampType *value) override;
         /**
          * write the IfcLibraryInformation datatype to m_out.
          *
          * @param value the IfcLibraryInformation datatype to write
          */
-        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *value);
+        bool visitIfcLibraryInformation(IfcLibraryInformation *value) override;
         /**
          * write the IfcLibraryReference datatype to m_out.
          *
          * @param value the IfcLibraryReference datatype to write
          */
-        virtual bool visitIfcLibraryReference(IfcLibraryReference *value);
+        bool visitIfcLibraryReference(IfcLibraryReference *value) override;
         /**
          * write the IfcLightDistributionData datatype to m_out.
          *
          * @param value the IfcLightDistributionData datatype to write
          */
-        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *value);
+        bool visitIfcLightDistributionData(IfcLightDistributionData *value) override;
         /**
          * @param enumData
          */
@@ -2918,7 +2918,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcLightFixtureType datatype to write
          */
-        virtual bool visitIfcLightFixtureType(IfcLightFixtureType *value);
+        bool visitIfcLightFixtureType(IfcLightFixtureType *value) override;
         /**
          * @param enumData
          */
@@ -2928,25 +2928,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcLightIntensityDistribution datatype to write
          */
-        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *value);
+        bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *value) override;
         /**
          * write the IfcLightSource datatype to m_out.
          *
          * @param value the IfcLightSource datatype to write
          */
-        virtual bool visitIfcLightSource(IfcLightSource *value);
+        bool visitIfcLightSource(IfcLightSource *value) override;
         /**
          * write the IfcLightSourceAmbient datatype to m_out.
          *
          * @param value the IfcLightSourceAmbient datatype to write
          */
-        virtual bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *value);
+        bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *value) override;
         /**
          * write the IfcLightSourceDirectional datatype to m_out.
          *
          * @param value the IfcLightSourceDirectional datatype to write
          */
-        virtual bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *value);
+        bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *value) override;
         /**
          * @param enumData
          */
@@ -2960,91 +2960,91 @@ namespace ifc2x3 {
          *
          * @param value the IfcLightSourceGoniometric datatype to write
          */
-        virtual bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *value);
+        bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *value) override;
         /**
          * write the IfcLightSourcePositional datatype to m_out.
          *
          * @param value the IfcLightSourcePositional datatype to write
          */
-        virtual bool visitIfcLightSourcePositional(IfcLightSourcePositional *value);
+        bool visitIfcLightSourcePositional(IfcLightSourcePositional *value) override;
         /**
          * write the IfcLightSourceSpot datatype to m_out.
          *
          * @param value the IfcLightSourceSpot datatype to write
          */
-        virtual bool visitIfcLightSourceSpot(IfcLightSourceSpot *value);
+        bool visitIfcLightSourceSpot(IfcLightSourceSpot *value) override;
         /**
          * write the IfcLine datatype to m_out.
          *
          * @param value the IfcLine datatype to write
          */
-        virtual bool visitIfcLine(IfcLine *value);
+        bool visitIfcLine(IfcLine *value) override;
         /**
          * write the IfcLinearDimension datatype to m_out.
          *
          * @param value the IfcLinearDimension datatype to write
          */
-        virtual bool visitIfcLinearDimension(IfcLinearDimension *value);
+        bool visitIfcLinearDimension(IfcLinearDimension *value) override;
         /**
          * write the IfcLocalPlacement datatype to m_out.
          *
          * @param value the IfcLocalPlacement datatype to write
          */
-        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *value);
+        bool visitIfcLocalPlacement(IfcLocalPlacement *value) override;
         /**
          * write the IfcLocalTime datatype to m_out.
          *
          * @param value the IfcLocalTime datatype to write
          */
-        virtual bool visitIfcLocalTime(IfcLocalTime *value);
+        bool visitIfcLocalTime(IfcLocalTime *value) override;
         /**
          * write the IfcLoop datatype to m_out.
          *
          * @param value the IfcLoop datatype to write
          */
-        virtual bool visitIfcLoop(IfcLoop *value);
+        bool visitIfcLoop(IfcLoop *value) override;
         /**
          * write the IfcManifoldSolidBrep datatype to m_out.
          *
          * @param value the IfcManifoldSolidBrep datatype to write
          */
-        virtual bool visitIfcManifoldSolidBrep(IfcManifoldSolidBrep *value);
+        bool visitIfcManifoldSolidBrep(IfcManifoldSolidBrep *value) override;
         /**
          * write the IfcMappedItem datatype to m_out.
          *
          * @param value the IfcMappedItem datatype to write
          */
-        virtual bool visitIfcMappedItem(IfcMappedItem *value);
+        bool visitIfcMappedItem(IfcMappedItem *value) override;
         /**
          * write the IfcMaterial datatype to m_out.
          *
          * @param value the IfcMaterial datatype to write
          */
-        virtual bool visitIfcMaterial(IfcMaterial *value);
+        bool visitIfcMaterial(IfcMaterial *value) override;
         /**
          * write the IfcMaterialClassificationRelationship datatype to m_out.
          *
          * @param value the IfcMaterialClassificationRelationship datatype to write
          */
-        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *value);
+        bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *value) override;
         /**
          * write the IfcMaterialDefinitionRepresentation datatype to m_out.
          *
          * @param value the IfcMaterialDefinitionRepresentation datatype to write
          */
-        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *value);
+        bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *value) override;
         /**
          * write the IfcMaterialLayer datatype to m_out.
          *
          * @param value the IfcMaterialLayer datatype to write
          */
-        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *value);
+        bool visitIfcMaterialLayer(IfcMaterialLayer *value) override;
         /**
          * write the IfcMaterialLayerSet datatype to m_out.
          *
          * @param value the IfcMaterialLayerSet datatype to write
          */
-        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *value);
+        bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *value) override;
         /**
          * @param enumData
          */
@@ -3058,61 +3058,61 @@ namespace ifc2x3 {
          *
          * @param value the IfcMaterialLayerSetUsage datatype to write
          */
-        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *value);
+        bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *value) override;
         /**
          * write the IfcMaterialList datatype to m_out.
          *
          * @param value the IfcMaterialList datatype to write
          */
-        virtual bool visitIfcMaterialList(IfcMaterialList *value);
+        bool visitIfcMaterialList(IfcMaterialList *value) override;
         /**
          * write the IfcMaterialProperties datatype to m_out.
          *
          * @param value the IfcMaterialProperties datatype to write
          */
-        virtual bool visitIfcMaterialProperties(IfcMaterialProperties *value);
+        bool visitIfcMaterialProperties(IfcMaterialProperties *value) override;
         /**
          * write the IfcMeasureWithUnit datatype to m_out.
          *
          * @param value the IfcMeasureWithUnit datatype to write
          */
-        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *value);
+        bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *value) override;
         /**
          * write the IfcMechanicalConcreteMaterialProperties datatype to m_out.
          *
          * @param value the IfcMechanicalConcreteMaterialProperties datatype to write
          */
-        virtual bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *value);
+        bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *value) override;
         /**
          * write the IfcMechanicalFastener datatype to m_out.
          *
          * @param value the IfcMechanicalFastener datatype to write
          */
-        virtual bool visitIfcMechanicalFastener(IfcMechanicalFastener *value);
+        bool visitIfcMechanicalFastener(IfcMechanicalFastener *value) override;
         /**
          * write the IfcMechanicalFastenerType datatype to m_out.
          *
          * @param value the IfcMechanicalFastenerType datatype to write
          */
-        virtual bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *value);
+        bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *value) override;
         /**
          * write the IfcMechanicalMaterialProperties datatype to m_out.
          *
          * @param value the IfcMechanicalMaterialProperties datatype to write
          */
-        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *value);
+        bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *value) override;
         /**
          * write the IfcMechanicalSteelMaterialProperties datatype to m_out.
          *
          * @param value the IfcMechanicalSteelMaterialProperties datatype to write
          */
-        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *value);
+        bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *value) override;
         /**
          * write the IfcMember datatype to m_out.
          *
          * @param value the IfcMember datatype to write
          */
-        virtual bool visitIfcMember(IfcMember *value);
+        bool visitIfcMember(IfcMember *value) override;
         /**
          * @param enumData
          */
@@ -3122,7 +3122,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcMemberType datatype to write
          */
-        virtual bool visitIfcMemberType(IfcMemberType *value);
+        bool visitIfcMemberType(IfcMemberType *value) override;
         /**
          * @param enumData
          */
@@ -3136,7 +3136,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcMetric datatype to write
          */
-        virtual bool visitIfcMetric(IfcMetric *value);
+        bool visitIfcMetric(IfcMetric *value) override;
         /**
          * @param enumData
          */
@@ -3146,7 +3146,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcMonetaryUnit datatype to write
          */
-        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *value);
+        bool visitIfcMonetaryUnit(IfcMonetaryUnit *value) override;
         /**
          * @param enumData
          */
@@ -3156,37 +3156,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcMotorConnectionType datatype to write
          */
-        virtual bool visitIfcMotorConnectionType(IfcMotorConnectionType *value);
+        bool visitIfcMotorConnectionType(IfcMotorConnectionType *value) override;
         /**
          * write the IfcMove datatype to m_out.
          *
          * @param value the IfcMove datatype to write
          */
-        virtual bool visitIfcMove(IfcMove *value);
+        bool visitIfcMove(IfcMove *value) override;
         /**
          * write the IfcNamedUnit datatype to m_out.
          *
          * @param value the IfcNamedUnit datatype to write
          */
-        virtual bool visitIfcNamedUnit(IfcNamedUnit *value);
+        bool visitIfcNamedUnit(IfcNamedUnit *value) override;
         /**
          * write the IfcObject datatype to m_out.
          *
          * @param value the IfcObject datatype to write
          */
-        virtual bool visitIfcObject(IfcObject *value);
+        bool visitIfcObject(IfcObject *value) override;
         /**
          * write the IfcObjectDefinition datatype to m_out.
          *
          * @param value the IfcObjectDefinition datatype to write
          */
-        virtual bool visitIfcObjectDefinition(IfcObjectDefinition *value);
+        bool visitIfcObjectDefinition(IfcObjectDefinition *value) override;
         /**
          * write the IfcObjectPlacement datatype to m_out.
          *
          * @param value the IfcObjectPlacement datatype to write
          */
-        virtual bool visitIfcObjectPlacement(IfcObjectPlacement *value);
+        bool visitIfcObjectPlacement(IfcObjectPlacement *value) override;
         /**
          * @param enumData
          */
@@ -3196,7 +3196,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcObjective datatype to write
          */
-        virtual bool visitIfcObjective(IfcObjective *value);
+        bool visitIfcObjective(IfcObjective *value) override;
         /**
          * @param enumData
          */
@@ -3206,67 +3206,67 @@ namespace ifc2x3 {
          *
          * @param value the IfcOccupant datatype to write
          */
-        virtual bool visitIfcOccupant(IfcOccupant *value);
+        bool visitIfcOccupant(IfcOccupant *value) override;
         /**
          * write the IfcOffsetCurve2D datatype to m_out.
          *
          * @param value the IfcOffsetCurve2D datatype to write
          */
-        virtual bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *value);
+        bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *value) override;
         /**
          * write the IfcOffsetCurve3D datatype to m_out.
          *
          * @param value the IfcOffsetCurve3D datatype to write
          */
-        virtual bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *value);
+        bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *value) override;
         /**
          * write the IfcOneDirectionRepeatFactor datatype to m_out.
          *
          * @param value the IfcOneDirectionRepeatFactor datatype to write
          */
-        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *value);
+        bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *value) override;
         /**
          * write the IfcOpenShell datatype to m_out.
          *
          * @param value the IfcOpenShell datatype to write
          */
-        virtual bool visitIfcOpenShell(IfcOpenShell *value);
+        bool visitIfcOpenShell(IfcOpenShell *value) override;
         /**
          * write the IfcOpeningElement datatype to m_out.
          *
          * @param value the IfcOpeningElement datatype to write
          */
-        virtual bool visitIfcOpeningElement(IfcOpeningElement *value);
+        bool visitIfcOpeningElement(IfcOpeningElement *value) override;
         /**
          * write the IfcOpticalMaterialProperties datatype to m_out.
          *
          * @param value the IfcOpticalMaterialProperties datatype to write
          */
-        virtual bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *value);
+        bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *value) override;
         /**
          * write the IfcOrderAction datatype to m_out.
          *
          * @param value the IfcOrderAction datatype to write
          */
-        virtual bool visitIfcOrderAction(IfcOrderAction *value);
+        bool visitIfcOrderAction(IfcOrderAction *value) override;
         /**
          * write the IfcOrganization datatype to m_out.
          *
          * @param value the IfcOrganization datatype to write
          */
-        virtual bool visitIfcOrganization(IfcOrganization *value);
+        bool visitIfcOrganization(IfcOrganization *value) override;
         /**
          * write the IfcOrganizationRelationship datatype to m_out.
          *
          * @param value the IfcOrganizationRelationship datatype to write
          */
-        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *value);
+        bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *value) override;
         /**
          * write the IfcOrientedEdge datatype to m_out.
          *
          * @param value the IfcOrientedEdge datatype to write
          */
-        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *value);
+        bool visitIfcOrientedEdge(IfcOrientedEdge *value) override;
         /**
          * @param enumData
          */
@@ -3276,7 +3276,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcOutletType datatype to write
          */
-        virtual bool visitIfcOutletType(IfcOutletType *value);
+        bool visitIfcOutletType(IfcOutletType *value) override;
         /**
          * @param enumData
          */
@@ -3290,25 +3290,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcOwnerHistory datatype to write
          */
-        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *value);
+        bool visitIfcOwnerHistory(IfcOwnerHistory *value) override;
         /**
          * write the IfcParameterizedProfileDef datatype to m_out.
          *
          * @param value the IfcParameterizedProfileDef datatype to write
          */
-        virtual bool visitIfcParameterizedProfileDef(IfcParameterizedProfileDef *value);
+        bool visitIfcParameterizedProfileDef(IfcParameterizedProfileDef *value) override;
         /**
          * write the IfcPath datatype to m_out.
          *
          * @param value the IfcPath datatype to write
          */
-        virtual bool visitIfcPath(IfcPath *value);
+        bool visitIfcPath(IfcPath *value) override;
         /**
          * write the IfcPerformanceHistory datatype to m_out.
          *
          * @param value the IfcPerformanceHistory datatype to write
          */
-        virtual bool visitIfcPerformanceHistory(IfcPerformanceHistory *value);
+        bool visitIfcPerformanceHistory(IfcPerformanceHistory *value) override;
         /**
          * @param enumData
          */
@@ -3322,43 +3322,43 @@ namespace ifc2x3 {
          *
          * @param value the IfcPermeableCoveringProperties datatype to write
          */
-        virtual bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *value);
+        bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *value) override;
         /**
          * write the IfcPermit datatype to m_out.
          *
          * @param value the IfcPermit datatype to write
          */
-        virtual bool visitIfcPermit(IfcPermit *value);
+        bool visitIfcPermit(IfcPermit *value) override;
         /**
          * write the IfcPerson datatype to m_out.
          *
          * @param value the IfcPerson datatype to write
          */
-        virtual bool visitIfcPerson(IfcPerson *value);
+        bool visitIfcPerson(IfcPerson *value) override;
         /**
          * write the IfcPersonAndOrganization datatype to m_out.
          *
          * @param value the IfcPersonAndOrganization datatype to write
          */
-        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *value);
+        bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *value) override;
         /**
          * write the IfcPhysicalComplexQuantity datatype to m_out.
          *
          * @param value the IfcPhysicalComplexQuantity datatype to write
          */
-        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *value);
+        bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *value) override;
         /**
          * write the IfcPhysicalQuantity datatype to m_out.
          *
          * @param value the IfcPhysicalQuantity datatype to write
          */
-        virtual bool visitIfcPhysicalQuantity(IfcPhysicalQuantity *value);
+        bool visitIfcPhysicalQuantity(IfcPhysicalQuantity *value) override;
         /**
          * write the IfcPhysicalSimpleQuantity datatype to m_out.
          *
          * @param value the IfcPhysicalSimpleQuantity datatype to write
          */
-        virtual bool visitIfcPhysicalSimpleQuantity(IfcPhysicalSimpleQuantity *value);
+        bool visitIfcPhysicalSimpleQuantity(IfcPhysicalSimpleQuantity *value) override;
         /**
          * @param enumData
          */
@@ -3372,7 +3372,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcPile datatype to write
          */
-        virtual bool visitIfcPile(IfcPile *value);
+        bool visitIfcPile(IfcPile *value) override;
         /**
          * @param enumData
          */
@@ -3382,7 +3382,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcPipeFittingType datatype to write
          */
-        virtual bool visitIfcPipeFittingType(IfcPipeFittingType *value);
+        bool visitIfcPipeFittingType(IfcPipeFittingType *value) override;
         /**
          * @param enumData
          */
@@ -3392,43 +3392,43 @@ namespace ifc2x3 {
          *
          * @param value the IfcPipeSegmentType datatype to write
          */
-        virtual bool visitIfcPipeSegmentType(IfcPipeSegmentType *value);
+        bool visitIfcPipeSegmentType(IfcPipeSegmentType *value) override;
         /**
          * write the IfcPixelTexture datatype to m_out.
          *
          * @param value the IfcPixelTexture datatype to write
          */
-        virtual bool visitIfcPixelTexture(IfcPixelTexture *value);
+        bool visitIfcPixelTexture(IfcPixelTexture *value) override;
         /**
          * write the IfcPlacement datatype to m_out.
          *
          * @param value the IfcPlacement datatype to write
          */
-        virtual bool visitIfcPlacement(IfcPlacement *value);
+        bool visitIfcPlacement(IfcPlacement *value) override;
         /**
          * write the IfcPlanarBox datatype to m_out.
          *
          * @param value the IfcPlanarBox datatype to write
          */
-        virtual bool visitIfcPlanarBox(IfcPlanarBox *value);
+        bool visitIfcPlanarBox(IfcPlanarBox *value) override;
         /**
          * write the IfcPlanarExtent datatype to m_out.
          *
          * @param value the IfcPlanarExtent datatype to write
          */
-        virtual bool visitIfcPlanarExtent(IfcPlanarExtent *value);
+        bool visitIfcPlanarExtent(IfcPlanarExtent *value) override;
         /**
          * write the IfcPlane datatype to m_out.
          *
          * @param value the IfcPlane datatype to write
          */
-        virtual bool visitIfcPlane(IfcPlane *value);
+        bool visitIfcPlane(IfcPlane *value) override;
         /**
          * write the IfcPlate datatype to m_out.
          *
          * @param value the IfcPlate datatype to write
          */
-        virtual bool visitIfcPlate(IfcPlate *value);
+        bool visitIfcPlate(IfcPlate *value) override;
         /**
          * @param enumData
          */
@@ -3438,103 +3438,103 @@ namespace ifc2x3 {
          *
          * @param value the IfcPlateType datatype to write
          */
-        virtual bool visitIfcPlateType(IfcPlateType *value);
+        bool visitIfcPlateType(IfcPlateType *value) override;
         /**
          * write the IfcPoint datatype to m_out.
          *
          * @param value the IfcPoint datatype to write
          */
-        virtual bool visitIfcPoint(IfcPoint *value);
+        bool visitIfcPoint(IfcPoint *value) override;
         /**
          * write the IfcPointOnCurve datatype to m_out.
          *
          * @param value the IfcPointOnCurve datatype to write
          */
-        virtual bool visitIfcPointOnCurve(IfcPointOnCurve *value);
+        bool visitIfcPointOnCurve(IfcPointOnCurve *value) override;
         /**
          * write the IfcPointOnSurface datatype to m_out.
          *
          * @param value the IfcPointOnSurface datatype to write
          */
-        virtual bool visitIfcPointOnSurface(IfcPointOnSurface *value);
+        bool visitIfcPointOnSurface(IfcPointOnSurface *value) override;
         /**
          * write the IfcPolyLoop datatype to m_out.
          *
          * @param value the IfcPolyLoop datatype to write
          */
-        virtual bool visitIfcPolyLoop(IfcPolyLoop *value);
+        bool visitIfcPolyLoop(IfcPolyLoop *value) override;
         /**
          * write the IfcPolygonalBoundedHalfSpace datatype to m_out.
          *
          * @param value the IfcPolygonalBoundedHalfSpace datatype to write
          */
-        virtual bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *value);
+        bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *value) override;
         /**
          * write the IfcPolyline datatype to m_out.
          *
          * @param value the IfcPolyline datatype to write
          */
-        virtual bool visitIfcPolyline(IfcPolyline *value);
+        bool visitIfcPolyline(IfcPolyline *value) override;
         /**
          * write the IfcPort datatype to m_out.
          *
          * @param value the IfcPort datatype to write
          */
-        virtual bool visitIfcPort(IfcPort *value);
+        bool visitIfcPort(IfcPort *value) override;
         /**
          * write the IfcPostalAddress datatype to m_out.
          *
          * @param value the IfcPostalAddress datatype to write
          */
-        virtual bool visitIfcPostalAddress(IfcPostalAddress *value);
+        bool visitIfcPostalAddress(IfcPostalAddress *value) override;
         /**
          * write the IfcPreDefinedColour datatype to m_out.
          *
          * @param value the IfcPreDefinedColour datatype to write
          */
-        virtual bool visitIfcPreDefinedColour(IfcPreDefinedColour *value);
+        bool visitIfcPreDefinedColour(IfcPreDefinedColour *value) override;
         /**
          * write the IfcPreDefinedCurveFont datatype to m_out.
          *
          * @param value the IfcPreDefinedCurveFont datatype to write
          */
-        virtual bool visitIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *value);
+        bool visitIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *value) override;
         /**
          * write the IfcPreDefinedDimensionSymbol datatype to m_out.
          *
          * @param value the IfcPreDefinedDimensionSymbol datatype to write
          */
-        virtual bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *value);
+        bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *value) override;
         /**
          * write the IfcPreDefinedItem datatype to m_out.
          *
          * @param value the IfcPreDefinedItem datatype to write
          */
-        virtual bool visitIfcPreDefinedItem(IfcPreDefinedItem *value);
+        bool visitIfcPreDefinedItem(IfcPreDefinedItem *value) override;
         /**
          * write the IfcPreDefinedPointMarkerSymbol datatype to m_out.
          *
          * @param value the IfcPreDefinedPointMarkerSymbol datatype to write
          */
-        virtual bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *value);
+        bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *value) override;
         /**
          * write the IfcPreDefinedSymbol datatype to m_out.
          *
          * @param value the IfcPreDefinedSymbol datatype to write
          */
-        virtual bool visitIfcPreDefinedSymbol(IfcPreDefinedSymbol *value);
+        bool visitIfcPreDefinedSymbol(IfcPreDefinedSymbol *value) override;
         /**
          * write the IfcPreDefinedTerminatorSymbol datatype to m_out.
          *
          * @param value the IfcPreDefinedTerminatorSymbol datatype to write
          */
-        virtual bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *value);
+        bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *value) override;
         /**
          * write the IfcPreDefinedTextFont datatype to m_out.
          *
          * @param value the IfcPreDefinedTextFont datatype to write
          */
-        virtual bool visitIfcPreDefinedTextFont(IfcPreDefinedTextFont *value);
+        bool visitIfcPreDefinedTextFont(IfcPreDefinedTextFont *value) override;
         /**
          * @param selectData
          */
@@ -3544,7 +3544,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcPresentationLayerAssignment datatype to write
          */
-        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *value);
+        bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *value) override;
         /**
          * @param selectData
          */
@@ -3558,19 +3558,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcPresentationLayerWithStyle datatype to write
          */
-        virtual bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *value);
+        bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *value) override;
         /**
          * write the IfcPresentationStyle datatype to m_out.
          *
          * @param value the IfcPresentationStyle datatype to write
          */
-        virtual bool visitIfcPresentationStyle(IfcPresentationStyle *value);
+        bool visitIfcPresentationStyle(IfcPresentationStyle *value) override;
         /**
          * write the IfcPresentationStyleAssignment datatype to m_out.
          *
          * @param value the IfcPresentationStyleAssignment datatype to write
          */
-        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *value);
+        bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *value) override;
         /**
          * @param enumData
          */
@@ -3580,55 +3580,55 @@ namespace ifc2x3 {
          *
          * @param value the IfcProcedure datatype to write
          */
-        virtual bool visitIfcProcedure(IfcProcedure *value);
+        bool visitIfcProcedure(IfcProcedure *value) override;
         /**
          * write the IfcProcess datatype to m_out.
          *
          * @param value the IfcProcess datatype to write
          */
-        virtual bool visitIfcProcess(IfcProcess *value);
+        bool visitIfcProcess(IfcProcess *value) override;
         /**
          * write the IfcProduct datatype to m_out.
          *
          * @param value the IfcProduct datatype to write
          */
-        virtual bool visitIfcProduct(IfcProduct *value);
+        bool visitIfcProduct(IfcProduct *value) override;
         /**
          * write the IfcProductDefinitionShape datatype to m_out.
          *
          * @param value the IfcProductDefinitionShape datatype to write
          */
-        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *value);
+        bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *value) override;
         /**
          * write the IfcProductRepresentation datatype to m_out.
          *
          * @param value the IfcProductRepresentation datatype to write
          */
-        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *value);
+        bool visitIfcProductRepresentation(IfcProductRepresentation *value) override;
         /**
          * write the IfcProductsOfCombustionProperties datatype to m_out.
          *
          * @param value the IfcProductsOfCombustionProperties datatype to write
          */
-        virtual bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *value);
+        bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *value) override;
         /**
          * write the IfcProfileDef datatype to m_out.
          *
          * @param value the IfcProfileDef datatype to write
          */
-        virtual bool visitIfcProfileDef(IfcProfileDef *value);
+        bool visitIfcProfileDef(IfcProfileDef *value) override;
         /**
          * write the IfcProfileProperties datatype to m_out.
          *
          * @param value the IfcProfileProperties datatype to write
          */
-        virtual bool visitIfcProfileProperties(IfcProfileProperties *value);
+        bool visitIfcProfileProperties(IfcProfileProperties *value) override;
         /**
          * write the IfcProject datatype to m_out.
          *
          * @param value the IfcProject datatype to write
          */
-        virtual bool visitIfcProject(IfcProject *value);
+        bool visitIfcProject(IfcProject *value) override;
         /**
          * @param enumData
          */
@@ -3638,7 +3638,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcProjectOrder datatype to write
          */
-        virtual bool visitIfcProjectOrder(IfcProjectOrder *value);
+        bool visitIfcProjectOrder(IfcProjectOrder *value) override;
         /**
          * @param enumData
          */
@@ -3648,67 +3648,67 @@ namespace ifc2x3 {
          *
          * @param value the IfcProjectOrderRecord datatype to write
          */
-        virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *value);
+        bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *value) override;
         /**
          * write the IfcProjectionCurve datatype to m_out.
          *
          * @param value the IfcProjectionCurve datatype to write
          */
-        virtual bool visitIfcProjectionCurve(IfcProjectionCurve *value);
+        bool visitIfcProjectionCurve(IfcProjectionCurve *value) override;
         /**
          * write the IfcProjectionElement datatype to m_out.
          *
          * @param value the IfcProjectionElement datatype to write
          */
-        virtual bool visitIfcProjectionElement(IfcProjectionElement *value);
+        bool visitIfcProjectionElement(IfcProjectionElement *value) override;
         /**
          * write the IfcProperty datatype to m_out.
          *
          * @param value the IfcProperty datatype to write
          */
-        virtual bool visitIfcProperty(IfcProperty *value);
+        bool visitIfcProperty(IfcProperty *value) override;
         /**
          * write the IfcPropertyBoundedValue datatype to m_out.
          *
          * @param value the IfcPropertyBoundedValue datatype to write
          */
-        virtual bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *value);
+        bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *value) override;
         /**
          * write the IfcPropertyConstraintRelationship datatype to m_out.
          *
          * @param value the IfcPropertyConstraintRelationship datatype to write
          */
-        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *value);
+        bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *value) override;
         /**
          * write the IfcPropertyDefinition datatype to m_out.
          *
          * @param value the IfcPropertyDefinition datatype to write
          */
-        virtual bool visitIfcPropertyDefinition(IfcPropertyDefinition *value);
+        bool visitIfcPropertyDefinition(IfcPropertyDefinition *value) override;
         /**
          * write the IfcPropertyDependencyRelationship datatype to m_out.
          *
          * @param value the IfcPropertyDependencyRelationship datatype to write
          */
-        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *value);
+        bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *value) override;
         /**
          * write the IfcPropertyEnumeratedValue datatype to m_out.
          *
          * @param value the IfcPropertyEnumeratedValue datatype to write
          */
-        virtual bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *value);
+        bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *value) override;
         /**
          * write the IfcPropertyEnumeration datatype to m_out.
          *
          * @param value the IfcPropertyEnumeration datatype to write
          */
-        virtual bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *value);
+        bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *value) override;
         /**
          * write the IfcPropertyListValue datatype to m_out.
          *
          * @param value the IfcPropertyListValue datatype to write
          */
-        virtual bool visitIfcPropertyListValue(IfcPropertyListValue *value);
+        bool visitIfcPropertyListValue(IfcPropertyListValue *value) override;
         /**
          * @param selectData
          */
@@ -3718,31 +3718,31 @@ namespace ifc2x3 {
          *
          * @param value the IfcPropertyReferenceValue datatype to write
          */
-        virtual bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *value);
+        bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *value) override;
         /**
          * write the IfcPropertySet datatype to m_out.
          *
          * @param value the IfcPropertySet datatype to write
          */
-        virtual bool visitIfcPropertySet(IfcPropertySet *value);
+        bool visitIfcPropertySet(IfcPropertySet *value) override;
         /**
          * write the IfcPropertySetDefinition datatype to m_out.
          *
          * @param value the IfcPropertySetDefinition datatype to write
          */
-        virtual bool visitIfcPropertySetDefinition(IfcPropertySetDefinition *value);
+        bool visitIfcPropertySetDefinition(IfcPropertySetDefinition *value) override;
         /**
          * write the IfcPropertySingleValue datatype to m_out.
          *
          * @param value the IfcPropertySingleValue datatype to write
          */
-        virtual bool visitIfcPropertySingleValue(IfcPropertySingleValue *value);
+        bool visitIfcPropertySingleValue(IfcPropertySingleValue *value) override;
         /**
          * write the IfcPropertyTableValue datatype to m_out.
          *
          * @param value the IfcPropertyTableValue datatype to write
          */
-        virtual bool visitIfcPropertyTableValue(IfcPropertyTableValue *value);
+        bool visitIfcPropertyTableValue(IfcPropertyTableValue *value) override;
         /**
          * @param enumData
          */
@@ -3752,7 +3752,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcProtectiveDeviceType datatype to write
          */
-        virtual bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *value);
+        bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *value) override;
         /**
          * @param enumData
          */
@@ -3762,7 +3762,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcProxy datatype to write
          */
-        virtual bool visitIfcProxy(IfcProxy *value);
+        bool visitIfcProxy(IfcProxy *value) override;
         /**
          * @param enumData
          */
@@ -3772,49 +3772,49 @@ namespace ifc2x3 {
          *
          * @param value the IfcPumpType datatype to write
          */
-        virtual bool visitIfcPumpType(IfcPumpType *value);
+        bool visitIfcPumpType(IfcPumpType *value) override;
         /**
          * write the IfcQuantityArea datatype to m_out.
          *
          * @param value the IfcQuantityArea datatype to write
          */
-        virtual bool visitIfcQuantityArea(IfcQuantityArea *value);
+        bool visitIfcQuantityArea(IfcQuantityArea *value) override;
         /**
          * write the IfcQuantityCount datatype to m_out.
          *
          * @param value the IfcQuantityCount datatype to write
          */
-        virtual bool visitIfcQuantityCount(IfcQuantityCount *value);
+        bool visitIfcQuantityCount(IfcQuantityCount *value) override;
         /**
          * write the IfcQuantityLength datatype to m_out.
          *
          * @param value the IfcQuantityLength datatype to write
          */
-        virtual bool visitIfcQuantityLength(IfcQuantityLength *value);
+        bool visitIfcQuantityLength(IfcQuantityLength *value) override;
         /**
          * write the IfcQuantityTime datatype to m_out.
          *
          * @param value the IfcQuantityTime datatype to write
          */
-        virtual bool visitIfcQuantityTime(IfcQuantityTime *value);
+        bool visitIfcQuantityTime(IfcQuantityTime *value) override;
         /**
          * write the IfcQuantityVolume datatype to m_out.
          *
          * @param value the IfcQuantityVolume datatype to write
          */
-        virtual bool visitIfcQuantityVolume(IfcQuantityVolume *value);
+        bool visitIfcQuantityVolume(IfcQuantityVolume *value) override;
         /**
          * write the IfcQuantityWeight datatype to m_out.
          *
          * @param value the IfcQuantityWeight datatype to write
          */
-        virtual bool visitIfcQuantityWeight(IfcQuantityWeight *value);
+        bool visitIfcQuantityWeight(IfcQuantityWeight *value) override;
         /**
          * write the IfcRadiusDimension datatype to m_out.
          *
          * @param value the IfcRadiusDimension datatype to write
          */
-        virtual bool visitIfcRadiusDimension(IfcRadiusDimension *value);
+        bool visitIfcRadiusDimension(IfcRadiusDimension *value) override;
         /**
          * @param enumData
          */
@@ -3824,13 +3824,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcRailing datatype to write
          */
-        virtual bool visitIfcRailing(IfcRailing *value);
+        bool visitIfcRailing(IfcRailing *value) override;
         /**
          * write the IfcRailingType datatype to m_out.
          *
          * @param value the IfcRailingType datatype to write
          */
-        virtual bool visitIfcRailingType(IfcRailingType *value);
+        bool visitIfcRailingType(IfcRailingType *value) override;
         /**
          * @param enumData
          */
@@ -3840,13 +3840,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcRamp datatype to write
          */
-        virtual bool visitIfcRamp(IfcRamp *value);
+        bool visitIfcRamp(IfcRamp *value) override;
         /**
          * write the IfcRampFlight datatype to m_out.
          *
          * @param value the IfcRampFlight datatype to write
          */
-        virtual bool visitIfcRampFlight(IfcRampFlight *value);
+        bool visitIfcRampFlight(IfcRampFlight *value) override;
         /**
          * @param enumData
          */
@@ -3856,37 +3856,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcRampFlightType datatype to write
          */
-        virtual bool visitIfcRampFlightType(IfcRampFlightType *value);
+        bool visitIfcRampFlightType(IfcRampFlightType *value) override;
         /**
          * write the IfcRationalBezierCurve datatype to m_out.
          *
          * @param value the IfcRationalBezierCurve datatype to write
          */
-        virtual bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *value);
+        bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *value) override;
         /**
          * write the IfcRectangleHollowProfileDef datatype to m_out.
          *
          * @param value the IfcRectangleHollowProfileDef datatype to write
          */
-        virtual bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *value);
+        bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *value) override;
         /**
          * write the IfcRectangleProfileDef datatype to m_out.
          *
          * @param value the IfcRectangleProfileDef datatype to write
          */
-        virtual bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *value);
+        bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *value) override;
         /**
          * write the IfcRectangularPyramid datatype to m_out.
          *
          * @param value the IfcRectangularPyramid datatype to write
          */
-        virtual bool visitIfcRectangularPyramid(IfcRectangularPyramid *value);
+        bool visitIfcRectangularPyramid(IfcRectangularPyramid *value) override;
         /**
          * write the IfcRectangularTrimmedSurface datatype to m_out.
          *
          * @param value the IfcRectangularTrimmedSurface datatype to write
          */
-        virtual bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *value);
+        bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *value) override;
         /**
          * @param selectData
          */
@@ -3896,13 +3896,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcReferencesValueDocument datatype to write
          */
-        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *value);
+        bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *value) override;
         /**
          * write the IfcRegularTimeSeries datatype to m_out.
          *
          * @param value the IfcRegularTimeSeries datatype to write
          */
-        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *value);
+        bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *value) override;
         /**
          * @param enumData
          */
@@ -3912,13 +3912,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcReinforcementBarProperties datatype to write
          */
-        virtual bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *value);
+        bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *value) override;
         /**
          * write the IfcReinforcementDefinitionProperties datatype to m_out.
          *
          * @param value the IfcReinforcementDefinitionProperties datatype to write
          */
-        virtual bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *value);
+        bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *value) override;
         /**
          * @param enumData
          */
@@ -3928,115 +3928,115 @@ namespace ifc2x3 {
          *
          * @param value the IfcReinforcingBar datatype to write
          */
-        virtual bool visitIfcReinforcingBar(IfcReinforcingBar *value);
+        bool visitIfcReinforcingBar(IfcReinforcingBar *value) override;
         /**
          * write the IfcReinforcingElement datatype to m_out.
          *
          * @param value the IfcReinforcingElement datatype to write
          */
-        virtual bool visitIfcReinforcingElement(IfcReinforcingElement *value);
+        bool visitIfcReinforcingElement(IfcReinforcingElement *value) override;
         /**
          * write the IfcReinforcingMesh datatype to m_out.
          *
          * @param value the IfcReinforcingMesh datatype to write
          */
-        virtual bool visitIfcReinforcingMesh(IfcReinforcingMesh *value);
+        bool visitIfcReinforcingMesh(IfcReinforcingMesh *value) override;
         /**
          * write the IfcRelAggregates datatype to m_out.
          *
          * @param value the IfcRelAggregates datatype to write
          */
-        virtual bool visitIfcRelAggregates(IfcRelAggregates *value);
+        bool visitIfcRelAggregates(IfcRelAggregates *value) override;
         /**
          * write the IfcRelAssigns datatype to m_out.
          *
          * @param value the IfcRelAssigns datatype to write
          */
-        virtual bool visitIfcRelAssigns(IfcRelAssigns *value);
+        bool visitIfcRelAssigns(IfcRelAssigns *value) override;
         /**
          * write the IfcRelAssignsTasks datatype to m_out.
          *
          * @param value the IfcRelAssignsTasks datatype to write
          */
-        virtual bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *value);
+        bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *value) override;
         /**
          * write the IfcRelAssignsToActor datatype to m_out.
          *
          * @param value the IfcRelAssignsToActor datatype to write
          */
-        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *value);
+        bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *value) override;
         /**
          * write the IfcRelAssignsToControl datatype to m_out.
          *
          * @param value the IfcRelAssignsToControl datatype to write
          */
-        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *value);
+        bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *value) override;
         /**
          * write the IfcRelAssignsToGroup datatype to m_out.
          *
          * @param value the IfcRelAssignsToGroup datatype to write
          */
-        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *value);
+        bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *value) override;
         /**
          * write the IfcRelAssignsToProcess datatype to m_out.
          *
          * @param value the IfcRelAssignsToProcess datatype to write
          */
-        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *value);
+        bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *value) override;
         /**
          * write the IfcRelAssignsToProduct datatype to m_out.
          *
          * @param value the IfcRelAssignsToProduct datatype to write
          */
-        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *value);
+        bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *value) override;
         /**
          * write the IfcRelAssignsToProjectOrder datatype to m_out.
          *
          * @param value the IfcRelAssignsToProjectOrder datatype to write
          */
-        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *value);
+        bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *value) override;
         /**
          * write the IfcRelAssignsToResource datatype to m_out.
          *
          * @param value the IfcRelAssignsToResource datatype to write
          */
-        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *value);
+        bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *value) override;
         /**
          * write the IfcRelAssociates datatype to m_out.
          *
          * @param value the IfcRelAssociates datatype to write
          */
-        virtual bool visitIfcRelAssociates(IfcRelAssociates *value);
+        bool visitIfcRelAssociates(IfcRelAssociates *value) override;
         /**
          * write the IfcRelAssociatesAppliedValue datatype to m_out.
          *
          * @param value the IfcRelAssociatesAppliedValue datatype to write
          */
-        virtual bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *value);
+        bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *value) override;
         /**
          * write the IfcRelAssociatesApproval datatype to m_out.
          *
          * @param value the IfcRelAssociatesApproval datatype to write
          */
-        virtual bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *value);
+        bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *value) override;
         /**
          * write the IfcRelAssociatesClassification datatype to m_out.
          *
          * @param value the IfcRelAssociatesClassification datatype to write
          */
-        virtual bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *value);
+        bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *value) override;
         /**
          * write the IfcRelAssociatesConstraint datatype to m_out.
          *
          * @param value the IfcRelAssociatesConstraint datatype to write
          */
-        virtual bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *value);
+        bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *value) override;
         /**
          * write the IfcRelAssociatesDocument datatype to m_out.
          *
          * @param value the IfcRelAssociatesDocument datatype to write
          */
-        virtual bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *value);
+        bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *value) override;
         /**
          * @param selectData
          */
@@ -4046,7 +4046,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcRelAssociatesLibrary datatype to write
          */
-        virtual bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *value);
+        bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *value) override;
         /**
          * @param selectData
          */
@@ -4056,7 +4056,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcRelAssociatesMaterial datatype to write
          */
-        virtual bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *value);
+        bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *value) override;
         /**
          * @param selectData
          */
@@ -4066,19 +4066,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcRelAssociatesProfileProperties datatype to write
          */
-        virtual bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *value);
+        bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *value) override;
         /**
          * write the IfcRelConnects datatype to m_out.
          *
          * @param value the IfcRelConnects datatype to write
          */
-        virtual bool visitIfcRelConnects(IfcRelConnects *value);
+        bool visitIfcRelConnects(IfcRelConnects *value) override;
         /**
          * write the IfcRelConnectsElements datatype to m_out.
          *
          * @param value the IfcRelConnectsElements datatype to write
          */
-        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *value);
+        bool visitIfcRelConnectsElements(IfcRelConnectsElements *value) override;
         /**
          * @param enumData
          */
@@ -4088,19 +4088,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcRelConnectsPathElements datatype to write
          */
-        virtual bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *value);
+        bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *value) override;
         /**
          * write the IfcRelConnectsPortToElement datatype to m_out.
          *
          * @param value the IfcRelConnectsPortToElement datatype to write
          */
-        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *value);
+        bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *value) override;
         /**
          * write the IfcRelConnectsPorts datatype to m_out.
          *
          * @param value the IfcRelConnectsPorts datatype to write
          */
-        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *value);
+        bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *value) override;
         /**
          * @param selectData
          */
@@ -4110,127 +4110,127 @@ namespace ifc2x3 {
          *
          * @param value the IfcRelConnectsStructuralActivity datatype to write
          */
-        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *value);
+        bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *value) override;
         /**
          * write the IfcRelConnectsStructuralElement datatype to m_out.
          *
          * @param value the IfcRelConnectsStructuralElement datatype to write
          */
-        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *value);
+        bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *value) override;
         /**
          * write the IfcRelConnectsStructuralMember datatype to m_out.
          *
          * @param value the IfcRelConnectsStructuralMember datatype to write
          */
-        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *value);
+        bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *value) override;
         /**
          * write the IfcRelConnectsWithEccentricity datatype to m_out.
          *
          * @param value the IfcRelConnectsWithEccentricity datatype to write
          */
-        virtual bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *value);
+        bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *value) override;
         /**
          * write the IfcRelConnectsWithRealizingElements datatype to m_out.
          *
          * @param value the IfcRelConnectsWithRealizingElements datatype to write
          */
-        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *value);
+        bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *value) override;
         /**
          * write the IfcRelContainedInSpatialStructure datatype to m_out.
          *
          * @param value the IfcRelContainedInSpatialStructure datatype to write
          */
-        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *value);
+        bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *value) override;
         /**
          * write the IfcRelCoversBldgElements datatype to m_out.
          *
          * @param value the IfcRelCoversBldgElements datatype to write
          */
-        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *value);
+        bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *value) override;
         /**
          * write the IfcRelCoversSpaces datatype to m_out.
          *
          * @param value the IfcRelCoversSpaces datatype to write
          */
-        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *value);
+        bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *value) override;
         /**
          * write the IfcRelDecomposes datatype to m_out.
          *
          * @param value the IfcRelDecomposes datatype to write
          */
-        virtual bool visitIfcRelDecomposes(IfcRelDecomposes *value);
+        bool visitIfcRelDecomposes(IfcRelDecomposes *value) override;
         /**
          * write the IfcRelDefines datatype to m_out.
          *
          * @param value the IfcRelDefines datatype to write
          */
-        virtual bool visitIfcRelDefines(IfcRelDefines *value);
+        bool visitIfcRelDefines(IfcRelDefines *value) override;
         /**
          * write the IfcRelDefinesByProperties datatype to m_out.
          *
          * @param value the IfcRelDefinesByProperties datatype to write
          */
-        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *value);
+        bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *value) override;
         /**
          * write the IfcRelDefinesByType datatype to m_out.
          *
          * @param value the IfcRelDefinesByType datatype to write
          */
-        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *value);
+        bool visitIfcRelDefinesByType(IfcRelDefinesByType *value) override;
         /**
          * write the IfcRelFillsElement datatype to m_out.
          *
          * @param value the IfcRelFillsElement datatype to write
          */
-        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *value);
+        bool visitIfcRelFillsElement(IfcRelFillsElement *value) override;
         /**
          * write the IfcRelFlowControlElements datatype to m_out.
          *
          * @param value the IfcRelFlowControlElements datatype to write
          */
-        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *value);
+        bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *value) override;
         /**
          * write the IfcRelInteractionRequirements datatype to m_out.
          *
          * @param value the IfcRelInteractionRequirements datatype to write
          */
-        virtual bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *value);
+        bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *value) override;
         /**
          * write the IfcRelNests datatype to m_out.
          *
          * @param value the IfcRelNests datatype to write
          */
-        virtual bool visitIfcRelNests(IfcRelNests *value);
+        bool visitIfcRelNests(IfcRelNests *value) override;
         /**
          * write the IfcRelOccupiesSpaces datatype to m_out.
          *
          * @param value the IfcRelOccupiesSpaces datatype to write
          */
-        virtual bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *value);
+        bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *value) override;
         /**
          * write the IfcRelOverridesProperties datatype to m_out.
          *
          * @param value the IfcRelOverridesProperties datatype to write
          */
-        virtual bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *value);
+        bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *value) override;
         /**
          * write the IfcRelProjectsElement datatype to m_out.
          *
          * @param value the IfcRelProjectsElement datatype to write
          */
-        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *value);
+        bool visitIfcRelProjectsElement(IfcRelProjectsElement *value) override;
         /**
          * write the IfcRelReferencedInSpatialStructure datatype to m_out.
          *
          * @param value the IfcRelReferencedInSpatialStructure datatype to write
          */
-        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *value);
+        bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *value) override;
         /**
          * write the IfcRelSchedulesCostItems datatype to m_out.
          *
          * @param value the IfcRelSchedulesCostItems datatype to write
          */
-        virtual bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *value);
+        bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *value) override;
         /**
          * @param enumData
          */
@@ -4240,13 +4240,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcRelSequence datatype to write
          */
-        virtual bool visitIfcRelSequence(IfcRelSequence *value);
+        bool visitIfcRelSequence(IfcRelSequence *value) override;
         /**
          * write the IfcRelServicesBuildings datatype to m_out.
          *
          * @param value the IfcRelServicesBuildings datatype to write
          */
-        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *value);
+        bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *value) override;
         /**
          * @param enumData
          */
@@ -4260,61 +4260,61 @@ namespace ifc2x3 {
          *
          * @param value the IfcRelSpaceBoundary datatype to write
          */
-        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *value);
+        bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *value) override;
         /**
          * write the IfcRelVoidsElement datatype to m_out.
          *
          * @param value the IfcRelVoidsElement datatype to write
          */
-        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *value);
+        bool visitIfcRelVoidsElement(IfcRelVoidsElement *value) override;
         /**
          * write the IfcRelationship datatype to m_out.
          *
          * @param value the IfcRelationship datatype to write
          */
-        virtual bool visitIfcRelationship(IfcRelationship *value);
+        bool visitIfcRelationship(IfcRelationship *value) override;
         /**
          * write the IfcRelaxation datatype to m_out.
          *
          * @param value the IfcRelaxation datatype to write
          */
-        virtual bool visitIfcRelaxation(IfcRelaxation *value);
+        bool visitIfcRelaxation(IfcRelaxation *value) override;
         /**
          * write the IfcRepresentation datatype to m_out.
          *
          * @param value the IfcRepresentation datatype to write
          */
-        virtual bool visitIfcRepresentation(IfcRepresentation *value);
+        bool visitIfcRepresentation(IfcRepresentation *value) override;
         /**
          * write the IfcRepresentationContext datatype to m_out.
          *
          * @param value the IfcRepresentationContext datatype to write
          */
-        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *value);
+        bool visitIfcRepresentationContext(IfcRepresentationContext *value) override;
         /**
          * write the IfcRepresentationItem datatype to m_out.
          *
          * @param value the IfcRepresentationItem datatype to write
          */
-        virtual bool visitIfcRepresentationItem(IfcRepresentationItem *value);
+        bool visitIfcRepresentationItem(IfcRepresentationItem *value) override;
         /**
          * write the IfcRepresentationMap datatype to m_out.
          *
          * @param value the IfcRepresentationMap datatype to write
          */
-        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *value);
+        bool visitIfcRepresentationMap(IfcRepresentationMap *value) override;
         /**
          * write the IfcResource datatype to m_out.
          *
          * @param value the IfcResource datatype to write
          */
-        virtual bool visitIfcResource(IfcResource *value);
+        bool visitIfcResource(IfcResource *value) override;
         /**
          * write the IfcRevolvedAreaSolid datatype to m_out.
          *
          * @param value the IfcRevolvedAreaSolid datatype to write
          */
-        virtual bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *value);
+        bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *value) override;
         /**
          * @param enumData
          */
@@ -4324,19 +4324,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcRibPlateProfileProperties datatype to write
          */
-        virtual bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *value);
+        bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *value) override;
         /**
          * write the IfcRightCircularCone datatype to m_out.
          *
          * @param value the IfcRightCircularCone datatype to write
          */
-        virtual bool visitIfcRightCircularCone(IfcRightCircularCone *value);
+        bool visitIfcRightCircularCone(IfcRightCircularCone *value) override;
         /**
          * write the IfcRightCircularCylinder datatype to m_out.
          *
          * @param value the IfcRightCircularCylinder datatype to write
          */
-        virtual bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *value);
+        bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *value) override;
         /**
          * @param enumData
          */
@@ -4346,25 +4346,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcRoof datatype to write
          */
-        virtual bool visitIfcRoof(IfcRoof *value);
+        bool visitIfcRoof(IfcRoof *value) override;
         /**
          * write the IfcRoot datatype to m_out.
          *
          * @param value the IfcRoot datatype to write
          */
-        virtual bool visitIfcRoot(IfcRoot *value);
+        bool visitIfcRoot(IfcRoot *value) override;
         /**
          * write the IfcRoundedEdgeFeature datatype to m_out.
          *
          * @param value the IfcRoundedEdgeFeature datatype to write
          */
-        virtual bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *value);
+        bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *value) override;
         /**
          * write the IfcRoundedRectangleProfileDef datatype to m_out.
          *
          * @param value the IfcRoundedRectangleProfileDef datatype to write
          */
-        virtual bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *value);
+        bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *value) override;
         /**
          * @param enumData
          */
@@ -4378,7 +4378,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcSIUnit datatype to write
          */
-        virtual bool visitIfcSIUnit(IfcSIUnit *value);
+        bool visitIfcSIUnit(IfcSIUnit *value) override;
         /**
          * @param enumData
          */
@@ -4388,13 +4388,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcSanitaryTerminalType datatype to write
          */
-        virtual bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *value);
+        bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *value) override;
         /**
          * write the IfcScheduleTimeControl datatype to m_out.
          *
          * @param value the IfcScheduleTimeControl datatype to write
          */
-        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *value);
+        bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *value) override;
         /**
          * @param enumData
          */
@@ -4404,19 +4404,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcSectionProperties datatype to write
          */
-        virtual bool visitIfcSectionProperties(IfcSectionProperties *value);
+        bool visitIfcSectionProperties(IfcSectionProperties *value) override;
         /**
          * write the IfcSectionReinforcementProperties datatype to m_out.
          *
          * @param value the IfcSectionReinforcementProperties datatype to write
          */
-        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *value);
+        bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *value) override;
         /**
          * write the IfcSectionedSpine datatype to m_out.
          *
          * @param value the IfcSectionedSpine datatype to write
          */
-        virtual bool visitIfcSectionedSpine(IfcSectionedSpine *value);
+        bool visitIfcSectionedSpine(IfcSectionedSpine *value) override;
         /**
          * @param enumData
          */
@@ -4426,7 +4426,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcSensorType datatype to write
          */
-        virtual bool visitIfcSensorType(IfcSensorType *value);
+        bool visitIfcSensorType(IfcSensorType *value) override;
         /**
          * @param enumData
          */
@@ -4436,7 +4436,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcServiceLife datatype to write
          */
-        virtual bool visitIfcServiceLife(IfcServiceLife *value);
+        bool visitIfcServiceLife(IfcServiceLife *value) override;
         /**
          * @param enumData
          */
@@ -4450,25 +4450,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcServiceLifeFactor datatype to write
          */
-        virtual bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *value);
+        bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *value) override;
         /**
          * write the IfcShapeAspect datatype to m_out.
          *
          * @param value the IfcShapeAspect datatype to write
          */
-        virtual bool visitIfcShapeAspect(IfcShapeAspect *value);
+        bool visitIfcShapeAspect(IfcShapeAspect *value) override;
         /**
          * write the IfcShapeModel datatype to m_out.
          *
          * @param value the IfcShapeModel datatype to write
          */
-        virtual bool visitIfcShapeModel(IfcShapeModel *value);
+        bool visitIfcShapeModel(IfcShapeModel *value) override;
         /**
          * write the IfcShapeRepresentation datatype to m_out.
          *
          * @param value the IfcShapeRepresentation datatype to write
          */
-        virtual bool visitIfcShapeRepresentation(IfcShapeRepresentation *value);
+        bool visitIfcShapeRepresentation(IfcShapeRepresentation *value) override;
         /**
          * @param selectData
          */
@@ -4478,19 +4478,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcShellBasedSurfaceModel datatype to write
          */
-        virtual bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *value);
+        bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *value) override;
         /**
          * write the IfcSimpleProperty datatype to m_out.
          *
          * @param value the IfcSimpleProperty datatype to write
          */
-        virtual bool visitIfcSimpleProperty(IfcSimpleProperty *value);
+        bool visitIfcSimpleProperty(IfcSimpleProperty *value) override;
         /**
          * write the IfcSite datatype to m_out.
          *
          * @param value the IfcSite datatype to write
          */
-        virtual bool visitIfcSite(IfcSite *value);
+        bool visitIfcSite(IfcSite *value) override;
         /**
          * @param enumData
          */
@@ -4500,25 +4500,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcSlab datatype to write
          */
-        virtual bool visitIfcSlab(IfcSlab *value);
+        bool visitIfcSlab(IfcSlab *value) override;
         /**
          * write the IfcSlabType datatype to m_out.
          *
          * @param value the IfcSlabType datatype to write
          */
-        virtual bool visitIfcSlabType(IfcSlabType *value);
+        bool visitIfcSlabType(IfcSlabType *value) override;
         /**
          * write the IfcSlippageConnectionCondition datatype to m_out.
          *
          * @param value the IfcSlippageConnectionCondition datatype to write
          */
-        virtual bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *value);
+        bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *value) override;
         /**
          * write the IfcSolidModel datatype to m_out.
          *
          * @param value the IfcSolidModel datatype to write
          */
-        virtual bool visitIfcSolidModel(IfcSolidModel *value);
+        bool visitIfcSolidModel(IfcSolidModel *value) override;
         /**
          * @param enumData
          */
@@ -4528,19 +4528,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcSoundProperties datatype to write
          */
-        virtual bool visitIfcSoundProperties(IfcSoundProperties *value);
+        bool visitIfcSoundProperties(IfcSoundProperties *value) override;
         /**
          * write the IfcSoundValue datatype to m_out.
          *
          * @param value the IfcSoundValue datatype to write
          */
-        virtual bool visitIfcSoundValue(IfcSoundValue *value);
+        bool visitIfcSoundValue(IfcSoundValue *value) override;
         /**
          * write the IfcSpace datatype to m_out.
          *
          * @param value the IfcSpace datatype to write
          */
-        virtual bool visitIfcSpace(IfcSpace *value);
+        bool visitIfcSpace(IfcSpace *value) override;
         /**
          * @param enumData
          */
@@ -4550,13 +4550,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcSpaceHeaterType datatype to write
          */
-        virtual bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *value);
+        bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *value) override;
         /**
          * write the IfcSpaceProgram datatype to m_out.
          *
          * @param value the IfcSpaceProgram datatype to write
          */
-        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *value);
+        bool visitIfcSpaceProgram(IfcSpaceProgram *value) override;
         /**
          * @param enumData
          */
@@ -4570,7 +4570,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcSpaceThermalLoadProperties datatype to write
          */
-        virtual bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *value);
+        bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *value) override;
         /**
          * @param enumData
          */
@@ -4580,25 +4580,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcSpaceType datatype to write
          */
-        virtual bool visitIfcSpaceType(IfcSpaceType *value);
+        bool visitIfcSpaceType(IfcSpaceType *value) override;
         /**
          * write the IfcSpatialStructureElement datatype to m_out.
          *
          * @param value the IfcSpatialStructureElement datatype to write
          */
-        virtual bool visitIfcSpatialStructureElement(IfcSpatialStructureElement *value);
+        bool visitIfcSpatialStructureElement(IfcSpatialStructureElement *value) override;
         /**
          * write the IfcSpatialStructureElementType datatype to m_out.
          *
          * @param value the IfcSpatialStructureElementType datatype to write
          */
-        virtual bool visitIfcSpatialStructureElementType(IfcSpatialStructureElementType *value);
+        bool visitIfcSpatialStructureElementType(IfcSpatialStructureElementType *value) override;
         /**
          * write the IfcSphere datatype to m_out.
          *
          * @param value the IfcSphere datatype to write
          */
-        virtual bool visitIfcSphere(IfcSphere *value);
+        bool visitIfcSphere(IfcSphere *value) override;
         /**
          * @param enumData
          */
@@ -4608,7 +4608,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcStackTerminalType datatype to write
          */
-        virtual bool visitIfcStackTerminalType(IfcStackTerminalType *value);
+        bool visitIfcStackTerminalType(IfcStackTerminalType *value) override;
         /**
          * @param enumData
          */
@@ -4618,13 +4618,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcStair datatype to write
          */
-        virtual bool visitIfcStair(IfcStair *value);
+        bool visitIfcStair(IfcStair *value) override;
         /**
          * write the IfcStairFlight datatype to m_out.
          *
          * @param value the IfcStairFlight datatype to write
          */
-        virtual bool visitIfcStairFlight(IfcStairFlight *value);
+        bool visitIfcStairFlight(IfcStairFlight *value) override;
         /**
          * @param enumData
          */
@@ -4634,19 +4634,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcStairFlightType datatype to write
          */
-        virtual bool visitIfcStairFlightType(IfcStairFlightType *value);
+        bool visitIfcStairFlightType(IfcStairFlightType *value) override;
         /**
          * write the IfcStructuralAction datatype to m_out.
          *
          * @param value the IfcStructuralAction datatype to write
          */
-        virtual bool visitIfcStructuralAction(IfcStructuralAction *value);
+        bool visitIfcStructuralAction(IfcStructuralAction *value) override;
         /**
          * write the IfcStructuralActivity datatype to m_out.
          *
          * @param value the IfcStructuralActivity datatype to write
          */
-        virtual bool visitIfcStructuralActivity(IfcStructuralActivity *value);
+        bool visitIfcStructuralActivity(IfcStructuralActivity *value) override;
         /**
          * @param enumData
          */
@@ -4656,25 +4656,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcStructuralAnalysisModel datatype to write
          */
-        virtual bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *value);
+        bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *value) override;
         /**
          * write the IfcStructuralConnection datatype to m_out.
          *
          * @param value the IfcStructuralConnection datatype to write
          */
-        virtual bool visitIfcStructuralConnection(IfcStructuralConnection *value);
+        bool visitIfcStructuralConnection(IfcStructuralConnection *value) override;
         /**
          * write the IfcStructuralConnectionCondition datatype to m_out.
          *
          * @param value the IfcStructuralConnectionCondition datatype to write
          */
-        virtual bool visitIfcStructuralConnectionCondition(IfcStructuralConnectionCondition *value);
+        bool visitIfcStructuralConnectionCondition(IfcStructuralConnectionCondition *value) override;
         /**
          * write the IfcStructuralCurveConnection datatype to m_out.
          *
          * @param value the IfcStructuralCurveConnection datatype to write
          */
-        virtual bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *value);
+        bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *value) override;
         /**
          * @param enumData
          */
@@ -4684,19 +4684,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcStructuralCurveMember datatype to write
          */
-        virtual bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *value);
+        bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *value) override;
         /**
          * write the IfcStructuralCurveMemberVarying datatype to m_out.
          *
          * @param value the IfcStructuralCurveMemberVarying datatype to write
          */
-        virtual bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *value);
+        bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *value) override;
         /**
          * write the IfcStructuralItem datatype to m_out.
          *
          * @param value the IfcStructuralItem datatype to write
          */
-        virtual bool visitIfcStructuralItem(IfcStructuralItem *value);
+        bool visitIfcStructuralItem(IfcStructuralItem *value) override;
         /**
          * @param enumData
          */
@@ -4706,19 +4706,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcStructuralLinearAction datatype to write
          */
-        virtual bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *value);
+        bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *value) override;
         /**
          * write the IfcStructuralLinearActionVarying datatype to m_out.
          *
          * @param value the IfcStructuralLinearActionVarying datatype to write
          */
-        virtual bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *value);
+        bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *value) override;
         /**
          * write the IfcStructuralLoad datatype to m_out.
          *
          * @param value the IfcStructuralLoad datatype to write
          */
-        virtual bool visitIfcStructuralLoad(IfcStructuralLoad *value);
+        bool visitIfcStructuralLoad(IfcStructuralLoad *value) override;
         /**
          * @param enumData
          */
@@ -4736,103 +4736,103 @@ namespace ifc2x3 {
          *
          * @param value the IfcStructuralLoadGroup datatype to write
          */
-        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *value);
+        bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *value) override;
         /**
          * write the IfcStructuralLoadLinearForce datatype to m_out.
          *
          * @param value the IfcStructuralLoadLinearForce datatype to write
          */
-        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *value);
+        bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *value) override;
         /**
          * write the IfcStructuralLoadPlanarForce datatype to m_out.
          *
          * @param value the IfcStructuralLoadPlanarForce datatype to write
          */
-        virtual bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *value);
+        bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *value) override;
         /**
          * write the IfcStructuralLoadSingleDisplacement datatype to m_out.
          *
          * @param value the IfcStructuralLoadSingleDisplacement datatype to write
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *value);
+        bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *value) override;
         /**
          * write the IfcStructuralLoadSingleDisplacementDistortion datatype to m_out.
          *
          * @param value the IfcStructuralLoadSingleDisplacementDistortion datatype to write
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *value);
+        bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *value) override;
         /**
          * write the IfcStructuralLoadSingleForce datatype to m_out.
          *
          * @param value the IfcStructuralLoadSingleForce datatype to write
          */
-        virtual bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *value);
+        bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *value) override;
         /**
          * write the IfcStructuralLoadSingleForceWarping datatype to m_out.
          *
          * @param value the IfcStructuralLoadSingleForceWarping datatype to write
          */
-        virtual bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *value);
+        bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *value) override;
         /**
          * write the IfcStructuralLoadStatic datatype to m_out.
          *
          * @param value the IfcStructuralLoadStatic datatype to write
          */
-        virtual bool visitIfcStructuralLoadStatic(IfcStructuralLoadStatic *value);
+        bool visitIfcStructuralLoadStatic(IfcStructuralLoadStatic *value) override;
         /**
          * write the IfcStructuralLoadTemperature datatype to m_out.
          *
          * @param value the IfcStructuralLoadTemperature datatype to write
          */
-        virtual bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *value);
+        bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *value) override;
         /**
          * write the IfcStructuralMember datatype to m_out.
          *
          * @param value the IfcStructuralMember datatype to write
          */
-        virtual bool visitIfcStructuralMember(IfcStructuralMember *value);
+        bool visitIfcStructuralMember(IfcStructuralMember *value) override;
         /**
          * write the IfcStructuralPlanarAction datatype to m_out.
          *
          * @param value the IfcStructuralPlanarAction datatype to write
          */
-        virtual bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *value);
+        bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *value) override;
         /**
          * write the IfcStructuralPlanarActionVarying datatype to m_out.
          *
          * @param value the IfcStructuralPlanarActionVarying datatype to write
          */
-        virtual bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *value);
+        bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *value) override;
         /**
          * write the IfcStructuralPointAction datatype to m_out.
          *
          * @param value the IfcStructuralPointAction datatype to write
          */
-        virtual bool visitIfcStructuralPointAction(IfcStructuralPointAction *value);
+        bool visitIfcStructuralPointAction(IfcStructuralPointAction *value) override;
         /**
          * write the IfcStructuralPointConnection datatype to m_out.
          *
          * @param value the IfcStructuralPointConnection datatype to write
          */
-        virtual bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *value);
+        bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *value) override;
         /**
          * write the IfcStructuralPointReaction datatype to m_out.
          *
          * @param value the IfcStructuralPointReaction datatype to write
          */
-        virtual bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *value);
+        bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *value) override;
         /**
          * write the IfcStructuralProfileProperties datatype to m_out.
          *
          * @param value the IfcStructuralProfileProperties datatype to write
          */
-        virtual bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *value);
+        bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *value) override;
         /**
          * write the IfcStructuralReaction datatype to m_out.
          *
          * @param value the IfcStructuralReaction datatype to write
          */
-        virtual bool visitIfcStructuralReaction(IfcStructuralReaction *value);
+        bool visitIfcStructuralReaction(IfcStructuralReaction *value) override;
         /**
          * @param enumData
          */
@@ -4842,19 +4842,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcStructuralResultGroup datatype to write
          */
-        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *value);
+        bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *value) override;
         /**
          * write the IfcStructuralSteelProfileProperties datatype to m_out.
          *
          * @param value the IfcStructuralSteelProfileProperties datatype to write
          */
-        virtual bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *value);
+        bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *value) override;
         /**
          * write the IfcStructuralSurfaceConnection datatype to m_out.
          *
          * @param value the IfcStructuralSurfaceConnection datatype to write
          */
-        virtual bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *value);
+        bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *value) override;
         /**
          * @param enumData
          */
@@ -4864,73 +4864,73 @@ namespace ifc2x3 {
          *
          * @param value the IfcStructuralSurfaceMember datatype to write
          */
-        virtual bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *value);
+        bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *value) override;
         /**
          * write the IfcStructuralSurfaceMemberVarying datatype to m_out.
          *
          * @param value the IfcStructuralSurfaceMemberVarying datatype to write
          */
-        virtual bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *value);
+        bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *value) override;
         /**
          * write the IfcStructuredDimensionCallout datatype to m_out.
          *
          * @param value the IfcStructuredDimensionCallout datatype to write
          */
-        virtual bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *value);
+        bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *value) override;
         /**
          * write the IfcStyleModel datatype to m_out.
          *
          * @param value the IfcStyleModel datatype to write
          */
-        virtual bool visitIfcStyleModel(IfcStyleModel *value);
+        bool visitIfcStyleModel(IfcStyleModel *value) override;
         /**
          * write the IfcStyledItem datatype to m_out.
          *
          * @param value the IfcStyledItem datatype to write
          */
-        virtual bool visitIfcStyledItem(IfcStyledItem *value);
+        bool visitIfcStyledItem(IfcStyledItem *value) override;
         /**
          * write the IfcStyledRepresentation datatype to m_out.
          *
          * @param value the IfcStyledRepresentation datatype to write
          */
-        virtual bool visitIfcStyledRepresentation(IfcStyledRepresentation *value);
+        bool visitIfcStyledRepresentation(IfcStyledRepresentation *value) override;
         /**
          * write the IfcSubContractResource datatype to m_out.
          *
          * @param value the IfcSubContractResource datatype to write
          */
-        virtual bool visitIfcSubContractResource(IfcSubContractResource *value);
+        bool visitIfcSubContractResource(IfcSubContractResource *value) override;
         /**
          * write the IfcSubedge datatype to m_out.
          *
          * @param value the IfcSubedge datatype to write
          */
-        virtual bool visitIfcSubedge(IfcSubedge *value);
+        bool visitIfcSubedge(IfcSubedge *value) override;
         /**
          * write the IfcSurface datatype to m_out.
          *
          * @param value the IfcSurface datatype to write
          */
-        virtual bool visitIfcSurface(IfcSurface *value);
+        bool visitIfcSurface(IfcSurface *value) override;
         /**
          * write the IfcSurfaceCurveSweptAreaSolid datatype to m_out.
          *
          * @param value the IfcSurfaceCurveSweptAreaSolid datatype to write
          */
-        virtual bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *value);
+        bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *value) override;
         /**
          * write the IfcSurfaceOfLinearExtrusion datatype to m_out.
          *
          * @param value the IfcSurfaceOfLinearExtrusion datatype to write
          */
-        virtual bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *value);
+        bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *value) override;
         /**
          * write the IfcSurfaceOfRevolution datatype to m_out.
          *
          * @param value the IfcSurfaceOfRevolution datatype to write
          */
-        virtual bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *value);
+        bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *value) override;
         /**
          * @param enumData
          */
@@ -4944,19 +4944,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcSurfaceStyle datatype to write
          */
-        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *value);
+        bool visitIfcSurfaceStyle(IfcSurfaceStyle *value) override;
         /**
          * write the IfcSurfaceStyleLighting datatype to m_out.
          *
          * @param value the IfcSurfaceStyleLighting datatype to write
          */
-        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *value);
+        bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *value) override;
         /**
          * write the IfcSurfaceStyleRefraction datatype to m_out.
          *
          * @param value the IfcSurfaceStyleRefraction datatype to write
          */
-        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *value);
+        bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *value) override;
         /**
          * @param selectData
          */
@@ -4974,43 +4974,43 @@ namespace ifc2x3 {
          *
          * @param value the IfcSurfaceStyleRendering datatype to write
          */
-        virtual bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *value);
+        bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *value) override;
         /**
          * write the IfcSurfaceStyleShading datatype to m_out.
          *
          * @param value the IfcSurfaceStyleShading datatype to write
          */
-        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *value);
+        bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *value) override;
         /**
          * write the IfcSurfaceStyleWithTextures datatype to m_out.
          *
          * @param value the IfcSurfaceStyleWithTextures datatype to write
          */
-        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *value);
+        bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *value) override;
         /**
          * write the IfcSurfaceTexture datatype to m_out.
          *
          * @param value the IfcSurfaceTexture datatype to write
          */
-        virtual bool visitIfcSurfaceTexture(IfcSurfaceTexture *value);
+        bool visitIfcSurfaceTexture(IfcSurfaceTexture *value) override;
         /**
          * write the IfcSweptAreaSolid datatype to m_out.
          *
          * @param value the IfcSweptAreaSolid datatype to write
          */
-        virtual bool visitIfcSweptAreaSolid(IfcSweptAreaSolid *value);
+        bool visitIfcSweptAreaSolid(IfcSweptAreaSolid *value) override;
         /**
          * write the IfcSweptDiskSolid datatype to m_out.
          *
          * @param value the IfcSweptDiskSolid datatype to write
          */
-        virtual bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *value);
+        bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *value) override;
         /**
          * write the IfcSweptSurface datatype to m_out.
          *
          * @param value the IfcSweptSurface datatype to write
          */
-        virtual bool visitIfcSweptSurface(IfcSweptSurface *value);
+        bool visitIfcSweptSurface(IfcSweptSurface *value) override;
         /**
          * @param enumData
          */
@@ -5020,7 +5020,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcSwitchingDeviceType datatype to write
          */
-        virtual bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *value);
+        bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *value) override;
         /**
          * @param selectData
          */
@@ -5030,37 +5030,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcSymbolStyle datatype to write
          */
-        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *value);
+        bool visitIfcSymbolStyle(IfcSymbolStyle *value) override;
         /**
          * write the IfcSystem datatype to m_out.
          *
          * @param value the IfcSystem datatype to write
          */
-        virtual bool visitIfcSystem(IfcSystem *value);
+        bool visitIfcSystem(IfcSystem *value) override;
         /**
          * write the IfcSystemFurnitureElementType datatype to m_out.
          *
          * @param value the IfcSystemFurnitureElementType datatype to write
          */
-        virtual bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *value);
+        bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *value) override;
         /**
          * write the IfcTShapeProfileDef datatype to m_out.
          *
          * @param value the IfcTShapeProfileDef datatype to write
          */
-        virtual bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *value);
+        bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *value) override;
         /**
          * write the IfcTable datatype to m_out.
          *
          * @param value the IfcTable datatype to write
          */
-        virtual bool visitIfcTable(IfcTable *value);
+        bool visitIfcTable(IfcTable *value) override;
         /**
          * write the IfcTableRow datatype to m_out.
          *
          * @param value the IfcTableRow datatype to write
          */
-        virtual bool visitIfcTableRow(IfcTableRow *value);
+        bool visitIfcTableRow(IfcTableRow *value) override;
         /**
          * @param enumData
          */
@@ -5070,19 +5070,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcTankType datatype to write
          */
-        virtual bool visitIfcTankType(IfcTankType *value);
+        bool visitIfcTankType(IfcTankType *value) override;
         /**
          * write the IfcTask datatype to m_out.
          *
          * @param value the IfcTask datatype to write
          */
-        virtual bool visitIfcTask(IfcTask *value);
+        bool visitIfcTask(IfcTask *value) override;
         /**
          * write the IfcTelecomAddress datatype to m_out.
          *
          * @param value the IfcTelecomAddress datatype to write
          */
-        virtual bool visitIfcTelecomAddress(IfcTelecomAddress *value);
+        bool visitIfcTelecomAddress(IfcTelecomAddress *value) override;
         /**
          * @param enumData
          */
@@ -5092,19 +5092,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcTendon datatype to write
          */
-        virtual bool visitIfcTendon(IfcTendon *value);
+        bool visitIfcTendon(IfcTendon *value) override;
         /**
          * write the IfcTendonAnchor datatype to m_out.
          *
          * @param value the IfcTendonAnchor datatype to write
          */
-        virtual bool visitIfcTendonAnchor(IfcTendonAnchor *value);
+        bool visitIfcTendonAnchor(IfcTendonAnchor *value) override;
         /**
          * write the IfcTerminatorSymbol datatype to m_out.
          *
          * @param value the IfcTerminatorSymbol datatype to write
          */
-        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *value);
+        bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *value) override;
         /**
          * @param enumData
          */
@@ -5114,13 +5114,13 @@ namespace ifc2x3 {
          *
          * @param value the IfcTextLiteral datatype to write
          */
-        virtual bool visitIfcTextLiteral(IfcTextLiteral *value);
+        bool visitIfcTextLiteral(IfcTextLiteral *value) override;
         /**
          * write the IfcTextLiteralWithExtent datatype to m_out.
          *
          * @param value the IfcTextLiteralWithExtent datatype to write
          */
-        virtual bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *value);
+        bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *value) override;
         /**
          * @param selectData
          */
@@ -5138,37 +5138,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcTextStyle datatype to write
          */
-        virtual bool visitIfcTextStyle(IfcTextStyle *value);
+        bool visitIfcTextStyle(IfcTextStyle *value) override;
         /**
          * write the IfcTextStyleFontModel datatype to m_out.
          *
          * @param value the IfcTextStyleFontModel datatype to write
          */
-        virtual bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *value);
+        bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *value) override;
         /**
          * write the IfcTextStyleForDefinedFont datatype to m_out.
          *
          * @param value the IfcTextStyleForDefinedFont datatype to write
          */
-        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *value);
+        bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *value) override;
         /**
          * write the IfcTextStyleTextModel datatype to m_out.
          *
          * @param value the IfcTextStyleTextModel datatype to write
          */
-        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *value);
+        bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *value) override;
         /**
          * write the IfcTextStyleWithBoxCharacteristics datatype to m_out.
          *
          * @param value the IfcTextStyleWithBoxCharacteristics datatype to write
          */
-        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *value);
+        bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *value) override;
         /**
          * write the IfcTextureCoordinate datatype to m_out.
          *
          * @param value the IfcTextureCoordinate datatype to write
          */
-        virtual bool visitIfcTextureCoordinate(IfcTextureCoordinate *value);
+        bool visitIfcTextureCoordinate(IfcTextureCoordinate *value) override;
         /**
          * @param selectData
          */
@@ -5178,37 +5178,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcTextureCoordinateGenerator datatype to write
          */
-        virtual bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *value);
+        bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *value) override;
         /**
          * write the IfcTextureMap datatype to m_out.
          *
          * @param value the IfcTextureMap datatype to write
          */
-        virtual bool visitIfcTextureMap(IfcTextureMap *value);
+        bool visitIfcTextureMap(IfcTextureMap *value) override;
         /**
          * write the IfcTextureVertex datatype to m_out.
          *
          * @param value the IfcTextureVertex datatype to write
          */
-        virtual bool visitIfcTextureVertex(IfcTextureVertex *value);
+        bool visitIfcTextureVertex(IfcTextureVertex *value) override;
         /**
          * write the IfcThermalMaterialProperties datatype to m_out.
          *
          * @param value the IfcThermalMaterialProperties datatype to write
          */
-        virtual bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *value);
+        bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *value) override;
         /**
          * write the IfcTimeSeries datatype to m_out.
          *
          * @param value the IfcTimeSeries datatype to write
          */
-        virtual bool visitIfcTimeSeries(IfcTimeSeries *value);
+        bool visitIfcTimeSeries(IfcTimeSeries *value) override;
         /**
          * write the IfcTimeSeriesReferenceRelationship datatype to m_out.
          *
          * @param value the IfcTimeSeriesReferenceRelationship datatype to write
          */
-        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *value);
+        bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *value) override;
         /**
          * @param enumData
          */
@@ -5218,25 +5218,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcTimeSeriesSchedule datatype to write
          */
-        virtual bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *value);
+        bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *value) override;
         /**
          * write the IfcTimeSeriesValue datatype to m_out.
          *
          * @param value the IfcTimeSeriesValue datatype to write
          */
-        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *value);
+        bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *value) override;
         /**
          * write the IfcTopologicalRepresentationItem datatype to m_out.
          *
          * @param value the IfcTopologicalRepresentationItem datatype to write
          */
-        virtual bool visitIfcTopologicalRepresentationItem(IfcTopologicalRepresentationItem *value);
+        bool visitIfcTopologicalRepresentationItem(IfcTopologicalRepresentationItem *value) override;
         /**
          * write the IfcTopologyRepresentation datatype to m_out.
          *
          * @param value the IfcTopologyRepresentation datatype to write
          */
-        virtual bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *value);
+        bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *value) override;
         /**
          * @param enumData
          */
@@ -5246,7 +5246,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcTransformerType datatype to write
          */
-        virtual bool visitIfcTransformerType(IfcTransformerType *value);
+        bool visitIfcTransformerType(IfcTransformerType *value) override;
         /**
          * @param enumData
          */
@@ -5256,19 +5256,19 @@ namespace ifc2x3 {
          *
          * @param value the IfcTransportElement datatype to write
          */
-        virtual bool visitIfcTransportElement(IfcTransportElement *value);
+        bool visitIfcTransportElement(IfcTransportElement *value) override;
         /**
          * write the IfcTransportElementType datatype to m_out.
          *
          * @param value the IfcTransportElementType datatype to write
          */
-        virtual bool visitIfcTransportElementType(IfcTransportElementType *value);
+        bool visitIfcTransportElementType(IfcTransportElementType *value) override;
         /**
          * write the IfcTrapeziumProfileDef datatype to m_out.
          *
          * @param value the IfcTrapeziumProfileDef datatype to write
          */
-        virtual bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *value);
+        bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *value) override;
         /**
          * @param selectData
          */
@@ -5282,7 +5282,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcTrimmedCurve datatype to write
          */
-        virtual bool visitIfcTrimmedCurve(IfcTrimmedCurve *value);
+        bool visitIfcTrimmedCurve(IfcTrimmedCurve *value) override;
         /**
          * @param enumData
          */
@@ -5292,37 +5292,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcTubeBundleType datatype to write
          */
-        virtual bool visitIfcTubeBundleType(IfcTubeBundleType *value);
+        bool visitIfcTubeBundleType(IfcTubeBundleType *value) override;
         /**
          * write the IfcTwoDirectionRepeatFactor datatype to m_out.
          *
          * @param value the IfcTwoDirectionRepeatFactor datatype to write
          */
-        virtual bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *value);
+        bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *value) override;
         /**
          * write the IfcTypeObject datatype to m_out.
          *
          * @param value the IfcTypeObject datatype to write
          */
-        virtual bool visitIfcTypeObject(IfcTypeObject *value);
+        bool visitIfcTypeObject(IfcTypeObject *value) override;
         /**
          * write the IfcTypeProduct datatype to m_out.
          *
          * @param value the IfcTypeProduct datatype to write
          */
-        virtual bool visitIfcTypeProduct(IfcTypeProduct *value);
+        bool visitIfcTypeProduct(IfcTypeProduct *value) override;
         /**
          * write the IfcUShapeProfileDef datatype to m_out.
          *
          * @param value the IfcUShapeProfileDef datatype to write
          */
-        virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *value);
+        bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *value) override;
         /**
          * write the IfcUnitAssignment datatype to m_out.
          *
          * @param value the IfcUnitAssignment datatype to write
          */
-        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *value);
+        bool visitIfcUnitAssignment(IfcUnitAssignment *value) override;
         /**
          * @param enumData
          */
@@ -5332,7 +5332,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcUnitaryEquipmentType datatype to write
          */
-        virtual bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *value);
+        bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *value) override;
         /**
          * @param enumData
          */
@@ -5342,37 +5342,37 @@ namespace ifc2x3 {
          *
          * @param value the IfcValveType datatype to write
          */
-        virtual bool visitIfcValveType(IfcValveType *value);
+        bool visitIfcValveType(IfcValveType *value) override;
         /**
          * write the IfcVector datatype to m_out.
          *
          * @param value the IfcVector datatype to write
          */
-        virtual bool visitIfcVector(IfcVector *value);
+        bool visitIfcVector(IfcVector *value) override;
         /**
          * write the IfcVertex datatype to m_out.
          *
          * @param value the IfcVertex datatype to write
          */
-        virtual bool visitIfcVertex(IfcVertex *value);
+        bool visitIfcVertex(IfcVertex *value) override;
         /**
          * write the IfcVertexBasedTextureMap datatype to m_out.
          *
          * @param value the IfcVertexBasedTextureMap datatype to write
          */
-        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *value);
+        bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *value) override;
         /**
          * write the IfcVertexLoop datatype to m_out.
          *
          * @param value the IfcVertexLoop datatype to write
          */
-        virtual bool visitIfcVertexLoop(IfcVertexLoop *value);
+        bool visitIfcVertexLoop(IfcVertexLoop *value) override;
         /**
          * write the IfcVertexPoint datatype to m_out.
          *
          * @param value the IfcVertexPoint datatype to write
          */
-        virtual bool visitIfcVertexPoint(IfcVertexPoint *value);
+        bool visitIfcVertexPoint(IfcVertexPoint *value) override;
         /**
          * @param enumData
          */
@@ -5382,31 +5382,31 @@ namespace ifc2x3 {
          *
          * @param value the IfcVibrationIsolatorType datatype to write
          */
-        virtual bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *value);
+        bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *value) override;
         /**
          * write the IfcVirtualElement datatype to m_out.
          *
          * @param value the IfcVirtualElement datatype to write
          */
-        virtual bool visitIfcVirtualElement(IfcVirtualElement *value);
+        bool visitIfcVirtualElement(IfcVirtualElement *value) override;
         /**
          * write the IfcVirtualGridIntersection datatype to m_out.
          *
          * @param value the IfcVirtualGridIntersection datatype to write
          */
-        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *value);
+        bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *value) override;
         /**
          * write the IfcWall datatype to m_out.
          *
          * @param value the IfcWall datatype to write
          */
-        virtual bool visitIfcWall(IfcWall *value);
+        bool visitIfcWall(IfcWall *value) override;
         /**
          * write the IfcWallStandardCase datatype to m_out.
          *
          * @param value the IfcWallStandardCase datatype to write
          */
-        virtual bool visitIfcWallStandardCase(IfcWallStandardCase *value);
+        bool visitIfcWallStandardCase(IfcWallStandardCase *value) override;
         /**
          * @param enumData
          */
@@ -5416,7 +5416,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcWallType datatype to write
          */
-        virtual bool visitIfcWallType(IfcWallType *value);
+        bool visitIfcWallType(IfcWallType *value) override;
         /**
          * @param enumData
          */
@@ -5426,25 +5426,25 @@ namespace ifc2x3 {
          *
          * @param value the IfcWasteTerminalType datatype to write
          */
-        virtual bool visitIfcWasteTerminalType(IfcWasteTerminalType *value);
+        bool visitIfcWasteTerminalType(IfcWasteTerminalType *value) override;
         /**
          * write the IfcWaterProperties datatype to m_out.
          *
          * @param value the IfcWaterProperties datatype to write
          */
-        virtual bool visitIfcWaterProperties(IfcWaterProperties *value);
+        bool visitIfcWaterProperties(IfcWaterProperties *value) override;
         /**
          * write the IfcWindow datatype to m_out.
          *
          * @param value the IfcWindow datatype to write
          */
-        virtual bool visitIfcWindow(IfcWindow *value);
+        bool visitIfcWindow(IfcWindow *value) override;
         /**
          * write the IfcWindowLiningProperties datatype to m_out.
          *
          * @param value the IfcWindowLiningProperties datatype to write
          */
-        virtual bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *value);
+        bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *value) override;
         /**
          * @param enumData
          */
@@ -5454,7 +5454,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcWindowPanelProperties datatype to write
          */
-        virtual bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *value);
+        bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *value) override;
         /**
          * @param enumData
          */
@@ -5468,7 +5468,7 @@ namespace ifc2x3 {
          *
          * @param value the IfcWindowStyle datatype to write
          */
-        virtual bool visitIfcWindowStyle(IfcWindowStyle *value);
+        bool visitIfcWindowStyle(IfcWindowStyle *value) override;
         /**
          * @param enumData
          */
@@ -5478,31 +5478,31 @@ namespace ifc2x3 {
          *
          * @param value the IfcWorkControl datatype to write
          */
-        virtual bool visitIfcWorkControl(IfcWorkControl *value);
+        bool visitIfcWorkControl(IfcWorkControl *value) override;
         /**
          * write the IfcWorkPlan datatype to m_out.
          *
          * @param value the IfcWorkPlan datatype to write
          */
-        virtual bool visitIfcWorkPlan(IfcWorkPlan *value);
+        bool visitIfcWorkPlan(IfcWorkPlan *value) override;
         /**
          * write the IfcWorkSchedule datatype to m_out.
          *
          * @param value the IfcWorkSchedule datatype to write
          */
-        virtual bool visitIfcWorkSchedule(IfcWorkSchedule *value);
+        bool visitIfcWorkSchedule(IfcWorkSchedule *value) override;
         /**
          * write the IfcZShapeProfileDef datatype to m_out.
          *
          * @param value the IfcZShapeProfileDef datatype to write
          */
-        virtual bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *value);
+        bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *value) override;
         /**
          * write the IfcZone datatype to m_out.
          *
          * @param value the IfcZone datatype to write
          */
-        virtual bool visitIfcZone(IfcZone *value);
+        bool visitIfcZone(IfcZone *value) override;
 
     };
 

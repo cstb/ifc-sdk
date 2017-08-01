@@ -92,7 +92,7 @@ namespace Step {
         }
 
         //! destructor
-        virtual ~List()
+        ~List() override
         {
         }
 
@@ -309,7 +309,7 @@ namespace Step {
          \short Gets the 'unset' flag
          @return the 'unset' flag
          */
-        bool isUnset() const
+        bool isUnset() const override
         {
             return m_unset;
         }

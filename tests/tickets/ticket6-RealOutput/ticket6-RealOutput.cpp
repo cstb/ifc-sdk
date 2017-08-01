@@ -16,9 +16,9 @@ public:
 
     MySPFWriter() : Step::BaseSPFWriter(0) {}
 
-    virtual ~MySPFWriter() {}
+    ~MySPFWriter() override {}
 
-    virtual bool write(std::ostream& ) { return true; }
+    bool write(std::ostream& ) override { return true; }
 
     virtual std::string toSPF(Step::Real d)
     {

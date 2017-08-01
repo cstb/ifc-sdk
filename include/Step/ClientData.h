@@ -44,7 +44,7 @@ namespace Step {
         /*!
          \short Virtual Destructor
          */
-        virtual ~ClientData()
+        ~ClientData() override
         {
         }
 

@@ -40,7 +40,7 @@ namespace Step {
     {
     public:
         BaseVisitor();
-        ~BaseVisitor();
+        ~BaseVisitor() override;
         //! this method is called by the acceptVisitor() method from BaseObject
         virtual bool visitBaseObject(BaseObject* obj);
 

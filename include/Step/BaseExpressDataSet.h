@@ -48,7 +48,7 @@ namespace Step {
         /*!
          \short Virtual destructor which destroys every instantiated object
          */
-        virtual ~BaseExpressDataSet();
+        ~BaseExpressDataSet() override;
 
         /*!
          \short Get an object using the STEP-21 ID. If the object is not inited, it becomes inited

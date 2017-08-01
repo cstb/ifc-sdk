@@ -22,11 +22,11 @@ public:
     /*!
     ** \brief Visit "decomposedby" items of an IfcObjectDefinition
     */
-    virtual bool visitIfcObjectDefinition(ifc2x3::IfcObjectDefinition *value);
+    bool visitIfcObjectDefinition(ifc2x3::IfcObjectDefinition *value) override;
     /*!
     ** \brief Visit "relatedObjects" items of an IfcRelAggregates
     */
-    virtual bool visitIfcRelAggregates(ifc2x3::IfcRelAggregates *value);
+    bool visitIfcRelAggregates(ifc2x3::IfcRelAggregates *value) override;
     
     /*!
     ** \brief Visit an IfcProduct
@@ -35,7 +35,7 @@ public:
     ** Visit "decomposedby" items
     ** If it has a placement, pop it at the end 
     */
-    virtual bool visitIfcProduct(ifc2x3::IfcProduct *value);
+    bool visitIfcProduct(ifc2x3::IfcProduct *value) override;
     /*!
     ** \brief Visit an IfcSpatialStructureElement
     ** If it has a placement, push it at the start
@@ -44,7 +44,7 @@ public:
     ** Visit "decomposedby" items
     ** If it has a placement, pop it at the end 
     */
-    virtual bool visitIfcSpatialStructureElement(ifc2x3::IfcSpatialStructureElement *value);
+    bool visitIfcSpatialStructureElement(ifc2x3::IfcSpatialStructureElement *value) override;
     /*!
     ** \brief Visit an IfcElement
     ** If the element fills something and its parent visitor function is not an IfcOpeningElement, do not visit the IfcElement
@@ -54,7 +54,7 @@ public:
     ** Visit "decomposedby" items
     ** If it has a placement, pop it at the end 
     */
-    virtual bool visitIfcElement(ifc2x3::IfcElement *value);
+    bool visitIfcElement(ifc2x3::IfcElement *value) override;
     /*!
     ** \brief Visit an IfcOpeningElement
     ** If it has a placement, push it at the start
@@ -62,65 +62,65 @@ public:
     ** Visit "fillings" items
     ** If it has a placement, pop it at the end 
     */
-    virtual bool visitIfcOpeningElement(ifc2x3::IfcOpeningElement *value);
+    bool visitIfcOpeningElement(ifc2x3::IfcOpeningElement *value) override;
     /*!
     ** \brief Visit "relatedElements" items of an IfcRelContainedInSpatialStructure
     */
-    virtual bool visitIfcRelContainedInSpatialStructure(ifc2x3::IfcRelContainedInSpatialStructure *value);
+    bool visitIfcRelContainedInSpatialStructure(ifc2x3::IfcRelContainedInSpatialStructure *value) override;
     /*!
     ** \brief Visit the "Brep" representations of an IfcProductRepresentation
     */
-    virtual bool visitIfcProductRepresentation(ifc2x3::IfcProductRepresentation *value);
+    bool visitIfcProductRepresentation(ifc2x3::IfcProductRepresentation *value) override;
     /*!
     ** \brief Visit "representationItems" items of an IfcRepresentation
     */
-    virtual bool visitIfcRepresentation(ifc2x3::IfcRepresentation *value);
+    bool visitIfcRepresentation(ifc2x3::IfcRepresentation *value) override;
     /*!
     ** \brief Visit an IfcFacetedBrep
     ** Add the representation to the BRepBuilder
     ** Visit the "closedShell" item if there is one
     */
-    virtual bool visitIfcFacetedBrep(ifc2x3::IfcFacetedBrep *value);
+    bool visitIfcFacetedBrep(ifc2x3::IfcFacetedBrep *value) override;
     /*!
     ** \brief Visit an IfcClosedShell
     ** Add the closedShell to the BRepBuilder
     ** Visit "faces" items
     */
-    virtual bool visitIfcClosedShell(ifc2x3::IfcClosedShell *value);
+    bool visitIfcClosedShell(ifc2x3::IfcClosedShell *value) override;
     /*!
     ** \brief Visit an IfcFace
     ** Add the face to the BRepBuilder
     ** Visit "polyLoop" items
     */
-    virtual bool visitIfcFace(ifc2x3::IfcFace *value);
+    bool visitIfcFace(ifc2x3::IfcFace *value) override;
     /*!
     ** \brief Visit "cartesianPoints" items of an IfcPolyLoop
     */
-    virtual bool visitIfcPolyLoop(ifc2x3::IfcPolyLoop *value);
+    bool visitIfcPolyLoop(ifc2x3::IfcPolyLoop *value) override;
     /*!
     ** \brief Visit an IfcCartesianPoint
     ** Add the point to the BRepBuilder
     */
-    virtual bool visitIfcCartesianPoint(ifc2x3::IfcCartesianPoint *value);
+    bool visitIfcCartesianPoint(ifc2x3::IfcCartesianPoint *value) override;
     
     /*!
     ** \brief Visit the relative placement of an IfcLocalPlacement
     */
-    virtual bool visitIfcLocalPlacement(ifc2x3::IfcLocalPlacement *value);
+    bool visitIfcLocalPlacement(ifc2x3::IfcLocalPlacement *value) override;
     /*!
     ** \brief Visit the IfcAxis2Placement3D of an IfcAxis2Placement if there is one
     */
-    virtual bool visitIfcAxis2Placement(ifc2x3::IfcAxis2Placement *value);
+    bool visitIfcAxis2Placement(ifc2x3::IfcAxis2Placement *value) override;
     /*!
     ** \brief Add the axis2Placement3D to the BRepBuilder
     */
-    virtual bool visitIfcAxis2Placement3D(ifc2x3::IfcAxis2Placement3D *value);
+    bool visitIfcAxis2Placement3D(ifc2x3::IfcAxis2Placement3D *value) override;
     
     /*!
     ** \brief Do not visit IfcDoor
     ** If you want to visit doors, remove or comment this method
     */
-    virtual bool visitIfcDoor(ifc2x3::IfcDoor * /*value*/)
+    bool visitIfcDoor(ifc2x3::IfcDoor * /*value*/) override
     {
         return true;
     };
@@ -128,7 +128,7 @@ public:
     ** \brief Do not visit IfcWindow
     ** If you want to visit windows, remove or comment this method
     */
-    virtual bool visitIfcWindow(ifc2x3::IfcWindow * /*value*/)
+    bool visitIfcWindow(ifc2x3::IfcWindow * /*value*/) override
     {
         return true;
     };

@@ -732,2803 +732,2803 @@ namespace ifc2x3 {
         /**
          */
         FalseVisitor();
-        virtual ~FalseVisitor();
+        ~FalseVisitor() override;
         /**
          * @param value the IfcActorSelect datatype to visit
          */
-        virtual bool visitIfcActorSelect(IfcActorSelect *value);
+        bool visitIfcActorSelect(IfcActorSelect *value) override;
         /**
          * @param value the IfcAppliedValueSelect datatype to visit
          */
-        virtual bool visitIfcAppliedValueSelect(IfcAppliedValueSelect *value);
+        bool visitIfcAppliedValueSelect(IfcAppliedValueSelect *value) override;
         /**
          * @param value the IfcAxis2Placement datatype to visit
          */
-        virtual bool visitIfcAxis2Placement(IfcAxis2Placement *value);
+        bool visitIfcAxis2Placement(IfcAxis2Placement *value) override;
         /**
          * @param value the IfcBooleanOperand datatype to visit
          */
-        virtual bool visitIfcBooleanOperand(IfcBooleanOperand *value);
+        bool visitIfcBooleanOperand(IfcBooleanOperand *value) override;
         /**
          * @param value the IfcCharacterStyleSelect datatype to visit
          */
-        virtual bool visitIfcCharacterStyleSelect(IfcCharacterStyleSelect *value);
+        bool visitIfcCharacterStyleSelect(IfcCharacterStyleSelect *value) override;
         /**
          * @param value the IfcClassificationNotationSelect datatype to visit
          */
-        virtual bool visitIfcClassificationNotationSelect(IfcClassificationNotationSelect *value);
+        bool visitIfcClassificationNotationSelect(IfcClassificationNotationSelect *value) override;
         /**
          * @param value the IfcColour datatype to visit
          */
-        virtual bool visitIfcColour(IfcColour *value);
+        bool visitIfcColour(IfcColour *value) override;
         /**
          * @param value the IfcColourOrFactor datatype to visit
          */
-        virtual bool visitIfcColourOrFactor(IfcColourOrFactor *value);
+        bool visitIfcColourOrFactor(IfcColourOrFactor *value) override;
         /**
          * @param value the IfcConditionCriterionSelect datatype to visit
          */
-        virtual bool visitIfcConditionCriterionSelect(IfcConditionCriterionSelect *value);
+        bool visitIfcConditionCriterionSelect(IfcConditionCriterionSelect *value) override;
         /**
          * @param value the IfcCsgSelect datatype to visit
          */
-        virtual bool visitIfcCsgSelect(IfcCsgSelect *value);
+        bool visitIfcCsgSelect(IfcCsgSelect *value) override;
         /**
          * @param value the IfcCurveFontOrScaledCurveFontSelect datatype to visit
          */
-        virtual bool visitIfcCurveFontOrScaledCurveFontSelect(IfcCurveFontOrScaledCurveFontSelect *value);
+        bool visitIfcCurveFontOrScaledCurveFontSelect(IfcCurveFontOrScaledCurveFontSelect *value) override;
         /**
          * @param value the IfcCurveOrEdgeCurve datatype to visit
          */
-        virtual bool visitIfcCurveOrEdgeCurve(IfcCurveOrEdgeCurve *value);
+        bool visitIfcCurveOrEdgeCurve(IfcCurveOrEdgeCurve *value) override;
         /**
          * @param value the IfcCurveStyleFontSelect datatype to visit
          */
-        virtual bool visitIfcCurveStyleFontSelect(IfcCurveStyleFontSelect *value);
+        bool visitIfcCurveStyleFontSelect(IfcCurveStyleFontSelect *value) override;
         /**
          * @param value the IfcDateTimeSelect datatype to visit
          */
-        virtual bool visitIfcDateTimeSelect(IfcDateTimeSelect *value);
+        bool visitIfcDateTimeSelect(IfcDateTimeSelect *value) override;
         /**
          * @param value the IfcDefinedSymbolSelect datatype to visit
          */
-        virtual bool visitIfcDefinedSymbolSelect(IfcDefinedSymbolSelect *value);
+        bool visitIfcDefinedSymbolSelect(IfcDefinedSymbolSelect *value) override;
         /**
          * @param value the IfcDerivedMeasureValue datatype to visit
          */
-        virtual bool visitIfcDerivedMeasureValue(IfcDerivedMeasureValue *value);
+        bool visitIfcDerivedMeasureValue(IfcDerivedMeasureValue *value) override;
         /**
          * @param value the IfcDocumentSelect datatype to visit
          */
-        virtual bool visitIfcDocumentSelect(IfcDocumentSelect *value);
+        bool visitIfcDocumentSelect(IfcDocumentSelect *value) override;
         /**
          * @param value the IfcDraughtingCalloutElement datatype to visit
          */
-        virtual bool visitIfcDraughtingCalloutElement(IfcDraughtingCalloutElement *value);
+        bool visitIfcDraughtingCalloutElement(IfcDraughtingCalloutElement *value) override;
         /**
          * @param value the IfcFillAreaStyleTileShapeSelect datatype to visit
          */
-        virtual bool visitIfcFillAreaStyleTileShapeSelect(IfcFillAreaStyleTileShapeSelect *value);
+        bool visitIfcFillAreaStyleTileShapeSelect(IfcFillAreaStyleTileShapeSelect *value) override;
         /**
          * @param value the IfcFillStyleSelect datatype to visit
          */
-        virtual bool visitIfcFillStyleSelect(IfcFillStyleSelect *value);
+        bool visitIfcFillStyleSelect(IfcFillStyleSelect *value) override;
         /**
          * @param value the IfcGeometricSetSelect datatype to visit
          */
-        virtual bool visitIfcGeometricSetSelect(IfcGeometricSetSelect *value);
+        bool visitIfcGeometricSetSelect(IfcGeometricSetSelect *value) override;
         /**
          * @param value the IfcHatchLineDistanceSelect datatype to visit
          */
-        virtual bool visitIfcHatchLineDistanceSelect(IfcHatchLineDistanceSelect *value);
+        bool visitIfcHatchLineDistanceSelect(IfcHatchLineDistanceSelect *value) override;
         /**
          * @param value the IfcLayeredItem datatype to visit
          */
-        virtual bool visitIfcLayeredItem(IfcLayeredItem *value);
+        bool visitIfcLayeredItem(IfcLayeredItem *value) override;
         /**
          * @param value the IfcLibrarySelect datatype to visit
          */
-        virtual bool visitIfcLibrarySelect(IfcLibrarySelect *value);
+        bool visitIfcLibrarySelect(IfcLibrarySelect *value) override;
         /**
          * @param value the IfcLightDistributionDataSourceSelect datatype to visit
          */
-        virtual bool visitIfcLightDistributionDataSourceSelect(IfcLightDistributionDataSourceSelect *value);
+        bool visitIfcLightDistributionDataSourceSelect(IfcLightDistributionDataSourceSelect *value) override;
         /**
          * @param value the IfcMaterialSelect datatype to visit
          */
-        virtual bool visitIfcMaterialSelect(IfcMaterialSelect *value);
+        bool visitIfcMaterialSelect(IfcMaterialSelect *value) override;
         /**
          * @param value the IfcMeasureValue datatype to visit
          */
-        virtual bool visitIfcMeasureValue(IfcMeasureValue *value);
+        bool visitIfcMeasureValue(IfcMeasureValue *value) override;
         /**
          * @param value the IfcMetricValueSelect datatype to visit
          */
-        virtual bool visitIfcMetricValueSelect(IfcMetricValueSelect *value);
+        bool visitIfcMetricValueSelect(IfcMetricValueSelect *value) override;
         /**
          * @param value the IfcObjectReferenceSelect datatype to visit
          */
-        virtual bool visitIfcObjectReferenceSelect(IfcObjectReferenceSelect *value);
+        bool visitIfcObjectReferenceSelect(IfcObjectReferenceSelect *value) override;
         /**
          * @param value the IfcOrientationSelect datatype to visit
          */
-        virtual bool visitIfcOrientationSelect(IfcOrientationSelect *value);
+        bool visitIfcOrientationSelect(IfcOrientationSelect *value) override;
         /**
          * @param value the IfcPointOrVertexPoint datatype to visit
          */
-        virtual bool visitIfcPointOrVertexPoint(IfcPointOrVertexPoint *value);
+        bool visitIfcPointOrVertexPoint(IfcPointOrVertexPoint *value) override;
         /**
          * @param value the IfcPresentationStyleSelect datatype to visit
          */
-        virtual bool visitIfcPresentationStyleSelect(IfcPresentationStyleSelect *value);
+        bool visitIfcPresentationStyleSelect(IfcPresentationStyleSelect *value) override;
         /**
          * @param value the IfcShell datatype to visit
          */
-        virtual bool visitIfcShell(IfcShell *value);
+        bool visitIfcShell(IfcShell *value) override;
         /**
          * @param value the IfcSimpleValue datatype to visit
          */
-        virtual bool visitIfcSimpleValue(IfcSimpleValue *value);
+        bool visitIfcSimpleValue(IfcSimpleValue *value) override;
         /**
          * @param value the IfcSizeSelect datatype to visit
          */
-        virtual bool visitIfcSizeSelect(IfcSizeSelect *value);
+        bool visitIfcSizeSelect(IfcSizeSelect *value) override;
         /**
          * @param value the IfcSpecularHighlightSelect datatype to visit
          */
-        virtual bool visitIfcSpecularHighlightSelect(IfcSpecularHighlightSelect *value);
+        bool visitIfcSpecularHighlightSelect(IfcSpecularHighlightSelect *value) override;
         /**
          * @param value the IfcStructuralActivityAssignmentSelect datatype to visit
          */
-        virtual bool visitIfcStructuralActivityAssignmentSelect(IfcStructuralActivityAssignmentSelect *value);
+        bool visitIfcStructuralActivityAssignmentSelect(IfcStructuralActivityAssignmentSelect *value) override;
         /**
          * @param value the IfcSurfaceOrFaceSurface datatype to visit
          */
-        virtual bool visitIfcSurfaceOrFaceSurface(IfcSurfaceOrFaceSurface *value);
+        bool visitIfcSurfaceOrFaceSurface(IfcSurfaceOrFaceSurface *value) override;
         /**
          * @param value the IfcSurfaceStyleElementSelect datatype to visit
          */
-        virtual bool visitIfcSurfaceStyleElementSelect(IfcSurfaceStyleElementSelect *value);
+        bool visitIfcSurfaceStyleElementSelect(IfcSurfaceStyleElementSelect *value) override;
         /**
          * @param value the IfcSymbolStyleSelect datatype to visit
          */
-        virtual bool visitIfcSymbolStyleSelect(IfcSymbolStyleSelect *value);
+        bool visitIfcSymbolStyleSelect(IfcSymbolStyleSelect *value) override;
         /**
          * @param value the IfcTextFontSelect datatype to visit
          */
-        virtual bool visitIfcTextFontSelect(IfcTextFontSelect *value);
+        bool visitIfcTextFontSelect(IfcTextFontSelect *value) override;
         /**
          * @param value the IfcTextStyleSelect datatype to visit
          */
-        virtual bool visitIfcTextStyleSelect(IfcTextStyleSelect *value);
+        bool visitIfcTextStyleSelect(IfcTextStyleSelect *value) override;
         /**
          * @param value the IfcTrimmingSelect datatype to visit
          */
-        virtual bool visitIfcTrimmingSelect(IfcTrimmingSelect *value);
+        bool visitIfcTrimmingSelect(IfcTrimmingSelect *value) override;
         /**
          * @param value the IfcUnit datatype to visit
          */
-        virtual bool visitIfcUnit(IfcUnit *value);
+        bool visitIfcUnit(IfcUnit *value) override;
         /**
          * @param value the IfcValue datatype to visit
          */
-        virtual bool visitIfcValue(IfcValue *value);
+        bool visitIfcValue(IfcValue *value) override;
         /**
          * @param value the IfcVectorOrDirection datatype to visit
          */
-        virtual bool visitIfcVectorOrDirection(IfcVectorOrDirection *value);
+        bool visitIfcVectorOrDirection(IfcVectorOrDirection *value) override;
         /**
          * @param value the Ifc2DCompositeCurve datatype to visit
          */
-        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *value);
+        bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *value) override;
         /**
          * @param value the IfcActionRequest datatype to visit
          */
-        virtual bool visitIfcActionRequest(IfcActionRequest *value);
+        bool visitIfcActionRequest(IfcActionRequest *value) override;
         /**
          * @param value the IfcActor datatype to visit
          */
-        virtual bool visitIfcActor(IfcActor *value);
+        bool visitIfcActor(IfcActor *value) override;
         /**
          * @param value the IfcActorRole datatype to visit
          */
-        virtual bool visitIfcActorRole(IfcActorRole *value);
+        bool visitIfcActorRole(IfcActorRole *value) override;
         /**
          * @param value the IfcActuatorType datatype to visit
          */
-        virtual bool visitIfcActuatorType(IfcActuatorType *value);
+        bool visitIfcActuatorType(IfcActuatorType *value) override;
         /**
          * @param value the IfcAddress datatype to visit
          */
-        virtual bool visitIfcAddress(IfcAddress *value);
+        bool visitIfcAddress(IfcAddress *value) override;
         /**
          * @param value the IfcAirTerminalBoxType datatype to visit
          */
-        virtual bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *value);
+        bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *value) override;
         /**
          * @param value the IfcAirTerminalType datatype to visit
          */
-        virtual bool visitIfcAirTerminalType(IfcAirTerminalType *value);
+        bool visitIfcAirTerminalType(IfcAirTerminalType *value) override;
         /**
          * @param value the IfcAirToAirHeatRecoveryType datatype to visit
          */
-        virtual bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *value);
+        bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *value) override;
         /**
          * @param value the IfcAlarmType datatype to visit
          */
-        virtual bool visitIfcAlarmType(IfcAlarmType *value);
+        bool visitIfcAlarmType(IfcAlarmType *value) override;
         /**
          * @param value the IfcAngularDimension datatype to visit
          */
-        virtual bool visitIfcAngularDimension(IfcAngularDimension *value);
+        bool visitIfcAngularDimension(IfcAngularDimension *value) override;
         /**
          * @param value the IfcAnnotation datatype to visit
          */
-        virtual bool visitIfcAnnotation(IfcAnnotation *value);
+        bool visitIfcAnnotation(IfcAnnotation *value) override;
         /**
          * @param value the IfcAnnotationCurveOccurrence datatype to visit
          */
-        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *value);
+        bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *value) override;
         /**
          * @param value the IfcAnnotationFillArea datatype to visit
          */
-        virtual bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *value);
+        bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *value) override;
         /**
          * @param value the IfcAnnotationFillAreaOccurrence datatype to visit
          */
-        virtual bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *value);
+        bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *value) override;
         /**
          * @param value the IfcAnnotationOccurrence datatype to visit
          */
-        virtual bool visitIfcAnnotationOccurrence(IfcAnnotationOccurrence *value);
+        bool visitIfcAnnotationOccurrence(IfcAnnotationOccurrence *value) override;
         /**
          * @param value the IfcAnnotationSurface datatype to visit
          */
-        virtual bool visitIfcAnnotationSurface(IfcAnnotationSurface *value);
+        bool visitIfcAnnotationSurface(IfcAnnotationSurface *value) override;
         /**
          * @param value the IfcAnnotationSurfaceOccurrence datatype to visit
          */
-        virtual bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *value);
+        bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *value) override;
         /**
          * @param value the IfcAnnotationSymbolOccurrence datatype to visit
          */
-        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *value);
+        bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *value) override;
         /**
          * @param value the IfcAnnotationTextOccurrence datatype to visit
          */
-        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *value);
+        bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *value) override;
         /**
          * @param value the IfcApplication datatype to visit
          */
-        virtual bool visitIfcApplication(IfcApplication *value);
+        bool visitIfcApplication(IfcApplication *value) override;
         /**
          * @param value the IfcAppliedValue datatype to visit
          */
-        virtual bool visitIfcAppliedValue(IfcAppliedValue *value);
+        bool visitIfcAppliedValue(IfcAppliedValue *value) override;
         /**
          * @param value the IfcAppliedValueRelationship datatype to visit
          */
-        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *value);
+        bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *value) override;
         /**
          * @param value the IfcApproval datatype to visit
          */
-        virtual bool visitIfcApproval(IfcApproval *value);
+        bool visitIfcApproval(IfcApproval *value) override;
         /**
          * @param value the IfcApprovalActorRelationship datatype to visit
          */
-        virtual bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *value);
+        bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *value) override;
         /**
          * @param value the IfcApprovalPropertyRelationship datatype to visit
          */
-        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *value);
+        bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *value) override;
         /**
          * @param value the IfcApprovalRelationship datatype to visit
          */
-        virtual bool visitIfcApprovalRelationship(IfcApprovalRelationship *value);
+        bool visitIfcApprovalRelationship(IfcApprovalRelationship *value) override;
         /**
          * @param value the IfcArbitraryClosedProfileDef datatype to visit
          */
-        virtual bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *value);
+        bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *value) override;
         /**
          * @param value the IfcArbitraryOpenProfileDef datatype to visit
          */
-        virtual bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *value);
+        bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *value) override;
         /**
          * @param value the IfcArbitraryProfileDefWithVoids datatype to visit
          */
-        virtual bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *value);
+        bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *value) override;
         /**
          * @param value the IfcAsset datatype to visit
          */
-        virtual bool visitIfcAsset(IfcAsset *value);
+        bool visitIfcAsset(IfcAsset *value) override;
         /**
          * @param value the IfcAsymmetricIShapeProfileDef datatype to visit
          */
-        virtual bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *value);
+        bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *value) override;
         /**
          * @param value the IfcAxis1Placement datatype to visit
          */
-        virtual bool visitIfcAxis1Placement(IfcAxis1Placement *value);
+        bool visitIfcAxis1Placement(IfcAxis1Placement *value) override;
         /**
          * @param value the IfcAxis2Placement2D datatype to visit
          */
-        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *value);
+        bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *value) override;
         /**
          * @param value the IfcAxis2Placement3D datatype to visit
          */
-        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *value);
+        bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *value) override;
         /**
          * @param value the IfcBSplineCurve datatype to visit
          */
-        virtual bool visitIfcBSplineCurve(IfcBSplineCurve *value);
+        bool visitIfcBSplineCurve(IfcBSplineCurve *value) override;
         /**
          * @param value the IfcBeam datatype to visit
          */
-        virtual bool visitIfcBeam(IfcBeam *value);
+        bool visitIfcBeam(IfcBeam *value) override;
         /**
          * @param value the IfcBeamType datatype to visit
          */
-        virtual bool visitIfcBeamType(IfcBeamType *value);
+        bool visitIfcBeamType(IfcBeamType *value) override;
         /**
          * @param value the IfcBezierCurve datatype to visit
          */
-        virtual bool visitIfcBezierCurve(IfcBezierCurve *value);
+        bool visitIfcBezierCurve(IfcBezierCurve *value) override;
         /**
          * @param value the IfcBlobTexture datatype to visit
          */
-        virtual bool visitIfcBlobTexture(IfcBlobTexture *value);
+        bool visitIfcBlobTexture(IfcBlobTexture *value) override;
         /**
          * @param value the IfcBlock datatype to visit
          */
-        virtual bool visitIfcBlock(IfcBlock *value);
+        bool visitIfcBlock(IfcBlock *value) override;
         /**
          * @param value the IfcBoilerType datatype to visit
          */
-        virtual bool visitIfcBoilerType(IfcBoilerType *value);
+        bool visitIfcBoilerType(IfcBoilerType *value) override;
         /**
          * @param value the IfcBooleanClippingResult datatype to visit
          */
-        virtual bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *value);
+        bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *value) override;
         /**
          * @param value the IfcBooleanResult datatype to visit
          */
-        virtual bool visitIfcBooleanResult(IfcBooleanResult *value);
+        bool visitIfcBooleanResult(IfcBooleanResult *value) override;
         /**
          * @param value the IfcBoundaryCondition datatype to visit
          */
-        virtual bool visitIfcBoundaryCondition(IfcBoundaryCondition *value);
+        bool visitIfcBoundaryCondition(IfcBoundaryCondition *value) override;
         /**
          * @param value the IfcBoundaryEdgeCondition datatype to visit
          */
-        virtual bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *value);
+        bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *value) override;
         /**
          * @param value the IfcBoundaryFaceCondition datatype to visit
          */
-        virtual bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *value);
+        bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *value) override;
         /**
          * @param value the IfcBoundaryNodeCondition datatype to visit
          */
-        virtual bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *value);
+        bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *value) override;
         /**
          * @param value the IfcBoundaryNodeConditionWarping datatype to visit
          */
-        virtual bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *value);
+        bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *value) override;
         /**
          * @param value the IfcBoundedCurve datatype to visit
          */
-        virtual bool visitIfcBoundedCurve(IfcBoundedCurve *value);
+        bool visitIfcBoundedCurve(IfcBoundedCurve *value) override;
         /**
          * @param value the IfcBoundedSurface datatype to visit
          */
-        virtual bool visitIfcBoundedSurface(IfcBoundedSurface *value);
+        bool visitIfcBoundedSurface(IfcBoundedSurface *value) override;
         /**
          * @param value the IfcBoundingBox datatype to visit
          */
-        virtual bool visitIfcBoundingBox(IfcBoundingBox *value);
+        bool visitIfcBoundingBox(IfcBoundingBox *value) override;
         /**
          * @param value the IfcBoxedHalfSpace datatype to visit
          */
-        virtual bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *value);
+        bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *value) override;
         /**
          * @param value the IfcBuilding datatype to visit
          */
-        virtual bool visitIfcBuilding(IfcBuilding *value);
+        bool visitIfcBuilding(IfcBuilding *value) override;
         /**
          * @param value the IfcBuildingElement datatype to visit
          */
-        virtual bool visitIfcBuildingElement(IfcBuildingElement *value);
+        bool visitIfcBuildingElement(IfcBuildingElement *value) override;
         /**
          * @param value the IfcBuildingElementComponent datatype to visit
          */
-        virtual bool visitIfcBuildingElementComponent(IfcBuildingElementComponent *value);
+        bool visitIfcBuildingElementComponent(IfcBuildingElementComponent *value) override;
         /**
          * @param value the IfcBuildingElementPart datatype to visit
          */
-        virtual bool visitIfcBuildingElementPart(IfcBuildingElementPart *value);
+        bool visitIfcBuildingElementPart(IfcBuildingElementPart *value) override;
         /**
          * @param value the IfcBuildingElementProxy datatype to visit
          */
-        virtual bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *value);
+        bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *value) override;
         /**
          * @param value the IfcBuildingElementProxyType datatype to visit
          */
-        virtual bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *value);
+        bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *value) override;
         /**
          * @param value the IfcBuildingElementType datatype to visit
          */
-        virtual bool visitIfcBuildingElementType(IfcBuildingElementType *value);
+        bool visitIfcBuildingElementType(IfcBuildingElementType *value) override;
         /**
          * @param value the IfcBuildingStorey datatype to visit
          */
-        virtual bool visitIfcBuildingStorey(IfcBuildingStorey *value);
+        bool visitIfcBuildingStorey(IfcBuildingStorey *value) override;
         /**
          * @param value the IfcCShapeProfileDef datatype to visit
          */
-        virtual bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *value);
+        bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *value) override;
         /**
          * @param value the IfcCableCarrierFittingType datatype to visit
          */
-        virtual bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *value);
+        bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *value) override;
         /**
          * @param value the IfcCableCarrierSegmentType datatype to visit
          */
-        virtual bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *value);
+        bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *value) override;
         /**
          * @param value the IfcCableSegmentType datatype to visit
          */
-        virtual bool visitIfcCableSegmentType(IfcCableSegmentType *value);
+        bool visitIfcCableSegmentType(IfcCableSegmentType *value) override;
         /**
          * @param value the IfcCalendarDate datatype to visit
          */
-        virtual bool visitIfcCalendarDate(IfcCalendarDate *value);
+        bool visitIfcCalendarDate(IfcCalendarDate *value) override;
         /**
          * @param value the IfcCartesianPoint datatype to visit
          */
-        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *value);
+        bool visitIfcCartesianPoint(IfcCartesianPoint *value) override;
         /**
          * @param value the IfcCartesianTransformationOperator datatype to visit
          */
-        virtual bool visitIfcCartesianTransformationOperator(IfcCartesianTransformationOperator *value);
+        bool visitIfcCartesianTransformationOperator(IfcCartesianTransformationOperator *value) override;
         /**
          * @param value the IfcCartesianTransformationOperator2D datatype to visit
          */
-        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *value);
+        bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *value) override;
         /**
          * @param value the IfcCartesianTransformationOperator2DnonUniform datatype to visit
          */
-        virtual bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *value);
+        bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *value) override;
         /**
          * @param value the IfcCartesianTransformationOperator3D datatype to visit
          */
-        virtual bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *value);
+        bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *value) override;
         /**
          * @param value the IfcCartesianTransformationOperator3DnonUniform datatype to visit
          */
-        virtual bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *value);
+        bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *value) override;
         /**
          * @param value the IfcCenterLineProfileDef datatype to visit
          */
-        virtual bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *value);
+        bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *value) override;
         /**
          * @param value the IfcChamferEdgeFeature datatype to visit
          */
-        virtual bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *value);
+        bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *value) override;
         /**
          * @param value the IfcChillerType datatype to visit
          */
-        virtual bool visitIfcChillerType(IfcChillerType *value);
+        bool visitIfcChillerType(IfcChillerType *value) override;
         /**
          * @param value the IfcCircle datatype to visit
          */
-        virtual bool visitIfcCircle(IfcCircle *value);
+        bool visitIfcCircle(IfcCircle *value) override;
         /**
          * @param value the IfcCircleHollowProfileDef datatype to visit
          */
-        virtual bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *value);
+        bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *value) override;
         /**
          * @param value the IfcCircleProfileDef datatype to visit
          */
-        virtual bool visitIfcCircleProfileDef(IfcCircleProfileDef *value);
+        bool visitIfcCircleProfileDef(IfcCircleProfileDef *value) override;
         /**
          * @param value the IfcClassification datatype to visit
          */
-        virtual bool visitIfcClassification(IfcClassification *value);
+        bool visitIfcClassification(IfcClassification *value) override;
         /**
          * @param value the IfcClassificationItem datatype to visit
          */
-        virtual bool visitIfcClassificationItem(IfcClassificationItem *value);
+        bool visitIfcClassificationItem(IfcClassificationItem *value) override;
         /**
          * @param value the IfcClassificationItemRelationship datatype to visit
          */
-        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *value);
+        bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *value) override;
         /**
          * @param value the IfcClassificationNotation datatype to visit
          */
-        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *value);
+        bool visitIfcClassificationNotation(IfcClassificationNotation *value) override;
         /**
          * @param value the IfcClassificationNotationFacet datatype to visit
          */
-        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *value);
+        bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *value) override;
         /**
          * @param value the IfcClassificationReference datatype to visit
          */
-        virtual bool visitIfcClassificationReference(IfcClassificationReference *value);
+        bool visitIfcClassificationReference(IfcClassificationReference *value) override;
         /**
          * @param value the IfcClosedShell datatype to visit
          */
-        virtual bool visitIfcClosedShell(IfcClosedShell *value);
+        bool visitIfcClosedShell(IfcClosedShell *value) override;
         /**
          * @param value the IfcCoilType datatype to visit
          */
-        virtual bool visitIfcCoilType(IfcCoilType *value);
+        bool visitIfcCoilType(IfcCoilType *value) override;
         /**
          * @param value the IfcColourRgb datatype to visit
          */
-        virtual bool visitIfcColourRgb(IfcColourRgb *value);
+        bool visitIfcColourRgb(IfcColourRgb *value) override;
         /**
          * @param value the IfcColourSpecification datatype to visit
          */
-        virtual bool visitIfcColourSpecification(IfcColourSpecification *value);
+        bool visitIfcColourSpecification(IfcColourSpecification *value) override;
         /**
          * @param value the IfcColumn datatype to visit
          */
-        virtual bool visitIfcColumn(IfcColumn *value);
+        bool visitIfcColumn(IfcColumn *value) override;
         /**
          * @param value the IfcColumnType datatype to visit
          */
-        virtual bool visitIfcColumnType(IfcColumnType *value);
+        bool visitIfcColumnType(IfcColumnType *value) override;
         /**
          * @param value the IfcComplexProperty datatype to visit
          */
-        virtual bool visitIfcComplexProperty(IfcComplexProperty *value);
+        bool visitIfcComplexProperty(IfcComplexProperty *value) override;
         /**
          * @param value the IfcCompositeCurve datatype to visit
          */
-        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *value);
+        bool visitIfcCompositeCurve(IfcCompositeCurve *value) override;
         /**
          * @param value the IfcCompositeCurveSegment datatype to visit
          */
-        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *value);
+        bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *value) override;
         /**
          * @param value the IfcCompositeProfileDef datatype to visit
          */
-        virtual bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *value);
+        bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *value) override;
         /**
          * @param value the IfcCompressorType datatype to visit
          */
-        virtual bool visitIfcCompressorType(IfcCompressorType *value);
+        bool visitIfcCompressorType(IfcCompressorType *value) override;
         /**
          * @param value the IfcCondenserType datatype to visit
          */
-        virtual bool visitIfcCondenserType(IfcCondenserType *value);
+        bool visitIfcCondenserType(IfcCondenserType *value) override;
         /**
          * @param value the IfcCondition datatype to visit
          */
-        virtual bool visitIfcCondition(IfcCondition *value);
+        bool visitIfcCondition(IfcCondition *value) override;
         /**
          * @param value the IfcConditionCriterion datatype to visit
          */
-        virtual bool visitIfcConditionCriterion(IfcConditionCriterion *value);
+        bool visitIfcConditionCriterion(IfcConditionCriterion *value) override;
         /**
          * @param value the IfcConic datatype to visit
          */
-        virtual bool visitIfcConic(IfcConic *value);
+        bool visitIfcConic(IfcConic *value) override;
         /**
          * @param value the IfcConnectedFaceSet datatype to visit
          */
-        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *value);
+        bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *value) override;
         /**
          * @param value the IfcConnectionCurveGeometry datatype to visit
          */
-        virtual bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *value);
+        bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *value) override;
         /**
          * @param value the IfcConnectionGeometry datatype to visit
          */
-        virtual bool visitIfcConnectionGeometry(IfcConnectionGeometry *value);
+        bool visitIfcConnectionGeometry(IfcConnectionGeometry *value) override;
         /**
          * @param value the IfcConnectionPointEccentricity datatype to visit
          */
-        virtual bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *value);
+        bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *value) override;
         /**
          * @param value the IfcConnectionPointGeometry datatype to visit
          */
-        virtual bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *value);
+        bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *value) override;
         /**
          * @param value the IfcConnectionPortGeometry datatype to visit
          */
-        virtual bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *value);
+        bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *value) override;
         /**
          * @param value the IfcConnectionSurfaceGeometry datatype to visit
          */
-        virtual bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *value);
+        bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *value) override;
         /**
          * @param value the IfcConstraint datatype to visit
          */
-        virtual bool visitIfcConstraint(IfcConstraint *value);
+        bool visitIfcConstraint(IfcConstraint *value) override;
         /**
          * @param value the IfcConstraintAggregationRelationship datatype to visit
          */
-        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *value);
+        bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *value) override;
         /**
          * @param value the IfcConstraintClassificationRelationship datatype to visit
          */
-        virtual bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *value);
+        bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *value) override;
         /**
          * @param value the IfcConstraintRelationship datatype to visit
          */
-        virtual bool visitIfcConstraintRelationship(IfcConstraintRelationship *value);
+        bool visitIfcConstraintRelationship(IfcConstraintRelationship *value) override;
         /**
          * @param value the IfcConstructionEquipmentResource datatype to visit
          */
-        virtual bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *value);
+        bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *value) override;
         /**
          * @param value the IfcConstructionMaterialResource datatype to visit
          */
-        virtual bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *value);
+        bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *value) override;
         /**
          * @param value the IfcConstructionProductResource datatype to visit
          */
-        virtual bool visitIfcConstructionProductResource(IfcConstructionProductResource *value);
+        bool visitIfcConstructionProductResource(IfcConstructionProductResource *value) override;
         /**
          * @param value the IfcConstructionResource datatype to visit
          */
-        virtual bool visitIfcConstructionResource(IfcConstructionResource *value);
+        bool visitIfcConstructionResource(IfcConstructionResource *value) override;
         /**
          * @param value the IfcContextDependentUnit datatype to visit
          */
-        virtual bool visitIfcContextDependentUnit(IfcContextDependentUnit *value);
+        bool visitIfcContextDependentUnit(IfcContextDependentUnit *value) override;
         /**
          * @param value the IfcControl datatype to visit
          */
-        virtual bool visitIfcControl(IfcControl *value);
+        bool visitIfcControl(IfcControl *value) override;
         /**
          * @param value the IfcControllerType datatype to visit
          */
-        virtual bool visitIfcControllerType(IfcControllerType *value);
+        bool visitIfcControllerType(IfcControllerType *value) override;
         /**
          * @param value the IfcConversionBasedUnit datatype to visit
          */
-        virtual bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *value);
+        bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *value) override;
         /**
          * @param value the IfcCooledBeamType datatype to visit
          */
-        virtual bool visitIfcCooledBeamType(IfcCooledBeamType *value);
+        bool visitIfcCooledBeamType(IfcCooledBeamType *value) override;
         /**
          * @param value the IfcCoolingTowerType datatype to visit
          */
-        virtual bool visitIfcCoolingTowerType(IfcCoolingTowerType *value);
+        bool visitIfcCoolingTowerType(IfcCoolingTowerType *value) override;
         /**
          * @param value the IfcCoordinatedUniversalTimeOffset datatype to visit
          */
-        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *value);
+        bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *value) override;
         /**
          * @param value the IfcCostItem datatype to visit
          */
-        virtual bool visitIfcCostItem(IfcCostItem *value);
+        bool visitIfcCostItem(IfcCostItem *value) override;
         /**
          * @param value the IfcCostSchedule datatype to visit
          */
-        virtual bool visitIfcCostSchedule(IfcCostSchedule *value);
+        bool visitIfcCostSchedule(IfcCostSchedule *value) override;
         /**
          * @param value the IfcCostValue datatype to visit
          */
-        virtual bool visitIfcCostValue(IfcCostValue *value);
+        bool visitIfcCostValue(IfcCostValue *value) override;
         /**
          * @param value the IfcCovering datatype to visit
          */
-        virtual bool visitIfcCovering(IfcCovering *value);
+        bool visitIfcCovering(IfcCovering *value) override;
         /**
          * @param value the IfcCoveringType datatype to visit
          */
-        virtual bool visitIfcCoveringType(IfcCoveringType *value);
+        bool visitIfcCoveringType(IfcCoveringType *value) override;
         /**
          * @param value the IfcCraneRailAShapeProfileDef datatype to visit
          */
-        virtual bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *value);
+        bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *value) override;
         /**
          * @param value the IfcCraneRailFShapeProfileDef datatype to visit
          */
-        virtual bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *value);
+        bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *value) override;
         /**
          * @param value the IfcCrewResource datatype to visit
          */
-        virtual bool visitIfcCrewResource(IfcCrewResource *value);
+        bool visitIfcCrewResource(IfcCrewResource *value) override;
         /**
          * @param value the IfcCsgPrimitive3D datatype to visit
          */
-        virtual bool visitIfcCsgPrimitive3D(IfcCsgPrimitive3D *value);
+        bool visitIfcCsgPrimitive3D(IfcCsgPrimitive3D *value) override;
         /**
          * @param value the IfcCsgSolid datatype to visit
          */
-        virtual bool visitIfcCsgSolid(IfcCsgSolid *value);
+        bool visitIfcCsgSolid(IfcCsgSolid *value) override;
         /**
          * @param value the IfcCurrencyRelationship datatype to visit
          */
-        virtual bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *value);
+        bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *value) override;
         /**
          * @param value the IfcCurtainWall datatype to visit
          */
-        virtual bool visitIfcCurtainWall(IfcCurtainWall *value);
+        bool visitIfcCurtainWall(IfcCurtainWall *value) override;
         /**
          * @param value the IfcCurtainWallType datatype to visit
          */
-        virtual bool visitIfcCurtainWallType(IfcCurtainWallType *value);
+        bool visitIfcCurtainWallType(IfcCurtainWallType *value) override;
         /**
          * @param value the IfcCurve datatype to visit
          */
-        virtual bool visitIfcCurve(IfcCurve *value);
+        bool visitIfcCurve(IfcCurve *value) override;
         /**
          * @param value the IfcCurveBoundedPlane datatype to visit
          */
-        virtual bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *value);
+        bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *value) override;
         /**
          * @param value the IfcCurveStyle datatype to visit
          */
-        virtual bool visitIfcCurveStyle(IfcCurveStyle *value);
+        bool visitIfcCurveStyle(IfcCurveStyle *value) override;
         /**
          * @param value the IfcCurveStyleFont datatype to visit
          */
-        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *value);
+        bool visitIfcCurveStyleFont(IfcCurveStyleFont *value) override;
         /**
          * @param value the IfcCurveStyleFontAndScaling datatype to visit
          */
-        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *value);
+        bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *value) override;
         /**
          * @param value the IfcCurveStyleFontPattern datatype to visit
          */
-        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *value);
+        bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *value) override;
         /**
          * @param value the IfcDamperType datatype to visit
          */
-        virtual bool visitIfcDamperType(IfcDamperType *value);
+        bool visitIfcDamperType(IfcDamperType *value) override;
         /**
          * @param value the IfcDateAndTime datatype to visit
          */
-        virtual bool visitIfcDateAndTime(IfcDateAndTime *value);
+        bool visitIfcDateAndTime(IfcDateAndTime *value) override;
         /**
          * @param value the IfcDefinedSymbol datatype to visit
          */
-        virtual bool visitIfcDefinedSymbol(IfcDefinedSymbol *value);
+        bool visitIfcDefinedSymbol(IfcDefinedSymbol *value) override;
         /**
          * @param value the IfcDerivedProfileDef datatype to visit
          */
-        virtual bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *value);
+        bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *value) override;
         /**
          * @param value the IfcDerivedUnit datatype to visit
          */
-        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *value);
+        bool visitIfcDerivedUnit(IfcDerivedUnit *value) override;
         /**
          * @param value the IfcDerivedUnitElement datatype to visit
          */
-        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *value);
+        bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *value) override;
         /**
          * @param value the IfcDiameterDimension datatype to visit
          */
-        virtual bool visitIfcDiameterDimension(IfcDiameterDimension *value);
+        bool visitIfcDiameterDimension(IfcDiameterDimension *value) override;
         /**
          * @param value the IfcDimensionCalloutRelationship datatype to visit
          */
-        virtual bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *value);
+        bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *value) override;
         /**
          * @param value the IfcDimensionCurve datatype to visit
          */
-        virtual bool visitIfcDimensionCurve(IfcDimensionCurve *value);
+        bool visitIfcDimensionCurve(IfcDimensionCurve *value) override;
         /**
          * @param value the IfcDimensionCurveDirectedCallout datatype to visit
          */
-        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *value);
+        bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *value) override;
         /**
          * @param value the IfcDimensionCurveTerminator datatype to visit
          */
-        virtual bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *value);
+        bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *value) override;
         /**
          * @param value the IfcDimensionPair datatype to visit
          */
-        virtual bool visitIfcDimensionPair(IfcDimensionPair *value);
+        bool visitIfcDimensionPair(IfcDimensionPair *value) override;
         /**
          * @param value the IfcDimensionalExponents datatype to visit
          */
-        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *value);
+        bool visitIfcDimensionalExponents(IfcDimensionalExponents *value) override;
         /**
          * @param value the IfcDirection datatype to visit
          */
-        virtual bool visitIfcDirection(IfcDirection *value);
+        bool visitIfcDirection(IfcDirection *value) override;
         /**
          * @param value the IfcDiscreteAccessory datatype to visit
          */
-        virtual bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *value);
+        bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *value) override;
         /**
          * @param value the IfcDiscreteAccessoryType datatype to visit
          */
-        virtual bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *value);
+        bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *value) override;
         /**
          * @param value the IfcDistributionChamberElement datatype to visit
          */
-        virtual bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *value);
+        bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *value) override;
         /**
          * @param value the IfcDistributionChamberElementType datatype to visit
          */
-        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *value);
+        bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *value) override;
         /**
          * @param value the IfcDistributionControlElement datatype to visit
          */
-        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *value);
+        bool visitIfcDistributionControlElement(IfcDistributionControlElement *value) override;
         /**
          * @param value the IfcDistributionControlElementType datatype to visit
          */
-        virtual bool visitIfcDistributionControlElementType(IfcDistributionControlElementType *value);
+        bool visitIfcDistributionControlElementType(IfcDistributionControlElementType *value) override;
         /**
          * @param value the IfcDistributionElement datatype to visit
          */
-        virtual bool visitIfcDistributionElement(IfcDistributionElement *value);
+        bool visitIfcDistributionElement(IfcDistributionElement *value) override;
         /**
          * @param value the IfcDistributionElementType datatype to visit
          */
-        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *value);
+        bool visitIfcDistributionElementType(IfcDistributionElementType *value) override;
         /**
          * @param value the IfcDistributionFlowElement datatype to visit
          */
-        virtual bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *value);
+        bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *value) override;
         /**
          * @param value the IfcDistributionFlowElementType datatype to visit
          */
-        virtual bool visitIfcDistributionFlowElementType(IfcDistributionFlowElementType *value);
+        bool visitIfcDistributionFlowElementType(IfcDistributionFlowElementType *value) override;
         /**
          * @param value the IfcDistributionPort datatype to visit
          */
-        virtual bool visitIfcDistributionPort(IfcDistributionPort *value);
+        bool visitIfcDistributionPort(IfcDistributionPort *value) override;
         /**
          * @param value the IfcDocumentElectronicFormat datatype to visit
          */
-        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *value);
+        bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *value) override;
         /**
          * @param value the IfcDocumentInformation datatype to visit
          */
-        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *value);
+        bool visitIfcDocumentInformation(IfcDocumentInformation *value) override;
         /**
          * @param value the IfcDocumentInformationRelationship datatype to visit
          */
-        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *value);
+        bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *value) override;
         /**
          * @param value the IfcDocumentReference datatype to visit
          */
-        virtual bool visitIfcDocumentReference(IfcDocumentReference *value);
+        bool visitIfcDocumentReference(IfcDocumentReference *value) override;
         /**
          * @param value the IfcDoor datatype to visit
          */
-        virtual bool visitIfcDoor(IfcDoor *value);
+        bool visitIfcDoor(IfcDoor *value) override;
         /**
          * @param value the IfcDoorLiningProperties datatype to visit
          */
-        virtual bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *value);
+        bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *value) override;
         /**
          * @param value the IfcDoorPanelProperties datatype to visit
          */
-        virtual bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *value);
+        bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *value) override;
         /**
          * @param value the IfcDoorStyle datatype to visit
          */
-        virtual bool visitIfcDoorStyle(IfcDoorStyle *value);
+        bool visitIfcDoorStyle(IfcDoorStyle *value) override;
         /**
          * @param value the IfcDraughtingCallout datatype to visit
          */
-        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *value);
+        bool visitIfcDraughtingCallout(IfcDraughtingCallout *value) override;
         /**
          * @param value the IfcDraughtingCalloutRelationship datatype to visit
          */
-        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *value);
+        bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *value) override;
         /**
          * @param value the IfcDraughtingPreDefinedColour datatype to visit
          */
-        virtual bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *value);
+        bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *value) override;
         /**
          * @param value the IfcDraughtingPreDefinedCurveFont datatype to visit
          */
-        virtual bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *value);
+        bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *value) override;
         /**
          * @param value the IfcDraughtingPreDefinedTextFont datatype to visit
          */
-        virtual bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *value);
+        bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *value) override;
         /**
          * @param value the IfcDuctFittingType datatype to visit
          */
-        virtual bool visitIfcDuctFittingType(IfcDuctFittingType *value);
+        bool visitIfcDuctFittingType(IfcDuctFittingType *value) override;
         /**
          * @param value the IfcDuctSegmentType datatype to visit
          */
-        virtual bool visitIfcDuctSegmentType(IfcDuctSegmentType *value);
+        bool visitIfcDuctSegmentType(IfcDuctSegmentType *value) override;
         /**
          * @param value the IfcDuctSilencerType datatype to visit
          */
-        virtual bool visitIfcDuctSilencerType(IfcDuctSilencerType *value);
+        bool visitIfcDuctSilencerType(IfcDuctSilencerType *value) override;
         /**
          * @param value the IfcEdge datatype to visit
          */
-        virtual bool visitIfcEdge(IfcEdge *value);
+        bool visitIfcEdge(IfcEdge *value) override;
         /**
          * @param value the IfcEdgeCurve datatype to visit
          */
-        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *value);
+        bool visitIfcEdgeCurve(IfcEdgeCurve *value) override;
         /**
          * @param value the IfcEdgeFeature datatype to visit
          */
-        virtual bool visitIfcEdgeFeature(IfcEdgeFeature *value);
+        bool visitIfcEdgeFeature(IfcEdgeFeature *value) override;
         /**
          * @param value the IfcEdgeLoop datatype to visit
          */
-        virtual bool visitIfcEdgeLoop(IfcEdgeLoop *value);
+        bool visitIfcEdgeLoop(IfcEdgeLoop *value) override;
         /**
          * @param value the IfcElectricApplianceType datatype to visit
          */
-        virtual bool visitIfcElectricApplianceType(IfcElectricApplianceType *value);
+        bool visitIfcElectricApplianceType(IfcElectricApplianceType *value) override;
         /**
          * @param value the IfcElectricDistributionPoint datatype to visit
          */
-        virtual bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *value);
+        bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *value) override;
         /**
          * @param value the IfcElectricFlowStorageDeviceType datatype to visit
          */
-        virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *value);
+        bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *value) override;
         /**
          * @param value the IfcElectricGeneratorType datatype to visit
          */
-        virtual bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *value);
+        bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *value) override;
         /**
          * @param value the IfcElectricHeaterType datatype to visit
          */
-        virtual bool visitIfcElectricHeaterType(IfcElectricHeaterType *value);
+        bool visitIfcElectricHeaterType(IfcElectricHeaterType *value) override;
         /**
          * @param value the IfcElectricMotorType datatype to visit
          */
-        virtual bool visitIfcElectricMotorType(IfcElectricMotorType *value);
+        bool visitIfcElectricMotorType(IfcElectricMotorType *value) override;
         /**
          * @param value the IfcElectricTimeControlType datatype to visit
          */
-        virtual bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *value);
+        bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *value) override;
         /**
          * @param value the IfcElectricalBaseProperties datatype to visit
          */
-        virtual bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *value);
+        bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *value) override;
         /**
          * @param value the IfcElectricalCircuit datatype to visit
          */
-        virtual bool visitIfcElectricalCircuit(IfcElectricalCircuit *value);
+        bool visitIfcElectricalCircuit(IfcElectricalCircuit *value) override;
         /**
          * @param value the IfcElectricalElement datatype to visit
          */
-        virtual bool visitIfcElectricalElement(IfcElectricalElement *value);
+        bool visitIfcElectricalElement(IfcElectricalElement *value) override;
         /**
          * @param value the IfcElement datatype to visit
          */
-        virtual bool visitIfcElement(IfcElement *value);
+        bool visitIfcElement(IfcElement *value) override;
         /**
          * @param value the IfcElementAssembly datatype to visit
          */
-        virtual bool visitIfcElementAssembly(IfcElementAssembly *value);
+        bool visitIfcElementAssembly(IfcElementAssembly *value) override;
         /**
          * @param value the IfcElementComponent datatype to visit
          */
-        virtual bool visitIfcElementComponent(IfcElementComponent *value);
+        bool visitIfcElementComponent(IfcElementComponent *value) override;
         /**
          * @param value the IfcElementComponentType datatype to visit
          */
-        virtual bool visitIfcElementComponentType(IfcElementComponentType *value);
+        bool visitIfcElementComponentType(IfcElementComponentType *value) override;
         /**
          * @param value the IfcElementQuantity datatype to visit
          */
-        virtual bool visitIfcElementQuantity(IfcElementQuantity *value);
+        bool visitIfcElementQuantity(IfcElementQuantity *value) override;
         /**
          * @param value the IfcElementType datatype to visit
          */
-        virtual bool visitIfcElementType(IfcElementType *value);
+        bool visitIfcElementType(IfcElementType *value) override;
         /**
          * @param value the IfcElementarySurface datatype to visit
          */
-        virtual bool visitIfcElementarySurface(IfcElementarySurface *value);
+        bool visitIfcElementarySurface(IfcElementarySurface *value) override;
         /**
          * @param value the IfcEllipse datatype to visit
          */
-        virtual bool visitIfcEllipse(IfcEllipse *value);
+        bool visitIfcEllipse(IfcEllipse *value) override;
         /**
          * @param value the IfcEllipseProfileDef datatype to visit
          */
-        virtual bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *value);
+        bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *value) override;
         /**
          * @param value the IfcEnergyConversionDevice datatype to visit
          */
-        virtual bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *value);
+        bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *value) override;
         /**
          * @param value the IfcEnergyConversionDeviceType datatype to visit
          */
-        virtual bool visitIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType *value);
+        bool visitIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType *value) override;
         /**
          * @param value the IfcEnergyProperties datatype to visit
          */
-        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *value);
+        bool visitIfcEnergyProperties(IfcEnergyProperties *value) override;
         /**
          * @param value the IfcEnvironmentalImpactValue datatype to visit
          */
-        virtual bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *value);
+        bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *value) override;
         /**
          * @param value the IfcEquipmentElement datatype to visit
          */
-        virtual bool visitIfcEquipmentElement(IfcEquipmentElement *value);
+        bool visitIfcEquipmentElement(IfcEquipmentElement *value) override;
         /**
          * @param value the IfcEquipmentStandard datatype to visit
          */
-        virtual bool visitIfcEquipmentStandard(IfcEquipmentStandard *value);
+        bool visitIfcEquipmentStandard(IfcEquipmentStandard *value) override;
         /**
          * @param value the IfcEvaporativeCoolerType datatype to visit
          */
-        virtual bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *value);
+        bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *value) override;
         /**
          * @param value the IfcEvaporatorType datatype to visit
          */
-        virtual bool visitIfcEvaporatorType(IfcEvaporatorType *value);
+        bool visitIfcEvaporatorType(IfcEvaporatorType *value) override;
         /**
          * @param value the IfcExtendedMaterialProperties datatype to visit
          */
-        virtual bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *value);
+        bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *value) override;
         /**
          * @param value the IfcExternalReference datatype to visit
          */
-        virtual bool visitIfcExternalReference(IfcExternalReference *value);
+        bool visitIfcExternalReference(IfcExternalReference *value) override;
         /**
          * @param value the IfcExternallyDefinedHatchStyle datatype to visit
          */
-        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *value);
+        bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *value) override;
         /**
          * @param value the IfcExternallyDefinedSurfaceStyle datatype to visit
          */
-        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *value);
+        bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *value) override;
         /**
          * @param value the IfcExternallyDefinedSymbol datatype to visit
          */
-        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *value);
+        bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *value) override;
         /**
          * @param value the IfcExternallyDefinedTextFont datatype to visit
          */
-        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *value);
+        bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *value) override;
         /**
          * @param value the IfcExtrudedAreaSolid datatype to visit
          */
-        virtual bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *value);
+        bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *value) override;
         /**
          * @param value the IfcFace datatype to visit
          */
-        virtual bool visitIfcFace(IfcFace *value);
+        bool visitIfcFace(IfcFace *value) override;
         /**
          * @param value the IfcFaceBasedSurfaceModel datatype to visit
          */
-        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *value);
+        bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *value) override;
         /**
          * @param value the IfcFaceBound datatype to visit
          */
-        virtual bool visitIfcFaceBound(IfcFaceBound *value);
+        bool visitIfcFaceBound(IfcFaceBound *value) override;
         /**
          * @param value the IfcFaceOuterBound datatype to visit
          */
-        virtual bool visitIfcFaceOuterBound(IfcFaceOuterBound *value);
+        bool visitIfcFaceOuterBound(IfcFaceOuterBound *value) override;
         /**
          * @param value the IfcFaceSurface datatype to visit
          */
-        virtual bool visitIfcFaceSurface(IfcFaceSurface *value);
+        bool visitIfcFaceSurface(IfcFaceSurface *value) override;
         /**
          * @param value the IfcFacetedBrep datatype to visit
          */
-        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *value);
+        bool visitIfcFacetedBrep(IfcFacetedBrep *value) override;
         /**
          * @param value the IfcFacetedBrepWithVoids datatype to visit
          */
-        virtual bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *value);
+        bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *value) override;
         /**
          * @param value the IfcFailureConnectionCondition datatype to visit
          */
-        virtual bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *value);
+        bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *value) override;
         /**
          * @param value the IfcFanType datatype to visit
          */
-        virtual bool visitIfcFanType(IfcFanType *value);
+        bool visitIfcFanType(IfcFanType *value) override;
         /**
          * @param value the IfcFastener datatype to visit
          */
-        virtual bool visitIfcFastener(IfcFastener *value);
+        bool visitIfcFastener(IfcFastener *value) override;
         /**
          * @param value the IfcFastenerType datatype to visit
          */
-        virtual bool visitIfcFastenerType(IfcFastenerType *value);
+        bool visitIfcFastenerType(IfcFastenerType *value) override;
         /**
          * @param value the IfcFeatureElement datatype to visit
          */
-        virtual bool visitIfcFeatureElement(IfcFeatureElement *value);
+        bool visitIfcFeatureElement(IfcFeatureElement *value) override;
         /**
          * @param value the IfcFeatureElementAddition datatype to visit
          */
-        virtual bool visitIfcFeatureElementAddition(IfcFeatureElementAddition *value);
+        bool visitIfcFeatureElementAddition(IfcFeatureElementAddition *value) override;
         /**
          * @param value the IfcFeatureElementSubtraction datatype to visit
          */
-        virtual bool visitIfcFeatureElementSubtraction(IfcFeatureElementSubtraction *value);
+        bool visitIfcFeatureElementSubtraction(IfcFeatureElementSubtraction *value) override;
         /**
          * @param value the IfcFillAreaStyle datatype to visit
          */
-        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *value);
+        bool visitIfcFillAreaStyle(IfcFillAreaStyle *value) override;
         /**
          * @param value the IfcFillAreaStyleHatching datatype to visit
          */
-        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *value);
+        bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *value) override;
         /**
          * @param value the IfcFillAreaStyleTileSymbolWithStyle datatype to visit
          */
-        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *value);
+        bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *value) override;
         /**
          * @param value the IfcFillAreaStyleTiles datatype to visit
          */
-        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *value);
+        bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *value) override;
         /**
          * @param value the IfcFilterType datatype to visit
          */
-        virtual bool visitIfcFilterType(IfcFilterType *value);
+        bool visitIfcFilterType(IfcFilterType *value) override;
         /**
          * @param value the IfcFireSuppressionTerminalType datatype to visit
          */
-        virtual bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *value);
+        bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *value) override;
         /**
          * @param value the IfcFlowController datatype to visit
          */
-        virtual bool visitIfcFlowController(IfcFlowController *value);
+        bool visitIfcFlowController(IfcFlowController *value) override;
         /**
          * @param value the IfcFlowControllerType datatype to visit
          */
-        virtual bool visitIfcFlowControllerType(IfcFlowControllerType *value);
+        bool visitIfcFlowControllerType(IfcFlowControllerType *value) override;
         /**
          * @param value the IfcFlowFitting datatype to visit
          */
-        virtual bool visitIfcFlowFitting(IfcFlowFitting *value);
+        bool visitIfcFlowFitting(IfcFlowFitting *value) override;
         /**
          * @param value the IfcFlowFittingType datatype to visit
          */
-        virtual bool visitIfcFlowFittingType(IfcFlowFittingType *value);
+        bool visitIfcFlowFittingType(IfcFlowFittingType *value) override;
         /**
          * @param value the IfcFlowInstrumentType datatype to visit
          */
-        virtual bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *value);
+        bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *value) override;
         /**
          * @param value the IfcFlowMeterType datatype to visit
          */
-        virtual bool visitIfcFlowMeterType(IfcFlowMeterType *value);
+        bool visitIfcFlowMeterType(IfcFlowMeterType *value) override;
         /**
          * @param value the IfcFlowMovingDevice datatype to visit
          */
-        virtual bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *value);
+        bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *value) override;
         /**
          * @param value the IfcFlowMovingDeviceType datatype to visit
          */
-        virtual bool visitIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *value);
+        bool visitIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *value) override;
         /**
          * @param value the IfcFlowSegment datatype to visit
          */
-        virtual bool visitIfcFlowSegment(IfcFlowSegment *value);
+        bool visitIfcFlowSegment(IfcFlowSegment *value) override;
         /**
          * @param value the IfcFlowSegmentType datatype to visit
          */
-        virtual bool visitIfcFlowSegmentType(IfcFlowSegmentType *value);
+        bool visitIfcFlowSegmentType(IfcFlowSegmentType *value) override;
         /**
          * @param value the IfcFlowStorageDevice datatype to visit
          */
-        virtual bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *value);
+        bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *value) override;
         /**
          * @param value the IfcFlowStorageDeviceType datatype to visit
          */
-        virtual bool visitIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *value);
+        bool visitIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *value) override;
         /**
          * @param value the IfcFlowTerminal datatype to visit
          */
-        virtual bool visitIfcFlowTerminal(IfcFlowTerminal *value);
+        bool visitIfcFlowTerminal(IfcFlowTerminal *value) override;
         /**
          * @param value the IfcFlowTerminalType datatype to visit
          */
-        virtual bool visitIfcFlowTerminalType(IfcFlowTerminalType *value);
+        bool visitIfcFlowTerminalType(IfcFlowTerminalType *value) override;
         /**
          * @param value the IfcFlowTreatmentDevice datatype to visit
          */
-        virtual bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *value);
+        bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *value) override;
         /**
          * @param value the IfcFlowTreatmentDeviceType datatype to visit
          */
-        virtual bool visitIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *value);
+        bool visitIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *value) override;
         /**
          * @param value the IfcFluidFlowProperties datatype to visit
          */
-        virtual bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *value);
+        bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *value) override;
         /**
          * @param value the IfcFooting datatype to visit
          */
-        virtual bool visitIfcFooting(IfcFooting *value);
+        bool visitIfcFooting(IfcFooting *value) override;
         /**
          * @param value the IfcFuelProperties datatype to visit
          */
-        virtual bool visitIfcFuelProperties(IfcFuelProperties *value);
+        bool visitIfcFuelProperties(IfcFuelProperties *value) override;
         /**
          * @param value the IfcFurnishingElement datatype to visit
          */
-        virtual bool visitIfcFurnishingElement(IfcFurnishingElement *value);
+        bool visitIfcFurnishingElement(IfcFurnishingElement *value) override;
         /**
          * @param value the IfcFurnishingElementType datatype to visit
          */
-        virtual bool visitIfcFurnishingElementType(IfcFurnishingElementType *value);
+        bool visitIfcFurnishingElementType(IfcFurnishingElementType *value) override;
         /**
          * @param value the IfcFurnitureStandard datatype to visit
          */
-        virtual bool visitIfcFurnitureStandard(IfcFurnitureStandard *value);
+        bool visitIfcFurnitureStandard(IfcFurnitureStandard *value) override;
         /**
          * @param value the IfcFurnitureType datatype to visit
          */
-        virtual bool visitIfcFurnitureType(IfcFurnitureType *value);
+        bool visitIfcFurnitureType(IfcFurnitureType *value) override;
         /**
          * @param value the IfcGasTerminalType datatype to visit
          */
-        virtual bool visitIfcGasTerminalType(IfcGasTerminalType *value);
+        bool visitIfcGasTerminalType(IfcGasTerminalType *value) override;
         /**
          * @param value the IfcGeneralMaterialProperties datatype to visit
          */
-        virtual bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *value);
+        bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *value) override;
         /**
          * @param value the IfcGeneralProfileProperties datatype to visit
          */
-        virtual bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *value);
+        bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *value) override;
         /**
          * @param value the IfcGeometricCurveSet datatype to visit
          */
-        virtual bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *value);
+        bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *value) override;
         /**
          * @param value the IfcGeometricRepresentationContext datatype to visit
          */
-        virtual bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *value);
+        bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *value) override;
         /**
          * @param value the IfcGeometricRepresentationItem datatype to visit
          */
-        virtual bool visitIfcGeometricRepresentationItem(IfcGeometricRepresentationItem *value);
+        bool visitIfcGeometricRepresentationItem(IfcGeometricRepresentationItem *value) override;
         /**
          * @param value the IfcGeometricRepresentationSubContext datatype to visit
          */
-        virtual bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *value);
+        bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *value) override;
         /**
          * @param value the IfcGeometricSet datatype to visit
          */
-        virtual bool visitIfcGeometricSet(IfcGeometricSet *value);
+        bool visitIfcGeometricSet(IfcGeometricSet *value) override;
         /**
          * @param value the IfcGrid datatype to visit
          */
-        virtual bool visitIfcGrid(IfcGrid *value);
+        bool visitIfcGrid(IfcGrid *value) override;
         /**
          * @param value the IfcGridAxis datatype to visit
          */
-        virtual bool visitIfcGridAxis(IfcGridAxis *value);
+        bool visitIfcGridAxis(IfcGridAxis *value) override;
         /**
          * @param value the IfcGridPlacement datatype to visit
          */
-        virtual bool visitIfcGridPlacement(IfcGridPlacement *value);
+        bool visitIfcGridPlacement(IfcGridPlacement *value) override;
         /**
          * @param value the IfcGroup datatype to visit
          */
-        virtual bool visitIfcGroup(IfcGroup *value);
+        bool visitIfcGroup(IfcGroup *value) override;
         /**
          * @param value the IfcHalfSpaceSolid datatype to visit
          */
-        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *value);
+        bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *value) override;
         /**
          * @param value the IfcHeatExchangerType datatype to visit
          */
-        virtual bool visitIfcHeatExchangerType(IfcHeatExchangerType *value);
+        bool visitIfcHeatExchangerType(IfcHeatExchangerType *value) override;
         /**
          * @param value the IfcHumidifierType datatype to visit
          */
-        virtual bool visitIfcHumidifierType(IfcHumidifierType *value);
+        bool visitIfcHumidifierType(IfcHumidifierType *value) override;
         /**
          * @param value the IfcHygroscopicMaterialProperties datatype to visit
          */
-        virtual bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *value);
+        bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *value) override;
         /**
          * @param value the IfcIShapeProfileDef datatype to visit
          */
-        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *value);
+        bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *value) override;
         /**
          * @param value the IfcImageTexture datatype to visit
          */
-        virtual bool visitIfcImageTexture(IfcImageTexture *value);
+        bool visitIfcImageTexture(IfcImageTexture *value) override;
         /**
          * @param value the IfcInventory datatype to visit
          */
-        virtual bool visitIfcInventory(IfcInventory *value);
+        bool visitIfcInventory(IfcInventory *value) override;
         /**
          * @param value the IfcIrregularTimeSeries datatype to visit
          */
-        virtual bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *value);
+        bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *value) override;
         /**
          * @param value the IfcIrregularTimeSeriesValue datatype to visit
          */
-        virtual bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *value);
+        bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *value) override;
         /**
          * @param value the IfcJunctionBoxType datatype to visit
          */
-        virtual bool visitIfcJunctionBoxType(IfcJunctionBoxType *value);
+        bool visitIfcJunctionBoxType(IfcJunctionBoxType *value) override;
         /**
          * @param value the IfcLShapeProfileDef datatype to visit
          */
-        virtual bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *value);
+        bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *value) override;
         /**
          * @param value the IfcLaborResource datatype to visit
          */
-        virtual bool visitIfcLaborResource(IfcLaborResource *value);
+        bool visitIfcLaborResource(IfcLaborResource *value) override;
         /**
          * @param value the IfcLampType datatype to visit
          */
-        virtual bool visitIfcLampType(IfcLampType *value);
+        bool visitIfcLampType(IfcLampType *value) override;
         /**
          * @param value the IfcLibraryInformation datatype to visit
          */
-        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *value);
+        bool visitIfcLibraryInformation(IfcLibraryInformation *value) override;
         /**
          * @param value the IfcLibraryReference datatype to visit
          */
-        virtual bool visitIfcLibraryReference(IfcLibraryReference *value);
+        bool visitIfcLibraryReference(IfcLibraryReference *value) override;
         /**
          * @param value the IfcLightDistributionData datatype to visit
          */
-        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *value);
+        bool visitIfcLightDistributionData(IfcLightDistributionData *value) override;
         /**
          * @param value the IfcLightFixtureType datatype to visit
          */
-        virtual bool visitIfcLightFixtureType(IfcLightFixtureType *value);
+        bool visitIfcLightFixtureType(IfcLightFixtureType *value) override;
         /**
          * @param value the IfcLightIntensityDistribution datatype to visit
          */
-        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *value);
+        bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *value) override;
         /**
          * @param value the IfcLightSource datatype to visit
          */
-        virtual bool visitIfcLightSource(IfcLightSource *value);
+        bool visitIfcLightSource(IfcLightSource *value) override;
         /**
          * @param value the IfcLightSourceAmbient datatype to visit
          */
-        virtual bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *value);
+        bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *value) override;
         /**
          * @param value the IfcLightSourceDirectional datatype to visit
          */
-        virtual bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *value);
+        bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *value) override;
         /**
          * @param value the IfcLightSourceGoniometric datatype to visit
          */
-        virtual bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *value);
+        bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *value) override;
         /**
          * @param value the IfcLightSourcePositional datatype to visit
          */
-        virtual bool visitIfcLightSourcePositional(IfcLightSourcePositional *value);
+        bool visitIfcLightSourcePositional(IfcLightSourcePositional *value) override;
         /**
          * @param value the IfcLightSourceSpot datatype to visit
          */
-        virtual bool visitIfcLightSourceSpot(IfcLightSourceSpot *value);
+        bool visitIfcLightSourceSpot(IfcLightSourceSpot *value) override;
         /**
          * @param value the IfcLine datatype to visit
          */
-        virtual bool visitIfcLine(IfcLine *value);
+        bool visitIfcLine(IfcLine *value) override;
         /**
          * @param value the IfcLinearDimension datatype to visit
          */
-        virtual bool visitIfcLinearDimension(IfcLinearDimension *value);
+        bool visitIfcLinearDimension(IfcLinearDimension *value) override;
         /**
          * @param value the IfcLocalPlacement datatype to visit
          */
-        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *value);
+        bool visitIfcLocalPlacement(IfcLocalPlacement *value) override;
         /**
          * @param value the IfcLocalTime datatype to visit
          */
-        virtual bool visitIfcLocalTime(IfcLocalTime *value);
+        bool visitIfcLocalTime(IfcLocalTime *value) override;
         /**
          * @param value the IfcLoop datatype to visit
          */
-        virtual bool visitIfcLoop(IfcLoop *value);
+        bool visitIfcLoop(IfcLoop *value) override;
         /**
          * @param value the IfcManifoldSolidBrep datatype to visit
          */
-        virtual bool visitIfcManifoldSolidBrep(IfcManifoldSolidBrep *value);
+        bool visitIfcManifoldSolidBrep(IfcManifoldSolidBrep *value) override;
         /**
          * @param value the IfcMappedItem datatype to visit
          */
-        virtual bool visitIfcMappedItem(IfcMappedItem *value);
+        bool visitIfcMappedItem(IfcMappedItem *value) override;
         /**
          * @param value the IfcMaterial datatype to visit
          */
-        virtual bool visitIfcMaterial(IfcMaterial *value);
+        bool visitIfcMaterial(IfcMaterial *value) override;
         /**
          * @param value the IfcMaterialClassificationRelationship datatype to visit
          */
-        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *value);
+        bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *value) override;
         /**
          * @param value the IfcMaterialDefinitionRepresentation datatype to visit
          */
-        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *value);
+        bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *value) override;
         /**
          * @param value the IfcMaterialLayer datatype to visit
          */
-        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *value);
+        bool visitIfcMaterialLayer(IfcMaterialLayer *value) override;
         /**
          * @param value the IfcMaterialLayerSet datatype to visit
          */
-        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *value);
+        bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *value) override;
         /**
          * @param value the IfcMaterialLayerSetUsage datatype to visit
          */
-        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *value);
+        bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *value) override;
         /**
          * @param value the IfcMaterialList datatype to visit
          */
-        virtual bool visitIfcMaterialList(IfcMaterialList *value);
+        bool visitIfcMaterialList(IfcMaterialList *value) override;
         /**
          * @param value the IfcMaterialProperties datatype to visit
          */
-        virtual bool visitIfcMaterialProperties(IfcMaterialProperties *value);
+        bool visitIfcMaterialProperties(IfcMaterialProperties *value) override;
         /**
          * @param value the IfcMeasureWithUnit datatype to visit
          */
-        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *value);
+        bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *value) override;
         /**
          * @param value the IfcMechanicalConcreteMaterialProperties datatype to visit
          */
-        virtual bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *value);
+        bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *value) override;
         /**
          * @param value the IfcMechanicalFastener datatype to visit
          */
-        virtual bool visitIfcMechanicalFastener(IfcMechanicalFastener *value);
+        bool visitIfcMechanicalFastener(IfcMechanicalFastener *value) override;
         /**
          * @param value the IfcMechanicalFastenerType datatype to visit
          */
-        virtual bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *value);
+        bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *value) override;
         /**
          * @param value the IfcMechanicalMaterialProperties datatype to visit
          */
-        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *value);
+        bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *value) override;
         /**
          * @param value the IfcMechanicalSteelMaterialProperties datatype to visit
          */
-        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *value);
+        bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *value) override;
         /**
          * @param value the IfcMember datatype to visit
          */
-        virtual bool visitIfcMember(IfcMember *value);
+        bool visitIfcMember(IfcMember *value) override;
         /**
          * @param value the IfcMemberType datatype to visit
          */
-        virtual bool visitIfcMemberType(IfcMemberType *value);
+        bool visitIfcMemberType(IfcMemberType *value) override;
         /**
          * @param value the IfcMetric datatype to visit
          */
-        virtual bool visitIfcMetric(IfcMetric *value);
+        bool visitIfcMetric(IfcMetric *value) override;
         /**
          * @param value the IfcMonetaryUnit datatype to visit
          */
-        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *value);
+        bool visitIfcMonetaryUnit(IfcMonetaryUnit *value) override;
         /**
          * @param value the IfcMotorConnectionType datatype to visit
          */
-        virtual bool visitIfcMotorConnectionType(IfcMotorConnectionType *value);
+        bool visitIfcMotorConnectionType(IfcMotorConnectionType *value) override;
         /**
          * @param value the IfcMove datatype to visit
          */
-        virtual bool visitIfcMove(IfcMove *value);
+        bool visitIfcMove(IfcMove *value) override;
         /**
          * @param value the IfcNamedUnit datatype to visit
          */
-        virtual bool visitIfcNamedUnit(IfcNamedUnit *value);
+        bool visitIfcNamedUnit(IfcNamedUnit *value) override;
         /**
          * @param value the IfcObject datatype to visit
          */
-        virtual bool visitIfcObject(IfcObject *value);
+        bool visitIfcObject(IfcObject *value) override;
         /**
          * @param value the IfcObjectDefinition datatype to visit
          */
-        virtual bool visitIfcObjectDefinition(IfcObjectDefinition *value);
+        bool visitIfcObjectDefinition(IfcObjectDefinition *value) override;
         /**
          * @param value the IfcObjectPlacement datatype to visit
          */
-        virtual bool visitIfcObjectPlacement(IfcObjectPlacement *value);
+        bool visitIfcObjectPlacement(IfcObjectPlacement *value) override;
         /**
          * @param value the IfcObjective datatype to visit
          */
-        virtual bool visitIfcObjective(IfcObjective *value);
+        bool visitIfcObjective(IfcObjective *value) override;
         /**
          * @param value the IfcOccupant datatype to visit
          */
-        virtual bool visitIfcOccupant(IfcOccupant *value);
+        bool visitIfcOccupant(IfcOccupant *value) override;
         /**
          * @param value the IfcOffsetCurve2D datatype to visit
          */
-        virtual bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *value);
+        bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *value) override;
         /**
          * @param value the IfcOffsetCurve3D datatype to visit
          */
-        virtual bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *value);
+        bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *value) override;
         /**
          * @param value the IfcOneDirectionRepeatFactor datatype to visit
          */
-        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *value);
+        bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *value) override;
         /**
          * @param value the IfcOpenShell datatype to visit
          */
-        virtual bool visitIfcOpenShell(IfcOpenShell *value);
+        bool visitIfcOpenShell(IfcOpenShell *value) override;
         /**
          * @param value the IfcOpeningElement datatype to visit
          */
-        virtual bool visitIfcOpeningElement(IfcOpeningElement *value);
+        bool visitIfcOpeningElement(IfcOpeningElement *value) override;
         /**
          * @param value the IfcOpticalMaterialProperties datatype to visit
          */
-        virtual bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *value);
+        bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *value) override;
         /**
          * @param value the IfcOrderAction datatype to visit
          */
-        virtual bool visitIfcOrderAction(IfcOrderAction *value);
+        bool visitIfcOrderAction(IfcOrderAction *value) override;
         /**
          * @param value the IfcOrganization datatype to visit
          */
-        virtual bool visitIfcOrganization(IfcOrganization *value);
+        bool visitIfcOrganization(IfcOrganization *value) override;
         /**
          * @param value the IfcOrganizationRelationship datatype to visit
          */
-        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *value);
+        bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *value) override;
         /**
          * @param value the IfcOrientedEdge datatype to visit
          */
-        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *value);
+        bool visitIfcOrientedEdge(IfcOrientedEdge *value) override;
         /**
          * @param value the IfcOutletType datatype to visit
          */
-        virtual bool visitIfcOutletType(IfcOutletType *value);
+        bool visitIfcOutletType(IfcOutletType *value) override;
         /**
          * @param value the IfcOwnerHistory datatype to visit
          */
-        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *value);
+        bool visitIfcOwnerHistory(IfcOwnerHistory *value) override;
         /**
          * @param value the IfcParameterizedProfileDef datatype to visit
          */
-        virtual bool visitIfcParameterizedProfileDef(IfcParameterizedProfileDef *value);
+        bool visitIfcParameterizedProfileDef(IfcParameterizedProfileDef *value) override;
         /**
          * @param value the IfcPath datatype to visit
          */
-        virtual bool visitIfcPath(IfcPath *value);
+        bool visitIfcPath(IfcPath *value) override;
         /**
          * @param value the IfcPerformanceHistory datatype to visit
          */
-        virtual bool visitIfcPerformanceHistory(IfcPerformanceHistory *value);
+        bool visitIfcPerformanceHistory(IfcPerformanceHistory *value) override;
         /**
          * @param value the IfcPermeableCoveringProperties datatype to visit
          */
-        virtual bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *value);
+        bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *value) override;
         /**
          * @param value the IfcPermit datatype to visit
          */
-        virtual bool visitIfcPermit(IfcPermit *value);
+        bool visitIfcPermit(IfcPermit *value) override;
         /**
          * @param value the IfcPerson datatype to visit
          */
-        virtual bool visitIfcPerson(IfcPerson *value);
+        bool visitIfcPerson(IfcPerson *value) override;
         /**
          * @param value the IfcPersonAndOrganization datatype to visit
          */
-        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *value);
+        bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *value) override;
         /**
          * @param value the IfcPhysicalComplexQuantity datatype to visit
          */
-        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *value);
+        bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *value) override;
         /**
          * @param value the IfcPhysicalQuantity datatype to visit
          */
-        virtual bool visitIfcPhysicalQuantity(IfcPhysicalQuantity *value);
+        bool visitIfcPhysicalQuantity(IfcPhysicalQuantity *value) override;
         /**
          * @param value the IfcPhysicalSimpleQuantity datatype to visit
          */
-        virtual bool visitIfcPhysicalSimpleQuantity(IfcPhysicalSimpleQuantity *value);
+        bool visitIfcPhysicalSimpleQuantity(IfcPhysicalSimpleQuantity *value) override;
         /**
          * @param value the IfcPile datatype to visit
          */
-        virtual bool visitIfcPile(IfcPile *value);
+        bool visitIfcPile(IfcPile *value) override;
         /**
          * @param value the IfcPipeFittingType datatype to visit
          */
-        virtual bool visitIfcPipeFittingType(IfcPipeFittingType *value);
+        bool visitIfcPipeFittingType(IfcPipeFittingType *value) override;
         /**
          * @param value the IfcPipeSegmentType datatype to visit
          */
-        virtual bool visitIfcPipeSegmentType(IfcPipeSegmentType *value);
+        bool visitIfcPipeSegmentType(IfcPipeSegmentType *value) override;
         /**
          * @param value the IfcPixelTexture datatype to visit
          */
-        virtual bool visitIfcPixelTexture(IfcPixelTexture *value);
+        bool visitIfcPixelTexture(IfcPixelTexture *value) override;
         /**
          * @param value the IfcPlacement datatype to visit
          */
-        virtual bool visitIfcPlacement(IfcPlacement *value);
+        bool visitIfcPlacement(IfcPlacement *value) override;
         /**
          * @param value the IfcPlanarBox datatype to visit
          */
-        virtual bool visitIfcPlanarBox(IfcPlanarBox *value);
+        bool visitIfcPlanarBox(IfcPlanarBox *value) override;
         /**
          * @param value the IfcPlanarExtent datatype to visit
          */
-        virtual bool visitIfcPlanarExtent(IfcPlanarExtent *value);
+        bool visitIfcPlanarExtent(IfcPlanarExtent *value) override;
         /**
          * @param value the IfcPlane datatype to visit
          */
-        virtual bool visitIfcPlane(IfcPlane *value);
+        bool visitIfcPlane(IfcPlane *value) override;
         /**
          * @param value the IfcPlate datatype to visit
          */
-        virtual bool visitIfcPlate(IfcPlate *value);
+        bool visitIfcPlate(IfcPlate *value) override;
         /**
          * @param value the IfcPlateType datatype to visit
          */
-        virtual bool visitIfcPlateType(IfcPlateType *value);
+        bool visitIfcPlateType(IfcPlateType *value) override;
         /**
          * @param value the IfcPoint datatype to visit
          */
-        virtual bool visitIfcPoint(IfcPoint *value);
+        bool visitIfcPoint(IfcPoint *value) override;
         /**
          * @param value the IfcPointOnCurve datatype to visit
          */
-        virtual bool visitIfcPointOnCurve(IfcPointOnCurve *value);
+        bool visitIfcPointOnCurve(IfcPointOnCurve *value) override;
         /**
          * @param value the IfcPointOnSurface datatype to visit
          */
-        virtual bool visitIfcPointOnSurface(IfcPointOnSurface *value);
+        bool visitIfcPointOnSurface(IfcPointOnSurface *value) override;
         /**
          * @param value the IfcPolyLoop datatype to visit
          */
-        virtual bool visitIfcPolyLoop(IfcPolyLoop *value);
+        bool visitIfcPolyLoop(IfcPolyLoop *value) override;
         /**
          * @param value the IfcPolygonalBoundedHalfSpace datatype to visit
          */
-        virtual bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *value);
+        bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *value) override;
         /**
          * @param value the IfcPolyline datatype to visit
          */
-        virtual bool visitIfcPolyline(IfcPolyline *value);
+        bool visitIfcPolyline(IfcPolyline *value) override;
         /**
          * @param value the IfcPort datatype to visit
          */
-        virtual bool visitIfcPort(IfcPort *value);
+        bool visitIfcPort(IfcPort *value) override;
         /**
          * @param value the IfcPostalAddress datatype to visit
          */
-        virtual bool visitIfcPostalAddress(IfcPostalAddress *value);
+        bool visitIfcPostalAddress(IfcPostalAddress *value) override;
         /**
          * @param value the IfcPreDefinedColour datatype to visit
          */
-        virtual bool visitIfcPreDefinedColour(IfcPreDefinedColour *value);
+        bool visitIfcPreDefinedColour(IfcPreDefinedColour *value) override;
         /**
          * @param value the IfcPreDefinedCurveFont datatype to visit
          */
-        virtual bool visitIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *value);
+        bool visitIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *value) override;
         /**
          * @param value the IfcPreDefinedDimensionSymbol datatype to visit
          */
-        virtual bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *value);
+        bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *value) override;
         /**
          * @param value the IfcPreDefinedItem datatype to visit
          */
-        virtual bool visitIfcPreDefinedItem(IfcPreDefinedItem *value);
+        bool visitIfcPreDefinedItem(IfcPreDefinedItem *value) override;
         /**
          * @param value the IfcPreDefinedPointMarkerSymbol datatype to visit
          */
-        virtual bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *value);
+        bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *value) override;
         /**
          * @param value the IfcPreDefinedSymbol datatype to visit
          */
-        virtual bool visitIfcPreDefinedSymbol(IfcPreDefinedSymbol *value);
+        bool visitIfcPreDefinedSymbol(IfcPreDefinedSymbol *value) override;
         /**
          * @param value the IfcPreDefinedTerminatorSymbol datatype to visit
          */
-        virtual bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *value);
+        bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *value) override;
         /**
          * @param value the IfcPreDefinedTextFont datatype to visit
          */
-        virtual bool visitIfcPreDefinedTextFont(IfcPreDefinedTextFont *value);
+        bool visitIfcPreDefinedTextFont(IfcPreDefinedTextFont *value) override;
         /**
          * @param value the IfcPresentationLayerAssignment datatype to visit
          */
-        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *value);
+        bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *value) override;
         /**
          * @param value the IfcPresentationLayerWithStyle datatype to visit
          */
-        virtual bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *value);
+        bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *value) override;
         /**
          * @param value the IfcPresentationStyle datatype to visit
          */
-        virtual bool visitIfcPresentationStyle(IfcPresentationStyle *value);
+        bool visitIfcPresentationStyle(IfcPresentationStyle *value) override;
         /**
          * @param value the IfcPresentationStyleAssignment datatype to visit
          */
-        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *value);
+        bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *value) override;
         /**
          * @param value the IfcProcedure datatype to visit
          */
-        virtual bool visitIfcProcedure(IfcProcedure *value);
+        bool visitIfcProcedure(IfcProcedure *value) override;
         /**
          * @param value the IfcProcess datatype to visit
          */
-        virtual bool visitIfcProcess(IfcProcess *value);
+        bool visitIfcProcess(IfcProcess *value) override;
         /**
          * @param value the IfcProduct datatype to visit
          */
-        virtual bool visitIfcProduct(IfcProduct *value);
+        bool visitIfcProduct(IfcProduct *value) override;
         /**
          * @param value the IfcProductDefinitionShape datatype to visit
          */
-        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *value);
+        bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *value) override;
         /**
          * @param value the IfcProductRepresentation datatype to visit
          */
-        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *value);
+        bool visitIfcProductRepresentation(IfcProductRepresentation *value) override;
         /**
          * @param value the IfcProductsOfCombustionProperties datatype to visit
          */
-        virtual bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *value);
+        bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *value) override;
         /**
          * @param value the IfcProfileDef datatype to visit
          */
-        virtual bool visitIfcProfileDef(IfcProfileDef *value);
+        bool visitIfcProfileDef(IfcProfileDef *value) override;
         /**
          * @param value the IfcProfileProperties datatype to visit
          */
-        virtual bool visitIfcProfileProperties(IfcProfileProperties *value);
+        bool visitIfcProfileProperties(IfcProfileProperties *value) override;
         /**
          * @param value the IfcProject datatype to visit
          */
-        virtual bool visitIfcProject(IfcProject *value);
+        bool visitIfcProject(IfcProject *value) override;
         /**
          * @param value the IfcProjectOrder datatype to visit
          */
-        virtual bool visitIfcProjectOrder(IfcProjectOrder *value);
+        bool visitIfcProjectOrder(IfcProjectOrder *value) override;
         /**
          * @param value the IfcProjectOrderRecord datatype to visit
          */
-        virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *value);
+        bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *value) override;
         /**
          * @param value the IfcProjectionCurve datatype to visit
          */
-        virtual bool visitIfcProjectionCurve(IfcProjectionCurve *value);
+        bool visitIfcProjectionCurve(IfcProjectionCurve *value) override;
         /**
          * @param value the IfcProjectionElement datatype to visit
          */
-        virtual bool visitIfcProjectionElement(IfcProjectionElement *value);
+        bool visitIfcProjectionElement(IfcProjectionElement *value) override;
         /**
          * @param value the IfcProperty datatype to visit
          */
-        virtual bool visitIfcProperty(IfcProperty *value);
+        bool visitIfcProperty(IfcProperty *value) override;
         /**
          * @param value the IfcPropertyBoundedValue datatype to visit
          */
-        virtual bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *value);
+        bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *value) override;
         /**
          * @param value the IfcPropertyConstraintRelationship datatype to visit
          */
-        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *value);
+        bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *value) override;
         /**
          * @param value the IfcPropertyDefinition datatype to visit
          */
-        virtual bool visitIfcPropertyDefinition(IfcPropertyDefinition *value);
+        bool visitIfcPropertyDefinition(IfcPropertyDefinition *value) override;
         /**
          * @param value the IfcPropertyDependencyRelationship datatype to visit
          */
-        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *value);
+        bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *value) override;
         /**
          * @param value the IfcPropertyEnumeratedValue datatype to visit
          */
-        virtual bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *value);
+        bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *value) override;
         /**
          * @param value the IfcPropertyEnumeration datatype to visit
          */
-        virtual bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *value);
+        bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *value) override;
         /**
          * @param value the IfcPropertyListValue datatype to visit
          */
-        virtual bool visitIfcPropertyListValue(IfcPropertyListValue *value);
+        bool visitIfcPropertyListValue(IfcPropertyListValue *value) override;
         /**
          * @param value the IfcPropertyReferenceValue datatype to visit
          */
-        virtual bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *value);
+        bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *value) override;
         /**
          * @param value the IfcPropertySet datatype to visit
          */
-        virtual bool visitIfcPropertySet(IfcPropertySet *value);
+        bool visitIfcPropertySet(IfcPropertySet *value) override;
         /**
          * @param value the IfcPropertySetDefinition datatype to visit
          */
-        virtual bool visitIfcPropertySetDefinition(IfcPropertySetDefinition *value);
+        bool visitIfcPropertySetDefinition(IfcPropertySetDefinition *value) override;
         /**
          * @param value the IfcPropertySingleValue datatype to visit
          */
-        virtual bool visitIfcPropertySingleValue(IfcPropertySingleValue *value);
+        bool visitIfcPropertySingleValue(IfcPropertySingleValue *value) override;
         /**
          * @param value the IfcPropertyTableValue datatype to visit
          */
-        virtual bool visitIfcPropertyTableValue(IfcPropertyTableValue *value);
+        bool visitIfcPropertyTableValue(IfcPropertyTableValue *value) override;
         /**
          * @param value the IfcProtectiveDeviceType datatype to visit
          */
-        virtual bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *value);
+        bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *value) override;
         /**
          * @param value the IfcProxy datatype to visit
          */
-        virtual bool visitIfcProxy(IfcProxy *value);
+        bool visitIfcProxy(IfcProxy *value) override;
         /**
          * @param value the IfcPumpType datatype to visit
          */
-        virtual bool visitIfcPumpType(IfcPumpType *value);
+        bool visitIfcPumpType(IfcPumpType *value) override;
         /**
          * @param value the IfcQuantityArea datatype to visit
          */
-        virtual bool visitIfcQuantityArea(IfcQuantityArea *value);
+        bool visitIfcQuantityArea(IfcQuantityArea *value) override;
         /**
          * @param value the IfcQuantityCount datatype to visit
          */
-        virtual bool visitIfcQuantityCount(IfcQuantityCount *value);
+        bool visitIfcQuantityCount(IfcQuantityCount *value) override;
         /**
          * @param value the IfcQuantityLength datatype to visit
          */
-        virtual bool visitIfcQuantityLength(IfcQuantityLength *value);
+        bool visitIfcQuantityLength(IfcQuantityLength *value) override;
         /**
          * @param value the IfcQuantityTime datatype to visit
          */
-        virtual bool visitIfcQuantityTime(IfcQuantityTime *value);
+        bool visitIfcQuantityTime(IfcQuantityTime *value) override;
         /**
          * @param value the IfcQuantityVolume datatype to visit
          */
-        virtual bool visitIfcQuantityVolume(IfcQuantityVolume *value);
+        bool visitIfcQuantityVolume(IfcQuantityVolume *value) override;
         /**
          * @param value the IfcQuantityWeight datatype to visit
          */
-        virtual bool visitIfcQuantityWeight(IfcQuantityWeight *value);
+        bool visitIfcQuantityWeight(IfcQuantityWeight *value) override;
         /**
          * @param value the IfcRadiusDimension datatype to visit
          */
-        virtual bool visitIfcRadiusDimension(IfcRadiusDimension *value);
+        bool visitIfcRadiusDimension(IfcRadiusDimension *value) override;
         /**
          * @param value the IfcRailing datatype to visit
          */
-        virtual bool visitIfcRailing(IfcRailing *value);
+        bool visitIfcRailing(IfcRailing *value) override;
         /**
          * @param value the IfcRailingType datatype to visit
          */
-        virtual bool visitIfcRailingType(IfcRailingType *value);
+        bool visitIfcRailingType(IfcRailingType *value) override;
         /**
          * @param value the IfcRamp datatype to visit
          */
-        virtual bool visitIfcRamp(IfcRamp *value);
+        bool visitIfcRamp(IfcRamp *value) override;
         /**
          * @param value the IfcRampFlight datatype to visit
          */
-        virtual bool visitIfcRampFlight(IfcRampFlight *value);
+        bool visitIfcRampFlight(IfcRampFlight *value) override;
         /**
          * @param value the IfcRampFlightType datatype to visit
          */
-        virtual bool visitIfcRampFlightType(IfcRampFlightType *value);
+        bool visitIfcRampFlightType(IfcRampFlightType *value) override;
         /**
          * @param value the IfcRationalBezierCurve datatype to visit
          */
-        virtual bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *value);
+        bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *value) override;
         /**
          * @param value the IfcRectangleHollowProfileDef datatype to visit
          */
-        virtual bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *value);
+        bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *value) override;
         /**
          * @param value the IfcRectangleProfileDef datatype to visit
          */
-        virtual bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *value);
+        bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *value) override;
         /**
          * @param value the IfcRectangularPyramid datatype to visit
          */
-        virtual bool visitIfcRectangularPyramid(IfcRectangularPyramid *value);
+        bool visitIfcRectangularPyramid(IfcRectangularPyramid *value) override;
         /**
          * @param value the IfcRectangularTrimmedSurface datatype to visit
          */
-        virtual bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *value);
+        bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *value) override;
         /**
          * @param value the IfcReferencesValueDocument datatype to visit
          */
-        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *value);
+        bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *value) override;
         /**
          * @param value the IfcRegularTimeSeries datatype to visit
          */
-        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *value);
+        bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *value) override;
         /**
          * @param value the IfcReinforcementBarProperties datatype to visit
          */
-        virtual bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *value);
+        bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *value) override;
         /**
          * @param value the IfcReinforcementDefinitionProperties datatype to visit
          */
-        virtual bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *value);
+        bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *value) override;
         /**
          * @param value the IfcReinforcingBar datatype to visit
          */
-        virtual bool visitIfcReinforcingBar(IfcReinforcingBar *value);
+        bool visitIfcReinforcingBar(IfcReinforcingBar *value) override;
         /**
          * @param value the IfcReinforcingElement datatype to visit
          */
-        virtual bool visitIfcReinforcingElement(IfcReinforcingElement *value);
+        bool visitIfcReinforcingElement(IfcReinforcingElement *value) override;
         /**
          * @param value the IfcReinforcingMesh datatype to visit
          */
-        virtual bool visitIfcReinforcingMesh(IfcReinforcingMesh *value);
+        bool visitIfcReinforcingMesh(IfcReinforcingMesh *value) override;
         /**
          * @param value the IfcRelAggregates datatype to visit
          */
-        virtual bool visitIfcRelAggregates(IfcRelAggregates *value);
+        bool visitIfcRelAggregates(IfcRelAggregates *value) override;
         /**
          * @param value the IfcRelAssigns datatype to visit
          */
-        virtual bool visitIfcRelAssigns(IfcRelAssigns *value);
+        bool visitIfcRelAssigns(IfcRelAssigns *value) override;
         /**
          * @param value the IfcRelAssignsTasks datatype to visit
          */
-        virtual bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *value);
+        bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *value) override;
         /**
          * @param value the IfcRelAssignsToActor datatype to visit
          */
-        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *value);
+        bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *value) override;
         /**
          * @param value the IfcRelAssignsToControl datatype to visit
          */
-        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *value);
+        bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *value) override;
         /**
          * @param value the IfcRelAssignsToGroup datatype to visit
          */
-        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *value);
+        bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *value) override;
         /**
          * @param value the IfcRelAssignsToProcess datatype to visit
          */
-        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *value);
+        bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *value) override;
         /**
          * @param value the IfcRelAssignsToProduct datatype to visit
          */
-        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *value);
+        bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *value) override;
         /**
          * @param value the IfcRelAssignsToProjectOrder datatype to visit
          */
-        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *value);
+        bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *value) override;
         /**
          * @param value the IfcRelAssignsToResource datatype to visit
          */
-        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *value);
+        bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *value) override;
         /**
          * @param value the IfcRelAssociates datatype to visit
          */
-        virtual bool visitIfcRelAssociates(IfcRelAssociates *value);
+        bool visitIfcRelAssociates(IfcRelAssociates *value) override;
         /**
          * @param value the IfcRelAssociatesAppliedValue datatype to visit
          */
-        virtual bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *value);
+        bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *value) override;
         /**
          * @param value the IfcRelAssociatesApproval datatype to visit
          */
-        virtual bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *value);
+        bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *value) override;
         /**
          * @param value the IfcRelAssociatesClassification datatype to visit
          */
-        virtual bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *value);
+        bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *value) override;
         /**
          * @param value the IfcRelAssociatesConstraint datatype to visit
          */
-        virtual bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *value);
+        bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *value) override;
         /**
          * @param value the IfcRelAssociatesDocument datatype to visit
          */
-        virtual bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *value);
+        bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *value) override;
         /**
          * @param value the IfcRelAssociatesLibrary datatype to visit
          */
-        virtual bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *value);
+        bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *value) override;
         /**
          * @param value the IfcRelAssociatesMaterial datatype to visit
          */
-        virtual bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *value);
+        bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *value) override;
         /**
          * @param value the IfcRelAssociatesProfileProperties datatype to visit
          */
-        virtual bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *value);
+        bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *value) override;
         /**
          * @param value the IfcRelConnects datatype to visit
          */
-        virtual bool visitIfcRelConnects(IfcRelConnects *value);
+        bool visitIfcRelConnects(IfcRelConnects *value) override;
         /**
          * @param value the IfcRelConnectsElements datatype to visit
          */
-        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *value);
+        bool visitIfcRelConnectsElements(IfcRelConnectsElements *value) override;
         /**
          * @param value the IfcRelConnectsPathElements datatype to visit
          */
-        virtual bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *value);
+        bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *value) override;
         /**
          * @param value the IfcRelConnectsPortToElement datatype to visit
          */
-        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *value);
+        bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *value) override;
         /**
          * @param value the IfcRelConnectsPorts datatype to visit
          */
-        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *value);
+        bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *value) override;
         /**
          * @param value the IfcRelConnectsStructuralActivity datatype to visit
          */
-        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *value);
+        bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *value) override;
         /**
          * @param value the IfcRelConnectsStructuralElement datatype to visit
          */
-        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *value);
+        bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *value) override;
         /**
          * @param value the IfcRelConnectsStructuralMember datatype to visit
          */
-        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *value);
+        bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *value) override;
         /**
          * @param value the IfcRelConnectsWithEccentricity datatype to visit
          */
-        virtual bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *value);
+        bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *value) override;
         /**
          * @param value the IfcRelConnectsWithRealizingElements datatype to visit
          */
-        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *value);
+        bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *value) override;
         /**
          * @param value the IfcRelContainedInSpatialStructure datatype to visit
          */
-        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *value);
+        bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *value) override;
         /**
          * @param value the IfcRelCoversBldgElements datatype to visit
          */
-        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *value);
+        bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *value) override;
         /**
          * @param value the IfcRelCoversSpaces datatype to visit
          */
-        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *value);
+        bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *value) override;
         /**
          * @param value the IfcRelDecomposes datatype to visit
          */
-        virtual bool visitIfcRelDecomposes(IfcRelDecomposes *value);
+        bool visitIfcRelDecomposes(IfcRelDecomposes *value) override;
         /**
          * @param value the IfcRelDefines datatype to visit
          */
-        virtual bool visitIfcRelDefines(IfcRelDefines *value);
+        bool visitIfcRelDefines(IfcRelDefines *value) override;
         /**
          * @param value the IfcRelDefinesByProperties datatype to visit
          */
-        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *value);
+        bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *value) override;
         /**
          * @param value the IfcRelDefinesByType datatype to visit
          */
-        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *value);
+        bool visitIfcRelDefinesByType(IfcRelDefinesByType *value) override;
         /**
          * @param value the IfcRelFillsElement datatype to visit
          */
-        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *value);
+        bool visitIfcRelFillsElement(IfcRelFillsElement *value) override;
         /**
          * @param value the IfcRelFlowControlElements datatype to visit
          */
-        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *value);
+        bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *value) override;
         /**
          * @param value the IfcRelInteractionRequirements datatype to visit
          */
-        virtual bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *value);
+        bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *value) override;
         /**
          * @param value the IfcRelNests datatype to visit
          */
-        virtual bool visitIfcRelNests(IfcRelNests *value);
+        bool visitIfcRelNests(IfcRelNests *value) override;
         /**
          * @param value the IfcRelOccupiesSpaces datatype to visit
          */
-        virtual bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *value);
+        bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *value) override;
         /**
          * @param value the IfcRelOverridesProperties datatype to visit
          */
-        virtual bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *value);
+        bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *value) override;
         /**
          * @param value the IfcRelProjectsElement datatype to visit
          */
-        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *value);
+        bool visitIfcRelProjectsElement(IfcRelProjectsElement *value) override;
         /**
          * @param value the IfcRelReferencedInSpatialStructure datatype to visit
          */
-        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *value);
+        bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *value) override;
         /**
          * @param value the IfcRelSchedulesCostItems datatype to visit
          */
-        virtual bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *value);
+        bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *value) override;
         /**
          * @param value the IfcRelSequence datatype to visit
          */
-        virtual bool visitIfcRelSequence(IfcRelSequence *value);
+        bool visitIfcRelSequence(IfcRelSequence *value) override;
         /**
          * @param value the IfcRelServicesBuildings datatype to visit
          */
-        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *value);
+        bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *value) override;
         /**
          * @param value the IfcRelSpaceBoundary datatype to visit
          */
-        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *value);
+        bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *value) override;
         /**
          * @param value the IfcRelVoidsElement datatype to visit
          */
-        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *value);
+        bool visitIfcRelVoidsElement(IfcRelVoidsElement *value) override;
         /**
          * @param value the IfcRelationship datatype to visit
          */
-        virtual bool visitIfcRelationship(IfcRelationship *value);
+        bool visitIfcRelationship(IfcRelationship *value) override;
         /**
          * @param value the IfcRelaxation datatype to visit
          */
-        virtual bool visitIfcRelaxation(IfcRelaxation *value);
+        bool visitIfcRelaxation(IfcRelaxation *value) override;
         /**
          * @param value the IfcRepresentation datatype to visit
          */
-        virtual bool visitIfcRepresentation(IfcRepresentation *value);
+        bool visitIfcRepresentation(IfcRepresentation *value) override;
         /**
          * @param value the IfcRepresentationContext datatype to visit
          */
-        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *value);
+        bool visitIfcRepresentationContext(IfcRepresentationContext *value) override;
         /**
          * @param value the IfcRepresentationItem datatype to visit
          */
-        virtual bool visitIfcRepresentationItem(IfcRepresentationItem *value);
+        bool visitIfcRepresentationItem(IfcRepresentationItem *value) override;
         /**
          * @param value the IfcRepresentationMap datatype to visit
          */
-        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *value);
+        bool visitIfcRepresentationMap(IfcRepresentationMap *value) override;
         /**
          * @param value the IfcResource datatype to visit
          */
-        virtual bool visitIfcResource(IfcResource *value);
+        bool visitIfcResource(IfcResource *value) override;
         /**
          * @param value the IfcRevolvedAreaSolid datatype to visit
          */
-        virtual bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *value);
+        bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *value) override;
         /**
          * @param value the IfcRibPlateProfileProperties datatype to visit
          */
-        virtual bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *value);
+        bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *value) override;
         /**
          * @param value the IfcRightCircularCone datatype to visit
          */
-        virtual bool visitIfcRightCircularCone(IfcRightCircularCone *value);
+        bool visitIfcRightCircularCone(IfcRightCircularCone *value) override;
         /**
          * @param value the IfcRightCircularCylinder datatype to visit
          */
-        virtual bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *value);
+        bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *value) override;
         /**
          * @param value the IfcRoof datatype to visit
          */
-        virtual bool visitIfcRoof(IfcRoof *value);
+        bool visitIfcRoof(IfcRoof *value) override;
         /**
          * @param value the IfcRoot datatype to visit
          */
-        virtual bool visitIfcRoot(IfcRoot *value);
+        bool visitIfcRoot(IfcRoot *value) override;
         /**
          * @param value the IfcRoundedEdgeFeature datatype to visit
          */
-        virtual bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *value);
+        bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *value) override;
         /**
          * @param value the IfcRoundedRectangleProfileDef datatype to visit
          */
-        virtual bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *value);
+        bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *value) override;
         /**
          * @param value the IfcSIUnit datatype to visit
          */
-        virtual bool visitIfcSIUnit(IfcSIUnit *value);
+        bool visitIfcSIUnit(IfcSIUnit *value) override;
         /**
          * @param value the IfcSanitaryTerminalType datatype to visit
          */
-        virtual bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *value);
+        bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *value) override;
         /**
          * @param value the IfcScheduleTimeControl datatype to visit
          */
-        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *value);
+        bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *value) override;
         /**
          * @param value the IfcSectionProperties datatype to visit
          */
-        virtual bool visitIfcSectionProperties(IfcSectionProperties *value);
+        bool visitIfcSectionProperties(IfcSectionProperties *value) override;
         /**
          * @param value the IfcSectionReinforcementProperties datatype to visit
          */
-        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *value);
+        bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *value) override;
         /**
          * @param value the IfcSectionedSpine datatype to visit
          */
-        virtual bool visitIfcSectionedSpine(IfcSectionedSpine *value);
+        bool visitIfcSectionedSpine(IfcSectionedSpine *value) override;
         /**
          * @param value the IfcSensorType datatype to visit
          */
-        virtual bool visitIfcSensorType(IfcSensorType *value);
+        bool visitIfcSensorType(IfcSensorType *value) override;
         /**
          * @param value the IfcServiceLife datatype to visit
          */
-        virtual bool visitIfcServiceLife(IfcServiceLife *value);
+        bool visitIfcServiceLife(IfcServiceLife *value) override;
         /**
          * @param value the IfcServiceLifeFactor datatype to visit
          */
-        virtual bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *value);
+        bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *value) override;
         /**
          * @param value the IfcShapeAspect datatype to visit
          */
-        virtual bool visitIfcShapeAspect(IfcShapeAspect *value);
+        bool visitIfcShapeAspect(IfcShapeAspect *value) override;
         /**
          * @param value the IfcShapeModel datatype to visit
          */
-        virtual bool visitIfcShapeModel(IfcShapeModel *value);
+        bool visitIfcShapeModel(IfcShapeModel *value) override;
         /**
          * @param value the IfcShapeRepresentation datatype to visit
          */
-        virtual bool visitIfcShapeRepresentation(IfcShapeRepresentation *value);
+        bool visitIfcShapeRepresentation(IfcShapeRepresentation *value) override;
         /**
          * @param value the IfcShellBasedSurfaceModel datatype to visit
          */
-        virtual bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *value);
+        bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *value) override;
         /**
          * @param value the IfcSimpleProperty datatype to visit
          */
-        virtual bool visitIfcSimpleProperty(IfcSimpleProperty *value);
+        bool visitIfcSimpleProperty(IfcSimpleProperty *value) override;
         /**
          * @param value the IfcSite datatype to visit
          */
-        virtual bool visitIfcSite(IfcSite *value);
+        bool visitIfcSite(IfcSite *value) override;
         /**
          * @param value the IfcSlab datatype to visit
          */
-        virtual bool visitIfcSlab(IfcSlab *value);
+        bool visitIfcSlab(IfcSlab *value) override;
         /**
          * @param value the IfcSlabType datatype to visit
          */
-        virtual bool visitIfcSlabType(IfcSlabType *value);
+        bool visitIfcSlabType(IfcSlabType *value) override;
         /**
          * @param value the IfcSlippageConnectionCondition datatype to visit
          */
-        virtual bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *value);
+        bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *value) override;
         /**
          * @param value the IfcSolidModel datatype to visit
          */
-        virtual bool visitIfcSolidModel(IfcSolidModel *value);
+        bool visitIfcSolidModel(IfcSolidModel *value) override;
         /**
          * @param value the IfcSoundProperties datatype to visit
          */
-        virtual bool visitIfcSoundProperties(IfcSoundProperties *value);
+        bool visitIfcSoundProperties(IfcSoundProperties *value) override;
         /**
          * @param value the IfcSoundValue datatype to visit
          */
-        virtual bool visitIfcSoundValue(IfcSoundValue *value);
+        bool visitIfcSoundValue(IfcSoundValue *value) override;
         /**
          * @param value the IfcSpace datatype to visit
          */
-        virtual bool visitIfcSpace(IfcSpace *value);
+        bool visitIfcSpace(IfcSpace *value) override;
         /**
          * @param value the IfcSpaceHeaterType datatype to visit
          */
-        virtual bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *value);
+        bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *value) override;
         /**
          * @param value the IfcSpaceProgram datatype to visit
          */
-        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *value);
+        bool visitIfcSpaceProgram(IfcSpaceProgram *value) override;
         /**
          * @param value the IfcSpaceThermalLoadProperties datatype to visit
          */
-        virtual bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *value);
+        bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *value) override;
         /**
          * @param value the IfcSpaceType datatype to visit
          */
-        virtual bool visitIfcSpaceType(IfcSpaceType *value);
+        bool visitIfcSpaceType(IfcSpaceType *value) override;
         /**
          * @param value the IfcSpatialStructureElement datatype to visit
          */
-        virtual bool visitIfcSpatialStructureElement(IfcSpatialStructureElement *value);
+        bool visitIfcSpatialStructureElement(IfcSpatialStructureElement *value) override;
         /**
          * @param value the IfcSpatialStructureElementType datatype to visit
          */
-        virtual bool visitIfcSpatialStructureElementType(IfcSpatialStructureElementType *value);
+        bool visitIfcSpatialStructureElementType(IfcSpatialStructureElementType *value) override;
         /**
          * @param value the IfcSphere datatype to visit
          */
-        virtual bool visitIfcSphere(IfcSphere *value);
+        bool visitIfcSphere(IfcSphere *value) override;
         /**
          * @param value the IfcStackTerminalType datatype to visit
          */
-        virtual bool visitIfcStackTerminalType(IfcStackTerminalType *value);
+        bool visitIfcStackTerminalType(IfcStackTerminalType *value) override;
         /**
          * @param value the IfcStair datatype to visit
          */
-        virtual bool visitIfcStair(IfcStair *value);
+        bool visitIfcStair(IfcStair *value) override;
         /**
          * @param value the IfcStairFlight datatype to visit
          */
-        virtual bool visitIfcStairFlight(IfcStairFlight *value);
+        bool visitIfcStairFlight(IfcStairFlight *value) override;
         /**
          * @param value the IfcStairFlightType datatype to visit
          */
-        virtual bool visitIfcStairFlightType(IfcStairFlightType *value);
+        bool visitIfcStairFlightType(IfcStairFlightType *value) override;
         /**
          * @param value the IfcStructuralAction datatype to visit
          */
-        virtual bool visitIfcStructuralAction(IfcStructuralAction *value);
+        bool visitIfcStructuralAction(IfcStructuralAction *value) override;
         /**
          * @param value the IfcStructuralActivity datatype to visit
          */
-        virtual bool visitIfcStructuralActivity(IfcStructuralActivity *value);
+        bool visitIfcStructuralActivity(IfcStructuralActivity *value) override;
         /**
          * @param value the IfcStructuralAnalysisModel datatype to visit
          */
-        virtual bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *value);
+        bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *value) override;
         /**
          * @param value the IfcStructuralConnection datatype to visit
          */
-        virtual bool visitIfcStructuralConnection(IfcStructuralConnection *value);
+        bool visitIfcStructuralConnection(IfcStructuralConnection *value) override;
         /**
          * @param value the IfcStructuralConnectionCondition datatype to visit
          */
-        virtual bool visitIfcStructuralConnectionCondition(IfcStructuralConnectionCondition *value);
+        bool visitIfcStructuralConnectionCondition(IfcStructuralConnectionCondition *value) override;
         /**
          * @param value the IfcStructuralCurveConnection datatype to visit
          */
-        virtual bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *value);
+        bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *value) override;
         /**
          * @param value the IfcStructuralCurveMember datatype to visit
          */
-        virtual bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *value);
+        bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *value) override;
         /**
          * @param value the IfcStructuralCurveMemberVarying datatype to visit
          */
-        virtual bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *value);
+        bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *value) override;
         /**
          * @param value the IfcStructuralItem datatype to visit
          */
-        virtual bool visitIfcStructuralItem(IfcStructuralItem *value);
+        bool visitIfcStructuralItem(IfcStructuralItem *value) override;
         /**
          * @param value the IfcStructuralLinearAction datatype to visit
          */
-        virtual bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *value);
+        bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *value) override;
         /**
          * @param value the IfcStructuralLinearActionVarying datatype to visit
          */
-        virtual bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *value);
+        bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *value) override;
         /**
          * @param value the IfcStructuralLoad datatype to visit
          */
-        virtual bool visitIfcStructuralLoad(IfcStructuralLoad *value);
+        bool visitIfcStructuralLoad(IfcStructuralLoad *value) override;
         /**
          * @param value the IfcStructuralLoadGroup datatype to visit
          */
-        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *value);
+        bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *value) override;
         /**
          * @param value the IfcStructuralLoadLinearForce datatype to visit
          */
-        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *value);
+        bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *value) override;
         /**
          * @param value the IfcStructuralLoadPlanarForce datatype to visit
          */
-        virtual bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *value);
+        bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *value) override;
         /**
          * @param value the IfcStructuralLoadSingleDisplacement datatype to visit
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *value);
+        bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *value) override;
         /**
          * @param value the IfcStructuralLoadSingleDisplacementDistortion datatype to visit
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *value);
+        bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *value) override;
         /**
          * @param value the IfcStructuralLoadSingleForce datatype to visit
          */
-        virtual bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *value);
+        bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *value) override;
         /**
          * @param value the IfcStructuralLoadSingleForceWarping datatype to visit
          */
-        virtual bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *value);
+        bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *value) override;
         /**
          * @param value the IfcStructuralLoadStatic datatype to visit
          */
-        virtual bool visitIfcStructuralLoadStatic(IfcStructuralLoadStatic *value);
+        bool visitIfcStructuralLoadStatic(IfcStructuralLoadStatic *value) override;
         /**
          * @param value the IfcStructuralLoadTemperature datatype to visit
          */
-        virtual bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *value);
+        bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *value) override;
         /**
          * @param value the IfcStructuralMember datatype to visit
          */
-        virtual bool visitIfcStructuralMember(IfcStructuralMember *value);
+        bool visitIfcStructuralMember(IfcStructuralMember *value) override;
         /**
          * @param value the IfcStructuralPlanarAction datatype to visit
          */
-        virtual bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *value);
+        bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *value) override;
         /**
          * @param value the IfcStructuralPlanarActionVarying datatype to visit
          */
-        virtual bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *value);
+        bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *value) override;
         /**
          * @param value the IfcStructuralPointAction datatype to visit
          */
-        virtual bool visitIfcStructuralPointAction(IfcStructuralPointAction *value);
+        bool visitIfcStructuralPointAction(IfcStructuralPointAction *value) override;
         /**
          * @param value the IfcStructuralPointConnection datatype to visit
          */
-        virtual bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *value);
+        bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *value) override;
         /**
          * @param value the IfcStructuralPointReaction datatype to visit
          */
-        virtual bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *value);
+        bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *value) override;
         /**
          * @param value the IfcStructuralProfileProperties datatype to visit
          */
-        virtual bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *value);
+        bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *value) override;
         /**
          * @param value the IfcStructuralReaction datatype to visit
          */
-        virtual bool visitIfcStructuralReaction(IfcStructuralReaction *value);
+        bool visitIfcStructuralReaction(IfcStructuralReaction *value) override;
         /**
          * @param value the IfcStructuralResultGroup datatype to visit
          */
-        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *value);
+        bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *value) override;
         /**
          * @param value the IfcStructuralSteelProfileProperties datatype to visit
          */
-        virtual bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *value);
+        bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *value) override;
         /**
          * @param value the IfcStructuralSurfaceConnection datatype to visit
          */
-        virtual bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *value);
+        bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *value) override;
         /**
          * @param value the IfcStructuralSurfaceMember datatype to visit
          */
-        virtual bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *value);
+        bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *value) override;
         /**
          * @param value the IfcStructuralSurfaceMemberVarying datatype to visit
          */
-        virtual bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *value);
+        bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *value) override;
         /**
          * @param value the IfcStructuredDimensionCallout datatype to visit
          */
-        virtual bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *value);
+        bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *value) override;
         /**
          * @param value the IfcStyleModel datatype to visit
          */
-        virtual bool visitIfcStyleModel(IfcStyleModel *value);
+        bool visitIfcStyleModel(IfcStyleModel *value) override;
         /**
          * @param value the IfcStyledItem datatype to visit
          */
-        virtual bool visitIfcStyledItem(IfcStyledItem *value);
+        bool visitIfcStyledItem(IfcStyledItem *value) override;
         /**
          * @param value the IfcStyledRepresentation datatype to visit
          */
-        virtual bool visitIfcStyledRepresentation(IfcStyledRepresentation *value);
+        bool visitIfcStyledRepresentation(IfcStyledRepresentation *value) override;
         /**
          * @param value the IfcSubContractResource datatype to visit
          */
-        virtual bool visitIfcSubContractResource(IfcSubContractResource *value);
+        bool visitIfcSubContractResource(IfcSubContractResource *value) override;
         /**
          * @param value the IfcSubedge datatype to visit
          */
-        virtual bool visitIfcSubedge(IfcSubedge *value);
+        bool visitIfcSubedge(IfcSubedge *value) override;
         /**
          * @param value the IfcSurface datatype to visit
          */
-        virtual bool visitIfcSurface(IfcSurface *value);
+        bool visitIfcSurface(IfcSurface *value) override;
         /**
          * @param value the IfcSurfaceCurveSweptAreaSolid datatype to visit
          */
-        virtual bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *value);
+        bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *value) override;
         /**
          * @param value the IfcSurfaceOfLinearExtrusion datatype to visit
          */
-        virtual bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *value);
+        bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *value) override;
         /**
          * @param value the IfcSurfaceOfRevolution datatype to visit
          */
-        virtual bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *value);
+        bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *value) override;
         /**
          * @param value the IfcSurfaceStyle datatype to visit
          */
-        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *value);
+        bool visitIfcSurfaceStyle(IfcSurfaceStyle *value) override;
         /**
          * @param value the IfcSurfaceStyleLighting datatype to visit
          */
-        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *value);
+        bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *value) override;
         /**
          * @param value the IfcSurfaceStyleRefraction datatype to visit
          */
-        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *value);
+        bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *value) override;
         /**
          * @param value the IfcSurfaceStyleRendering datatype to visit
          */
-        virtual bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *value);
+        bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *value) override;
         /**
          * @param value the IfcSurfaceStyleShading datatype to visit
          */
-        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *value);
+        bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *value) override;
         /**
          * @param value the IfcSurfaceStyleWithTextures datatype to visit
          */
-        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *value);
+        bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *value) override;
         /**
          * @param value the IfcSurfaceTexture datatype to visit
          */
-        virtual bool visitIfcSurfaceTexture(IfcSurfaceTexture *value);
+        bool visitIfcSurfaceTexture(IfcSurfaceTexture *value) override;
         /**
          * @param value the IfcSweptAreaSolid datatype to visit
          */
-        virtual bool visitIfcSweptAreaSolid(IfcSweptAreaSolid *value);
+        bool visitIfcSweptAreaSolid(IfcSweptAreaSolid *value) override;
         /**
          * @param value the IfcSweptDiskSolid datatype to visit
          */
-        virtual bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *value);
+        bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *value) override;
         /**
          * @param value the IfcSweptSurface datatype to visit
          */
-        virtual bool visitIfcSweptSurface(IfcSweptSurface *value);
+        bool visitIfcSweptSurface(IfcSweptSurface *value) override;
         /**
          * @param value the IfcSwitchingDeviceType datatype to visit
          */
-        virtual bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *value);
+        bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *value) override;
         /**
          * @param value the IfcSymbolStyle datatype to visit
          */
-        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *value);
+        bool visitIfcSymbolStyle(IfcSymbolStyle *value) override;
         /**
          * @param value the IfcSystem datatype to visit
          */
-        virtual bool visitIfcSystem(IfcSystem *value);
+        bool visitIfcSystem(IfcSystem *value) override;
         /**
          * @param value the IfcSystemFurnitureElementType datatype to visit
          */
-        virtual bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *value);
+        bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *value) override;
         /**
          * @param value the IfcTShapeProfileDef datatype to visit
          */
-        virtual bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *value);
+        bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *value) override;
         /**
          * @param value the IfcTable datatype to visit
          */
-        virtual bool visitIfcTable(IfcTable *value);
+        bool visitIfcTable(IfcTable *value) override;
         /**
          * @param value the IfcTableRow datatype to visit
          */
-        virtual bool visitIfcTableRow(IfcTableRow *value);
+        bool visitIfcTableRow(IfcTableRow *value) override;
         /**
          * @param value the IfcTankType datatype to visit
          */
-        virtual bool visitIfcTankType(IfcTankType *value);
+        bool visitIfcTankType(IfcTankType *value) override;
         /**
          * @param value the IfcTask datatype to visit
          */
-        virtual bool visitIfcTask(IfcTask *value);
+        bool visitIfcTask(IfcTask *value) override;
         /**
          * @param value the IfcTelecomAddress datatype to visit
          */
-        virtual bool visitIfcTelecomAddress(IfcTelecomAddress *value);
+        bool visitIfcTelecomAddress(IfcTelecomAddress *value) override;
         /**
          * @param value the IfcTendon datatype to visit
          */
-        virtual bool visitIfcTendon(IfcTendon *value);
+        bool visitIfcTendon(IfcTendon *value) override;
         /**
          * @param value the IfcTendonAnchor datatype to visit
          */
-        virtual bool visitIfcTendonAnchor(IfcTendonAnchor *value);
+        bool visitIfcTendonAnchor(IfcTendonAnchor *value) override;
         /**
          * @param value the IfcTerminatorSymbol datatype to visit
          */
-        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *value);
+        bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *value) override;
         /**
          * @param value the IfcTextLiteral datatype to visit
          */
-        virtual bool visitIfcTextLiteral(IfcTextLiteral *value);
+        bool visitIfcTextLiteral(IfcTextLiteral *value) override;
         /**
          * @param value the IfcTextLiteralWithExtent datatype to visit
          */
-        virtual bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *value);
+        bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *value) override;
         /**
          * @param value the IfcTextStyle datatype to visit
          */
-        virtual bool visitIfcTextStyle(IfcTextStyle *value);
+        bool visitIfcTextStyle(IfcTextStyle *value) override;
         /**
          * @param value the IfcTextStyleFontModel datatype to visit
          */
-        virtual bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *value);
+        bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *value) override;
         /**
          * @param value the IfcTextStyleForDefinedFont datatype to visit
          */
-        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *value);
+        bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *value) override;
         /**
          * @param value the IfcTextStyleTextModel datatype to visit
          */
-        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *value);
+        bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *value) override;
         /**
          * @param value the IfcTextStyleWithBoxCharacteristics datatype to visit
          */
-        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *value);
+        bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *value) override;
         /**
          * @param value the IfcTextureCoordinate datatype to visit
          */
-        virtual bool visitIfcTextureCoordinate(IfcTextureCoordinate *value);
+        bool visitIfcTextureCoordinate(IfcTextureCoordinate *value) override;
         /**
          * @param value the IfcTextureCoordinateGenerator datatype to visit
          */
-        virtual bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *value);
+        bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *value) override;
         /**
          * @param value the IfcTextureMap datatype to visit
          */
-        virtual bool visitIfcTextureMap(IfcTextureMap *value);
+        bool visitIfcTextureMap(IfcTextureMap *value) override;
         /**
          * @param value the IfcTextureVertex datatype to visit
          */
-        virtual bool visitIfcTextureVertex(IfcTextureVertex *value);
+        bool visitIfcTextureVertex(IfcTextureVertex *value) override;
         /**
          * @param value the IfcThermalMaterialProperties datatype to visit
          */
-        virtual bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *value);
+        bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *value) override;
         /**
          * @param value the IfcTimeSeries datatype to visit
          */
-        virtual bool visitIfcTimeSeries(IfcTimeSeries *value);
+        bool visitIfcTimeSeries(IfcTimeSeries *value) override;
         /**
          * @param value the IfcTimeSeriesReferenceRelationship datatype to visit
          */
-        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *value);
+        bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *value) override;
         /**
          * @param value the IfcTimeSeriesSchedule datatype to visit
          */
-        virtual bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *value);
+        bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *value) override;
         /**
          * @param value the IfcTimeSeriesValue datatype to visit
          */
-        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *value);
+        bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *value) override;
         /**
          * @param value the IfcTopologicalRepresentationItem datatype to visit
          */
-        virtual bool visitIfcTopologicalRepresentationItem(IfcTopologicalRepresentationItem *value);
+        bool visitIfcTopologicalRepresentationItem(IfcTopologicalRepresentationItem *value) override;
         /**
          * @param value the IfcTopologyRepresentation datatype to visit
          */
-        virtual bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *value);
+        bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *value) override;
         /**
          * @param value the IfcTransformerType datatype to visit
          */
-        virtual bool visitIfcTransformerType(IfcTransformerType *value);
+        bool visitIfcTransformerType(IfcTransformerType *value) override;
         /**
          * @param value the IfcTransportElement datatype to visit
          */
-        virtual bool visitIfcTransportElement(IfcTransportElement *value);
+        bool visitIfcTransportElement(IfcTransportElement *value) override;
         /**
          * @param value the IfcTransportElementType datatype to visit
          */
-        virtual bool visitIfcTransportElementType(IfcTransportElementType *value);
+        bool visitIfcTransportElementType(IfcTransportElementType *value) override;
         /**
          * @param value the IfcTrapeziumProfileDef datatype to visit
          */
-        virtual bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *value);
+        bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *value) override;
         /**
          * @param value the IfcTrimmedCurve datatype to visit
          */
-        virtual bool visitIfcTrimmedCurve(IfcTrimmedCurve *value);
+        bool visitIfcTrimmedCurve(IfcTrimmedCurve *value) override;
         /**
          * @param value the IfcTubeBundleType datatype to visit
          */
-        virtual bool visitIfcTubeBundleType(IfcTubeBundleType *value);
+        bool visitIfcTubeBundleType(IfcTubeBundleType *value) override;
         /**
          * @param value the IfcTwoDirectionRepeatFactor datatype to visit
          */
-        virtual bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *value);
+        bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *value) override;
         /**
          * @param value the IfcTypeObject datatype to visit
          */
-        virtual bool visitIfcTypeObject(IfcTypeObject *value);
+        bool visitIfcTypeObject(IfcTypeObject *value) override;
         /**
          * @param value the IfcTypeProduct datatype to visit
          */
-        virtual bool visitIfcTypeProduct(IfcTypeProduct *value);
+        bool visitIfcTypeProduct(IfcTypeProduct *value) override;
         /**
          * @param value the IfcUShapeProfileDef datatype to visit
          */
-        virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *value);
+        bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *value) override;
         /**
          * @param value the IfcUnitAssignment datatype to visit
          */
-        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *value);
+        bool visitIfcUnitAssignment(IfcUnitAssignment *value) override;
         /**
          * @param value the IfcUnitaryEquipmentType datatype to visit
          */
-        virtual bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *value);
+        bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *value) override;
         /**
          * @param value the IfcValveType datatype to visit
          */
-        virtual bool visitIfcValveType(IfcValveType *value);
+        bool visitIfcValveType(IfcValveType *value) override;
         /**
          * @param value the IfcVector datatype to visit
          */
-        virtual bool visitIfcVector(IfcVector *value);
+        bool visitIfcVector(IfcVector *value) override;
         /**
          * @param value the IfcVertex datatype to visit
          */
-        virtual bool visitIfcVertex(IfcVertex *value);
+        bool visitIfcVertex(IfcVertex *value) override;
         /**
          * @param value the IfcVertexBasedTextureMap datatype to visit
          */
-        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *value);
+        bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *value) override;
         /**
          * @param value the IfcVertexLoop datatype to visit
          */
-        virtual bool visitIfcVertexLoop(IfcVertexLoop *value);
+        bool visitIfcVertexLoop(IfcVertexLoop *value) override;
         /**
          * @param value the IfcVertexPoint datatype to visit
          */
-        virtual bool visitIfcVertexPoint(IfcVertexPoint *value);
+        bool visitIfcVertexPoint(IfcVertexPoint *value) override;
         /**
          * @param value the IfcVibrationIsolatorType datatype to visit
          */
-        virtual bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *value);
+        bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *value) override;
         /**
          * @param value the IfcVirtualElement datatype to visit
          */
-        virtual bool visitIfcVirtualElement(IfcVirtualElement *value);
+        bool visitIfcVirtualElement(IfcVirtualElement *value) override;
         /**
          * @param value the IfcVirtualGridIntersection datatype to visit
          */
-        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *value);
+        bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *value) override;
         /**
          * @param value the IfcWall datatype to visit
          */
-        virtual bool visitIfcWall(IfcWall *value);
+        bool visitIfcWall(IfcWall *value) override;
         /**
          * @param value the IfcWallStandardCase datatype to visit
          */
-        virtual bool visitIfcWallStandardCase(IfcWallStandardCase *value);
+        bool visitIfcWallStandardCase(IfcWallStandardCase *value) override;
         /**
          * @param value the IfcWallType datatype to visit
          */
-        virtual bool visitIfcWallType(IfcWallType *value);
+        bool visitIfcWallType(IfcWallType *value) override;
         /**
          * @param value the IfcWasteTerminalType datatype to visit
          */
-        virtual bool visitIfcWasteTerminalType(IfcWasteTerminalType *value);
+        bool visitIfcWasteTerminalType(IfcWasteTerminalType *value) override;
         /**
          * @param value the IfcWaterProperties datatype to visit
          */
-        virtual bool visitIfcWaterProperties(IfcWaterProperties *value);
+        bool visitIfcWaterProperties(IfcWaterProperties *value) override;
         /**
          * @param value the IfcWindow datatype to visit
          */
-        virtual bool visitIfcWindow(IfcWindow *value);
+        bool visitIfcWindow(IfcWindow *value) override;
         /**
          * @param value the IfcWindowLiningProperties datatype to visit
          */
-        virtual bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *value);
+        bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *value) override;
         /**
          * @param value the IfcWindowPanelProperties datatype to visit
          */
-        virtual bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *value);
+        bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *value) override;
         /**
          * @param value the IfcWindowStyle datatype to visit
          */
-        virtual bool visitIfcWindowStyle(IfcWindowStyle *value);
+        bool visitIfcWindowStyle(IfcWindowStyle *value) override;
         /**
          * @param value the IfcWorkControl datatype to visit
          */
-        virtual bool visitIfcWorkControl(IfcWorkControl *value);
+        bool visitIfcWorkControl(IfcWorkControl *value) override;
         /**
          * @param value the IfcWorkPlan datatype to visit
          */
-        virtual bool visitIfcWorkPlan(IfcWorkPlan *value);
+        bool visitIfcWorkPlan(IfcWorkPlan *value) override;
         /**
          * @param value the IfcWorkSchedule datatype to visit
          */
-        virtual bool visitIfcWorkSchedule(IfcWorkSchedule *value);
+        bool visitIfcWorkSchedule(IfcWorkSchedule *value) override;
         /**
          * @param value the IfcZShapeProfileDef datatype to visit
          */
-        virtual bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *value);
+        bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *value) override;
         /**
          * @param value the IfcZone datatype to visit
          */
-        virtual bool visitIfcZone(IfcZone *value);
+        bool visitIfcZone(IfcZone *value) override;
 
     };
 

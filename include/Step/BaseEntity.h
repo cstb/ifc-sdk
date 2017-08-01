@@ -34,12 +34,12 @@ namespace Step {
          *
          * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(BaseVisitor *visitor);
+        bool acceptVisitor(BaseVisitor *visitor) override;
 
         /**
          * Destructor (virtual)
          */
-        virtual ~BaseEntity();
+        ~BaseEntity() override;
 
         /**
          Gets the Step ID of the entity

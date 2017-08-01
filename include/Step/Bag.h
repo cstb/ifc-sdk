@@ -131,7 +131,7 @@ namespace Step {
         /**
          * destructor
          */
-        virtual ~Bag()
+        ~Bag() override
         {
         }
 
@@ -215,7 +215,7 @@ namespace Step {
          \short Gets the 'unset' flag
          @return the 'unset' flag
          */
-        bool isUnset() const
+        bool isUnset() const override
         {
             return m_unset;
         }

@@ -24,7 +24,7 @@ namespace Step
 
 
         StepLogger();
-        virtual ~StepLogger();
+        ~StepLogger() override;
 
         virtual std::ostream & notify(Severity severity);
     };

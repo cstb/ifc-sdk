@@ -692,7 +692,7 @@ namespace ifc2x3 {
         /**
          */
         ExpressDataSet();
-        virtual ~ExpressDataSet();
+        ~ExpressDataSet() override;
         /**
          * Get the entity by it's Id.
          * 

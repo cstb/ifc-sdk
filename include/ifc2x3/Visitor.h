@@ -732,7 +732,7 @@ namespace ifc2x3 {
         /**
          */
         Visitor();
-        virtual ~Visitor();
+        ~Visitor() override;
         /**
          * Visits the IfcActorSelect datatype.
          * 

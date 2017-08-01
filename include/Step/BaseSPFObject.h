@@ -35,7 +35,7 @@ namespace Step {
         /*!
          * Virtual destructor.
          */
-        virtual ~BaseSPFObject();
+        ~BaseSPFObject() override;
 
     protected:
         /*!
@@ -60,7 +60,7 @@ namespace Step {
         /*!
          * Initialize the instance (Lazy loading concept)
          */
-        virtual bool init();
+        bool init() override;
 
         /*!
          * allocating function type

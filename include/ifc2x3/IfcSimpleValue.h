@@ -60,18 +60,18 @@ enum IfcSimpleValue_select {
         /**
          */
         IfcSimpleValue();
-        virtual ~IfcSimpleValue();
+        ~IfcSimpleValue() override;
         /**
          * Accepts a read/write Step::BaseVisitor.
          * 
          * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
+        bool acceptVisitor(Step::BaseVisitor *visitor) override;
         /**
          * Returns the class type as a human readable std::string.
          * 
          */
-        virtual const std::string &type() const;
+        const std::string &type() const override;
         /**
          * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
          * 
@@ -81,13 +81,13 @@ enum IfcSimpleValue_select {
          * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
          * 
          */
-        virtual const Step::ClassType &getType() const;
+        const Step::ClassType &getType() const override;
         /**
          * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
          * 
          * @param t
          */
-        virtual bool isOfType(const Step::ClassType &t) const;
+        bool isOfType(const Step::ClassType &t) const override;
         /**
          * @param obj
          * @param copyop
@@ -163,7 +163,7 @@ enum IfcSimpleValue_select {
         IfcSimpleValue(Step::SPFData *args);
         /**
          */
-        virtual bool init();
+        bool init() override;
 
     private:
         /**

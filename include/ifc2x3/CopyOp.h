@@ -593,7 +593,7 @@ namespace ifc2x3 {
         /**
          */
         CopyOp();
-        virtual ~CopyOp();
+        ~CopyOp() override;
         /**
          * Operator called by entities in their copy methods.
          * 
@@ -603,2227 +603,2227 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj) = 0;
+        bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcActionRequest(IfcActionRequest *obj) = 0;
+        bool visitIfcActionRequest(IfcActionRequest *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcActor(IfcActor *obj) = 0;
+        bool visitIfcActor(IfcActor *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcActorRole(IfcActorRole *obj) = 0;
+        bool visitIfcActorRole(IfcActorRole *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcActuatorType(IfcActuatorType *obj) = 0;
+        bool visitIfcActuatorType(IfcActuatorType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *obj) = 0;
+        bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirTerminalType(IfcAirTerminalType *obj) = 0;
+        bool visitIfcAirTerminalType(IfcAirTerminalType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj) = 0;
+        bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAlarmType(IfcAlarmType *obj) = 0;
+        bool visitIfcAlarmType(IfcAlarmType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAngularDimension(IfcAngularDimension *obj) = 0;
+        bool visitIfcAngularDimension(IfcAngularDimension *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotation(IfcAnnotation *obj) = 0;
+        bool visitIfcAnnotation(IfcAnnotation *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj) = 0;
+        bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *obj) = 0;
+        bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *obj) = 0;
+        bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSurface(IfcAnnotationSurface *obj) = 0;
+        bool visitIfcAnnotationSurface(IfcAnnotationSurface *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj) = 0;
+        bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj) = 0;
+        bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj) = 0;
+        bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcApplication(IfcApplication *obj) = 0;
+        bool visitIfcApplication(IfcApplication *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj) = 0;
+        bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcApproval(IfcApproval *obj) = 0;
+        bool visitIfcApproval(IfcApproval *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *obj) = 0;
+        bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj) = 0;
+        bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj) = 0;
+        bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj) = 0;
+        bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *obj) = 0;
+        bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *obj) = 0;
+        bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAsset(IfcAsset *obj) = 0;
+        bool visitIfcAsset(IfcAsset *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *obj) = 0;
+        bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis1Placement(IfcAxis1Placement *obj) = 0;
+        bool visitIfcAxis1Placement(IfcAxis1Placement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj) = 0;
+        bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj) = 0;
+        bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBeam(IfcBeam *obj) = 0;
+        bool visitIfcBeam(IfcBeam *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBeamType(IfcBeamType *obj) = 0;
+        bool visitIfcBeamType(IfcBeamType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBezierCurve(IfcBezierCurve *obj) = 0;
+        bool visitIfcBezierCurve(IfcBezierCurve *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBlobTexture(IfcBlobTexture *obj) = 0;
+        bool visitIfcBlobTexture(IfcBlobTexture *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBlock(IfcBlock *obj) = 0;
+        bool visitIfcBlock(IfcBlock *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoilerType(IfcBoilerType *obj) = 0;
+        bool visitIfcBoilerType(IfcBoilerType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj) = 0;
+        bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj) = 0;
+        bool visitIfcBooleanResult(IfcBooleanResult *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *obj) = 0;
+        bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *obj) = 0;
+        bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *obj) = 0;
+        bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *obj) = 0;
+        bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundedSurface(IfcBoundedSurface *obj) = 0;
+        bool visitIfcBoundedSurface(IfcBoundedSurface *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundingBox(IfcBoundingBox *obj) = 0;
+        bool visitIfcBoundingBox(IfcBoundingBox *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *obj) = 0;
+        bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuilding(IfcBuilding *obj) = 0;
+        bool visitIfcBuilding(IfcBuilding *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj) = 0;
+        bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *obj) = 0;
+        bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *obj) = 0;
+        bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingStorey(IfcBuildingStorey *obj) = 0;
+        bool visitIfcBuildingStorey(IfcBuildingStorey *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *obj) = 0;
+        bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *obj) = 0;
+        bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj) = 0;
+        bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableSegmentType(IfcCableSegmentType *obj) = 0;
+        bool visitIfcCableSegmentType(IfcCableSegmentType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj) = 0;
+        bool visitIfcCalendarDate(IfcCalendarDate *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj) = 0;
+        bool visitIfcCartesianPoint(IfcCartesianPoint *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj) = 0;
+        bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *obj) = 0;
+        bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *obj) = 0;
+        bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *obj) = 0;
+        bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *obj) = 0;
+        bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *obj) = 0;
+        bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcChillerType(IfcChillerType *obj) = 0;
+        bool visitIfcChillerType(IfcChillerType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircle(IfcCircle *obj) = 0;
+        bool visitIfcCircle(IfcCircle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *obj) = 0;
+        bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircleProfileDef(IfcCircleProfileDef *obj) = 0;
+        bool visitIfcCircleProfileDef(IfcCircleProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassification(IfcClassification *obj) = 0;
+        bool visitIfcClassification(IfcClassification *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj) = 0;
+        bool visitIfcClassificationItem(IfcClassificationItem *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj) = 0;
+        bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj) = 0;
+        bool visitIfcClassificationNotation(IfcClassificationNotation *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj) = 0;
+        bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj) = 0;
+        bool visitIfcClassificationReference(IfcClassificationReference *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcClosedShell(IfcClosedShell *obj) = 0;
+        bool visitIfcClosedShell(IfcClosedShell *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoilType(IfcCoilType *obj) = 0;
+        bool visitIfcCoilType(IfcCoilType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcColourRgb(IfcColourRgb *obj) = 0;
+        bool visitIfcColourRgb(IfcColourRgb *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcColumn(IfcColumn *obj) = 0;
+        bool visitIfcColumn(IfcColumn *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcColumnType(IfcColumnType *obj) = 0;
+        bool visitIfcColumnType(IfcColumnType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj) = 0;
+        bool visitIfcComplexProperty(IfcComplexProperty *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj) = 0;
+        bool visitIfcCompositeCurve(IfcCompositeCurve *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj) = 0;
+        bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj) = 0;
+        bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompressorType(IfcCompressorType *obj) = 0;
+        bool visitIfcCompressorType(IfcCompressorType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCondenserType(IfcCondenserType *obj) = 0;
+        bool visitIfcCondenserType(IfcCondenserType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCondition(IfcCondition *obj) = 0;
+        bool visitIfcCondition(IfcCondition *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConditionCriterion(IfcConditionCriterion *obj) = 0;
+        bool visitIfcConditionCriterion(IfcConditionCriterion *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj) = 0;
+        bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *obj) = 0;
+        bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *obj) = 0;
+        bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *obj) = 0;
+        bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *obj) = 0;
+        bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *obj) = 0;
+        bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj) = 0;
+        bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *obj) = 0;
+        bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintRelationship(IfcConstraintRelationship *obj) = 0;
+        bool visitIfcConstraintRelationship(IfcConstraintRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj) = 0;
+        bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *obj) = 0;
+        bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionProductResource(IfcConstructionProductResource *obj) = 0;
+        bool visitIfcConstructionProductResource(IfcConstructionProductResource *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcContextDependentUnit(IfcContextDependentUnit *obj) = 0;
+        bool visitIfcContextDependentUnit(IfcContextDependentUnit *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcControllerType(IfcControllerType *obj) = 0;
+        bool visitIfcControllerType(IfcControllerType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *obj) = 0;
+        bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCooledBeamType(IfcCooledBeamType *obj) = 0;
+        bool visitIfcCooledBeamType(IfcCooledBeamType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoolingTowerType(IfcCoolingTowerType *obj) = 0;
+        bool visitIfcCoolingTowerType(IfcCoolingTowerType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj) = 0;
+        bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostItem(IfcCostItem *obj) = 0;
+        bool visitIfcCostItem(IfcCostItem *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostSchedule(IfcCostSchedule *obj) = 0;
+        bool visitIfcCostSchedule(IfcCostSchedule *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostValue(IfcCostValue *obj) = 0;
+        bool visitIfcCostValue(IfcCostValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCovering(IfcCovering *obj) = 0;
+        bool visitIfcCovering(IfcCovering *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoveringType(IfcCoveringType *obj) = 0;
+        bool visitIfcCoveringType(IfcCoveringType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *obj) = 0;
+        bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *obj) = 0;
+        bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCrewResource(IfcCrewResource *obj) = 0;
+        bool visitIfcCrewResource(IfcCrewResource *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCsgSolid(IfcCsgSolid *obj) = 0;
+        bool visitIfcCsgSolid(IfcCsgSolid *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *obj) = 0;
+        bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurtainWall(IfcCurtainWall *obj) = 0;
+        bool visitIfcCurtainWall(IfcCurtainWall *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurtainWallType(IfcCurtainWallType *obj) = 0;
+        bool visitIfcCurtainWallType(IfcCurtainWallType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *obj) = 0;
+        bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj) = 0;
+        bool visitIfcCurveStyle(IfcCurveStyle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj) = 0;
+        bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj) = 0;
+        bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj) = 0;
+        bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDamperType(IfcDamperType *obj) = 0;
+        bool visitIfcDamperType(IfcDamperType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj) = 0;
+        bool visitIfcDateAndTime(IfcDateAndTime *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDefinedSymbol(IfcDefinedSymbol *obj) = 0;
+        bool visitIfcDefinedSymbol(IfcDefinedSymbol *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj) = 0;
+        bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj) = 0;
+        bool visitIfcDerivedUnit(IfcDerivedUnit *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj) = 0;
+        bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiameterDimension(IfcDiameterDimension *obj) = 0;
+        bool visitIfcDiameterDimension(IfcDiameterDimension *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *obj) = 0;
+        bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurve(IfcDimensionCurve *obj) = 0;
+        bool visitIfcDimensionCurve(IfcDimensionCurve *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj) = 0;
+        bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *obj) = 0;
+        bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionPair(IfcDimensionPair *obj) = 0;
+        bool visitIfcDimensionPair(IfcDimensionPair *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj) = 0;
+        bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDirection(IfcDirection *obj) = 0;
+        bool visitIfcDirection(IfcDirection *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj) = 0;
+        bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *obj) = 0;
+        bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj) = 0;
+        bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj) = 0;
+        bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj) = 0;
+        bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj) = 0;
+        bool visitIfcDistributionElement(IfcDistributionElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj) = 0;
+        bool visitIfcDistributionElementType(IfcDistributionElementType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *obj) = 0;
+        bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionPort(IfcDistributionPort *obj) = 0;
+        bool visitIfcDistributionPort(IfcDistributionPort *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj) = 0;
+        bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj) = 0;
+        bool visitIfcDocumentInformation(IfcDocumentInformation *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj) = 0;
+        bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj) = 0;
+        bool visitIfcDocumentReference(IfcDocumentReference *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoor(IfcDoor *obj) = 0;
+        bool visitIfcDoor(IfcDoor *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *obj) = 0;
+        bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj) = 0;
+        bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorStyle(IfcDoorStyle *obj) = 0;
+        bool visitIfcDoorStyle(IfcDoorStyle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj) = 0;
+        bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj) = 0;
+        bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *obj) = 0;
+        bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *obj) = 0;
+        bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *obj) = 0;
+        bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctFittingType(IfcDuctFittingType *obj) = 0;
+        bool visitIfcDuctFittingType(IfcDuctFittingType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctSegmentType(IfcDuctSegmentType *obj) = 0;
+        bool visitIfcDuctSegmentType(IfcDuctSegmentType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctSilencerType(IfcDuctSilencerType *obj) = 0;
+        bool visitIfcDuctSilencerType(IfcDuctSilencerType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdge(IfcEdge *obj) = 0;
+        bool visitIfcEdge(IfcEdge *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj) = 0;
+        bool visitIfcEdgeCurve(IfcEdgeCurve *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdgeLoop(IfcEdgeLoop *obj) = 0;
+        bool visitIfcEdgeLoop(IfcEdgeLoop *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricApplianceType(IfcElectricApplianceType *obj) = 0;
+        bool visitIfcElectricApplianceType(IfcElectricApplianceType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *obj) = 0;
+        bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj) = 0;
+        bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *obj) = 0;
+        bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricHeaterType(IfcElectricHeaterType *obj) = 0;
+        bool visitIfcElectricHeaterType(IfcElectricHeaterType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricMotorType(IfcElectricMotorType *obj) = 0;
+        bool visitIfcElectricMotorType(IfcElectricMotorType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *obj) = 0;
+        bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *obj) = 0;
+        bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj) = 0;
+        bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalElement(IfcElectricalElement *obj) = 0;
+        bool visitIfcElectricalElement(IfcElectricalElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElementAssembly(IfcElementAssembly *obj) = 0;
+        bool visitIfcElementAssembly(IfcElementAssembly *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcElementQuantity(IfcElementQuantity *obj) = 0;
+        bool visitIfcElementQuantity(IfcElementQuantity *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEllipse(IfcEllipse *obj) = 0;
+        bool visitIfcEllipse(IfcEllipse *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *obj) = 0;
+        bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj) = 0;
+        bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj) = 0;
+        bool visitIfcEnergyProperties(IfcEnergyProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *obj) = 0;
+        bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEquipmentElement(IfcEquipmentElement *obj) = 0;
+        bool visitIfcEquipmentElement(IfcEquipmentElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEquipmentStandard(IfcEquipmentStandard *obj) = 0;
+        bool visitIfcEquipmentStandard(IfcEquipmentStandard *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *obj) = 0;
+        bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcEvaporatorType(IfcEvaporatorType *obj) = 0;
+        bool visitIfcEvaporatorType(IfcEvaporatorType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *obj) = 0;
+        bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj) = 0;
+        bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj) = 0;
+        bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj) = 0;
+        bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj) = 0;
+        bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *obj) = 0;
+        bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFace(IfcFace *obj) = 0;
+        bool visitIfcFace(IfcFace *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj) = 0;
+        bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceBound(IfcFaceBound *obj) = 0;
+        bool visitIfcFaceBound(IfcFaceBound *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceOuterBound(IfcFaceOuterBound *obj) = 0;
+        bool visitIfcFaceOuterBound(IfcFaceOuterBound *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj) = 0;
+        bool visitIfcFaceSurface(IfcFaceSurface *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj) = 0;
+        bool visitIfcFacetedBrep(IfcFacetedBrep *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *obj) = 0;
+        bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *obj) = 0;
+        bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFanType(IfcFanType *obj) = 0;
+        bool visitIfcFanType(IfcFanType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFastener(IfcFastener *obj) = 0;
+        bool visitIfcFastener(IfcFastener *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFastenerType(IfcFastenerType *obj) = 0;
+        bool visitIfcFastenerType(IfcFastenerType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj) = 0;
+        bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj) = 0;
+        bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj) = 0;
+        bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj) = 0;
+        bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFilterType(IfcFilterType *obj) = 0;
+        bool visitIfcFilterType(IfcFilterType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj) = 0;
+        bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowController(IfcFlowController *obj) = 0;
+        bool visitIfcFlowController(IfcFlowController *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowFitting(IfcFlowFitting *obj) = 0;
+        bool visitIfcFlowFitting(IfcFlowFitting *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *obj) = 0;
+        bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowMeterType(IfcFlowMeterType *obj) = 0;
+        bool visitIfcFlowMeterType(IfcFlowMeterType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *obj) = 0;
+        bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowSegment(IfcFlowSegment *obj) = 0;
+        bool visitIfcFlowSegment(IfcFlowSegment *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *obj) = 0;
+        bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowTerminal(IfcFlowTerminal *obj) = 0;
+        bool visitIfcFlowTerminal(IfcFlowTerminal *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *obj) = 0;
+        bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *obj) = 0;
+        bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFooting(IfcFooting *obj) = 0;
+        bool visitIfcFooting(IfcFooting *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFuelProperties(IfcFuelProperties *obj) = 0;
+        bool visitIfcFuelProperties(IfcFuelProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnishingElement(IfcFurnishingElement *obj) = 0;
+        bool visitIfcFurnishingElement(IfcFurnishingElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnishingElementType(IfcFurnishingElementType *obj) = 0;
+        bool visitIfcFurnishingElementType(IfcFurnishingElementType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnitureStandard(IfcFurnitureStandard *obj) = 0;
+        bool visitIfcFurnitureStandard(IfcFurnitureStandard *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnitureType(IfcFurnitureType *obj) = 0;
+        bool visitIfcFurnitureType(IfcFurnitureType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcGasTerminalType(IfcGasTerminalType *obj) = 0;
+        bool visitIfcGasTerminalType(IfcGasTerminalType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *obj) = 0;
+        bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *obj) = 0;
+        bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj) = 0;
+        bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *obj) = 0;
+        bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *obj) = 0;
+        bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj) = 0;
+        bool visitIfcGeometricSet(IfcGeometricSet *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcGrid(IfcGrid *obj) = 0;
+        bool visitIfcGrid(IfcGrid *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcGridAxis(IfcGridAxis *obj) = 0;
+        bool visitIfcGridAxis(IfcGridAxis *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcGridPlacement(IfcGridPlacement *obj) = 0;
+        bool visitIfcGridPlacement(IfcGridPlacement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcGroup(IfcGroup *obj) = 0;
+        bool visitIfcGroup(IfcGroup *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj) = 0;
+        bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcHeatExchangerType(IfcHeatExchangerType *obj) = 0;
+        bool visitIfcHeatExchangerType(IfcHeatExchangerType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcHumidifierType(IfcHumidifierType *obj) = 0;
+        bool visitIfcHumidifierType(IfcHumidifierType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj) = 0;
+        bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj) = 0;
+        bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcImageTexture(IfcImageTexture *obj) = 0;
+        bool visitIfcImageTexture(IfcImageTexture *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcInventory(IfcInventory *obj) = 0;
+        bool visitIfcInventory(IfcInventory *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *obj) = 0;
+        bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *obj) = 0;
+        bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcJunctionBoxType(IfcJunctionBoxType *obj) = 0;
+        bool visitIfcJunctionBoxType(IfcJunctionBoxType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *obj) = 0;
+        bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLaborResource(IfcLaborResource *obj) = 0;
+        bool visitIfcLaborResource(IfcLaborResource *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLampType(IfcLampType *obj) = 0;
+        bool visitIfcLampType(IfcLampType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj) = 0;
+        bool visitIfcLibraryInformation(IfcLibraryInformation *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj) = 0;
+        bool visitIfcLibraryReference(IfcLibraryReference *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj) = 0;
+        bool visitIfcLightDistributionData(IfcLightDistributionData *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightFixtureType(IfcLightFixtureType *obj) = 0;
+        bool visitIfcLightFixtureType(IfcLightFixtureType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj) = 0;
+        bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *obj) = 0;
+        bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *obj) = 0;
+        bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *obj) = 0;
+        bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourcePositional(IfcLightSourcePositional *obj) = 0;
+        bool visitIfcLightSourcePositional(IfcLightSourcePositional *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceSpot(IfcLightSourceSpot *obj) = 0;
+        bool visitIfcLightSourceSpot(IfcLightSourceSpot *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLine(IfcLine *obj) = 0;
+        bool visitIfcLine(IfcLine *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLinearDimension(IfcLinearDimension *obj) = 0;
+        bool visitIfcLinearDimension(IfcLinearDimension *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj) = 0;
+        bool visitIfcLocalPlacement(IfcLocalPlacement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalTime(IfcLocalTime *obj) = 0;
+        bool visitIfcLocalTime(IfcLocalTime *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLoop(IfcLoop *obj) = 0;
+        bool visitIfcLoop(IfcLoop *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMappedItem(IfcMappedItem *obj) = 0;
+        bool visitIfcMappedItem(IfcMappedItem *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterial(IfcMaterial *obj) = 0;
+        bool visitIfcMaterial(IfcMaterial *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj) = 0;
+        bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj) = 0;
+        bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj) = 0;
+        bool visitIfcMaterialLayer(IfcMaterialLayer *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj) = 0;
+        bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj) = 0;
+        bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialList(IfcMaterialList *obj) = 0;
+        bool visitIfcMaterialList(IfcMaterialList *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj) = 0;
+        bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj) = 0;
+        bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalFastener(IfcMechanicalFastener *obj) = 0;
+        bool visitIfcMechanicalFastener(IfcMechanicalFastener *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *obj) = 0;
+        bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj) = 0;
+        bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj) = 0;
+        bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMember(IfcMember *obj) = 0;
+        bool visitIfcMember(IfcMember *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMemberType(IfcMemberType *obj) = 0;
+        bool visitIfcMemberType(IfcMemberType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMetric(IfcMetric *obj) = 0;
+        bool visitIfcMetric(IfcMetric *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj) = 0;
+        bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj) = 0;
+        bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMove(IfcMove *obj) = 0;
+        bool visitIfcMove(IfcMove *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcObjective(IfcObjective *obj) = 0;
+        bool visitIfcObjective(IfcObjective *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOccupant(IfcOccupant *obj) = 0;
+        bool visitIfcOccupant(IfcOccupant *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *obj) = 0;
+        bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *obj) = 0;
+        bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj) = 0;
+        bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpenShell(IfcOpenShell *obj) = 0;
+        bool visitIfcOpenShell(IfcOpenShell *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj) = 0;
+        bool visitIfcOpeningElement(IfcOpeningElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj) = 0;
+        bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrderAction(IfcOrderAction *obj) = 0;
+        bool visitIfcOrderAction(IfcOrderAction *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganization(IfcOrganization *obj) = 0;
+        bool visitIfcOrganization(IfcOrganization *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj) = 0;
+        bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj) = 0;
+        bool visitIfcOrientedEdge(IfcOrientedEdge *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOutletType(IfcOutletType *obj) = 0;
+        bool visitIfcOutletType(IfcOutletType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj) = 0;
+        bool visitIfcOwnerHistory(IfcOwnerHistory *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPath(IfcPath *obj) = 0;
+        bool visitIfcPath(IfcPath *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPerformanceHistory(IfcPerformanceHistory *obj) = 0;
+        bool visitIfcPerformanceHistory(IfcPerformanceHistory *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *obj) = 0;
+        bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPermit(IfcPermit *obj) = 0;
+        bool visitIfcPermit(IfcPermit *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPerson(IfcPerson *obj) = 0;
+        bool visitIfcPerson(IfcPerson *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj) = 0;
+        bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj) = 0;
+        bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPile(IfcPile *obj) = 0;
+        bool visitIfcPile(IfcPile *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPipeFittingType(IfcPipeFittingType *obj) = 0;
+        bool visitIfcPipeFittingType(IfcPipeFittingType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPipeSegmentType(IfcPipeSegmentType *obj) = 0;
+        bool visitIfcPipeSegmentType(IfcPipeSegmentType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPixelTexture(IfcPixelTexture *obj) = 0;
+        bool visitIfcPixelTexture(IfcPixelTexture *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlanarBox(IfcPlanarBox *obj) = 0;
+        bool visitIfcPlanarBox(IfcPlanarBox *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlanarExtent(IfcPlanarExtent *obj) = 0;
+        bool visitIfcPlanarExtent(IfcPlanarExtent *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlane(IfcPlane *obj) = 0;
+        bool visitIfcPlane(IfcPlane *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlate(IfcPlate *obj) = 0;
+        bool visitIfcPlate(IfcPlate *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlateType(IfcPlateType *obj) = 0;
+        bool visitIfcPlateType(IfcPlateType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPointOnCurve(IfcPointOnCurve *obj) = 0;
+        bool visitIfcPointOnCurve(IfcPointOnCurve *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPointOnSurface(IfcPointOnSurface *obj) = 0;
+        bool visitIfcPointOnSurface(IfcPointOnSurface *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolyLoop(IfcPolyLoop *obj) = 0;
+        bool visitIfcPolyLoop(IfcPolyLoop *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *obj) = 0;
+        bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolyline(IfcPolyline *obj) = 0;
+        bool visitIfcPolyline(IfcPolyline *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj) = 0;
+        bool visitIfcPostalAddress(IfcPostalAddress *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj) = 0;
+        bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *obj) = 0;
+        bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *obj) = 0;
+        bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj) = 0;
+        bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj) = 0;
+        bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj) = 0;
+        bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcProcedure(IfcProcedure *obj) = 0;
+        bool visitIfcProcedure(IfcProcedure *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj) = 0;
+        bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj) = 0;
+        bool visitIfcProductRepresentation(IfcProductRepresentation *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *obj) = 0;
+        bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcProject(IfcProject *obj) = 0;
+        bool visitIfcProject(IfcProject *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectOrder(IfcProjectOrder *obj) = 0;
+        bool visitIfcProjectOrder(IfcProjectOrder *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj) = 0;
+        bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectionCurve(IfcProjectionCurve *obj) = 0;
+        bool visitIfcProjectionCurve(IfcProjectionCurve *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectionElement(IfcProjectionElement *obj) = 0;
+        bool visitIfcProjectionElement(IfcProjectionElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *obj) = 0;
+        bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj) = 0;
+        bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj) = 0;
+        bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *obj) = 0;
+        bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *obj) = 0;
+        bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyListValue(IfcPropertyListValue *obj) = 0;
+        bool visitIfcPropertyListValue(IfcPropertyListValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj) = 0;
+        bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertySet(IfcPropertySet *obj) = 0;
+        bool visitIfcPropertySet(IfcPropertySet *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertySingleValue(IfcPropertySingleValue *obj) = 0;
+        bool visitIfcPropertySingleValue(IfcPropertySingleValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyTableValue(IfcPropertyTableValue *obj) = 0;
+        bool visitIfcPropertyTableValue(IfcPropertyTableValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *obj) = 0;
+        bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcProxy(IfcProxy *obj) = 0;
+        bool visitIfcProxy(IfcProxy *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPumpType(IfcPumpType *obj) = 0;
+        bool visitIfcPumpType(IfcPumpType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityArea(IfcQuantityArea *obj) = 0;
+        bool visitIfcQuantityArea(IfcQuantityArea *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityCount(IfcQuantityCount *obj) = 0;
+        bool visitIfcQuantityCount(IfcQuantityCount *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityLength(IfcQuantityLength *obj) = 0;
+        bool visitIfcQuantityLength(IfcQuantityLength *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityTime(IfcQuantityTime *obj) = 0;
+        bool visitIfcQuantityTime(IfcQuantityTime *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityVolume(IfcQuantityVolume *obj) = 0;
+        bool visitIfcQuantityVolume(IfcQuantityVolume *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityWeight(IfcQuantityWeight *obj) = 0;
+        bool visitIfcQuantityWeight(IfcQuantityWeight *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRadiusDimension(IfcRadiusDimension *obj) = 0;
+        bool visitIfcRadiusDimension(IfcRadiusDimension *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRailing(IfcRailing *obj) = 0;
+        bool visitIfcRailing(IfcRailing *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRailingType(IfcRailingType *obj) = 0;
+        bool visitIfcRailingType(IfcRailingType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRamp(IfcRamp *obj) = 0;
+        bool visitIfcRamp(IfcRamp *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRampFlight(IfcRampFlight *obj) = 0;
+        bool visitIfcRampFlight(IfcRampFlight *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRampFlightType(IfcRampFlightType *obj) = 0;
+        bool visitIfcRampFlightType(IfcRampFlightType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *obj) = 0;
+        bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *obj) = 0;
+        bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *obj) = 0;
+        bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangularPyramid(IfcRectangularPyramid *obj) = 0;
+        bool visitIfcRectangularPyramid(IfcRectangularPyramid *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *obj) = 0;
+        bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj) = 0;
+        bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj) = 0;
+        bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *obj) = 0;
+        bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *obj) = 0;
+        bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcingBar(IfcReinforcingBar *obj) = 0;
+        bool visitIfcReinforcingBar(IfcReinforcingBar *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcingMesh(IfcReinforcingMesh *obj) = 0;
+        bool visitIfcReinforcingMesh(IfcReinforcingMesh *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAggregates(IfcRelAggregates *obj) = 0;
+        bool visitIfcRelAggregates(IfcRelAggregates *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *obj) = 0;
+        bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj) = 0;
+        bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj) = 0;
+        bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj) = 0;
+        bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj) = 0;
+        bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj) = 0;
+        bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj) = 0;
+        bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj) = 0;
+        bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj) = 0;
+        bool visitIfcRelAssociates(IfcRelAssociates *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *obj) = 0;
+        bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *obj) = 0;
+        bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *obj) = 0;
+        bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *obj) = 0;
+        bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *obj) = 0;
+        bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *obj) = 0;
+        bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *obj) = 0;
+        bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *obj) = 0;
+        bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj) = 0;
+        bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj) = 0;
+        bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj) = 0;
+        bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj) = 0;
+        bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj) = 0;
+        bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj) = 0;
+        bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj) = 0;
+        bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *obj) = 0;
+        bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj) = 0;
+        bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj) = 0;
+        bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj) = 0;
+        bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj) = 0;
+        bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj) = 0;
+        bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj) = 0;
+        bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj) = 0;
+        bool visitIfcRelFillsElement(IfcRelFillsElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj) = 0;
+        bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj) = 0;
+        bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelNests(IfcRelNests *obj) = 0;
+        bool visitIfcRelNests(IfcRelNests *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *obj) = 0;
+        bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *obj) = 0;
+        bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj) = 0;
+        bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj) = 0;
+        bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj) = 0;
+        bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSequence(IfcRelSequence *obj) = 0;
+        bool visitIfcRelSequence(IfcRelSequence *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj) = 0;
+        bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj) = 0;
+        bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj) = 0;
+        bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelaxation(IfcRelaxation *obj) = 0;
+        bool visitIfcRelaxation(IfcRelaxation *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentation(IfcRepresentation *obj) = 0;
+        bool visitIfcRepresentation(IfcRepresentation *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj) = 0;
+        bool visitIfcRepresentationContext(IfcRepresentationContext *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj) = 0;
+        bool visitIfcRepresentationMap(IfcRepresentationMap *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *obj) = 0;
+        bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *obj) = 0;
+        bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRightCircularCone(IfcRightCircularCone *obj) = 0;
+        bool visitIfcRightCircularCone(IfcRightCircularCone *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *obj) = 0;
+        bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoof(IfcRoof *obj) = 0;
+        bool visitIfcRoof(IfcRoof *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *obj) = 0;
+        bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *obj) = 0;
+        bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSIUnit(IfcSIUnit *obj) = 0;
+        bool visitIfcSIUnit(IfcSIUnit *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *obj) = 0;
+        bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj) = 0;
+        bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj) = 0;
+        bool visitIfcSectionProperties(IfcSectionProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj) = 0;
+        bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionedSpine(IfcSectionedSpine *obj) = 0;
+        bool visitIfcSectionedSpine(IfcSectionedSpine *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSensorType(IfcSensorType *obj) = 0;
+        bool visitIfcSensorType(IfcSensorType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcServiceLife(IfcServiceLife *obj) = 0;
+        bool visitIfcServiceLife(IfcServiceLife *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj) = 0;
+        bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj) = 0;
+        bool visitIfcShapeAspect(IfcShapeAspect *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcShapeRepresentation(IfcShapeRepresentation *obj) = 0;
+        bool visitIfcShapeRepresentation(IfcShapeRepresentation *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *obj) = 0;
+        bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSite(IfcSite *obj) = 0;
+        bool visitIfcSite(IfcSite *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlab(IfcSlab *obj) = 0;
+        bool visitIfcSlab(IfcSlab *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlabType(IfcSlabType *obj) = 0;
+        bool visitIfcSlabType(IfcSlabType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *obj) = 0;
+        bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSoundProperties(IfcSoundProperties *obj) = 0;
+        bool visitIfcSoundProperties(IfcSoundProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSoundValue(IfcSoundValue *obj) = 0;
+        bool visitIfcSoundValue(IfcSoundValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpace(IfcSpace *obj) = 0;
+        bool visitIfcSpace(IfcSpace *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj) = 0;
+        bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj) = 0;
+        bool visitIfcSpaceProgram(IfcSpaceProgram *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *obj) = 0;
+        bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceType(IfcSpaceType *obj) = 0;
+        bool visitIfcSpaceType(IfcSpaceType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSphere(IfcSphere *obj) = 0;
+        bool visitIfcSphere(IfcSphere *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStackTerminalType(IfcStackTerminalType *obj) = 0;
+        bool visitIfcStackTerminalType(IfcStackTerminalType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStair(IfcStair *obj) = 0;
+        bool visitIfcStair(IfcStair *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStairFlight(IfcStairFlight *obj) = 0;
+        bool visitIfcStairFlight(IfcStairFlight *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStairFlightType(IfcStairFlightType *obj) = 0;
+        bool visitIfcStairFlightType(IfcStairFlightType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj) = 0;
+        bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *obj) = 0;
+        bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *obj) = 0;
+        bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *obj) = 0;
+        bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *obj) = 0;
+        bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *obj) = 0;
+        bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj) = 0;
+        bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj) = 0;
+        bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *obj) = 0;
+        bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *obj) = 0;
+        bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *obj) = 0;
+        bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *obj) = 0;
+        bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *obj) = 0;
+        bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *obj) = 0;
+        bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *obj) = 0;
+        bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *obj) = 0;
+        bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointAction(IfcStructuralPointAction *obj) = 0;
+        bool visitIfcStructuralPointAction(IfcStructuralPointAction *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *obj) = 0;
+        bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *obj) = 0;
+        bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *obj) = 0;
+        bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj) = 0;
+        bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj) = 0;
+        bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *obj) = 0;
+        bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *obj) = 0;
+        bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *obj) = 0;
+        bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *obj) = 0;
+        bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledItem(IfcStyledItem *obj) = 0;
+        bool visitIfcStyledItem(IfcStyledItem *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledRepresentation(IfcStyledRepresentation *obj) = 0;
+        bool visitIfcStyledRepresentation(IfcStyledRepresentation *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSubContractResource(IfcSubContractResource *obj) = 0;
+        bool visitIfcSubContractResource(IfcSubContractResource *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSubedge(IfcSubedge *obj) = 0;
+        bool visitIfcSubedge(IfcSubedge *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *obj) = 0;
+        bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *obj) = 0;
+        bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj) = 0;
+        bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj) = 0;
+        bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj) = 0;
+        bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj) = 0;
+        bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj) = 0;
+        bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj) = 0;
+        bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj) = 0;
+        bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *obj) = 0;
+        bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *obj) = 0;
+        bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj) = 0;
+        bool visitIfcSymbolStyle(IfcSymbolStyle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSystem(IfcSystem *obj) = 0;
+        bool visitIfcSystem(IfcSystem *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj) = 0;
+        bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *obj) = 0;
+        bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTable(IfcTable *obj) = 0;
+        bool visitIfcTable(IfcTable *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTableRow(IfcTableRow *obj) = 0;
+        bool visitIfcTableRow(IfcTableRow *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTankType(IfcTankType *obj) = 0;
+        bool visitIfcTankType(IfcTankType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTask(IfcTask *obj) = 0;
+        bool visitIfcTask(IfcTask *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTelecomAddress(IfcTelecomAddress *obj) = 0;
+        bool visitIfcTelecomAddress(IfcTelecomAddress *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTendon(IfcTendon *obj) = 0;
+        bool visitIfcTendon(IfcTendon *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTendonAnchor(IfcTendonAnchor *obj) = 0;
+        bool visitIfcTendonAnchor(IfcTendonAnchor *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj) = 0;
+        bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextLiteral(IfcTextLiteral *obj) = 0;
+        bool visitIfcTextLiteral(IfcTextLiteral *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *obj) = 0;
+        bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyle(IfcTextStyle *obj) = 0;
+        bool visitIfcTextStyle(IfcTextStyle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj) = 0;
+        bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj) = 0;
+        bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj) = 0;
+        bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj) = 0;
+        bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *obj) = 0;
+        bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureMap(IfcTextureMap *obj) = 0;
+        bool visitIfcTextureMap(IfcTextureMap *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureVertex(IfcTextureVertex *obj) = 0;
+        bool visitIfcTextureVertex(IfcTextureVertex *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *obj) = 0;
+        bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj) = 0;
+        bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj) = 0;
+        bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj) = 0;
+        bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *obj) = 0;
+        bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransformerType(IfcTransformerType *obj) = 0;
+        bool visitIfcTransformerType(IfcTransformerType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransportElement(IfcTransportElement *obj) = 0;
+        bool visitIfcTransportElement(IfcTransportElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransportElementType(IfcTransportElementType *obj) = 0;
+        bool visitIfcTransportElementType(IfcTransportElementType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *obj) = 0;
+        bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTrimmedCurve(IfcTrimmedCurve *obj) = 0;
+        bool visitIfcTrimmedCurve(IfcTrimmedCurve *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTubeBundleType(IfcTubeBundleType *obj) = 0;
+        bool visitIfcTubeBundleType(IfcTubeBundleType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *obj) = 0;
+        bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeObject(IfcTypeObject *obj) = 0;
+        bool visitIfcTypeObject(IfcTypeObject *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj) = 0;
+        bool visitIfcTypeProduct(IfcTypeProduct *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj) = 0;
+        bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj) = 0;
+        bool visitIfcUnitAssignment(IfcUnitAssignment *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *obj) = 0;
+        bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcValveType(IfcValveType *obj) = 0;
+        bool visitIfcValveType(IfcValveType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcVector(IfcVector *obj) = 0;
+        bool visitIfcVector(IfcVector *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertex(IfcVertex *obj) = 0;
+        bool visitIfcVertex(IfcVertex *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj) = 0;
+        bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexLoop(IfcVertexLoop *obj) = 0;
+        bool visitIfcVertexLoop(IfcVertexLoop *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj) = 0;
+        bool visitIfcVertexPoint(IfcVertexPoint *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *obj) = 0;
+        bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcVirtualElement(IfcVirtualElement *obj) = 0;
+        bool visitIfcVirtualElement(IfcVirtualElement *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj) = 0;
+        bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcWall(IfcWall *obj) = 0;
+        bool visitIfcWall(IfcWall *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcWallStandardCase(IfcWallStandardCase *obj) = 0;
+        bool visitIfcWallStandardCase(IfcWallStandardCase *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcWallType(IfcWallType *obj) = 0;
+        bool visitIfcWallType(IfcWallType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcWasteTerminalType(IfcWasteTerminalType *obj) = 0;
+        bool visitIfcWasteTerminalType(IfcWasteTerminalType *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcWaterProperties(IfcWaterProperties *obj) = 0;
+        bool visitIfcWaterProperties(IfcWaterProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindow(IfcWindow *obj) = 0;
+        bool visitIfcWindow(IfcWindow *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *obj) = 0;
+        bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *obj) = 0;
+        bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowStyle(IfcWindowStyle *obj) = 0;
+        bool visitIfcWindowStyle(IfcWindowStyle *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcWorkPlan(IfcWorkPlan *obj) = 0;
+        bool visitIfcWorkPlan(IfcWorkPlan *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcWorkSchedule(IfcWorkSchedule *obj) = 0;
+        bool visitIfcWorkSchedule(IfcWorkSchedule *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *obj) = 0;
+        bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *obj) override = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcZone(IfcZone *obj) = 0;
+        bool visitIfcZone(IfcZone *obj) override = 0;
         friend class ExpressDataSet;
 
         /**
@@ -2883,2236 +2883,2236 @@ namespace ifc2x3 {
         /**
          */
         DeepCopyOp();
-        virtual ~DeepCopyOp();
+        ~DeepCopyOp() override;
         /**
          * @param obj
          */
-        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj);
+        bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActionRequest(IfcActionRequest *obj);
+        bool visitIfcActionRequest(IfcActionRequest *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActor(IfcActor *obj);
+        bool visitIfcActor(IfcActor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActorRole(IfcActorRole *obj);
+        bool visitIfcActorRole(IfcActorRole *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActuatorType(IfcActuatorType *obj);
+        bool visitIfcActuatorType(IfcActuatorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *obj);
+        bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirTerminalType(IfcAirTerminalType *obj);
+        bool visitIfcAirTerminalType(IfcAirTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj);
+        bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAlarmType(IfcAlarmType *obj);
+        bool visitIfcAlarmType(IfcAlarmType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAngularDimension(IfcAngularDimension *obj);
+        bool visitIfcAngularDimension(IfcAngularDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotation(IfcAnnotation *obj);
+        bool visitIfcAnnotation(IfcAnnotation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj);
+        bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *obj);
+        bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *obj);
+        bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSurface(IfcAnnotationSurface *obj);
+        bool visitIfcAnnotationSurface(IfcAnnotationSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj);
+        bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj);
+        bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj);
+        bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApplication(IfcApplication *obj);
+        bool visitIfcApplication(IfcApplication *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj);
+        bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApproval(IfcApproval *obj);
+        bool visitIfcApproval(IfcApproval *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *obj);
+        bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj);
+        bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj);
+        bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj);
+        bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *obj);
+        bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *obj);
+        bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAsset(IfcAsset *obj);
+        bool visitIfcAsset(IfcAsset *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *obj);
+        bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis1Placement(IfcAxis1Placement *obj);
+        bool visitIfcAxis1Placement(IfcAxis1Placement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj);
+        bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj);
+        bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBeam(IfcBeam *obj);
+        bool visitIfcBeam(IfcBeam *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBeamType(IfcBeamType *obj);
+        bool visitIfcBeamType(IfcBeamType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBezierCurve(IfcBezierCurve *obj);
+        bool visitIfcBezierCurve(IfcBezierCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBlobTexture(IfcBlobTexture *obj);
+        bool visitIfcBlobTexture(IfcBlobTexture *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBlock(IfcBlock *obj);
+        bool visitIfcBlock(IfcBlock *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoilerType(IfcBoilerType *obj);
+        bool visitIfcBoilerType(IfcBoilerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj);
+        bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj);
+        bool visitIfcBooleanResult(IfcBooleanResult *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *obj);
+        bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *obj);
+        bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *obj);
+        bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *obj);
+        bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundedSurface(IfcBoundedSurface *obj);
+        bool visitIfcBoundedSurface(IfcBoundedSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundingBox(IfcBoundingBox *obj);
+        bool visitIfcBoundingBox(IfcBoundingBox *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *obj);
+        bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuilding(IfcBuilding *obj);
+        bool visitIfcBuilding(IfcBuilding *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj);
+        bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *obj);
+        bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *obj);
+        bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingStorey(IfcBuildingStorey *obj);
+        bool visitIfcBuildingStorey(IfcBuildingStorey *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *obj);
+        bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *obj);
+        bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj);
+        bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableSegmentType(IfcCableSegmentType *obj);
+        bool visitIfcCableSegmentType(IfcCableSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj);
+        bool visitIfcCalendarDate(IfcCalendarDate *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj);
+        bool visitIfcCartesianPoint(IfcCartesianPoint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj);
+        bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *obj);
+        bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *obj);
+        bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *obj);
+        bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *obj);
+        bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *obj);
+        bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcChillerType(IfcChillerType *obj);
+        bool visitIfcChillerType(IfcChillerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircle(IfcCircle *obj);
+        bool visitIfcCircle(IfcCircle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *obj);
+        bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircleProfileDef(IfcCircleProfileDef *obj);
+        bool visitIfcCircleProfileDef(IfcCircleProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassification(IfcClassification *obj);
+        bool visitIfcClassification(IfcClassification *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj);
+        bool visitIfcClassificationItem(IfcClassificationItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj);
+        bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj);
+        bool visitIfcClassificationNotation(IfcClassificationNotation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj);
+        bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj);
+        bool visitIfcClassificationReference(IfcClassificationReference *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClosedShell(IfcClosedShell *obj);
+        bool visitIfcClosedShell(IfcClosedShell *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoilType(IfcCoilType *obj);
+        bool visitIfcCoilType(IfcCoilType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcColourRgb(IfcColourRgb *obj);
+        bool visitIfcColourRgb(IfcColourRgb *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcColumn(IfcColumn *obj);
+        bool visitIfcColumn(IfcColumn *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcColumnType(IfcColumnType *obj);
+        bool visitIfcColumnType(IfcColumnType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj);
+        bool visitIfcComplexProperty(IfcComplexProperty *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj);
+        bool visitIfcCompositeCurve(IfcCompositeCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj);
+        bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj);
+        bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompressorType(IfcCompressorType *obj);
+        bool visitIfcCompressorType(IfcCompressorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCondenserType(IfcCondenserType *obj);
+        bool visitIfcCondenserType(IfcCondenserType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCondition(IfcCondition *obj);
+        bool visitIfcCondition(IfcCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConditionCriterion(IfcConditionCriterion *obj);
+        bool visitIfcConditionCriterion(IfcConditionCriterion *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj);
+        bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *obj);
+        bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *obj);
+        bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *obj);
+        bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *obj);
+        bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *obj);
+        bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj);
+        bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *obj);
+        bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintRelationship(IfcConstraintRelationship *obj);
+        bool visitIfcConstraintRelationship(IfcConstraintRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj);
+        bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *obj);
+        bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionProductResource(IfcConstructionProductResource *obj);
+        bool visitIfcConstructionProductResource(IfcConstructionProductResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcContextDependentUnit(IfcContextDependentUnit *obj);
+        bool visitIfcContextDependentUnit(IfcContextDependentUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcControllerType(IfcControllerType *obj);
+        bool visitIfcControllerType(IfcControllerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *obj);
+        bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCooledBeamType(IfcCooledBeamType *obj);
+        bool visitIfcCooledBeamType(IfcCooledBeamType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoolingTowerType(IfcCoolingTowerType *obj);
+        bool visitIfcCoolingTowerType(IfcCoolingTowerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj);
+        bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostItem(IfcCostItem *obj);
+        bool visitIfcCostItem(IfcCostItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostSchedule(IfcCostSchedule *obj);
+        bool visitIfcCostSchedule(IfcCostSchedule *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostValue(IfcCostValue *obj);
+        bool visitIfcCostValue(IfcCostValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCovering(IfcCovering *obj);
+        bool visitIfcCovering(IfcCovering *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoveringType(IfcCoveringType *obj);
+        bool visitIfcCoveringType(IfcCoveringType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *obj);
+        bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *obj);
+        bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCrewResource(IfcCrewResource *obj);
+        bool visitIfcCrewResource(IfcCrewResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCsgSolid(IfcCsgSolid *obj);
+        bool visitIfcCsgSolid(IfcCsgSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *obj);
+        bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurtainWall(IfcCurtainWall *obj);
+        bool visitIfcCurtainWall(IfcCurtainWall *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurtainWallType(IfcCurtainWallType *obj);
+        bool visitIfcCurtainWallType(IfcCurtainWallType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *obj);
+        bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj);
+        bool visitIfcCurveStyle(IfcCurveStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj);
+        bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj);
+        bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj);
+        bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDamperType(IfcDamperType *obj);
+        bool visitIfcDamperType(IfcDamperType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj);
+        bool visitIfcDateAndTime(IfcDateAndTime *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDefinedSymbol(IfcDefinedSymbol *obj);
+        bool visitIfcDefinedSymbol(IfcDefinedSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj);
+        bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj);
+        bool visitIfcDerivedUnit(IfcDerivedUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj);
+        bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiameterDimension(IfcDiameterDimension *obj);
+        bool visitIfcDiameterDimension(IfcDiameterDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *obj);
+        bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurve(IfcDimensionCurve *obj);
+        bool visitIfcDimensionCurve(IfcDimensionCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj);
+        bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *obj);
+        bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionPair(IfcDimensionPair *obj);
+        bool visitIfcDimensionPair(IfcDimensionPair *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj);
+        bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDirection(IfcDirection *obj);
+        bool visitIfcDirection(IfcDirection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj);
+        bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *obj);
+        bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj);
+        bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj);
+        bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj);
+        bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj);
+        bool visitIfcDistributionElement(IfcDistributionElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj);
+        bool visitIfcDistributionElementType(IfcDistributionElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *obj);
+        bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionPort(IfcDistributionPort *obj);
+        bool visitIfcDistributionPort(IfcDistributionPort *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj);
+        bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj);
+        bool visitIfcDocumentInformation(IfcDocumentInformation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj);
+        bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj);
+        bool visitIfcDocumentReference(IfcDocumentReference *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoor(IfcDoor *obj);
+        bool visitIfcDoor(IfcDoor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *obj);
+        bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj);
+        bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorStyle(IfcDoorStyle *obj);
+        bool visitIfcDoorStyle(IfcDoorStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj);
+        bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj);
+        bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *obj);
+        bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *obj);
+        bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *obj);
+        bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctFittingType(IfcDuctFittingType *obj);
+        bool visitIfcDuctFittingType(IfcDuctFittingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctSegmentType(IfcDuctSegmentType *obj);
+        bool visitIfcDuctSegmentType(IfcDuctSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctSilencerType(IfcDuctSilencerType *obj);
+        bool visitIfcDuctSilencerType(IfcDuctSilencerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdge(IfcEdge *obj);
+        bool visitIfcEdge(IfcEdge *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj);
+        bool visitIfcEdgeCurve(IfcEdgeCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdgeLoop(IfcEdgeLoop *obj);
+        bool visitIfcEdgeLoop(IfcEdgeLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricApplianceType(IfcElectricApplianceType *obj);
+        bool visitIfcElectricApplianceType(IfcElectricApplianceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *obj);
+        bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj);
+        bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *obj);
+        bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricHeaterType(IfcElectricHeaterType *obj);
+        bool visitIfcElectricHeaterType(IfcElectricHeaterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricMotorType(IfcElectricMotorType *obj);
+        bool visitIfcElectricMotorType(IfcElectricMotorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *obj);
+        bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *obj);
+        bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj);
+        bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalElement(IfcElectricalElement *obj);
+        bool visitIfcElectricalElement(IfcElectricalElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElementAssembly(IfcElementAssembly *obj);
+        bool visitIfcElementAssembly(IfcElementAssembly *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElementQuantity(IfcElementQuantity *obj);
+        bool visitIfcElementQuantity(IfcElementQuantity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEllipse(IfcEllipse *obj);
+        bool visitIfcEllipse(IfcEllipse *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *obj);
+        bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj);
+        bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj);
+        bool visitIfcEnergyProperties(IfcEnergyProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *obj);
+        bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEquipmentElement(IfcEquipmentElement *obj);
+        bool visitIfcEquipmentElement(IfcEquipmentElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEquipmentStandard(IfcEquipmentStandard *obj);
+        bool visitIfcEquipmentStandard(IfcEquipmentStandard *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *obj);
+        bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEvaporatorType(IfcEvaporatorType *obj);
+        bool visitIfcEvaporatorType(IfcEvaporatorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *obj);
+        bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj);
+        bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj);
+        bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj);
+        bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj);
+        bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *obj);
+        bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFace(IfcFace *obj);
+        bool visitIfcFace(IfcFace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj);
+        bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceBound(IfcFaceBound *obj);
+        bool visitIfcFaceBound(IfcFaceBound *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceOuterBound(IfcFaceOuterBound *obj);
+        bool visitIfcFaceOuterBound(IfcFaceOuterBound *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj);
+        bool visitIfcFaceSurface(IfcFaceSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj);
+        bool visitIfcFacetedBrep(IfcFacetedBrep *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *obj);
+        bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *obj);
+        bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFanType(IfcFanType *obj);
+        bool visitIfcFanType(IfcFanType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFastener(IfcFastener *obj);
+        bool visitIfcFastener(IfcFastener *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFastenerType(IfcFastenerType *obj);
+        bool visitIfcFastenerType(IfcFastenerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj);
+        bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj);
+        bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj);
+        bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj);
+        bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFilterType(IfcFilterType *obj);
+        bool visitIfcFilterType(IfcFilterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj);
+        bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowController(IfcFlowController *obj);
+        bool visitIfcFlowController(IfcFlowController *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowFitting(IfcFlowFitting *obj);
+        bool visitIfcFlowFitting(IfcFlowFitting *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *obj);
+        bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowMeterType(IfcFlowMeterType *obj);
+        bool visitIfcFlowMeterType(IfcFlowMeterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *obj);
+        bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowSegment(IfcFlowSegment *obj);
+        bool visitIfcFlowSegment(IfcFlowSegment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *obj);
+        bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowTerminal(IfcFlowTerminal *obj);
+        bool visitIfcFlowTerminal(IfcFlowTerminal *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *obj);
+        bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *obj);
+        bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFooting(IfcFooting *obj);
+        bool visitIfcFooting(IfcFooting *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFuelProperties(IfcFuelProperties *obj);
+        bool visitIfcFuelProperties(IfcFuelProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnishingElement(IfcFurnishingElement *obj);
+        bool visitIfcFurnishingElement(IfcFurnishingElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnishingElementType(IfcFurnishingElementType *obj);
+        bool visitIfcFurnishingElementType(IfcFurnishingElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnitureStandard(IfcFurnitureStandard *obj);
+        bool visitIfcFurnitureStandard(IfcFurnitureStandard *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnitureType(IfcFurnitureType *obj);
+        bool visitIfcFurnitureType(IfcFurnitureType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGasTerminalType(IfcGasTerminalType *obj);
+        bool visitIfcGasTerminalType(IfcGasTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *obj);
+        bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *obj);
+        bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj);
+        bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *obj);
+        bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *obj);
+        bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj);
+        bool visitIfcGeometricSet(IfcGeometricSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGrid(IfcGrid *obj);
+        bool visitIfcGrid(IfcGrid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGridAxis(IfcGridAxis *obj);
+        bool visitIfcGridAxis(IfcGridAxis *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGridPlacement(IfcGridPlacement *obj);
+        bool visitIfcGridPlacement(IfcGridPlacement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGroup(IfcGroup *obj);
+        bool visitIfcGroup(IfcGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj);
+        bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHeatExchangerType(IfcHeatExchangerType *obj);
+        bool visitIfcHeatExchangerType(IfcHeatExchangerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHumidifierType(IfcHumidifierType *obj);
+        bool visitIfcHumidifierType(IfcHumidifierType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj);
+        bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj);
+        bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcImageTexture(IfcImageTexture *obj);
+        bool visitIfcImageTexture(IfcImageTexture *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcInventory(IfcInventory *obj);
+        bool visitIfcInventory(IfcInventory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *obj);
+        bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *obj);
+        bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcJunctionBoxType(IfcJunctionBoxType *obj);
+        bool visitIfcJunctionBoxType(IfcJunctionBoxType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *obj);
+        bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLaborResource(IfcLaborResource *obj);
+        bool visitIfcLaborResource(IfcLaborResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLampType(IfcLampType *obj);
+        bool visitIfcLampType(IfcLampType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj);
+        bool visitIfcLibraryInformation(IfcLibraryInformation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj);
+        bool visitIfcLibraryReference(IfcLibraryReference *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj);
+        bool visitIfcLightDistributionData(IfcLightDistributionData *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightFixtureType(IfcLightFixtureType *obj);
+        bool visitIfcLightFixtureType(IfcLightFixtureType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj);
+        bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *obj);
+        bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *obj);
+        bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *obj);
+        bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourcePositional(IfcLightSourcePositional *obj);
+        bool visitIfcLightSourcePositional(IfcLightSourcePositional *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceSpot(IfcLightSourceSpot *obj);
+        bool visitIfcLightSourceSpot(IfcLightSourceSpot *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLine(IfcLine *obj);
+        bool visitIfcLine(IfcLine *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLinearDimension(IfcLinearDimension *obj);
+        bool visitIfcLinearDimension(IfcLinearDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj);
+        bool visitIfcLocalPlacement(IfcLocalPlacement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalTime(IfcLocalTime *obj);
+        bool visitIfcLocalTime(IfcLocalTime *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLoop(IfcLoop *obj);
+        bool visitIfcLoop(IfcLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMappedItem(IfcMappedItem *obj);
+        bool visitIfcMappedItem(IfcMappedItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterial(IfcMaterial *obj);
+        bool visitIfcMaterial(IfcMaterial *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj);
+        bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj);
+        bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj);
+        bool visitIfcMaterialLayer(IfcMaterialLayer *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj);
+        bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj);
+        bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialList(IfcMaterialList *obj);
+        bool visitIfcMaterialList(IfcMaterialList *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj);
+        bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj);
+        bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalFastener(IfcMechanicalFastener *obj);
+        bool visitIfcMechanicalFastener(IfcMechanicalFastener *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *obj);
+        bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj);
+        bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj);
+        bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMember(IfcMember *obj);
+        bool visitIfcMember(IfcMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMemberType(IfcMemberType *obj);
+        bool visitIfcMemberType(IfcMemberType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMetric(IfcMetric *obj);
+        bool visitIfcMetric(IfcMetric *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj);
+        bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj);
+        bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMove(IfcMove *obj);
+        bool visitIfcMove(IfcMove *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcObjective(IfcObjective *obj);
+        bool visitIfcObjective(IfcObjective *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOccupant(IfcOccupant *obj);
+        bool visitIfcOccupant(IfcOccupant *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *obj);
+        bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *obj);
+        bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj);
+        bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpenShell(IfcOpenShell *obj);
+        bool visitIfcOpenShell(IfcOpenShell *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj);
+        bool visitIfcOpeningElement(IfcOpeningElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj);
+        bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrderAction(IfcOrderAction *obj);
+        bool visitIfcOrderAction(IfcOrderAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganization(IfcOrganization *obj);
+        bool visitIfcOrganization(IfcOrganization *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj);
+        bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj);
+        bool visitIfcOrientedEdge(IfcOrientedEdge *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOutletType(IfcOutletType *obj);
+        bool visitIfcOutletType(IfcOutletType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj);
+        bool visitIfcOwnerHistory(IfcOwnerHistory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPath(IfcPath *obj);
+        bool visitIfcPath(IfcPath *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPerformanceHistory(IfcPerformanceHistory *obj);
+        bool visitIfcPerformanceHistory(IfcPerformanceHistory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *obj);
+        bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPermit(IfcPermit *obj);
+        bool visitIfcPermit(IfcPermit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPerson(IfcPerson *obj);
+        bool visitIfcPerson(IfcPerson *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj);
+        bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj);
+        bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPile(IfcPile *obj);
+        bool visitIfcPile(IfcPile *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPipeFittingType(IfcPipeFittingType *obj);
+        bool visitIfcPipeFittingType(IfcPipeFittingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPipeSegmentType(IfcPipeSegmentType *obj);
+        bool visitIfcPipeSegmentType(IfcPipeSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPixelTexture(IfcPixelTexture *obj);
+        bool visitIfcPixelTexture(IfcPixelTexture *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlanarBox(IfcPlanarBox *obj);
+        bool visitIfcPlanarBox(IfcPlanarBox *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlanarExtent(IfcPlanarExtent *obj);
+        bool visitIfcPlanarExtent(IfcPlanarExtent *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlane(IfcPlane *obj);
+        bool visitIfcPlane(IfcPlane *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlate(IfcPlate *obj);
+        bool visitIfcPlate(IfcPlate *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlateType(IfcPlateType *obj);
+        bool visitIfcPlateType(IfcPlateType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPointOnCurve(IfcPointOnCurve *obj);
+        bool visitIfcPointOnCurve(IfcPointOnCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPointOnSurface(IfcPointOnSurface *obj);
+        bool visitIfcPointOnSurface(IfcPointOnSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolyLoop(IfcPolyLoop *obj);
+        bool visitIfcPolyLoop(IfcPolyLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *obj);
+        bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolyline(IfcPolyline *obj);
+        bool visitIfcPolyline(IfcPolyline *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj);
+        bool visitIfcPostalAddress(IfcPostalAddress *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj);
+        bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *obj);
+        bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *obj);
+        bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj);
+        bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj);
+        bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj);
+        bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProcedure(IfcProcedure *obj);
+        bool visitIfcProcedure(IfcProcedure *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj);
+        bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj);
+        bool visitIfcProductRepresentation(IfcProductRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *obj);
+        bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProject(IfcProject *obj);
+        bool visitIfcProject(IfcProject *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectOrder(IfcProjectOrder *obj);
+        bool visitIfcProjectOrder(IfcProjectOrder *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj);
+        bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectionCurve(IfcProjectionCurve *obj);
+        bool visitIfcProjectionCurve(IfcProjectionCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectionElement(IfcProjectionElement *obj);
+        bool visitIfcProjectionElement(IfcProjectionElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *obj);
+        bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj);
+        bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
+        bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *obj);
+        bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *obj);
+        bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyListValue(IfcPropertyListValue *obj);
+        bool visitIfcPropertyListValue(IfcPropertyListValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj);
+        bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertySet(IfcPropertySet *obj);
+        bool visitIfcPropertySet(IfcPropertySet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertySingleValue(IfcPropertySingleValue *obj);
+        bool visitIfcPropertySingleValue(IfcPropertySingleValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyTableValue(IfcPropertyTableValue *obj);
+        bool visitIfcPropertyTableValue(IfcPropertyTableValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *obj);
+        bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProxy(IfcProxy *obj);
+        bool visitIfcProxy(IfcProxy *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPumpType(IfcPumpType *obj);
+        bool visitIfcPumpType(IfcPumpType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityArea(IfcQuantityArea *obj);
+        bool visitIfcQuantityArea(IfcQuantityArea *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityCount(IfcQuantityCount *obj);
+        bool visitIfcQuantityCount(IfcQuantityCount *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityLength(IfcQuantityLength *obj);
+        bool visitIfcQuantityLength(IfcQuantityLength *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityTime(IfcQuantityTime *obj);
+        bool visitIfcQuantityTime(IfcQuantityTime *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityVolume(IfcQuantityVolume *obj);
+        bool visitIfcQuantityVolume(IfcQuantityVolume *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityWeight(IfcQuantityWeight *obj);
+        bool visitIfcQuantityWeight(IfcQuantityWeight *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRadiusDimension(IfcRadiusDimension *obj);
+        bool visitIfcRadiusDimension(IfcRadiusDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRailing(IfcRailing *obj);
+        bool visitIfcRailing(IfcRailing *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRailingType(IfcRailingType *obj);
+        bool visitIfcRailingType(IfcRailingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRamp(IfcRamp *obj);
+        bool visitIfcRamp(IfcRamp *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRampFlight(IfcRampFlight *obj);
+        bool visitIfcRampFlight(IfcRampFlight *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRampFlightType(IfcRampFlightType *obj);
+        bool visitIfcRampFlightType(IfcRampFlightType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *obj);
+        bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *obj);
+        bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *obj);
+        bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangularPyramid(IfcRectangularPyramid *obj);
+        bool visitIfcRectangularPyramid(IfcRectangularPyramid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *obj);
+        bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj);
+        bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj);
+        bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *obj);
+        bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *obj);
+        bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcingBar(IfcReinforcingBar *obj);
+        bool visitIfcReinforcingBar(IfcReinforcingBar *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcingMesh(IfcReinforcingMesh *obj);
+        bool visitIfcReinforcingMesh(IfcReinforcingMesh *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAggregates(IfcRelAggregates *obj);
+        bool visitIfcRelAggregates(IfcRelAggregates *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *obj);
+        bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj);
+        bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj);
+        bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj);
+        bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj);
+        bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj);
+        bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj);
+        bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj);
+        bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj);
+        bool visitIfcRelAssociates(IfcRelAssociates *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *obj);
+        bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *obj);
+        bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *obj);
+        bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *obj);
+        bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *obj);
+        bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *obj);
+        bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *obj);
+        bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *obj);
+        bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj);
+        bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj);
+        bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj);
+        bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj);
+        bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj);
+        bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj);
+        bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj);
+        bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *obj);
+        bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj);
+        bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj);
+        bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj);
+        bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj);
+        bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj);
+        bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj);
+        bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj);
+        bool visitIfcRelFillsElement(IfcRelFillsElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj);
+        bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj);
+        bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelNests(IfcRelNests *obj);
+        bool visitIfcRelNests(IfcRelNests *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *obj);
+        bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *obj);
+        bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj);
+        bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj);
+        bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj);
+        bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSequence(IfcRelSequence *obj);
+        bool visitIfcRelSequence(IfcRelSequence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj);
+        bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj);
+        bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj);
+        bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelaxation(IfcRelaxation *obj);
+        bool visitIfcRelaxation(IfcRelaxation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentation(IfcRepresentation *obj);
+        bool visitIfcRepresentation(IfcRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj);
+        bool visitIfcRepresentationContext(IfcRepresentationContext *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj);
+        bool visitIfcRepresentationMap(IfcRepresentationMap *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *obj);
+        bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *obj);
+        bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRightCircularCone(IfcRightCircularCone *obj);
+        bool visitIfcRightCircularCone(IfcRightCircularCone *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *obj);
+        bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoof(IfcRoof *obj);
+        bool visitIfcRoof(IfcRoof *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *obj);
+        bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *obj);
+        bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSIUnit(IfcSIUnit *obj);
+        bool visitIfcSIUnit(IfcSIUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *obj);
+        bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj);
+        bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj);
+        bool visitIfcSectionProperties(IfcSectionProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj);
+        bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionedSpine(IfcSectionedSpine *obj);
+        bool visitIfcSectionedSpine(IfcSectionedSpine *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSensorType(IfcSensorType *obj);
+        bool visitIfcSensorType(IfcSensorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcServiceLife(IfcServiceLife *obj);
+        bool visitIfcServiceLife(IfcServiceLife *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj);
+        bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj);
+        bool visitIfcShapeAspect(IfcShapeAspect *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcShapeRepresentation(IfcShapeRepresentation *obj);
+        bool visitIfcShapeRepresentation(IfcShapeRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *obj);
+        bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSite(IfcSite *obj);
+        bool visitIfcSite(IfcSite *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlab(IfcSlab *obj);
+        bool visitIfcSlab(IfcSlab *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlabType(IfcSlabType *obj);
+        bool visitIfcSlabType(IfcSlabType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *obj);
+        bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSoundProperties(IfcSoundProperties *obj);
+        bool visitIfcSoundProperties(IfcSoundProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSoundValue(IfcSoundValue *obj);
+        bool visitIfcSoundValue(IfcSoundValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpace(IfcSpace *obj);
+        bool visitIfcSpace(IfcSpace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj);
+        bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj);
+        bool visitIfcSpaceProgram(IfcSpaceProgram *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *obj);
+        bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceType(IfcSpaceType *obj);
+        bool visitIfcSpaceType(IfcSpaceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSphere(IfcSphere *obj);
+        bool visitIfcSphere(IfcSphere *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStackTerminalType(IfcStackTerminalType *obj);
+        bool visitIfcStackTerminalType(IfcStackTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStair(IfcStair *obj);
+        bool visitIfcStair(IfcStair *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStairFlight(IfcStairFlight *obj);
+        bool visitIfcStairFlight(IfcStairFlight *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStairFlightType(IfcStairFlightType *obj);
+        bool visitIfcStairFlightType(IfcStairFlightType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj);
+        bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *obj);
+        bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *obj);
+        bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *obj);
+        bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *obj);
+        bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *obj);
+        bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj);
+        bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj);
+        bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *obj);
+        bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *obj);
+        bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *obj);
+        bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *obj);
+        bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *obj);
+        bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *obj);
+        bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *obj);
+        bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *obj);
+        bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointAction(IfcStructuralPointAction *obj);
+        bool visitIfcStructuralPointAction(IfcStructuralPointAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *obj);
+        bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *obj);
+        bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *obj);
+        bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj);
+        bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj);
+        bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *obj);
+        bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *obj);
+        bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *obj);
+        bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *obj);
+        bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledItem(IfcStyledItem *obj);
+        bool visitIfcStyledItem(IfcStyledItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledRepresentation(IfcStyledRepresentation *obj);
+        bool visitIfcStyledRepresentation(IfcStyledRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSubContractResource(IfcSubContractResource *obj);
+        bool visitIfcSubContractResource(IfcSubContractResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSubedge(IfcSubedge *obj);
+        bool visitIfcSubedge(IfcSubedge *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *obj);
+        bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *obj);
+        bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj);
+        bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj);
+        bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj);
+        bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj);
+        bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj);
+        bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj);
+        bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj);
+        bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *obj);
+        bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *obj);
+        bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj);
+        bool visitIfcSymbolStyle(IfcSymbolStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSystem(IfcSystem *obj);
+        bool visitIfcSystem(IfcSystem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj);
+        bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *obj);
+        bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTable(IfcTable *obj);
+        bool visitIfcTable(IfcTable *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTableRow(IfcTableRow *obj);
+        bool visitIfcTableRow(IfcTableRow *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTankType(IfcTankType *obj);
+        bool visitIfcTankType(IfcTankType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTask(IfcTask *obj);
+        bool visitIfcTask(IfcTask *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTelecomAddress(IfcTelecomAddress *obj);
+        bool visitIfcTelecomAddress(IfcTelecomAddress *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTendon(IfcTendon *obj);
+        bool visitIfcTendon(IfcTendon *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTendonAnchor(IfcTendonAnchor *obj);
+        bool visitIfcTendonAnchor(IfcTendonAnchor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj);
+        bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextLiteral(IfcTextLiteral *obj);
+        bool visitIfcTextLiteral(IfcTextLiteral *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *obj);
+        bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyle(IfcTextStyle *obj);
+        bool visitIfcTextStyle(IfcTextStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj);
+        bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj);
+        bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj);
+        bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj);
+        bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *obj);
+        bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureMap(IfcTextureMap *obj);
+        bool visitIfcTextureMap(IfcTextureMap *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureVertex(IfcTextureVertex *obj);
+        bool visitIfcTextureVertex(IfcTextureVertex *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *obj);
+        bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj);
+        bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj);
+        bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj);
+        bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *obj);
+        bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransformerType(IfcTransformerType *obj);
+        bool visitIfcTransformerType(IfcTransformerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransportElement(IfcTransportElement *obj);
+        bool visitIfcTransportElement(IfcTransportElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransportElementType(IfcTransportElementType *obj);
+        bool visitIfcTransportElementType(IfcTransportElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *obj);
+        bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTrimmedCurve(IfcTrimmedCurve *obj);
+        bool visitIfcTrimmedCurve(IfcTrimmedCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTubeBundleType(IfcTubeBundleType *obj);
+        bool visitIfcTubeBundleType(IfcTubeBundleType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *obj);
+        bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeObject(IfcTypeObject *obj);
+        bool visitIfcTypeObject(IfcTypeObject *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj);
+        bool visitIfcTypeProduct(IfcTypeProduct *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj);
+        bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj);
+        bool visitIfcUnitAssignment(IfcUnitAssignment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *obj);
+        bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcValveType(IfcValveType *obj);
+        bool visitIfcValveType(IfcValveType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVector(IfcVector *obj);
+        bool visitIfcVector(IfcVector *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertex(IfcVertex *obj);
+        bool visitIfcVertex(IfcVertex *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj);
+        bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexLoop(IfcVertexLoop *obj);
+        bool visitIfcVertexLoop(IfcVertexLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj);
+        bool visitIfcVertexPoint(IfcVertexPoint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *obj);
+        bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVirtualElement(IfcVirtualElement *obj);
+        bool visitIfcVirtualElement(IfcVirtualElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj);
+        bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWall(IfcWall *obj);
+        bool visitIfcWall(IfcWall *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWallStandardCase(IfcWallStandardCase *obj);
+        bool visitIfcWallStandardCase(IfcWallStandardCase *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWallType(IfcWallType *obj);
+        bool visitIfcWallType(IfcWallType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWasteTerminalType(IfcWasteTerminalType *obj);
+        bool visitIfcWasteTerminalType(IfcWasteTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWaterProperties(IfcWaterProperties *obj);
+        bool visitIfcWaterProperties(IfcWaterProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindow(IfcWindow *obj);
+        bool visitIfcWindow(IfcWindow *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *obj);
+        bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *obj);
+        bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowStyle(IfcWindowStyle *obj);
+        bool visitIfcWindowStyle(IfcWindowStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWorkPlan(IfcWorkPlan *obj);
+        bool visitIfcWorkPlan(IfcWorkPlan *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWorkSchedule(IfcWorkSchedule *obj);
+        bool visitIfcWorkSchedule(IfcWorkSchedule *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *obj);
+        bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcZone(IfcZone *obj);
+        bool visitIfcZone(IfcZone *obj) override;
 
         /**
          * @param original
          */
-        virtual Step::BaseObject *find(const Step::BaseObject *original) const;
+        Step::BaseObject *find(const Step::BaseObject *original) const override;
         
     protected:
         /**
@@ -5124,7 +5124,7 @@ namespace ifc2x3 {
          * @param original
          * @param clone
          */
-        virtual void associate(const Step::BaseObject *original, Step::BaseObject *clone) const;
+        void associate(const Step::BaseObject *original, Step::BaseObject *clone) const override;
 
 
     };
@@ -5158,2231 +5158,2231 @@ namespace ifc2x3 {
         /**
          */
         ShallowCopyOp();
-        virtual ~ShallowCopyOp();
+        ~ShallowCopyOp() override;
         /**
          * @param obj
          */
-        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj);
+        bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActionRequest(IfcActionRequest *obj);
+        bool visitIfcActionRequest(IfcActionRequest *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActor(IfcActor *obj);
+        bool visitIfcActor(IfcActor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActorRole(IfcActorRole *obj);
+        bool visitIfcActorRole(IfcActorRole *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActuatorType(IfcActuatorType *obj);
+        bool visitIfcActuatorType(IfcActuatorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *obj);
+        bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirTerminalType(IfcAirTerminalType *obj);
+        bool visitIfcAirTerminalType(IfcAirTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj);
+        bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAlarmType(IfcAlarmType *obj);
+        bool visitIfcAlarmType(IfcAlarmType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAngularDimension(IfcAngularDimension *obj);
+        bool visitIfcAngularDimension(IfcAngularDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotation(IfcAnnotation *obj);
+        bool visitIfcAnnotation(IfcAnnotation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj);
+        bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *obj);
+        bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *obj);
+        bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSurface(IfcAnnotationSurface *obj);
+        bool visitIfcAnnotationSurface(IfcAnnotationSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj);
+        bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj);
+        bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj);
+        bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApplication(IfcApplication *obj);
+        bool visitIfcApplication(IfcApplication *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj);
+        bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApproval(IfcApproval *obj);
+        bool visitIfcApproval(IfcApproval *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *obj);
+        bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj);
+        bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj);
+        bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj);
+        bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *obj);
+        bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *obj);
+        bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAsset(IfcAsset *obj);
+        bool visitIfcAsset(IfcAsset *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *obj);
+        bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis1Placement(IfcAxis1Placement *obj);
+        bool visitIfcAxis1Placement(IfcAxis1Placement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj);
+        bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj);
+        bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBeam(IfcBeam *obj);
+        bool visitIfcBeam(IfcBeam *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBeamType(IfcBeamType *obj);
+        bool visitIfcBeamType(IfcBeamType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBezierCurve(IfcBezierCurve *obj);
+        bool visitIfcBezierCurve(IfcBezierCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBlobTexture(IfcBlobTexture *obj);
+        bool visitIfcBlobTexture(IfcBlobTexture *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBlock(IfcBlock *obj);
+        bool visitIfcBlock(IfcBlock *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoilerType(IfcBoilerType *obj);
+        bool visitIfcBoilerType(IfcBoilerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj);
+        bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj);
+        bool visitIfcBooleanResult(IfcBooleanResult *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *obj);
+        bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *obj);
+        bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *obj);
+        bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *obj);
+        bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundedSurface(IfcBoundedSurface *obj);
+        bool visitIfcBoundedSurface(IfcBoundedSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundingBox(IfcBoundingBox *obj);
+        bool visitIfcBoundingBox(IfcBoundingBox *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *obj);
+        bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuilding(IfcBuilding *obj);
+        bool visitIfcBuilding(IfcBuilding *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj);
+        bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *obj);
+        bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *obj);
+        bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingStorey(IfcBuildingStorey *obj);
+        bool visitIfcBuildingStorey(IfcBuildingStorey *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *obj);
+        bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *obj);
+        bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj);
+        bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableSegmentType(IfcCableSegmentType *obj);
+        bool visitIfcCableSegmentType(IfcCableSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj);
+        bool visitIfcCalendarDate(IfcCalendarDate *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj);
+        bool visitIfcCartesianPoint(IfcCartesianPoint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj);
+        bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *obj);
+        bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *obj);
+        bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *obj);
+        bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *obj);
+        bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *obj);
+        bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcChillerType(IfcChillerType *obj);
+        bool visitIfcChillerType(IfcChillerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircle(IfcCircle *obj);
+        bool visitIfcCircle(IfcCircle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *obj);
+        bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircleProfileDef(IfcCircleProfileDef *obj);
+        bool visitIfcCircleProfileDef(IfcCircleProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassification(IfcClassification *obj);
+        bool visitIfcClassification(IfcClassification *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj);
+        bool visitIfcClassificationItem(IfcClassificationItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj);
+        bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj);
+        bool visitIfcClassificationNotation(IfcClassificationNotation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj);
+        bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj);
+        bool visitIfcClassificationReference(IfcClassificationReference *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClosedShell(IfcClosedShell *obj);
+        bool visitIfcClosedShell(IfcClosedShell *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoilType(IfcCoilType *obj);
+        bool visitIfcCoilType(IfcCoilType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcColourRgb(IfcColourRgb *obj);
+        bool visitIfcColourRgb(IfcColourRgb *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcColumn(IfcColumn *obj);
+        bool visitIfcColumn(IfcColumn *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcColumnType(IfcColumnType *obj);
+        bool visitIfcColumnType(IfcColumnType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj);
+        bool visitIfcComplexProperty(IfcComplexProperty *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj);
+        bool visitIfcCompositeCurve(IfcCompositeCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj);
+        bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj);
+        bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompressorType(IfcCompressorType *obj);
+        bool visitIfcCompressorType(IfcCompressorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCondenserType(IfcCondenserType *obj);
+        bool visitIfcCondenserType(IfcCondenserType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCondition(IfcCondition *obj);
+        bool visitIfcCondition(IfcCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConditionCriterion(IfcConditionCriterion *obj);
+        bool visitIfcConditionCriterion(IfcConditionCriterion *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj);
+        bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *obj);
+        bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *obj);
+        bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *obj);
+        bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *obj);
+        bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *obj);
+        bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj);
+        bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *obj);
+        bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintRelationship(IfcConstraintRelationship *obj);
+        bool visitIfcConstraintRelationship(IfcConstraintRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj);
+        bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *obj);
+        bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionProductResource(IfcConstructionProductResource *obj);
+        bool visitIfcConstructionProductResource(IfcConstructionProductResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcContextDependentUnit(IfcContextDependentUnit *obj);
+        bool visitIfcContextDependentUnit(IfcContextDependentUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcControllerType(IfcControllerType *obj);
+        bool visitIfcControllerType(IfcControllerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *obj);
+        bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCooledBeamType(IfcCooledBeamType *obj);
+        bool visitIfcCooledBeamType(IfcCooledBeamType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoolingTowerType(IfcCoolingTowerType *obj);
+        bool visitIfcCoolingTowerType(IfcCoolingTowerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj);
+        bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostItem(IfcCostItem *obj);
+        bool visitIfcCostItem(IfcCostItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostSchedule(IfcCostSchedule *obj);
+        bool visitIfcCostSchedule(IfcCostSchedule *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostValue(IfcCostValue *obj);
+        bool visitIfcCostValue(IfcCostValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCovering(IfcCovering *obj);
+        bool visitIfcCovering(IfcCovering *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoveringType(IfcCoveringType *obj);
+        bool visitIfcCoveringType(IfcCoveringType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *obj);
+        bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *obj);
+        bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCrewResource(IfcCrewResource *obj);
+        bool visitIfcCrewResource(IfcCrewResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCsgSolid(IfcCsgSolid *obj);
+        bool visitIfcCsgSolid(IfcCsgSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *obj);
+        bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurtainWall(IfcCurtainWall *obj);
+        bool visitIfcCurtainWall(IfcCurtainWall *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurtainWallType(IfcCurtainWallType *obj);
+        bool visitIfcCurtainWallType(IfcCurtainWallType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *obj);
+        bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj);
+        bool visitIfcCurveStyle(IfcCurveStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj);
+        bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj);
+        bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj);
+        bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDamperType(IfcDamperType *obj);
+        bool visitIfcDamperType(IfcDamperType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj);
+        bool visitIfcDateAndTime(IfcDateAndTime *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDefinedSymbol(IfcDefinedSymbol *obj);
+        bool visitIfcDefinedSymbol(IfcDefinedSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj);
+        bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj);
+        bool visitIfcDerivedUnit(IfcDerivedUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj);
+        bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiameterDimension(IfcDiameterDimension *obj);
+        bool visitIfcDiameterDimension(IfcDiameterDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *obj);
+        bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurve(IfcDimensionCurve *obj);
+        bool visitIfcDimensionCurve(IfcDimensionCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj);
+        bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *obj);
+        bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionPair(IfcDimensionPair *obj);
+        bool visitIfcDimensionPair(IfcDimensionPair *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj);
+        bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDirection(IfcDirection *obj);
+        bool visitIfcDirection(IfcDirection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj);
+        bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *obj);
+        bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj);
+        bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj);
+        bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj);
+        bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj);
+        bool visitIfcDistributionElement(IfcDistributionElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj);
+        bool visitIfcDistributionElementType(IfcDistributionElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *obj);
+        bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionPort(IfcDistributionPort *obj);
+        bool visitIfcDistributionPort(IfcDistributionPort *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj);
+        bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj);
+        bool visitIfcDocumentInformation(IfcDocumentInformation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj);
+        bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj);
+        bool visitIfcDocumentReference(IfcDocumentReference *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoor(IfcDoor *obj);
+        bool visitIfcDoor(IfcDoor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *obj);
+        bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj);
+        bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorStyle(IfcDoorStyle *obj);
+        bool visitIfcDoorStyle(IfcDoorStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj);
+        bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj);
+        bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *obj);
+        bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *obj);
+        bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *obj);
+        bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctFittingType(IfcDuctFittingType *obj);
+        bool visitIfcDuctFittingType(IfcDuctFittingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctSegmentType(IfcDuctSegmentType *obj);
+        bool visitIfcDuctSegmentType(IfcDuctSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctSilencerType(IfcDuctSilencerType *obj);
+        bool visitIfcDuctSilencerType(IfcDuctSilencerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdge(IfcEdge *obj);
+        bool visitIfcEdge(IfcEdge *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj);
+        bool visitIfcEdgeCurve(IfcEdgeCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdgeLoop(IfcEdgeLoop *obj);
+        bool visitIfcEdgeLoop(IfcEdgeLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricApplianceType(IfcElectricApplianceType *obj);
+        bool visitIfcElectricApplianceType(IfcElectricApplianceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *obj);
+        bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj);
+        bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *obj);
+        bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricHeaterType(IfcElectricHeaterType *obj);
+        bool visitIfcElectricHeaterType(IfcElectricHeaterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricMotorType(IfcElectricMotorType *obj);
+        bool visitIfcElectricMotorType(IfcElectricMotorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *obj);
+        bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *obj);
+        bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj);
+        bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalElement(IfcElectricalElement *obj);
+        bool visitIfcElectricalElement(IfcElectricalElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElementAssembly(IfcElementAssembly *obj);
+        bool visitIfcElementAssembly(IfcElementAssembly *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElementQuantity(IfcElementQuantity *obj);
+        bool visitIfcElementQuantity(IfcElementQuantity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEllipse(IfcEllipse *obj);
+        bool visitIfcEllipse(IfcEllipse *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *obj);
+        bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj);
+        bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj);
+        bool visitIfcEnergyProperties(IfcEnergyProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *obj);
+        bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEquipmentElement(IfcEquipmentElement *obj);
+        bool visitIfcEquipmentElement(IfcEquipmentElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEquipmentStandard(IfcEquipmentStandard *obj);
+        bool visitIfcEquipmentStandard(IfcEquipmentStandard *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *obj);
+        bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEvaporatorType(IfcEvaporatorType *obj);
+        bool visitIfcEvaporatorType(IfcEvaporatorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *obj);
+        bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj);
+        bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj);
+        bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj);
+        bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj);
+        bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *obj);
+        bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFace(IfcFace *obj);
+        bool visitIfcFace(IfcFace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj);
+        bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceBound(IfcFaceBound *obj);
+        bool visitIfcFaceBound(IfcFaceBound *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceOuterBound(IfcFaceOuterBound *obj);
+        bool visitIfcFaceOuterBound(IfcFaceOuterBound *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj);
+        bool visitIfcFaceSurface(IfcFaceSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj);
+        bool visitIfcFacetedBrep(IfcFacetedBrep *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *obj);
+        bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *obj);
+        bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFanType(IfcFanType *obj);
+        bool visitIfcFanType(IfcFanType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFastener(IfcFastener *obj);
+        bool visitIfcFastener(IfcFastener *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFastenerType(IfcFastenerType *obj);
+        bool visitIfcFastenerType(IfcFastenerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj);
+        bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj);
+        bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj);
+        bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj);
+        bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFilterType(IfcFilterType *obj);
+        bool visitIfcFilterType(IfcFilterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj);
+        bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowController(IfcFlowController *obj);
+        bool visitIfcFlowController(IfcFlowController *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowFitting(IfcFlowFitting *obj);
+        bool visitIfcFlowFitting(IfcFlowFitting *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *obj);
+        bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowMeterType(IfcFlowMeterType *obj);
+        bool visitIfcFlowMeterType(IfcFlowMeterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *obj);
+        bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowSegment(IfcFlowSegment *obj);
+        bool visitIfcFlowSegment(IfcFlowSegment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *obj);
+        bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowTerminal(IfcFlowTerminal *obj);
+        bool visitIfcFlowTerminal(IfcFlowTerminal *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *obj);
+        bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *obj);
+        bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFooting(IfcFooting *obj);
+        bool visitIfcFooting(IfcFooting *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFuelProperties(IfcFuelProperties *obj);
+        bool visitIfcFuelProperties(IfcFuelProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnishingElement(IfcFurnishingElement *obj);
+        bool visitIfcFurnishingElement(IfcFurnishingElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnishingElementType(IfcFurnishingElementType *obj);
+        bool visitIfcFurnishingElementType(IfcFurnishingElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnitureStandard(IfcFurnitureStandard *obj);
+        bool visitIfcFurnitureStandard(IfcFurnitureStandard *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnitureType(IfcFurnitureType *obj);
+        bool visitIfcFurnitureType(IfcFurnitureType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGasTerminalType(IfcGasTerminalType *obj);
+        bool visitIfcGasTerminalType(IfcGasTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *obj);
+        bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *obj);
+        bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj);
+        bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *obj);
+        bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *obj);
+        bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj);
+        bool visitIfcGeometricSet(IfcGeometricSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGrid(IfcGrid *obj);
+        bool visitIfcGrid(IfcGrid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGridAxis(IfcGridAxis *obj);
+        bool visitIfcGridAxis(IfcGridAxis *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGridPlacement(IfcGridPlacement *obj);
+        bool visitIfcGridPlacement(IfcGridPlacement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGroup(IfcGroup *obj);
+        bool visitIfcGroup(IfcGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj);
+        bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHeatExchangerType(IfcHeatExchangerType *obj);
+        bool visitIfcHeatExchangerType(IfcHeatExchangerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHumidifierType(IfcHumidifierType *obj);
+        bool visitIfcHumidifierType(IfcHumidifierType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj);
+        bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj);
+        bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcImageTexture(IfcImageTexture *obj);
+        bool visitIfcImageTexture(IfcImageTexture *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcInventory(IfcInventory *obj);
+        bool visitIfcInventory(IfcInventory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *obj);
+        bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *obj);
+        bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcJunctionBoxType(IfcJunctionBoxType *obj);
+        bool visitIfcJunctionBoxType(IfcJunctionBoxType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *obj);
+        bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLaborResource(IfcLaborResource *obj);
+        bool visitIfcLaborResource(IfcLaborResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLampType(IfcLampType *obj);
+        bool visitIfcLampType(IfcLampType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj);
+        bool visitIfcLibraryInformation(IfcLibraryInformation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj);
+        bool visitIfcLibraryReference(IfcLibraryReference *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj);
+        bool visitIfcLightDistributionData(IfcLightDistributionData *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightFixtureType(IfcLightFixtureType *obj);
+        bool visitIfcLightFixtureType(IfcLightFixtureType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj);
+        bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *obj);
+        bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *obj);
+        bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *obj);
+        bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourcePositional(IfcLightSourcePositional *obj);
+        bool visitIfcLightSourcePositional(IfcLightSourcePositional *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceSpot(IfcLightSourceSpot *obj);
+        bool visitIfcLightSourceSpot(IfcLightSourceSpot *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLine(IfcLine *obj);
+        bool visitIfcLine(IfcLine *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLinearDimension(IfcLinearDimension *obj);
+        bool visitIfcLinearDimension(IfcLinearDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj);
+        bool visitIfcLocalPlacement(IfcLocalPlacement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalTime(IfcLocalTime *obj);
+        bool visitIfcLocalTime(IfcLocalTime *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLoop(IfcLoop *obj);
+        bool visitIfcLoop(IfcLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMappedItem(IfcMappedItem *obj);
+        bool visitIfcMappedItem(IfcMappedItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterial(IfcMaterial *obj);
+        bool visitIfcMaterial(IfcMaterial *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj);
+        bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj);
+        bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj);
+        bool visitIfcMaterialLayer(IfcMaterialLayer *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj);
+        bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj);
+        bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialList(IfcMaterialList *obj);
+        bool visitIfcMaterialList(IfcMaterialList *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj);
+        bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj);
+        bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalFastener(IfcMechanicalFastener *obj);
+        bool visitIfcMechanicalFastener(IfcMechanicalFastener *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *obj);
+        bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj);
+        bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj);
+        bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMember(IfcMember *obj);
+        bool visitIfcMember(IfcMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMemberType(IfcMemberType *obj);
+        bool visitIfcMemberType(IfcMemberType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMetric(IfcMetric *obj);
+        bool visitIfcMetric(IfcMetric *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj);
+        bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj);
+        bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMove(IfcMove *obj);
+        bool visitIfcMove(IfcMove *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcObjective(IfcObjective *obj);
+        bool visitIfcObjective(IfcObjective *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOccupant(IfcOccupant *obj);
+        bool visitIfcOccupant(IfcOccupant *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *obj);
+        bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *obj);
+        bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj);
+        bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpenShell(IfcOpenShell *obj);
+        bool visitIfcOpenShell(IfcOpenShell *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj);
+        bool visitIfcOpeningElement(IfcOpeningElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj);
+        bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrderAction(IfcOrderAction *obj);
+        bool visitIfcOrderAction(IfcOrderAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganization(IfcOrganization *obj);
+        bool visitIfcOrganization(IfcOrganization *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj);
+        bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj);
+        bool visitIfcOrientedEdge(IfcOrientedEdge *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOutletType(IfcOutletType *obj);
+        bool visitIfcOutletType(IfcOutletType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj);
+        bool visitIfcOwnerHistory(IfcOwnerHistory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPath(IfcPath *obj);
+        bool visitIfcPath(IfcPath *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPerformanceHistory(IfcPerformanceHistory *obj);
+        bool visitIfcPerformanceHistory(IfcPerformanceHistory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *obj);
+        bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPermit(IfcPermit *obj);
+        bool visitIfcPermit(IfcPermit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPerson(IfcPerson *obj);
+        bool visitIfcPerson(IfcPerson *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj);
+        bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj);
+        bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPile(IfcPile *obj);
+        bool visitIfcPile(IfcPile *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPipeFittingType(IfcPipeFittingType *obj);
+        bool visitIfcPipeFittingType(IfcPipeFittingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPipeSegmentType(IfcPipeSegmentType *obj);
+        bool visitIfcPipeSegmentType(IfcPipeSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPixelTexture(IfcPixelTexture *obj);
+        bool visitIfcPixelTexture(IfcPixelTexture *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlanarBox(IfcPlanarBox *obj);
+        bool visitIfcPlanarBox(IfcPlanarBox *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlanarExtent(IfcPlanarExtent *obj);
+        bool visitIfcPlanarExtent(IfcPlanarExtent *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlane(IfcPlane *obj);
+        bool visitIfcPlane(IfcPlane *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlate(IfcPlate *obj);
+        bool visitIfcPlate(IfcPlate *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlateType(IfcPlateType *obj);
+        bool visitIfcPlateType(IfcPlateType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPointOnCurve(IfcPointOnCurve *obj);
+        bool visitIfcPointOnCurve(IfcPointOnCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPointOnSurface(IfcPointOnSurface *obj);
+        bool visitIfcPointOnSurface(IfcPointOnSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolyLoop(IfcPolyLoop *obj);
+        bool visitIfcPolyLoop(IfcPolyLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *obj);
+        bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolyline(IfcPolyline *obj);
+        bool visitIfcPolyline(IfcPolyline *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj);
+        bool visitIfcPostalAddress(IfcPostalAddress *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj);
+        bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *obj);
+        bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *obj);
+        bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj);
+        bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj);
+        bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj);
+        bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProcedure(IfcProcedure *obj);
+        bool visitIfcProcedure(IfcProcedure *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj);
+        bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj);
+        bool visitIfcProductRepresentation(IfcProductRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *obj);
+        bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProject(IfcProject *obj);
+        bool visitIfcProject(IfcProject *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectOrder(IfcProjectOrder *obj);
+        bool visitIfcProjectOrder(IfcProjectOrder *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj);
+        bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectionCurve(IfcProjectionCurve *obj);
+        bool visitIfcProjectionCurve(IfcProjectionCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectionElement(IfcProjectionElement *obj);
+        bool visitIfcProjectionElement(IfcProjectionElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *obj);
+        bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj);
+        bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
+        bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *obj);
+        bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *obj);
+        bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyListValue(IfcPropertyListValue *obj);
+        bool visitIfcPropertyListValue(IfcPropertyListValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj);
+        bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertySet(IfcPropertySet *obj);
+        bool visitIfcPropertySet(IfcPropertySet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertySingleValue(IfcPropertySingleValue *obj);
+        bool visitIfcPropertySingleValue(IfcPropertySingleValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyTableValue(IfcPropertyTableValue *obj);
+        bool visitIfcPropertyTableValue(IfcPropertyTableValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *obj);
+        bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProxy(IfcProxy *obj);
+        bool visitIfcProxy(IfcProxy *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPumpType(IfcPumpType *obj);
+        bool visitIfcPumpType(IfcPumpType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityArea(IfcQuantityArea *obj);
+        bool visitIfcQuantityArea(IfcQuantityArea *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityCount(IfcQuantityCount *obj);
+        bool visitIfcQuantityCount(IfcQuantityCount *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityLength(IfcQuantityLength *obj);
+        bool visitIfcQuantityLength(IfcQuantityLength *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityTime(IfcQuantityTime *obj);
+        bool visitIfcQuantityTime(IfcQuantityTime *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityVolume(IfcQuantityVolume *obj);
+        bool visitIfcQuantityVolume(IfcQuantityVolume *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityWeight(IfcQuantityWeight *obj);
+        bool visitIfcQuantityWeight(IfcQuantityWeight *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRadiusDimension(IfcRadiusDimension *obj);
+        bool visitIfcRadiusDimension(IfcRadiusDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRailing(IfcRailing *obj);
+        bool visitIfcRailing(IfcRailing *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRailingType(IfcRailingType *obj);
+        bool visitIfcRailingType(IfcRailingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRamp(IfcRamp *obj);
+        bool visitIfcRamp(IfcRamp *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRampFlight(IfcRampFlight *obj);
+        bool visitIfcRampFlight(IfcRampFlight *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRampFlightType(IfcRampFlightType *obj);
+        bool visitIfcRampFlightType(IfcRampFlightType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *obj);
+        bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *obj);
+        bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *obj);
+        bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangularPyramid(IfcRectangularPyramid *obj);
+        bool visitIfcRectangularPyramid(IfcRectangularPyramid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *obj);
+        bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj);
+        bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj);
+        bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *obj);
+        bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *obj);
+        bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcingBar(IfcReinforcingBar *obj);
+        bool visitIfcReinforcingBar(IfcReinforcingBar *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcingMesh(IfcReinforcingMesh *obj);
+        bool visitIfcReinforcingMesh(IfcReinforcingMesh *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAggregates(IfcRelAggregates *obj);
+        bool visitIfcRelAggregates(IfcRelAggregates *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *obj);
+        bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj);
+        bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj);
+        bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj);
+        bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj);
+        bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj);
+        bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj);
+        bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj);
+        bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj);
+        bool visitIfcRelAssociates(IfcRelAssociates *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *obj);
+        bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *obj);
+        bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *obj);
+        bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *obj);
+        bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *obj);
+        bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *obj);
+        bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *obj);
+        bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *obj);
+        bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj);
+        bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj);
+        bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj);
+        bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj);
+        bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj);
+        bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj);
+        bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj);
+        bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *obj);
+        bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj);
+        bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj);
+        bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj);
+        bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj);
+        bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj);
+        bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj);
+        bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj);
+        bool visitIfcRelFillsElement(IfcRelFillsElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj);
+        bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj);
+        bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelNests(IfcRelNests *obj);
+        bool visitIfcRelNests(IfcRelNests *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *obj);
+        bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *obj);
+        bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj);
+        bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj);
+        bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj);
+        bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSequence(IfcRelSequence *obj);
+        bool visitIfcRelSequence(IfcRelSequence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj);
+        bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj);
+        bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj);
+        bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelaxation(IfcRelaxation *obj);
+        bool visitIfcRelaxation(IfcRelaxation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentation(IfcRepresentation *obj);
+        bool visitIfcRepresentation(IfcRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj);
+        bool visitIfcRepresentationContext(IfcRepresentationContext *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj);
+        bool visitIfcRepresentationMap(IfcRepresentationMap *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *obj);
+        bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *obj);
+        bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRightCircularCone(IfcRightCircularCone *obj);
+        bool visitIfcRightCircularCone(IfcRightCircularCone *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *obj);
+        bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoof(IfcRoof *obj);
+        bool visitIfcRoof(IfcRoof *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *obj);
+        bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *obj);
+        bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSIUnit(IfcSIUnit *obj);
+        bool visitIfcSIUnit(IfcSIUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *obj);
+        bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj);
+        bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj);
+        bool visitIfcSectionProperties(IfcSectionProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj);
+        bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionedSpine(IfcSectionedSpine *obj);
+        bool visitIfcSectionedSpine(IfcSectionedSpine *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSensorType(IfcSensorType *obj);
+        bool visitIfcSensorType(IfcSensorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcServiceLife(IfcServiceLife *obj);
+        bool visitIfcServiceLife(IfcServiceLife *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj);
+        bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj);
+        bool visitIfcShapeAspect(IfcShapeAspect *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcShapeRepresentation(IfcShapeRepresentation *obj);
+        bool visitIfcShapeRepresentation(IfcShapeRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *obj);
+        bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSite(IfcSite *obj);
+        bool visitIfcSite(IfcSite *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlab(IfcSlab *obj);
+        bool visitIfcSlab(IfcSlab *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlabType(IfcSlabType *obj);
+        bool visitIfcSlabType(IfcSlabType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *obj);
+        bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSoundProperties(IfcSoundProperties *obj);
+        bool visitIfcSoundProperties(IfcSoundProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSoundValue(IfcSoundValue *obj);
+        bool visitIfcSoundValue(IfcSoundValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpace(IfcSpace *obj);
+        bool visitIfcSpace(IfcSpace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj);
+        bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj);
+        bool visitIfcSpaceProgram(IfcSpaceProgram *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *obj);
+        bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceType(IfcSpaceType *obj);
+        bool visitIfcSpaceType(IfcSpaceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSphere(IfcSphere *obj);
+        bool visitIfcSphere(IfcSphere *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStackTerminalType(IfcStackTerminalType *obj);
+        bool visitIfcStackTerminalType(IfcStackTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStair(IfcStair *obj);
+        bool visitIfcStair(IfcStair *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStairFlight(IfcStairFlight *obj);
+        bool visitIfcStairFlight(IfcStairFlight *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStairFlightType(IfcStairFlightType *obj);
+        bool visitIfcStairFlightType(IfcStairFlightType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj);
+        bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *obj);
+        bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *obj);
+        bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *obj);
+        bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *obj);
+        bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *obj);
+        bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj);
+        bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj);
+        bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *obj);
+        bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *obj);
+        bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *obj);
+        bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *obj);
+        bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *obj);
+        bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *obj);
+        bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *obj);
+        bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *obj);
+        bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointAction(IfcStructuralPointAction *obj);
+        bool visitIfcStructuralPointAction(IfcStructuralPointAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *obj);
+        bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *obj);
+        bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *obj);
+        bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj);
+        bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj);
+        bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *obj);
+        bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *obj);
+        bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *obj);
+        bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *obj);
+        bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledItem(IfcStyledItem *obj);
+        bool visitIfcStyledItem(IfcStyledItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledRepresentation(IfcStyledRepresentation *obj);
+        bool visitIfcStyledRepresentation(IfcStyledRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSubContractResource(IfcSubContractResource *obj);
+        bool visitIfcSubContractResource(IfcSubContractResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSubedge(IfcSubedge *obj);
+        bool visitIfcSubedge(IfcSubedge *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *obj);
+        bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *obj);
+        bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj);
+        bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj);
+        bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj);
+        bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj);
+        bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj);
+        bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj);
+        bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj);
+        bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *obj);
+        bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *obj);
+        bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj);
+        bool visitIfcSymbolStyle(IfcSymbolStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSystem(IfcSystem *obj);
+        bool visitIfcSystem(IfcSystem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj);
+        bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *obj);
+        bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTable(IfcTable *obj);
+        bool visitIfcTable(IfcTable *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTableRow(IfcTableRow *obj);
+        bool visitIfcTableRow(IfcTableRow *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTankType(IfcTankType *obj);
+        bool visitIfcTankType(IfcTankType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTask(IfcTask *obj);
+        bool visitIfcTask(IfcTask *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTelecomAddress(IfcTelecomAddress *obj);
+        bool visitIfcTelecomAddress(IfcTelecomAddress *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTendon(IfcTendon *obj);
+        bool visitIfcTendon(IfcTendon *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTendonAnchor(IfcTendonAnchor *obj);
+        bool visitIfcTendonAnchor(IfcTendonAnchor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj);
+        bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextLiteral(IfcTextLiteral *obj);
+        bool visitIfcTextLiteral(IfcTextLiteral *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *obj);
+        bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyle(IfcTextStyle *obj);
+        bool visitIfcTextStyle(IfcTextStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj);
+        bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj);
+        bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj);
+        bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj);
+        bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *obj);
+        bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureMap(IfcTextureMap *obj);
+        bool visitIfcTextureMap(IfcTextureMap *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureVertex(IfcTextureVertex *obj);
+        bool visitIfcTextureVertex(IfcTextureVertex *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *obj);
+        bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj);
+        bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj);
+        bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj);
+        bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *obj);
+        bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransformerType(IfcTransformerType *obj);
+        bool visitIfcTransformerType(IfcTransformerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransportElement(IfcTransportElement *obj);
+        bool visitIfcTransportElement(IfcTransportElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransportElementType(IfcTransportElementType *obj);
+        bool visitIfcTransportElementType(IfcTransportElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *obj);
+        bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTrimmedCurve(IfcTrimmedCurve *obj);
+        bool visitIfcTrimmedCurve(IfcTrimmedCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTubeBundleType(IfcTubeBundleType *obj);
+        bool visitIfcTubeBundleType(IfcTubeBundleType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *obj);
+        bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeObject(IfcTypeObject *obj);
+        bool visitIfcTypeObject(IfcTypeObject *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj);
+        bool visitIfcTypeProduct(IfcTypeProduct *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj);
+        bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj);
+        bool visitIfcUnitAssignment(IfcUnitAssignment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *obj);
+        bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcValveType(IfcValveType *obj);
+        bool visitIfcValveType(IfcValveType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVector(IfcVector *obj);
+        bool visitIfcVector(IfcVector *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertex(IfcVertex *obj);
+        bool visitIfcVertex(IfcVertex *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj);
+        bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexLoop(IfcVertexLoop *obj);
+        bool visitIfcVertexLoop(IfcVertexLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj);
+        bool visitIfcVertexPoint(IfcVertexPoint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *obj);
+        bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVirtualElement(IfcVirtualElement *obj);
+        bool visitIfcVirtualElement(IfcVirtualElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj);
+        bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWall(IfcWall *obj);
+        bool visitIfcWall(IfcWall *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWallStandardCase(IfcWallStandardCase *obj);
+        bool visitIfcWallStandardCase(IfcWallStandardCase *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWallType(IfcWallType *obj);
+        bool visitIfcWallType(IfcWallType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWasteTerminalType(IfcWasteTerminalType *obj);
+        bool visitIfcWasteTerminalType(IfcWasteTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWaterProperties(IfcWaterProperties *obj);
+        bool visitIfcWaterProperties(IfcWaterProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindow(IfcWindow *obj);
+        bool visitIfcWindow(IfcWindow *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *obj);
+        bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *obj);
+        bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowStyle(IfcWindowStyle *obj);
+        bool visitIfcWindowStyle(IfcWindowStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWorkPlan(IfcWorkPlan *obj);
+        bool visitIfcWorkPlan(IfcWorkPlan *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWorkSchedule(IfcWorkSchedule *obj);
+        bool visitIfcWorkSchedule(IfcWorkSchedule *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *obj);
+        bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcZone(IfcZone *obj);
+        bool visitIfcZone(IfcZone *obj) override;
 
     };
 
@@ -7409,2231 +7409,2231 @@ namespace ifc2x3 {
          * @param dataset
          */
         ReparentCopyOp(ExpressDataSet *dataset);
-        virtual ~ReparentCopyOp();
+        ~ReparentCopyOp() override;
         /**
          * @param obj
          */
-        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj);
+        bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActionRequest(IfcActionRequest *obj);
+        bool visitIfcActionRequest(IfcActionRequest *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActor(IfcActor *obj);
+        bool visitIfcActor(IfcActor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActorRole(IfcActorRole *obj);
+        bool visitIfcActorRole(IfcActorRole *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcActuatorType(IfcActuatorType *obj);
+        bool visitIfcActuatorType(IfcActuatorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *obj);
+        bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirTerminalType(IfcAirTerminalType *obj);
+        bool visitIfcAirTerminalType(IfcAirTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj);
+        bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAlarmType(IfcAlarmType *obj);
+        bool visitIfcAlarmType(IfcAlarmType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAngularDimension(IfcAngularDimension *obj);
+        bool visitIfcAngularDimension(IfcAngularDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotation(IfcAnnotation *obj);
+        bool visitIfcAnnotation(IfcAnnotation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj);
+        bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *obj);
+        bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *obj);
+        bool visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSurface(IfcAnnotationSurface *obj);
+        bool visitIfcAnnotationSurface(IfcAnnotationSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj);
+        bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj);
+        bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj);
+        bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApplication(IfcApplication *obj);
+        bool visitIfcApplication(IfcApplication *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj);
+        bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApproval(IfcApproval *obj);
+        bool visitIfcApproval(IfcApproval *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *obj);
+        bool visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj);
+        bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj);
+        bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj);
+        bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *obj);
+        bool visitIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *obj);
+        bool visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAsset(IfcAsset *obj);
+        bool visitIfcAsset(IfcAsset *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *obj);
+        bool visitIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis1Placement(IfcAxis1Placement *obj);
+        bool visitIfcAxis1Placement(IfcAxis1Placement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj);
+        bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj);
+        bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBeam(IfcBeam *obj);
+        bool visitIfcBeam(IfcBeam *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBeamType(IfcBeamType *obj);
+        bool visitIfcBeamType(IfcBeamType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBezierCurve(IfcBezierCurve *obj);
+        bool visitIfcBezierCurve(IfcBezierCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBlobTexture(IfcBlobTexture *obj);
+        bool visitIfcBlobTexture(IfcBlobTexture *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBlock(IfcBlock *obj);
+        bool visitIfcBlock(IfcBlock *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoilerType(IfcBoilerType *obj);
+        bool visitIfcBoilerType(IfcBoilerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj);
+        bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj);
+        bool visitIfcBooleanResult(IfcBooleanResult *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *obj);
+        bool visitIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *obj);
+        bool visitIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *obj);
+        bool visitIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *obj);
+        bool visitIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundedSurface(IfcBoundedSurface *obj);
+        bool visitIfcBoundedSurface(IfcBoundedSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoundingBox(IfcBoundingBox *obj);
+        bool visitIfcBoundingBox(IfcBoundingBox *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *obj);
+        bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuilding(IfcBuilding *obj);
+        bool visitIfcBuilding(IfcBuilding *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj);
+        bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *obj);
+        bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *obj);
+        bool visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcBuildingStorey(IfcBuildingStorey *obj);
+        bool visitIfcBuildingStorey(IfcBuildingStorey *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *obj);
+        bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *obj);
+        bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj);
+        bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCableSegmentType(IfcCableSegmentType *obj);
+        bool visitIfcCableSegmentType(IfcCableSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj);
+        bool visitIfcCalendarDate(IfcCalendarDate *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj);
+        bool visitIfcCartesianPoint(IfcCartesianPoint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj);
+        bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *obj);
+        bool visitIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *obj);
+        bool visitIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *obj);
+        bool visitIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *obj);
+        bool visitIfcCenterLineProfileDef(IfcCenterLineProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *obj);
+        bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcChillerType(IfcChillerType *obj);
+        bool visitIfcChillerType(IfcChillerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircle(IfcCircle *obj);
+        bool visitIfcCircle(IfcCircle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *obj);
+        bool visitIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCircleProfileDef(IfcCircleProfileDef *obj);
+        bool visitIfcCircleProfileDef(IfcCircleProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassification(IfcClassification *obj);
+        bool visitIfcClassification(IfcClassification *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj);
+        bool visitIfcClassificationItem(IfcClassificationItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj);
+        bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj);
+        bool visitIfcClassificationNotation(IfcClassificationNotation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj);
+        bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj);
+        bool visitIfcClassificationReference(IfcClassificationReference *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcClosedShell(IfcClosedShell *obj);
+        bool visitIfcClosedShell(IfcClosedShell *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoilType(IfcCoilType *obj);
+        bool visitIfcCoilType(IfcCoilType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcColourRgb(IfcColourRgb *obj);
+        bool visitIfcColourRgb(IfcColourRgb *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcColumn(IfcColumn *obj);
+        bool visitIfcColumn(IfcColumn *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcColumnType(IfcColumnType *obj);
+        bool visitIfcColumnType(IfcColumnType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj);
+        bool visitIfcComplexProperty(IfcComplexProperty *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj);
+        bool visitIfcCompositeCurve(IfcCompositeCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj);
+        bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj);
+        bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCompressorType(IfcCompressorType *obj);
+        bool visitIfcCompressorType(IfcCompressorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCondenserType(IfcCondenserType *obj);
+        bool visitIfcCondenserType(IfcCondenserType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCondition(IfcCondition *obj);
+        bool visitIfcCondition(IfcCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConditionCriterion(IfcConditionCriterion *obj);
+        bool visitIfcConditionCriterion(IfcConditionCriterion *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj);
+        bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *obj);
+        bool visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *obj);
+        bool visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *obj);
+        bool visitIfcConnectionPointGeometry(IfcConnectionPointGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *obj);
+        bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *obj);
+        bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj);
+        bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *obj);
+        bool visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintRelationship(IfcConstraintRelationship *obj);
+        bool visitIfcConstraintRelationship(IfcConstraintRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj);
+        bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *obj);
+        bool visitIfcConstructionMaterialResource(IfcConstructionMaterialResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConstructionProductResource(IfcConstructionProductResource *obj);
+        bool visitIfcConstructionProductResource(IfcConstructionProductResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcContextDependentUnit(IfcContextDependentUnit *obj);
+        bool visitIfcContextDependentUnit(IfcContextDependentUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcControllerType(IfcControllerType *obj);
+        bool visitIfcControllerType(IfcControllerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *obj);
+        bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCooledBeamType(IfcCooledBeamType *obj);
+        bool visitIfcCooledBeamType(IfcCooledBeamType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoolingTowerType(IfcCoolingTowerType *obj);
+        bool visitIfcCoolingTowerType(IfcCoolingTowerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj);
+        bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostItem(IfcCostItem *obj);
+        bool visitIfcCostItem(IfcCostItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostSchedule(IfcCostSchedule *obj);
+        bool visitIfcCostSchedule(IfcCostSchedule *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCostValue(IfcCostValue *obj);
+        bool visitIfcCostValue(IfcCostValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCovering(IfcCovering *obj);
+        bool visitIfcCovering(IfcCovering *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCoveringType(IfcCoveringType *obj);
+        bool visitIfcCoveringType(IfcCoveringType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *obj);
+        bool visitIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *obj);
+        bool visitIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCrewResource(IfcCrewResource *obj);
+        bool visitIfcCrewResource(IfcCrewResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCsgSolid(IfcCsgSolid *obj);
+        bool visitIfcCsgSolid(IfcCsgSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *obj);
+        bool visitIfcCurrencyRelationship(IfcCurrencyRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurtainWall(IfcCurtainWall *obj);
+        bool visitIfcCurtainWall(IfcCurtainWall *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurtainWallType(IfcCurtainWallType *obj);
+        bool visitIfcCurtainWallType(IfcCurtainWallType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *obj);
+        bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj);
+        bool visitIfcCurveStyle(IfcCurveStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj);
+        bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj);
+        bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj);
+        bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDamperType(IfcDamperType *obj);
+        bool visitIfcDamperType(IfcDamperType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj);
+        bool visitIfcDateAndTime(IfcDateAndTime *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDefinedSymbol(IfcDefinedSymbol *obj);
+        bool visitIfcDefinedSymbol(IfcDefinedSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj);
+        bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj);
+        bool visitIfcDerivedUnit(IfcDerivedUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj);
+        bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiameterDimension(IfcDiameterDimension *obj);
+        bool visitIfcDiameterDimension(IfcDiameterDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *obj);
+        bool visitIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurve(IfcDimensionCurve *obj);
+        bool visitIfcDimensionCurve(IfcDimensionCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj);
+        bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *obj);
+        bool visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionPair(IfcDimensionPair *obj);
+        bool visitIfcDimensionPair(IfcDimensionPair *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj);
+        bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDirection(IfcDirection *obj);
+        bool visitIfcDirection(IfcDirection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj);
+        bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *obj);
+        bool visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj);
+        bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj);
+        bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj);
+        bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj);
+        bool visitIfcDistributionElement(IfcDistributionElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj);
+        bool visitIfcDistributionElementType(IfcDistributionElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *obj);
+        bool visitIfcDistributionFlowElement(IfcDistributionFlowElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDistributionPort(IfcDistributionPort *obj);
+        bool visitIfcDistributionPort(IfcDistributionPort *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj);
+        bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj);
+        bool visitIfcDocumentInformation(IfcDocumentInformation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj);
+        bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj);
+        bool visitIfcDocumentReference(IfcDocumentReference *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoor(IfcDoor *obj);
+        bool visitIfcDoor(IfcDoor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *obj);
+        bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj);
+        bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDoorStyle(IfcDoorStyle *obj);
+        bool visitIfcDoorStyle(IfcDoorStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj);
+        bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj);
+        bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *obj);
+        bool visitIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *obj);
+        bool visitIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *obj);
+        bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctFittingType(IfcDuctFittingType *obj);
+        bool visitIfcDuctFittingType(IfcDuctFittingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctSegmentType(IfcDuctSegmentType *obj);
+        bool visitIfcDuctSegmentType(IfcDuctSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcDuctSilencerType(IfcDuctSilencerType *obj);
+        bool visitIfcDuctSilencerType(IfcDuctSilencerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdge(IfcEdge *obj);
+        bool visitIfcEdge(IfcEdge *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj);
+        bool visitIfcEdgeCurve(IfcEdgeCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEdgeLoop(IfcEdgeLoop *obj);
+        bool visitIfcEdgeLoop(IfcEdgeLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricApplianceType(IfcElectricApplianceType *obj);
+        bool visitIfcElectricApplianceType(IfcElectricApplianceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *obj);
+        bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj);
+        bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *obj);
+        bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricHeaterType(IfcElectricHeaterType *obj);
+        bool visitIfcElectricHeaterType(IfcElectricHeaterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricMotorType(IfcElectricMotorType *obj);
+        bool visitIfcElectricMotorType(IfcElectricMotorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *obj);
+        bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *obj);
+        bool visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj);
+        bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElectricalElement(IfcElectricalElement *obj);
+        bool visitIfcElectricalElement(IfcElectricalElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElementAssembly(IfcElementAssembly *obj);
+        bool visitIfcElementAssembly(IfcElementAssembly *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcElementQuantity(IfcElementQuantity *obj);
+        bool visitIfcElementQuantity(IfcElementQuantity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEllipse(IfcEllipse *obj);
+        bool visitIfcEllipse(IfcEllipse *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *obj);
+        bool visitIfcEllipseProfileDef(IfcEllipseProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj);
+        bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj);
+        bool visitIfcEnergyProperties(IfcEnergyProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *obj);
+        bool visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEquipmentElement(IfcEquipmentElement *obj);
+        bool visitIfcEquipmentElement(IfcEquipmentElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEquipmentStandard(IfcEquipmentStandard *obj);
+        bool visitIfcEquipmentStandard(IfcEquipmentStandard *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *obj);
+        bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcEvaporatorType(IfcEvaporatorType *obj);
+        bool visitIfcEvaporatorType(IfcEvaporatorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *obj);
+        bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj);
+        bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj);
+        bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj);
+        bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj);
+        bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *obj);
+        bool visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFace(IfcFace *obj);
+        bool visitIfcFace(IfcFace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj);
+        bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceBound(IfcFaceBound *obj);
+        bool visitIfcFaceBound(IfcFaceBound *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceOuterBound(IfcFaceOuterBound *obj);
+        bool visitIfcFaceOuterBound(IfcFaceOuterBound *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj);
+        bool visitIfcFaceSurface(IfcFaceSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj);
+        bool visitIfcFacetedBrep(IfcFacetedBrep *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *obj);
+        bool visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *obj);
+        bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFanType(IfcFanType *obj);
+        bool visitIfcFanType(IfcFanType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFastener(IfcFastener *obj);
+        bool visitIfcFastener(IfcFastener *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFastenerType(IfcFastenerType *obj);
+        bool visitIfcFastenerType(IfcFastenerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj);
+        bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj);
+        bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj);
+        bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj);
+        bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFilterType(IfcFilterType *obj);
+        bool visitIfcFilterType(IfcFilterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj);
+        bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowController(IfcFlowController *obj);
+        bool visitIfcFlowController(IfcFlowController *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowFitting(IfcFlowFitting *obj);
+        bool visitIfcFlowFitting(IfcFlowFitting *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *obj);
+        bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowMeterType(IfcFlowMeterType *obj);
+        bool visitIfcFlowMeterType(IfcFlowMeterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *obj);
+        bool visitIfcFlowMovingDevice(IfcFlowMovingDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowSegment(IfcFlowSegment *obj);
+        bool visitIfcFlowSegment(IfcFlowSegment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *obj);
+        bool visitIfcFlowStorageDevice(IfcFlowStorageDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowTerminal(IfcFlowTerminal *obj);
+        bool visitIfcFlowTerminal(IfcFlowTerminal *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *obj);
+        bool visitIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *obj);
+        bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFooting(IfcFooting *obj);
+        bool visitIfcFooting(IfcFooting *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFuelProperties(IfcFuelProperties *obj);
+        bool visitIfcFuelProperties(IfcFuelProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnishingElement(IfcFurnishingElement *obj);
+        bool visitIfcFurnishingElement(IfcFurnishingElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnishingElementType(IfcFurnishingElementType *obj);
+        bool visitIfcFurnishingElementType(IfcFurnishingElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnitureStandard(IfcFurnitureStandard *obj);
+        bool visitIfcFurnitureStandard(IfcFurnitureStandard *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcFurnitureType(IfcFurnitureType *obj);
+        bool visitIfcFurnitureType(IfcFurnitureType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGasTerminalType(IfcGasTerminalType *obj);
+        bool visitIfcGasTerminalType(IfcGasTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *obj);
+        bool visitIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *obj);
+        bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj);
+        bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *obj);
+        bool visitIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *obj);
+        bool visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj);
+        bool visitIfcGeometricSet(IfcGeometricSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGrid(IfcGrid *obj);
+        bool visitIfcGrid(IfcGrid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGridAxis(IfcGridAxis *obj);
+        bool visitIfcGridAxis(IfcGridAxis *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGridPlacement(IfcGridPlacement *obj);
+        bool visitIfcGridPlacement(IfcGridPlacement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcGroup(IfcGroup *obj);
+        bool visitIfcGroup(IfcGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj);
+        bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHeatExchangerType(IfcHeatExchangerType *obj);
+        bool visitIfcHeatExchangerType(IfcHeatExchangerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHumidifierType(IfcHumidifierType *obj);
+        bool visitIfcHumidifierType(IfcHumidifierType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj);
+        bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj);
+        bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcImageTexture(IfcImageTexture *obj);
+        bool visitIfcImageTexture(IfcImageTexture *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcInventory(IfcInventory *obj);
+        bool visitIfcInventory(IfcInventory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *obj);
+        bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *obj);
+        bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcJunctionBoxType(IfcJunctionBoxType *obj);
+        bool visitIfcJunctionBoxType(IfcJunctionBoxType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *obj);
+        bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLaborResource(IfcLaborResource *obj);
+        bool visitIfcLaborResource(IfcLaborResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLampType(IfcLampType *obj);
+        bool visitIfcLampType(IfcLampType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj);
+        bool visitIfcLibraryInformation(IfcLibraryInformation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj);
+        bool visitIfcLibraryReference(IfcLibraryReference *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj);
+        bool visitIfcLightDistributionData(IfcLightDistributionData *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightFixtureType(IfcLightFixtureType *obj);
+        bool visitIfcLightFixtureType(IfcLightFixtureType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj);
+        bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *obj);
+        bool visitIfcLightSourceAmbient(IfcLightSourceAmbient *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *obj);
+        bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *obj);
+        bool visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourcePositional(IfcLightSourcePositional *obj);
+        bool visitIfcLightSourcePositional(IfcLightSourcePositional *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightSourceSpot(IfcLightSourceSpot *obj);
+        bool visitIfcLightSourceSpot(IfcLightSourceSpot *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLine(IfcLine *obj);
+        bool visitIfcLine(IfcLine *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLinearDimension(IfcLinearDimension *obj);
+        bool visitIfcLinearDimension(IfcLinearDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj);
+        bool visitIfcLocalPlacement(IfcLocalPlacement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalTime(IfcLocalTime *obj);
+        bool visitIfcLocalTime(IfcLocalTime *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcLoop(IfcLoop *obj);
+        bool visitIfcLoop(IfcLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMappedItem(IfcMappedItem *obj);
+        bool visitIfcMappedItem(IfcMappedItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterial(IfcMaterial *obj);
+        bool visitIfcMaterial(IfcMaterial *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj);
+        bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj);
+        bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj);
+        bool visitIfcMaterialLayer(IfcMaterialLayer *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj);
+        bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj);
+        bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMaterialList(IfcMaterialList *obj);
+        bool visitIfcMaterialList(IfcMaterialList *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj);
+        bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj);
+        bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalFastener(IfcMechanicalFastener *obj);
+        bool visitIfcMechanicalFastener(IfcMechanicalFastener *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *obj);
+        bool visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj);
+        bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj);
+        bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMember(IfcMember *obj);
+        bool visitIfcMember(IfcMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMemberType(IfcMemberType *obj);
+        bool visitIfcMemberType(IfcMemberType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMetric(IfcMetric *obj);
+        bool visitIfcMetric(IfcMetric *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj);
+        bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj);
+        bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcMove(IfcMove *obj);
+        bool visitIfcMove(IfcMove *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcObjective(IfcObjective *obj);
+        bool visitIfcObjective(IfcObjective *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOccupant(IfcOccupant *obj);
+        bool visitIfcOccupant(IfcOccupant *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *obj);
+        bool visitIfcOffsetCurve2D(IfcOffsetCurve2D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *obj);
+        bool visitIfcOffsetCurve3D(IfcOffsetCurve3D *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj);
+        bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpenShell(IfcOpenShell *obj);
+        bool visitIfcOpenShell(IfcOpenShell *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj);
+        bool visitIfcOpeningElement(IfcOpeningElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj);
+        bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrderAction(IfcOrderAction *obj);
+        bool visitIfcOrderAction(IfcOrderAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganization(IfcOrganization *obj);
+        bool visitIfcOrganization(IfcOrganization *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj);
+        bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj);
+        bool visitIfcOrientedEdge(IfcOrientedEdge *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOutletType(IfcOutletType *obj);
+        bool visitIfcOutletType(IfcOutletType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj);
+        bool visitIfcOwnerHistory(IfcOwnerHistory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPath(IfcPath *obj);
+        bool visitIfcPath(IfcPath *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPerformanceHistory(IfcPerformanceHistory *obj);
+        bool visitIfcPerformanceHistory(IfcPerformanceHistory *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *obj);
+        bool visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPermit(IfcPermit *obj);
+        bool visitIfcPermit(IfcPermit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPerson(IfcPerson *obj);
+        bool visitIfcPerson(IfcPerson *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj);
+        bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj);
+        bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPile(IfcPile *obj);
+        bool visitIfcPile(IfcPile *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPipeFittingType(IfcPipeFittingType *obj);
+        bool visitIfcPipeFittingType(IfcPipeFittingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPipeSegmentType(IfcPipeSegmentType *obj);
+        bool visitIfcPipeSegmentType(IfcPipeSegmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPixelTexture(IfcPixelTexture *obj);
+        bool visitIfcPixelTexture(IfcPixelTexture *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlanarBox(IfcPlanarBox *obj);
+        bool visitIfcPlanarBox(IfcPlanarBox *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlanarExtent(IfcPlanarExtent *obj);
+        bool visitIfcPlanarExtent(IfcPlanarExtent *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlane(IfcPlane *obj);
+        bool visitIfcPlane(IfcPlane *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlate(IfcPlate *obj);
+        bool visitIfcPlate(IfcPlate *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPlateType(IfcPlateType *obj);
+        bool visitIfcPlateType(IfcPlateType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPointOnCurve(IfcPointOnCurve *obj);
+        bool visitIfcPointOnCurve(IfcPointOnCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPointOnSurface(IfcPointOnSurface *obj);
+        bool visitIfcPointOnSurface(IfcPointOnSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolyLoop(IfcPolyLoop *obj);
+        bool visitIfcPolyLoop(IfcPolyLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *obj);
+        bool visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPolyline(IfcPolyline *obj);
+        bool visitIfcPolyline(IfcPolyline *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj);
+        bool visitIfcPostalAddress(IfcPostalAddress *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj);
+        bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *obj);
+        bool visitIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *obj);
+        bool visitIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj);
+        bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj);
+        bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj);
+        bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProcedure(IfcProcedure *obj);
+        bool visitIfcProcedure(IfcProcedure *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj);
+        bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj);
+        bool visitIfcProductRepresentation(IfcProductRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *obj);
+        bool visitIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProject(IfcProject *obj);
+        bool visitIfcProject(IfcProject *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectOrder(IfcProjectOrder *obj);
+        bool visitIfcProjectOrder(IfcProjectOrder *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj);
+        bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectionCurve(IfcProjectionCurve *obj);
+        bool visitIfcProjectionCurve(IfcProjectionCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProjectionElement(IfcProjectionElement *obj);
+        bool visitIfcProjectionElement(IfcProjectionElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *obj);
+        bool visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj);
+        bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
+        bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *obj);
+        bool visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *obj);
+        bool visitIfcPropertyEnumeration(IfcPropertyEnumeration *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyListValue(IfcPropertyListValue *obj);
+        bool visitIfcPropertyListValue(IfcPropertyListValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj);
+        bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertySet(IfcPropertySet *obj);
+        bool visitIfcPropertySet(IfcPropertySet *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertySingleValue(IfcPropertySingleValue *obj);
+        bool visitIfcPropertySingleValue(IfcPropertySingleValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyTableValue(IfcPropertyTableValue *obj);
+        bool visitIfcPropertyTableValue(IfcPropertyTableValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *obj);
+        bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcProxy(IfcProxy *obj);
+        bool visitIfcProxy(IfcProxy *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcPumpType(IfcPumpType *obj);
+        bool visitIfcPumpType(IfcPumpType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityArea(IfcQuantityArea *obj);
+        bool visitIfcQuantityArea(IfcQuantityArea *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityCount(IfcQuantityCount *obj);
+        bool visitIfcQuantityCount(IfcQuantityCount *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityLength(IfcQuantityLength *obj);
+        bool visitIfcQuantityLength(IfcQuantityLength *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityTime(IfcQuantityTime *obj);
+        bool visitIfcQuantityTime(IfcQuantityTime *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityVolume(IfcQuantityVolume *obj);
+        bool visitIfcQuantityVolume(IfcQuantityVolume *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcQuantityWeight(IfcQuantityWeight *obj);
+        bool visitIfcQuantityWeight(IfcQuantityWeight *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRadiusDimension(IfcRadiusDimension *obj);
+        bool visitIfcRadiusDimension(IfcRadiusDimension *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRailing(IfcRailing *obj);
+        bool visitIfcRailing(IfcRailing *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRailingType(IfcRailingType *obj);
+        bool visitIfcRailingType(IfcRailingType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRamp(IfcRamp *obj);
+        bool visitIfcRamp(IfcRamp *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRampFlight(IfcRampFlight *obj);
+        bool visitIfcRampFlight(IfcRampFlight *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRampFlightType(IfcRampFlightType *obj);
+        bool visitIfcRampFlightType(IfcRampFlightType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *obj);
+        bool visitIfcRationalBezierCurve(IfcRationalBezierCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *obj);
+        bool visitIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *obj);
+        bool visitIfcRectangleProfileDef(IfcRectangleProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangularPyramid(IfcRectangularPyramid *obj);
+        bool visitIfcRectangularPyramid(IfcRectangularPyramid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *obj);
+        bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj);
+        bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj);
+        bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *obj);
+        bool visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *obj);
+        bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcingBar(IfcReinforcingBar *obj);
+        bool visitIfcReinforcingBar(IfcReinforcingBar *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcReinforcingMesh(IfcReinforcingMesh *obj);
+        bool visitIfcReinforcingMesh(IfcReinforcingMesh *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAggregates(IfcRelAggregates *obj);
+        bool visitIfcRelAggregates(IfcRelAggregates *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *obj);
+        bool visitIfcRelAssignsTasks(IfcRelAssignsTasks *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj);
+        bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj);
+        bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj);
+        bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj);
+        bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj);
+        bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj);
+        bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj);
+        bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj);
+        bool visitIfcRelAssociates(IfcRelAssociates *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *obj);
+        bool visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *obj);
+        bool visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *obj);
+        bool visitIfcRelAssociatesClassification(IfcRelAssociatesClassification *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *obj);
+        bool visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *obj);
+        bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *obj);
+        bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *obj);
+        bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *obj);
+        bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj);
+        bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj);
+        bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj);
+        bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj);
+        bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj);
+        bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj);
+        bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj);
+        bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *obj);
+        bool visitIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj);
+        bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj);
+        bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj);
+        bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj);
+        bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj);
+        bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj);
+        bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj);
+        bool visitIfcRelFillsElement(IfcRelFillsElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj);
+        bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj);
+        bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelNests(IfcRelNests *obj);
+        bool visitIfcRelNests(IfcRelNests *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *obj);
+        bool visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *obj);
+        bool visitIfcRelOverridesProperties(IfcRelOverridesProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj);
+        bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj);
+        bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj);
+        bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSequence(IfcRelSequence *obj);
+        bool visitIfcRelSequence(IfcRelSequence *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj);
+        bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj);
+        bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj);
+        bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRelaxation(IfcRelaxation *obj);
+        bool visitIfcRelaxation(IfcRelaxation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentation(IfcRepresentation *obj);
+        bool visitIfcRepresentation(IfcRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj);
+        bool visitIfcRepresentationContext(IfcRepresentationContext *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj);
+        bool visitIfcRepresentationMap(IfcRepresentationMap *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *obj);
+        bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *obj);
+        bool visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRightCircularCone(IfcRightCircularCone *obj);
+        bool visitIfcRightCircularCone(IfcRightCircularCone *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *obj);
+        bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoof(IfcRoof *obj);
+        bool visitIfcRoof(IfcRoof *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *obj);
+        bool visitIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *obj);
+        bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSIUnit(IfcSIUnit *obj);
+        bool visitIfcSIUnit(IfcSIUnit *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *obj);
+        bool visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj);
+        bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj);
+        bool visitIfcSectionProperties(IfcSectionProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj);
+        bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSectionedSpine(IfcSectionedSpine *obj);
+        bool visitIfcSectionedSpine(IfcSectionedSpine *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSensorType(IfcSensorType *obj);
+        bool visitIfcSensorType(IfcSensorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcServiceLife(IfcServiceLife *obj);
+        bool visitIfcServiceLife(IfcServiceLife *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj);
+        bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj);
+        bool visitIfcShapeAspect(IfcShapeAspect *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcShapeRepresentation(IfcShapeRepresentation *obj);
+        bool visitIfcShapeRepresentation(IfcShapeRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *obj);
+        bool visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSite(IfcSite *obj);
+        bool visitIfcSite(IfcSite *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlab(IfcSlab *obj);
+        bool visitIfcSlab(IfcSlab *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlabType(IfcSlabType *obj);
+        bool visitIfcSlabType(IfcSlabType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *obj);
+        bool visitIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSoundProperties(IfcSoundProperties *obj);
+        bool visitIfcSoundProperties(IfcSoundProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSoundValue(IfcSoundValue *obj);
+        bool visitIfcSoundValue(IfcSoundValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpace(IfcSpace *obj);
+        bool visitIfcSpace(IfcSpace *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj);
+        bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj);
+        bool visitIfcSpaceProgram(IfcSpaceProgram *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *obj);
+        bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSpaceType(IfcSpaceType *obj);
+        bool visitIfcSpaceType(IfcSpaceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSphere(IfcSphere *obj);
+        bool visitIfcSphere(IfcSphere *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStackTerminalType(IfcStackTerminalType *obj);
+        bool visitIfcStackTerminalType(IfcStackTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStair(IfcStair *obj);
+        bool visitIfcStair(IfcStair *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStairFlight(IfcStairFlight *obj);
+        bool visitIfcStairFlight(IfcStairFlight *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStairFlightType(IfcStairFlightType *obj);
+        bool visitIfcStairFlightType(IfcStairFlightType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj);
+        bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *obj);
+        bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *obj);
+        bool visitIfcStructuralCurveMember(IfcStructuralCurveMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *obj);
+        bool visitIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *obj);
+        bool visitIfcStructuralLinearAction(IfcStructuralLinearAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *obj);
+        bool visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj);
+        bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj);
+        bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *obj);
+        bool visitIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *obj);
+        bool visitIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *obj);
+        bool visitIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *obj);
+        bool visitIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *obj);
+        bool visitIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *obj);
+        bool visitIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *obj);
+        bool visitIfcStructuralPlanarAction(IfcStructuralPlanarAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *obj);
+        bool visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointAction(IfcStructuralPointAction *obj);
+        bool visitIfcStructuralPointAction(IfcStructuralPointAction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *obj);
+        bool visitIfcStructuralPointConnection(IfcStructuralPointConnection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *obj);
+        bool visitIfcStructuralPointReaction(IfcStructuralPointReaction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *obj);
+        bool visitIfcStructuralProfileProperties(IfcStructuralProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj);
+        bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj);
+        bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *obj);
+        bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *obj);
+        bool visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *obj);
+        bool visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *obj);
+        bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledItem(IfcStyledItem *obj);
+        bool visitIfcStyledItem(IfcStyledItem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledRepresentation(IfcStyledRepresentation *obj);
+        bool visitIfcStyledRepresentation(IfcStyledRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSubContractResource(IfcSubContractResource *obj);
+        bool visitIfcSubContractResource(IfcSubContractResource *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSubedge(IfcSubedge *obj);
+        bool visitIfcSubedge(IfcSubedge *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *obj);
+        bool visitIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *obj);
+        bool visitIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj);
+        bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj);
+        bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj);
+        bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj);
+        bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj);
+        bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj);
+        bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj);
+        bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *obj);
+        bool visitIfcSweptDiskSolid(IfcSweptDiskSolid *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *obj);
+        bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj);
+        bool visitIfcSymbolStyle(IfcSymbolStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSystem(IfcSystem *obj);
+        bool visitIfcSystem(IfcSystem *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj);
+        bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *obj);
+        bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTable(IfcTable *obj);
+        bool visitIfcTable(IfcTable *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTableRow(IfcTableRow *obj);
+        bool visitIfcTableRow(IfcTableRow *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTankType(IfcTankType *obj);
+        bool visitIfcTankType(IfcTankType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTask(IfcTask *obj);
+        bool visitIfcTask(IfcTask *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTelecomAddress(IfcTelecomAddress *obj);
+        bool visitIfcTelecomAddress(IfcTelecomAddress *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTendon(IfcTendon *obj);
+        bool visitIfcTendon(IfcTendon *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTendonAnchor(IfcTendonAnchor *obj);
+        bool visitIfcTendonAnchor(IfcTendonAnchor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj);
+        bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextLiteral(IfcTextLiteral *obj);
+        bool visitIfcTextLiteral(IfcTextLiteral *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *obj);
+        bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyle(IfcTextStyle *obj);
+        bool visitIfcTextStyle(IfcTextStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj);
+        bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj);
+        bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj);
+        bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj);
+        bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *obj);
+        bool visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureMap(IfcTextureMap *obj);
+        bool visitIfcTextureMap(IfcTextureMap *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTextureVertex(IfcTextureVertex *obj);
+        bool visitIfcTextureVertex(IfcTextureVertex *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *obj);
+        bool visitIfcThermalMaterialProperties(IfcThermalMaterialProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj);
+        bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj);
+        bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj);
+        bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *obj);
+        bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransformerType(IfcTransformerType *obj);
+        bool visitIfcTransformerType(IfcTransformerType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransportElement(IfcTransportElement *obj);
+        bool visitIfcTransportElement(IfcTransportElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTransportElementType(IfcTransportElementType *obj);
+        bool visitIfcTransportElementType(IfcTransportElementType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *obj);
+        bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTrimmedCurve(IfcTrimmedCurve *obj);
+        bool visitIfcTrimmedCurve(IfcTrimmedCurve *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTubeBundleType(IfcTubeBundleType *obj);
+        bool visitIfcTubeBundleType(IfcTubeBundleType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *obj);
+        bool visitIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeObject(IfcTypeObject *obj);
+        bool visitIfcTypeObject(IfcTypeObject *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj);
+        bool visitIfcTypeProduct(IfcTypeProduct *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj);
+        bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj);
+        bool visitIfcUnitAssignment(IfcUnitAssignment *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *obj);
+        bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcValveType(IfcValveType *obj);
+        bool visitIfcValveType(IfcValveType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVector(IfcVector *obj);
+        bool visitIfcVector(IfcVector *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertex(IfcVertex *obj);
+        bool visitIfcVertex(IfcVertex *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj);
+        bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexLoop(IfcVertexLoop *obj);
+        bool visitIfcVertexLoop(IfcVertexLoop *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj);
+        bool visitIfcVertexPoint(IfcVertexPoint *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *obj);
+        bool visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVirtualElement(IfcVirtualElement *obj);
+        bool visitIfcVirtualElement(IfcVirtualElement *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj);
+        bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWall(IfcWall *obj);
+        bool visitIfcWall(IfcWall *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWallStandardCase(IfcWallStandardCase *obj);
+        bool visitIfcWallStandardCase(IfcWallStandardCase *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWallType(IfcWallType *obj);
+        bool visitIfcWallType(IfcWallType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWasteTerminalType(IfcWasteTerminalType *obj);
+        bool visitIfcWasteTerminalType(IfcWasteTerminalType *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWaterProperties(IfcWaterProperties *obj);
+        bool visitIfcWaterProperties(IfcWaterProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindow(IfcWindow *obj);
+        bool visitIfcWindow(IfcWindow *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *obj);
+        bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *obj);
+        bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWindowStyle(IfcWindowStyle *obj);
+        bool visitIfcWindowStyle(IfcWindowStyle *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWorkPlan(IfcWorkPlan *obj);
+        bool visitIfcWorkPlan(IfcWorkPlan *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcWorkSchedule(IfcWorkSchedule *obj);
+        bool visitIfcWorkSchedule(IfcWorkSchedule *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *obj);
+        bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *obj) override;
         /**
          * @param obj
          */
-        virtual bool visitIfcZone(IfcZone *obj);
+        bool visitIfcZone(IfcZone *obj) override;
 
     protected:
         /**
@@ -9643,7 +9643,7 @@ namespace ifc2x3 {
         ExpressDataSet *_dataset;
         /**
          */
-        virtual ExpressDataSet *getExpressDataSet() const;
+        ExpressDataSet *getExpressDataSet() const override;
 
     };
 
