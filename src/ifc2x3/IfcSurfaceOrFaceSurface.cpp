@@ -31,7 +31,7 @@
 
 using namespace ifc2x3;
 
-IfcSurfaceOrFaceSurface::IfcSurfaceOrFaceSurface() : Step::BaseObject(0) {
+IfcSurfaceOrFaceSurface::IfcSurfaceOrFaceSurface() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -125,7 +125,7 @@ IfcSurface *IfcSurfaceOrFaceSurface::getIfcSurface() const {
         return m_IfcSurfaceOrFaceSurface_union.m_IfcSurface;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ IfcFaceSurface *IfcSurfaceOrFaceSurface::getIfcFaceSurface() const {
         return m_IfcSurfaceOrFaceSurface_union.m_IfcFaceSurface;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -173,7 +173,7 @@ IfcFaceBasedSurfaceModel *IfcSurfaceOrFaceSurface::getIfcFaceBasedSurfaceModel()
         return m_IfcSurfaceOrFaceSurface_union.m_IfcFaceBasedSurfaceModel;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

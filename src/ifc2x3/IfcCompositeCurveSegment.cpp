@@ -40,7 +40,7 @@ using namespace ifc2x3;
 IfcCompositeCurveSegment::IfcCompositeCurveSegment(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
     m_transition = IfcTransitionCode_UNSET;
     m_sameSense = Step::getUnset(m_sameSense);
-    m_parentCurve = NULL;
+    m_parentCurve = nullptr;
 }
 
 IfcCompositeCurveSegment::~IfcCompositeCurveSegment() {
@@ -123,7 +123,7 @@ IfcCurve *IfcCompositeCurveSegment::getParentCurve() {
         return m_parentCurve.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -197,7 +197,7 @@ bool IfcCompositeCurveSegment::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_parentCurve = NULL;
+        m_parentCurve = nullptr;
     }
     else {
         m_parentCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

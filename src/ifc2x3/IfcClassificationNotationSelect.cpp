@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcClassificationNotationSelect::IfcClassificationNotationSelect() : Step::BaseObject(0) {
+IfcClassificationNotationSelect::IfcClassificationNotationSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcClassificationNotation *IfcClassificationNotationSelect::getIfcClassification
         return m_IfcClassificationNotationSelect_union.m_IfcClassificationNotation;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcClassificationReference *IfcClassificationNotationSelect::getIfcClassificatio
         return m_IfcClassificationNotationSelect_union.m_IfcClassificationReference;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

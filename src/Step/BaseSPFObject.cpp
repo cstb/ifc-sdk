@@ -25,7 +25,7 @@ using namespace Step;
 ClassType_child_implementations(STEP_EXPORT,BaseSPFObject,BaseEntity);
 
 BaseSPFObject::BaseSPFObject(Id id, SPFData* data) :
-    BaseEntity(id, data), m_allocFuncType(0)
+    BaseEntity(id, data), m_allocFuncType(nullptr)
 {
 }
 

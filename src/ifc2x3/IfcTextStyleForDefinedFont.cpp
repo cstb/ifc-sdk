@@ -35,8 +35,8 @@
 using namespace ifc2x3;
 
 IfcTextStyleForDefinedFont::IfcTextStyleForDefinedFont(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_colour = NULL;
-    m_backgroundColour = NULL;
+    m_colour = nullptr;
+    m_backgroundColour = nullptr;
 }
 
 IfcTextStyleForDefinedFont::~IfcTextStyleForDefinedFont() {
@@ -67,7 +67,7 @@ IfcColour *IfcTextStyleForDefinedFont::getColour() {
         return m_colour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -93,7 +93,7 @@ IfcColour *IfcTextStyleForDefinedFont::getBackgroundColour() {
         return m_backgroundColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -118,7 +118,7 @@ bool IfcTextStyleForDefinedFont::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_colour = NULL;
+        m_colour = nullptr;
     }
     else {
         m_colour = new IfcColour;
@@ -137,7 +137,7 @@ bool IfcTextStyleForDefinedFont::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_backgroundColour = NULL;
+        m_backgroundColour = nullptr;
     }
     else {
         m_backgroundColour = new IfcColour;

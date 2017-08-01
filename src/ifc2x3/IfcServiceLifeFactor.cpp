@@ -38,9 +38,9 @@ using namespace ifc2x3;
 
 IfcServiceLifeFactor::IfcServiceLifeFactor(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
     m_predefinedType = IfcServiceLifeFactorTypeEnum_UNSET;
-    m_upperValue = NULL;
-    m_mostUsedValue = NULL;
-    m_lowerValue = NULL;
+    m_upperValue = nullptr;
+    m_mostUsedValue = nullptr;
+    m_lowerValue = nullptr;
 }
 
 IfcServiceLifeFactor::~IfcServiceLifeFactor() {
@@ -97,7 +97,7 @@ IfcMeasureValue *IfcServiceLifeFactor::getUpperValue() {
         return m_upperValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ IfcMeasureValue *IfcServiceLifeFactor::getMostUsedValue() {
         return m_mostUsedValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ IfcMeasureValue *IfcServiceLifeFactor::getLowerValue() {
         return m_lowerValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -211,7 +211,7 @@ bool IfcServiceLifeFactor::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_upperValue = NULL;
+        m_upperValue = nullptr;
     }
     else {
         m_upperValue = new IfcMeasureValue;
@@ -353,7 +353,7 @@ bool IfcServiceLifeFactor::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_mostUsedValue = NULL;
+        m_mostUsedValue = nullptr;
     }
     else {
         m_mostUsedValue = new IfcMeasureValue;
@@ -495,7 +495,7 @@ bool IfcServiceLifeFactor::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_lowerValue = NULL;
+        m_lowerValue = nullptr;
     }
     else {
         m_lowerValue = new IfcMeasureValue;

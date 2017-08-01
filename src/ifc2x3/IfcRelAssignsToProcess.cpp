@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcRelAssignsToProcess::IfcRelAssignsToProcess(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
-    m_relatingProcess = NULL;
-    m_quantityInProcess = NULL;
+    m_relatingProcess = nullptr;
+    m_quantityInProcess = nullptr;
 }
 
 IfcRelAssignsToProcess::~IfcRelAssignsToProcess() {
@@ -69,7 +69,7 @@ IfcProcess *IfcRelAssignsToProcess::getRelatingProcess() {
         return m_relatingProcess.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -101,7 +101,7 @@ IfcMeasureWithUnit *IfcRelAssignsToProcess::getQuantityInProcess() {
         return m_quantityInProcess.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -130,14 +130,14 @@ bool IfcRelAssignsToProcess::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingProcess = NULL;
+        m_relatingProcess = nullptr;
     }
     else {
         m_relatingProcess = static_cast< IfcProcess * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_quantityInProcess = NULL;
+        m_quantityInProcess = nullptr;
     }
     else {
         m_quantityInProcess = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));

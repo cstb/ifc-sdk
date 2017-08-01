@@ -367,7 +367,7 @@ char * String64_To_HexaGuidString( const char *string64, char * buf, int len )
     {
         return getString16FromGuid (&guid, buf, len);
     }
-    return NULL;
+    return nullptr;
 }
 
 //
@@ -381,7 +381,7 @@ char * String64_To_String85( const char *string64, char * buf, int len )
     {
         return getString85FromGuid (&guid, buf, len);
     }
-    return NULL;
+    return nullptr;
 }
 
 //
@@ -395,7 +395,7 @@ char * String85_To_String64( const char *string85, char * buf, int len )
     {
         return getString64FromGuid (&guid, buf, len);
     }
-    return NULL;
+    return nullptr;
 }
 
 
@@ -407,7 +407,7 @@ char * getString16FromGuid( const GUID  *pGuid, char * buf, int len )
 {
     if (len < 37)
     {
-        return NULL;
+        return nullptr;
     }
     sprintf (buf, "%08lX-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X",
              pGuid->Data1,
@@ -436,7 +436,7 @@ char * getString64FromGuid( const GUID *pGuid, char * buf, int len )
 
     if (len < 23)
     {
-        return NULL;
+        return nullptr;
     }
 
     //
@@ -457,7 +457,7 @@ char * getString64FromGuid( const GUID *pGuid, char * buf, int len )
     {
         if (!cv_to_64 (num[i], str[i], n))
         {
-            return NULL;
+            return nullptr;
         }
         strcat (buf, str[i]);
         n = 5;
@@ -583,8 +583,8 @@ char * getString85FromGuid( const GUID *pGuid, char * buf, int len )
     char str[4][6];
     int i;
 
-    if (pGuid == NULL || len < 21)
-        return NULL;
+    if (pGuid == nullptr || len < 21)
+        return nullptr;
 
     //
     // Creation of four 32 Bit integer from the components of the GUID structure
@@ -610,7 +610,7 @@ char * getString85FromGuid( const GUID *pGuid, char * buf, int len )
     for (i = 0; i < 4; i++)
     {
         if (!cv_to_85 (num[i], str[i], 6))
-            return NULL;
+            return nullptr;
         strcat (buf, str[i]);
     }
     return buf;

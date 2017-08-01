@@ -26,7 +26,7 @@ ClassType_root_implementations(STEP_EXPORT,Referenced);
 typedef std::set<Observer*> ObserverSet;
 
 Referenced::Referenced() :
-    _refCount(0), _observers(0)
+    _refCount(0), _observers(nullptr)
 {
 #ifdef STEP_THREAD_SAFE
     _refMutex = new OpenThreads::Mutex;
@@ -34,7 +34,7 @@ Referenced::Referenced() :
 }
 
 Referenced::Referenced(const Referenced &) :
-    _refCount(0), _observers(0)
+    _refCount(0), _observers(nullptr)
 {
 #ifdef STEP_THREAD_SAFE
     _refMutex = new OpenThreads::Mutex;
@@ -58,7 +58,7 @@ Referenced::~Referenced()
             (*itr)->objectDeleted(this);
         }
         delete os;
-        _observers = 0;
+        _observers = nullptr;
     }
 
 #ifdef STEP_THREAD_SAFE

@@ -31,7 +31,7 @@
 
 using namespace ifc2x3;
 
-IfcDateTimeSelect::IfcDateTimeSelect() : Step::BaseObject(0) {
+IfcDateTimeSelect::IfcDateTimeSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -125,7 +125,7 @@ IfcCalendarDate *IfcDateTimeSelect::getIfcCalendarDate() const {
         return m_IfcDateTimeSelect_union.m_IfcCalendarDate;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ IfcLocalTime *IfcDateTimeSelect::getIfcLocalTime() const {
         return m_IfcDateTimeSelect_union.m_IfcLocalTime;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -173,7 +173,7 @@ IfcDateAndTime *IfcDateTimeSelect::getIfcDateAndTime() const {
         return m_IfcDateTimeSelect_union.m_IfcDateAndTime;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

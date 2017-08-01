@@ -33,7 +33,7 @@
 
 using namespace ifc2x3;
 
-IfcSurfaceStyleElementSelect::IfcSurfaceStyleElementSelect() : Step::BaseObject(0) {
+IfcSurfaceStyleElementSelect::IfcSurfaceStyleElementSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -145,7 +145,7 @@ IfcSurfaceStyleShading *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleShading(
         return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleShading;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -169,7 +169,7 @@ IfcSurfaceStyleLighting *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleLightin
         return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleLighting;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -193,7 +193,7 @@ IfcSurfaceStyleWithTextures *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleWit
         return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleWithTextures;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -217,7 +217,7 @@ IfcExternallyDefinedSurfaceStyle *IfcSurfaceStyleElementSelect::getIfcExternally
         return m_IfcSurfaceStyleElementSelect_union.m_IfcExternallyDefinedSurfaceStyle;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -241,7 +241,7 @@ IfcSurfaceStyleRefraction *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleRefra
         return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleRefraction;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

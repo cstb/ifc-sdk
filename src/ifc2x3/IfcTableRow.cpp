@@ -125,7 +125,7 @@ IfcTable *IfcTableRow::getOfTable() {
         return m_ofTable.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

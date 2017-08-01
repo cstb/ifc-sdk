@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcLocalPlacement::IfcLocalPlacement(Step::Id id, Step::SPFData *args) : IfcObjectPlacement(id, args) {
-    m_placementRelTo = NULL;
-    m_relativePlacement = NULL;
+    m_placementRelTo = nullptr;
+    m_relativePlacement = nullptr;
 }
 
 IfcLocalPlacement::~IfcLocalPlacement() {
@@ -69,7 +69,7 @@ IfcObjectPlacement *IfcLocalPlacement::getPlacementRelTo() {
         return m_placementRelTo.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -101,7 +101,7 @@ IfcAxis2Placement *IfcLocalPlacement::getRelativePlacement() {
         return m_relativePlacement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -130,14 +130,14 @@ bool IfcLocalPlacement::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_placementRelTo = NULL;
+        m_placementRelTo = nullptr;
     }
     else {
         m_placementRelTo = static_cast< IfcObjectPlacement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relativePlacement = NULL;
+        m_relativePlacement = nullptr;
     }
     else {
         m_relativePlacement = new IfcAxis2Placement;

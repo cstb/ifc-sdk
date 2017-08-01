@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcAxis2Placement::IfcAxis2Placement() : Step::BaseObject(0) {
+IfcAxis2Placement::IfcAxis2Placement() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcAxis2Placement2D *IfcAxis2Placement::getIfcAxis2Placement2D() const {
         return m_IfcAxis2Placement_union.m_IfcAxis2Placement2D;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcAxis2Placement3D *IfcAxis2Placement::getIfcAxis2Placement3D() const {
         return m_IfcAxis2Placement_union.m_IfcAxis2Placement3D;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

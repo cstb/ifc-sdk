@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcColour::IfcColour() : Step::BaseObject(0) {
+IfcColour::IfcColour() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcColourSpecification *IfcColour::getIfcColourSpecification() const {
         return m_IfcColour_union.m_IfcColourSpecification;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcPreDefinedColour *IfcColour::getIfcPreDefinedColour() const {
         return m_IfcColour_union.m_IfcPreDefinedColour;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

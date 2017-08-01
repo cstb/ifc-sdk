@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcRelAssignsToActor::IfcRelAssignsToActor(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
-    m_relatingActor = NULL;
-    m_actingRole = NULL;
+    m_relatingActor = nullptr;
+    m_actingRole = nullptr;
 }
 
 IfcRelAssignsToActor::~IfcRelAssignsToActor() {
@@ -69,7 +69,7 @@ IfcActor *IfcRelAssignsToActor::getRelatingActor() {
         return m_relatingActor.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -101,7 +101,7 @@ IfcActorRole *IfcRelAssignsToActor::getActingRole() {
         return m_actingRole.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -130,14 +130,14 @@ bool IfcRelAssignsToActor::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingActor = NULL;
+        m_relatingActor = nullptr;
     }
     else {
         m_relatingActor = static_cast< IfcActor * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_actingRole = NULL;
+        m_actingRole = nullptr;
     }
     else {
         m_actingRole = static_cast< IfcActorRole * > (m_expressDataSet->get(Step::getIdParam(arg)));

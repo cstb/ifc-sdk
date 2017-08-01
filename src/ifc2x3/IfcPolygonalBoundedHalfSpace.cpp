@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcPolygonalBoundedHalfSpace::IfcPolygonalBoundedHalfSpace(Step::Id id, Step::SPFData *args) : IfcHalfSpaceSolid(id, args) {
-    m_position = NULL;
-    m_polygonalBoundary = NULL;
+    m_position = nullptr;
+    m_polygonalBoundary = nullptr;
 }
 
 IfcPolygonalBoundedHalfSpace::~IfcPolygonalBoundedHalfSpace() {
@@ -69,7 +69,7 @@ IfcAxis2Placement3D *IfcPolygonalBoundedHalfSpace::getPosition() {
         return m_position.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ IfcBoundedCurve *IfcPolygonalBoundedHalfSpace::getPolygonalBoundary() {
         return m_polygonalBoundary.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -124,14 +124,14 @@ bool IfcPolygonalBoundedHalfSpace::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_position = NULL;
+        m_position = nullptr;
     }
     else {
         m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_polygonalBoundary = NULL;
+        m_polygonalBoundary = nullptr;
     }
     else {
         m_polygonalBoundary = static_cast< IfcBoundedCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

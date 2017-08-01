@@ -37,7 +37,7 @@ using namespace ifc2x3;
 
 IfcTextLiteral::IfcTextLiteral(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
     m_literal = Step::getUnset(m_literal);
-    m_placement = NULL;
+    m_placement = nullptr;
     m_path = IfcTextPath_UNSET;
 }
 
@@ -95,7 +95,7 @@ IfcAxis2Placement *IfcTextLiteral::getPlacement() {
         return m_placement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -157,7 +157,7 @@ bool IfcTextLiteral::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_placement = NULL;
+        m_placement = nullptr;
     }
     else {
         m_placement = new IfcAxis2Placement;

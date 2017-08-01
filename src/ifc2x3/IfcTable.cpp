@@ -52,7 +52,7 @@ void Inverted_IfcTable_Rows_type::push_back(const Step::RefPtr< IfcTableRow > &v
 
 Inverted_IfcTable_Rows_type::iterator Inverted_IfcTable_Rows_type::erase(const Step::RefPtr< IfcTableRow > &value) {
     IfcTableRow *inverse = const_cast< IfcTableRow * > (value.get());
-    inverse->m_ofTable = NULL;
+    inverse->m_ofTable = nullptr;
     return List_IfcTableRow_1_n::erase(value);
 }
 

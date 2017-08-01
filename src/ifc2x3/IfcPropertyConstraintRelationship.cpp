@@ -38,7 +38,7 @@
 using namespace ifc2x3;
 
 IfcPropertyConstraintRelationship::IfcPropertyConstraintRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_relatingConstraint = NULL;
+    m_relatingConstraint = nullptr;
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
 }
@@ -71,7 +71,7 @@ IfcConstraint *IfcPropertyConstraintRelationship::getRelatingConstraint() {
         return m_relatingConstraint.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -182,7 +182,7 @@ bool IfcPropertyConstraintRelationship::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingConstraint = NULL;
+        m_relatingConstraint = nullptr;
     }
     else {
         m_relatingConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)));

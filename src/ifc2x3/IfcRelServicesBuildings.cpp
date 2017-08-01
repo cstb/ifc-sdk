@@ -63,7 +63,7 @@ void Inverted_IfcRelServicesBuildings_RelatedBuildings_type::clear() {
 }
 
 IfcRelServicesBuildings::IfcRelServicesBuildings(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingSystem = NULL;
+    m_relatingSystem = nullptr;
     m_relatedBuildings.setOwner(this);
 }
 
@@ -95,7 +95,7 @@ IfcSystem *IfcRelServicesBuildings::getRelatingSystem() {
         return m_relatingSystem.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -154,7 +154,7 @@ bool IfcRelServicesBuildings::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingSystem = NULL;
+        m_relatingSystem = nullptr;
     }
     else {
         m_relatingSystem = static_cast< IfcSystem * > (m_expressDataSet->get(Step::getIdParam(arg)));

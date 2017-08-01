@@ -50,11 +50,11 @@ void Inverted_IfcPresentationLayerAssignment_AssignedItems_type::setOwner(IfcPre
 void Inverted_IfcPresentationLayerAssignment_AssignedItems_type::insert(const Step::RefPtr< IfcLayeredItem > &value) throw(std::out_of_range) {
     IfcLayeredItem *inverse = const_cast< IfcLayeredItem * > (value.get());
     Set_IfcLayeredItem_1_n::insert(value);
-    if (inverse->getIfcRepresentation() != NULL) {
+    if (inverse->getIfcRepresentation() != nullptr) {
         IfcRepresentation *object = inverse->getIfcRepresentation();
         object->getLayerAssignments().insert(mOwner);
     }
-    else if (inverse->getIfcRepresentationItem() != NULL) {
+    else if (inverse->getIfcRepresentationItem() != nullptr) {
         IfcRepresentationItem *object = inverse->getIfcRepresentationItem();
         object->getLayerAssignments().insert(mOwner);
     }
@@ -62,11 +62,11 @@ void Inverted_IfcPresentationLayerAssignment_AssignedItems_type::insert(const St
 
 Inverted_IfcPresentationLayerAssignment_AssignedItems_type::size_type Inverted_IfcPresentationLayerAssignment_AssignedItems_type::erase(const Step::RefPtr< IfcLayeredItem > &value) {
     IfcLayeredItem *inverse = const_cast< IfcLayeredItem * > (value.get());
-    if (inverse->getIfcRepresentation() != NULL) {
+    if (inverse->getIfcRepresentation() != nullptr) {
         IfcRepresentation *object = inverse->getIfcRepresentation();
         object->getLayerAssignments().erase(mOwner);
     }
-    else if (inverse->getIfcRepresentationItem() != NULL) {
+    else if (inverse->getIfcRepresentationItem() != nullptr) {
         IfcRepresentationItem *object = inverse->getIfcRepresentationItem();
         object->getLayerAssignments().erase(mOwner);
     }

@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcPropertyDependencyRelationship::IfcPropertyDependencyRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_dependingProperty = NULL;
-    m_dependantProperty = NULL;
+    m_dependingProperty = nullptr;
+    m_dependantProperty = nullptr;
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
     m_expression = Step::getUnset(m_expression);
@@ -72,7 +72,7 @@ IfcProperty *IfcPropertyDependencyRelationship::getDependingProperty() {
         return m_dependingProperty.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -104,7 +104,7 @@ IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty() {
         return m_dependantProperty.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -213,14 +213,14 @@ bool IfcPropertyDependencyRelationship::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_dependingProperty = NULL;
+        m_dependingProperty = nullptr;
     }
     else {
         m_dependingProperty = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_dependantProperty = NULL;
+        m_dependantProperty = nullptr;
     }
     else {
         m_dependantProperty = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(arg)));

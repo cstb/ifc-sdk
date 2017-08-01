@@ -39,12 +39,12 @@
 using namespace ifc2x3;
 
 IfcCostSchedule::IfcCostSchedule(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
-    m_submittedBy = NULL;
-    m_preparedBy = NULL;
-    m_submittedOn = NULL;
+    m_submittedBy = nullptr;
+    m_preparedBy = nullptr;
+    m_submittedOn = nullptr;
     m_status = Step::getUnset(m_status);
     m_targetUsers.setUnset(true);
-    m_updateDate = NULL;
+    m_updateDate = nullptr;
     m_iD = Step::getUnset(m_iD);
     m_predefinedType = IfcCostScheduleTypeEnum_UNSET;
 }
@@ -77,7 +77,7 @@ IfcActorSelect *IfcCostSchedule::getSubmittedBy() {
         return m_submittedBy.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -103,7 +103,7 @@ IfcActorSelect *IfcCostSchedule::getPreparedBy() {
         return m_preparedBy.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -129,7 +129,7 @@ IfcDateTimeSelect *IfcCostSchedule::getSubmittedOn() {
         return m_submittedOn.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -209,7 +209,7 @@ IfcDateTimeSelect *IfcCostSchedule::getUpdateDate() {
         return m_updateDate.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -290,7 +290,7 @@ bool IfcCostSchedule::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_submittedBy = NULL;
+        m_submittedBy = nullptr;
     }
     else {
         m_submittedBy = new IfcActorSelect;
@@ -309,7 +309,7 @@ bool IfcCostSchedule::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_preparedBy = NULL;
+        m_preparedBy = nullptr;
     }
     else {
         m_preparedBy = new IfcActorSelect;
@@ -328,7 +328,7 @@ bool IfcCostSchedule::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_submittedOn = NULL;
+        m_submittedOn = nullptr;
     }
     else {
         m_submittedOn = new IfcDateTimeSelect;
@@ -385,7 +385,7 @@ bool IfcCostSchedule::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_updateDate = NULL;
+        m_updateDate = nullptr;
     }
     else {
         m_updateDate = new IfcDateTimeSelect;

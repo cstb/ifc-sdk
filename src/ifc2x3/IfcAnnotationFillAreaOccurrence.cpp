@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcAnnotationFillAreaOccurrence::IfcAnnotationFillAreaOccurrence(Step::Id id, Step::SPFData *args) : IfcAnnotationOccurrence(id, args) {
-    m_fillStyleTarget = NULL;
+    m_fillStyleTarget = nullptr;
     m_globalOrLocal = IfcGlobalOrLocalEnum_UNSET;
 }
 
@@ -68,7 +68,7 @@ IfcPoint *IfcAnnotationFillAreaOccurrence::getFillStyleTarget() {
         return m_fillStyleTarget.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ bool IfcAnnotationFillAreaOccurrence::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_fillStyleTarget = NULL;
+        m_fillStyleTarget = nullptr;
     }
     else {
         m_fillStyleTarget = static_cast< IfcPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));

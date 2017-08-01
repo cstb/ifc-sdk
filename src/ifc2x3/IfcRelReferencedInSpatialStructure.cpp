@@ -48,7 +48,7 @@ void Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::setOwner(
 void Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::insert(const Step::RefPtr< IfcProduct > &value) throw(std::out_of_range) {
     IfcProduct *inverse = const_cast< IfcProduct * > (value.get());
     Set_IfcProduct_1_n::insert(value);
-    if (dynamic_cast< IfcElement * > (inverse) != NULL) {
+    if (dynamic_cast< IfcElement * > (inverse) != nullptr) {
         ((IfcElement *) (inverse))->m_referencedInStructures.insert(mOwner);
     }
 }
@@ -65,7 +65,7 @@ void Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::clear() {
 
 IfcRelReferencedInSpatialStructure::IfcRelReferencedInSpatialStructure(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
     m_relatedElements.setOwner(this);
-    m_relatingStructure = NULL;
+    m_relatingStructure = nullptr;
 }
 
 IfcRelReferencedInSpatialStructure::~IfcRelReferencedInSpatialStructure() {
@@ -120,7 +120,7 @@ IfcSpatialStructureElement *IfcRelReferencedInSpatialStructure::getRelatingStruc
         return m_relatingStructure.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -174,7 +174,7 @@ bool IfcRelReferencedInSpatialStructure::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingStructure = NULL;
+        m_relatingStructure = nullptr;
     }
     else {
         m_relatingStructure = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(arg)));

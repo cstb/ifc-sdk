@@ -35,7 +35,7 @@
 using namespace ifc2x3;
 
 IfcRelAssociatesClassification::IfcRelAssociatesClassification(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
-    m_relatingClassification = NULL;
+    m_relatingClassification = nullptr;
 }
 
 IfcRelAssociatesClassification::~IfcRelAssociatesClassification() {
@@ -66,7 +66,7 @@ IfcClassificationNotationSelect *IfcRelAssociatesClassification::getRelatingClas
         return m_relatingClassification.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ bool IfcRelAssociatesClassification::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingClassification = NULL;
+        m_relatingClassification = nullptr;
     }
     else {
         m_relatingClassification = new IfcClassificationNotationSelect;

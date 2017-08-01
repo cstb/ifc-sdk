@@ -36,8 +36,8 @@
 using namespace ifc2x3;
 
 IfcRelSequence::IfcRelSequence(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingProcess = NULL;
-    m_relatedProcess = NULL;
+    m_relatingProcess = nullptr;
+    m_relatedProcess = nullptr;
     m_timeLag = Step::getUnset(m_timeLag);
     m_sequenceType = IfcSequenceEnum_UNSET;
 }
@@ -70,7 +70,7 @@ IfcProcess *IfcRelSequence::getRelatingProcess() {
         return m_relatingProcess.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -102,7 +102,7 @@ IfcProcess *IfcRelSequence::getRelatedProcess() {
         return m_relatedProcess.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -189,14 +189,14 @@ bool IfcRelSequence::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingProcess = NULL;
+        m_relatingProcess = nullptr;
     }
     else {
         m_relatingProcess = static_cast< IfcProcess * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedProcess = NULL;
+        m_relatedProcess = nullptr;
     }
     else {
         m_relatedProcess = static_cast< IfcProcess * > (m_expressDataSet->get(Step::getIdParam(arg)));

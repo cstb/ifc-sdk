@@ -38,7 +38,7 @@
 using namespace ifc2x3;
 
 IfcMaterialClassificationRelationship::IfcMaterialClassificationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_classifiedMaterial = NULL;
+    m_classifiedMaterial = nullptr;
 }
 
 IfcMaterialClassificationRelationship::~IfcMaterialClassificationRelationship() {
@@ -97,7 +97,7 @@ IfcMaterial *IfcMaterialClassificationRelationship::getClassifiedMaterial() {
         return m_classifiedMaterial.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -159,7 +159,7 @@ bool IfcMaterialClassificationRelationship::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_classifiedMaterial = NULL;
+        m_classifiedMaterial = nullptr;
     }
     else {
         m_classifiedMaterial = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)));

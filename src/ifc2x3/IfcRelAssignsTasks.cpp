@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcRelAssignsTasks::IfcRelAssignsTasks(Step::Id id, Step::SPFData *args) : IfcRelAssignsToControl(id, args) {
-    m_timeForTask = NULL;
+    m_timeForTask = nullptr;
 }
 
 IfcRelAssignsTasks::~IfcRelAssignsTasks() {
@@ -67,7 +67,7 @@ IfcScheduleTimeControl *IfcRelAssignsTasks::getTimeForTask() {
         return m_timeForTask.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -78,7 +78,7 @@ const IfcScheduleTimeControl *IfcRelAssignsTasks::getTimeForTask() const {
 
 void IfcRelAssignsTasks::setTimeForTask(const Step::RefPtr< IfcScheduleTimeControl > &value) {
     if (m_timeForTask.valid()) {
-        m_timeForTask->m_scheduleTimeControlAssigned = NULL;
+        m_timeForTask->m_scheduleTimeControlAssigned = nullptr;
     }
     if (value.valid()) {
         value->m_scheduleTimeControlAssigned = this;
@@ -102,7 +102,7 @@ bool IfcRelAssignsTasks::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_timeForTask = NULL;
+        m_timeForTask = nullptr;
     }
     else {
         m_timeForTask = static_cast< IfcScheduleTimeControl * > (m_expressDataSet->get(Step::getIdParam(arg)));

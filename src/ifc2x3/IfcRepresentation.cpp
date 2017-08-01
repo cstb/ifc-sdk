@@ -42,7 +42,7 @@
 using namespace ifc2x3;
 
 IfcRepresentation::IfcRepresentation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_contextOfItems = NULL;
+    m_contextOfItems = nullptr;
     m_representationIdentifier = Step::getUnset(m_representationIdentifier);
     m_representationType = Step::getUnset(m_representationType);
 }
@@ -75,7 +75,7 @@ IfcRepresentationContext *IfcRepresentation::getContextOfItems() {
         return m_contextOfItems.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -244,7 +244,7 @@ bool IfcRepresentation::init() {
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_contextOfItems = NULL;
+        m_contextOfItems = nullptr;
     }
     else {
         m_contextOfItems = static_cast< IfcRepresentationContext * > (m_expressDataSet->get(Step::getIdParam(arg)));

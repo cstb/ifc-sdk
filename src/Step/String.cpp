@@ -491,7 +491,7 @@ static wchar_t fromISO_8859(String::Alphabet alphabet, char code)
         {
             static const wchar_t* iso8859_[] =
             {
-                NULL,
+                nullptr,
                 iso8859_2,
                 iso8859_3,
                 iso8859_4,
@@ -520,7 +520,7 @@ static char toISO_8859(String::Alphabet alphabet, wchar_t code)
     {
         static const std::map<wchar_t, char>* UnicodeToIso8859_[] =
         {
-            NULL,
+            nullptr,
             &UnicodeToIso8859_2,
             &UnicodeToIso8859_3,
             &UnicodeToIso8859_4,

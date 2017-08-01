@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcDefinedSymbolSelect::IfcDefinedSymbolSelect() : Step::BaseObject(0) {
+IfcDefinedSymbolSelect::IfcDefinedSymbolSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcPreDefinedSymbol *IfcDefinedSymbolSelect::getIfcPreDefinedSymbol() const {
         return m_IfcDefinedSymbolSelect_union.m_IfcPreDefinedSymbol;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcExternallyDefinedSymbol *IfcDefinedSymbolSelect::getIfcExternallyDefinedSymbo
         return m_IfcDefinedSymbolSelect_union.m_IfcExternallyDefinedSymbol;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

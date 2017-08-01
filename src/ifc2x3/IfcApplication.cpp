@@ -37,7 +37,7 @@
 using namespace ifc2x3;
 
 IfcApplication::IfcApplication(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_applicationDeveloper = NULL;
+    m_applicationDeveloper = nullptr;
     m_version = Step::getUnset(m_version);
     m_applicationFullName = Step::getUnset(m_applicationFullName);
     m_applicationIdentifier = Step::getUnset(m_applicationIdentifier);
@@ -71,7 +71,7 @@ IfcOrganization *IfcApplication::getApplicationDeveloper() {
         return m_applicationDeveloper.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -174,7 +174,7 @@ bool IfcApplication::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_applicationDeveloper = NULL;
+        m_applicationDeveloper = nullptr;
     }
     else {
         m_applicationDeveloper = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));

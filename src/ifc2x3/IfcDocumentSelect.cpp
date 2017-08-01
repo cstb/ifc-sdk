@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcDocumentSelect::IfcDocumentSelect() : Step::BaseObject(0) {
+IfcDocumentSelect::IfcDocumentSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcDocumentReference *IfcDocumentSelect::getIfcDocumentReference() const {
         return m_IfcDocumentSelect_union.m_IfcDocumentReference;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcDocumentInformation *IfcDocumentSelect::getIfcDocumentInformation() const {
         return m_IfcDocumentSelect_union.m_IfcDocumentInformation;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

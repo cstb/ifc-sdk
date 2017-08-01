@@ -29,7 +29,7 @@
 
 using namespace ifc2x3;
 
-IfcFillAreaStyleTileShapeSelect::IfcFillAreaStyleTileShapeSelect() : Step::BaseObject(0) {
+IfcFillAreaStyleTileShapeSelect::IfcFillAreaStyleTileShapeSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -105,7 +105,7 @@ IfcFillAreaStyleTileSymbolWithStyle *IfcFillAreaStyleTileShapeSelect::getIfcFill
         return m_IfcFillAreaStyleTileShapeSelect_union.m_IfcFillAreaStyleTileSymbolWithStyle;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcSurfaceStyleShading::IfcSurfaceStyleShading(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_surfaceColour = NULL;
+    m_surfaceColour = nullptr;
 }
 
 IfcSurfaceStyleShading::~IfcSurfaceStyleShading() {
@@ -67,7 +67,7 @@ IfcColourRgb *IfcSurfaceStyleShading::getSurfaceColour() {
         return m_surfaceColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -92,7 +92,7 @@ bool IfcSurfaceStyleShading::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_surfaceColour = NULL;
+        m_surfaceColour = nullptr;
     }
     else {
         m_surfaceColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));

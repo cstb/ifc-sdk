@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcLightDistributionDataSourceSelect::IfcLightDistributionDataSourceSelect() : Step::BaseObject(0) {
+IfcLightDistributionDataSourceSelect::IfcLightDistributionDataSourceSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcExternalReference *IfcLightDistributionDataSourceSelect::getIfcExternalRefere
         return m_IfcLightDistributionDataSourceSelect_union.m_IfcExternalReference;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcLightIntensityDistribution *IfcLightDistributionDataSourceSelect::getIfcLight
         return m_IfcLightDistributionDataSourceSelect_union.m_IfcLightIntensityDistribution;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

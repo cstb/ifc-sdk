@@ -38,7 +38,7 @@
 using namespace ifc2x3;
 
 IfcMaterialLayer::IfcMaterialLayer(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_material = NULL;
+    m_material = nullptr;
     m_layerThickness = Step::getUnset(m_layerThickness);
     m_isVentilated = Step::getUnset(m_isVentilated);
 }
@@ -71,7 +71,7 @@ IfcMaterial *IfcMaterialLayer::getMaterial() {
         return m_material.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ IfcMaterialLayerSet *IfcMaterialLayer::getToMaterialLayerSet() {
         return m_toMaterialLayerSet.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -167,7 +167,7 @@ bool IfcMaterialLayer::init() {
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_material = NULL;
+        m_material = nullptr;
     }
     else {
         m_material = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)));

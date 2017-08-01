@@ -37,7 +37,7 @@
 using namespace ifc2x3;
 
 IfcTerminatorSymbol::IfcTerminatorSymbol(Step::Id id, Step::SPFData *args) : IfcAnnotationSymbolOccurrence(id, args) {
-    m_annotatedCurve = NULL;
+    m_annotatedCurve = nullptr;
 }
 
 IfcTerminatorSymbol::~IfcTerminatorSymbol() {
@@ -68,7 +68,7 @@ IfcAnnotationCurveOccurrence *IfcTerminatorSymbol::getAnnotatedCurve() {
         return m_annotatedCurve.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -78,18 +78,18 @@ const IfcAnnotationCurveOccurrence *IfcTerminatorSymbol::getAnnotatedCurve() con
 }
 
 void IfcTerminatorSymbol::setAnnotatedCurve(const Step::RefPtr< IfcAnnotationCurveOccurrence > &value) {
-    if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
+    if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != nullptr) {
         ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.erase(this);
     }
 	m_annotatedCurve = value;
-	if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
+	if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != nullptr) {
         ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.insert(this);
     }
 
 }
 
 void IfcTerminatorSymbol::unsetAnnotatedCurve() {
-    if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
+    if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != nullptr) {
         ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.erase(this);
     }
     m_annotatedCurve = Step::getUnset(getAnnotatedCurve());
@@ -107,7 +107,7 @@ bool IfcTerminatorSymbol::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_annotatedCurve = NULL;
+        m_annotatedCurve = nullptr;
     }
     else {
         m_annotatedCurve = static_cast< IfcAnnotationCurveOccurrence * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -37,12 +37,12 @@ using namespace ifc2x3;
 
 IfcSurfaceStyleRendering::IfcSurfaceStyleRendering(Step::Id id, Step::SPFData *args) : IfcSurfaceStyleShading(id, args) {
     m_transparency = Step::getUnset(m_transparency);
-    m_diffuseColour = NULL;
-    m_transmissionColour = NULL;
-    m_diffuseTransmissionColour = NULL;
-    m_reflectionColour = NULL;
-    m_specularColour = NULL;
-    m_specularHighlight = NULL;
+    m_diffuseColour = nullptr;
+    m_transmissionColour = nullptr;
+    m_diffuseTransmissionColour = nullptr;
+    m_reflectionColour = nullptr;
+    m_specularColour = nullptr;
+    m_specularHighlight = nullptr;
     m_reflectanceMethod = IfcReflectanceMethodEnum_UNSET;
 }
 
@@ -100,7 +100,7 @@ IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseColour() {
         return m_diffuseColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -126,7 +126,7 @@ IfcColourOrFactor *IfcSurfaceStyleRendering::getTransmissionColour() {
         return m_transmissionColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -152,7 +152,7 @@ IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseTransmissionColour() {
         return m_diffuseTransmissionColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -178,7 +178,7 @@ IfcColourOrFactor *IfcSurfaceStyleRendering::getReflectionColour() {
         return m_reflectionColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -204,7 +204,7 @@ IfcColourOrFactor *IfcSurfaceStyleRendering::getSpecularColour() {
         return m_specularColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -230,7 +230,7 @@ IfcSpecularHighlightSelect *IfcSurfaceStyleRendering::getSpecularHighlight() {
         return m_specularHighlight.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -292,7 +292,7 @@ bool IfcSurfaceStyleRendering::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_diffuseColour = NULL;
+        m_diffuseColour = nullptr;
     }
     else {
         m_diffuseColour = new IfcColourOrFactor;
@@ -316,7 +316,7 @@ bool IfcSurfaceStyleRendering::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_transmissionColour = NULL;
+        m_transmissionColour = nullptr;
     }
     else {
         m_transmissionColour = new IfcColourOrFactor;
@@ -340,7 +340,7 @@ bool IfcSurfaceStyleRendering::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_diffuseTransmissionColour = NULL;
+        m_diffuseTransmissionColour = nullptr;
     }
     else {
         m_diffuseTransmissionColour = new IfcColourOrFactor;
@@ -364,7 +364,7 @@ bool IfcSurfaceStyleRendering::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_reflectionColour = NULL;
+        m_reflectionColour = nullptr;
     }
     else {
         m_reflectionColour = new IfcColourOrFactor;
@@ -388,7 +388,7 @@ bool IfcSurfaceStyleRendering::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_specularColour = NULL;
+        m_specularColour = nullptr;
     }
     else {
         m_specularColour = new IfcColourOrFactor;
@@ -412,7 +412,7 @@ bool IfcSurfaceStyleRendering::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_specularHighlight = NULL;
+        m_specularHighlight = nullptr;
     }
     else {
         m_specularHighlight = new IfcSpecularHighlightSelect;

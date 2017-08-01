@@ -41,12 +41,12 @@ using namespace ifc2x3;
 IfcTimeSeries::IfcTimeSeries(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
-    m_startTime = NULL;
-    m_endTime = NULL;
+    m_startTime = nullptr;
+    m_endTime = nullptr;
     m_timeSeriesDataType = IfcTimeSeriesDataTypeEnum_UNSET;
     m_dataOrigin = IfcDataOriginEnum_UNSET;
     m_userDefinedDataOrigin = Step::getUnset(m_userDefinedDataOrigin);
-    m_unit = NULL;
+    m_unit = nullptr;
 }
 
 IfcTimeSeries::~IfcTimeSeries() {
@@ -129,7 +129,7 @@ IfcDateTimeSelect *IfcTimeSeries::getStartTime() {
         return m_startTime.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -155,7 +155,7 @@ IfcDateTimeSelect *IfcTimeSeries::getEndTime() {
         return m_endTime.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -259,7 +259,7 @@ IfcUnit *IfcTimeSeries::getUnit() {
         return m_unit.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -318,7 +318,7 @@ bool IfcTimeSeries::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_startTime = NULL;
+        m_startTime = nullptr;
     }
     else {
         m_startTime = new IfcDateTimeSelect;
@@ -337,7 +337,7 @@ bool IfcTimeSeries::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_endTime = NULL;
+        m_endTime = nullptr;
     }
     else {
         m_endTime = new IfcDateTimeSelect;
@@ -411,7 +411,7 @@ bool IfcTimeSeries::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_unit = NULL;
+        m_unit = nullptr;
     }
     else {
         m_unit = new IfcUnit;

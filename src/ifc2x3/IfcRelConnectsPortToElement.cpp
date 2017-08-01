@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcRelConnectsPortToElement::IfcRelConnectsPortToElement(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingPort = NULL;
-    m_relatedElement = NULL;
+    m_relatingPort = nullptr;
+    m_relatedElement = nullptr;
 }
 
 IfcRelConnectsPortToElement::~IfcRelConnectsPortToElement() {
@@ -69,7 +69,7 @@ IfcPort *IfcRelConnectsPortToElement::getRelatingPort() {
         return m_relatingPort.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -80,7 +80,7 @@ const IfcPort *IfcRelConnectsPortToElement::getRelatingPort() const {
 
 void IfcRelConnectsPortToElement::setRelatingPort(const Step::RefPtr< IfcPort > &value) {
     if (m_relatingPort.valid()) {
-        m_relatingPort->m_containedIn = NULL;
+        m_relatingPort->m_containedIn = nullptr;
     }
     if (value.valid()) {
         value->m_containedIn = this;
@@ -101,7 +101,7 @@ IfcElement *IfcRelConnectsPortToElement::getRelatedElement() {
         return m_relatedElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -136,14 +136,14 @@ bool IfcRelConnectsPortToElement::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingPort = NULL;
+        m_relatingPort = nullptr;
     }
     else {
         m_relatingPort = static_cast< IfcPort * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedElement = NULL;
+        m_relatedElement = nullptr;
     }
     else {
         m_relatedElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -38,7 +38,7 @@
 using namespace ifc2x3;
 
 IfcTimeSeriesReferenceRelationship::IfcTimeSeriesReferenceRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_referencedTimeSeries = NULL;
+    m_referencedTimeSeries = nullptr;
 }
 
 IfcTimeSeriesReferenceRelationship::~IfcTimeSeriesReferenceRelationship() {
@@ -69,7 +69,7 @@ IfcTimeSeries *IfcTimeSeriesReferenceRelationship::getReferencedTimeSeries() {
         return m_referencedTimeSeries.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -128,7 +128,7 @@ bool IfcTimeSeriesReferenceRelationship::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_referencedTimeSeries = NULL;
+        m_referencedTimeSeries = nullptr;
     }
     else {
         m_referencedTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));

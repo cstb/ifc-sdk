@@ -38,7 +38,7 @@
 using namespace ifc2x3;
 
 IfcSectionedSpine::IfcSectionedSpine(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_spineCurve = NULL;
+    m_spineCurve = nullptr;
 }
 
 IfcSectionedSpine::~IfcSectionedSpine() {
@@ -69,7 +69,7 @@ IfcCompositeCurve *IfcSectionedSpine::getSpineCurve() {
         return m_spineCurve.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -154,7 +154,7 @@ bool IfcSectionedSpine::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_spineCurve = NULL;
+        m_spineCurve = nullptr;
     }
     else {
         m_spineCurve = static_cast< IfcCompositeCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

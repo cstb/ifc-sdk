@@ -44,7 +44,7 @@ IfcWindowLiningProperties::IfcWindowLiningProperties(Step::Id id, Step::SPFData 
     m_secondTransomOffset = Step::getUnset(m_secondTransomOffset);
     m_firstMullionOffset = Step::getUnset(m_firstMullionOffset);
     m_secondMullionOffset = Step::getUnset(m_secondMullionOffset);
-    m_shapeAspectStyle = NULL;
+    m_shapeAspectStyle = nullptr;
 }
 
 IfcWindowLiningProperties::~IfcWindowLiningProperties() {
@@ -283,7 +283,7 @@ IfcShapeAspect *IfcWindowLiningProperties::getShapeAspectStyle() {
         return m_shapeAspectStyle.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -368,7 +368,7 @@ bool IfcWindowLiningProperties::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_shapeAspectStyle = NULL;
+        m_shapeAspectStyle = nullptr;
     }
     else {
         m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));

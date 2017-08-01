@@ -36,13 +36,13 @@
 using namespace ifc2x3;
 
 IfcTextStyleTextModel::IfcTextStyleTextModel(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_textIndent = NULL;
+    m_textIndent = nullptr;
     m_textAlign = Step::getUnset(m_textAlign);
     m_textDecoration = Step::getUnset(m_textDecoration);
-    m_letterSpacing = NULL;
-    m_wordSpacing = NULL;
+    m_letterSpacing = nullptr;
+    m_wordSpacing = nullptr;
     m_textTransform = Step::getUnset(m_textTransform);
-    m_lineHeight = NULL;
+    m_lineHeight = nullptr;
 }
 
 IfcTextStyleTextModel::~IfcTextStyleTextModel() {
@@ -73,7 +73,7 @@ IfcSizeSelect *IfcTextStyleTextModel::getTextIndent() {
         return m_textIndent.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -151,7 +151,7 @@ IfcSizeSelect *IfcTextStyleTextModel::getLetterSpacing() {
         return m_letterSpacing.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -177,7 +177,7 @@ IfcSizeSelect *IfcTextStyleTextModel::getWordSpacing() {
         return m_wordSpacing.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -229,7 +229,7 @@ IfcSizeSelect *IfcTextStyleTextModel::getLineHeight() {
         return m_lineHeight.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -254,7 +254,7 @@ bool IfcTextStyleTextModel::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_textIndent = NULL;
+        m_textIndent = nullptr;
     }
     else {
         m_textIndent = new IfcSizeSelect;
@@ -317,7 +317,7 @@ bool IfcTextStyleTextModel::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_letterSpacing = NULL;
+        m_letterSpacing = nullptr;
     }
     else {
         m_letterSpacing = new IfcSizeSelect;
@@ -366,7 +366,7 @@ bool IfcTextStyleTextModel::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_wordSpacing = NULL;
+        m_wordSpacing = nullptr;
     }
     else {
         m_wordSpacing = new IfcSizeSelect;
@@ -422,7 +422,7 @@ bool IfcTextStyleTextModel::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_lineHeight = NULL;
+        m_lineHeight = nullptr;
     }
     else {
         m_lineHeight = new IfcSizeSelect;

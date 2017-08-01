@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcMaterialLayerSetUsage::IfcMaterialLayerSetUsage(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_forLayerSet = NULL;
+    m_forLayerSet = nullptr;
     m_layerSetDirection = IfcLayerSetDirectionEnum_UNSET;
     m_directionSense = IfcDirectionSenseEnum_UNSET;
     m_offsetFromReferenceLine = Step::getUnset(m_offsetFromReferenceLine);
@@ -70,7 +70,7 @@ IfcMaterialLayerSet *IfcMaterialLayerSetUsage::getForLayerSet() {
         return m_forLayerSet.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -173,7 +173,7 @@ bool IfcMaterialLayerSetUsage::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_forLayerSet = NULL;
+        m_forLayerSet = nullptr;
     }
     else {
         m_forLayerSet = static_cast< IfcMaterialLayerSet * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -39,7 +39,7 @@ IfcSurfaceTexture::IfcSurfaceTexture(Step::Id id, Step::SPFData *args) : Step::B
     m_repeatS = Step::getUnset(m_repeatS);
     m_repeatT = Step::getUnset(m_repeatT);
     m_textureType = IfcSurfaceTextureEnum_UNSET;
-    m_textureTransform = NULL;
+    m_textureTransform = nullptr;
 }
 
 IfcSurfaceTexture::~IfcSurfaceTexture() {
@@ -148,7 +148,7 @@ IfcCartesianTransformationOperator2D *IfcSurfaceTexture::getTextureTransform() {
         return m_textureTransform.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -220,7 +220,7 @@ bool IfcSurfaceTexture::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_textureTransform = NULL;
+        m_textureTransform = nullptr;
     }
     else {
         m_textureTransform = static_cast< IfcCartesianTransformationOperator2D * > (m_expressDataSet->get(Step::getIdParam(arg)));

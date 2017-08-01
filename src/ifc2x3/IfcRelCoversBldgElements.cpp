@@ -63,7 +63,7 @@ void Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::clear() {
 }
 
 IfcRelCoversBldgElements::IfcRelCoversBldgElements(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingBuildingElement = NULL;
+    m_relatingBuildingElement = nullptr;
     m_relatedCoverings.setOwner(this);
 }
 
@@ -95,7 +95,7 @@ IfcElement *IfcRelCoversBldgElements::getRelatingBuildingElement() {
         return m_relatingBuildingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -154,7 +154,7 @@ bool IfcRelCoversBldgElements::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingBuildingElement = NULL;
+        m_relatingBuildingElement = nullptr;
     }
     else {
         m_relatingBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));

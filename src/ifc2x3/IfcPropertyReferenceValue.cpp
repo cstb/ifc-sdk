@@ -37,7 +37,7 @@ using namespace ifc2x3;
 
 IfcPropertyReferenceValue::IfcPropertyReferenceValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
     m_usageName = Step::getUnset(m_usageName);
-    m_propertyReference = NULL;
+    m_propertyReference = nullptr;
 }
 
 IfcPropertyReferenceValue::~IfcPropertyReferenceValue() {
@@ -94,7 +94,7 @@ IfcObjectReferenceSelect *IfcPropertyReferenceValue::getPropertyReference() {
         return m_propertyReference.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -130,7 +130,7 @@ bool IfcPropertyReferenceValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_propertyReference = NULL;
+        m_propertyReference = nullptr;
     }
     else {
         m_propertyReference = new IfcObjectReferenceSelect;

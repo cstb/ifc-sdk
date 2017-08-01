@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcRelAssignsToGroup::IfcRelAssignsToGroup(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
-    m_relatingGroup = NULL;
+    m_relatingGroup = nullptr;
 }
 
 IfcRelAssignsToGroup::~IfcRelAssignsToGroup() {
@@ -67,7 +67,7 @@ IfcGroup *IfcRelAssignsToGroup::getRelatingGroup() {
         return m_relatingGroup.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -78,7 +78,7 @@ const IfcGroup *IfcRelAssignsToGroup::getRelatingGroup() const {
 
 void IfcRelAssignsToGroup::setRelatingGroup(const Step::RefPtr< IfcGroup > &value) {
     if (m_relatingGroup.valid()) {
-        m_relatingGroup->m_isGroupedBy = NULL;
+        m_relatingGroup->m_isGroupedBy = nullptr;
     }
     if (value.valid()) {
         value->m_isGroupedBy = this;
@@ -102,7 +102,7 @@ bool IfcRelAssignsToGroup::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingGroup = NULL;
+        m_relatingGroup = nullptr;
     }
     else {
         m_relatingGroup = static_cast< IfcGroup * > (m_expressDataSet->get(Step::getIdParam(arg)));

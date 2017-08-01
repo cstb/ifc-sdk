@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcSymbolStyleSelect::IfcSymbolStyleSelect() : Step::BaseObject(0) {
+IfcSymbolStyleSelect::IfcSymbolStyleSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcColourSpecification *IfcSymbolStyleSelect::getIfcColourSpecification() const 
         return m_IfcSymbolStyleSelect_union.m_IfcColourSpecification;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcPreDefinedColour *IfcSymbolStyleSelect::getIfcPreDefinedColour() const {
         return m_IfcSymbolStyleSelect_union.m_IfcPreDefinedColour;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

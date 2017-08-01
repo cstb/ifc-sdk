@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcElementarySurface::IfcElementarySurface(Step::Id id, Step::SPFData *args) : IfcSurface(id, args) {
-    m_position = NULL;
+    m_position = nullptr;
 }
 
 IfcElementarySurface::~IfcElementarySurface() {
@@ -67,7 +67,7 @@ IfcAxis2Placement3D *IfcElementarySurface::getPosition() {
         return m_position.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcElementarySurface::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_position = NULL;
+        m_position = nullptr;
     }
     else {
         m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));

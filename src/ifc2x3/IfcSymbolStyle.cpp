@@ -35,7 +35,7 @@
 using namespace ifc2x3;
 
 IfcSymbolStyle::IfcSymbolStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
-    m_styleOfSymbol = NULL;
+    m_styleOfSymbol = nullptr;
 }
 
 IfcSymbolStyle::~IfcSymbolStyle() {
@@ -66,7 +66,7 @@ IfcSymbolStyleSelect *IfcSymbolStyle::getStyleOfSymbol() {
         return m_styleOfSymbol.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ bool IfcSymbolStyle::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_styleOfSymbol = NULL;
+        m_styleOfSymbol = nullptr;
     }
     else {
         m_styleOfSymbol = new IfcSymbolStyleSelect;

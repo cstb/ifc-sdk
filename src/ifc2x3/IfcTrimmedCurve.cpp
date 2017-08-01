@@ -38,7 +38,7 @@
 using namespace ifc2x3;
 
 IfcTrimmedCurve::IfcTrimmedCurve(Step::Id id, Step::SPFData *args) : IfcBoundedCurve(id, args) {
-    m_basisCurve = NULL;
+    m_basisCurve = nullptr;
     m_senseAgreement = Step::getUnset(m_senseAgreement);
     m_masterRepresentation = IfcTrimmingPreference_UNSET;
 }
@@ -71,7 +71,7 @@ IfcCurve *IfcTrimmedCurve::getBasisCurve() {
         return m_basisCurve.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -208,7 +208,7 @@ bool IfcTrimmedCurve::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_basisCurve = NULL;
+        m_basisCurve = nullptr;
     }
     else {
         m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

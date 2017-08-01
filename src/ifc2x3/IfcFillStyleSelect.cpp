@@ -33,7 +33,7 @@
 
 using namespace ifc2x3;
 
-IfcFillStyleSelect::IfcFillStyleSelect() : Step::BaseObject(0) {
+IfcFillStyleSelect::IfcFillStyleSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -145,7 +145,7 @@ IfcFillAreaStyleHatching *IfcFillStyleSelect::getIfcFillAreaStyleHatching() cons
         return m_IfcFillStyleSelect_union.m_IfcFillAreaStyleHatching;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -169,7 +169,7 @@ IfcFillAreaStyleTiles *IfcFillStyleSelect::getIfcFillAreaStyleTiles() const {
         return m_IfcFillStyleSelect_union.m_IfcFillAreaStyleTiles;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -193,7 +193,7 @@ IfcColourSpecification *IfcFillStyleSelect::getIfcColourSpecification() const {
         return m_IfcFillStyleSelect_union.m_IfcColourSpecification;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -217,7 +217,7 @@ IfcPreDefinedColour *IfcFillStyleSelect::getIfcPreDefinedColour() const {
         return m_IfcFillStyleSelect_union.m_IfcPreDefinedColour;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -241,7 +241,7 @@ IfcExternallyDefinedHatchStyle *IfcFillStyleSelect::getIfcExternallyDefinedHatch
         return m_IfcFillStyleSelect_union.m_IfcExternallyDefinedHatchStyle;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

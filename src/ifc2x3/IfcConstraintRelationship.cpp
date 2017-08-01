@@ -65,7 +65,7 @@ void Inverted_IfcConstraintRelationship_RelatedConstraints_type::clear() {
 IfcConstraintRelationship::IfcConstraintRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
-    m_relatingConstraint = NULL;
+    m_relatingConstraint = nullptr;
     m_relatedConstraints.setOwner(this);
 }
 
@@ -149,7 +149,7 @@ IfcConstraint *IfcConstraintRelationship::getRelatingConstraint() {
         return m_relatingConstraint.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -218,7 +218,7 @@ bool IfcConstraintRelationship::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingConstraint = NULL;
+        m_relatingConstraint = nullptr;
     }
     else {
         m_relatingConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)));

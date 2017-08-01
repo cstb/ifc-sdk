@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcPlacement::IfcPlacement(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_location = NULL;
+    m_location = nullptr;
 }
 
 IfcPlacement::~IfcPlacement() {
@@ -67,7 +67,7 @@ IfcCartesianPoint *IfcPlacement::getLocation() {
         return m_location.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcPlacement::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_location = NULL;
+        m_location = nullptr;
     }
     else {
         m_location = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));

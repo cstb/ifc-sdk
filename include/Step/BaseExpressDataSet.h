@@ -98,7 +98,7 @@ namespace Step {
         /*!
          \short Inits all entities (as opposed to the lazy loading concept)
          */
-        void instantiateAll(CallBack *callback =0);
+        void instantiateAll(CallBack *callback =nullptr);
 
         void setLogger(StepLogger *logger);
 

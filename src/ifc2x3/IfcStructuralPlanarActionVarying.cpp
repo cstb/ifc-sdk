@@ -37,7 +37,7 @@
 using namespace ifc2x3;
 
 IfcStructuralPlanarActionVarying::IfcStructuralPlanarActionVarying(Step::Id id, Step::SPFData *args) : IfcStructuralPlanarAction(id, args) {
-    m_varyingAppliedLoadLocation = NULL;
+    m_varyingAppliedLoadLocation = nullptr;
 }
 
 IfcStructuralPlanarActionVarying::~IfcStructuralPlanarActionVarying() {
@@ -68,7 +68,7 @@ IfcShapeAspect *IfcStructuralPlanarActionVarying::getVaryingAppliedLoadLocation(
         return m_varyingAppliedLoadLocation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -125,7 +125,7 @@ bool IfcStructuralPlanarActionVarying::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_varyingAppliedLoadLocation = NULL;
+        m_varyingAppliedLoadLocation = nullptr;
     }
     else {
         m_varyingAppliedLoadLocation = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));

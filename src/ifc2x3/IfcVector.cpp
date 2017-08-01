@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcVector::IfcVector(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_orientation = NULL;
+    m_orientation = nullptr;
     m_magnitude = Step::getUnset(m_magnitude);
 }
 
@@ -68,7 +68,7 @@ IfcDirection *IfcVector::getOrientation() {
         return m_orientation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ bool IfcVector::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_orientation = NULL;
+        m_orientation = nullptr;
     }
     else {
         m_orientation = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));

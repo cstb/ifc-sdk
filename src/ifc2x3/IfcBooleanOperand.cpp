@@ -32,7 +32,7 @@
 
 using namespace ifc2x3;
 
-IfcBooleanOperand::IfcBooleanOperand() : Step::BaseObject(0) {
+IfcBooleanOperand::IfcBooleanOperand() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -135,7 +135,7 @@ IfcSolidModel *IfcBooleanOperand::getIfcSolidModel() const {
         return m_IfcBooleanOperand_union.m_IfcSolidModel;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -159,7 +159,7 @@ IfcHalfSpaceSolid *IfcBooleanOperand::getIfcHalfSpaceSolid() const {
         return m_IfcBooleanOperand_union.m_IfcHalfSpaceSolid;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -183,7 +183,7 @@ IfcBooleanResult *IfcBooleanOperand::getIfcBooleanResult() const {
         return m_IfcBooleanOperand_union.m_IfcBooleanResult;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -207,7 +207,7 @@ IfcCsgPrimitive3D *IfcBooleanOperand::getIfcCsgPrimitive3D() const {
         return m_IfcBooleanOperand_union.m_IfcCsgPrimitive3D;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

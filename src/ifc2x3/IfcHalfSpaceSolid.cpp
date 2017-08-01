@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcHalfSpaceSolid::IfcHalfSpaceSolid(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_baseSurface = NULL;
+    m_baseSurface = nullptr;
     m_agreementFlag = Step::getUnset(m_agreementFlag);
 }
 
@@ -68,7 +68,7 @@ IfcSurface *IfcHalfSpaceSolid::getBaseSurface() {
         return m_baseSurface.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ bool IfcHalfSpaceSolid::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_baseSurface = NULL;
+        m_baseSurface = nullptr;
     }
     else {
         m_baseSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -31,7 +31,7 @@
 
 using namespace ifc2x3;
 
-IfcDraughtingCalloutElement::IfcDraughtingCalloutElement() : Step::BaseObject(0) {
+IfcDraughtingCalloutElement::IfcDraughtingCalloutElement() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -125,7 +125,7 @@ IfcAnnotationCurveOccurrence *IfcDraughtingCalloutElement::getIfcAnnotationCurve
         return m_IfcDraughtingCalloutElement_union.m_IfcAnnotationCurveOccurrence;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ IfcAnnotationTextOccurrence *IfcDraughtingCalloutElement::getIfcAnnotationTextOc
         return m_IfcDraughtingCalloutElement_union.m_IfcAnnotationTextOccurrence;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -173,7 +173,7 @@ IfcAnnotationSymbolOccurrence *IfcDraughtingCalloutElement::getIfcAnnotationSymb
         return m_IfcDraughtingCalloutElement_union.m_IfcAnnotationSymbolOccurrence;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

@@ -43,7 +43,7 @@ IfcGeometricRepresentationContext::IfcGeometricRepresentationContext(Step::Id id
     m_coordinateSpaceDimension = Step::getUnset(m_coordinateSpaceDimension);
     m_precision = Step::getUnset(m_precision);
     m_worldCoordinateSystem = new IfcAxis2Placement;
-    m_trueNorth = NULL;
+    m_trueNorth = nullptr;
 }
 
 IfcGeometricRepresentationContext::~IfcGeometricRepresentationContext() {
@@ -126,7 +126,7 @@ IfcAxis2Placement *IfcGeometricRepresentationContext::getWorldCoordinateSystem()
         return m_worldCoordinateSystem.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -152,7 +152,7 @@ IfcDirection *IfcGeometricRepresentationContext::getTrueNorth() {
         return m_trueNorth.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -234,7 +234,7 @@ bool IfcGeometricRepresentationContext::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_trueNorth = NULL;
+        m_trueNorth = nullptr;
     }
     else {
         m_trueNorth = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));

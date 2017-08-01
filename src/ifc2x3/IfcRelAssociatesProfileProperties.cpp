@@ -39,9 +39,9 @@
 using namespace ifc2x3;
 
 IfcRelAssociatesProfileProperties::IfcRelAssociatesProfileProperties(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
-    m_relatingProfileProperties = NULL;
-    m_profileSectionLocation = NULL;
-    m_profileOrientation = NULL;
+    m_relatingProfileProperties = nullptr;
+    m_profileSectionLocation = nullptr;
+    m_profileOrientation = nullptr;
 }
 
 IfcRelAssociatesProfileProperties::~IfcRelAssociatesProfileProperties() {
@@ -72,7 +72,7 @@ IfcProfileProperties *IfcRelAssociatesProfileProperties::getRelatingProfilePrope
         return m_relatingProfileProperties.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -98,7 +98,7 @@ IfcShapeAspect *IfcRelAssociatesProfileProperties::getProfileSectionLocation() {
         return m_profileSectionLocation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -124,7 +124,7 @@ IfcOrientationSelect *IfcRelAssociatesProfileProperties::getProfileOrientation()
         return m_profileOrientation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -153,21 +153,21 @@ bool IfcRelAssociatesProfileProperties::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingProfileProperties = NULL;
+        m_relatingProfileProperties = nullptr;
     }
     else {
         m_relatingProfileProperties = static_cast< IfcProfileProperties * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_profileSectionLocation = NULL;
+        m_profileSectionLocation = nullptr;
     }
     else {
         m_profileSectionLocation = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_profileOrientation = NULL;
+        m_profileOrientation = nullptr;
     }
     else {
         m_profileOrientation = new IfcOrientationSelect;

@@ -36,8 +36,8 @@ using namespace ifc2x3;
 
 IfcBooleanResult::IfcBooleanResult(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
     m_operator = IfcBooleanOperator_UNSET;
-    m_firstOperand = NULL;
-    m_secondOperand = NULL;
+    m_firstOperand = nullptr;
+    m_secondOperand = nullptr;
 }
 
 IfcBooleanResult::~IfcBooleanResult() {
@@ -94,7 +94,7 @@ IfcBooleanOperand *IfcBooleanResult::getFirstOperand() {
         return m_firstOperand.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -120,7 +120,7 @@ IfcBooleanOperand *IfcBooleanResult::getSecondOperand() {
         return m_secondOperand.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -164,7 +164,7 @@ bool IfcBooleanResult::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_firstOperand = NULL;
+        m_firstOperand = nullptr;
     }
     else {
         m_firstOperand = new IfcBooleanOperand;
@@ -183,7 +183,7 @@ bool IfcBooleanResult::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_secondOperand = NULL;
+        m_secondOperand = nullptr;
     }
     else {
         m_secondOperand = new IfcBooleanOperand;

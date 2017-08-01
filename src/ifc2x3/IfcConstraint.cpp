@@ -46,8 +46,8 @@ IfcConstraint::IfcConstraint(Step::Id id, Step::SPFData *args) : Step::BaseEntit
     m_description = Step::getUnset(m_description);
     m_constraintGrade = IfcConstraintEnum_UNSET;
     m_constraintSource = Step::getUnset(m_constraintSource);
-    m_creatingActor = NULL;
-    m_creationTime = NULL;
+    m_creatingActor = nullptr;
+    m_creationTime = nullptr;
     m_userDefinedGrade = Step::getUnset(m_userDefinedGrade);
 }
 
@@ -183,7 +183,7 @@ IfcActorSelect *IfcConstraint::getCreatingActor() {
         return m_creatingActor.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -209,7 +209,7 @@ IfcDateTimeSelect *IfcConstraint::getCreationTime() {
         return m_creationTime.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -417,7 +417,7 @@ bool IfcConstraint::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_creatingActor = NULL;
+        m_creatingActor = nullptr;
     }
     else {
         m_creatingActor = new IfcActorSelect;
@@ -436,7 +436,7 @@ bool IfcConstraint::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_creationTime = NULL;
+        m_creationTime = nullptr;
     }
     else {
         m_creationTime = new IfcDateTimeSelect;

@@ -62,7 +62,7 @@ void Inverted_IfcRelDecomposes_RelatedObjects_type::clear() {
 }
 
 IfcRelDecomposes::IfcRelDecomposes(Step::Id id, Step::SPFData *args) : IfcRelationship(id, args) {
-    m_relatingObject = NULL;
+    m_relatingObject = nullptr;
     m_relatedObjects.setOwner(this);
 }
 
@@ -94,7 +94,7 @@ IfcObjectDefinition *IfcRelDecomposes::getRelatingObject() {
         return m_relatingObject.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -153,7 +153,7 @@ bool IfcRelDecomposes::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingObject = NULL;
+        m_relatingObject = nullptr;
     }
     else {
         m_relatingObject = static_cast< IfcObjectDefinition * > (m_expressDataSet->get(Step::getIdParam(arg)));

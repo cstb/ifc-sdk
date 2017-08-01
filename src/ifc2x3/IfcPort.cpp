@@ -66,7 +66,7 @@ IfcRelConnectsPortToElement *IfcPort::getContainedIn() {
         return m_containedIn.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

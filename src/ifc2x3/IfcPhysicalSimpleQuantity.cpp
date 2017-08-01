@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcPhysicalSimpleQuantity::IfcPhysicalSimpleQuantity(Step::Id id, Step::SPFData *args) : IfcPhysicalQuantity(id, args) {
-    m_unit = NULL;
+    m_unit = nullptr;
 }
 
 IfcPhysicalSimpleQuantity::~IfcPhysicalSimpleQuantity() {
@@ -67,7 +67,7 @@ IfcNamedUnit *IfcPhysicalSimpleQuantity::getUnit() {
         return m_unit.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcPhysicalSimpleQuantity::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_unit = NULL;
+        m_unit = nullptr;
     }
     else {
         m_unit = static_cast< IfcNamedUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));

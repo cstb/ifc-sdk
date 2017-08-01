@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcLightSourcePositional::IfcLightSourcePositional(Step::Id id, Step::SPFData *args) : IfcLightSource(id, args) {
-    m_position = NULL;
+    m_position = nullptr;
     m_radius = Step::getUnset(m_radius);
     m_constantAttenuation = Step::getUnset(m_constantAttenuation);
     m_distanceAttenuation = Step::getUnset(m_distanceAttenuation);
@@ -71,7 +71,7 @@ IfcCartesianPoint *IfcLightSourcePositional::getPosition() {
         return m_position.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -204,7 +204,7 @@ bool IfcLightSourcePositional::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_position = NULL;
+        m_position = nullptr;
     }
     else {
         m_position = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));

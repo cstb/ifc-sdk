@@ -35,7 +35,7 @@
 using namespace ifc2x3;
 
 IfcRelAssociatesLibrary::IfcRelAssociatesLibrary(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
-    m_relatingLibrary = NULL;
+    m_relatingLibrary = nullptr;
 }
 
 IfcRelAssociatesLibrary::~IfcRelAssociatesLibrary() {
@@ -66,7 +66,7 @@ IfcLibrarySelect *IfcRelAssociatesLibrary::getRelatingLibrary() {
         return m_relatingLibrary.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ bool IfcRelAssociatesLibrary::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingLibrary = NULL;
+        m_relatingLibrary = nullptr;
     }
     else {
         m_relatingLibrary = new IfcLibrarySelect;

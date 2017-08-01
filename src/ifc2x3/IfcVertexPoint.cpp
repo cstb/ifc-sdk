@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcVertexPoint::IfcVertexPoint(Step::Id id, Step::SPFData *args) : IfcVertex(id, args) {
-    m_vertexGeometry = NULL;
+    m_vertexGeometry = nullptr;
 }
 
 IfcVertexPoint::~IfcVertexPoint() {
@@ -67,7 +67,7 @@ IfcPoint *IfcVertexPoint::getVertexGeometry() {
         return m_vertexGeometry.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcVertexPoint::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_vertexGeometry = NULL;
+        m_vertexGeometry = nullptr;
     }
     else {
         m_vertexGeometry = static_cast< IfcPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));

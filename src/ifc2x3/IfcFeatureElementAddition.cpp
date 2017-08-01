@@ -65,7 +65,7 @@ IfcRelProjectsElement *IfcFeatureElementAddition::getProjectsElements() {
         return m_projectsElements.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

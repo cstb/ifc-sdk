@@ -42,7 +42,7 @@ IfcSpaceProgram::IfcSpaceProgram(Step::Id id, Step::SPFData *args) : IfcControl(
     m_spaceProgramIdentifier = Step::getUnset(m_spaceProgramIdentifier);
     m_maxRequiredArea = Step::getUnset(m_maxRequiredArea);
     m_minRequiredArea = Step::getUnset(m_minRequiredArea);
-    m_requestedLocation = NULL;
+    m_requestedLocation = nullptr;
     m_standardRequiredArea = Step::getUnset(m_standardRequiredArea);
 }
 
@@ -152,7 +152,7 @@ IfcSpatialStructureElement *IfcSpaceProgram::getRequestedLocation() {
         return m_requestedLocation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -267,7 +267,7 @@ bool IfcSpaceProgram::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_requestedLocation = NULL;
+        m_requestedLocation = nullptr;
     }
     else {
         m_requestedLocation = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(arg)));

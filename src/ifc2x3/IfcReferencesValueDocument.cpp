@@ -65,7 +65,7 @@ void Inverted_IfcReferencesValueDocument_ReferencingValues_type::clear() {
 }
 
 IfcReferencesValueDocument::IfcReferencesValueDocument(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_referencedDocument = NULL;
+    m_referencedDocument = nullptr;
     m_referencingValues.setOwner(this);
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
@@ -99,7 +99,7 @@ IfcDocumentSelect *IfcReferencesValueDocument::getReferencedDocument() {
         return m_referencedDocument.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -200,7 +200,7 @@ bool IfcReferencesValueDocument::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_referencedDocument = NULL;
+        m_referencedDocument = nullptr;
     }
     else {
         m_referencedDocument = new IfcDocumentSelect;

@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcCsgPrimitive3D::IfcCsgPrimitive3D(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_position = NULL;
+    m_position = nullptr;
 }
 
 IfcCsgPrimitive3D::~IfcCsgPrimitive3D() {
@@ -67,7 +67,7 @@ IfcAxis2Placement3D *IfcCsgPrimitive3D::getPosition() {
         return m_position.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcCsgPrimitive3D::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_position = NULL;
+        m_position = nullptr;
     }
     else {
         m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));

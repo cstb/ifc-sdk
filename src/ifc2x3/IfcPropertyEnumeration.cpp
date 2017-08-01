@@ -40,7 +40,7 @@ using namespace ifc2x3;
 
 IfcPropertyEnumeration::IfcPropertyEnumeration(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
-    m_unit = NULL;
+    m_unit = nullptr;
 }
 
 IfcPropertyEnumeration::~IfcPropertyEnumeration() {
@@ -125,7 +125,7 @@ IfcUnit *IfcPropertyEnumeration::getUnit() {
         return m_unit.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -698,7 +698,7 @@ bool IfcPropertyEnumeration::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_unit = NULL;
+        m_unit = nullptr;
     }
     else {
         m_unit = new IfcUnit;

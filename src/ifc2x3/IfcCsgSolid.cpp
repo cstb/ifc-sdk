@@ -35,7 +35,7 @@
 using namespace ifc2x3;
 
 IfcCsgSolid::IfcCsgSolid(Step::Id id, Step::SPFData *args) : IfcSolidModel(id, args) {
-    m_treeRootExpression = NULL;
+    m_treeRootExpression = nullptr;
 }
 
 IfcCsgSolid::~IfcCsgSolid() {
@@ -66,7 +66,7 @@ IfcCsgSelect *IfcCsgSolid::getTreeRootExpression() {
         return m_treeRootExpression.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ bool IfcCsgSolid::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_treeRootExpression = NULL;
+        m_treeRootExpression = nullptr;
     }
     else {
         m_treeRootExpression = new IfcCsgSelect;

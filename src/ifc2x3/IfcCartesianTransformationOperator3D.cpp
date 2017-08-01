@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcCartesianTransformationOperator3D::IfcCartesianTransformationOperator3D(Step::Id id, Step::SPFData *args) : IfcCartesianTransformationOperator(id, args) {
-    m_axis3 = NULL;
+    m_axis3 = nullptr;
 }
 
 IfcCartesianTransformationOperator3D::~IfcCartesianTransformationOperator3D() {
@@ -67,7 +67,7 @@ IfcDirection *IfcCartesianTransformationOperator3D::getAxis3() {
         return m_axis3.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcCartesianTransformationOperator3D::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_axis3 = NULL;
+        m_axis3 = nullptr;
     }
     else {
         m_axis3 = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));

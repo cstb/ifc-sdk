@@ -29,7 +29,7 @@
 
 using namespace ifc2x3;
 
-IfcCharacterStyleSelect::IfcCharacterStyleSelect() : Step::BaseObject(0) {
+IfcCharacterStyleSelect::IfcCharacterStyleSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -105,7 +105,7 @@ IfcTextStyleForDefinedFont *IfcCharacterStyleSelect::getIfcTextStyleForDefinedFo
         return m_IfcCharacterStyleSelect_union.m_IfcTextStyleForDefinedFont;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

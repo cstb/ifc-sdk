@@ -592,19 +592,19 @@ void CopyOp::associate(const Step::BaseObject * /*original*/, Step::BaseObject *
 }
 
 Step::BaseObject *CopyOp::find(const Step::BaseObject * /*original*/) const {
-    return 0;
+    return nullptr;
 }
 
 ExpressDataSet *CopyOp::getExpressDataSet() const {
-    return 0;
+    return nullptr;
 }
 
 Step::BaseObject *CopyOp::operator()(const Step::BaseObject *obj) const {
-    if (obj != NULL && const_cast< Step::BaseObject * > (obj)->acceptVisitor(const_cast< CopyOp * > (this))) {
+    if (obj != nullptr && const_cast< Step::BaseObject * > (obj)->acceptVisitor(const_cast< CopyOp * > (this))) {
         return _bo.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -1180,7 +1180,7 @@ Step::BaseObject *DeepCopyOp::find(const Step::BaseObject *original) const {
         return (*it).second;
     }
     else {
-        return 0;
+        return nullptr;
     }
 }
 

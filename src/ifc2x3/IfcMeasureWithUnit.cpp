@@ -38,8 +38,8 @@
 using namespace ifc2x3;
 
 IfcMeasureWithUnit::IfcMeasureWithUnit(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_valueComponent = NULL;
-    m_unitComponent = NULL;
+    m_valueComponent = nullptr;
+    m_unitComponent = nullptr;
 }
 
 IfcMeasureWithUnit::~IfcMeasureWithUnit() {
@@ -70,7 +70,7 @@ IfcValue *IfcMeasureWithUnit::getValueComponent() {
         return m_valueComponent.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ IfcUnit *IfcMeasureWithUnit::getUnitComponent() {
         return m_unitComponent.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -121,7 +121,7 @@ bool IfcMeasureWithUnit::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_valueComponent = NULL;
+        m_valueComponent = nullptr;
     }
     else {
         m_valueComponent = new IfcValue;
@@ -650,7 +650,7 @@ bool IfcMeasureWithUnit::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_unitComponent = NULL;
+        m_unitComponent = nullptr;
     }
     else {
         m_unitComponent = new IfcUnit;

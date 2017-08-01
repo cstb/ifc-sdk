@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcSurfaceOfRevolution::IfcSurfaceOfRevolution(Step::Id id, Step::SPFData *args) : IfcSweptSurface(id, args) {
-    m_axisPosition = NULL;
+    m_axisPosition = nullptr;
 }
 
 IfcSurfaceOfRevolution::~IfcSurfaceOfRevolution() {
@@ -67,7 +67,7 @@ IfcAxis1Placement *IfcSurfaceOfRevolution::getAxisPosition() {
         return m_axisPosition.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcSurfaceOfRevolution::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_axisPosition = NULL;
+        m_axisPosition = nullptr;
     }
     else {
         m_axisPosition = static_cast< IfcAxis1Placement * > (m_expressDataSet->get(Step::getIdParam(arg)));

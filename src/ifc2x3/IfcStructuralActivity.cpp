@@ -38,7 +38,7 @@
 using namespace ifc2x3;
 
 IfcStructuralActivity::IfcStructuralActivity(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
-    m_appliedLoad = NULL;
+    m_appliedLoad = nullptr;
     m_globalOrLocal = IfcGlobalOrLocalEnum_UNSET;
 }
 
@@ -70,7 +70,7 @@ IfcStructuralLoad *IfcStructuralActivity::getAppliedLoad() {
         return m_appliedLoad.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -122,7 +122,7 @@ IfcRelConnectsStructuralActivity *IfcStructuralActivity::getAssignedToStructural
         return m_assignedToStructuralItem.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -144,7 +144,7 @@ bool IfcStructuralActivity::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_appliedLoad = NULL;
+        m_appliedLoad = nullptr;
     }
     else {
         m_appliedLoad = static_cast< IfcStructuralLoad * > (m_expressDataSet->get(Step::getIdParam(arg)));

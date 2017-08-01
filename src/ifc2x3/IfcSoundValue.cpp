@@ -38,9 +38,9 @@
 using namespace ifc2x3;
 
 IfcSoundValue::IfcSoundValue(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
-    m_soundLevelTimeSeries = NULL;
+    m_soundLevelTimeSeries = nullptr;
     m_frequency = Step::getUnset(m_frequency);
-    m_soundLevelSingleValue = NULL;
+    m_soundLevelSingleValue = nullptr;
 }
 
 IfcSoundValue::~IfcSoundValue() {
@@ -71,7 +71,7 @@ IfcTimeSeries *IfcSoundValue::getSoundLevelTimeSeries() {
         return m_soundLevelTimeSeries.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ IfcDerivedMeasureValue *IfcSoundValue::getSoundLevelSingleValue() {
         return m_soundLevelSingleValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -152,7 +152,7 @@ bool IfcSoundValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_soundLevelTimeSeries = NULL;
+        m_soundLevelTimeSeries = nullptr;
     }
     else {
         m_soundLevelTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
@@ -166,7 +166,7 @@ bool IfcSoundValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_soundLevelSingleValue = NULL;
+        m_soundLevelSingleValue = nullptr;
     }
     else {
         m_soundLevelSingleValue = new IfcDerivedMeasureValue;

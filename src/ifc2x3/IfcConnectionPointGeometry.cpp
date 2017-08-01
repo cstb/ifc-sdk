@@ -35,8 +35,8 @@
 using namespace ifc2x3;
 
 IfcConnectionPointGeometry::IfcConnectionPointGeometry(Step::Id id, Step::SPFData *args) : IfcConnectionGeometry(id, args) {
-    m_pointOnRelatingElement = NULL;
-    m_pointOnRelatedElement = NULL;
+    m_pointOnRelatingElement = nullptr;
+    m_pointOnRelatedElement = nullptr;
 }
 
 IfcConnectionPointGeometry::~IfcConnectionPointGeometry() {
@@ -67,7 +67,7 @@ IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatingElement() {
         return m_pointOnRelatingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -93,7 +93,7 @@ IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatedElement() {
         return m_pointOnRelatedElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -122,7 +122,7 @@ bool IfcConnectionPointGeometry::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_pointOnRelatingElement = NULL;
+        m_pointOnRelatingElement = nullptr;
     }
     else {
         m_pointOnRelatingElement = new IfcPointOrVertexPoint;
@@ -141,7 +141,7 @@ bool IfcConnectionPointGeometry::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_pointOnRelatedElement = NULL;
+        m_pointOnRelatedElement = nullptr;
     }
     else {
         m_pointOnRelatedElement = new IfcPointOrVertexPoint;

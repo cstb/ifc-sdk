@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcNamedUnit::IfcNamedUnit(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_dimensions = NULL;
+    m_dimensions = nullptr;
     m_unitType = IfcUnitEnum_UNSET;
 }
 
@@ -68,7 +68,7 @@ IfcDimensionalExponents *IfcNamedUnit::getDimensions() {
         return m_dimensions.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -119,7 +119,7 @@ bool IfcNamedUnit::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_dimensions = NULL;
+        m_dimensions = nullptr;
     }
     else {
         m_dimensions = static_cast< IfcDimensionalExponents * > (m_expressDataSet->get(Step::getIdParam(arg)));

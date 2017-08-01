@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcDateAndTime::IfcDateAndTime(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_dateComponent = NULL;
-    m_timeComponent = NULL;
+    m_dateComponent = nullptr;
+    m_timeComponent = nullptr;
 }
 
 IfcDateAndTime::~IfcDateAndTime() {
@@ -69,7 +69,7 @@ IfcCalendarDate *IfcDateAndTime::getDateComponent() {
         return m_dateComponent.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ IfcLocalTime *IfcDateAndTime::getTimeComponent() {
         return m_timeComponent.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -120,14 +120,14 @@ bool IfcDateAndTime::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_dateComponent = NULL;
+        m_dateComponent = nullptr;
     }
     else {
         m_dateComponent = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_timeComponent = NULL;
+        m_timeComponent = nullptr;
     }
     else {
         m_timeComponent = static_cast< IfcLocalTime * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -39,9 +39,9 @@
 using namespace ifc2x3;
 
 IfcApprovalActorRelationship::IfcApprovalActorRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_actor = NULL;
-    m_approval = NULL;
-    m_role = NULL;
+    m_actor = nullptr;
+    m_approval = nullptr;
+    m_role = nullptr;
 }
 
 IfcApprovalActorRelationship::~IfcApprovalActorRelationship() {
@@ -72,7 +72,7 @@ IfcActorSelect *IfcApprovalActorRelationship::getActor() {
         return m_actor.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -98,7 +98,7 @@ IfcApproval *IfcApprovalActorRelationship::getApproval() {
         return m_approval.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -130,7 +130,7 @@ IfcActorRole *IfcApprovalActorRelationship::getRole() {
         return m_role.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -155,7 +155,7 @@ bool IfcApprovalActorRelationship::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_actor = NULL;
+        m_actor = nullptr;
     }
     else {
         m_actor = new IfcActorSelect;
@@ -174,14 +174,14 @@ bool IfcApprovalActorRelationship::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_approval = NULL;
+        m_approval = nullptr;
     }
     else {
         m_approval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_role = NULL;
+        m_role = nullptr;
     }
     else {
         m_role = static_cast< IfcActorRole * > (m_expressDataSet->get(Step::getIdParam(arg)));

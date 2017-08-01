@@ -41,10 +41,10 @@ using namespace ifc2x3;
 
 IfcInventory::IfcInventory(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
     m_inventoryType = IfcInventoryTypeEnum_UNSET;
-    m_jurisdiction = NULL;
-    m_lastUpdateDate = NULL;
-    m_currentValue = NULL;
-    m_originalValue = NULL;
+    m_jurisdiction = nullptr;
+    m_lastUpdateDate = nullptr;
+    m_currentValue = nullptr;
+    m_originalValue = nullptr;
 }
 
 IfcInventory::~IfcInventory() {
@@ -101,7 +101,7 @@ IfcActorSelect *IfcInventory::getJurisdiction() {
         return m_jurisdiction.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -155,7 +155,7 @@ IfcCalendarDate *IfcInventory::getLastUpdateDate() {
         return m_lastUpdateDate.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -181,7 +181,7 @@ IfcCostValue *IfcInventory::getCurrentValue() {
         return m_currentValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -207,7 +207,7 @@ IfcCostValue *IfcInventory::getOriginalValue() {
         return m_originalValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -257,7 +257,7 @@ bool IfcInventory::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_jurisdiction = NULL;
+        m_jurisdiction = nullptr;
     }
     else {
         m_jurisdiction = new IfcActorSelect;
@@ -295,21 +295,21 @@ bool IfcInventory::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_lastUpdateDate = NULL;
+        m_lastUpdateDate = nullptr;
     }
     else {
         m_lastUpdateDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_currentValue = NULL;
+        m_currentValue = nullptr;
     }
     else {
         m_currentValue = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_originalValue = NULL;
+        m_originalValue = nullptr;
     }
     else {
         m_originalValue = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -38,7 +38,7 @@ using namespace ifc2x3;
 
 IfcConversionBasedUnit::IfcConversionBasedUnit(Step::Id id, Step::SPFData *args) : IfcNamedUnit(id, args) {
     m_name = Step::getUnset(m_name);
-    m_conversionFactor = NULL;
+    m_conversionFactor = nullptr;
 }
 
 IfcConversionBasedUnit::~IfcConversionBasedUnit() {
@@ -95,7 +95,7 @@ IfcMeasureWithUnit *IfcConversionBasedUnit::getConversionFactor() {
         return m_conversionFactor.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -131,7 +131,7 @@ bool IfcConversionBasedUnit::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_conversionFactor = NULL;
+        m_conversionFactor = nullptr;
     }
     else {
         m_conversionFactor = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));

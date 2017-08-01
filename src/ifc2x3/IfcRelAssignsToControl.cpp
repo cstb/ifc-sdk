@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcRelAssignsToControl::IfcRelAssignsToControl(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
-    m_relatingControl = NULL;
+    m_relatingControl = nullptr;
 }
 
 IfcRelAssignsToControl::~IfcRelAssignsToControl() {
@@ -67,7 +67,7 @@ IfcControl *IfcRelAssignsToControl::getRelatingControl() {
         return m_relatingControl.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -102,7 +102,7 @@ bool IfcRelAssignsToControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingControl = NULL;
+        m_relatingControl = nullptr;
     }
     else {
         m_relatingControl = static_cast< IfcControl * > (m_expressDataSet->get(Step::getIdParam(arg)));

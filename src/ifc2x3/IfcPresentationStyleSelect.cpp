@@ -33,7 +33,7 @@
 
 using namespace ifc2x3;
 
-IfcPresentationStyleSelect::IfcPresentationStyleSelect() : Step::BaseObject(0) {
+IfcPresentationStyleSelect::IfcPresentationStyleSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -165,7 +165,7 @@ IfcCurveStyle *IfcPresentationStyleSelect::getIfcCurveStyle() const {
         return m_IfcPresentationStyleSelect_union.m_IfcCurveStyle;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -189,7 +189,7 @@ IfcSymbolStyle *IfcPresentationStyleSelect::getIfcSymbolStyle() const {
         return m_IfcPresentationStyleSelect_union.m_IfcSymbolStyle;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -213,7 +213,7 @@ IfcFillAreaStyle *IfcPresentationStyleSelect::getIfcFillAreaStyle() const {
         return m_IfcPresentationStyleSelect_union.m_IfcFillAreaStyle;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -237,7 +237,7 @@ IfcTextStyle *IfcPresentationStyleSelect::getIfcTextStyle() const {
         return m_IfcPresentationStyleSelect_union.m_IfcTextStyle;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -261,7 +261,7 @@ IfcSurfaceStyle *IfcPresentationStyleSelect::getIfcSurfaceStyle() const {
         return m_IfcPresentationStyleSelect_union.m_IfcSurfaceStyle;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

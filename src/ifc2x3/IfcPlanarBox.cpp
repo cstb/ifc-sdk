@@ -35,7 +35,7 @@
 using namespace ifc2x3;
 
 IfcPlanarBox::IfcPlanarBox(Step::Id id, Step::SPFData *args) : IfcPlanarExtent(id, args) {
-    m_placement = NULL;
+    m_placement = nullptr;
 }
 
 IfcPlanarBox::~IfcPlanarBox() {
@@ -66,7 +66,7 @@ IfcAxis2Placement *IfcPlanarBox::getPlacement() {
         return m_placement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ bool IfcPlanarBox::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_placement = NULL;
+        m_placement = nullptr;
     }
     else {
         m_placement = new IfcAxis2Placement;

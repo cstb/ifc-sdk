@@ -36,10 +36,10 @@
 using namespace ifc2x3;
 
 IfcOffsetCurve3D::IfcOffsetCurve3D(Step::Id id, Step::SPFData *args) : IfcCurve(id, args) {
-    m_basisCurve = NULL;
+    m_basisCurve = nullptr;
     m_distance = Step::getUnset(m_distance);
     m_selfIntersect = Step::getUnset(m_selfIntersect);
-    m_refDirection = NULL;
+    m_refDirection = nullptr;
 }
 
 IfcOffsetCurve3D::~IfcOffsetCurve3D() {
@@ -70,7 +70,7 @@ IfcCurve *IfcOffsetCurve3D::getBasisCurve() {
         return m_basisCurve.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -148,7 +148,7 @@ IfcDirection *IfcOffsetCurve3D::getRefDirection() {
         return m_refDirection.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -177,7 +177,7 @@ bool IfcOffsetCurve3D::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_basisCurve = NULL;
+        m_basisCurve = nullptr;
     }
     else {
         m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
@@ -198,7 +198,7 @@ bool IfcOffsetCurve3D::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_refDirection = NULL;
+        m_refDirection = nullptr;
     }
     else {
         m_refDirection = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));

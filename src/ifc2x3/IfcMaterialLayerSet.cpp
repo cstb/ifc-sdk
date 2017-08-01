@@ -52,7 +52,7 @@ void Inverted_IfcMaterialLayerSet_MaterialLayers_type::push_back(const Step::Ref
 
 Inverted_IfcMaterialLayerSet_MaterialLayers_type::iterator Inverted_IfcMaterialLayerSet_MaterialLayers_type::erase(const Step::RefPtr< IfcMaterialLayer > &value) {
     IfcMaterialLayer *inverse = const_cast< IfcMaterialLayer * > (value.get());
-    inverse->m_toMaterialLayerSet = NULL;
+    inverse->m_toMaterialLayerSet = nullptr;
     return List_IfcMaterialLayer_1_n::erase(value);
 }
 

@@ -40,8 +40,8 @@
 using namespace ifc2x3;
 
 IfcProduct::IfcProduct(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
-    m_objectPlacement = NULL;
-    m_representation = NULL;
+    m_objectPlacement = nullptr;
+    m_representation = nullptr;
 }
 
 IfcProduct::~IfcProduct() {
@@ -72,7 +72,7 @@ IfcObjectPlacement *IfcProduct::getObjectPlacement() {
         return m_objectPlacement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -104,7 +104,7 @@ IfcProductRepresentation *IfcProduct::getRepresentation() {
         return m_representation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -115,11 +115,11 @@ const IfcProductRepresentation *IfcProduct::getRepresentation() const {
 
 void IfcProduct::setRepresentation(const Step::RefPtr< IfcProductRepresentation > &value) {
    // If we already had a representation, remove it from Inverse relation
-   if (dynamic_cast< IfcProductDefinitionShape * > (m_representation.get()) != NULL) {
+   if (dynamic_cast< IfcProductDefinitionShape * > (m_representation.get()) != nullptr) {
       ((IfcProductDefinitionShape *) (m_representation.get()))->m_shapeOfProduct.erase(this);
    }
    // Add new representation to the Inverse relation
-   if (dynamic_cast< IfcProductDefinitionShape * > (value.get()) != NULL) {
+   if (dynamic_cast< IfcProductDefinitionShape * > (value.get()) != nullptr) {
       ((IfcProductDefinitionShape *) (value.get()))->m_shapeOfProduct.insert(this);
    }
    // Set the new representation
@@ -163,14 +163,14 @@ bool IfcProduct::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_objectPlacement = NULL;
+        m_objectPlacement = nullptr;
     }
     else {
         m_objectPlacement = static_cast< IfcObjectPlacement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_representation = NULL;
+        m_representation = nullptr;
     }
     else {
         m_representation = static_cast< IfcProductRepresentation * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcSubContractResource::IfcSubContractResource(Step::Id id, Step::SPFData *args) : IfcConstructionResource(id, args) {
-    m_subContractor = NULL;
+    m_subContractor = nullptr;
     m_jobDescription = Step::getUnset(m_jobDescription);
 }
 
@@ -68,7 +68,7 @@ IfcActorSelect *IfcSubContractResource::getSubContractor() {
         return m_subContractor.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ bool IfcSubContractResource::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_subContractor = NULL;
+        m_subContractor = nullptr;
     }
     else {
         m_subContractor = new IfcActorSelect;

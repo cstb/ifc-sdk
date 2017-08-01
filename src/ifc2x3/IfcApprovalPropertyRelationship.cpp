@@ -37,7 +37,7 @@
 using namespace ifc2x3;
 
 IfcApprovalPropertyRelationship::IfcApprovalPropertyRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_approval = NULL;
+    m_approval = nullptr;
 }
 
 IfcApprovalPropertyRelationship::~IfcApprovalPropertyRelationship() {
@@ -96,7 +96,7 @@ IfcApproval *IfcApprovalPropertyRelationship::getApproval() {
         return m_approval.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -140,7 +140,7 @@ bool IfcApprovalPropertyRelationship::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_approval = NULL;
+        m_approval = nullptr;
     }
     else {
         m_approval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));

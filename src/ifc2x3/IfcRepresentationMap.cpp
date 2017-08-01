@@ -40,8 +40,8 @@
 using namespace ifc2x3;
 
 IfcRepresentationMap::IfcRepresentationMap(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_mappingOrigin = NULL;
-    m_mappedRepresentation = NULL;
+    m_mappingOrigin = nullptr;
+    m_mappedRepresentation = nullptr;
 }
 
 IfcRepresentationMap::~IfcRepresentationMap() {
@@ -72,7 +72,7 @@ IfcAxis2Placement *IfcRepresentationMap::getMappingOrigin() {
         return m_mappingOrigin.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -98,7 +98,7 @@ IfcRepresentation *IfcRepresentationMap::getMappedRepresentation() {
         return m_mappedRepresentation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ bool IfcRepresentationMap::init() {
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_mappingOrigin = NULL;
+        m_mappingOrigin = nullptr;
     }
     else {
         m_mappingOrigin = new IfcAxis2Placement;
@@ -168,7 +168,7 @@ bool IfcRepresentationMap::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_mappedRepresentation = NULL;
+        m_mappedRepresentation = nullptr;
     }
     else {
         m_mappedRepresentation = static_cast< IfcRepresentation * > (m_expressDataSet->get(Step::getIdParam(arg)));

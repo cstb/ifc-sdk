@@ -63,7 +63,7 @@ void Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::clear() 
 }
 
 IfcDocumentInformationRelationship::IfcDocumentInformationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_relatingDocument = NULL;
+    m_relatingDocument = nullptr;
     m_relatedDocuments.setOwner(this);
     m_relationshipType = Step::getUnset(m_relationshipType);
 }
@@ -96,7 +96,7 @@ IfcDocumentInformation *IfcDocumentInformationRelationship::getRelatingDocument(
         return m_relatingDocument.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -177,7 +177,7 @@ bool IfcDocumentInformationRelationship::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingDocument = NULL;
+        m_relatingDocument = nullptr;
     }
     else {
         m_relatingDocument = static_cast< IfcDocumentInformation * > (m_expressDataSet->get(Step::getIdParam(arg)));

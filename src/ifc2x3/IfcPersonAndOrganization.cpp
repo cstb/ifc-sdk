@@ -38,8 +38,8 @@
 using namespace ifc2x3;
 
 IfcPersonAndOrganization::IfcPersonAndOrganization(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_thePerson = NULL;
-    m_theOrganization = NULL;
+    m_thePerson = nullptr;
+    m_theOrganization = nullptr;
     m_roles.setUnset(true);
 }
 
@@ -71,7 +71,7 @@ IfcPerson *IfcPersonAndOrganization::getThePerson() {
         return m_thePerson.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -103,7 +103,7 @@ IfcOrganization *IfcPersonAndOrganization::getTheOrganization() {
         return m_theOrganization.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -162,14 +162,14 @@ bool IfcPersonAndOrganization::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_thePerson = NULL;
+        m_thePerson = nullptr;
     }
     else {
         m_thePerson = static_cast< IfcPerson * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_theOrganization = NULL;
+        m_theOrganization = nullptr;
     }
     else {
         m_theOrganization = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));

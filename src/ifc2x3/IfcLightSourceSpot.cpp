@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcLightSourceSpot::IfcLightSourceSpot(Step::Id id, Step::SPFData *args) : IfcLightSourcePositional(id, args) {
-    m_orientation = NULL;
+    m_orientation = nullptr;
     m_concentrationExponent = Step::getUnset(m_concentrationExponent);
     m_spreadAngle = Step::getUnset(m_spreadAngle);
     m_beamWidthAngle = Step::getUnset(m_beamWidthAngle);
@@ -70,7 +70,7 @@ IfcDirection *IfcLightSourceSpot::getOrientation() {
         return m_orientation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -177,7 +177,7 @@ bool IfcLightSourceSpot::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_orientation = NULL;
+        m_orientation = nullptr;
     }
     else {
         m_orientation = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));

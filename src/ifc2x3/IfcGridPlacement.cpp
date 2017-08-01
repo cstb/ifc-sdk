@@ -36,8 +36,8 @@
 using namespace ifc2x3;
 
 IfcGridPlacement::IfcGridPlacement(Step::Id id, Step::SPFData *args) : IfcObjectPlacement(id, args) {
-    m_placementLocation = NULL;
-    m_placementRefDirection = NULL;
+    m_placementLocation = nullptr;
+    m_placementRefDirection = nullptr;
 }
 
 IfcGridPlacement::~IfcGridPlacement() {
@@ -68,7 +68,7 @@ IfcVirtualGridIntersection *IfcGridPlacement::getPlacementLocation() {
         return m_placementLocation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -94,7 +94,7 @@ IfcVirtualGridIntersection *IfcGridPlacement::getPlacementRefDirection() {
         return m_placementRefDirection.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,14 +123,14 @@ bool IfcGridPlacement::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_placementLocation = NULL;
+        m_placementLocation = nullptr;
     }
     else {
         m_placementLocation = static_cast< IfcVirtualGridIntersection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_placementRefDirection = NULL;
+        m_placementRefDirection = nullptr;
     }
     else {
         m_placementRefDirection = static_cast< IfcVirtualGridIntersection * > (m_expressDataSet->get(Step::getIdParam(arg)));

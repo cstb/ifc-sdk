@@ -91,7 +91,7 @@ void Inverted_IfcStructuralAnalysisModel_HasResults_type::clear() {
 
 IfcStructuralAnalysisModel::IfcStructuralAnalysisModel(Step::Id id, Step::SPFData *args) : IfcSystem(id, args) {
     m_predefinedType = IfcAnalysisModelTypeEnum_UNSET;
-    m_orientationOf2DPlane = NULL;
+    m_orientationOf2DPlane = nullptr;
     m_loadedBy.setUnset(true);
     m_loadedBy.setOwner(this);
     m_hasResults.setUnset(true);
@@ -152,7 +152,7 @@ IfcAxis2Placement3D *IfcStructuralAnalysisModel::getOrientationOf2DPlane() {
         return m_orientationOf2DPlane.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -250,7 +250,7 @@ bool IfcStructuralAnalysisModel::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_orientationOf2DPlane = NULL;
+        m_orientationOf2DPlane = nullptr;
     }
     else {
         m_orientationOf2DPlane = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));

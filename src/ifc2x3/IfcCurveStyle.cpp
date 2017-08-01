@@ -38,9 +38,9 @@
 using namespace ifc2x3;
 
 IfcCurveStyle::IfcCurveStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
-    m_curveFont = NULL;
-    m_curveWidth = NULL;
-    m_curveColour = NULL;
+    m_curveFont = nullptr;
+    m_curveWidth = nullptr;
+    m_curveColour = nullptr;
 }
 
 IfcCurveStyle::~IfcCurveStyle() {
@@ -71,7 +71,7 @@ IfcCurveFontOrScaledCurveFontSelect *IfcCurveStyle::getCurveFont() {
         return m_curveFont.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -97,7 +97,7 @@ IfcSizeSelect *IfcCurveStyle::getCurveWidth() {
         return m_curveWidth.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ IfcColour *IfcCurveStyle::getCurveColour() {
         return m_curveColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -152,7 +152,7 @@ bool IfcCurveStyle::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_curveFont = NULL;
+        m_curveFont = nullptr;
     }
     else {
         m_curveFont = new IfcCurveFontOrScaledCurveFontSelect;
@@ -171,7 +171,7 @@ bool IfcCurveStyle::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_curveWidth = NULL;
+        m_curveWidth = nullptr;
     }
     else {
         m_curveWidth = new IfcSizeSelect;
@@ -220,7 +220,7 @@ bool IfcCurveStyle::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_curveColour = NULL;
+        m_curveColour = nullptr;
     }
     else {
         m_curveColour = new IfcColour;

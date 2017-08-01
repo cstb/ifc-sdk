@@ -41,17 +41,17 @@ using namespace ifc2x3;
 
 IfcFluidFlowProperties::IfcFluidFlowProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
     m_propertySource = IfcPropertySourceEnum_UNSET;
-    m_flowConditionTimeSeries = NULL;
-    m_velocityTimeSeries = NULL;
-    m_flowrateTimeSeries = NULL;
-    m_fluid = NULL;
-    m_pressureTimeSeries = NULL;
+    m_flowConditionTimeSeries = nullptr;
+    m_velocityTimeSeries = nullptr;
+    m_flowrateTimeSeries = nullptr;
+    m_fluid = nullptr;
+    m_pressureTimeSeries = nullptr;
     m_userDefinedPropertySource = Step::getUnset(m_userDefinedPropertySource);
     m_temperatureSingleValue = Step::getUnset(m_temperatureSingleValue);
     m_wetBulbTemperatureSingleValue = Step::getUnset(m_wetBulbTemperatureSingleValue);
-    m_wetBulbTemperatureTimeSeries = NULL;
-    m_temperatureTimeSeries = NULL;
-    m_flowrateSingleValue = NULL;
+    m_wetBulbTemperatureTimeSeries = nullptr;
+    m_temperatureTimeSeries = nullptr;
+    m_flowrateSingleValue = nullptr;
     m_flowConditionSingleValue = Step::getUnset(m_flowConditionSingleValue);
     m_velocitySingleValue = Step::getUnset(m_velocitySingleValue);
     m_pressureSingleValue = Step::getUnset(m_pressureSingleValue);
@@ -111,7 +111,7 @@ IfcTimeSeries *IfcFluidFlowProperties::getFlowConditionTimeSeries() {
         return m_flowConditionTimeSeries.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -137,7 +137,7 @@ IfcTimeSeries *IfcFluidFlowProperties::getVelocityTimeSeries() {
         return m_velocityTimeSeries.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -163,7 +163,7 @@ IfcTimeSeries *IfcFluidFlowProperties::getFlowrateTimeSeries() {
         return m_flowrateTimeSeries.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -189,7 +189,7 @@ IfcMaterial *IfcFluidFlowProperties::getFluid() {
         return m_fluid.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -215,7 +215,7 @@ IfcTimeSeries *IfcFluidFlowProperties::getPressureTimeSeries() {
         return m_pressureTimeSeries.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -319,7 +319,7 @@ IfcTimeSeries *IfcFluidFlowProperties::getWetBulbTemperatureTimeSeries() {
         return m_wetBulbTemperatureTimeSeries.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -345,7 +345,7 @@ IfcTimeSeries *IfcFluidFlowProperties::getTemperatureTimeSeries() {
         return m_temperatureTimeSeries.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -371,7 +371,7 @@ IfcDerivedMeasureValue *IfcFluidFlowProperties::getFlowrateSingleValue() {
         return m_flowrateSingleValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -511,35 +511,35 @@ bool IfcFluidFlowProperties::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_flowConditionTimeSeries = NULL;
+        m_flowConditionTimeSeries = nullptr;
     }
     else {
         m_flowConditionTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_velocityTimeSeries = NULL;
+        m_velocityTimeSeries = nullptr;
     }
     else {
         m_velocityTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_flowrateTimeSeries = NULL;
+        m_flowrateTimeSeries = nullptr;
     }
     else {
         m_flowrateTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_fluid = NULL;
+        m_fluid = nullptr;
     }
     else {
         m_fluid = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_pressureTimeSeries = NULL;
+        m_pressureTimeSeries = nullptr;
     }
     else {
         m_pressureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
@@ -567,21 +567,21 @@ bool IfcFluidFlowProperties::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_wetBulbTemperatureTimeSeries = NULL;
+        m_wetBulbTemperatureTimeSeries = nullptr;
     }
     else {
         m_wetBulbTemperatureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_temperatureTimeSeries = NULL;
+        m_temperatureTimeSeries = nullptr;
     }
     else {
         m_temperatureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_flowrateSingleValue = NULL;
+        m_flowrateSingleValue = nullptr;
     }
     else {
         m_flowrateSingleValue = new IfcDerivedMeasureValue;

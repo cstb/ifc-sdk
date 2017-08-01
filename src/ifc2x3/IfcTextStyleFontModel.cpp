@@ -41,7 +41,7 @@ IfcTextStyleFontModel::IfcTextStyleFontModel(Step::Id id, Step::SPFData *args) :
     m_fontStyle = Step::getUnset(m_fontStyle);
     m_fontVariant = Step::getUnset(m_fontVariant);
     m_fontWeight = Step::getUnset(m_fontWeight);
-    m_fontSize = NULL;
+    m_fontSize = nullptr;
 }
 
 IfcTextStyleFontModel::~IfcTextStyleFontModel() {
@@ -178,7 +178,7 @@ IfcSizeSelect *IfcTextStyleFontModel::getFontSize() {
         return m_fontSize.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -247,7 +247,7 @@ bool IfcTextStyleFontModel::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_fontSize = NULL;
+        m_fontSize = nullptr;
     }
     else {
         m_fontSize = new IfcSizeSelect;

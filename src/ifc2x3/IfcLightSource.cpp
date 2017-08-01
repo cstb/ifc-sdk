@@ -38,7 +38,7 @@ using namespace ifc2x3;
 
 IfcLightSource::IfcLightSource(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
     m_name = Step::getUnset(m_name);
-    m_lightColour = NULL;
+    m_lightColour = nullptr;
     m_ambientIntensity = Step::getUnset(m_ambientIntensity);
     m_intensity = Step::getUnset(m_intensity);
 }
@@ -97,7 +97,7 @@ IfcColourRgb *IfcLightSource::getLightColour() {
         return m_lightColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -185,7 +185,7 @@ bool IfcLightSource::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_lightColour = NULL;
+        m_lightColour = nullptr;
     }
     else {
         m_lightColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));

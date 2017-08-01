@@ -37,7 +37,7 @@ using namespace ifc2x3;
 
 IfcStructuralAction::IfcStructuralAction(Step::Id id, Step::SPFData *args) : IfcStructuralActivity(id, args) {
     m_destabilizingLoad = Step::getUnset(m_destabilizingLoad);
-    m_causedBy = NULL;
+    m_causedBy = nullptr;
 }
 
 IfcStructuralAction::~IfcStructuralAction() {
@@ -94,7 +94,7 @@ IfcStructuralReaction *IfcStructuralAction::getCausedBy() {
         return m_causedBy.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -136,7 +136,7 @@ bool IfcStructuralAction::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_causedBy = NULL;
+        m_causedBy = nullptr;
     }
     else {
         m_causedBy = static_cast< IfcStructuralReaction * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcOneDirectionRepeatFactor::IfcOneDirectionRepeatFactor(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_repeatFactor = NULL;
+    m_repeatFactor = nullptr;
 }
 
 IfcOneDirectionRepeatFactor::~IfcOneDirectionRepeatFactor() {
@@ -67,7 +67,7 @@ IfcVector *IfcOneDirectionRepeatFactor::getRepeatFactor() {
         return m_repeatFactor.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcOneDirectionRepeatFactor::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_repeatFactor = NULL;
+        m_repeatFactor = nullptr;
     }
     else {
         m_repeatFactor = static_cast< IfcVector * > (m_expressDataSet->get(Step::getIdParam(arg)));

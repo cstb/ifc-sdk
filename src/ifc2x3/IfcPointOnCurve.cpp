@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcPointOnCurve::IfcPointOnCurve(Step::Id id, Step::SPFData *args) : IfcPoint(id, args) {
-    m_basisCurve = NULL;
+    m_basisCurve = nullptr;
     m_pointParameter = Step::getUnset(m_pointParameter);
 }
 
@@ -68,7 +68,7 @@ IfcCurve *IfcPointOnCurve::getBasisCurve() {
         return m_basisCurve.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ bool IfcPointOnCurve::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_basisCurve = NULL;
+        m_basisCurve = nullptr;
     }
     else {
         m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

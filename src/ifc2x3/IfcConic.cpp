@@ -35,7 +35,7 @@
 using namespace ifc2x3;
 
 IfcConic::IfcConic(Step::Id id, Step::SPFData *args) : IfcCurve(id, args) {
-    m_position = NULL;
+    m_position = nullptr;
 }
 
 IfcConic::~IfcConic() {
@@ -66,7 +66,7 @@ IfcAxis2Placement *IfcConic::getPosition() {
         return m_position.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ bool IfcConic::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_position = NULL;
+        m_position = nullptr;
     }
     else {
         m_position = new IfcAxis2Placement;

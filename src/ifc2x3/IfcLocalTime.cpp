@@ -39,7 +39,7 @@ IfcLocalTime::IfcLocalTime(Step::Id id, Step::SPFData *args) : Step::BaseEntity(
     m_hourComponent = Step::getUnset(m_hourComponent);
     m_minuteComponent = Step::getUnset(m_minuteComponent);
     m_secondComponent = Step::getUnset(m_secondComponent);
-    m_zone = NULL;
+    m_zone = nullptr;
     m_daylightSavingOffset = Step::getUnset(m_daylightSavingOffset);
 }
 
@@ -149,7 +149,7 @@ IfcCoordinatedUniversalTimeOffset *IfcLocalTime::getZone() {
         return m_zone.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -221,7 +221,7 @@ bool IfcLocalTime::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_zone = NULL;
+        m_zone = nullptr;
     }
     else {
         m_zone = static_cast< IfcCoordinatedUniversalTimeOffset * > (m_expressDataSet->get(Step::getIdParam(arg)));

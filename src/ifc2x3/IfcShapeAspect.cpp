@@ -68,7 +68,7 @@ IfcShapeAspect::IfcShapeAspect(Step::Id id, Step::SPFData *args) : Step::BaseEnt
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
     m_productDefinitional = Step::getUnset(m_productDefinitional);
-    m_partOfProductDefinitionShape = NULL;
+    m_partOfProductDefinitionShape = nullptr;
 }
 
 IfcShapeAspect::~IfcShapeAspect() {
@@ -201,7 +201,7 @@ IfcProductDefinitionShape *IfcShapeAspect::getPartOfProductDefinitionShape() {
         return m_partOfProductDefinitionShape.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -272,7 +272,7 @@ bool IfcShapeAspect::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_partOfProductDefinitionShape = NULL;
+        m_partOfProductDefinitionShape = nullptr;
     }
     else {
         m_partOfProductDefinitionShape = static_cast< IfcProductDefinitionShape * > (m_expressDataSet->get(Step::getIdParam(arg)));

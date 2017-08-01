@@ -46,7 +46,7 @@ BaseEntity* BaseExpressDataSet::find(Id id)
     if (it != m_Id2BaseEntity.end())
         return it->second.get();
     else
-        return NULL;
+        return nullptr;
 }
 
 SPFHeader& BaseExpressDataSet::getHeader()
@@ -89,7 +89,7 @@ bool BaseExpressDataSet::registerObject(Id id, BaseEntity* obj)
         else
         {
             //implicit destruction of BaseSPFObject thanks to RefPtr...
-            m_Id2BaseEntity[id]->m_args = 0;
+            m_Id2BaseEntity[id]->m_args = nullptr;
             m_Id2BaseEntity[id] = obj;
             obj->setExpressDataSet(this);
             return true;
@@ -112,7 +112,7 @@ BaseEntity *BaseExpressDataSet::get(Id id)
     if (it == m_Id2BaseEntity.end())
     {
         STEP_LOG_WARNING(m_logger,"Entity #" << id << " was never declared");
-        return 0;
+        return nullptr;
     }
     else if (it->second->isOfType(BaseSPFObject::getClassType()))
     {
@@ -129,7 +129,7 @@ BaseEntity *BaseExpressDataSet::get(Id id)
         else
         {
             STEP_LOG_WARNING(m_logger,"Entity #" << id << " cannot be allocated");
-            return 0;
+            return nullptr;
         }
     }
     else

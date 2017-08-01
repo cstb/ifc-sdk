@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcRelConnectsStructuralElement::IfcRelConnectsStructuralElement(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingElement = NULL;
-    m_relatedStructuralMember = NULL;
+    m_relatingElement = nullptr;
+    m_relatedStructuralMember = nullptr;
 }
 
 IfcRelConnectsStructuralElement::~IfcRelConnectsStructuralElement() {
@@ -69,7 +69,7 @@ IfcElement *IfcRelConnectsStructuralElement::getRelatingElement() {
         return m_relatingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -101,7 +101,7 @@ IfcStructuralMember *IfcRelConnectsStructuralElement::getRelatedStructuralMember
         return m_relatedStructuralMember.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -136,14 +136,14 @@ bool IfcRelConnectsStructuralElement::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingElement = NULL;
+        m_relatingElement = nullptr;
     }
     else {
         m_relatingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedStructuralMember = NULL;
+        m_relatedStructuralMember = nullptr;
     }
     else {
         m_relatedStructuralMember = static_cast< IfcStructuralMember * > (m_expressDataSet->get(Step::getIdParam(arg)));

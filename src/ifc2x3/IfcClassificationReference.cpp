@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcClassificationReference::IfcClassificationReference(Step::Id id, Step::SPFData *args) : IfcExternalReference(id, args) {
-    m_referencedSource = NULL;
+    m_referencedSource = nullptr;
 }
 
 IfcClassificationReference::~IfcClassificationReference() {
@@ -67,7 +67,7 @@ IfcClassification *IfcClassificationReference::getReferencedSource() {
         return m_referencedSource.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcClassificationReference::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_referencedSource = NULL;
+        m_referencedSource = nullptr;
     }
     else {
         m_referencedSource = static_cast< IfcClassification * > (m_expressDataSet->get(Step::getIdParam(arg)));

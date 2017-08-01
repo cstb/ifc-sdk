@@ -31,7 +31,7 @@
 
 using namespace ifc2x3;
 
-IfcCurveFontOrScaledCurveFontSelect::IfcCurveFontOrScaledCurveFontSelect() : Step::BaseObject(0) {
+IfcCurveFontOrScaledCurveFontSelect::IfcCurveFontOrScaledCurveFontSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -125,7 +125,7 @@ IfcPreDefinedCurveFont *IfcCurveFontOrScaledCurveFontSelect::getIfcPreDefinedCur
         return m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcPreDefinedCurveFont;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ IfcCurveStyleFont *IfcCurveFontOrScaledCurveFontSelect::getIfcCurveStyleFont() c
         return m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcCurveStyleFont;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -173,7 +173,7 @@ IfcCurveStyleFontAndScaling *IfcCurveFontOrScaledCurveFontSelect::getIfcCurveSty
         return m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcCurveStyleFontAndScaling;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

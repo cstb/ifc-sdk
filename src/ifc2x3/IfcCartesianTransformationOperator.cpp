@@ -37,9 +37,9 @@
 using namespace ifc2x3;
 
 IfcCartesianTransformationOperator::IfcCartesianTransformationOperator(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_axis1 = NULL;
-    m_axis2 = NULL;
-    m_localOrigin = NULL;
+    m_axis1 = nullptr;
+    m_axis2 = nullptr;
+    m_localOrigin = nullptr;
     m_scale = Step::getUnset(m_scale);
 }
 
@@ -71,7 +71,7 @@ IfcDirection *IfcCartesianTransformationOperator::getAxis1() {
         return m_axis1.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -97,7 +97,7 @@ IfcDirection *IfcCartesianTransformationOperator::getAxis2() {
         return m_axis2.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ IfcCartesianPoint *IfcCartesianTransformationOperator::getLocalOrigin() {
         return m_localOrigin.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -178,21 +178,21 @@ bool IfcCartesianTransformationOperator::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_axis1 = NULL;
+        m_axis1 = nullptr;
     }
     else {
         m_axis1 = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_axis2 = NULL;
+        m_axis2 = nullptr;
     }
     else {
         m_axis2 = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_localOrigin = NULL;
+        m_localOrigin = nullptr;
     }
     else {
         m_localOrigin = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));

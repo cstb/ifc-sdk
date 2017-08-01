@@ -40,8 +40,8 @@
 using namespace ifc2x3;
 
 IfcClassificationItem::IfcClassificationItem(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_notation = NULL;
-    m_itemOf = NULL;
+    m_notation = nullptr;
+    m_itemOf = nullptr;
     m_title = Step::getUnset(m_title);
 }
 
@@ -73,7 +73,7 @@ IfcClassificationNotationFacet *IfcClassificationItem::getNotation() {
         return m_notation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -99,7 +99,7 @@ IfcClassification *IfcClassificationItem::getItemOf() {
         return m_itemOf.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -195,14 +195,14 @@ bool IfcClassificationItem::init() {
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_notation = NULL;
+        m_notation = nullptr;
     }
     else {
         m_notation = static_cast< IfcClassificationNotationFacet * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_itemOf = NULL;
+        m_itemOf = nullptr;
     }
     else {
         m_itemOf = static_cast< IfcClassification * > (m_expressDataSet->get(Step::getIdParam(arg)));

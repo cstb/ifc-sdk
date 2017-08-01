@@ -101,7 +101,7 @@ int main(int argc, char **argv)
     // ** get the model
     ifc2x3::ExpressDataSet * expressDataSet = dynamic_cast<ifc2x3::ExpressDataSet*>(reader.getExpressDataSet());
 
-    if (expressDataSet == NULL)
+    if (expressDataSet == nullptr)
     {
         std::cout << "Ho no ... there is no ExpressDataSet." << std::endl;
         return (2);

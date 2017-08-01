@@ -22,7 +22,7 @@ using namespace Step;
 
 static int s_id = 1;
 
-std::map<std::string, ClassType > * sClassTypeMapPointer=0;
+std::map<std::string, ClassType > * sClassTypeMapPointer=nullptr;
 
 ClassType ClassType::sUndefined("Undefined",0);
 

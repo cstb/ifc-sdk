@@ -65,7 +65,7 @@ void Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::clear() {
 IfcOrganizationRelationship::IfcOrganizationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
-    m_relatingOrganization = NULL;
+    m_relatingOrganization = nullptr;
     m_relatedOrganizations.setOwner(this);
 }
 
@@ -149,7 +149,7 @@ IfcOrganization *IfcOrganizationRelationship::getRelatingOrganization() {
         return m_relatingOrganization.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -218,7 +218,7 @@ bool IfcOrganizationRelationship::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingOrganization = NULL;
+        m_relatingOrganization = nullptr;
     }
     else {
         m_relatingOrganization = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));

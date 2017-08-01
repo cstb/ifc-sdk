@@ -159,7 +159,7 @@ Step::RefPtr<IfcVector> IfcNormalise(const IfcVector* Arg)
 	if (!Arg)
 	{
 		LOG_DEBUG("IfcNormalise(IfcVector) return 0 Arg don't exist");
-        return 0;
+        return nullptr;
 	}
 	else
 	{
@@ -181,7 +181,7 @@ Step::RefPtr<IfcVector> IfcNormalise(const IfcVector* Arg)
 													Arg->getOrientation()->getDirectionRatios()[1] << ";"<<
 													Arg->getOrientation()->getDirectionRatios()[2] << "]");
 			LOG_DEBUG("IfcNormalise(IfcVector) return 0 Mag=0");
-			return 0;
+			return nullptr;
 		}
 		else
 			Vec->setMagnitude(1.0);
@@ -208,7 +208,7 @@ Step::RefPtr<IfcVector> IfcNormalise(const IfcVector* Arg)
 		else
 		{
 			LOG_DEBUG("IfcNormalise(IfcVector) (Mag=0) return 0");
-			return 0;
+			return nullptr;
 		}
 	}
 	LOG_DEBUG("IfcNormalise::End");
@@ -226,7 +226,7 @@ Step::RefPtr<IfcDirection> IfcNormalise(const IfcDirection *Arg)
 	if (!Arg)
 	{
 		LOG_DEBUG("IfcNormalise::End Bad 1");
-		return 0;
+		return nullptr;
 	}
 	else
 	{
@@ -258,7 +258,7 @@ Step::RefPtr<IfcDirection> IfcNormalise(const IfcDirection *Arg)
 		else
 		{
 			LOG_DEBUG("IfcNormalise::End Bad 2");
-			return 0;
+			return nullptr;
 		}
 	}
 
@@ -325,7 +325,7 @@ Step::RefPtr<IfcDirection> IfcOrthogonalComplement(Step::RefPtr<IfcDirection> Ar
 	if(!Arg.valid() || Arg->getDim() != 2) 
 	{
 		LOG_DEBUG("IfcOrthogonalComplement() End Bad");
-		return 0;
+		return nullptr;
 	}
 	else
 	{
@@ -469,7 +469,7 @@ Step::RefPtr<IfcVector> IfcVectorDifference(Step::RefPtr<IfcVectorOrDirection> A
 	if(!Arg1.valid() || !Arg2.valid() /*TODO : || (Arg1->getOrientation().size() != Arg2->getOrientation().size())*/)// TODO: replace by call to getDim when it's done
 	{
 		LOG_DEBUG("IfcVectorDifference::End bad");
-		return 0;
+		return nullptr;
 	}
 	else
 	{
@@ -644,7 +644,7 @@ Step::RefPtr<IfcVector> IfcScalarTimesVector(Step::Real Scalar, const IfcDirecti
 	if( Step::isUnset(Scalar) || !Vec)
 	{
 		LOG_DEBUG("IfcScalarTimesVector::End bad");
-		return 0;
+		return nullptr;
 	}
 	else
 	{
@@ -682,7 +682,7 @@ Step::RefPtr<IfcVector> IfcScalarTimesVector(Step::Real Scalar, const IfcVector*
 	if( Step::isUnset(Scalar) || !Vec)
 	{
 		LOG_DEBUG("IfcScalarTimesVector::Bad End");
-		return 0;
+		return nullptr;
 	}
 	else
 	{
@@ -753,7 +753,7 @@ Step::RefPtr<IfcVector> IfcCrossProduct(const IfcDirection* Arg1, const IfcDirec
 	if((!Arg1 || Arg1->getDim()==2) || (!Arg2 || Arg2->getDim()==2))
 	{
 		LOG_DEBUG("IfcCrossProduct: Bad End Arg1 and Arg2");
-		return 0;
+		return nullptr;
 	}
 	else
 	{
@@ -775,7 +775,7 @@ Step::RefPtr<IfcVector> IfcCrossProduct(const IfcDirection* Arg1, const IfcDirec
 		else
 		{
 			LOG_DEBUG("IfcCrossProduct::Bad End");
-			return 0;
+			return nullptr;
 		}
 
 		Res->getDirectionRatios().push_back((V1[1]*V2[2])-(V1[2]*V2[1]));
@@ -855,7 +855,7 @@ Step::RefPtr<IfcDirection> IfcFirstProjAxis(const IfcDirection* ZAxis, const Ifc
 	if(!ZAxis)
 	{
 		LOG_DEBUG("IfcFirstProjAxis::End Bad ZAxis no valid");
-		return 0;
+		return nullptr;
 	}
 	else
 	{
@@ -911,7 +911,7 @@ Step::RefPtr<IfcDirection> IfcFirstProjAxis(const IfcDirection* ZAxis, const Ifc
 			if(Arg->getDim()!=3)//
 			{
 				LOG_DEBUG("IfcFirstProjAxis::Bad End (Dim!=3)");
-				return 0;
+				return nullptr;
 			}
 
 			Step::RefPtr<ifc2x3::IfcVector> cross = IfcCrossProduct(Arg,Z.get());
@@ -919,7 +919,7 @@ Step::RefPtr<IfcDirection> IfcFirstProjAxis(const IfcDirection* ZAxis, const Ifc
 			if((cross->getMagnitude()) == 0.0)
 			{
 				LOG_DEBUG("IfcFirstProjAxis::Bad End (Magn==0)");
-				return 0;
+				return nullptr;
 			}
 			else
 				V = IfcNormalise(Arg);
@@ -1612,7 +1612,7 @@ IfcDimensionCount IfcCsgPrimitive3D::getDim() const
 IfcDimensionCount IfcCurveBoundedPlane::getDim() const
 {
 	LOG_ERROR("IfcCurveBoundedPlane::getDim()");
-	if(getBasisSurface()!=NULL)
+	if(getBasisSurface()!=nullptr)
 		return getBasisSurface()->getDim();
 	else
 		return 0;
@@ -1664,10 +1664,10 @@ IfcDimensionCount IfcCurveDim(const ifc2x3::IfcCurve* Curve)
             return line->getPnt()->getDim();
 	}
 
-	else if(dynamic_cast<const ifc2x3::IfcConic *>(Curve) != NULL)
+	else if(dynamic_cast<const ifc2x3::IfcConic *>(Curve) != nullptr)
 	{
 		const IfcAxis2Placement* Axis2Placement = dynamic_cast<const ifc2x3::IfcConic *>(Curve)->getPosition();
-		if(Axis2Placement!=NULL)
+		if(Axis2Placement!=nullptr)
 		{
 			if(Axis2Placement->currentType()==IfcAxis2Placement::IFCAXIS2PLACEMENT2D)
 				return Axis2Placement->getIfcAxis2Placement2D()->getDim();
@@ -1676,31 +1676,31 @@ IfcDimensionCount IfcCurveDim(const ifc2x3::IfcCurve* Curve)
 		}
 	}
 
-	else if(dynamic_cast<const ifc2x3::IfcPolyline*> (Curve) != NULL)
+	else if(dynamic_cast<const ifc2x3::IfcPolyline*> (Curve) != nullptr)
 	{
 		if(!(static_cast<const ifc2x3::IfcPolyline* > (Curve))->getPoints().empty())
 			return (static_cast<const ifc2x3::IfcPolyline* > (Curve))->getPoints()[0]->getDim();
 	}
 
-	else if(dynamic_cast<const ifc2x3::IfcTrimmedCurve*> (Curve) != NULL)
+	else if(dynamic_cast<const ifc2x3::IfcTrimmedCurve*> (Curve) != nullptr)
 			return (IfcCurveDim(static_cast<const ifc2x3::IfcTrimmedCurve* > (Curve)->getBasisCurve()));
 
-	else if(dynamic_cast<const ifc2x3::IfcCompositeCurve*> (Curve) != NULL)
+	else if(dynamic_cast<const ifc2x3::IfcCompositeCurve*> (Curve) != nullptr)
 	{
 		if(!(static_cast<const ifc2x3::IfcCompositeCurve* > (Curve))->getSegments().empty())
 			return (static_cast<const ifc2x3::IfcCompositeCurve* > (Curve))->getSegments()[0]->getDim();
 	}
 
-	else if(dynamic_cast<const ifc2x3::IfcBSplineCurve*> (Curve) != NULL)
+	else if(dynamic_cast<const ifc2x3::IfcBSplineCurve*> (Curve) != nullptr)
 	{
 		if(!(static_cast<const ifc2x3::IfcBSplineCurve* > (Curve))->getControlPointsList().empty())
 			return (static_cast<const ifc2x3::IfcBSplineCurve* > (Curve))->getControlPointsList()[0]->getDim();
 	}
 
-	else if(dynamic_cast<const ifc2x3::IfcOffsetCurve2D*> (Curve) != NULL)
+	else if(dynamic_cast<const ifc2x3::IfcOffsetCurve2D*> (Curve) != nullptr)
 		return 2;
 
-	else if(dynamic_cast<const ifc2x3::IfcOffsetCurve3D*> (Curve) != NULL)
+	else if(dynamic_cast<const ifc2x3::IfcOffsetCurve3D*> (Curve) != nullptr)
 		return 3;
 
 	return 0;
@@ -1876,7 +1876,7 @@ Step::Integer IfcEdgeLoop::getNe() const
 IfcDimensionCount IfcElementarySurface::getDim() const
 {
 	LOG_DEBUG("IfcElementarySurface::getDim()");
-	if(getPosition()!=NULL)
+	if(getPosition()!=nullptr)
 		return getPosition()->getDim();
 	else
 		return 0;
@@ -1924,7 +1924,7 @@ IfcDirection* IfcGeometricRepresentationSubContext::getTrueNorth()
 	}
 	else
 		return getParentContext()->getTrueNorth();
-	return 0;
+	return nullptr;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2084,7 +2084,7 @@ IfcVertex* IfcOrientedEdge::getEdgeStart()
 		return Vertex.get();
 	}
 	else
-		return NULL;
+		return nullptr;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2098,7 +2098,7 @@ IfcVertex* IfcOrientedEdge::getEdgeEnd()
 		return Vertex.get();
 	}
 	else
-		return NULL;
+		return nullptr;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2106,7 +2106,7 @@ IfcVertex* IfcOrientedEdge::getEdgeEnd()
 IfcDimensionCount IfcPlacement::getDim() const
 {
 	LOG_DEBUG("IfcPlacement::getDim()");
-	if(getLocation()!=NULL)
+	if(getLocation()!=nullptr)
 		return getLocation()->getDim();
 	else
 		return 0;
@@ -2117,7 +2117,7 @@ IfcDimensionCount IfcPlacement::getDim() const
 IfcDimensionCount IfcPointOnCurve::getDim() const
 {
 	LOG_DEBUG("IfcPointOnCurve::getDim()");
-	if(getBasisCurve()==NULL)
+	if(getBasisCurve()==nullptr)
 		return 0;
 	const IfcCurve* Curve = getBasisCurve();
 
@@ -2141,7 +2141,7 @@ IfcDimensionCount IfcPointOnCurve::getDim() const
 IfcDimensionCount IfcPointOnSurface::getDim() const
 {
 	LOG_DEBUG("IfcPointOnSurface::getDim()");
-	if(getBasisSurface()==NULL)
+	if(getBasisSurface()==nullptr)
 		return 0;
 
 	const IfcSurface* Surface = getBasisSurface();
@@ -2212,7 +2212,7 @@ Array_Real_0_255 IfcRationalBezierCurve::getWeights() const
 IfcDimensionCount IfcRectangularTrimmedSurface::getDim() const
 {
 	LOG_DEBUG("IfcRectangularTrimmedSurface::getDim()");
-	if(getBasisSurface()==NULL)
+	if(getBasisSurface()==nullptr)
 		return 0;
 
 	const IfcSurface* Surface = getBasisSurface();
@@ -2317,7 +2317,7 @@ Step::Integer IfcNoOfLayers(Step::RefPtr<IfcElement> Element)
 		if((*it_RelAssociatesMaterial)->getRelatingMaterial()->currentType() == IfcMaterialSelect::IFCMATERIALLAYERSETUSAGE)
 		{
 			Step::RefPtr< IfcMaterialLayerSetUsage > MaterialLayerSetUsage = (*it_RelAssociatesMaterial)->getRelatingMaterial()->getIfcMaterialLayerSetUsage();
-			if(MaterialLayerSetUsage->getForLayerSet()!=NULL)
+			if(MaterialLayerSetUsage->getForLayerSet()!=nullptr)
 			{
 				Step::RefPtr< IfcMaterialLayerSet > MaterialLayerSet = MaterialLayerSetUsage->getForLayerSet();
 				return MaterialLayerSet->getMaterialLayers().size();
@@ -2360,8 +2360,8 @@ Step::Integer IfcRelConnectsPathElements::getRelatingLayerCount() const
 IfcLine* IfcRevolvedAreaSolid::getAxisLine() const
 {
 	LOG_DEBUG("IfcRevolvedAreaSolid::getAxisLine()");
-	if(getAxis()==NULL)
-		return NULL;
+	if(getAxis()==nullptr)
+		return nullptr;
 	Step::RefPtr<IfcLine> Line = static_cast<ifc2x3::ExpressDataSet*>(getExpressDataSet())->createIfcLine(true);
 	Step::RefPtr<IfcCartesianPoint> Pnt = static_cast<ifc2x3::ExpressDataSet*>(getExpressDataSet())->createIfcCartesianPoint(true);
 	Line->setPnt(Pnt);
@@ -2693,8 +2693,8 @@ IfcVector* IfcSurfaceOfLinearExtrusion::getExtrusionAxis() const
 IfcLine* IfcSurfaceOfRevolution::getAxisLine() const
 {
 	LOG_DEBUG("IfcSurfaceOfRevolution::getAxisLine()");
-	if(getAxisPosition()==NULL)
-		return NULL;
+	if(getAxisPosition()==nullptr)
+		return nullptr;
 	Step::RefPtr<IfcLine> Line = static_cast<ifc2x3::ExpressDataSet*>(getExpressDataSet())->createIfcLine(true);
 	Line->setPnt(const_cast<IfcCartesianPoint *>(getAxisPosition()->getLocation()));
 	Step::RefPtr<IfcVector> Vect = static_cast<ifc2x3::ExpressDataSet*>(getExpressDataSet())->createIfcVector(true);

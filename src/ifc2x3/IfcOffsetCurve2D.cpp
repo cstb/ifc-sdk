@@ -35,7 +35,7 @@
 using namespace ifc2x3;
 
 IfcOffsetCurve2D::IfcOffsetCurve2D(Step::Id id, Step::SPFData *args) : IfcCurve(id, args) {
-    m_basisCurve = NULL;
+    m_basisCurve = nullptr;
     m_distance = Step::getUnset(m_distance);
     m_selfIntersect = Step::getUnset(m_selfIntersect);
 }
@@ -68,7 +68,7 @@ IfcCurve *IfcOffsetCurve2D::getBasisCurve() {
         return m_basisCurve.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ bool IfcOffsetCurve2D::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_basisCurve = NULL;
+        m_basisCurve = nullptr;
     }
     else {
         m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

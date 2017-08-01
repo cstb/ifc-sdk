@@ -41,7 +41,7 @@ IfcSite::IfcSite(Step::Id id, Step::SPFData *args) : IfcSpatialStructureElement(
     m_refLongitude.setUnset(true);
     m_refElevation = Step::getUnset(m_refElevation);
     m_landTitleNumber = Step::getUnset(m_landTitleNumber);
-    m_siteAddress = NULL;
+    m_siteAddress = nullptr;
 }
 
 IfcSite::~IfcSite() {
@@ -178,7 +178,7 @@ IfcPostalAddress *IfcSite::getSiteAddress() {
         return m_siteAddress.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -259,7 +259,7 @@ bool IfcSite::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_siteAddress = NULL;
+        m_siteAddress = nullptr;
     }
     else {
         m_siteAddress = static_cast< IfcPostalAddress * > (m_expressDataSet->get(Step::getIdParam(arg)));

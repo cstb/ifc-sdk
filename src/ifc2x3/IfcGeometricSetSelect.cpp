@@ -31,7 +31,7 @@
 
 using namespace ifc2x3;
 
-IfcGeometricSetSelect::IfcGeometricSetSelect() : Step::BaseObject(0) {
+IfcGeometricSetSelect::IfcGeometricSetSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -125,7 +125,7 @@ IfcPoint *IfcGeometricSetSelect::getIfcPoint() const {
         return m_IfcGeometricSetSelect_union.m_IfcPoint;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ IfcCurve *IfcGeometricSetSelect::getIfcCurve() const {
         return m_IfcGeometricSetSelect_union.m_IfcCurve;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -173,7 +173,7 @@ IfcSurface *IfcGeometricSetSelect::getIfcSurface() const {
         return m_IfcGeometricSetSelect_union.m_IfcSurface;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

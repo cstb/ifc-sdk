@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcRelAssignsToResource::IfcRelAssignsToResource(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
-    m_relatingResource = NULL;
+    m_relatingResource = nullptr;
 }
 
 IfcRelAssignsToResource::~IfcRelAssignsToResource() {
@@ -67,7 +67,7 @@ IfcResource *IfcRelAssignsToResource::getRelatingResource() {
         return m_relatingResource.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -102,7 +102,7 @@ bool IfcRelAssignsToResource::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingResource = NULL;
+        m_relatingResource = nullptr;
     }
     else {
         m_relatingResource = static_cast< IfcResource * > (m_expressDataSet->get(Step::getIdParam(arg)));

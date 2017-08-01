@@ -79,13 +79,13 @@ IfcDocumentInformation::IfcDocumentInformation(Step::Id id, Step::SPFData *args)
     m_intendedUse = Step::getUnset(m_intendedUse);
     m_scope = Step::getUnset(m_scope);
     m_revision = Step::getUnset(m_revision);
-    m_documentOwner = NULL;
+    m_documentOwner = nullptr;
     m_editors.setUnset(true);
-    m_creationTime = NULL;
-    m_lastRevisionTime = NULL;
-    m_electronicFormat = NULL;
-    m_validFrom = NULL;
-    m_validUntil = NULL;
+    m_creationTime = nullptr;
+    m_lastRevisionTime = nullptr;
+    m_electronicFormat = nullptr;
+    m_validFrom = nullptr;
+    m_validUntil = nullptr;
     m_confidentiality = IfcDocumentConfidentialityEnum_UNSET;
     m_status = IfcDocumentStatusEnum_UNSET;
 }
@@ -324,7 +324,7 @@ IfcActorSelect *IfcDocumentInformation::getDocumentOwner() {
         return m_documentOwner.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -378,7 +378,7 @@ IfcDateAndTime *IfcDocumentInformation::getCreationTime() {
         return m_creationTime.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -404,7 +404,7 @@ IfcDateAndTime *IfcDocumentInformation::getLastRevisionTime() {
         return m_lastRevisionTime.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -430,7 +430,7 @@ IfcDocumentElectronicFormat *IfcDocumentInformation::getElectronicFormat() {
         return m_electronicFormat.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -456,7 +456,7 @@ IfcCalendarDate *IfcDocumentInformation::getValidFrom() {
         return m_validFrom.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -482,7 +482,7 @@ IfcCalendarDate *IfcDocumentInformation::getValidUntil() {
         return m_validUntil.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -666,7 +666,7 @@ bool IfcDocumentInformation::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_documentOwner = NULL;
+        m_documentOwner = nullptr;
     }
     else {
         m_documentOwner = new IfcActorSelect;
@@ -716,35 +716,35 @@ bool IfcDocumentInformation::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_creationTime = NULL;
+        m_creationTime = nullptr;
     }
     else {
         m_creationTime = static_cast< IfcDateAndTime * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_lastRevisionTime = NULL;
+        m_lastRevisionTime = nullptr;
     }
     else {
         m_lastRevisionTime = static_cast< IfcDateAndTime * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_electronicFormat = NULL;
+        m_electronicFormat = nullptr;
     }
     else {
         m_electronicFormat = static_cast< IfcDocumentElectronicFormat * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_validFrom = NULL;
+        m_validFrom = nullptr;
     }
     else {
         m_validFrom = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_validUntil = NULL;
+        m_validUntil = nullptr;
     }
     else {
         m_validUntil = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));

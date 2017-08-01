@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcCurveOrEdgeCurve::IfcCurveOrEdgeCurve() : Step::BaseObject(0) {
+IfcCurveOrEdgeCurve::IfcCurveOrEdgeCurve() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcBoundedCurve *IfcCurveOrEdgeCurve::getIfcBoundedCurve() const {
         return m_IfcCurveOrEdgeCurve_union.m_IfcBoundedCurve;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcEdgeCurve *IfcCurveOrEdgeCurve::getIfcEdgeCurve() const {
         return m_IfcCurveOrEdgeCurve_union.m_IfcEdgeCurve;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

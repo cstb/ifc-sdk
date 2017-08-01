@@ -41,7 +41,7 @@ using namespace ifc2x3;
 
 IfcGridAxis::IfcGridAxis(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_axisTag = Step::getUnset(m_axisTag);
-    m_axisCurve = NULL;
+    m_axisCurve = nullptr;
     m_sameSense = Step::getUnset(m_sameSense);
 }
 
@@ -99,7 +99,7 @@ IfcCurve *IfcGridAxis::getAxisCurve() {
         return m_axisCurve.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -234,7 +234,7 @@ bool IfcGridAxis::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_axisCurve = NULL;
+        m_axisCurve = nullptr;
     }
     else {
         m_axisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

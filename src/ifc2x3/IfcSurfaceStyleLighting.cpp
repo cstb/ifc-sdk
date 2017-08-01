@@ -36,10 +36,10 @@
 using namespace ifc2x3;
 
 IfcSurfaceStyleLighting::IfcSurfaceStyleLighting(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_diffuseTransmissionColour = NULL;
-    m_diffuseReflectionColour = NULL;
-    m_transmissionColour = NULL;
-    m_reflectanceColour = NULL;
+    m_diffuseTransmissionColour = nullptr;
+    m_diffuseReflectionColour = nullptr;
+    m_transmissionColour = nullptr;
+    m_reflectanceColour = nullptr;
 }
 
 IfcSurfaceStyleLighting::~IfcSurfaceStyleLighting() {
@@ -70,7 +70,7 @@ IfcColourRgb *IfcSurfaceStyleLighting::getDiffuseTransmissionColour() {
         return m_diffuseTransmissionColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ IfcColourRgb *IfcSurfaceStyleLighting::getDiffuseReflectionColour() {
         return m_diffuseReflectionColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -122,7 +122,7 @@ IfcColourRgb *IfcSurfaceStyleLighting::getTransmissionColour() {
         return m_transmissionColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -148,7 +148,7 @@ IfcColourRgb *IfcSurfaceStyleLighting::getReflectanceColour() {
         return m_reflectanceColour.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -173,28 +173,28 @@ bool IfcSurfaceStyleLighting::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_diffuseTransmissionColour = NULL;
+        m_diffuseTransmissionColour = nullptr;
     }
     else {
         m_diffuseTransmissionColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_diffuseReflectionColour = NULL;
+        m_diffuseReflectionColour = nullptr;
     }
     else {
         m_diffuseReflectionColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_transmissionColour = NULL;
+        m_transmissionColour = nullptr;
     }
     else {
         m_transmissionColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_reflectanceColour = NULL;
+        m_reflectanceColour = nullptr;
     }
     else {
         m_reflectanceColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));

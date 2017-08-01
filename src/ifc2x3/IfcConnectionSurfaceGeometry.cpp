@@ -35,8 +35,8 @@
 using namespace ifc2x3;
 
 IfcConnectionSurfaceGeometry::IfcConnectionSurfaceGeometry(Step::Id id, Step::SPFData *args) : IfcConnectionGeometry(id, args) {
-    m_surfaceOnRelatingElement = NULL;
-    m_surfaceOnRelatedElement = NULL;
+    m_surfaceOnRelatingElement = nullptr;
+    m_surfaceOnRelatedElement = nullptr;
 }
 
 IfcConnectionSurfaceGeometry::~IfcConnectionSurfaceGeometry() {
@@ -67,7 +67,7 @@ IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelatingEleme
         return m_surfaceOnRelatingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -93,7 +93,7 @@ IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelatedElemen
         return m_surfaceOnRelatedElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -122,7 +122,7 @@ bool IfcConnectionSurfaceGeometry::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_surfaceOnRelatingElement = NULL;
+        m_surfaceOnRelatingElement = nullptr;
     }
     else {
         m_surfaceOnRelatingElement = new IfcSurfaceOrFaceSurface;
@@ -141,7 +141,7 @@ bool IfcConnectionSurfaceGeometry::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_surfaceOnRelatedElement = NULL;
+        m_surfaceOnRelatedElement = nullptr;
     }
     else {
         m_surfaceOnRelatedElement = new IfcSurfaceOrFaceSurface;

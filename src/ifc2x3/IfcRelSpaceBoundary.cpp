@@ -38,9 +38,9 @@
 using namespace ifc2x3;
 
 IfcRelSpaceBoundary::IfcRelSpaceBoundary(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingSpace = NULL;
-    m_relatedBuildingElement = NULL;
-    m_connectionGeometry = NULL;
+    m_relatingSpace = nullptr;
+    m_relatedBuildingElement = nullptr;
+    m_connectionGeometry = nullptr;
     m_physicalOrVirtualBoundary = IfcPhysicalOrVirtualEnum_UNSET;
     m_internalOrExternalBoundary = IfcInternalOrExternalEnum_UNSET;
 }
@@ -73,7 +73,7 @@ IfcSpace *IfcRelSpaceBoundary::getRelatingSpace() {
         return m_relatingSpace.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -105,7 +105,7 @@ IfcElement *IfcRelSpaceBoundary::getRelatedBuildingElement() {
         return m_relatedBuildingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -137,7 +137,7 @@ IfcConnectionGeometry *IfcRelSpaceBoundary::getConnectionGeometry() {
         return m_connectionGeometry.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -218,21 +218,21 @@ bool IfcRelSpaceBoundary::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingSpace = NULL;
+        m_relatingSpace = nullptr;
     }
     else {
         m_relatingSpace = static_cast< IfcSpace * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedBuildingElement = NULL;
+        m_relatedBuildingElement = nullptr;
     }
     else {
         m_relatedBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_connectionGeometry = NULL;
+        m_connectionGeometry = nullptr;
     }
     else {
         m_connectionGeometry = static_cast< IfcConnectionGeometry * > (m_expressDataSet->get(Step::getIdParam(arg)));

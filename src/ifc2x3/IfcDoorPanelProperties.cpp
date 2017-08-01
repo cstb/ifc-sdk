@@ -40,7 +40,7 @@ IfcDoorPanelProperties::IfcDoorPanelProperties(Step::Id id, Step::SPFData *args)
     m_panelOperation = IfcDoorPanelOperationEnum_UNSET;
     m_panelWidth = Step::getUnset(m_panelWidth);
     m_panelPosition = IfcDoorPanelPositionEnum_UNSET;
-    m_shapeAspectStyle = NULL;
+    m_shapeAspectStyle = nullptr;
 }
 
 IfcDoorPanelProperties::~IfcDoorPanelProperties() {
@@ -175,7 +175,7 @@ IfcShapeAspect *IfcDoorPanelProperties::getShapeAspectStyle() {
         return m_shapeAspectStyle.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -266,7 +266,7 @@ bool IfcDoorPanelProperties::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_shapeAspectStyle = NULL;
+        m_shapeAspectStyle = nullptr;
     }
     else {
         m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));

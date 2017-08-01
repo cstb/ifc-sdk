@@ -39,12 +39,12 @@
 using namespace ifc2x3;
 
 IfcLightSourceGoniometric::IfcLightSourceGoniometric(Step::Id id, Step::SPFData *args) : IfcLightSource(id, args) {
-    m_position = NULL;
-    m_colourAppearance = NULL;
+    m_position = nullptr;
+    m_colourAppearance = nullptr;
     m_colourTemperature = Step::getUnset(m_colourTemperature);
     m_luminousFlux = Step::getUnset(m_luminousFlux);
     m_lightEmissionSource = IfcLightEmissionSourceEnum_UNSET;
-    m_lightDistributionDataSource = NULL;
+    m_lightDistributionDataSource = nullptr;
 }
 
 IfcLightSourceGoniometric::~IfcLightSourceGoniometric() {
@@ -75,7 +75,7 @@ IfcAxis2Placement3D *IfcLightSourceGoniometric::getPosition() {
         return m_position.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -101,7 +101,7 @@ IfcColourRgb *IfcLightSourceGoniometric::getColourAppearance() {
         return m_colourAppearance.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -205,7 +205,7 @@ IfcLightDistributionDataSourceSelect *IfcLightSourceGoniometric::getLightDistrib
         return m_lightDistributionDataSource.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -234,14 +234,14 @@ bool IfcLightSourceGoniometric::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_position = NULL;
+        m_position = nullptr;
     }
     else {
         m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_colourAppearance = NULL;
+        m_colourAppearance = nullptr;
     }
     else {
         m_colourAppearance = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
@@ -301,7 +301,7 @@ bool IfcLightSourceGoniometric::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_lightDistributionDataSource = NULL;
+        m_lightDistributionDataSource = nullptr;
     }
     else {
         m_lightDistributionDataSource = new IfcLightDistributionDataSourceSelect;

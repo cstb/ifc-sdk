@@ -31,7 +31,7 @@
 
 using namespace ifc2x3;
 
-IfcUnit::IfcUnit() : Step::BaseObject(0) {
+IfcUnit::IfcUnit() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -125,7 +125,7 @@ IfcDerivedUnit *IfcUnit::getIfcDerivedUnit() const {
         return m_IfcUnit_union.m_IfcDerivedUnit;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ IfcNamedUnit *IfcUnit::getIfcNamedUnit() const {
         return m_IfcUnit_union.m_IfcNamedUnit;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -173,7 +173,7 @@ IfcMonetaryUnit *IfcUnit::getIfcMonetaryUnit() const {
         return m_IfcUnit_union.m_IfcMonetaryUnit;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

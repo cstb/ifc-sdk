@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcRelAssociatesApproval::IfcRelAssociatesApproval(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
-    m_relatingApproval = NULL;
+    m_relatingApproval = nullptr;
 }
 
 IfcRelAssociatesApproval::~IfcRelAssociatesApproval() {
@@ -67,7 +67,7 @@ IfcApproval *IfcRelAssociatesApproval::getRelatingApproval() {
         return m_relatingApproval.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcRelAssociatesApproval::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingApproval = NULL;
+        m_relatingApproval = nullptr;
     }
     else {
         m_relatingApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -40,13 +40,13 @@ using namespace ifc2x3;
 
 IfcWorkControl::IfcWorkControl(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
     m_identifier = Step::getUnset(m_identifier);
-    m_creationDate = NULL;
+    m_creationDate = nullptr;
     m_creators.setUnset(true);
     m_purpose = Step::getUnset(m_purpose);
     m_duration = Step::getUnset(m_duration);
     m_totalFloat = Step::getUnset(m_totalFloat);
-    m_startTime = NULL;
-    m_finishTime = NULL;
+    m_startTime = nullptr;
+    m_finishTime = nullptr;
     m_workControlType = IfcWorkControlTypeEnum_UNSET;
     m_userDefinedControlType = Step::getUnset(m_userDefinedControlType);
 }
@@ -105,7 +105,7 @@ IfcDateTimeSelect *IfcWorkControl::getCreationDate() {
         return m_creationDate.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -237,7 +237,7 @@ IfcDateTimeSelect *IfcWorkControl::getStartTime() {
         return m_startTime.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -263,7 +263,7 @@ IfcDateTimeSelect *IfcWorkControl::getFinishTime() {
         return m_finishTime.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -351,7 +351,7 @@ bool IfcWorkControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_creationDate = NULL;
+        m_creationDate = nullptr;
     }
     else {
         m_creationDate = new IfcDateTimeSelect;
@@ -410,7 +410,7 @@ bool IfcWorkControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_startTime = NULL;
+        m_startTime = nullptr;
     }
     else {
         m_startTime = new IfcDateTimeSelect;
@@ -429,7 +429,7 @@ bool IfcWorkControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_finishTime = NULL;
+        m_finishTime = nullptr;
     }
     else {
         m_finishTime = new IfcDateTimeSelect;

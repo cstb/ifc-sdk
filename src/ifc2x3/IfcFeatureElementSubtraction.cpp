@@ -65,7 +65,7 @@ IfcRelVoidsElement *IfcFeatureElementSubtraction::getVoidsElements() {
         return m_voidsElements.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

@@ -33,7 +33,7 @@ using namespace Step;
 #  define DBL_DIG __DBL_DIG__
 #endif
 
-BaseSPFWriter::BaseSPFWriter(BaseExpressDataSet * e) : _callback(0)
+BaseSPFWriter::BaseSPFWriter(BaseExpressDataSet * e) : _callback(nullptr)
 {
     m_expressDataSet = e;
     m_precision = DBL_DIG + 1;

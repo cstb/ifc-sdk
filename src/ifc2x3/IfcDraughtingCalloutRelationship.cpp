@@ -39,8 +39,8 @@ using namespace ifc2x3;
 IfcDraughtingCalloutRelationship::IfcDraughtingCalloutRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
-    m_relatingDraughtingCallout = NULL;
-    m_relatedDraughtingCallout = NULL;
+    m_relatingDraughtingCallout = nullptr;
+    m_relatedDraughtingCallout = nullptr;
 }
 
 IfcDraughtingCalloutRelationship::~IfcDraughtingCalloutRelationship() {
@@ -123,7 +123,7 @@ IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatingDraughtingCal
         return m_relatingDraughtingCallout.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -155,7 +155,7 @@ IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatedDraughtingCall
         return m_relatedDraughtingCallout.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -200,14 +200,14 @@ bool IfcDraughtingCalloutRelationship::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingDraughtingCallout = NULL;
+        m_relatingDraughtingCallout = nullptr;
     }
     else {
         m_relatingDraughtingCallout = static_cast< IfcDraughtingCallout * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedDraughtingCallout = NULL;
+        m_relatedDraughtingCallout = nullptr;
     }
     else {
         m_relatedDraughtingCallout = static_cast< IfcDraughtingCallout * > (m_expressDataSet->get(Step::getIdParam(arg)));

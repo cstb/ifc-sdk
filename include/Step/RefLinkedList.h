@@ -300,7 +300,7 @@ namespace Step {
         iterator begin()
         {
             if (m_refList.empty())
-            return iterator(0, 0);
+            return iterator(0, nullptr);
             // return iterator for beginning of non-mutable sequence
             unsigned index=0;
             while (index<m_refList.size() && m_refList[index]->empty())
@@ -341,7 +341,7 @@ namespace Step {
         iterator end()
         {
             if (m_refList.empty())
-            return iterator(0, 0);
+            return iterator(0, nullptr);
             // return iterator for end of non-mutable sequence
             unsigned int x = m_refList.size()-1;
             return iterator(x, this, m_refList[x]->end());

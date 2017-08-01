@@ -35,7 +35,7 @@
 
 using namespace ifc2x3;
 
-IfcMetricValueSelect::IfcMetricValueSelect() : Step::BaseObject(0) {
+IfcMetricValueSelect::IfcMetricValueSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -174,7 +174,7 @@ IfcCalendarDate *IfcMetricValueSelect::getIfcCalendarDate() const {
         return m_IfcMetricValueSelect_union.m_IfcCalendarDate;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -198,7 +198,7 @@ IfcLocalTime *IfcMetricValueSelect::getIfcLocalTime() const {
         return m_IfcMetricValueSelect_union.m_IfcLocalTime;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -222,7 +222,7 @@ IfcDateAndTime *IfcMetricValueSelect::getIfcDateAndTime() const {
         return m_IfcMetricValueSelect_union.m_IfcDateAndTime;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -246,7 +246,7 @@ IfcMeasureWithUnit *IfcMetricValueSelect::getIfcMeasureWithUnit() const {
         return m_IfcMetricValueSelect_union.m_IfcMeasureWithUnit;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -270,7 +270,7 @@ IfcTable *IfcMetricValueSelect::getIfcTable() const {
         return m_IfcMetricValueSelect_union.m_IfcTable;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -308,7 +308,7 @@ IfcTimeSeries *IfcMetricValueSelect::getIfcTimeSeries() const {
         return m_IfcMetricValueSelect_union.m_IfcTimeSeries;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -332,7 +332,7 @@ IfcCostValue *IfcMetricValueSelect::getIfcCostValue() const {
         return m_IfcMetricValueSelect_union.m_IfcCostValue;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

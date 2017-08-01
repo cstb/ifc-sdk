@@ -62,7 +62,7 @@ void Inverted_IfcClassificationItemRelationship_RelatedItems_type::clear() {
 }
 
 IfcClassificationItemRelationship::IfcClassificationItemRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_relatingItem = NULL;
+    m_relatingItem = nullptr;
     m_relatedItems.setOwner(this);
 }
 
@@ -94,7 +94,7 @@ IfcClassificationItem *IfcClassificationItemRelationship::getRelatingItem() {
         return m_relatingItem.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ bool IfcClassificationItemRelationship::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingItem = NULL;
+        m_relatingItem = nullptr;
     }
     else {
         m_relatingItem = static_cast< IfcClassificationItem * > (m_expressDataSet->get(Step::getIdParam(arg)));

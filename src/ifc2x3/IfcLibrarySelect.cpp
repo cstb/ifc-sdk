@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcLibrarySelect::IfcLibrarySelect() : Step::BaseObject(0) {
+IfcLibrarySelect::IfcLibrarySelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcLibraryReference *IfcLibrarySelect::getIfcLibraryReference() const {
         return m_IfcLibrarySelect_union.m_IfcLibraryReference;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcLibraryInformation *IfcLibrarySelect::getIfcLibraryInformation() const {
         return m_IfcLibrarySelect_union.m_IfcLibraryInformation;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

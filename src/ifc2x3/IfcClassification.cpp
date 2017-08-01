@@ -41,7 +41,7 @@ using namespace ifc2x3;
 IfcClassification::IfcClassification(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_source = Step::getUnset(m_source);
     m_edition = Step::getUnset(m_edition);
-    m_editionDate = NULL;
+    m_editionDate = nullptr;
     m_name = Step::getUnset(m_name);
 }
 
@@ -125,7 +125,7 @@ IfcCalendarDate *IfcClassification::getEditionDate() {
         return m_editionDate.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -210,7 +210,7 @@ bool IfcClassification::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_editionDate = NULL;
+        m_editionDate = nullptr;
     }
     else {
         m_editionDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));

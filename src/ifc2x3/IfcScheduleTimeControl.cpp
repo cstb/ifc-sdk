@@ -37,21 +37,21 @@
 using namespace ifc2x3;
 
 IfcScheduleTimeControl::IfcScheduleTimeControl(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
-    m_actualStart = NULL;
-    m_earlyStart = NULL;
-    m_lateStart = NULL;
-    m_scheduleStart = NULL;
-    m_actualFinish = NULL;
-    m_earlyFinish = NULL;
-    m_lateFinish = NULL;
-    m_scheduleFinish = NULL;
+    m_actualStart = nullptr;
+    m_earlyStart = nullptr;
+    m_lateStart = nullptr;
+    m_scheduleStart = nullptr;
+    m_actualFinish = nullptr;
+    m_earlyFinish = nullptr;
+    m_lateFinish = nullptr;
+    m_scheduleFinish = nullptr;
     m_scheduleDuration = Step::getUnset(m_scheduleDuration);
     m_actualDuration = Step::getUnset(m_actualDuration);
     m_remainingTime = Step::getUnset(m_remainingTime);
     m_freeFloat = Step::getUnset(m_freeFloat);
     m_totalFloat = Step::getUnset(m_totalFloat);
     m_isCritical = Step::getUnset(m_isCritical);
-    m_statusTime = NULL;
+    m_statusTime = nullptr;
     m_startFloat = Step::getUnset(m_startFloat);
     m_finishFloat = Step::getUnset(m_finishFloat);
     m_completion = Step::getUnset(m_completion);
@@ -85,7 +85,7 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getActualStart() {
         return m_actualStart.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -111,7 +111,7 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getEarlyStart() {
         return m_earlyStart.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -137,7 +137,7 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getLateStart() {
         return m_lateStart.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -163,7 +163,7 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getScheduleStart() {
         return m_scheduleStart.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -189,7 +189,7 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getActualFinish() {
         return m_actualFinish.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -215,7 +215,7 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getEarlyFinish() {
         return m_earlyFinish.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -241,7 +241,7 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getLateFinish() {
         return m_lateFinish.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -267,7 +267,7 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getScheduleFinish() {
         return m_scheduleFinish.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -449,7 +449,7 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getStatusTime() {
         return m_statusTime.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -553,7 +553,7 @@ IfcRelAssignsTasks *IfcScheduleTimeControl::getScheduleTimeControlAssigned() {
         return m_scheduleTimeControlAssigned.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -575,7 +575,7 @@ bool IfcScheduleTimeControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_actualStart = NULL;
+        m_actualStart = nullptr;
     }
     else {
         m_actualStart = new IfcDateTimeSelect;
@@ -594,7 +594,7 @@ bool IfcScheduleTimeControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_earlyStart = NULL;
+        m_earlyStart = nullptr;
     }
     else {
         m_earlyStart = new IfcDateTimeSelect;
@@ -613,7 +613,7 @@ bool IfcScheduleTimeControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_lateStart = NULL;
+        m_lateStart = nullptr;
     }
     else {
         m_lateStart = new IfcDateTimeSelect;
@@ -632,7 +632,7 @@ bool IfcScheduleTimeControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_scheduleStart = NULL;
+        m_scheduleStart = nullptr;
     }
     else {
         m_scheduleStart = new IfcDateTimeSelect;
@@ -651,7 +651,7 @@ bool IfcScheduleTimeControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_actualFinish = NULL;
+        m_actualFinish = nullptr;
     }
     else {
         m_actualFinish = new IfcDateTimeSelect;
@@ -670,7 +670,7 @@ bool IfcScheduleTimeControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_earlyFinish = NULL;
+        m_earlyFinish = nullptr;
     }
     else {
         m_earlyFinish = new IfcDateTimeSelect;
@@ -689,7 +689,7 @@ bool IfcScheduleTimeControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_lateFinish = NULL;
+        m_lateFinish = nullptr;
     }
     else {
         m_lateFinish = new IfcDateTimeSelect;
@@ -708,7 +708,7 @@ bool IfcScheduleTimeControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_scheduleFinish = NULL;
+        m_scheduleFinish = nullptr;
     }
     else {
         m_scheduleFinish = new IfcDateTimeSelect;
@@ -769,7 +769,7 @@ bool IfcScheduleTimeControl::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_statusTime = NULL;
+        m_statusTime = nullptr;
     }
     else {
         m_statusTime = new IfcDateTimeSelect;

@@ -39,7 +39,7 @@
 using namespace ifc2x3;
 
 IfcIrregularTimeSeriesValue::IfcIrregularTimeSeriesValue(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_timeStamp = NULL;
+    m_timeStamp = nullptr;
 }
 
 IfcIrregularTimeSeriesValue::~IfcIrregularTimeSeriesValue() {
@@ -70,7 +70,7 @@ IfcDateTimeSelect *IfcIrregularTimeSeriesValue::getTimeStamp() {
         return m_timeStamp.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ bool IfcIrregularTimeSeriesValue::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_timeStamp = NULL;
+        m_timeStamp = nullptr;
     }
     else {
         m_timeStamp = new IfcDateTimeSelect;

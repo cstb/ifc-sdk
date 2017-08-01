@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcMove::IfcMove(Step::Id id, Step::SPFData *args) : IfcTask(id, args) {
-    m_moveFrom = NULL;
-    m_moveTo = NULL;
+    m_moveFrom = nullptr;
+    m_moveTo = nullptr;
     m_punchList.setUnset(true);
 }
 
@@ -70,7 +70,7 @@ IfcSpatialStructureElement *IfcMove::getMoveFrom() {
         return m_moveFrom.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ IfcSpatialStructureElement *IfcMove::getMoveTo() {
         return m_moveTo.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -153,14 +153,14 @@ bool IfcMove::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_moveFrom = NULL;
+        m_moveFrom = nullptr;
     }
     else {
         m_moveFrom = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_moveTo = NULL;
+        m_moveTo = nullptr;
     }
     else {
         m_moveTo = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(arg)));

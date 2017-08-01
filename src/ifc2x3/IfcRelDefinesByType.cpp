@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcRelDefinesByType::IfcRelDefinesByType(Step::Id id, Step::SPFData *args) : IfcRelDefines(id, args) {
-    m_relatingType = NULL;
+    m_relatingType = nullptr;
 }
 
 IfcRelDefinesByType::~IfcRelDefinesByType() {
@@ -67,7 +67,7 @@ IfcTypeObject *IfcRelDefinesByType::getRelatingType() {
         return m_relatingType.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -102,7 +102,7 @@ bool IfcRelDefinesByType::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingType = NULL;
+        m_relatingType = nullptr;
     }
     else {
         m_relatingType = static_cast< IfcTypeObject * > (m_expressDataSet->get(Step::getIdParam(arg)));

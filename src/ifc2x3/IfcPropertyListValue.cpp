@@ -39,7 +39,7 @@
 using namespace ifc2x3;
 
 IfcPropertyListValue::IfcPropertyListValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
-    m_unit = NULL;
+    m_unit = nullptr;
 }
 
 IfcPropertyListValue::~IfcPropertyListValue() {
@@ -98,7 +98,7 @@ IfcUnit *IfcPropertyListValue::getUnit() {
         return m_unit.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -668,7 +668,7 @@ bool IfcPropertyListValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_unit = NULL;
+        m_unit = nullptr;
     }
     else {
         m_unit = new IfcUnit;

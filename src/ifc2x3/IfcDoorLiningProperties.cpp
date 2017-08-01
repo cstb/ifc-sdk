@@ -46,7 +46,7 @@ IfcDoorLiningProperties::IfcDoorLiningProperties(Step::Id id, Step::SPFData *arg
     m_thresholdOffset = Step::getUnset(m_thresholdOffset);
     m_casingThickness = Step::getUnset(m_casingThickness);
     m_casingDepth = Step::getUnset(m_casingDepth);
-    m_shapeAspectStyle = NULL;
+    m_shapeAspectStyle = nullptr;
 }
 
 IfcDoorLiningProperties::~IfcDoorLiningProperties() {
@@ -337,7 +337,7 @@ IfcShapeAspect *IfcDoorLiningProperties::getShapeAspectStyle() {
         return m_shapeAspectStyle.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -436,7 +436,7 @@ bool IfcDoorLiningProperties::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_shapeAspectStyle = NULL;
+        m_shapeAspectStyle = nullptr;
     }
     else {
         m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));

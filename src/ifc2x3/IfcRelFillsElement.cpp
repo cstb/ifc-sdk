@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcRelFillsElement::IfcRelFillsElement(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingOpeningElement = NULL;
-    m_relatedBuildingElement = NULL;
+    m_relatingOpeningElement = nullptr;
+    m_relatedBuildingElement = nullptr;
 }
 
 IfcRelFillsElement::~IfcRelFillsElement() {
@@ -69,7 +69,7 @@ IfcOpeningElement *IfcRelFillsElement::getRelatingOpeningElement() {
         return m_relatingOpeningElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -101,7 +101,7 @@ IfcElement *IfcRelFillsElement::getRelatedBuildingElement() {
         return m_relatedBuildingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -136,14 +136,14 @@ bool IfcRelFillsElement::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingOpeningElement = NULL;
+        m_relatingOpeningElement = nullptr;
     }
     else {
         m_relatingOpeningElement = static_cast< IfcOpeningElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedBuildingElement = NULL;
+        m_relatedBuildingElement = nullptr;
     }
     else {
         m_relatedBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));

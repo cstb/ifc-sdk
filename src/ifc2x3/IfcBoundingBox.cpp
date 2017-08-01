@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcBoundingBox::IfcBoundingBox(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_corner = NULL;
+    m_corner = nullptr;
     m_xDim = Step::getUnset(m_xDim);
     m_yDim = Step::getUnset(m_yDim);
     m_zDim = Step::getUnset(m_zDim);
@@ -70,7 +70,7 @@ IfcCartesianPoint *IfcBoundingBox::getCorner() {
         return m_corner.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -177,7 +177,7 @@ bool IfcBoundingBox::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_corner = NULL;
+        m_corner = nullptr;
     }
     else {
         m_corner = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));

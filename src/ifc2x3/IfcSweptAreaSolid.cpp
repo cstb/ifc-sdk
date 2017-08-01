@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcSweptAreaSolid::IfcSweptAreaSolid(Step::Id id, Step::SPFData *args) : IfcSolidModel(id, args) {
-    m_sweptArea = NULL;
-    m_position = NULL;
+    m_sweptArea = nullptr;
+    m_position = nullptr;
 }
 
 IfcSweptAreaSolid::~IfcSweptAreaSolid() {
@@ -69,7 +69,7 @@ IfcProfileDef *IfcSweptAreaSolid::getSweptArea() {
         return m_sweptArea.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ IfcAxis2Placement3D *IfcSweptAreaSolid::getPosition() {
         return m_position.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -124,14 +124,14 @@ bool IfcSweptAreaSolid::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_sweptArea = NULL;
+        m_sweptArea = nullptr;
     }
     else {
         m_sweptArea = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_position = NULL;
+        m_position = nullptr;
     }
     else {
         m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));

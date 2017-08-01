@@ -40,12 +40,12 @@
 using namespace ifc2x3;
 
 IfcRelConnectsStructuralMember::IfcRelConnectsStructuralMember(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingStructuralMember = NULL;
-    m_relatedStructuralConnection = NULL;
-    m_appliedCondition = NULL;
-    m_additionalConditions = NULL;
+    m_relatingStructuralMember = nullptr;
+    m_relatedStructuralConnection = nullptr;
+    m_appliedCondition = nullptr;
+    m_additionalConditions = nullptr;
     m_supportedLength = Step::getUnset(m_supportedLength);
-    m_conditionCoordinateSystem = NULL;
+    m_conditionCoordinateSystem = nullptr;
 }
 
 IfcRelConnectsStructuralMember::~IfcRelConnectsStructuralMember() {
@@ -76,7 +76,7 @@ IfcStructuralMember *IfcRelConnectsStructuralMember::getRelatingStructuralMember
         return m_relatingStructuralMember.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -108,7 +108,7 @@ IfcStructuralConnection *IfcRelConnectsStructuralMember::getRelatedStructuralCon
         return m_relatedStructuralConnection.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -140,7 +140,7 @@ IfcBoundaryCondition *IfcRelConnectsStructuralMember::getAppliedCondition() {
         return m_appliedCondition.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -166,7 +166,7 @@ IfcStructuralConnectionCondition *IfcRelConnectsStructuralMember::getAdditionalC
         return m_additionalConditions.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -218,7 +218,7 @@ IfcAxis2Placement3D *IfcRelConnectsStructuralMember::getConditionCoordinateSyste
         return m_conditionCoordinateSystem.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -247,28 +247,28 @@ bool IfcRelConnectsStructuralMember::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingStructuralMember = NULL;
+        m_relatingStructuralMember = nullptr;
     }
     else {
         m_relatingStructuralMember = static_cast< IfcStructuralMember * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedStructuralConnection = NULL;
+        m_relatedStructuralConnection = nullptr;
     }
     else {
         m_relatedStructuralConnection = static_cast< IfcStructuralConnection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_appliedCondition = NULL;
+        m_appliedCondition = nullptr;
     }
     else {
         m_appliedCondition = static_cast< IfcBoundaryCondition * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_additionalConditions = NULL;
+        m_additionalConditions = nullptr;
     }
     else {
         m_additionalConditions = static_cast< IfcStructuralConnectionCondition * > (m_expressDataSet->get(Step::getIdParam(arg)));
@@ -282,7 +282,7 @@ bool IfcRelConnectsStructuralMember::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_conditionCoordinateSystem = NULL;
+        m_conditionCoordinateSystem = nullptr;
     }
     else {
         m_conditionCoordinateSystem = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));

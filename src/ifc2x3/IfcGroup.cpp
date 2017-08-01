@@ -65,7 +65,7 @@ IfcRelAssignsToGroup *IfcGroup::getIsGroupedBy() {
         return m_isGroupedBy.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

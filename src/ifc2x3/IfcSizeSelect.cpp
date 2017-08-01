@@ -28,7 +28,7 @@
 
 using namespace ifc2x3;
 
-IfcSizeSelect::IfcSizeSelect() : Step::BaseObject(0) {
+IfcSizeSelect::IfcSizeSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 

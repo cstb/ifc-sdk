@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcEdgeCurve::IfcEdgeCurve(Step::Id id, Step::SPFData *args) : IfcEdge(id, args) {
-    m_edgeGeometry = NULL;
+    m_edgeGeometry = nullptr;
     m_sameSense = Step::getUnset(m_sameSense);
 }
 
@@ -68,7 +68,7 @@ IfcCurve *IfcEdgeCurve::getEdgeGeometry() {
         return m_edgeGeometry.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ bool IfcEdgeCurve::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_edgeGeometry = NULL;
+        m_edgeGeometry = nullptr;
     }
     else {
         m_edgeGeometry = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

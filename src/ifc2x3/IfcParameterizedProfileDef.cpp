@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcParameterizedProfileDef::IfcParameterizedProfileDef(Step::Id id, Step::SPFData *args) : IfcProfileDef(id, args) {
-    m_position = NULL;
+    m_position = nullptr;
 }
 
 IfcParameterizedProfileDef::~IfcParameterizedProfileDef() {
@@ -67,7 +67,7 @@ IfcAxis2Placement2D *IfcParameterizedProfileDef::getPosition() {
         return m_position.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcParameterizedProfileDef::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_position = NULL;
+        m_position = nullptr;
     }
     else {
         m_position = static_cast< IfcAxis2Placement2D * > (m_expressDataSet->get(Step::getIdParam(arg)));

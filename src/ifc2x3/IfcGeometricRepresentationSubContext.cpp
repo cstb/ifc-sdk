@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcGeometricRepresentationSubContext::IfcGeometricRepresentationSubContext(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationContext(id, args) {
-    m_parentContext = NULL;
+    m_parentContext = nullptr;
     m_targetScale = Step::getUnset(m_targetScale);
     m_targetView = IfcGeometricProjectionEnum_UNSET;
     m_userDefinedTargetView = Step::getUnset(m_userDefinedTargetView);
@@ -70,7 +70,7 @@ IfcGeometricRepresentationContext *IfcGeometricRepresentationSubContext::getPare
         return m_parentContext.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -183,7 +183,7 @@ bool IfcGeometricRepresentationSubContext::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_parentContext = NULL;
+        m_parentContext = nullptr;
     }
     else {
         m_parentContext = static_cast< IfcGeometricRepresentationContext * > (m_expressDataSet->get(Step::getIdParam(arg)));

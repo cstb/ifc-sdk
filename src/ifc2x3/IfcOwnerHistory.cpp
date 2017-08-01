@@ -37,13 +37,13 @@
 using namespace ifc2x3;
 
 IfcOwnerHistory::IfcOwnerHistory(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_owningUser = NULL;
-    m_owningApplication = NULL;
+    m_owningUser = nullptr;
+    m_owningApplication = nullptr;
     m_state = IfcStateEnum_UNSET;
     m_changeAction = IfcChangeActionEnum_UNSET;
     m_lastModifiedDate = Step::getUnset(m_lastModifiedDate);
-    m_lastModifyingUser = NULL;
-    m_lastModifyingApplication = NULL;
+    m_lastModifyingUser = nullptr;
+    m_lastModifyingApplication = nullptr;
     m_creationDate = Step::getUnset(m_creationDate);
 }
 
@@ -75,7 +75,7 @@ IfcPersonAndOrganization *IfcOwnerHistory::getOwningUser() {
         return m_owningUser.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -101,7 +101,7 @@ IfcApplication *IfcOwnerHistory::getOwningApplication() {
         return m_owningApplication.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -205,7 +205,7 @@ IfcPersonAndOrganization *IfcOwnerHistory::getLastModifyingUser() {
         return m_lastModifyingUser.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -231,7 +231,7 @@ IfcApplication *IfcOwnerHistory::getLastModifyingApplication() {
         return m_lastModifyingApplication.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -282,14 +282,14 @@ bool IfcOwnerHistory::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_owningUser = NULL;
+        m_owningUser = nullptr;
     }
     else {
         m_owningUser = static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_owningApplication = NULL;
+        m_owningApplication = nullptr;
     }
     else {
         m_owningApplication = static_cast< IfcApplication * > (m_expressDataSet->get(Step::getIdParam(arg)));
@@ -348,14 +348,14 @@ bool IfcOwnerHistory::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_lastModifyingUser = NULL;
+        m_lastModifyingUser = nullptr;
     }
     else {
         m_lastModifyingUser = static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_lastModifyingApplication = NULL;
+        m_lastModifyingApplication = nullptr;
     }
     else {
         m_lastModifyingApplication = static_cast< IfcApplication * > (m_expressDataSet->get(Step::getIdParam(arg)));

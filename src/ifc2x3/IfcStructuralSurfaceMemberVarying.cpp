@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcStructuralSurfaceMemberVarying::IfcStructuralSurfaceMemberVarying(Step::Id id, Step::SPFData *args) : IfcStructuralSurfaceMember(id, args) {
-    m_varyingThicknessLocation = NULL;
+    m_varyingThicknessLocation = nullptr;
 }
 
 IfcStructuralSurfaceMemberVarying::~IfcStructuralSurfaceMemberVarying() {
@@ -95,7 +95,7 @@ IfcShapeAspect *IfcStructuralSurfaceMemberVarying::getVaryingThicknessLocation()
         return m_varyingThicknessLocation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -143,7 +143,7 @@ bool IfcStructuralSurfaceMemberVarying::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_varyingThicknessLocation = NULL;
+        m_varyingThicknessLocation = nullptr;
     }
     else {
         m_varyingThicknessLocation = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));

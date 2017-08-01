@@ -63,7 +63,7 @@ void Inverted_IfcAppliedValueRelationship_Components_type::clear() {
 }
 
 IfcAppliedValueRelationship::IfcAppliedValueRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_componentOfTotal = NULL;
+    m_componentOfTotal = nullptr;
     m_components.setOwner(this);
     m_arithmeticOperator = IfcArithmeticOperatorEnum_UNSET;
     m_name = Step::getUnset(m_name);
@@ -98,7 +98,7 @@ IfcAppliedValue *IfcAppliedValueRelationship::getComponentOfTotal() {
         return m_componentOfTotal.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -231,7 +231,7 @@ bool IfcAppliedValueRelationship::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_componentOfTotal = NULL;
+        m_componentOfTotal = nullptr;
     }
     else {
         m_componentOfTotal = static_cast< IfcAppliedValue * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcTwoDirectionRepeatFactor::IfcTwoDirectionRepeatFactor(Step::Id id, Step::SPFData *args) : IfcOneDirectionRepeatFactor(id, args) {
-    m_secondRepeatFactor = NULL;
+    m_secondRepeatFactor = nullptr;
 }
 
 IfcTwoDirectionRepeatFactor::~IfcTwoDirectionRepeatFactor() {
@@ -67,7 +67,7 @@ IfcVector *IfcTwoDirectionRepeatFactor::getSecondRepeatFactor() {
         return m_secondRepeatFactor.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcTwoDirectionRepeatFactor::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_secondRepeatFactor = NULL;
+        m_secondRepeatFactor = nullptr;
     }
     else {
         m_secondRepeatFactor = static_cast< IfcVector * > (m_expressDataSet->get(Step::getIdParam(arg)));

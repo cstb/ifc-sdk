@@ -37,9 +37,9 @@
 using namespace ifc2x3;
 
 IfcRelConnectsElements::IfcRelConnectsElements(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_connectionGeometry = NULL;
-    m_relatingElement = NULL;
-    m_relatedElement = NULL;
+    m_connectionGeometry = nullptr;
+    m_relatingElement = nullptr;
+    m_relatedElement = nullptr;
 }
 
 IfcRelConnectsElements::~IfcRelConnectsElements() {
@@ -70,7 +70,7 @@ IfcConnectionGeometry *IfcRelConnectsElements::getConnectionGeometry() {
         return m_connectionGeometry.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ IfcElement *IfcRelConnectsElements::getRelatingElement() {
         return m_relatingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -128,7 +128,7 @@ IfcElement *IfcRelConnectsElements::getRelatedElement() {
         return m_relatedElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -163,21 +163,21 @@ bool IfcRelConnectsElements::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_connectionGeometry = NULL;
+        m_connectionGeometry = nullptr;
     }
     else {
         m_connectionGeometry = static_cast< IfcConnectionGeometry * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingElement = NULL;
+        m_relatingElement = nullptr;
     }
     else {
         m_relatingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedElement = NULL;
+        m_relatedElement = nullptr;
     }
     else {
         m_relatedElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -64,7 +64,7 @@ void Inverted_IfcRelFlowControlElements_RelatedControlElements_type::clear() {
 
 IfcRelFlowControlElements::IfcRelFlowControlElements(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
     m_relatedControlElements.setOwner(this);
-    m_relatingFlowElement = NULL;
+    m_relatingFlowElement = nullptr;
 }
 
 IfcRelFlowControlElements::~IfcRelFlowControlElements() {
@@ -119,7 +119,7 @@ IfcDistributionFlowElement *IfcRelFlowControlElements::getRelatingFlowElement() 
         return m_relatingFlowElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -173,7 +173,7 @@ bool IfcRelFlowControlElements::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingFlowElement = NULL;
+        m_relatingFlowElement = nullptr;
     }
     else {
         m_relatingFlowElement = static_cast< IfcDistributionFlowElement * > (m_expressDataSet->get(Step::getIdParam(arg)));

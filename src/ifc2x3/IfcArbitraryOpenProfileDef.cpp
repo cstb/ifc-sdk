@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcArbitraryOpenProfileDef::IfcArbitraryOpenProfileDef(Step::Id id, Step::SPFData *args) : IfcProfileDef(id, args) {
-    m_curve = NULL;
+    m_curve = nullptr;
 }
 
 IfcArbitraryOpenProfileDef::~IfcArbitraryOpenProfileDef() {
@@ -67,7 +67,7 @@ IfcBoundedCurve *IfcArbitraryOpenProfileDef::getCurve() {
         return m_curve.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcArbitraryOpenProfileDef::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_curve = NULL;
+        m_curve = nullptr;
     }
     else {
         m_curve = static_cast< IfcBoundedCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -41,7 +41,7 @@
 
 using namespace ifc2x3;
 
-IfcObjectReferenceSelect::IfcObjectReferenceSelect() : Step::BaseObject(0) {
+IfcObjectReferenceSelect::IfcObjectReferenceSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -225,7 +225,7 @@ IfcMaterial *IfcObjectReferenceSelect::getIfcMaterial() const {
         return m_IfcObjectReferenceSelect_union.m_IfcMaterial;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -249,7 +249,7 @@ IfcPerson *IfcObjectReferenceSelect::getIfcPerson() const {
         return m_IfcObjectReferenceSelect_union.m_IfcPerson;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -273,7 +273,7 @@ IfcDateAndTime *IfcObjectReferenceSelect::getIfcDateAndTime() const {
         return m_IfcObjectReferenceSelect_union.m_IfcDateAndTime;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -297,7 +297,7 @@ IfcMaterialList *IfcObjectReferenceSelect::getIfcMaterialList() const {
         return m_IfcObjectReferenceSelect_union.m_IfcMaterialList;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -321,7 +321,7 @@ IfcOrganization *IfcObjectReferenceSelect::getIfcOrganization() const {
         return m_IfcObjectReferenceSelect_union.m_IfcOrganization;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -345,7 +345,7 @@ IfcCalendarDate *IfcObjectReferenceSelect::getIfcCalendarDate() const {
         return m_IfcObjectReferenceSelect_union.m_IfcCalendarDate;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -369,7 +369,7 @@ IfcLocalTime *IfcObjectReferenceSelect::getIfcLocalTime() const {
         return m_IfcObjectReferenceSelect_union.m_IfcLocalTime;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -393,7 +393,7 @@ IfcPersonAndOrganization *IfcObjectReferenceSelect::getIfcPersonAndOrganization(
         return m_IfcObjectReferenceSelect_union.m_IfcPersonAndOrganization;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -417,7 +417,7 @@ IfcMaterialLayer *IfcObjectReferenceSelect::getIfcMaterialLayer() const {
         return m_IfcObjectReferenceSelect_union.m_IfcMaterialLayer;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -441,7 +441,7 @@ IfcExternalReference *IfcObjectReferenceSelect::getIfcExternalReference() const 
         return m_IfcObjectReferenceSelect_union.m_IfcExternalReference;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -465,7 +465,7 @@ IfcTimeSeries *IfcObjectReferenceSelect::getIfcTimeSeries() const {
         return m_IfcObjectReferenceSelect_union.m_IfcTimeSeries;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -489,7 +489,7 @@ IfcAddress *IfcObjectReferenceSelect::getIfcAddress() const {
         return m_IfcObjectReferenceSelect_union.m_IfcAddress;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -513,7 +513,7 @@ IfcAppliedValue *IfcObjectReferenceSelect::getIfcAppliedValue() const {
         return m_IfcObjectReferenceSelect_union.m_IfcAppliedValue;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

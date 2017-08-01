@@ -67,8 +67,8 @@ void Inverted_IfcLibraryInformation_LibraryReference_type::clear() {
 IfcLibraryInformation::IfcLibraryInformation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_version = Step::getUnset(m_version);
-    m_publisher = NULL;
-    m_versionDate = NULL;
+    m_publisher = nullptr;
+    m_versionDate = nullptr;
     m_libraryReference.setUnset(true);
     m_libraryReference.setOwner(this);
 }
@@ -153,7 +153,7 @@ IfcOrganization *IfcLibraryInformation::getPublisher() {
         return m_publisher.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -179,7 +179,7 @@ IfcCalendarDate *IfcLibraryInformation::getVersionDate() {
         return m_versionDate.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -242,14 +242,14 @@ bool IfcLibraryInformation::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_publisher = NULL;
+        m_publisher = nullptr;
     }
     else {
         m_publisher = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_versionDate = NULL;
+        m_versionDate = nullptr;
     }
     else {
         m_versionDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));

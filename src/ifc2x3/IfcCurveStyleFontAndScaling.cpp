@@ -37,7 +37,7 @@ using namespace ifc2x3;
 
 IfcCurveStyleFontAndScaling::IfcCurveStyleFontAndScaling(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
-    m_curveFont = NULL;
+    m_curveFont = nullptr;
     m_curveFontScaling = Step::getUnset(m_curveFontScaling);
 }
 
@@ -95,7 +95,7 @@ IfcCurveStyleFontSelect *IfcCurveStyleFontAndScaling::getCurveFont() {
         return m_curveFont.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -153,7 +153,7 @@ bool IfcCurveStyleFontAndScaling::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_curveFont = NULL;
+        m_curveFont = nullptr;
     }
     else {
         m_curveFont = new IfcCurveStyleFontSelect;

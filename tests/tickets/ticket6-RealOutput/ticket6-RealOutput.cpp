@@ -14,7 +14,7 @@ class MySPFWriter : public Step::BaseSPFWriter
 {
 public:
 
-    MySPFWriter() : Step::BaseSPFWriter(0) {}
+    MySPFWriter() : Step::BaseSPFWriter(nullptr) {}
 
     ~MySPFWriter() override {}
 

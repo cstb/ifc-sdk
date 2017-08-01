@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcRelAssociatesAppliedValue::IfcRelAssociatesAppliedValue(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
-    m_relatingAppliedValue = NULL;
+    m_relatingAppliedValue = nullptr;
 }
 
 IfcRelAssociatesAppliedValue::~IfcRelAssociatesAppliedValue() {
@@ -67,7 +67,7 @@ IfcAppliedValue *IfcRelAssociatesAppliedValue::getRelatingAppliedValue() {
         return m_relatingAppliedValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcRelAssociatesAppliedValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingAppliedValue = NULL;
+        m_relatingAppliedValue = nullptr;
     }
     else {
         m_relatingAppliedValue = static_cast< IfcAppliedValue * > (m_expressDataSet->get(Step::getIdParam(arg)));

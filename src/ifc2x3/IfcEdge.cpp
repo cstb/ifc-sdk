@@ -36,8 +36,8 @@
 using namespace ifc2x3;
 
 IfcEdge::IfcEdge(Step::Id id, Step::SPFData *args) : IfcTopologicalRepresentationItem(id, args) {
-    m_edgeStart = NULL;
-    m_edgeEnd = NULL;
+    m_edgeStart = nullptr;
+    m_edgeEnd = nullptr;
 }
 
 IfcEdge::~IfcEdge() {
@@ -68,7 +68,7 @@ IfcVertex *IfcEdge::getEdgeStart() {
         return m_edgeStart.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -94,7 +94,7 @@ IfcVertex *IfcEdge::getEdgeEnd() {
         return m_edgeEnd.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,14 +123,14 @@ bool IfcEdge::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_edgeStart = NULL;
+        m_edgeStart = nullptr;
     }
     else {
         m_edgeStart = static_cast< IfcVertex * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_edgeEnd = NULL;
+        m_edgeEnd = nullptr;
     }
     else {
         m_edgeEnd = static_cast< IfcVertex * > (m_expressDataSet->get(Step::getIdParam(arg)));

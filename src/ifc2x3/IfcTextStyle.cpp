@@ -37,9 +37,9 @@
 using namespace ifc2x3;
 
 IfcTextStyle::IfcTextStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
-    m_textCharacterAppearance = NULL;
-    m_textStyle = NULL;
-    m_textFontStyle = NULL;
+    m_textCharacterAppearance = nullptr;
+    m_textStyle = nullptr;
+    m_textFontStyle = nullptr;
 }
 
 IfcTextStyle::~IfcTextStyle() {
@@ -70,7 +70,7 @@ IfcCharacterStyleSelect *IfcTextStyle::getTextCharacterAppearance() {
         return m_textCharacterAppearance.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ IfcTextStyleSelect *IfcTextStyle::getTextStyle() {
         return m_textStyle.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -122,7 +122,7 @@ IfcTextFontSelect *IfcTextStyle::getTextFontStyle() {
         return m_textFontStyle.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -151,7 +151,7 @@ bool IfcTextStyle::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_textCharacterAppearance = NULL;
+        m_textCharacterAppearance = nullptr;
     }
     else {
         m_textCharacterAppearance = new IfcCharacterStyleSelect;
@@ -170,7 +170,7 @@ bool IfcTextStyle::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_textStyle = NULL;
+        m_textStyle = nullptr;
     }
     else {
         m_textStyle = new IfcTextStyleSelect;
@@ -189,7 +189,7 @@ bool IfcTextStyle::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_textFontStyle = NULL;
+        m_textFontStyle = nullptr;
     }
     else {
         m_textFontStyle = new IfcTextFontSelect;

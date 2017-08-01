@@ -40,7 +40,7 @@ IfcTextStyleWithBoxCharacteristics::IfcTextStyleWithBoxCharacteristics(Step::Id 
     m_boxWidth = Step::getUnset(m_boxWidth);
     m_boxSlantAngle = Step::getUnset(m_boxSlantAngle);
     m_boxRotateAngle = Step::getUnset(m_boxRotateAngle);
-    m_characterSpacing = NULL;
+    m_characterSpacing = nullptr;
 }
 
 IfcTextStyleWithBoxCharacteristics::~IfcTextStyleWithBoxCharacteristics() {
@@ -175,7 +175,7 @@ IfcSizeSelect *IfcTextStyleWithBoxCharacteristics::getCharacterSpacing() {
         return m_characterSpacing.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -228,7 +228,7 @@ bool IfcTextStyleWithBoxCharacteristics::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_characterSpacing = NULL;
+        m_characterSpacing = nullptr;
     }
     else {
         m_characterSpacing = new IfcSizeSelect;

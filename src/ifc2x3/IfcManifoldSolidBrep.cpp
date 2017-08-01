@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcManifoldSolidBrep::IfcManifoldSolidBrep(Step::Id id, Step::SPFData *args) : IfcSolidModel(id, args) {
-    m_outer = NULL;
+    m_outer = nullptr;
 }
 
 IfcManifoldSolidBrep::~IfcManifoldSolidBrep() {
@@ -67,7 +67,7 @@ IfcClosedShell *IfcManifoldSolidBrep::getOuter() {
         return m_outer.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcManifoldSolidBrep::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_outer = NULL;
+        m_outer = nullptr;
     }
     else {
         m_outer = static_cast< IfcClosedShell * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcLine::IfcLine(Step::Id id, Step::SPFData *args) : IfcCurve(id, args) {
-    m_pnt = NULL;
-    m_dir = NULL;
+    m_pnt = nullptr;
+    m_dir = nullptr;
 }
 
 IfcLine::~IfcLine() {
@@ -69,7 +69,7 @@ IfcCartesianPoint *IfcLine::getPnt() {
         return m_pnt.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ IfcVector *IfcLine::getDir() {
         return m_dir.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -124,14 +124,14 @@ bool IfcLine::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_pnt = NULL;
+        m_pnt = nullptr;
     }
     else {
         m_pnt = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_dir = NULL;
+        m_dir = nullptr;
     }
     else {
         m_dir = static_cast< IfcVector * > (m_expressDataSet->get(Step::getIdParam(arg)));

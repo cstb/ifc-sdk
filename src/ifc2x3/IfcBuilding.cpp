@@ -38,7 +38,7 @@ using namespace ifc2x3;
 IfcBuilding::IfcBuilding(Step::Id id, Step::SPFData *args) : IfcSpatialStructureElement(id, args) {
     m_elevationOfRefHeight = Step::getUnset(m_elevationOfRefHeight);
     m_elevationOfTerrain = Step::getUnset(m_elevationOfTerrain);
-    m_buildingAddress = NULL;
+    m_buildingAddress = nullptr;
 }
 
 IfcBuilding::~IfcBuilding() {
@@ -121,7 +121,7 @@ IfcPostalAddress *IfcBuilding::getBuildingAddress() {
         return m_buildingAddress.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -164,7 +164,7 @@ bool IfcBuilding::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_buildingAddress = NULL;
+        m_buildingAddress = nullptr;
     }
     else {
         m_buildingAddress = static_cast< IfcPostalAddress * > (m_expressDataSet->get(Step::getIdParam(arg)));

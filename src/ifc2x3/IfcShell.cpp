@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcShell::IfcShell() : Step::BaseObject(0) {
+IfcShell::IfcShell() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcClosedShell *IfcShell::getIfcClosedShell() const {
         return m_IfcShell_union.m_IfcClosedShell;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcOpenShell *IfcShell::getIfcOpenShell() const {
         return m_IfcShell_union.m_IfcOpenShell;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

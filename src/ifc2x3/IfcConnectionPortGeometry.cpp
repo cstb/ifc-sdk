@@ -38,9 +38,9 @@
 using namespace ifc2x3;
 
 IfcConnectionPortGeometry::IfcConnectionPortGeometry(Step::Id id, Step::SPFData *args) : IfcConnectionGeometry(id, args) {
-    m_locationAtRelatingElement = NULL;
-    m_locationAtRelatedElement = NULL;
-    m_profileOfPort = NULL;
+    m_locationAtRelatingElement = nullptr;
+    m_locationAtRelatedElement = nullptr;
+    m_profileOfPort = nullptr;
 }
 
 IfcConnectionPortGeometry::~IfcConnectionPortGeometry() {
@@ -71,7 +71,7 @@ IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatingElement() {
         return m_locationAtRelatingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -97,7 +97,7 @@ IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatedElement() {
         return m_locationAtRelatedElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ IfcProfileDef *IfcConnectionPortGeometry::getProfileOfPort() {
         return m_profileOfPort.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -152,7 +152,7 @@ bool IfcConnectionPortGeometry::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_locationAtRelatingElement = NULL;
+        m_locationAtRelatingElement = nullptr;
     }
     else {
         m_locationAtRelatingElement = new IfcAxis2Placement;
@@ -171,7 +171,7 @@ bool IfcConnectionPortGeometry::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_locationAtRelatedElement = NULL;
+        m_locationAtRelatedElement = nullptr;
     }
     else {
         m_locationAtRelatedElement = new IfcAxis2Placement;
@@ -190,7 +190,7 @@ bool IfcConnectionPortGeometry::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_profileOfPort = NULL;
+        m_profileOfPort = nullptr;
     }
     else {
         m_profileOfPort = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));

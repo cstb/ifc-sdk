@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcRelVoidsElement::IfcRelVoidsElement(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingBuildingElement = NULL;
-    m_relatedOpeningElement = NULL;
+    m_relatingBuildingElement = nullptr;
+    m_relatedOpeningElement = nullptr;
 }
 
 IfcRelVoidsElement::~IfcRelVoidsElement() {
@@ -69,7 +69,7 @@ IfcElement *IfcRelVoidsElement::getRelatingBuildingElement() {
         return m_relatingBuildingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -101,7 +101,7 @@ IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement() {
         return m_relatedOpeningElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -112,7 +112,7 @@ const IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement
 
 void IfcRelVoidsElement::setRelatedOpeningElement(const Step::RefPtr< IfcFeatureElementSubtraction > &value) {
     if (m_relatedOpeningElement.valid()) {
-        m_relatedOpeningElement->m_voidsElements = NULL;
+        m_relatedOpeningElement->m_voidsElements = nullptr;
     }
     if (value.valid()) {
         value->m_voidsElements = this;
@@ -136,14 +136,14 @@ bool IfcRelVoidsElement::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingBuildingElement = NULL;
+        m_relatingBuildingElement = nullptr;
     }
     else {
         m_relatingBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedOpeningElement = NULL;
+        m_relatedOpeningElement = nullptr;
     }
     else {
         m_relatedOpeningElement = static_cast< IfcFeatureElementSubtraction * > (m_expressDataSet->get(Step::getIdParam(arg)));

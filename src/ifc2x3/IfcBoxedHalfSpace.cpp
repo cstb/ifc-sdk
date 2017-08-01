@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcBoxedHalfSpace::IfcBoxedHalfSpace(Step::Id id, Step::SPFData *args) : IfcHalfSpaceSolid(id, args) {
-    m_enclosure = NULL;
+    m_enclosure = nullptr;
 }
 
 IfcBoxedHalfSpace::~IfcBoxedHalfSpace() {
@@ -67,7 +67,7 @@ IfcBoundingBox *IfcBoxedHalfSpace::getEnclosure() {
         return m_enclosure.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcBoxedHalfSpace::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_enclosure = NULL;
+        m_enclosure = nullptr;
     }
     else {
         m_enclosure = static_cast< IfcBoundingBox * > (m_expressDataSet->get(Step::getIdParam(arg)));

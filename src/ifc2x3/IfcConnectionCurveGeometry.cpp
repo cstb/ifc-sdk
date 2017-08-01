@@ -35,8 +35,8 @@
 using namespace ifc2x3;
 
 IfcConnectionCurveGeometry::IfcConnectionCurveGeometry(Step::Id id, Step::SPFData *args) : IfcConnectionGeometry(id, args) {
-    m_curveOnRelatingElement = NULL;
-    m_curveOnRelatedElement = NULL;
+    m_curveOnRelatingElement = nullptr;
+    m_curveOnRelatedElement = nullptr;
 }
 
 IfcConnectionCurveGeometry::~IfcConnectionCurveGeometry() {
@@ -67,7 +67,7 @@ IfcCurveOrEdgeCurve *IfcConnectionCurveGeometry::getCurveOnRelatingElement() {
         return m_curveOnRelatingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -93,7 +93,7 @@ IfcCurveOrEdgeCurve *IfcConnectionCurveGeometry::getCurveOnRelatedElement() {
         return m_curveOnRelatedElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -122,7 +122,7 @@ bool IfcConnectionCurveGeometry::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_curveOnRelatingElement = NULL;
+        m_curveOnRelatingElement = nullptr;
     }
     else {
         m_curveOnRelatingElement = new IfcCurveOrEdgeCurve;
@@ -141,7 +141,7 @@ bool IfcConnectionCurveGeometry::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_curveOnRelatedElement = NULL;
+        m_curveOnRelatedElement = nullptr;
     }
     else {
         m_curveOnRelatedElement = new IfcCurveOrEdgeCurve;

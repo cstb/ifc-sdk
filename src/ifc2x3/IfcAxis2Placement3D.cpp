@@ -36,8 +36,8 @@
 using namespace ifc2x3;
 
 IfcAxis2Placement3D::IfcAxis2Placement3D(Step::Id id, Step::SPFData *args) : IfcPlacement(id, args) {
-    m_axis = NULL;
-    m_refDirection = NULL;
+    m_axis = nullptr;
+    m_refDirection = nullptr;
 }
 
 IfcAxis2Placement3D::~IfcAxis2Placement3D() {
@@ -68,7 +68,7 @@ IfcDirection *IfcAxis2Placement3D::getAxis() {
         return m_axis.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -94,7 +94,7 @@ IfcDirection *IfcAxis2Placement3D::getRefDirection() {
         return m_refDirection.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,14 +123,14 @@ bool IfcAxis2Placement3D::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_axis = NULL;
+        m_axis = nullptr;
     }
     else {
         m_axis = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_refDirection = NULL;
+        m_refDirection = nullptr;
     }
     else {
         m_refDirection = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));

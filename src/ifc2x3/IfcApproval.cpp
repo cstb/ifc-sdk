@@ -40,7 +40,7 @@ using namespace ifc2x3;
 
 IfcApproval::IfcApproval(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_description = Step::getUnset(m_description);
-    m_approvalDateTime = NULL;
+    m_approvalDateTime = nullptr;
     m_approvalStatus = Step::getUnset(m_approvalStatus);
     m_approvalLevel = Step::getUnset(m_approvalLevel);
     m_approvalQualifier = Step::getUnset(m_approvalQualifier);
@@ -102,7 +102,7 @@ IfcDateTimeSelect *IfcApproval::getApprovalDateTime() {
         return m_approvalDateTime.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -322,7 +322,7 @@ bool IfcApproval::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_approvalDateTime = NULL;
+        m_approvalDateTime = nullptr;
     }
     else {
         m_approvalDateTime = new IfcDateTimeSelect;

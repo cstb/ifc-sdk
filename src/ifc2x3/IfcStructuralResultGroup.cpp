@@ -39,7 +39,7 @@ using namespace ifc2x3;
 
 IfcStructuralResultGroup::IfcStructuralResultGroup(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
     m_theoryType = IfcAnalysisTheoryTypeEnum_UNSET;
-    m_resultForLoadGroup = NULL;
+    m_resultForLoadGroup = nullptr;
     m_isLinear = Step::getUnset(m_isLinear);
 }
 
@@ -97,7 +97,7 @@ IfcStructuralLoadGroup *IfcStructuralResultGroup::getResultForLoadGroup() {
         return m_resultForLoadGroup.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -202,7 +202,7 @@ bool IfcStructuralResultGroup::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_resultForLoadGroup = NULL;
+        m_resultForLoadGroup = nullptr;
     }
     else {
         m_resultForLoadGroup = static_cast< IfcStructuralLoadGroup * > (m_expressDataSet->get(Step::getIdParam(arg)));

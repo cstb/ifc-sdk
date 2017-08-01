@@ -38,8 +38,8 @@
 using namespace ifc2x3;
 
 IfcPropertySingleValue::IfcPropertySingleValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
-    m_nominalValue = NULL;
-    m_unit = NULL;
+    m_nominalValue = nullptr;
+    m_unit = nullptr;
 }
 
 IfcPropertySingleValue::~IfcPropertySingleValue() {
@@ -70,7 +70,7 @@ IfcValue *IfcPropertySingleValue::getNominalValue() {
         return m_nominalValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ IfcUnit *IfcPropertySingleValue::getUnit() {
         return m_unit.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -125,7 +125,7 @@ bool IfcPropertySingleValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_nominalValue = NULL;
+        m_nominalValue = nullptr;
     }
     else {
         m_nominalValue = new IfcValue;
@@ -654,7 +654,7 @@ bool IfcPropertySingleValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_unit = NULL;
+        m_unit = nullptr;
     }
     else {
         m_unit = new IfcUnit;

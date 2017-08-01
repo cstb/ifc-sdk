@@ -37,10 +37,10 @@
 using namespace ifc2x3;
 
 IfcSurfaceCurveSweptAreaSolid::IfcSurfaceCurveSweptAreaSolid(Step::Id id, Step::SPFData *args) : IfcSweptAreaSolid(id, args) {
-    m_directrix = NULL;
+    m_directrix = nullptr;
     m_startParam = Step::getUnset(m_startParam);
     m_endParam = Step::getUnset(m_endParam);
-    m_referenceSurface = NULL;
+    m_referenceSurface = nullptr;
 }
 
 IfcSurfaceCurveSweptAreaSolid::~IfcSurfaceCurveSweptAreaSolid() {
@@ -71,7 +71,7 @@ IfcCurve *IfcSurfaceCurveSweptAreaSolid::getDirectrix() {
         return m_directrix.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -149,7 +149,7 @@ IfcSurface *IfcSurfaceCurveSweptAreaSolid::getReferenceSurface() {
         return m_referenceSurface.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -178,7 +178,7 @@ bool IfcSurfaceCurveSweptAreaSolid::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_directrix = NULL;
+        m_directrix = nullptr;
     }
     else {
         m_directrix = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
@@ -199,7 +199,7 @@ bool IfcSurfaceCurveSweptAreaSolid::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_referenceSurface = NULL;
+        m_referenceSurface = nullptr;
     }
     else {
         m_referenceSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)));

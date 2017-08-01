@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcConditionCriterion::IfcConditionCriterion(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
-    m_criterion = NULL;
-    m_criterionDateTime = NULL;
+    m_criterion = nullptr;
+    m_criterionDateTime = nullptr;
 }
 
 IfcConditionCriterion::~IfcConditionCriterion() {
@@ -69,7 +69,7 @@ IfcConditionCriterionSelect *IfcConditionCriterion::getCriterion() {
         return m_criterion.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ IfcDateTimeSelect *IfcConditionCriterion::getCriterionDateTime() {
         return m_criterionDateTime.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -124,7 +124,7 @@ bool IfcConditionCriterion::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_criterion = NULL;
+        m_criterion = nullptr;
     }
     else {
         m_criterion = new IfcConditionCriterionSelect;
@@ -148,7 +148,7 @@ bool IfcConditionCriterion::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_criterionDateTime = NULL;
+        m_criterionDateTime = nullptr;
     }
     else {
         m_criterionDateTime = new IfcDateTimeSelect;

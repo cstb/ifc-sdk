@@ -31,7 +31,7 @@
 
 using namespace ifc2x3;
 
-IfcActorSelect::IfcActorSelect() : Step::BaseObject(0) {
+IfcActorSelect::IfcActorSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -123,7 +123,7 @@ IfcOrganization *IfcActorSelect::getIfcOrganization() const {
         return m_IfcActorSelect_union.m_IfcOrganization;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -147,7 +147,7 @@ IfcPerson *IfcActorSelect::getIfcPerson() const {
         return m_IfcActorSelect_union.m_IfcPerson;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -171,7 +171,7 @@ IfcPersonAndOrganization *IfcActorSelect::getIfcPersonAndOrganization() const {
         return m_IfcActorSelect_union.m_IfcPersonAndOrganization;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcRelConnectsWithEccentricity::IfcRelConnectsWithEccentricity(Step::Id id, Step::SPFData *args) : IfcRelConnectsStructuralMember(id, args) {
-    m_connectionConstraint = NULL;
+    m_connectionConstraint = nullptr;
 }
 
 IfcRelConnectsWithEccentricity::~IfcRelConnectsWithEccentricity() {
@@ -67,7 +67,7 @@ IfcConnectionGeometry *IfcRelConnectsWithEccentricity::getConnectionConstraint()
         return m_connectionConstraint.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcRelConnectsWithEccentricity::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_connectionConstraint = NULL;
+        m_connectionConstraint = nullptr;
     }
     else {
         m_connectionConstraint = static_cast< IfcConnectionGeometry * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -38,7 +38,7 @@ using namespace ifc2x3;
 
 IfcProfileProperties::IfcProfileProperties(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_profileName = Step::getUnset(m_profileName);
-    m_profileDefinition = NULL;
+    m_profileDefinition = nullptr;
 }
 
 IfcProfileProperties::~IfcProfileProperties() {
@@ -95,7 +95,7 @@ IfcProfileDef *IfcProfileProperties::getProfileDefinition() {
         return m_profileDefinition.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -127,7 +127,7 @@ bool IfcProfileProperties::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_profileDefinition = NULL;
+        m_profileDefinition = nullptr;
     }
     else {
         m_profileDefinition = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));

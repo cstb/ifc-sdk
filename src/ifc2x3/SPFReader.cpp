@@ -8774,7 +8774,7 @@ bool SPFReader::read(std::istream &ifs, size_t inputSize) {
     m_expressDataSet = new ExpressDataSet;
     if (!Step::BaseSPFReader::read(ifs,inputSize)) {
         delete m_expressDataSet;
-        m_expressDataSet = 0;
+        m_expressDataSet = nullptr;
         return false;
     }
 

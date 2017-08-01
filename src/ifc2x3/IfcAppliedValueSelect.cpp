@@ -29,7 +29,7 @@
 
 using namespace ifc2x3;
 
-IfcAppliedValueSelect::IfcAppliedValueSelect() : Step::BaseObject(0) {
+IfcAppliedValueSelect::IfcAppliedValueSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -131,7 +131,7 @@ IfcMeasureWithUnit *IfcAppliedValueSelect::getIfcMeasureWithUnit() const {
         return m_IfcAppliedValueSelect_union.m_IfcMeasureWithUnit;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

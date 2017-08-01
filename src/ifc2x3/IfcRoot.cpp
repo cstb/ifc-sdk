@@ -38,7 +38,7 @@ using namespace ifc2x3;
 
 IfcRoot::IfcRoot(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_globalId = Step::getUnset(m_globalId);
-    m_ownerHistory = NULL;
+    m_ownerHistory = nullptr;
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
 }
@@ -97,7 +97,7 @@ IfcOwnerHistory *IfcRoot::getOwnerHistory() {
         return m_ownerHistory.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -181,7 +181,7 @@ bool IfcRoot::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_ownerHistory = NULL;
+        m_ownerHistory = nullptr;
     }
     else {
         m_ownerHistory = static_cast< IfcOwnerHistory * > (m_expressDataSet->get(Step::getIdParam(arg)));

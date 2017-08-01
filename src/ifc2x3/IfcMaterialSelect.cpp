@@ -33,7 +33,7 @@
 
 using namespace ifc2x3;
 
-IfcMaterialSelect::IfcMaterialSelect() : Step::BaseObject(0) {
+IfcMaterialSelect::IfcMaterialSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -145,7 +145,7 @@ IfcMaterial *IfcMaterialSelect::getIfcMaterial() const {
         return m_IfcMaterialSelect_union.m_IfcMaterial;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -169,7 +169,7 @@ IfcMaterialList *IfcMaterialSelect::getIfcMaterialList() const {
         return m_IfcMaterialSelect_union.m_IfcMaterialList;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -193,7 +193,7 @@ IfcMaterialLayerSetUsage *IfcMaterialSelect::getIfcMaterialLayerSetUsage() const
         return m_IfcMaterialSelect_union.m_IfcMaterialLayerSetUsage;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -217,7 +217,7 @@ IfcMaterialLayerSet *IfcMaterialSelect::getIfcMaterialLayerSet() const {
         return m_IfcMaterialSelect_union.m_IfcMaterialLayerSet;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -241,7 +241,7 @@ IfcMaterialLayer *IfcMaterialSelect::getIfcMaterialLayer() const {
         return m_IfcMaterialSelect_union.m_IfcMaterialLayer;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

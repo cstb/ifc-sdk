@@ -29,7 +29,7 @@
 
 using namespace ifc2x3;
 
-IfcConditionCriterionSelect::IfcConditionCriterionSelect() : Step::BaseObject(0) {
+IfcConditionCriterionSelect::IfcConditionCriterionSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -128,7 +128,7 @@ IfcMeasureWithUnit *IfcConditionCriterionSelect::getIfcMeasureWithUnit() const {
         return m_IfcConditionCriterionSelect_union.m_IfcMeasureWithUnit;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

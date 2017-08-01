@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcRectangularTrimmedSurface::IfcRectangularTrimmedSurface(Step::Id id, Step::SPFData *args) : IfcBoundedSurface(id, args) {
-    m_basisSurface = NULL;
+    m_basisSurface = nullptr;
     m_u1 = Step::getUnset(m_u1);
     m_v1 = Step::getUnset(m_v1);
     m_u2 = Step::getUnset(m_u2);
@@ -73,7 +73,7 @@ IfcSurface *IfcRectangularTrimmedSurface::getBasisSurface() {
         return m_basisSurface.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -258,7 +258,7 @@ bool IfcRectangularTrimmedSurface::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_basisSurface = NULL;
+        m_basisSurface = nullptr;
     }
     else {
         m_basisSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)));

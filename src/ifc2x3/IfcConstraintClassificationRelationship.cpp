@@ -38,7 +38,7 @@
 using namespace ifc2x3;
 
 IfcConstraintClassificationRelationship::IfcConstraintClassificationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_classifiedConstraint = NULL;
+    m_classifiedConstraint = nullptr;
 }
 
 IfcConstraintClassificationRelationship::~IfcConstraintClassificationRelationship() {
@@ -69,7 +69,7 @@ IfcConstraint *IfcConstraintClassificationRelationship::getClassifiedConstraint(
         return m_classifiedConstraint.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -128,7 +128,7 @@ bool IfcConstraintClassificationRelationship::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_classifiedConstraint = NULL;
+        m_classifiedConstraint = nullptr;
     }
     else {
         m_classifiedConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)));

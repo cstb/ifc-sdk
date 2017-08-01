@@ -164,7 +164,7 @@ namespace Step {
 
         //! default constructor
         RefPtr() :
-            _ptr(NULL)
+            _ptr(nullptr)
         {
         }
 
@@ -206,7 +206,7 @@ namespace Step {
         {
             if (_ptr)
                 _ptr->unref();
-            _ptr = NULL;
+            _ptr = nullptr;
         }
 
         /*!
@@ -367,7 +367,7 @@ namespace Step {
 
         bool valid() const
         {
-            return _ptr != NULL;
+            return _ptr != nullptr;
         }
         //! \}
 
@@ -384,7 +384,7 @@ namespace Step {
             {
                 _ptr->unref_nodelete();
             }
-            _ptr = NULL;
+            _ptr = nullptr;
             return tmp;
         }
 
@@ -431,7 +431,7 @@ namespace Step {
         //! typedef to our element_type
         typedef T element_type;
 
-        ObsPtr() : _ptr(0L)
+        ObsPtr() : _ptr(nullptr)
         {
         }
         /*!
@@ -458,7 +458,7 @@ namespace Step {
         {
             if (_ptr)
                 _ptr->removeObserver(this);
-            _ptr = 0;
+            _ptr = nullptr;
         }
 
         /*!
@@ -516,7 +516,7 @@ namespace Step {
          */
         void objectDeleted(void*) override
         {
-            _ptr = 0;
+            _ptr = nullptr;
         }
 
         /*!

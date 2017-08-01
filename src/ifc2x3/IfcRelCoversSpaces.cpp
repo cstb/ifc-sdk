@@ -63,7 +63,7 @@ void Inverted_IfcRelCoversSpaces_RelatedCoverings_type::clear() {
 }
 
 IfcRelCoversSpaces::IfcRelCoversSpaces(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatedSpace = NULL;
+    m_relatedSpace = nullptr;
     m_relatedCoverings.setOwner(this);
 }
 
@@ -95,7 +95,7 @@ IfcSpace *IfcRelCoversSpaces::getRelatedSpace() {
         return m_relatedSpace.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -154,7 +154,7 @@ bool IfcRelCoversSpaces::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedSpace = NULL;
+        m_relatedSpace = nullptr;
     }
     else {
         m_relatedSpace = static_cast< IfcSpace * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -38,8 +38,8 @@
 using namespace ifc2x3;
 
 IfcDefinedSymbol::IfcDefinedSymbol(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_definition = NULL;
-    m_target = NULL;
+    m_definition = nullptr;
+    m_target = nullptr;
 }
 
 IfcDefinedSymbol::~IfcDefinedSymbol() {
@@ -70,7 +70,7 @@ IfcDefinedSymbolSelect *IfcDefinedSymbol::getDefinition() {
         return m_definition.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ IfcCartesianTransformationOperator2D *IfcDefinedSymbol::getTarget() {
         return m_target.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -125,7 +125,7 @@ bool IfcDefinedSymbol::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_definition = NULL;
+        m_definition = nullptr;
     }
     else {
         m_definition = new IfcDefinedSymbolSelect;
@@ -144,7 +144,7 @@ bool IfcDefinedSymbol::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_target = NULL;
+        m_target = nullptr;
     }
     else {
         m_target = static_cast< IfcCartesianTransformationOperator2D * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -28,7 +28,7 @@
 
 using namespace ifc2x3;
 
-IfcSimpleValue::IfcSimpleValue() : Step::BaseObject(0) {
+IfcSimpleValue::IfcSimpleValue() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 

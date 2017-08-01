@@ -37,7 +37,7 @@
 using namespace ifc2x3;
 
 IfcActor::IfcActor(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
-    m_theActor = NULL;
+    m_theActor = nullptr;
 }
 
 IfcActor::~IfcActor() {
@@ -68,7 +68,7 @@ IfcActorSelect *IfcActor::getTheActor() {
         return m_theActor.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -117,7 +117,7 @@ bool IfcActor::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_theActor = NULL;
+        m_theActor = nullptr;
     }
     else {
         m_theActor = new IfcActorSelect;

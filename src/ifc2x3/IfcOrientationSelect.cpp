@@ -29,7 +29,7 @@
 
 using namespace ifc2x3;
 
-IfcOrientationSelect::IfcOrientationSelect() : Step::BaseObject(0) {
+IfcOrientationSelect::IfcOrientationSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -125,7 +125,7 @@ IfcDirection *IfcOrientationSelect::getIfcDirection() const {
         return m_IfcOrientationSelect_union.m_IfcDirection;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

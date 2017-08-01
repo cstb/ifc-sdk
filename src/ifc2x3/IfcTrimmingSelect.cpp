@@ -29,7 +29,7 @@
 
 using namespace ifc2x3;
 
-IfcTrimmingSelect::IfcTrimmingSelect() : Step::BaseObject(0) {
+IfcTrimmingSelect::IfcTrimmingSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -111,7 +111,7 @@ IfcCartesianPoint *IfcTrimmingSelect::getIfcCartesianPoint() const {
         return m_IfcTrimmingSelect_union.m_IfcCartesianPoint;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

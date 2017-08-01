@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcTextStyleSelect::IfcTextStyleSelect() : Step::BaseObject(0) {
+IfcTextStyleSelect::IfcTextStyleSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcTextStyleWithBoxCharacteristics *IfcTextStyleSelect::getIfcTextStyleWithBoxCh
         return m_IfcTextStyleSelect_union.m_IfcTextStyleWithBoxCharacteristics;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcTextStyleTextModel *IfcTextStyleSelect::getIfcTextStyleTextModel() const {
         return m_IfcTextStyleSelect_union.m_IfcTextStyleTextModel;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

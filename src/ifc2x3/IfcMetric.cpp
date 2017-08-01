@@ -38,7 +38,7 @@ using namespace ifc2x3;
 IfcMetric::IfcMetric(Step::Id id, Step::SPFData *args) : IfcConstraint(id, args) {
     m_benchmark = IfcBenchmarkEnum_UNSET;
     m_valueSource = Step::getUnset(m_valueSource);
-    m_dataValue = NULL;
+    m_dataValue = nullptr;
 }
 
 IfcMetric::~IfcMetric() {
@@ -121,7 +121,7 @@ IfcMetricValueSelect *IfcMetric::getDataValue() {
         return m_dataValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -181,7 +181,7 @@ bool IfcMetric::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_dataValue = NULL;
+        m_dataValue = nullptr;
     }
     else {
         m_dataValue = new IfcMetricValueSelect;

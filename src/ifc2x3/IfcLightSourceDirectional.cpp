@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcLightSourceDirectional::IfcLightSourceDirectional(Step::Id id, Step::SPFData *args) : IfcLightSource(id, args) {
-    m_orientation = NULL;
+    m_orientation = nullptr;
 }
 
 IfcLightSourceDirectional::~IfcLightSourceDirectional() {
@@ -67,7 +67,7 @@ IfcDirection *IfcLightSourceDirectional::getOrientation() {
         return m_orientation.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcLightSourceDirectional::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_orientation = NULL;
+        m_orientation = nullptr;
     }
     else {
         m_orientation = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));

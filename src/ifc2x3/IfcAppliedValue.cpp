@@ -45,10 +45,10 @@ using namespace ifc2x3;
 IfcAppliedValue::IfcAppliedValue(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
-    m_appliedValue = NULL;
-    m_unitBasis = NULL;
-    m_applicableDate = NULL;
-    m_fixedUntilDate = NULL;
+    m_appliedValue = nullptr;
+    m_unitBasis = nullptr;
+    m_applicableDate = nullptr;
+    m_fixedUntilDate = nullptr;
 }
 
 IfcAppliedValue::~IfcAppliedValue() {
@@ -131,7 +131,7 @@ IfcAppliedValueSelect *IfcAppliedValue::getAppliedValue() {
         return m_appliedValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -157,7 +157,7 @@ IfcMeasureWithUnit *IfcAppliedValue::getUnitBasis() {
         return m_unitBasis.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -183,7 +183,7 @@ IfcDateTimeSelect *IfcAppliedValue::getApplicableDate() {
         return m_applicableDate.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -209,7 +209,7 @@ IfcDateTimeSelect *IfcAppliedValue::getFixedUntilDate() {
         return m_fixedUntilDate.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -306,7 +306,7 @@ bool IfcAppliedValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_appliedValue = NULL;
+        m_appliedValue = nullptr;
     }
     else {
         m_appliedValue = new IfcAppliedValueSelect;
@@ -335,14 +335,14 @@ bool IfcAppliedValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_unitBasis = NULL;
+        m_unitBasis = nullptr;
     }
     else {
         m_unitBasis = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_applicableDate = NULL;
+        m_applicableDate = nullptr;
     }
     else {
         m_applicableDate = new IfcDateTimeSelect;
@@ -361,7 +361,7 @@ bool IfcAppliedValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_fixedUntilDate = NULL;
+        m_fixedUntilDate = nullptr;
     }
     else {
         m_fixedUntilDate = new IfcDateTimeSelect;

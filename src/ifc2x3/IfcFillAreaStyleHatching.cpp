@@ -39,10 +39,10 @@
 using namespace ifc2x3;
 
 IfcFillAreaStyleHatching::IfcFillAreaStyleHatching(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_hatchLineAppearance = NULL;
-    m_startOfNextHatchLine = NULL;
-    m_pointOfReferenceHatchLine = NULL;
-    m_patternStart = NULL;
+    m_hatchLineAppearance = nullptr;
+    m_startOfNextHatchLine = nullptr;
+    m_pointOfReferenceHatchLine = nullptr;
+    m_patternStart = nullptr;
     m_hatchLineAngle = Step::getUnset(m_hatchLineAngle);
 }
 
@@ -74,7 +74,7 @@ IfcCurveStyle *IfcFillAreaStyleHatching::getHatchLineAppearance() {
         return m_hatchLineAppearance.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -100,7 +100,7 @@ IfcHatchLineDistanceSelect *IfcFillAreaStyleHatching::getStartOfNextHatchLine() 
         return m_startOfNextHatchLine.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -126,7 +126,7 @@ IfcCartesianPoint *IfcFillAreaStyleHatching::getPointOfReferenceHatchLine() {
         return m_pointOfReferenceHatchLine.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -152,7 +152,7 @@ IfcCartesianPoint *IfcFillAreaStyleHatching::getPatternStart() {
         return m_patternStart.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -207,14 +207,14 @@ bool IfcFillAreaStyleHatching::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_hatchLineAppearance = NULL;
+        m_hatchLineAppearance = nullptr;
     }
     else {
         m_hatchLineAppearance = static_cast< IfcCurveStyle * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_startOfNextHatchLine = NULL;
+        m_startOfNextHatchLine = nullptr;
     }
     else {
         m_startOfNextHatchLine = new IfcHatchLineDistanceSelect;
@@ -238,14 +238,14 @@ bool IfcFillAreaStyleHatching::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_pointOfReferenceHatchLine = NULL;
+        m_pointOfReferenceHatchLine = nullptr;
     }
     else {
         m_pointOfReferenceHatchLine = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_patternStart = NULL;
+        m_patternStart = nullptr;
     }
     else {
         m_patternStart = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));

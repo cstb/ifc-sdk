@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcSweptDiskSolid::IfcSweptDiskSolid(Step::Id id, Step::SPFData *args) : IfcSolidModel(id, args) {
-    m_directrix = NULL;
+    m_directrix = nullptr;
     m_radius = Step::getUnset(m_radius);
     m_innerRadius = Step::getUnset(m_innerRadius);
     m_startParam = Step::getUnset(m_startParam);
@@ -71,7 +71,7 @@ IfcCurve *IfcSweptDiskSolid::getDirectrix() {
         return m_directrix.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -204,7 +204,7 @@ bool IfcSweptDiskSolid::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_directrix = NULL;
+        m_directrix = nullptr;
     }
     else {
         m_directrix = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

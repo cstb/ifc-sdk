@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcFaceSurface::IfcFaceSurface(Step::Id id, Step::SPFData *args) : IfcFace(id, args) {
-    m_faceSurface = NULL;
+    m_faceSurface = nullptr;
     m_sameSense = Step::getUnset(m_sameSense);
 }
 
@@ -68,7 +68,7 @@ IfcSurface *IfcFaceSurface::getFaceSurface() {
         return m_faceSurface.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ bool IfcFaceSurface::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_faceSurface = NULL;
+        m_faceSurface = nullptr;
     }
     else {
         m_faceSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)));

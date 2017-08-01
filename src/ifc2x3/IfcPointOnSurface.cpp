@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcPointOnSurface::IfcPointOnSurface(Step::Id id, Step::SPFData *args) : IfcPoint(id, args) {
-    m_basisSurface = NULL;
+    m_basisSurface = nullptr;
     m_pointParameterU = Step::getUnset(m_pointParameterU);
     m_pointParameterV = Step::getUnset(m_pointParameterV);
 }
@@ -69,7 +69,7 @@ IfcSurface *IfcPointOnSurface::getBasisSurface() {
         return m_basisSurface.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -150,7 +150,7 @@ bool IfcPointOnSurface::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_basisSurface = NULL;
+        m_basisSurface = nullptr;
     }
     else {
         m_basisSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)));

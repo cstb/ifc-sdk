@@ -41,7 +41,7 @@ IfcSectionReinforcementProperties::IfcSectionReinforcementProperties(Step::Id id
     m_longitudinalEndPosition = Step::getUnset(m_longitudinalEndPosition);
     m_transversePosition = Step::getUnset(m_transversePosition);
     m_reinforcementRole = IfcReinforcingBarRoleEnum_UNSET;
-    m_sectionDefinition = NULL;
+    m_sectionDefinition = nullptr;
 }
 
 IfcSectionReinforcementProperties::~IfcSectionReinforcementProperties() {
@@ -176,7 +176,7 @@ IfcSectionProperties *IfcSectionReinforcementProperties::getSectionDefinition() 
         return m_sectionDefinition.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -283,7 +283,7 @@ bool IfcSectionReinforcementProperties::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_sectionDefinition = NULL;
+        m_sectionDefinition = nullptr;
     }
     else {
         m_sectionDefinition = static_cast< IfcSectionProperties * > (m_expressDataSet->get(Step::getIdParam(arg)));

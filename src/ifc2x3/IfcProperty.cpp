@@ -37,9 +37,9 @@
 using namespace ifc2x3;
 
 IfcProperty::IfcProperty(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args),
-    m_propertyForDependance(0),
-    m_propertyDependsOn(0),
-    m_partOfComplex(0)
+    m_propertyForDependance(nullptr),
+    m_propertyDependsOn(nullptr),
+    m_partOfComplex(nullptr)
 {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);

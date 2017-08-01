@@ -38,11 +38,11 @@
 using namespace ifc2x3;
 
 IfcCurrencyRelationship::IfcCurrencyRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_relatingMonetaryUnit = NULL;
-    m_relatedMonetaryUnit = NULL;
+    m_relatingMonetaryUnit = nullptr;
+    m_relatedMonetaryUnit = nullptr;
     m_exchangeRate = Step::getUnset(m_exchangeRate);
-    m_rateDateTime = NULL;
-    m_rateSource = NULL;
+    m_rateDateTime = nullptr;
+    m_rateSource = nullptr;
 }
 
 IfcCurrencyRelationship::~IfcCurrencyRelationship() {
@@ -73,7 +73,7 @@ IfcMonetaryUnit *IfcCurrencyRelationship::getRelatingMonetaryUnit() {
         return m_relatingMonetaryUnit.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -99,7 +99,7 @@ IfcMonetaryUnit *IfcCurrencyRelationship::getRelatedMonetaryUnit() {
         return m_relatedMonetaryUnit.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -151,7 +151,7 @@ IfcDateAndTime *IfcCurrencyRelationship::getRateDateTime() {
         return m_rateDateTime.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -177,7 +177,7 @@ IfcLibraryInformation *IfcCurrencyRelationship::getRateSource() {
         return m_rateSource.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -202,14 +202,14 @@ bool IfcCurrencyRelationship::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingMonetaryUnit = NULL;
+        m_relatingMonetaryUnit = nullptr;
     }
     else {
         m_relatingMonetaryUnit = static_cast< IfcMonetaryUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedMonetaryUnit = NULL;
+        m_relatedMonetaryUnit = nullptr;
     }
     else {
         m_relatedMonetaryUnit = static_cast< IfcMonetaryUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
@@ -223,14 +223,14 @@ bool IfcCurrencyRelationship::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_rateDateTime = NULL;
+        m_rateDateTime = nullptr;
     }
     else {
         m_rateDateTime = static_cast< IfcDateAndTime * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_rateSource = NULL;
+        m_rateSource = nullptr;
     }
     else {
         m_rateSource = static_cast< IfcLibraryInformation * > (m_expressDataSet->get(Step::getIdParam(arg)));

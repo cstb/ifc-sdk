@@ -60,7 +60,7 @@ bool BaseObject::inited()
         if (inited)
         {
             delete m_args;
-            m_args = 0;
+            m_args = nullptr;
         }
     }
 

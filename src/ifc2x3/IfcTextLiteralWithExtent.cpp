@@ -37,7 +37,7 @@
 using namespace ifc2x3;
 
 IfcTextLiteralWithExtent::IfcTextLiteralWithExtent(Step::Id id, Step::SPFData *args) : IfcTextLiteral(id, args) {
-    m_extent = NULL;
+    m_extent = nullptr;
     m_boxAlignment = Step::getUnset(m_boxAlignment);
 }
 
@@ -69,7 +69,7 @@ IfcPlanarExtent *IfcTextLiteralWithExtent::getExtent() {
         return m_extent.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -124,7 +124,7 @@ bool IfcTextLiteralWithExtent::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_extent = NULL;
+        m_extent = nullptr;
     }
     else {
         m_extent = static_cast< IfcPlanarExtent * > (m_expressDataSet->get(Step::getIdParam(arg)));

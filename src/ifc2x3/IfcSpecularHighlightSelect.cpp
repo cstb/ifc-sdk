@@ -28,7 +28,7 @@
 
 using namespace ifc2x3;
 
-IfcSpecularHighlightSelect::IfcSpecularHighlightSelect() : Step::BaseObject(0) {
+IfcSpecularHighlightSelect::IfcSpecularHighlightSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 

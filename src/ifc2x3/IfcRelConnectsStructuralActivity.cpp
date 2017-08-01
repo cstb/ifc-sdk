@@ -39,8 +39,8 @@
 using namespace ifc2x3;
 
 IfcRelConnectsStructuralActivity::IfcRelConnectsStructuralActivity(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingElement = NULL;
-    m_relatedStructuralActivity = NULL;
+    m_relatingElement = nullptr;
+    m_relatedStructuralActivity = nullptr;
 }
 
 IfcRelConnectsStructuralActivity::~IfcRelConnectsStructuralActivity() {
@@ -71,7 +71,7 @@ IfcStructuralActivityAssignmentSelect *IfcRelConnectsStructuralActivity::getRela
         return m_relatingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -81,7 +81,7 @@ const IfcStructuralActivityAssignmentSelect *IfcRelConnectsStructuralActivity::g
 }
 
 void IfcRelConnectsStructuralActivity::setRelatingElement(const Step::RefPtr< IfcStructuralActivityAssignmentSelect > &value) {
-    if (m_relatingElement->getIfcStructuralItem() != NULL) {
+    if (m_relatingElement->getIfcStructuralItem() != nullptr) {
         IfcStructuralItem * object = m_relatingElement->getIfcStructuralItem();
         object->m_assignedStructuralActivity.insert(this);
     }
@@ -101,7 +101,7 @@ IfcStructuralActivity *IfcRelConnectsStructuralActivity::getRelatedStructuralAct
         return m_relatedStructuralActivity.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -112,7 +112,7 @@ const IfcStructuralActivity *IfcRelConnectsStructuralActivity::getRelatedStructu
 
 void IfcRelConnectsStructuralActivity::setRelatedStructuralActivity(const Step::RefPtr< IfcStructuralActivity > &value) {
     if (m_relatedStructuralActivity.valid()) {
-        m_relatedStructuralActivity->m_assignedToStructuralItem = NULL;
+        m_relatedStructuralActivity->m_assignedToStructuralItem = nullptr;
     }
     if (value.valid()) {
         value->m_assignedToStructuralItem = this;
@@ -136,7 +136,7 @@ bool IfcRelConnectsStructuralActivity::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingElement = NULL;
+        m_relatingElement = nullptr;
     }
     else {
         m_relatingElement = new IfcStructuralActivityAssignmentSelect;
@@ -155,7 +155,7 @@ bool IfcRelConnectsStructuralActivity::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedStructuralActivity = NULL;
+        m_relatedStructuralActivity = nullptr;
     }
     else {
         m_relatedStructuralActivity = static_cast< IfcStructuralActivity * > (m_expressDataSet->get(Step::getIdParam(arg)));

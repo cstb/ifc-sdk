@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcCurveBoundedPlane::IfcCurveBoundedPlane(Step::Id id, Step::SPFData *args) : IfcBoundedSurface(id, args) {
-    m_basisSurface = NULL;
-    m_outerBoundary = NULL;
+    m_basisSurface = nullptr;
+    m_outerBoundary = nullptr;
 }
 
 IfcCurveBoundedPlane::~IfcCurveBoundedPlane() {
@@ -69,7 +69,7 @@ IfcPlane *IfcCurveBoundedPlane::getBasisSurface() {
         return m_basisSurface.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ IfcCurve *IfcCurveBoundedPlane::getOuterBoundary() {
         return m_outerBoundary.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -152,14 +152,14 @@ bool IfcCurveBoundedPlane::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_basisSurface = NULL;
+        m_basisSurface = nullptr;
     }
     else {
         m_basisSurface = static_cast< IfcPlane * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_outerBoundary = NULL;
+        m_outerBoundary = nullptr;
     }
     else {
         m_outerBoundary = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

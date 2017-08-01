@@ -40,7 +40,7 @@ using namespace ifc2x3;
 IfcTimeSeriesSchedule::IfcTimeSeriesSchedule(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
     m_applicableDates.setUnset(true);
     m_timeSeriesScheduleType = IfcTimeSeriesScheduleTypeEnum_UNSET;
-    m_timeSeries = NULL;
+    m_timeSeries = nullptr;
 }
 
 IfcTimeSeriesSchedule::~IfcTimeSeriesSchedule() {
@@ -125,7 +125,7 @@ IfcTimeSeries *IfcTimeSeriesSchedule::getTimeSeries() {
         return m_timeSeries.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -209,7 +209,7 @@ bool IfcTimeSeriesSchedule::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_timeSeries = NULL;
+        m_timeSeries = nullptr;
     }
     else {
         m_timeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));

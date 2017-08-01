@@ -40,7 +40,7 @@ using namespace ifc2x3;
 IfcProject::IfcProject(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
     m_longName = Step::getUnset(m_longName);
     m_phase = Step::getUnset(m_phase);
-    m_unitsInContext = NULL;
+    m_unitsInContext = nullptr;
 }
 
 IfcProject::~IfcProject() {
@@ -151,7 +151,7 @@ IfcUnitAssignment *IfcProject::getUnitsInContext() {
         return m_unitsInContext.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -213,7 +213,7 @@ bool IfcProject::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_unitsInContext = NULL;
+        m_unitsInContext = nullptr;
     }
     else {
         m_unitsInContext = static_cast< IfcUnitAssignment * > (m_expressDataSet->get(Step::getIdParam(arg)));

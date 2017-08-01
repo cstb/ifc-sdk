@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcCsgSelect::IfcCsgSelect() : Step::BaseObject(0) {
+IfcCsgSelect::IfcCsgSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcBooleanResult *IfcCsgSelect::getIfcBooleanResult() const {
         return m_IfcCsgSelect_union.m_IfcBooleanResult;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcCsgPrimitive3D *IfcCsgSelect::getIfcCsgPrimitive3D() const {
         return m_IfcCsgSelect_union.m_IfcCsgPrimitive3D;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

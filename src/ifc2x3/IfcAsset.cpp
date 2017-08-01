@@ -42,14 +42,14 @@ using namespace ifc2x3;
 
 IfcAsset::IfcAsset(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
     m_assetID = Step::getUnset(m_assetID);
-    m_originalValue = NULL;
-    m_currentValue = NULL;
-    m_totalReplacementCost = NULL;
-    m_owner = NULL;
-    m_user = NULL;
-    m_responsiblePerson = NULL;
-    m_incorporationDate = NULL;
-    m_depreciatedValue = NULL;
+    m_originalValue = nullptr;
+    m_currentValue = nullptr;
+    m_totalReplacementCost = nullptr;
+    m_owner = nullptr;
+    m_user = nullptr;
+    m_responsiblePerson = nullptr;
+    m_incorporationDate = nullptr;
+    m_depreciatedValue = nullptr;
 }
 
 IfcAsset::~IfcAsset() {
@@ -106,7 +106,7 @@ IfcCostValue *IfcAsset::getOriginalValue() {
         return m_originalValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -132,7 +132,7 @@ IfcCostValue *IfcAsset::getCurrentValue() {
         return m_currentValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -158,7 +158,7 @@ IfcCostValue *IfcAsset::getTotalReplacementCost() {
         return m_totalReplacementCost.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -184,7 +184,7 @@ IfcActorSelect *IfcAsset::getOwner() {
         return m_owner.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -210,7 +210,7 @@ IfcActorSelect *IfcAsset::getUser() {
         return m_user.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -236,7 +236,7 @@ IfcPerson *IfcAsset::getResponsiblePerson() {
         return m_responsiblePerson.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -262,7 +262,7 @@ IfcCalendarDate *IfcAsset::getIncorporationDate() {
         return m_incorporationDate.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -288,7 +288,7 @@ IfcCostValue *IfcAsset::getDepreciatedValue() {
         return m_depreciatedValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -324,28 +324,28 @@ bool IfcAsset::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_originalValue = NULL;
+        m_originalValue = nullptr;
     }
     else {
         m_originalValue = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_currentValue = NULL;
+        m_currentValue = nullptr;
     }
     else {
         m_currentValue = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_totalReplacementCost = NULL;
+        m_totalReplacementCost = nullptr;
     }
     else {
         m_totalReplacementCost = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_owner = NULL;
+        m_owner = nullptr;
     }
     else {
         m_owner = new IfcActorSelect;
@@ -364,7 +364,7 @@ bool IfcAsset::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_user = NULL;
+        m_user = nullptr;
     }
     else {
         m_user = new IfcActorSelect;
@@ -383,21 +383,21 @@ bool IfcAsset::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_responsiblePerson = NULL;
+        m_responsiblePerson = nullptr;
     }
     else {
         m_responsiblePerson = static_cast< IfcPerson * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_incorporationDate = NULL;
+        m_incorporationDate = nullptr;
     }
     else {
         m_incorporationDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_depreciatedValue = NULL;
+        m_depreciatedValue = nullptr;
     }
     else {
         m_depreciatedValue = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));

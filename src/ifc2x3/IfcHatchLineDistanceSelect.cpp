@@ -29,7 +29,7 @@
 
 using namespace ifc2x3;
 
-IfcHatchLineDistanceSelect::IfcHatchLineDistanceSelect() : Step::BaseObject(0) {
+IfcHatchLineDistanceSelect::IfcHatchLineDistanceSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -111,7 +111,7 @@ IfcOneDirectionRepeatFactor *IfcHatchLineDistanceSelect::getIfcOneDirectionRepea
         return m_IfcHatchLineDistanceSelect_union.m_IfcOneDirectionRepeatFactor;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

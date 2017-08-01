@@ -93,12 +93,12 @@ namespace Step {
     //! getUnset values the const BaseObject type
     inline const BaseObject* getUnset(const BaseObject*)
     {
-        return NULL;
+        return nullptr;
     }
 
     inline BaseObject* getUnset(BaseObject*)
     {
-        return NULL;
+        return nullptr;
     }
 
     //! getUnset values the RefPtr type

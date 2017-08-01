@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcRelProjectsElement::IfcRelProjectsElement(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingElement = NULL;
-    m_relatedFeatureElement = NULL;
+    m_relatingElement = nullptr;
+    m_relatedFeatureElement = nullptr;
 }
 
 IfcRelProjectsElement::~IfcRelProjectsElement() {
@@ -69,7 +69,7 @@ IfcElement *IfcRelProjectsElement::getRelatingElement() {
         return m_relatingElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -101,7 +101,7 @@ IfcFeatureElementAddition *IfcRelProjectsElement::getRelatedFeatureElement() {
         return m_relatedFeatureElement.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -112,7 +112,7 @@ const IfcFeatureElementAddition *IfcRelProjectsElement::getRelatedFeatureElement
 
 void IfcRelProjectsElement::setRelatedFeatureElement(const Step::RefPtr< IfcFeatureElementAddition > &value) {
     if (m_relatedFeatureElement.valid()) {
-        m_relatedFeatureElement->m_projectsElements = NULL;
+        m_relatedFeatureElement->m_projectsElements = nullptr;
     }
     if (value.valid()) {
         value->m_projectsElements = this;
@@ -136,14 +136,14 @@ bool IfcRelProjectsElement::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingElement = NULL;
+        m_relatingElement = nullptr;
     }
     else {
         m_relatingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedFeatureElement = NULL;
+        m_relatedFeatureElement = nullptr;
     }
     else {
         m_relatedFeatureElement = static_cast< IfcFeatureElementAddition * > (m_expressDataSet->get(Step::getIdParam(arg)));

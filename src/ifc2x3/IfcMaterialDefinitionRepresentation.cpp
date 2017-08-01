@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcMaterialDefinitionRepresentation::IfcMaterialDefinitionRepresentation(Step::Id id, Step::SPFData *args) : IfcProductRepresentation(id, args) {
-    m_representedMaterial = NULL;
+    m_representedMaterial = nullptr;
 }
 
 IfcMaterialDefinitionRepresentation::~IfcMaterialDefinitionRepresentation() {
@@ -67,7 +67,7 @@ IfcMaterial *IfcMaterialDefinitionRepresentation::getRepresentedMaterial() {
         return m_representedMaterial.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -102,7 +102,7 @@ bool IfcMaterialDefinitionRepresentation::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_representedMaterial = NULL;
+        m_representedMaterial = nullptr;
     }
     else {
         m_representedMaterial = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -29,7 +29,7 @@
 
 using namespace ifc2x3;
 
-IfcColourOrFactor::IfcColourOrFactor() : Step::BaseObject(0) {
+IfcColourOrFactor::IfcColourOrFactor() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -111,7 +111,7 @@ IfcColourRgb *IfcColourOrFactor::getIfcColourRgb() const {
         return m_IfcColourOrFactor_union.m_IfcColourRgb;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

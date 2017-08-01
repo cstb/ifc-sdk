@@ -37,7 +37,7 @@
 using namespace ifc2x3;
 
 IfcStyledItem::IfcStyledItem(Step::Id id, Step::SPFData *args) : IfcRepresentationItem(id, args) {
-    m_item = NULL;
+    m_item = nullptr;
     m_name = Step::getUnset(m_name);
 }
 
@@ -69,7 +69,7 @@ IfcRepresentationItem *IfcStyledItem::getItem() {
         return m_item.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -158,7 +158,7 @@ bool IfcStyledItem::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_item = NULL;
+        m_item = nullptr;
     }
     else {
         m_item = static_cast< IfcRepresentationItem * > (m_expressDataSet->get(Step::getIdParam(arg)));

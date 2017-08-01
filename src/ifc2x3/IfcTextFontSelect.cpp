@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcTextFontSelect::IfcTextFontSelect() : Step::BaseObject(0) {
+IfcTextFontSelect::IfcTextFontSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcPreDefinedTextFont *IfcTextFontSelect::getIfcPreDefinedTextFont() const {
         return m_IfcTextFontSelect_union.m_IfcPreDefinedTextFont;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcExternallyDefinedTextFont *IfcTextFontSelect::getIfcExternallyDefinedTextFont
         return m_IfcTextFontSelect_union.m_IfcExternallyDefinedTextFont;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

@@ -36,8 +36,8 @@
 using namespace ifc2x3;
 
 IfcRepresentationItem::IfcRepresentationItem(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) ,
-    m_layerAssignments(0),
-    m_styledByItem(0)
+    m_layerAssignments(nullptr),
+    m_styledByItem(nullptr)
 {
 }
 

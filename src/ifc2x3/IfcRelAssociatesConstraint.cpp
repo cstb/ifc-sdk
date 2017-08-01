@@ -38,7 +38,7 @@ using namespace ifc2x3;
 
 IfcRelAssociatesConstraint::IfcRelAssociatesConstraint(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
     m_intent = Step::getUnset(m_intent);
-    m_relatingConstraint = NULL;
+    m_relatingConstraint = nullptr;
 }
 
 IfcRelAssociatesConstraint::~IfcRelAssociatesConstraint() {
@@ -95,7 +95,7 @@ IfcConstraint *IfcRelAssociatesConstraint::getRelatingConstraint() {
         return m_relatingConstraint.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -131,7 +131,7 @@ bool IfcRelAssociatesConstraint::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingConstraint = NULL;
+        m_relatingConstraint = nullptr;
     }
     else {
         m_relatingConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)));

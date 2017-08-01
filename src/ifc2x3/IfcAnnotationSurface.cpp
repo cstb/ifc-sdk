@@ -36,8 +36,8 @@
 using namespace ifc2x3;
 
 IfcAnnotationSurface::IfcAnnotationSurface(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_item = NULL;
-    m_textureCoordinates = NULL;
+    m_item = nullptr;
+    m_textureCoordinates = nullptr;
 }
 
 IfcAnnotationSurface::~IfcAnnotationSurface() {
@@ -68,7 +68,7 @@ IfcGeometricRepresentationItem *IfcAnnotationSurface::getItem() {
         return m_item.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -94,7 +94,7 @@ IfcTextureCoordinate *IfcAnnotationSurface::getTextureCoordinates() {
         return m_textureCoordinates.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -129,14 +129,14 @@ bool IfcAnnotationSurface::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_item = NULL;
+        m_item = nullptr;
     }
     else {
         m_item = static_cast< IfcGeometricRepresentationItem * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_textureCoordinates = NULL;
+        m_textureCoordinates = nullptr;
     }
     else {
         m_textureCoordinates = static_cast< IfcTextureCoordinate * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcLayeredItem::IfcLayeredItem() : Step::BaseObject(0) {
+IfcLayeredItem::IfcLayeredItem() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcRepresentationItem *IfcLayeredItem::getIfcRepresentationItem() const {
         return m_IfcLayeredItem_union.m_IfcRepresentationItem;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcRepresentation *IfcLayeredItem::getIfcRepresentation() const {
         return m_IfcLayeredItem_union.m_IfcRepresentation;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

@@ -588,7 +588,7 @@ using namespace ifc2x3;
 IfcMaterialLayerSetUsage *ExpressDataSet::getIfcMaterialLayerSetUsage(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMaterialLayerSetUsage * > (current->second.get());
@@ -609,7 +609,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMaterialLayerSetUsage(Step::BaseExp
     IfcMaterialLayerSetUsage *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -622,7 +622,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMaterialLayerSetUsage(Step::BaseExp
 
 Step::RefPtr< IfcMaterialLayerSetUsage > ExpressDataSet::createIfcMaterialLayerSetUsage(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMaterialLayerSetUsage(Step::Id_UNSET, 0);
+        return new IfcMaterialLayerSetUsage(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMaterialLayerSetUsage * > (allocateIfcMaterialLayerSetUsage(this, Step::Id_UNSET));
@@ -632,7 +632,7 @@ Step::RefPtr< IfcMaterialLayerSetUsage > ExpressDataSet::createIfcMaterialLayerS
 IfcMaterialLayerSetUsage *ExpressDataSet::cloneIfcMaterialLayerSetUsage(ExpressDataSet *expressDataSet, const IfcMaterialLayerSetUsage &obj, const CopyOp &copyop) {
     IfcMaterialLayerSetUsage *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMaterialLayerSetUsage(id, 0);
+    ret = new IfcMaterialLayerSetUsage(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMaterialLayerSetUsage_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -653,7 +653,7 @@ IfcMaterialLayerSetUsage *ExpressDataSet::cloneIfcMaterialLayerSetUsage(const If
 IfcMaterialList *ExpressDataSet::getIfcMaterialList(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMaterialList * > (current->second.get());
@@ -674,7 +674,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMaterialList(Step::BaseExpressDataS
     IfcMaterialList *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -687,7 +687,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMaterialList(Step::BaseExpressDataS
 
 Step::RefPtr< IfcMaterialList > ExpressDataSet::createIfcMaterialList(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMaterialList(Step::Id_UNSET, 0);
+        return new IfcMaterialList(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMaterialList * > (allocateIfcMaterialList(this, Step::Id_UNSET));
@@ -697,7 +697,7 @@ Step::RefPtr< IfcMaterialList > ExpressDataSet::createIfcMaterialList(bool isVol
 IfcMaterialList *ExpressDataSet::cloneIfcMaterialList(ExpressDataSet *expressDataSet, const IfcMaterialList &obj, const CopyOp &copyop) {
     IfcMaterialList *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMaterialList(id, 0);
+    ret = new IfcMaterialList(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMaterialList_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -718,7 +718,7 @@ IfcMaterialList *ExpressDataSet::cloneIfcMaterialList(const IfcMaterialList &obj
 IfcMeasureWithUnit *ExpressDataSet::getIfcMeasureWithUnit(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMeasureWithUnit * > (current->second.get());
@@ -739,7 +739,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMeasureWithUnit(Step::BaseExpressDa
     IfcMeasureWithUnit *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -752,7 +752,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMeasureWithUnit(Step::BaseExpressDa
 
 Step::RefPtr< IfcMeasureWithUnit > ExpressDataSet::createIfcMeasureWithUnit(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMeasureWithUnit(Step::Id_UNSET, 0);
+        return new IfcMeasureWithUnit(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMeasureWithUnit * > (allocateIfcMeasureWithUnit(this, Step::Id_UNSET));
@@ -762,7 +762,7 @@ Step::RefPtr< IfcMeasureWithUnit > ExpressDataSet::createIfcMeasureWithUnit(bool
 IfcMeasureWithUnit *ExpressDataSet::cloneIfcMeasureWithUnit(ExpressDataSet *expressDataSet, const IfcMeasureWithUnit &obj, const CopyOp &copyop) {
     IfcMeasureWithUnit *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMeasureWithUnit(id, 0);
+    ret = new IfcMeasureWithUnit(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMeasureWithUnit_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -783,7 +783,7 @@ IfcMeasureWithUnit *ExpressDataSet::cloneIfcMeasureWithUnit(const IfcMeasureWith
 IfcMechanicalConcreteMaterialProperties *ExpressDataSet::getIfcMechanicalConcreteMaterialProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMechanicalConcreteMaterialProperties * > (current->second.get());
@@ -804,7 +804,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMechanicalConcreteMaterialPropertie
     IfcMechanicalConcreteMaterialProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -817,7 +817,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMechanicalConcreteMaterialPropertie
 
 Step::RefPtr< IfcMechanicalConcreteMaterialProperties > ExpressDataSet::createIfcMechanicalConcreteMaterialProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMechanicalConcreteMaterialProperties(Step::Id_UNSET, 0);
+        return new IfcMechanicalConcreteMaterialProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMechanicalConcreteMaterialProperties * > (allocateIfcMechanicalConcreteMaterialProperties(this, Step::Id_UNSET));
@@ -827,7 +827,7 @@ Step::RefPtr< IfcMechanicalConcreteMaterialProperties > ExpressDataSet::createIf
 IfcMechanicalConcreteMaterialProperties *ExpressDataSet::cloneIfcMechanicalConcreteMaterialProperties(ExpressDataSet *expressDataSet, const IfcMechanicalConcreteMaterialProperties &obj, const CopyOp &copyop) {
     IfcMechanicalConcreteMaterialProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMechanicalConcreteMaterialProperties(id, 0);
+    ret = new IfcMechanicalConcreteMaterialProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMechanicalConcreteMaterialProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -848,7 +848,7 @@ IfcMechanicalConcreteMaterialProperties *ExpressDataSet::cloneIfcMechanicalConcr
 IfcMechanicalFastener *ExpressDataSet::getIfcMechanicalFastener(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMechanicalFastener * > (current->second.get());
@@ -869,7 +869,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMechanicalFastener(Step::BaseExpres
     IfcMechanicalFastener *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -882,7 +882,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMechanicalFastener(Step::BaseExpres
 
 Step::RefPtr< IfcMechanicalFastener > ExpressDataSet::createIfcMechanicalFastener(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMechanicalFastener(Step::Id_UNSET, 0);
+        return new IfcMechanicalFastener(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMechanicalFastener * > (allocateIfcMechanicalFastener(this, Step::Id_UNSET));
@@ -892,7 +892,7 @@ Step::RefPtr< IfcMechanicalFastener > ExpressDataSet::createIfcMechanicalFastene
 IfcMechanicalFastener *ExpressDataSet::cloneIfcMechanicalFastener(ExpressDataSet *expressDataSet, const IfcMechanicalFastener &obj, const CopyOp &copyop) {
     IfcMechanicalFastener *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMechanicalFastener(id, 0);
+    ret = new IfcMechanicalFastener(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMechanicalFastener_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -913,7 +913,7 @@ IfcMechanicalFastener *ExpressDataSet::cloneIfcMechanicalFastener(const IfcMecha
 IfcMechanicalFastenerType *ExpressDataSet::getIfcMechanicalFastenerType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMechanicalFastenerType * > (current->second.get());
@@ -934,7 +934,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMechanicalFastenerType(Step::BaseEx
     IfcMechanicalFastenerType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -947,7 +947,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMechanicalFastenerType(Step::BaseEx
 
 Step::RefPtr< IfcMechanicalFastenerType > ExpressDataSet::createIfcMechanicalFastenerType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMechanicalFastenerType(Step::Id_UNSET, 0);
+        return new IfcMechanicalFastenerType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMechanicalFastenerType * > (allocateIfcMechanicalFastenerType(this, Step::Id_UNSET));
@@ -957,7 +957,7 @@ Step::RefPtr< IfcMechanicalFastenerType > ExpressDataSet::createIfcMechanicalFas
 IfcMechanicalFastenerType *ExpressDataSet::cloneIfcMechanicalFastenerType(ExpressDataSet *expressDataSet, const IfcMechanicalFastenerType &obj, const CopyOp &copyop) {
     IfcMechanicalFastenerType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMechanicalFastenerType(id, 0);
+    ret = new IfcMechanicalFastenerType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMechanicalFastenerType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -978,7 +978,7 @@ IfcMechanicalFastenerType *ExpressDataSet::cloneIfcMechanicalFastenerType(const 
 IfcMechanicalMaterialProperties *ExpressDataSet::getIfcMechanicalMaterialProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMechanicalMaterialProperties * > (current->second.get());
@@ -999,7 +999,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMechanicalMaterialProperties(Step::
     IfcMechanicalMaterialProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1012,7 +1012,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMechanicalMaterialProperties(Step::
 
 Step::RefPtr< IfcMechanicalMaterialProperties > ExpressDataSet::createIfcMechanicalMaterialProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMechanicalMaterialProperties(Step::Id_UNSET, 0);
+        return new IfcMechanicalMaterialProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMechanicalMaterialProperties * > (allocateIfcMechanicalMaterialProperties(this, Step::Id_UNSET));
@@ -1022,7 +1022,7 @@ Step::RefPtr< IfcMechanicalMaterialProperties > ExpressDataSet::createIfcMechani
 IfcMechanicalMaterialProperties *ExpressDataSet::cloneIfcMechanicalMaterialProperties(ExpressDataSet *expressDataSet, const IfcMechanicalMaterialProperties &obj, const CopyOp &copyop) {
     IfcMechanicalMaterialProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMechanicalMaterialProperties(id, 0);
+    ret = new IfcMechanicalMaterialProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMechanicalMaterialProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1043,7 +1043,7 @@ IfcMechanicalMaterialProperties *ExpressDataSet::cloneIfcMechanicalMaterialPrope
 IfcMechanicalSteelMaterialProperties *ExpressDataSet::getIfcMechanicalSteelMaterialProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMechanicalSteelMaterialProperties * > (current->second.get());
@@ -1064,7 +1064,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMechanicalSteelMaterialProperties(S
     IfcMechanicalSteelMaterialProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1077,7 +1077,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMechanicalSteelMaterialProperties(S
 
 Step::RefPtr< IfcMechanicalSteelMaterialProperties > ExpressDataSet::createIfcMechanicalSteelMaterialProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMechanicalSteelMaterialProperties(Step::Id_UNSET, 0);
+        return new IfcMechanicalSteelMaterialProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMechanicalSteelMaterialProperties * > (allocateIfcMechanicalSteelMaterialProperties(this, Step::Id_UNSET));
@@ -1087,7 +1087,7 @@ Step::RefPtr< IfcMechanicalSteelMaterialProperties > ExpressDataSet::createIfcMe
 IfcMechanicalSteelMaterialProperties *ExpressDataSet::cloneIfcMechanicalSteelMaterialProperties(ExpressDataSet *expressDataSet, const IfcMechanicalSteelMaterialProperties &obj, const CopyOp &copyop) {
     IfcMechanicalSteelMaterialProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMechanicalSteelMaterialProperties(id, 0);
+    ret = new IfcMechanicalSteelMaterialProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMechanicalSteelMaterialProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1108,7 +1108,7 @@ IfcMechanicalSteelMaterialProperties *ExpressDataSet::cloneIfcMechanicalSteelMat
 IfcMember *ExpressDataSet::getIfcMember(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMember * > (current->second.get());
@@ -1129,7 +1129,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMember(Step::BaseExpressDataSet *ex
     IfcMember *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1142,7 +1142,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMember(Step::BaseExpressDataSet *ex
 
 Step::RefPtr< IfcMember > ExpressDataSet::createIfcMember(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMember(Step::Id_UNSET, 0);
+        return new IfcMember(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMember * > (allocateIfcMember(this, Step::Id_UNSET));
@@ -1152,7 +1152,7 @@ Step::RefPtr< IfcMember > ExpressDataSet::createIfcMember(bool isVolatile) {
 IfcMember *ExpressDataSet::cloneIfcMember(ExpressDataSet *expressDataSet, const IfcMember &obj, const CopyOp &copyop) {
     IfcMember *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMember(id, 0);
+    ret = new IfcMember(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMember_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1173,7 +1173,7 @@ IfcMember *ExpressDataSet::cloneIfcMember(const IfcMember &obj, const CopyOp &co
 IfcMemberType *ExpressDataSet::getIfcMemberType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMemberType * > (current->second.get());
@@ -1194,7 +1194,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMemberType(Step::BaseExpressDataSet
     IfcMemberType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1207,7 +1207,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMemberType(Step::BaseExpressDataSet
 
 Step::RefPtr< IfcMemberType > ExpressDataSet::createIfcMemberType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMemberType(Step::Id_UNSET, 0);
+        return new IfcMemberType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMemberType * > (allocateIfcMemberType(this, Step::Id_UNSET));
@@ -1217,7 +1217,7 @@ Step::RefPtr< IfcMemberType > ExpressDataSet::createIfcMemberType(bool isVolatil
 IfcMemberType *ExpressDataSet::cloneIfcMemberType(ExpressDataSet *expressDataSet, const IfcMemberType &obj, const CopyOp &copyop) {
     IfcMemberType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMemberType(id, 0);
+    ret = new IfcMemberType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMemberType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1238,7 +1238,7 @@ IfcMemberType *ExpressDataSet::cloneIfcMemberType(const IfcMemberType &obj, cons
 IfcMetric *ExpressDataSet::getIfcMetric(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMetric * > (current->second.get());
@@ -1259,7 +1259,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMetric(Step::BaseExpressDataSet *ex
     IfcMetric *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1272,7 +1272,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMetric(Step::BaseExpressDataSet *ex
 
 Step::RefPtr< IfcMetric > ExpressDataSet::createIfcMetric(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMetric(Step::Id_UNSET, 0);
+        return new IfcMetric(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMetric * > (allocateIfcMetric(this, Step::Id_UNSET));
@@ -1282,7 +1282,7 @@ Step::RefPtr< IfcMetric > ExpressDataSet::createIfcMetric(bool isVolatile) {
 IfcMetric *ExpressDataSet::cloneIfcMetric(ExpressDataSet *expressDataSet, const IfcMetric &obj, const CopyOp &copyop) {
     IfcMetric *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMetric(id, 0);
+    ret = new IfcMetric(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMetric_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1303,7 +1303,7 @@ IfcMetric *ExpressDataSet::cloneIfcMetric(const IfcMetric &obj, const CopyOp &co
 IfcMonetaryUnit *ExpressDataSet::getIfcMonetaryUnit(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMonetaryUnit * > (current->second.get());
@@ -1324,7 +1324,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMonetaryUnit(Step::BaseExpressDataS
     IfcMonetaryUnit *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1337,7 +1337,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMonetaryUnit(Step::BaseExpressDataS
 
 Step::RefPtr< IfcMonetaryUnit > ExpressDataSet::createIfcMonetaryUnit(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMonetaryUnit(Step::Id_UNSET, 0);
+        return new IfcMonetaryUnit(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMonetaryUnit * > (allocateIfcMonetaryUnit(this, Step::Id_UNSET));
@@ -1347,7 +1347,7 @@ Step::RefPtr< IfcMonetaryUnit > ExpressDataSet::createIfcMonetaryUnit(bool isVol
 IfcMonetaryUnit *ExpressDataSet::cloneIfcMonetaryUnit(ExpressDataSet *expressDataSet, const IfcMonetaryUnit &obj, const CopyOp &copyop) {
     IfcMonetaryUnit *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMonetaryUnit(id, 0);
+    ret = new IfcMonetaryUnit(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMonetaryUnit_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1368,7 +1368,7 @@ IfcMonetaryUnit *ExpressDataSet::cloneIfcMonetaryUnit(const IfcMonetaryUnit &obj
 IfcMotorConnectionType *ExpressDataSet::getIfcMotorConnectionType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMotorConnectionType * > (current->second.get());
@@ -1389,7 +1389,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMotorConnectionType(Step::BaseExpre
     IfcMotorConnectionType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1402,7 +1402,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMotorConnectionType(Step::BaseExpre
 
 Step::RefPtr< IfcMotorConnectionType > ExpressDataSet::createIfcMotorConnectionType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMotorConnectionType(Step::Id_UNSET, 0);
+        return new IfcMotorConnectionType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMotorConnectionType * > (allocateIfcMotorConnectionType(this, Step::Id_UNSET));
@@ -1412,7 +1412,7 @@ Step::RefPtr< IfcMotorConnectionType > ExpressDataSet::createIfcMotorConnectionT
 IfcMotorConnectionType *ExpressDataSet::cloneIfcMotorConnectionType(ExpressDataSet *expressDataSet, const IfcMotorConnectionType &obj, const CopyOp &copyop) {
     IfcMotorConnectionType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMotorConnectionType(id, 0);
+    ret = new IfcMotorConnectionType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMotorConnectionType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1433,7 +1433,7 @@ IfcMotorConnectionType *ExpressDataSet::cloneIfcMotorConnectionType(const IfcMot
 IfcMove *ExpressDataSet::getIfcMove(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcMove * > (current->second.get());
@@ -1454,7 +1454,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMove(Step::BaseExpressDataSet *expr
     IfcMove *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1467,7 +1467,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcMove(Step::BaseExpressDataSet *expr
 
 Step::RefPtr< IfcMove > ExpressDataSet::createIfcMove(bool isVolatile) {
     if (isVolatile) {
-        return new IfcMove(Step::Id_UNSET, 0);
+        return new IfcMove(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcMove * > (allocateIfcMove(this, Step::Id_UNSET));
@@ -1477,7 +1477,7 @@ Step::RefPtr< IfcMove > ExpressDataSet::createIfcMove(bool isVolatile) {
 IfcMove *ExpressDataSet::cloneIfcMove(ExpressDataSet *expressDataSet, const IfcMove &obj, const CopyOp &copyop) {
     IfcMove *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcMove(id, 0);
+    ret = new IfcMove(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcMove_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1498,7 +1498,7 @@ IfcMove *ExpressDataSet::cloneIfcMove(const IfcMove &obj, const CopyOp &copyop) 
 IfcObjective *ExpressDataSet::getIfcObjective(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcObjective * > (current->second.get());
@@ -1519,7 +1519,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcObjective(Step::BaseExpressDataSet 
     IfcObjective *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1532,7 +1532,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcObjective(Step::BaseExpressDataSet 
 
 Step::RefPtr< IfcObjective > ExpressDataSet::createIfcObjective(bool isVolatile) {
     if (isVolatile) {
-        return new IfcObjective(Step::Id_UNSET, 0);
+        return new IfcObjective(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcObjective * > (allocateIfcObjective(this, Step::Id_UNSET));
@@ -1542,7 +1542,7 @@ Step::RefPtr< IfcObjective > ExpressDataSet::createIfcObjective(bool isVolatile)
 IfcObjective *ExpressDataSet::cloneIfcObjective(ExpressDataSet *expressDataSet, const IfcObjective &obj, const CopyOp &copyop) {
     IfcObjective *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcObjective(id, 0);
+    ret = new IfcObjective(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcObjective_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1563,7 +1563,7 @@ IfcObjective *ExpressDataSet::cloneIfcObjective(const IfcObjective &obj, const C
 IfcOccupant *ExpressDataSet::getIfcOccupant(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOccupant * > (current->second.get());
@@ -1584,7 +1584,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOccupant(Step::BaseExpressDataSet *
     IfcOccupant *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1597,7 +1597,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOccupant(Step::BaseExpressDataSet *
 
 Step::RefPtr< IfcOccupant > ExpressDataSet::createIfcOccupant(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOccupant(Step::Id_UNSET, 0);
+        return new IfcOccupant(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOccupant * > (allocateIfcOccupant(this, Step::Id_UNSET));
@@ -1607,7 +1607,7 @@ Step::RefPtr< IfcOccupant > ExpressDataSet::createIfcOccupant(bool isVolatile) {
 IfcOccupant *ExpressDataSet::cloneIfcOccupant(ExpressDataSet *expressDataSet, const IfcOccupant &obj, const CopyOp &copyop) {
     IfcOccupant *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOccupant(id, 0);
+    ret = new IfcOccupant(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOccupant_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1628,7 +1628,7 @@ IfcOccupant *ExpressDataSet::cloneIfcOccupant(const IfcOccupant &obj, const Copy
 IfcOffsetCurve2D *ExpressDataSet::getIfcOffsetCurve2D(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOffsetCurve2D * > (current->second.get());
@@ -1649,7 +1649,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOffsetCurve2D(Step::BaseExpressData
     IfcOffsetCurve2D *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1662,7 +1662,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOffsetCurve2D(Step::BaseExpressData
 
 Step::RefPtr< IfcOffsetCurve2D > ExpressDataSet::createIfcOffsetCurve2D(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOffsetCurve2D(Step::Id_UNSET, 0);
+        return new IfcOffsetCurve2D(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOffsetCurve2D * > (allocateIfcOffsetCurve2D(this, Step::Id_UNSET));
@@ -1672,7 +1672,7 @@ Step::RefPtr< IfcOffsetCurve2D > ExpressDataSet::createIfcOffsetCurve2D(bool isV
 IfcOffsetCurve2D *ExpressDataSet::cloneIfcOffsetCurve2D(ExpressDataSet *expressDataSet, const IfcOffsetCurve2D &obj, const CopyOp &copyop) {
     IfcOffsetCurve2D *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOffsetCurve2D(id, 0);
+    ret = new IfcOffsetCurve2D(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOffsetCurve2D_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1693,7 +1693,7 @@ IfcOffsetCurve2D *ExpressDataSet::cloneIfcOffsetCurve2D(const IfcOffsetCurve2D &
 IfcOffsetCurve3D *ExpressDataSet::getIfcOffsetCurve3D(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOffsetCurve3D * > (current->second.get());
@@ -1714,7 +1714,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOffsetCurve3D(Step::BaseExpressData
     IfcOffsetCurve3D *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1727,7 +1727,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOffsetCurve3D(Step::BaseExpressData
 
 Step::RefPtr< IfcOffsetCurve3D > ExpressDataSet::createIfcOffsetCurve3D(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOffsetCurve3D(Step::Id_UNSET, 0);
+        return new IfcOffsetCurve3D(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOffsetCurve3D * > (allocateIfcOffsetCurve3D(this, Step::Id_UNSET));
@@ -1737,7 +1737,7 @@ Step::RefPtr< IfcOffsetCurve3D > ExpressDataSet::createIfcOffsetCurve3D(bool isV
 IfcOffsetCurve3D *ExpressDataSet::cloneIfcOffsetCurve3D(ExpressDataSet *expressDataSet, const IfcOffsetCurve3D &obj, const CopyOp &copyop) {
     IfcOffsetCurve3D *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOffsetCurve3D(id, 0);
+    ret = new IfcOffsetCurve3D(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOffsetCurve3D_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1758,7 +1758,7 @@ IfcOffsetCurve3D *ExpressDataSet::cloneIfcOffsetCurve3D(const IfcOffsetCurve3D &
 IfcOneDirectionRepeatFactor *ExpressDataSet::getIfcOneDirectionRepeatFactor(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOneDirectionRepeatFactor * > (current->second.get());
@@ -1779,7 +1779,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOneDirectionRepeatFactor(Step::Base
     IfcOneDirectionRepeatFactor *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1792,7 +1792,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOneDirectionRepeatFactor(Step::Base
 
 Step::RefPtr< IfcOneDirectionRepeatFactor > ExpressDataSet::createIfcOneDirectionRepeatFactor(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOneDirectionRepeatFactor(Step::Id_UNSET, 0);
+        return new IfcOneDirectionRepeatFactor(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOneDirectionRepeatFactor * > (allocateIfcOneDirectionRepeatFactor(this, Step::Id_UNSET));
@@ -1802,7 +1802,7 @@ Step::RefPtr< IfcOneDirectionRepeatFactor > ExpressDataSet::createIfcOneDirectio
 IfcOneDirectionRepeatFactor *ExpressDataSet::cloneIfcOneDirectionRepeatFactor(ExpressDataSet *expressDataSet, const IfcOneDirectionRepeatFactor &obj, const CopyOp &copyop) {
     IfcOneDirectionRepeatFactor *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOneDirectionRepeatFactor(id, 0);
+    ret = new IfcOneDirectionRepeatFactor(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOneDirectionRepeatFactor_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1823,7 +1823,7 @@ IfcOneDirectionRepeatFactor *ExpressDataSet::cloneIfcOneDirectionRepeatFactor(co
 IfcOpenShell *ExpressDataSet::getIfcOpenShell(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOpenShell * > (current->second.get());
@@ -1844,7 +1844,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOpenShell(Step::BaseExpressDataSet 
     IfcOpenShell *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1857,7 +1857,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOpenShell(Step::BaseExpressDataSet 
 
 Step::RefPtr< IfcOpenShell > ExpressDataSet::createIfcOpenShell(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOpenShell(Step::Id_UNSET, 0);
+        return new IfcOpenShell(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOpenShell * > (allocateIfcOpenShell(this, Step::Id_UNSET));
@@ -1867,7 +1867,7 @@ Step::RefPtr< IfcOpenShell > ExpressDataSet::createIfcOpenShell(bool isVolatile)
 IfcOpenShell *ExpressDataSet::cloneIfcOpenShell(ExpressDataSet *expressDataSet, const IfcOpenShell &obj, const CopyOp &copyop) {
     IfcOpenShell *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOpenShell(id, 0);
+    ret = new IfcOpenShell(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOpenShell_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1888,7 +1888,7 @@ IfcOpenShell *ExpressDataSet::cloneIfcOpenShell(const IfcOpenShell &obj, const C
 IfcOpeningElement *ExpressDataSet::getIfcOpeningElement(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOpeningElement * > (current->second.get());
@@ -1909,7 +1909,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOpeningElement(Step::BaseExpressDat
     IfcOpeningElement *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1922,7 +1922,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOpeningElement(Step::BaseExpressDat
 
 Step::RefPtr< IfcOpeningElement > ExpressDataSet::createIfcOpeningElement(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOpeningElement(Step::Id_UNSET, 0);
+        return new IfcOpeningElement(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOpeningElement * > (allocateIfcOpeningElement(this, Step::Id_UNSET));
@@ -1932,7 +1932,7 @@ Step::RefPtr< IfcOpeningElement > ExpressDataSet::createIfcOpeningElement(bool i
 IfcOpeningElement *ExpressDataSet::cloneIfcOpeningElement(ExpressDataSet *expressDataSet, const IfcOpeningElement &obj, const CopyOp &copyop) {
     IfcOpeningElement *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOpeningElement(id, 0);
+    ret = new IfcOpeningElement(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOpeningElement_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -1953,7 +1953,7 @@ IfcOpeningElement *ExpressDataSet::cloneIfcOpeningElement(const IfcOpeningElemen
 IfcOpticalMaterialProperties *ExpressDataSet::getIfcOpticalMaterialProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOpticalMaterialProperties * > (current->second.get());
@@ -1974,7 +1974,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOpticalMaterialProperties(Step::Bas
     IfcOpticalMaterialProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -1987,7 +1987,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOpticalMaterialProperties(Step::Bas
 
 Step::RefPtr< IfcOpticalMaterialProperties > ExpressDataSet::createIfcOpticalMaterialProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOpticalMaterialProperties(Step::Id_UNSET, 0);
+        return new IfcOpticalMaterialProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOpticalMaterialProperties * > (allocateIfcOpticalMaterialProperties(this, Step::Id_UNSET));
@@ -1997,7 +1997,7 @@ Step::RefPtr< IfcOpticalMaterialProperties > ExpressDataSet::createIfcOpticalMat
 IfcOpticalMaterialProperties *ExpressDataSet::cloneIfcOpticalMaterialProperties(ExpressDataSet *expressDataSet, const IfcOpticalMaterialProperties &obj, const CopyOp &copyop) {
     IfcOpticalMaterialProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOpticalMaterialProperties(id, 0);
+    ret = new IfcOpticalMaterialProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOpticalMaterialProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2018,7 +2018,7 @@ IfcOpticalMaterialProperties *ExpressDataSet::cloneIfcOpticalMaterialProperties(
 IfcOrderAction *ExpressDataSet::getIfcOrderAction(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOrderAction * > (current->second.get());
@@ -2039,7 +2039,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOrderAction(Step::BaseExpressDataSe
     IfcOrderAction *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2052,7 +2052,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOrderAction(Step::BaseExpressDataSe
 
 Step::RefPtr< IfcOrderAction > ExpressDataSet::createIfcOrderAction(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOrderAction(Step::Id_UNSET, 0);
+        return new IfcOrderAction(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOrderAction * > (allocateIfcOrderAction(this, Step::Id_UNSET));
@@ -2062,7 +2062,7 @@ Step::RefPtr< IfcOrderAction > ExpressDataSet::createIfcOrderAction(bool isVolat
 IfcOrderAction *ExpressDataSet::cloneIfcOrderAction(ExpressDataSet *expressDataSet, const IfcOrderAction &obj, const CopyOp &copyop) {
     IfcOrderAction *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOrderAction(id, 0);
+    ret = new IfcOrderAction(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOrderAction_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2083,7 +2083,7 @@ IfcOrderAction *ExpressDataSet::cloneIfcOrderAction(const IfcOrderAction &obj, c
 IfcOrganization *ExpressDataSet::getIfcOrganization(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOrganization * > (current->second.get());
@@ -2104,7 +2104,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOrganization(Step::BaseExpressDataS
     IfcOrganization *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2117,7 +2117,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOrganization(Step::BaseExpressDataS
 
 Step::RefPtr< IfcOrganization > ExpressDataSet::createIfcOrganization(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOrganization(Step::Id_UNSET, 0);
+        return new IfcOrganization(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOrganization * > (allocateIfcOrganization(this, Step::Id_UNSET));
@@ -2127,7 +2127,7 @@ Step::RefPtr< IfcOrganization > ExpressDataSet::createIfcOrganization(bool isVol
 IfcOrganization *ExpressDataSet::cloneIfcOrganization(ExpressDataSet *expressDataSet, const IfcOrganization &obj, const CopyOp &copyop) {
     IfcOrganization *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOrganization(id, 0);
+    ret = new IfcOrganization(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOrganization_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2148,7 +2148,7 @@ IfcOrganization *ExpressDataSet::cloneIfcOrganization(const IfcOrganization &obj
 IfcOrganizationRelationship *ExpressDataSet::getIfcOrganizationRelationship(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOrganizationRelationship * > (current->second.get());
@@ -2169,7 +2169,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOrganizationRelationship(Step::Base
     IfcOrganizationRelationship *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2182,7 +2182,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOrganizationRelationship(Step::Base
 
 Step::RefPtr< IfcOrganizationRelationship > ExpressDataSet::createIfcOrganizationRelationship(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOrganizationRelationship(Step::Id_UNSET, 0);
+        return new IfcOrganizationRelationship(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOrganizationRelationship * > (allocateIfcOrganizationRelationship(this, Step::Id_UNSET));
@@ -2192,7 +2192,7 @@ Step::RefPtr< IfcOrganizationRelationship > ExpressDataSet::createIfcOrganizatio
 IfcOrganizationRelationship *ExpressDataSet::cloneIfcOrganizationRelationship(ExpressDataSet *expressDataSet, const IfcOrganizationRelationship &obj, const CopyOp &copyop) {
     IfcOrganizationRelationship *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOrganizationRelationship(id, 0);
+    ret = new IfcOrganizationRelationship(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOrganizationRelationship_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2213,7 +2213,7 @@ IfcOrganizationRelationship *ExpressDataSet::cloneIfcOrganizationRelationship(co
 IfcOrientedEdge *ExpressDataSet::getIfcOrientedEdge(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOrientedEdge * > (current->second.get());
@@ -2234,7 +2234,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOrientedEdge(Step::BaseExpressDataS
     IfcOrientedEdge *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2247,7 +2247,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOrientedEdge(Step::BaseExpressDataS
 
 Step::RefPtr< IfcOrientedEdge > ExpressDataSet::createIfcOrientedEdge(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOrientedEdge(Step::Id_UNSET, 0);
+        return new IfcOrientedEdge(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOrientedEdge * > (allocateIfcOrientedEdge(this, Step::Id_UNSET));
@@ -2257,7 +2257,7 @@ Step::RefPtr< IfcOrientedEdge > ExpressDataSet::createIfcOrientedEdge(bool isVol
 IfcOrientedEdge *ExpressDataSet::cloneIfcOrientedEdge(ExpressDataSet *expressDataSet, const IfcOrientedEdge &obj, const CopyOp &copyop) {
     IfcOrientedEdge *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOrientedEdge(id, 0);
+    ret = new IfcOrientedEdge(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOrientedEdge_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2278,7 +2278,7 @@ IfcOrientedEdge *ExpressDataSet::cloneIfcOrientedEdge(const IfcOrientedEdge &obj
 IfcOutletType *ExpressDataSet::getIfcOutletType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOutletType * > (current->second.get());
@@ -2299,7 +2299,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOutletType(Step::BaseExpressDataSet
     IfcOutletType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2312,7 +2312,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOutletType(Step::BaseExpressDataSet
 
 Step::RefPtr< IfcOutletType > ExpressDataSet::createIfcOutletType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOutletType(Step::Id_UNSET, 0);
+        return new IfcOutletType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOutletType * > (allocateIfcOutletType(this, Step::Id_UNSET));
@@ -2322,7 +2322,7 @@ Step::RefPtr< IfcOutletType > ExpressDataSet::createIfcOutletType(bool isVolatil
 IfcOutletType *ExpressDataSet::cloneIfcOutletType(ExpressDataSet *expressDataSet, const IfcOutletType &obj, const CopyOp &copyop) {
     IfcOutletType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOutletType(id, 0);
+    ret = new IfcOutletType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOutletType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2343,7 +2343,7 @@ IfcOutletType *ExpressDataSet::cloneIfcOutletType(const IfcOutletType &obj, cons
 IfcOwnerHistory *ExpressDataSet::getIfcOwnerHistory(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcOwnerHistory * > (current->second.get());
@@ -2364,7 +2364,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOwnerHistory(Step::BaseExpressDataS
     IfcOwnerHistory *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2377,7 +2377,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcOwnerHistory(Step::BaseExpressDataS
 
 Step::RefPtr< IfcOwnerHistory > ExpressDataSet::createIfcOwnerHistory(bool isVolatile) {
     if (isVolatile) {
-        return new IfcOwnerHistory(Step::Id_UNSET, 0);
+        return new IfcOwnerHistory(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcOwnerHistory * > (allocateIfcOwnerHistory(this, Step::Id_UNSET));
@@ -2387,7 +2387,7 @@ Step::RefPtr< IfcOwnerHistory > ExpressDataSet::createIfcOwnerHistory(bool isVol
 IfcOwnerHistory *ExpressDataSet::cloneIfcOwnerHistory(ExpressDataSet *expressDataSet, const IfcOwnerHistory &obj, const CopyOp &copyop) {
     IfcOwnerHistory *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcOwnerHistory(id, 0);
+    ret = new IfcOwnerHistory(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcOwnerHistory_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2408,7 +2408,7 @@ IfcOwnerHistory *ExpressDataSet::cloneIfcOwnerHistory(const IfcOwnerHistory &obj
 IfcPath *ExpressDataSet::getIfcPath(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPath * > (current->second.get());
@@ -2429,7 +2429,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPath(Step::BaseExpressDataSet *expr
     IfcPath *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2442,7 +2442,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPath(Step::BaseExpressDataSet *expr
 
 Step::RefPtr< IfcPath > ExpressDataSet::createIfcPath(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPath(Step::Id_UNSET, 0);
+        return new IfcPath(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPath * > (allocateIfcPath(this, Step::Id_UNSET));
@@ -2452,7 +2452,7 @@ Step::RefPtr< IfcPath > ExpressDataSet::createIfcPath(bool isVolatile) {
 IfcPath *ExpressDataSet::cloneIfcPath(ExpressDataSet *expressDataSet, const IfcPath &obj, const CopyOp &copyop) {
     IfcPath *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPath(id, 0);
+    ret = new IfcPath(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPath_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2473,7 +2473,7 @@ IfcPath *ExpressDataSet::cloneIfcPath(const IfcPath &obj, const CopyOp &copyop) 
 IfcPerformanceHistory *ExpressDataSet::getIfcPerformanceHistory(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPerformanceHistory * > (current->second.get());
@@ -2494,7 +2494,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPerformanceHistory(Step::BaseExpres
     IfcPerformanceHistory *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2507,7 +2507,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPerformanceHistory(Step::BaseExpres
 
 Step::RefPtr< IfcPerformanceHistory > ExpressDataSet::createIfcPerformanceHistory(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPerformanceHistory(Step::Id_UNSET, 0);
+        return new IfcPerformanceHistory(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPerformanceHistory * > (allocateIfcPerformanceHistory(this, Step::Id_UNSET));
@@ -2517,7 +2517,7 @@ Step::RefPtr< IfcPerformanceHistory > ExpressDataSet::createIfcPerformanceHistor
 IfcPerformanceHistory *ExpressDataSet::cloneIfcPerformanceHistory(ExpressDataSet *expressDataSet, const IfcPerformanceHistory &obj, const CopyOp &copyop) {
     IfcPerformanceHistory *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPerformanceHistory(id, 0);
+    ret = new IfcPerformanceHistory(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPerformanceHistory_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2538,7 +2538,7 @@ IfcPerformanceHistory *ExpressDataSet::cloneIfcPerformanceHistory(const IfcPerfo
 IfcPermeableCoveringProperties *ExpressDataSet::getIfcPermeableCoveringProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPermeableCoveringProperties * > (current->second.get());
@@ -2559,7 +2559,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPermeableCoveringProperties(Step::B
     IfcPermeableCoveringProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2572,7 +2572,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPermeableCoveringProperties(Step::B
 
 Step::RefPtr< IfcPermeableCoveringProperties > ExpressDataSet::createIfcPermeableCoveringProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPermeableCoveringProperties(Step::Id_UNSET, 0);
+        return new IfcPermeableCoveringProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPermeableCoveringProperties * > (allocateIfcPermeableCoveringProperties(this, Step::Id_UNSET));
@@ -2582,7 +2582,7 @@ Step::RefPtr< IfcPermeableCoveringProperties > ExpressDataSet::createIfcPermeabl
 IfcPermeableCoveringProperties *ExpressDataSet::cloneIfcPermeableCoveringProperties(ExpressDataSet *expressDataSet, const IfcPermeableCoveringProperties &obj, const CopyOp &copyop) {
     IfcPermeableCoveringProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPermeableCoveringProperties(id, 0);
+    ret = new IfcPermeableCoveringProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPermeableCoveringProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2603,7 +2603,7 @@ IfcPermeableCoveringProperties *ExpressDataSet::cloneIfcPermeableCoveringPropert
 IfcPermit *ExpressDataSet::getIfcPermit(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPermit * > (current->second.get());
@@ -2624,7 +2624,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPermit(Step::BaseExpressDataSet *ex
     IfcPermit *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2637,7 +2637,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPermit(Step::BaseExpressDataSet *ex
 
 Step::RefPtr< IfcPermit > ExpressDataSet::createIfcPermit(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPermit(Step::Id_UNSET, 0);
+        return new IfcPermit(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPermit * > (allocateIfcPermit(this, Step::Id_UNSET));
@@ -2647,7 +2647,7 @@ Step::RefPtr< IfcPermit > ExpressDataSet::createIfcPermit(bool isVolatile) {
 IfcPermit *ExpressDataSet::cloneIfcPermit(ExpressDataSet *expressDataSet, const IfcPermit &obj, const CopyOp &copyop) {
     IfcPermit *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPermit(id, 0);
+    ret = new IfcPermit(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPermit_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2668,7 +2668,7 @@ IfcPermit *ExpressDataSet::cloneIfcPermit(const IfcPermit &obj, const CopyOp &co
 IfcPerson *ExpressDataSet::getIfcPerson(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPerson * > (current->second.get());
@@ -2689,7 +2689,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPerson(Step::BaseExpressDataSet *ex
     IfcPerson *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2702,7 +2702,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPerson(Step::BaseExpressDataSet *ex
 
 Step::RefPtr< IfcPerson > ExpressDataSet::createIfcPerson(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPerson(Step::Id_UNSET, 0);
+        return new IfcPerson(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPerson * > (allocateIfcPerson(this, Step::Id_UNSET));
@@ -2712,7 +2712,7 @@ Step::RefPtr< IfcPerson > ExpressDataSet::createIfcPerson(bool isVolatile) {
 IfcPerson *ExpressDataSet::cloneIfcPerson(ExpressDataSet *expressDataSet, const IfcPerson &obj, const CopyOp &copyop) {
     IfcPerson *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPerson(id, 0);
+    ret = new IfcPerson(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPerson_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2733,7 +2733,7 @@ IfcPerson *ExpressDataSet::cloneIfcPerson(const IfcPerson &obj, const CopyOp &co
 IfcPersonAndOrganization *ExpressDataSet::getIfcPersonAndOrganization(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPersonAndOrganization * > (current->second.get());
@@ -2754,7 +2754,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPersonAndOrganization(Step::BaseExp
     IfcPersonAndOrganization *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2767,7 +2767,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPersonAndOrganization(Step::BaseExp
 
 Step::RefPtr< IfcPersonAndOrganization > ExpressDataSet::createIfcPersonAndOrganization(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPersonAndOrganization(Step::Id_UNSET, 0);
+        return new IfcPersonAndOrganization(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPersonAndOrganization * > (allocateIfcPersonAndOrganization(this, Step::Id_UNSET));
@@ -2777,7 +2777,7 @@ Step::RefPtr< IfcPersonAndOrganization > ExpressDataSet::createIfcPersonAndOrgan
 IfcPersonAndOrganization *ExpressDataSet::cloneIfcPersonAndOrganization(ExpressDataSet *expressDataSet, const IfcPersonAndOrganization &obj, const CopyOp &copyop) {
     IfcPersonAndOrganization *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPersonAndOrganization(id, 0);
+    ret = new IfcPersonAndOrganization(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPersonAndOrganization_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2798,7 +2798,7 @@ IfcPersonAndOrganization *ExpressDataSet::cloneIfcPersonAndOrganization(const If
 IfcPhysicalComplexQuantity *ExpressDataSet::getIfcPhysicalComplexQuantity(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPhysicalComplexQuantity * > (current->second.get());
@@ -2819,7 +2819,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPhysicalComplexQuantity(Step::BaseE
     IfcPhysicalComplexQuantity *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2832,7 +2832,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPhysicalComplexQuantity(Step::BaseE
 
 Step::RefPtr< IfcPhysicalComplexQuantity > ExpressDataSet::createIfcPhysicalComplexQuantity(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPhysicalComplexQuantity(Step::Id_UNSET, 0);
+        return new IfcPhysicalComplexQuantity(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPhysicalComplexQuantity * > (allocateIfcPhysicalComplexQuantity(this, Step::Id_UNSET));
@@ -2842,7 +2842,7 @@ Step::RefPtr< IfcPhysicalComplexQuantity > ExpressDataSet::createIfcPhysicalComp
 IfcPhysicalComplexQuantity *ExpressDataSet::cloneIfcPhysicalComplexQuantity(ExpressDataSet *expressDataSet, const IfcPhysicalComplexQuantity &obj, const CopyOp &copyop) {
     IfcPhysicalComplexQuantity *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPhysicalComplexQuantity(id, 0);
+    ret = new IfcPhysicalComplexQuantity(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPhysicalComplexQuantity_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2863,7 +2863,7 @@ IfcPhysicalComplexQuantity *ExpressDataSet::cloneIfcPhysicalComplexQuantity(cons
 IfcPile *ExpressDataSet::getIfcPile(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPile * > (current->second.get());
@@ -2884,7 +2884,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPile(Step::BaseExpressDataSet *expr
     IfcPile *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2897,7 +2897,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPile(Step::BaseExpressDataSet *expr
 
 Step::RefPtr< IfcPile > ExpressDataSet::createIfcPile(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPile(Step::Id_UNSET, 0);
+        return new IfcPile(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPile * > (allocateIfcPile(this, Step::Id_UNSET));
@@ -2907,7 +2907,7 @@ Step::RefPtr< IfcPile > ExpressDataSet::createIfcPile(bool isVolatile) {
 IfcPile *ExpressDataSet::cloneIfcPile(ExpressDataSet *expressDataSet, const IfcPile &obj, const CopyOp &copyop) {
     IfcPile *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPile(id, 0);
+    ret = new IfcPile(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPile_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2928,7 +2928,7 @@ IfcPile *ExpressDataSet::cloneIfcPile(const IfcPile &obj, const CopyOp &copyop) 
 IfcPipeFittingType *ExpressDataSet::getIfcPipeFittingType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPipeFittingType * > (current->second.get());
@@ -2949,7 +2949,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPipeFittingType(Step::BaseExpressDa
     IfcPipeFittingType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -2962,7 +2962,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPipeFittingType(Step::BaseExpressDa
 
 Step::RefPtr< IfcPipeFittingType > ExpressDataSet::createIfcPipeFittingType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPipeFittingType(Step::Id_UNSET, 0);
+        return new IfcPipeFittingType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPipeFittingType * > (allocateIfcPipeFittingType(this, Step::Id_UNSET));
@@ -2972,7 +2972,7 @@ Step::RefPtr< IfcPipeFittingType > ExpressDataSet::createIfcPipeFittingType(bool
 IfcPipeFittingType *ExpressDataSet::cloneIfcPipeFittingType(ExpressDataSet *expressDataSet, const IfcPipeFittingType &obj, const CopyOp &copyop) {
     IfcPipeFittingType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPipeFittingType(id, 0);
+    ret = new IfcPipeFittingType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPipeFittingType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -2993,7 +2993,7 @@ IfcPipeFittingType *ExpressDataSet::cloneIfcPipeFittingType(const IfcPipeFitting
 IfcPipeSegmentType *ExpressDataSet::getIfcPipeSegmentType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPipeSegmentType * > (current->second.get());
@@ -3014,7 +3014,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPipeSegmentType(Step::BaseExpressDa
     IfcPipeSegmentType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3027,7 +3027,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPipeSegmentType(Step::BaseExpressDa
 
 Step::RefPtr< IfcPipeSegmentType > ExpressDataSet::createIfcPipeSegmentType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPipeSegmentType(Step::Id_UNSET, 0);
+        return new IfcPipeSegmentType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPipeSegmentType * > (allocateIfcPipeSegmentType(this, Step::Id_UNSET));
@@ -3037,7 +3037,7 @@ Step::RefPtr< IfcPipeSegmentType > ExpressDataSet::createIfcPipeSegmentType(bool
 IfcPipeSegmentType *ExpressDataSet::cloneIfcPipeSegmentType(ExpressDataSet *expressDataSet, const IfcPipeSegmentType &obj, const CopyOp &copyop) {
     IfcPipeSegmentType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPipeSegmentType(id, 0);
+    ret = new IfcPipeSegmentType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPipeSegmentType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3058,7 +3058,7 @@ IfcPipeSegmentType *ExpressDataSet::cloneIfcPipeSegmentType(const IfcPipeSegment
 IfcPixelTexture *ExpressDataSet::getIfcPixelTexture(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPixelTexture * > (current->second.get());
@@ -3079,7 +3079,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPixelTexture(Step::BaseExpressDataS
     IfcPixelTexture *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3092,7 +3092,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPixelTexture(Step::BaseExpressDataS
 
 Step::RefPtr< IfcPixelTexture > ExpressDataSet::createIfcPixelTexture(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPixelTexture(Step::Id_UNSET, 0);
+        return new IfcPixelTexture(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPixelTexture * > (allocateIfcPixelTexture(this, Step::Id_UNSET));
@@ -3102,7 +3102,7 @@ Step::RefPtr< IfcPixelTexture > ExpressDataSet::createIfcPixelTexture(bool isVol
 IfcPixelTexture *ExpressDataSet::cloneIfcPixelTexture(ExpressDataSet *expressDataSet, const IfcPixelTexture &obj, const CopyOp &copyop) {
     IfcPixelTexture *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPixelTexture(id, 0);
+    ret = new IfcPixelTexture(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPixelTexture_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3123,7 +3123,7 @@ IfcPixelTexture *ExpressDataSet::cloneIfcPixelTexture(const IfcPixelTexture &obj
 IfcPlanarBox *ExpressDataSet::getIfcPlanarBox(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPlanarBox * > (current->second.get());
@@ -3144,7 +3144,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPlanarBox(Step::BaseExpressDataSet 
     IfcPlanarBox *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3157,7 +3157,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPlanarBox(Step::BaseExpressDataSet 
 
 Step::RefPtr< IfcPlanarBox > ExpressDataSet::createIfcPlanarBox(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPlanarBox(Step::Id_UNSET, 0);
+        return new IfcPlanarBox(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPlanarBox * > (allocateIfcPlanarBox(this, Step::Id_UNSET));
@@ -3167,7 +3167,7 @@ Step::RefPtr< IfcPlanarBox > ExpressDataSet::createIfcPlanarBox(bool isVolatile)
 IfcPlanarBox *ExpressDataSet::cloneIfcPlanarBox(ExpressDataSet *expressDataSet, const IfcPlanarBox &obj, const CopyOp &copyop) {
     IfcPlanarBox *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPlanarBox(id, 0);
+    ret = new IfcPlanarBox(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPlanarBox_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3188,7 +3188,7 @@ IfcPlanarBox *ExpressDataSet::cloneIfcPlanarBox(const IfcPlanarBox &obj, const C
 IfcPlanarExtent *ExpressDataSet::getIfcPlanarExtent(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPlanarExtent * > (current->second.get());
@@ -3209,7 +3209,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPlanarExtent(Step::BaseExpressDataS
     IfcPlanarExtent *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3222,7 +3222,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPlanarExtent(Step::BaseExpressDataS
 
 Step::RefPtr< IfcPlanarExtent > ExpressDataSet::createIfcPlanarExtent(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPlanarExtent(Step::Id_UNSET, 0);
+        return new IfcPlanarExtent(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPlanarExtent * > (allocateIfcPlanarExtent(this, Step::Id_UNSET));
@@ -3232,7 +3232,7 @@ Step::RefPtr< IfcPlanarExtent > ExpressDataSet::createIfcPlanarExtent(bool isVol
 IfcPlanarExtent *ExpressDataSet::cloneIfcPlanarExtent(ExpressDataSet *expressDataSet, const IfcPlanarExtent &obj, const CopyOp &copyop) {
     IfcPlanarExtent *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPlanarExtent(id, 0);
+    ret = new IfcPlanarExtent(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPlanarExtent_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3253,7 +3253,7 @@ IfcPlanarExtent *ExpressDataSet::cloneIfcPlanarExtent(const IfcPlanarExtent &obj
 IfcPlane *ExpressDataSet::getIfcPlane(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPlane * > (current->second.get());
@@ -3274,7 +3274,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPlane(Step::BaseExpressDataSet *exp
     IfcPlane *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3287,7 +3287,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPlane(Step::BaseExpressDataSet *exp
 
 Step::RefPtr< IfcPlane > ExpressDataSet::createIfcPlane(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPlane(Step::Id_UNSET, 0);
+        return new IfcPlane(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPlane * > (allocateIfcPlane(this, Step::Id_UNSET));
@@ -3297,7 +3297,7 @@ Step::RefPtr< IfcPlane > ExpressDataSet::createIfcPlane(bool isVolatile) {
 IfcPlane *ExpressDataSet::cloneIfcPlane(ExpressDataSet *expressDataSet, const IfcPlane &obj, const CopyOp &copyop) {
     IfcPlane *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPlane(id, 0);
+    ret = new IfcPlane(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPlane_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3318,7 +3318,7 @@ IfcPlane *ExpressDataSet::cloneIfcPlane(const IfcPlane &obj, const CopyOp &copyo
 IfcPlate *ExpressDataSet::getIfcPlate(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPlate * > (current->second.get());
@@ -3339,7 +3339,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPlate(Step::BaseExpressDataSet *exp
     IfcPlate *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3352,7 +3352,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPlate(Step::BaseExpressDataSet *exp
 
 Step::RefPtr< IfcPlate > ExpressDataSet::createIfcPlate(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPlate(Step::Id_UNSET, 0);
+        return new IfcPlate(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPlate * > (allocateIfcPlate(this, Step::Id_UNSET));
@@ -3362,7 +3362,7 @@ Step::RefPtr< IfcPlate > ExpressDataSet::createIfcPlate(bool isVolatile) {
 IfcPlate *ExpressDataSet::cloneIfcPlate(ExpressDataSet *expressDataSet, const IfcPlate &obj, const CopyOp &copyop) {
     IfcPlate *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPlate(id, 0);
+    ret = new IfcPlate(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPlate_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3383,7 +3383,7 @@ IfcPlate *ExpressDataSet::cloneIfcPlate(const IfcPlate &obj, const CopyOp &copyo
 IfcPlateType *ExpressDataSet::getIfcPlateType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPlateType * > (current->second.get());
@@ -3404,7 +3404,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPlateType(Step::BaseExpressDataSet 
     IfcPlateType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3417,7 +3417,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPlateType(Step::BaseExpressDataSet 
 
 Step::RefPtr< IfcPlateType > ExpressDataSet::createIfcPlateType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPlateType(Step::Id_UNSET, 0);
+        return new IfcPlateType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPlateType * > (allocateIfcPlateType(this, Step::Id_UNSET));
@@ -3427,7 +3427,7 @@ Step::RefPtr< IfcPlateType > ExpressDataSet::createIfcPlateType(bool isVolatile)
 IfcPlateType *ExpressDataSet::cloneIfcPlateType(ExpressDataSet *expressDataSet, const IfcPlateType &obj, const CopyOp &copyop) {
     IfcPlateType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPlateType(id, 0);
+    ret = new IfcPlateType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPlateType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3448,7 +3448,7 @@ IfcPlateType *ExpressDataSet::cloneIfcPlateType(const IfcPlateType &obj, const C
 IfcPointOnCurve *ExpressDataSet::getIfcPointOnCurve(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPointOnCurve * > (current->second.get());
@@ -3469,7 +3469,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPointOnCurve(Step::BaseExpressDataS
     IfcPointOnCurve *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3482,7 +3482,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPointOnCurve(Step::BaseExpressDataS
 
 Step::RefPtr< IfcPointOnCurve > ExpressDataSet::createIfcPointOnCurve(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPointOnCurve(Step::Id_UNSET, 0);
+        return new IfcPointOnCurve(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPointOnCurve * > (allocateIfcPointOnCurve(this, Step::Id_UNSET));
@@ -3492,7 +3492,7 @@ Step::RefPtr< IfcPointOnCurve > ExpressDataSet::createIfcPointOnCurve(bool isVol
 IfcPointOnCurve *ExpressDataSet::cloneIfcPointOnCurve(ExpressDataSet *expressDataSet, const IfcPointOnCurve &obj, const CopyOp &copyop) {
     IfcPointOnCurve *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPointOnCurve(id, 0);
+    ret = new IfcPointOnCurve(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPointOnCurve_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3513,7 +3513,7 @@ IfcPointOnCurve *ExpressDataSet::cloneIfcPointOnCurve(const IfcPointOnCurve &obj
 IfcPointOnSurface *ExpressDataSet::getIfcPointOnSurface(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPointOnSurface * > (current->second.get());
@@ -3534,7 +3534,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPointOnSurface(Step::BaseExpressDat
     IfcPointOnSurface *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3547,7 +3547,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPointOnSurface(Step::BaseExpressDat
 
 Step::RefPtr< IfcPointOnSurface > ExpressDataSet::createIfcPointOnSurface(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPointOnSurface(Step::Id_UNSET, 0);
+        return new IfcPointOnSurface(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPointOnSurface * > (allocateIfcPointOnSurface(this, Step::Id_UNSET));
@@ -3557,7 +3557,7 @@ Step::RefPtr< IfcPointOnSurface > ExpressDataSet::createIfcPointOnSurface(bool i
 IfcPointOnSurface *ExpressDataSet::cloneIfcPointOnSurface(ExpressDataSet *expressDataSet, const IfcPointOnSurface &obj, const CopyOp &copyop) {
     IfcPointOnSurface *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPointOnSurface(id, 0);
+    ret = new IfcPointOnSurface(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPointOnSurface_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3578,7 +3578,7 @@ IfcPointOnSurface *ExpressDataSet::cloneIfcPointOnSurface(const IfcPointOnSurfac
 IfcPolyLoop *ExpressDataSet::getIfcPolyLoop(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPolyLoop * > (current->second.get());
@@ -3599,7 +3599,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPolyLoop(Step::BaseExpressDataSet *
     IfcPolyLoop *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3612,7 +3612,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPolyLoop(Step::BaseExpressDataSet *
 
 Step::RefPtr< IfcPolyLoop > ExpressDataSet::createIfcPolyLoop(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPolyLoop(Step::Id_UNSET, 0);
+        return new IfcPolyLoop(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPolyLoop * > (allocateIfcPolyLoop(this, Step::Id_UNSET));
@@ -3622,7 +3622,7 @@ Step::RefPtr< IfcPolyLoop > ExpressDataSet::createIfcPolyLoop(bool isVolatile) {
 IfcPolyLoop *ExpressDataSet::cloneIfcPolyLoop(ExpressDataSet *expressDataSet, const IfcPolyLoop &obj, const CopyOp &copyop) {
     IfcPolyLoop *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPolyLoop(id, 0);
+    ret = new IfcPolyLoop(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPolyLoop_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3643,7 +3643,7 @@ IfcPolyLoop *ExpressDataSet::cloneIfcPolyLoop(const IfcPolyLoop &obj, const Copy
 IfcPolygonalBoundedHalfSpace *ExpressDataSet::getIfcPolygonalBoundedHalfSpace(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPolygonalBoundedHalfSpace * > (current->second.get());
@@ -3664,7 +3664,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPolygonalBoundedHalfSpace(Step::Bas
     IfcPolygonalBoundedHalfSpace *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3677,7 +3677,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPolygonalBoundedHalfSpace(Step::Bas
 
 Step::RefPtr< IfcPolygonalBoundedHalfSpace > ExpressDataSet::createIfcPolygonalBoundedHalfSpace(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPolygonalBoundedHalfSpace(Step::Id_UNSET, 0);
+        return new IfcPolygonalBoundedHalfSpace(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPolygonalBoundedHalfSpace * > (allocateIfcPolygonalBoundedHalfSpace(this, Step::Id_UNSET));
@@ -3687,7 +3687,7 @@ Step::RefPtr< IfcPolygonalBoundedHalfSpace > ExpressDataSet::createIfcPolygonalB
 IfcPolygonalBoundedHalfSpace *ExpressDataSet::cloneIfcPolygonalBoundedHalfSpace(ExpressDataSet *expressDataSet, const IfcPolygonalBoundedHalfSpace &obj, const CopyOp &copyop) {
     IfcPolygonalBoundedHalfSpace *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPolygonalBoundedHalfSpace(id, 0);
+    ret = new IfcPolygonalBoundedHalfSpace(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPolygonalBoundedHalfSpace_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3708,7 +3708,7 @@ IfcPolygonalBoundedHalfSpace *ExpressDataSet::cloneIfcPolygonalBoundedHalfSpace(
 IfcPolyline *ExpressDataSet::getIfcPolyline(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPolyline * > (current->second.get());
@@ -3729,7 +3729,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPolyline(Step::BaseExpressDataSet *
     IfcPolyline *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3742,7 +3742,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPolyline(Step::BaseExpressDataSet *
 
 Step::RefPtr< IfcPolyline > ExpressDataSet::createIfcPolyline(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPolyline(Step::Id_UNSET, 0);
+        return new IfcPolyline(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPolyline * > (allocateIfcPolyline(this, Step::Id_UNSET));
@@ -3752,7 +3752,7 @@ Step::RefPtr< IfcPolyline > ExpressDataSet::createIfcPolyline(bool isVolatile) {
 IfcPolyline *ExpressDataSet::cloneIfcPolyline(ExpressDataSet *expressDataSet, const IfcPolyline &obj, const CopyOp &copyop) {
     IfcPolyline *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPolyline(id, 0);
+    ret = new IfcPolyline(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPolyline_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3773,7 +3773,7 @@ IfcPolyline *ExpressDataSet::cloneIfcPolyline(const IfcPolyline &obj, const Copy
 IfcPostalAddress *ExpressDataSet::getIfcPostalAddress(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPostalAddress * > (current->second.get());
@@ -3794,7 +3794,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPostalAddress(Step::BaseExpressData
     IfcPostalAddress *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3807,7 +3807,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPostalAddress(Step::BaseExpressData
 
 Step::RefPtr< IfcPostalAddress > ExpressDataSet::createIfcPostalAddress(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPostalAddress(Step::Id_UNSET, 0);
+        return new IfcPostalAddress(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPostalAddress * > (allocateIfcPostalAddress(this, Step::Id_UNSET));
@@ -3817,7 +3817,7 @@ Step::RefPtr< IfcPostalAddress > ExpressDataSet::createIfcPostalAddress(bool isV
 IfcPostalAddress *ExpressDataSet::cloneIfcPostalAddress(ExpressDataSet *expressDataSet, const IfcPostalAddress &obj, const CopyOp &copyop) {
     IfcPostalAddress *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPostalAddress(id, 0);
+    ret = new IfcPostalAddress(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPostalAddress_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3838,7 +3838,7 @@ IfcPostalAddress *ExpressDataSet::cloneIfcPostalAddress(const IfcPostalAddress &
 IfcPreDefinedDimensionSymbol *ExpressDataSet::getIfcPreDefinedDimensionSymbol(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPreDefinedDimensionSymbol * > (current->second.get());
@@ -3859,7 +3859,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPreDefinedDimensionSymbol(Step::Bas
     IfcPreDefinedDimensionSymbol *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3872,7 +3872,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPreDefinedDimensionSymbol(Step::Bas
 
 Step::RefPtr< IfcPreDefinedDimensionSymbol > ExpressDataSet::createIfcPreDefinedDimensionSymbol(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPreDefinedDimensionSymbol(Step::Id_UNSET, 0);
+        return new IfcPreDefinedDimensionSymbol(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPreDefinedDimensionSymbol * > (allocateIfcPreDefinedDimensionSymbol(this, Step::Id_UNSET));
@@ -3882,7 +3882,7 @@ Step::RefPtr< IfcPreDefinedDimensionSymbol > ExpressDataSet::createIfcPreDefined
 IfcPreDefinedDimensionSymbol *ExpressDataSet::cloneIfcPreDefinedDimensionSymbol(ExpressDataSet *expressDataSet, const IfcPreDefinedDimensionSymbol &obj, const CopyOp &copyop) {
     IfcPreDefinedDimensionSymbol *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPreDefinedDimensionSymbol(id, 0);
+    ret = new IfcPreDefinedDimensionSymbol(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPreDefinedDimensionSymbol_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3903,7 +3903,7 @@ IfcPreDefinedDimensionSymbol *ExpressDataSet::cloneIfcPreDefinedDimensionSymbol(
 IfcPreDefinedPointMarkerSymbol *ExpressDataSet::getIfcPreDefinedPointMarkerSymbol(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPreDefinedPointMarkerSymbol * > (current->second.get());
@@ -3924,7 +3924,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPreDefinedPointMarkerSymbol(Step::B
     IfcPreDefinedPointMarkerSymbol *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -3937,7 +3937,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPreDefinedPointMarkerSymbol(Step::B
 
 Step::RefPtr< IfcPreDefinedPointMarkerSymbol > ExpressDataSet::createIfcPreDefinedPointMarkerSymbol(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPreDefinedPointMarkerSymbol(Step::Id_UNSET, 0);
+        return new IfcPreDefinedPointMarkerSymbol(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPreDefinedPointMarkerSymbol * > (allocateIfcPreDefinedPointMarkerSymbol(this, Step::Id_UNSET));
@@ -3947,7 +3947,7 @@ Step::RefPtr< IfcPreDefinedPointMarkerSymbol > ExpressDataSet::createIfcPreDefin
 IfcPreDefinedPointMarkerSymbol *ExpressDataSet::cloneIfcPreDefinedPointMarkerSymbol(ExpressDataSet *expressDataSet, const IfcPreDefinedPointMarkerSymbol &obj, const CopyOp &copyop) {
     IfcPreDefinedPointMarkerSymbol *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPreDefinedPointMarkerSymbol(id, 0);
+    ret = new IfcPreDefinedPointMarkerSymbol(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPreDefinedPointMarkerSymbol_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -3968,7 +3968,7 @@ IfcPreDefinedPointMarkerSymbol *ExpressDataSet::cloneIfcPreDefinedPointMarkerSym
 IfcPreDefinedTerminatorSymbol *ExpressDataSet::getIfcPreDefinedTerminatorSymbol(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPreDefinedTerminatorSymbol * > (current->second.get());
@@ -3989,7 +3989,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPreDefinedTerminatorSymbol(Step::Ba
     IfcPreDefinedTerminatorSymbol *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4002,7 +4002,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPreDefinedTerminatorSymbol(Step::Ba
 
 Step::RefPtr< IfcPreDefinedTerminatorSymbol > ExpressDataSet::createIfcPreDefinedTerminatorSymbol(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPreDefinedTerminatorSymbol(Step::Id_UNSET, 0);
+        return new IfcPreDefinedTerminatorSymbol(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPreDefinedTerminatorSymbol * > (allocateIfcPreDefinedTerminatorSymbol(this, Step::Id_UNSET));
@@ -4012,7 +4012,7 @@ Step::RefPtr< IfcPreDefinedTerminatorSymbol > ExpressDataSet::createIfcPreDefine
 IfcPreDefinedTerminatorSymbol *ExpressDataSet::cloneIfcPreDefinedTerminatorSymbol(ExpressDataSet *expressDataSet, const IfcPreDefinedTerminatorSymbol &obj, const CopyOp &copyop) {
     IfcPreDefinedTerminatorSymbol *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPreDefinedTerminatorSymbol(id, 0);
+    ret = new IfcPreDefinedTerminatorSymbol(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPreDefinedTerminatorSymbol_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4033,7 +4033,7 @@ IfcPreDefinedTerminatorSymbol *ExpressDataSet::cloneIfcPreDefinedTerminatorSymbo
 IfcPresentationLayerAssignment *ExpressDataSet::getIfcPresentationLayerAssignment(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPresentationLayerAssignment * > (current->second.get());
@@ -4054,7 +4054,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPresentationLayerAssignment(Step::B
     IfcPresentationLayerAssignment *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4067,7 +4067,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPresentationLayerAssignment(Step::B
 
 Step::RefPtr< IfcPresentationLayerAssignment > ExpressDataSet::createIfcPresentationLayerAssignment(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPresentationLayerAssignment(Step::Id_UNSET, 0);
+        return new IfcPresentationLayerAssignment(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPresentationLayerAssignment * > (allocateIfcPresentationLayerAssignment(this, Step::Id_UNSET));
@@ -4077,7 +4077,7 @@ Step::RefPtr< IfcPresentationLayerAssignment > ExpressDataSet::createIfcPresenta
 IfcPresentationLayerAssignment *ExpressDataSet::cloneIfcPresentationLayerAssignment(ExpressDataSet *expressDataSet, const IfcPresentationLayerAssignment &obj, const CopyOp &copyop) {
     IfcPresentationLayerAssignment *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPresentationLayerAssignment(id, 0);
+    ret = new IfcPresentationLayerAssignment(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPresentationLayerAssignment_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4098,7 +4098,7 @@ IfcPresentationLayerAssignment *ExpressDataSet::cloneIfcPresentationLayerAssignm
 IfcPresentationLayerWithStyle *ExpressDataSet::getIfcPresentationLayerWithStyle(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPresentationLayerWithStyle * > (current->second.get());
@@ -4119,7 +4119,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPresentationLayerWithStyle(Step::Ba
     IfcPresentationLayerWithStyle *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4132,7 +4132,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPresentationLayerWithStyle(Step::Ba
 
 Step::RefPtr< IfcPresentationLayerWithStyle > ExpressDataSet::createIfcPresentationLayerWithStyle(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPresentationLayerWithStyle(Step::Id_UNSET, 0);
+        return new IfcPresentationLayerWithStyle(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPresentationLayerWithStyle * > (allocateIfcPresentationLayerWithStyle(this, Step::Id_UNSET));
@@ -4142,7 +4142,7 @@ Step::RefPtr< IfcPresentationLayerWithStyle > ExpressDataSet::createIfcPresentat
 IfcPresentationLayerWithStyle *ExpressDataSet::cloneIfcPresentationLayerWithStyle(ExpressDataSet *expressDataSet, const IfcPresentationLayerWithStyle &obj, const CopyOp &copyop) {
     IfcPresentationLayerWithStyle *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPresentationLayerWithStyle(id, 0);
+    ret = new IfcPresentationLayerWithStyle(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPresentationLayerWithStyle_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4163,7 +4163,7 @@ IfcPresentationLayerWithStyle *ExpressDataSet::cloneIfcPresentationLayerWithStyl
 IfcPresentationStyleAssignment *ExpressDataSet::getIfcPresentationStyleAssignment(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPresentationStyleAssignment * > (current->second.get());
@@ -4184,7 +4184,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPresentationStyleAssignment(Step::B
     IfcPresentationStyleAssignment *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4197,7 +4197,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPresentationStyleAssignment(Step::B
 
 Step::RefPtr< IfcPresentationStyleAssignment > ExpressDataSet::createIfcPresentationStyleAssignment(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPresentationStyleAssignment(Step::Id_UNSET, 0);
+        return new IfcPresentationStyleAssignment(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPresentationStyleAssignment * > (allocateIfcPresentationStyleAssignment(this, Step::Id_UNSET));
@@ -4207,7 +4207,7 @@ Step::RefPtr< IfcPresentationStyleAssignment > ExpressDataSet::createIfcPresenta
 IfcPresentationStyleAssignment *ExpressDataSet::cloneIfcPresentationStyleAssignment(ExpressDataSet *expressDataSet, const IfcPresentationStyleAssignment &obj, const CopyOp &copyop) {
     IfcPresentationStyleAssignment *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPresentationStyleAssignment(id, 0);
+    ret = new IfcPresentationStyleAssignment(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPresentationStyleAssignment_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4228,7 +4228,7 @@ IfcPresentationStyleAssignment *ExpressDataSet::cloneIfcPresentationStyleAssignm
 IfcProcedure *ExpressDataSet::getIfcProcedure(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcProcedure * > (current->second.get());
@@ -4249,7 +4249,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProcedure(Step::BaseExpressDataSet 
     IfcProcedure *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4262,7 +4262,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProcedure(Step::BaseExpressDataSet 
 
 Step::RefPtr< IfcProcedure > ExpressDataSet::createIfcProcedure(bool isVolatile) {
     if (isVolatile) {
-        return new IfcProcedure(Step::Id_UNSET, 0);
+        return new IfcProcedure(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcProcedure * > (allocateIfcProcedure(this, Step::Id_UNSET));
@@ -4272,7 +4272,7 @@ Step::RefPtr< IfcProcedure > ExpressDataSet::createIfcProcedure(bool isVolatile)
 IfcProcedure *ExpressDataSet::cloneIfcProcedure(ExpressDataSet *expressDataSet, const IfcProcedure &obj, const CopyOp &copyop) {
     IfcProcedure *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcProcedure(id, 0);
+    ret = new IfcProcedure(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcProcedure_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4293,7 +4293,7 @@ IfcProcedure *ExpressDataSet::cloneIfcProcedure(const IfcProcedure &obj, const C
 IfcProductDefinitionShape *ExpressDataSet::getIfcProductDefinitionShape(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcProductDefinitionShape * > (current->second.get());
@@ -4314,7 +4314,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProductDefinitionShape(Step::BaseEx
     IfcProductDefinitionShape *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4327,7 +4327,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProductDefinitionShape(Step::BaseEx
 
 Step::RefPtr< IfcProductDefinitionShape > ExpressDataSet::createIfcProductDefinitionShape(bool isVolatile) {
     if (isVolatile) {
-        return new IfcProductDefinitionShape(Step::Id_UNSET, 0);
+        return new IfcProductDefinitionShape(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcProductDefinitionShape * > (allocateIfcProductDefinitionShape(this, Step::Id_UNSET));
@@ -4337,7 +4337,7 @@ Step::RefPtr< IfcProductDefinitionShape > ExpressDataSet::createIfcProductDefini
 IfcProductDefinitionShape *ExpressDataSet::cloneIfcProductDefinitionShape(ExpressDataSet *expressDataSet, const IfcProductDefinitionShape &obj, const CopyOp &copyop) {
     IfcProductDefinitionShape *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcProductDefinitionShape(id, 0);
+    ret = new IfcProductDefinitionShape(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcProductDefinitionShape_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4358,7 +4358,7 @@ IfcProductDefinitionShape *ExpressDataSet::cloneIfcProductDefinitionShape(const 
 IfcProductRepresentation *ExpressDataSet::getIfcProductRepresentation(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcProductRepresentation * > (current->second.get());
@@ -4379,7 +4379,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProductRepresentation(Step::BaseExp
     IfcProductRepresentation *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4392,7 +4392,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProductRepresentation(Step::BaseExp
 
 Step::RefPtr< IfcProductRepresentation > ExpressDataSet::createIfcProductRepresentation(bool isVolatile) {
     if (isVolatile) {
-        return new IfcProductRepresentation(Step::Id_UNSET, 0);
+        return new IfcProductRepresentation(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcProductRepresentation * > (allocateIfcProductRepresentation(this, Step::Id_UNSET));
@@ -4402,7 +4402,7 @@ Step::RefPtr< IfcProductRepresentation > ExpressDataSet::createIfcProductReprese
 IfcProductRepresentation *ExpressDataSet::cloneIfcProductRepresentation(ExpressDataSet *expressDataSet, const IfcProductRepresentation &obj, const CopyOp &copyop) {
     IfcProductRepresentation *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcProductRepresentation(id, 0);
+    ret = new IfcProductRepresentation(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcProductRepresentation_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4423,7 +4423,7 @@ IfcProductRepresentation *ExpressDataSet::cloneIfcProductRepresentation(const If
 IfcProductsOfCombustionProperties *ExpressDataSet::getIfcProductsOfCombustionProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcProductsOfCombustionProperties * > (current->second.get());
@@ -4444,7 +4444,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProductsOfCombustionProperties(Step
     IfcProductsOfCombustionProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4457,7 +4457,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProductsOfCombustionProperties(Step
 
 Step::RefPtr< IfcProductsOfCombustionProperties > ExpressDataSet::createIfcProductsOfCombustionProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcProductsOfCombustionProperties(Step::Id_UNSET, 0);
+        return new IfcProductsOfCombustionProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcProductsOfCombustionProperties * > (allocateIfcProductsOfCombustionProperties(this, Step::Id_UNSET));
@@ -4467,7 +4467,7 @@ Step::RefPtr< IfcProductsOfCombustionProperties > ExpressDataSet::createIfcProdu
 IfcProductsOfCombustionProperties *ExpressDataSet::cloneIfcProductsOfCombustionProperties(ExpressDataSet *expressDataSet, const IfcProductsOfCombustionProperties &obj, const CopyOp &copyop) {
     IfcProductsOfCombustionProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcProductsOfCombustionProperties(id, 0);
+    ret = new IfcProductsOfCombustionProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcProductsOfCombustionProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4488,7 +4488,7 @@ IfcProductsOfCombustionProperties *ExpressDataSet::cloneIfcProductsOfCombustionP
 IfcProject *ExpressDataSet::getIfcProject(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcProject * > (current->second.get());
@@ -4509,7 +4509,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProject(Step::BaseExpressDataSet *e
     IfcProject *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4522,7 +4522,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProject(Step::BaseExpressDataSet *e
 
 Step::RefPtr< IfcProject > ExpressDataSet::createIfcProject(bool isVolatile) {
     if (isVolatile) {
-        return new IfcProject(Step::Id_UNSET, 0);
+        return new IfcProject(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcProject * > (allocateIfcProject(this, Step::Id_UNSET));
@@ -4532,7 +4532,7 @@ Step::RefPtr< IfcProject > ExpressDataSet::createIfcProject(bool isVolatile) {
 IfcProject *ExpressDataSet::cloneIfcProject(ExpressDataSet *expressDataSet, const IfcProject &obj, const CopyOp &copyop) {
     IfcProject *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcProject(id, 0);
+    ret = new IfcProject(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcProject_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4553,7 +4553,7 @@ IfcProject *ExpressDataSet::cloneIfcProject(const IfcProject &obj, const CopyOp 
 IfcProjectOrder *ExpressDataSet::getIfcProjectOrder(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcProjectOrder * > (current->second.get());
@@ -4574,7 +4574,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProjectOrder(Step::BaseExpressDataS
     IfcProjectOrder *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4587,7 +4587,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProjectOrder(Step::BaseExpressDataS
 
 Step::RefPtr< IfcProjectOrder > ExpressDataSet::createIfcProjectOrder(bool isVolatile) {
     if (isVolatile) {
-        return new IfcProjectOrder(Step::Id_UNSET, 0);
+        return new IfcProjectOrder(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcProjectOrder * > (allocateIfcProjectOrder(this, Step::Id_UNSET));
@@ -4597,7 +4597,7 @@ Step::RefPtr< IfcProjectOrder > ExpressDataSet::createIfcProjectOrder(bool isVol
 IfcProjectOrder *ExpressDataSet::cloneIfcProjectOrder(ExpressDataSet *expressDataSet, const IfcProjectOrder &obj, const CopyOp &copyop) {
     IfcProjectOrder *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcProjectOrder(id, 0);
+    ret = new IfcProjectOrder(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcProjectOrder_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4618,7 +4618,7 @@ IfcProjectOrder *ExpressDataSet::cloneIfcProjectOrder(const IfcProjectOrder &obj
 IfcProjectOrderRecord *ExpressDataSet::getIfcProjectOrderRecord(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcProjectOrderRecord * > (current->second.get());
@@ -4639,7 +4639,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProjectOrderRecord(Step::BaseExpres
     IfcProjectOrderRecord *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4652,7 +4652,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProjectOrderRecord(Step::BaseExpres
 
 Step::RefPtr< IfcProjectOrderRecord > ExpressDataSet::createIfcProjectOrderRecord(bool isVolatile) {
     if (isVolatile) {
-        return new IfcProjectOrderRecord(Step::Id_UNSET, 0);
+        return new IfcProjectOrderRecord(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcProjectOrderRecord * > (allocateIfcProjectOrderRecord(this, Step::Id_UNSET));
@@ -4662,7 +4662,7 @@ Step::RefPtr< IfcProjectOrderRecord > ExpressDataSet::createIfcProjectOrderRecor
 IfcProjectOrderRecord *ExpressDataSet::cloneIfcProjectOrderRecord(ExpressDataSet *expressDataSet, const IfcProjectOrderRecord &obj, const CopyOp &copyop) {
     IfcProjectOrderRecord *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcProjectOrderRecord(id, 0);
+    ret = new IfcProjectOrderRecord(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcProjectOrderRecord_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4683,7 +4683,7 @@ IfcProjectOrderRecord *ExpressDataSet::cloneIfcProjectOrderRecord(const IfcProje
 IfcProjectionCurve *ExpressDataSet::getIfcProjectionCurve(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcProjectionCurve * > (current->second.get());
@@ -4704,7 +4704,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProjectionCurve(Step::BaseExpressDa
     IfcProjectionCurve *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4717,7 +4717,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProjectionCurve(Step::BaseExpressDa
 
 Step::RefPtr< IfcProjectionCurve > ExpressDataSet::createIfcProjectionCurve(bool isVolatile) {
     if (isVolatile) {
-        return new IfcProjectionCurve(Step::Id_UNSET, 0);
+        return new IfcProjectionCurve(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcProjectionCurve * > (allocateIfcProjectionCurve(this, Step::Id_UNSET));
@@ -4727,7 +4727,7 @@ Step::RefPtr< IfcProjectionCurve > ExpressDataSet::createIfcProjectionCurve(bool
 IfcProjectionCurve *ExpressDataSet::cloneIfcProjectionCurve(ExpressDataSet *expressDataSet, const IfcProjectionCurve &obj, const CopyOp &copyop) {
     IfcProjectionCurve *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcProjectionCurve(id, 0);
+    ret = new IfcProjectionCurve(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcProjectionCurve_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4748,7 +4748,7 @@ IfcProjectionCurve *ExpressDataSet::cloneIfcProjectionCurve(const IfcProjectionC
 IfcProjectionElement *ExpressDataSet::getIfcProjectionElement(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcProjectionElement * > (current->second.get());
@@ -4769,7 +4769,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProjectionElement(Step::BaseExpress
     IfcProjectionElement *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4782,7 +4782,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProjectionElement(Step::BaseExpress
 
 Step::RefPtr< IfcProjectionElement > ExpressDataSet::createIfcProjectionElement(bool isVolatile) {
     if (isVolatile) {
-        return new IfcProjectionElement(Step::Id_UNSET, 0);
+        return new IfcProjectionElement(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcProjectionElement * > (allocateIfcProjectionElement(this, Step::Id_UNSET));
@@ -4792,7 +4792,7 @@ Step::RefPtr< IfcProjectionElement > ExpressDataSet::createIfcProjectionElement(
 IfcProjectionElement *ExpressDataSet::cloneIfcProjectionElement(ExpressDataSet *expressDataSet, const IfcProjectionElement &obj, const CopyOp &copyop) {
     IfcProjectionElement *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcProjectionElement(id, 0);
+    ret = new IfcProjectionElement(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcProjectionElement_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4813,7 +4813,7 @@ IfcProjectionElement *ExpressDataSet::cloneIfcProjectionElement(const IfcProject
 IfcPropertyBoundedValue *ExpressDataSet::getIfcPropertyBoundedValue(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPropertyBoundedValue * > (current->second.get());
@@ -4834,7 +4834,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyBoundedValue(Step::BaseExpr
     IfcPropertyBoundedValue *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4847,7 +4847,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyBoundedValue(Step::BaseExpr
 
 Step::RefPtr< IfcPropertyBoundedValue > ExpressDataSet::createIfcPropertyBoundedValue(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPropertyBoundedValue(Step::Id_UNSET, 0);
+        return new IfcPropertyBoundedValue(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPropertyBoundedValue * > (allocateIfcPropertyBoundedValue(this, Step::Id_UNSET));
@@ -4857,7 +4857,7 @@ Step::RefPtr< IfcPropertyBoundedValue > ExpressDataSet::createIfcPropertyBounded
 IfcPropertyBoundedValue *ExpressDataSet::cloneIfcPropertyBoundedValue(ExpressDataSet *expressDataSet, const IfcPropertyBoundedValue &obj, const CopyOp &copyop) {
     IfcPropertyBoundedValue *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPropertyBoundedValue(id, 0);
+    ret = new IfcPropertyBoundedValue(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPropertyBoundedValue_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4878,7 +4878,7 @@ IfcPropertyBoundedValue *ExpressDataSet::cloneIfcPropertyBoundedValue(const IfcP
 IfcPropertyConstraintRelationship *ExpressDataSet::getIfcPropertyConstraintRelationship(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPropertyConstraintRelationship * > (current->second.get());
@@ -4899,7 +4899,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyConstraintRelationship(Step
     IfcPropertyConstraintRelationship *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4912,7 +4912,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyConstraintRelationship(Step
 
 Step::RefPtr< IfcPropertyConstraintRelationship > ExpressDataSet::createIfcPropertyConstraintRelationship(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPropertyConstraintRelationship(Step::Id_UNSET, 0);
+        return new IfcPropertyConstraintRelationship(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPropertyConstraintRelationship * > (allocateIfcPropertyConstraintRelationship(this, Step::Id_UNSET));
@@ -4922,7 +4922,7 @@ Step::RefPtr< IfcPropertyConstraintRelationship > ExpressDataSet::createIfcPrope
 IfcPropertyConstraintRelationship *ExpressDataSet::cloneIfcPropertyConstraintRelationship(ExpressDataSet *expressDataSet, const IfcPropertyConstraintRelationship &obj, const CopyOp &copyop) {
     IfcPropertyConstraintRelationship *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPropertyConstraintRelationship(id, 0);
+    ret = new IfcPropertyConstraintRelationship(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPropertyConstraintRelationship_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -4943,7 +4943,7 @@ IfcPropertyConstraintRelationship *ExpressDataSet::cloneIfcPropertyConstraintRel
 IfcPropertyDependencyRelationship *ExpressDataSet::getIfcPropertyDependencyRelationship(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPropertyDependencyRelationship * > (current->second.get());
@@ -4964,7 +4964,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyDependencyRelationship(Step
     IfcPropertyDependencyRelationship *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -4977,7 +4977,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyDependencyRelationship(Step
 
 Step::RefPtr< IfcPropertyDependencyRelationship > ExpressDataSet::createIfcPropertyDependencyRelationship(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPropertyDependencyRelationship(Step::Id_UNSET, 0);
+        return new IfcPropertyDependencyRelationship(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPropertyDependencyRelationship * > (allocateIfcPropertyDependencyRelationship(this, Step::Id_UNSET));
@@ -4987,7 +4987,7 @@ Step::RefPtr< IfcPropertyDependencyRelationship > ExpressDataSet::createIfcPrope
 IfcPropertyDependencyRelationship *ExpressDataSet::cloneIfcPropertyDependencyRelationship(ExpressDataSet *expressDataSet, const IfcPropertyDependencyRelationship &obj, const CopyOp &copyop) {
     IfcPropertyDependencyRelationship *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPropertyDependencyRelationship(id, 0);
+    ret = new IfcPropertyDependencyRelationship(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPropertyDependencyRelationship_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5008,7 +5008,7 @@ IfcPropertyDependencyRelationship *ExpressDataSet::cloneIfcPropertyDependencyRel
 IfcPropertyEnumeratedValue *ExpressDataSet::getIfcPropertyEnumeratedValue(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPropertyEnumeratedValue * > (current->second.get());
@@ -5029,7 +5029,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyEnumeratedValue(Step::BaseE
     IfcPropertyEnumeratedValue *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5042,7 +5042,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyEnumeratedValue(Step::BaseE
 
 Step::RefPtr< IfcPropertyEnumeratedValue > ExpressDataSet::createIfcPropertyEnumeratedValue(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPropertyEnumeratedValue(Step::Id_UNSET, 0);
+        return new IfcPropertyEnumeratedValue(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPropertyEnumeratedValue * > (allocateIfcPropertyEnumeratedValue(this, Step::Id_UNSET));
@@ -5052,7 +5052,7 @@ Step::RefPtr< IfcPropertyEnumeratedValue > ExpressDataSet::createIfcPropertyEnum
 IfcPropertyEnumeratedValue *ExpressDataSet::cloneIfcPropertyEnumeratedValue(ExpressDataSet *expressDataSet, const IfcPropertyEnumeratedValue &obj, const CopyOp &copyop) {
     IfcPropertyEnumeratedValue *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPropertyEnumeratedValue(id, 0);
+    ret = new IfcPropertyEnumeratedValue(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPropertyEnumeratedValue_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5073,7 +5073,7 @@ IfcPropertyEnumeratedValue *ExpressDataSet::cloneIfcPropertyEnumeratedValue(cons
 IfcPropertyEnumeration *ExpressDataSet::getIfcPropertyEnumeration(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPropertyEnumeration * > (current->second.get());
@@ -5094,7 +5094,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyEnumeration(Step::BaseExpre
     IfcPropertyEnumeration *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5107,7 +5107,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyEnumeration(Step::BaseExpre
 
 Step::RefPtr< IfcPropertyEnumeration > ExpressDataSet::createIfcPropertyEnumeration(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPropertyEnumeration(Step::Id_UNSET, 0);
+        return new IfcPropertyEnumeration(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPropertyEnumeration * > (allocateIfcPropertyEnumeration(this, Step::Id_UNSET));
@@ -5117,7 +5117,7 @@ Step::RefPtr< IfcPropertyEnumeration > ExpressDataSet::createIfcPropertyEnumerat
 IfcPropertyEnumeration *ExpressDataSet::cloneIfcPropertyEnumeration(ExpressDataSet *expressDataSet, const IfcPropertyEnumeration &obj, const CopyOp &copyop) {
     IfcPropertyEnumeration *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPropertyEnumeration(id, 0);
+    ret = new IfcPropertyEnumeration(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPropertyEnumeration_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5138,7 +5138,7 @@ IfcPropertyEnumeration *ExpressDataSet::cloneIfcPropertyEnumeration(const IfcPro
 IfcPropertyListValue *ExpressDataSet::getIfcPropertyListValue(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPropertyListValue * > (current->second.get());
@@ -5159,7 +5159,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyListValue(Step::BaseExpress
     IfcPropertyListValue *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5172,7 +5172,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyListValue(Step::BaseExpress
 
 Step::RefPtr< IfcPropertyListValue > ExpressDataSet::createIfcPropertyListValue(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPropertyListValue(Step::Id_UNSET, 0);
+        return new IfcPropertyListValue(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPropertyListValue * > (allocateIfcPropertyListValue(this, Step::Id_UNSET));
@@ -5182,7 +5182,7 @@ Step::RefPtr< IfcPropertyListValue > ExpressDataSet::createIfcPropertyListValue(
 IfcPropertyListValue *ExpressDataSet::cloneIfcPropertyListValue(ExpressDataSet *expressDataSet, const IfcPropertyListValue &obj, const CopyOp &copyop) {
     IfcPropertyListValue *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPropertyListValue(id, 0);
+    ret = new IfcPropertyListValue(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPropertyListValue_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5203,7 +5203,7 @@ IfcPropertyListValue *ExpressDataSet::cloneIfcPropertyListValue(const IfcPropert
 IfcPropertyReferenceValue *ExpressDataSet::getIfcPropertyReferenceValue(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPropertyReferenceValue * > (current->second.get());
@@ -5224,7 +5224,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyReferenceValue(Step::BaseEx
     IfcPropertyReferenceValue *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5237,7 +5237,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyReferenceValue(Step::BaseEx
 
 Step::RefPtr< IfcPropertyReferenceValue > ExpressDataSet::createIfcPropertyReferenceValue(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPropertyReferenceValue(Step::Id_UNSET, 0);
+        return new IfcPropertyReferenceValue(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPropertyReferenceValue * > (allocateIfcPropertyReferenceValue(this, Step::Id_UNSET));
@@ -5247,7 +5247,7 @@ Step::RefPtr< IfcPropertyReferenceValue > ExpressDataSet::createIfcPropertyRefer
 IfcPropertyReferenceValue *ExpressDataSet::cloneIfcPropertyReferenceValue(ExpressDataSet *expressDataSet, const IfcPropertyReferenceValue &obj, const CopyOp &copyop) {
     IfcPropertyReferenceValue *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPropertyReferenceValue(id, 0);
+    ret = new IfcPropertyReferenceValue(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPropertyReferenceValue_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5268,7 +5268,7 @@ IfcPropertyReferenceValue *ExpressDataSet::cloneIfcPropertyReferenceValue(const 
 IfcPropertySet *ExpressDataSet::getIfcPropertySet(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPropertySet * > (current->second.get());
@@ -5289,7 +5289,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertySet(Step::BaseExpressDataSe
     IfcPropertySet *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5302,7 +5302,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertySet(Step::BaseExpressDataSe
 
 Step::RefPtr< IfcPropertySet > ExpressDataSet::createIfcPropertySet(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPropertySet(Step::Id_UNSET, 0);
+        return new IfcPropertySet(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPropertySet * > (allocateIfcPropertySet(this, Step::Id_UNSET));
@@ -5312,7 +5312,7 @@ Step::RefPtr< IfcPropertySet > ExpressDataSet::createIfcPropertySet(bool isVolat
 IfcPropertySet *ExpressDataSet::cloneIfcPropertySet(ExpressDataSet *expressDataSet, const IfcPropertySet &obj, const CopyOp &copyop) {
     IfcPropertySet *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPropertySet(id, 0);
+    ret = new IfcPropertySet(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPropertySet_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5333,7 +5333,7 @@ IfcPropertySet *ExpressDataSet::cloneIfcPropertySet(const IfcPropertySet &obj, c
 IfcPropertySingleValue *ExpressDataSet::getIfcPropertySingleValue(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPropertySingleValue * > (current->second.get());
@@ -5354,7 +5354,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertySingleValue(Step::BaseExpre
     IfcPropertySingleValue *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5367,7 +5367,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertySingleValue(Step::BaseExpre
 
 Step::RefPtr< IfcPropertySingleValue > ExpressDataSet::createIfcPropertySingleValue(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPropertySingleValue(Step::Id_UNSET, 0);
+        return new IfcPropertySingleValue(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPropertySingleValue * > (allocateIfcPropertySingleValue(this, Step::Id_UNSET));
@@ -5377,7 +5377,7 @@ Step::RefPtr< IfcPropertySingleValue > ExpressDataSet::createIfcPropertySingleVa
 IfcPropertySingleValue *ExpressDataSet::cloneIfcPropertySingleValue(ExpressDataSet *expressDataSet, const IfcPropertySingleValue &obj, const CopyOp &copyop) {
     IfcPropertySingleValue *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPropertySingleValue(id, 0);
+    ret = new IfcPropertySingleValue(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPropertySingleValue_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5398,7 +5398,7 @@ IfcPropertySingleValue *ExpressDataSet::cloneIfcPropertySingleValue(const IfcPro
 IfcPropertyTableValue *ExpressDataSet::getIfcPropertyTableValue(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPropertyTableValue * > (current->second.get());
@@ -5419,7 +5419,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyTableValue(Step::BaseExpres
     IfcPropertyTableValue *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5432,7 +5432,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPropertyTableValue(Step::BaseExpres
 
 Step::RefPtr< IfcPropertyTableValue > ExpressDataSet::createIfcPropertyTableValue(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPropertyTableValue(Step::Id_UNSET, 0);
+        return new IfcPropertyTableValue(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPropertyTableValue * > (allocateIfcPropertyTableValue(this, Step::Id_UNSET));
@@ -5442,7 +5442,7 @@ Step::RefPtr< IfcPropertyTableValue > ExpressDataSet::createIfcPropertyTableValu
 IfcPropertyTableValue *ExpressDataSet::cloneIfcPropertyTableValue(ExpressDataSet *expressDataSet, const IfcPropertyTableValue &obj, const CopyOp &copyop) {
     IfcPropertyTableValue *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPropertyTableValue(id, 0);
+    ret = new IfcPropertyTableValue(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPropertyTableValue_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5463,7 +5463,7 @@ IfcPropertyTableValue *ExpressDataSet::cloneIfcPropertyTableValue(const IfcPrope
 IfcProtectiveDeviceType *ExpressDataSet::getIfcProtectiveDeviceType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcProtectiveDeviceType * > (current->second.get());
@@ -5484,7 +5484,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProtectiveDeviceType(Step::BaseExpr
     IfcProtectiveDeviceType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5497,7 +5497,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProtectiveDeviceType(Step::BaseExpr
 
 Step::RefPtr< IfcProtectiveDeviceType > ExpressDataSet::createIfcProtectiveDeviceType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcProtectiveDeviceType(Step::Id_UNSET, 0);
+        return new IfcProtectiveDeviceType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcProtectiveDeviceType * > (allocateIfcProtectiveDeviceType(this, Step::Id_UNSET));
@@ -5507,7 +5507,7 @@ Step::RefPtr< IfcProtectiveDeviceType > ExpressDataSet::createIfcProtectiveDevic
 IfcProtectiveDeviceType *ExpressDataSet::cloneIfcProtectiveDeviceType(ExpressDataSet *expressDataSet, const IfcProtectiveDeviceType &obj, const CopyOp &copyop) {
     IfcProtectiveDeviceType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcProtectiveDeviceType(id, 0);
+    ret = new IfcProtectiveDeviceType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcProtectiveDeviceType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5528,7 +5528,7 @@ IfcProtectiveDeviceType *ExpressDataSet::cloneIfcProtectiveDeviceType(const IfcP
 IfcProxy *ExpressDataSet::getIfcProxy(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcProxy * > (current->second.get());
@@ -5549,7 +5549,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProxy(Step::BaseExpressDataSet *exp
     IfcProxy *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5562,7 +5562,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcProxy(Step::BaseExpressDataSet *exp
 
 Step::RefPtr< IfcProxy > ExpressDataSet::createIfcProxy(bool isVolatile) {
     if (isVolatile) {
-        return new IfcProxy(Step::Id_UNSET, 0);
+        return new IfcProxy(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcProxy * > (allocateIfcProxy(this, Step::Id_UNSET));
@@ -5572,7 +5572,7 @@ Step::RefPtr< IfcProxy > ExpressDataSet::createIfcProxy(bool isVolatile) {
 IfcProxy *ExpressDataSet::cloneIfcProxy(ExpressDataSet *expressDataSet, const IfcProxy &obj, const CopyOp &copyop) {
     IfcProxy *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcProxy(id, 0);
+    ret = new IfcProxy(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcProxy_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5593,7 +5593,7 @@ IfcProxy *ExpressDataSet::cloneIfcProxy(const IfcProxy &obj, const CopyOp &copyo
 IfcPumpType *ExpressDataSet::getIfcPumpType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcPumpType * > (current->second.get());
@@ -5614,7 +5614,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPumpType(Step::BaseExpressDataSet *
     IfcPumpType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5627,7 +5627,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcPumpType(Step::BaseExpressDataSet *
 
 Step::RefPtr< IfcPumpType > ExpressDataSet::createIfcPumpType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcPumpType(Step::Id_UNSET, 0);
+        return new IfcPumpType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcPumpType * > (allocateIfcPumpType(this, Step::Id_UNSET));
@@ -5637,7 +5637,7 @@ Step::RefPtr< IfcPumpType > ExpressDataSet::createIfcPumpType(bool isVolatile) {
 IfcPumpType *ExpressDataSet::cloneIfcPumpType(ExpressDataSet *expressDataSet, const IfcPumpType &obj, const CopyOp &copyop) {
     IfcPumpType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcPumpType(id, 0);
+    ret = new IfcPumpType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcPumpType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5658,7 +5658,7 @@ IfcPumpType *ExpressDataSet::cloneIfcPumpType(const IfcPumpType &obj, const Copy
 IfcQuantityArea *ExpressDataSet::getIfcQuantityArea(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcQuantityArea * > (current->second.get());
@@ -5679,7 +5679,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityArea(Step::BaseExpressDataS
     IfcQuantityArea *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5692,7 +5692,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityArea(Step::BaseExpressDataS
 
 Step::RefPtr< IfcQuantityArea > ExpressDataSet::createIfcQuantityArea(bool isVolatile) {
     if (isVolatile) {
-        return new IfcQuantityArea(Step::Id_UNSET, 0);
+        return new IfcQuantityArea(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcQuantityArea * > (allocateIfcQuantityArea(this, Step::Id_UNSET));
@@ -5702,7 +5702,7 @@ Step::RefPtr< IfcQuantityArea > ExpressDataSet::createIfcQuantityArea(bool isVol
 IfcQuantityArea *ExpressDataSet::cloneIfcQuantityArea(ExpressDataSet *expressDataSet, const IfcQuantityArea &obj, const CopyOp &copyop) {
     IfcQuantityArea *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcQuantityArea(id, 0);
+    ret = new IfcQuantityArea(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcQuantityArea_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5723,7 +5723,7 @@ IfcQuantityArea *ExpressDataSet::cloneIfcQuantityArea(const IfcQuantityArea &obj
 IfcQuantityCount *ExpressDataSet::getIfcQuantityCount(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcQuantityCount * > (current->second.get());
@@ -5744,7 +5744,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityCount(Step::BaseExpressData
     IfcQuantityCount *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5757,7 +5757,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityCount(Step::BaseExpressData
 
 Step::RefPtr< IfcQuantityCount > ExpressDataSet::createIfcQuantityCount(bool isVolatile) {
     if (isVolatile) {
-        return new IfcQuantityCount(Step::Id_UNSET, 0);
+        return new IfcQuantityCount(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcQuantityCount * > (allocateIfcQuantityCount(this, Step::Id_UNSET));
@@ -5767,7 +5767,7 @@ Step::RefPtr< IfcQuantityCount > ExpressDataSet::createIfcQuantityCount(bool isV
 IfcQuantityCount *ExpressDataSet::cloneIfcQuantityCount(ExpressDataSet *expressDataSet, const IfcQuantityCount &obj, const CopyOp &copyop) {
     IfcQuantityCount *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcQuantityCount(id, 0);
+    ret = new IfcQuantityCount(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcQuantityCount_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5788,7 +5788,7 @@ IfcQuantityCount *ExpressDataSet::cloneIfcQuantityCount(const IfcQuantityCount &
 IfcQuantityLength *ExpressDataSet::getIfcQuantityLength(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcQuantityLength * > (current->second.get());
@@ -5809,7 +5809,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityLength(Step::BaseExpressDat
     IfcQuantityLength *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5822,7 +5822,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityLength(Step::BaseExpressDat
 
 Step::RefPtr< IfcQuantityLength > ExpressDataSet::createIfcQuantityLength(bool isVolatile) {
     if (isVolatile) {
-        return new IfcQuantityLength(Step::Id_UNSET, 0);
+        return new IfcQuantityLength(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcQuantityLength * > (allocateIfcQuantityLength(this, Step::Id_UNSET));
@@ -5832,7 +5832,7 @@ Step::RefPtr< IfcQuantityLength > ExpressDataSet::createIfcQuantityLength(bool i
 IfcQuantityLength *ExpressDataSet::cloneIfcQuantityLength(ExpressDataSet *expressDataSet, const IfcQuantityLength &obj, const CopyOp &copyop) {
     IfcQuantityLength *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcQuantityLength(id, 0);
+    ret = new IfcQuantityLength(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcQuantityLength_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5853,7 +5853,7 @@ IfcQuantityLength *ExpressDataSet::cloneIfcQuantityLength(const IfcQuantityLengt
 IfcQuantityTime *ExpressDataSet::getIfcQuantityTime(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcQuantityTime * > (current->second.get());
@@ -5874,7 +5874,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityTime(Step::BaseExpressDataS
     IfcQuantityTime *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5887,7 +5887,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityTime(Step::BaseExpressDataS
 
 Step::RefPtr< IfcQuantityTime > ExpressDataSet::createIfcQuantityTime(bool isVolatile) {
     if (isVolatile) {
-        return new IfcQuantityTime(Step::Id_UNSET, 0);
+        return new IfcQuantityTime(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcQuantityTime * > (allocateIfcQuantityTime(this, Step::Id_UNSET));
@@ -5897,7 +5897,7 @@ Step::RefPtr< IfcQuantityTime > ExpressDataSet::createIfcQuantityTime(bool isVol
 IfcQuantityTime *ExpressDataSet::cloneIfcQuantityTime(ExpressDataSet *expressDataSet, const IfcQuantityTime &obj, const CopyOp &copyop) {
     IfcQuantityTime *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcQuantityTime(id, 0);
+    ret = new IfcQuantityTime(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcQuantityTime_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5918,7 +5918,7 @@ IfcQuantityTime *ExpressDataSet::cloneIfcQuantityTime(const IfcQuantityTime &obj
 IfcQuantityVolume *ExpressDataSet::getIfcQuantityVolume(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcQuantityVolume * > (current->second.get());
@@ -5939,7 +5939,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityVolume(Step::BaseExpressDat
     IfcQuantityVolume *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -5952,7 +5952,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityVolume(Step::BaseExpressDat
 
 Step::RefPtr< IfcQuantityVolume > ExpressDataSet::createIfcQuantityVolume(bool isVolatile) {
     if (isVolatile) {
-        return new IfcQuantityVolume(Step::Id_UNSET, 0);
+        return new IfcQuantityVolume(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcQuantityVolume * > (allocateIfcQuantityVolume(this, Step::Id_UNSET));
@@ -5962,7 +5962,7 @@ Step::RefPtr< IfcQuantityVolume > ExpressDataSet::createIfcQuantityVolume(bool i
 IfcQuantityVolume *ExpressDataSet::cloneIfcQuantityVolume(ExpressDataSet *expressDataSet, const IfcQuantityVolume &obj, const CopyOp &copyop) {
     IfcQuantityVolume *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcQuantityVolume(id, 0);
+    ret = new IfcQuantityVolume(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcQuantityVolume_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -5983,7 +5983,7 @@ IfcQuantityVolume *ExpressDataSet::cloneIfcQuantityVolume(const IfcQuantityVolum
 IfcQuantityWeight *ExpressDataSet::getIfcQuantityWeight(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcQuantityWeight * > (current->second.get());
@@ -6004,7 +6004,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityWeight(Step::BaseExpressDat
     IfcQuantityWeight *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6017,7 +6017,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcQuantityWeight(Step::BaseExpressDat
 
 Step::RefPtr< IfcQuantityWeight > ExpressDataSet::createIfcQuantityWeight(bool isVolatile) {
     if (isVolatile) {
-        return new IfcQuantityWeight(Step::Id_UNSET, 0);
+        return new IfcQuantityWeight(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcQuantityWeight * > (allocateIfcQuantityWeight(this, Step::Id_UNSET));
@@ -6027,7 +6027,7 @@ Step::RefPtr< IfcQuantityWeight > ExpressDataSet::createIfcQuantityWeight(bool i
 IfcQuantityWeight *ExpressDataSet::cloneIfcQuantityWeight(ExpressDataSet *expressDataSet, const IfcQuantityWeight &obj, const CopyOp &copyop) {
     IfcQuantityWeight *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcQuantityWeight(id, 0);
+    ret = new IfcQuantityWeight(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcQuantityWeight_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6048,7 +6048,7 @@ IfcQuantityWeight *ExpressDataSet::cloneIfcQuantityWeight(const IfcQuantityWeigh
 IfcRadiusDimension *ExpressDataSet::getIfcRadiusDimension(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRadiusDimension * > (current->second.get());
@@ -6069,7 +6069,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRadiusDimension(Step::BaseExpressDa
     IfcRadiusDimension *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6082,7 +6082,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRadiusDimension(Step::BaseExpressDa
 
 Step::RefPtr< IfcRadiusDimension > ExpressDataSet::createIfcRadiusDimension(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRadiusDimension(Step::Id_UNSET, 0);
+        return new IfcRadiusDimension(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRadiusDimension * > (allocateIfcRadiusDimension(this, Step::Id_UNSET));
@@ -6092,7 +6092,7 @@ Step::RefPtr< IfcRadiusDimension > ExpressDataSet::createIfcRadiusDimension(bool
 IfcRadiusDimension *ExpressDataSet::cloneIfcRadiusDimension(ExpressDataSet *expressDataSet, const IfcRadiusDimension &obj, const CopyOp &copyop) {
     IfcRadiusDimension *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRadiusDimension(id, 0);
+    ret = new IfcRadiusDimension(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRadiusDimension_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6113,7 +6113,7 @@ IfcRadiusDimension *ExpressDataSet::cloneIfcRadiusDimension(const IfcRadiusDimen
 IfcRailing *ExpressDataSet::getIfcRailing(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRailing * > (current->second.get());
@@ -6134,7 +6134,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRailing(Step::BaseExpressDataSet *e
     IfcRailing *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6147,7 +6147,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRailing(Step::BaseExpressDataSet *e
 
 Step::RefPtr< IfcRailing > ExpressDataSet::createIfcRailing(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRailing(Step::Id_UNSET, 0);
+        return new IfcRailing(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRailing * > (allocateIfcRailing(this, Step::Id_UNSET));
@@ -6157,7 +6157,7 @@ Step::RefPtr< IfcRailing > ExpressDataSet::createIfcRailing(bool isVolatile) {
 IfcRailing *ExpressDataSet::cloneIfcRailing(ExpressDataSet *expressDataSet, const IfcRailing &obj, const CopyOp &copyop) {
     IfcRailing *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRailing(id, 0);
+    ret = new IfcRailing(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRailing_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6178,7 +6178,7 @@ IfcRailing *ExpressDataSet::cloneIfcRailing(const IfcRailing &obj, const CopyOp 
 IfcRailingType *ExpressDataSet::getIfcRailingType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRailingType * > (current->second.get());
@@ -6199,7 +6199,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRailingType(Step::BaseExpressDataSe
     IfcRailingType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6212,7 +6212,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRailingType(Step::BaseExpressDataSe
 
 Step::RefPtr< IfcRailingType > ExpressDataSet::createIfcRailingType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRailingType(Step::Id_UNSET, 0);
+        return new IfcRailingType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRailingType * > (allocateIfcRailingType(this, Step::Id_UNSET));
@@ -6222,7 +6222,7 @@ Step::RefPtr< IfcRailingType > ExpressDataSet::createIfcRailingType(bool isVolat
 IfcRailingType *ExpressDataSet::cloneIfcRailingType(ExpressDataSet *expressDataSet, const IfcRailingType &obj, const CopyOp &copyop) {
     IfcRailingType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRailingType(id, 0);
+    ret = new IfcRailingType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRailingType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6243,7 +6243,7 @@ IfcRailingType *ExpressDataSet::cloneIfcRailingType(const IfcRailingType &obj, c
 IfcRamp *ExpressDataSet::getIfcRamp(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRamp * > (current->second.get());
@@ -6264,7 +6264,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRamp(Step::BaseExpressDataSet *expr
     IfcRamp *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6277,7 +6277,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRamp(Step::BaseExpressDataSet *expr
 
 Step::RefPtr< IfcRamp > ExpressDataSet::createIfcRamp(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRamp(Step::Id_UNSET, 0);
+        return new IfcRamp(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRamp * > (allocateIfcRamp(this, Step::Id_UNSET));
@@ -6287,7 +6287,7 @@ Step::RefPtr< IfcRamp > ExpressDataSet::createIfcRamp(bool isVolatile) {
 IfcRamp *ExpressDataSet::cloneIfcRamp(ExpressDataSet *expressDataSet, const IfcRamp &obj, const CopyOp &copyop) {
     IfcRamp *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRamp(id, 0);
+    ret = new IfcRamp(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRamp_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6308,7 +6308,7 @@ IfcRamp *ExpressDataSet::cloneIfcRamp(const IfcRamp &obj, const CopyOp &copyop) 
 IfcRampFlight *ExpressDataSet::getIfcRampFlight(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRampFlight * > (current->second.get());
@@ -6329,7 +6329,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRampFlight(Step::BaseExpressDataSet
     IfcRampFlight *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6342,7 +6342,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRampFlight(Step::BaseExpressDataSet
 
 Step::RefPtr< IfcRampFlight > ExpressDataSet::createIfcRampFlight(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRampFlight(Step::Id_UNSET, 0);
+        return new IfcRampFlight(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRampFlight * > (allocateIfcRampFlight(this, Step::Id_UNSET));
@@ -6352,7 +6352,7 @@ Step::RefPtr< IfcRampFlight > ExpressDataSet::createIfcRampFlight(bool isVolatil
 IfcRampFlight *ExpressDataSet::cloneIfcRampFlight(ExpressDataSet *expressDataSet, const IfcRampFlight &obj, const CopyOp &copyop) {
     IfcRampFlight *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRampFlight(id, 0);
+    ret = new IfcRampFlight(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRampFlight_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6373,7 +6373,7 @@ IfcRampFlight *ExpressDataSet::cloneIfcRampFlight(const IfcRampFlight &obj, cons
 IfcRampFlightType *ExpressDataSet::getIfcRampFlightType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRampFlightType * > (current->second.get());
@@ -6394,7 +6394,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRampFlightType(Step::BaseExpressDat
     IfcRampFlightType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6407,7 +6407,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRampFlightType(Step::BaseExpressDat
 
 Step::RefPtr< IfcRampFlightType > ExpressDataSet::createIfcRampFlightType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRampFlightType(Step::Id_UNSET, 0);
+        return new IfcRampFlightType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRampFlightType * > (allocateIfcRampFlightType(this, Step::Id_UNSET));
@@ -6417,7 +6417,7 @@ Step::RefPtr< IfcRampFlightType > ExpressDataSet::createIfcRampFlightType(bool i
 IfcRampFlightType *ExpressDataSet::cloneIfcRampFlightType(ExpressDataSet *expressDataSet, const IfcRampFlightType &obj, const CopyOp &copyop) {
     IfcRampFlightType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRampFlightType(id, 0);
+    ret = new IfcRampFlightType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRampFlightType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6438,7 +6438,7 @@ IfcRampFlightType *ExpressDataSet::cloneIfcRampFlightType(const IfcRampFlightTyp
 IfcRationalBezierCurve *ExpressDataSet::getIfcRationalBezierCurve(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRationalBezierCurve * > (current->second.get());
@@ -6459,7 +6459,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRationalBezierCurve(Step::BaseExpre
     IfcRationalBezierCurve *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6472,7 +6472,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRationalBezierCurve(Step::BaseExpre
 
 Step::RefPtr< IfcRationalBezierCurve > ExpressDataSet::createIfcRationalBezierCurve(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRationalBezierCurve(Step::Id_UNSET, 0);
+        return new IfcRationalBezierCurve(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRationalBezierCurve * > (allocateIfcRationalBezierCurve(this, Step::Id_UNSET));
@@ -6482,7 +6482,7 @@ Step::RefPtr< IfcRationalBezierCurve > ExpressDataSet::createIfcRationalBezierCu
 IfcRationalBezierCurve *ExpressDataSet::cloneIfcRationalBezierCurve(ExpressDataSet *expressDataSet, const IfcRationalBezierCurve &obj, const CopyOp &copyop) {
     IfcRationalBezierCurve *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRationalBezierCurve(id, 0);
+    ret = new IfcRationalBezierCurve(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRationalBezierCurve_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6503,7 +6503,7 @@ IfcRationalBezierCurve *ExpressDataSet::cloneIfcRationalBezierCurve(const IfcRat
 IfcRectangleHollowProfileDef *ExpressDataSet::getIfcRectangleHollowProfileDef(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRectangleHollowProfileDef * > (current->second.get());
@@ -6524,7 +6524,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRectangleHollowProfileDef(Step::Bas
     IfcRectangleHollowProfileDef *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6537,7 +6537,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRectangleHollowProfileDef(Step::Bas
 
 Step::RefPtr< IfcRectangleHollowProfileDef > ExpressDataSet::createIfcRectangleHollowProfileDef(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRectangleHollowProfileDef(Step::Id_UNSET, 0);
+        return new IfcRectangleHollowProfileDef(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRectangleHollowProfileDef * > (allocateIfcRectangleHollowProfileDef(this, Step::Id_UNSET));
@@ -6547,7 +6547,7 @@ Step::RefPtr< IfcRectangleHollowProfileDef > ExpressDataSet::createIfcRectangleH
 IfcRectangleHollowProfileDef *ExpressDataSet::cloneIfcRectangleHollowProfileDef(ExpressDataSet *expressDataSet, const IfcRectangleHollowProfileDef &obj, const CopyOp &copyop) {
     IfcRectangleHollowProfileDef *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRectangleHollowProfileDef(id, 0);
+    ret = new IfcRectangleHollowProfileDef(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRectangleHollowProfileDef_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6568,7 +6568,7 @@ IfcRectangleHollowProfileDef *ExpressDataSet::cloneIfcRectangleHollowProfileDef(
 IfcRectangleProfileDef *ExpressDataSet::getIfcRectangleProfileDef(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRectangleProfileDef * > (current->second.get());
@@ -6589,7 +6589,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRectangleProfileDef(Step::BaseExpre
     IfcRectangleProfileDef *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6602,7 +6602,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRectangleProfileDef(Step::BaseExpre
 
 Step::RefPtr< IfcRectangleProfileDef > ExpressDataSet::createIfcRectangleProfileDef(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRectangleProfileDef(Step::Id_UNSET, 0);
+        return new IfcRectangleProfileDef(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRectangleProfileDef * > (allocateIfcRectangleProfileDef(this, Step::Id_UNSET));
@@ -6612,7 +6612,7 @@ Step::RefPtr< IfcRectangleProfileDef > ExpressDataSet::createIfcRectangleProfile
 IfcRectangleProfileDef *ExpressDataSet::cloneIfcRectangleProfileDef(ExpressDataSet *expressDataSet, const IfcRectangleProfileDef &obj, const CopyOp &copyop) {
     IfcRectangleProfileDef *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRectangleProfileDef(id, 0);
+    ret = new IfcRectangleProfileDef(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRectangleProfileDef_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6633,7 +6633,7 @@ IfcRectangleProfileDef *ExpressDataSet::cloneIfcRectangleProfileDef(const IfcRec
 IfcRectangularPyramid *ExpressDataSet::getIfcRectangularPyramid(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRectangularPyramid * > (current->second.get());
@@ -6654,7 +6654,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRectangularPyramid(Step::BaseExpres
     IfcRectangularPyramid *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6667,7 +6667,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRectangularPyramid(Step::BaseExpres
 
 Step::RefPtr< IfcRectangularPyramid > ExpressDataSet::createIfcRectangularPyramid(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRectangularPyramid(Step::Id_UNSET, 0);
+        return new IfcRectangularPyramid(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRectangularPyramid * > (allocateIfcRectangularPyramid(this, Step::Id_UNSET));
@@ -6677,7 +6677,7 @@ Step::RefPtr< IfcRectangularPyramid > ExpressDataSet::createIfcRectangularPyrami
 IfcRectangularPyramid *ExpressDataSet::cloneIfcRectangularPyramid(ExpressDataSet *expressDataSet, const IfcRectangularPyramid &obj, const CopyOp &copyop) {
     IfcRectangularPyramid *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRectangularPyramid(id, 0);
+    ret = new IfcRectangularPyramid(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRectangularPyramid_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6698,7 +6698,7 @@ IfcRectangularPyramid *ExpressDataSet::cloneIfcRectangularPyramid(const IfcRecta
 IfcRectangularTrimmedSurface *ExpressDataSet::getIfcRectangularTrimmedSurface(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRectangularTrimmedSurface * > (current->second.get());
@@ -6719,7 +6719,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRectangularTrimmedSurface(Step::Bas
     IfcRectangularTrimmedSurface *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6732,7 +6732,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRectangularTrimmedSurface(Step::Bas
 
 Step::RefPtr< IfcRectangularTrimmedSurface > ExpressDataSet::createIfcRectangularTrimmedSurface(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRectangularTrimmedSurface(Step::Id_UNSET, 0);
+        return new IfcRectangularTrimmedSurface(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRectangularTrimmedSurface * > (allocateIfcRectangularTrimmedSurface(this, Step::Id_UNSET));
@@ -6742,7 +6742,7 @@ Step::RefPtr< IfcRectangularTrimmedSurface > ExpressDataSet::createIfcRectangula
 IfcRectangularTrimmedSurface *ExpressDataSet::cloneIfcRectangularTrimmedSurface(ExpressDataSet *expressDataSet, const IfcRectangularTrimmedSurface &obj, const CopyOp &copyop) {
     IfcRectangularTrimmedSurface *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRectangularTrimmedSurface(id, 0);
+    ret = new IfcRectangularTrimmedSurface(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRectangularTrimmedSurface_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6763,7 +6763,7 @@ IfcRectangularTrimmedSurface *ExpressDataSet::cloneIfcRectangularTrimmedSurface(
 IfcReferencesValueDocument *ExpressDataSet::getIfcReferencesValueDocument(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcReferencesValueDocument * > (current->second.get());
@@ -6784,7 +6784,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcReferencesValueDocument(Step::BaseE
     IfcReferencesValueDocument *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6797,7 +6797,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcReferencesValueDocument(Step::BaseE
 
 Step::RefPtr< IfcReferencesValueDocument > ExpressDataSet::createIfcReferencesValueDocument(bool isVolatile) {
     if (isVolatile) {
-        return new IfcReferencesValueDocument(Step::Id_UNSET, 0);
+        return new IfcReferencesValueDocument(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcReferencesValueDocument * > (allocateIfcReferencesValueDocument(this, Step::Id_UNSET));
@@ -6807,7 +6807,7 @@ Step::RefPtr< IfcReferencesValueDocument > ExpressDataSet::createIfcReferencesVa
 IfcReferencesValueDocument *ExpressDataSet::cloneIfcReferencesValueDocument(ExpressDataSet *expressDataSet, const IfcReferencesValueDocument &obj, const CopyOp &copyop) {
     IfcReferencesValueDocument *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcReferencesValueDocument(id, 0);
+    ret = new IfcReferencesValueDocument(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcReferencesValueDocument_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6828,7 +6828,7 @@ IfcReferencesValueDocument *ExpressDataSet::cloneIfcReferencesValueDocument(cons
 IfcRegularTimeSeries *ExpressDataSet::getIfcRegularTimeSeries(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRegularTimeSeries * > (current->second.get());
@@ -6849,7 +6849,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRegularTimeSeries(Step::BaseExpress
     IfcRegularTimeSeries *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6862,7 +6862,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRegularTimeSeries(Step::BaseExpress
 
 Step::RefPtr< IfcRegularTimeSeries > ExpressDataSet::createIfcRegularTimeSeries(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRegularTimeSeries(Step::Id_UNSET, 0);
+        return new IfcRegularTimeSeries(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRegularTimeSeries * > (allocateIfcRegularTimeSeries(this, Step::Id_UNSET));
@@ -6872,7 +6872,7 @@ Step::RefPtr< IfcRegularTimeSeries > ExpressDataSet::createIfcRegularTimeSeries(
 IfcRegularTimeSeries *ExpressDataSet::cloneIfcRegularTimeSeries(ExpressDataSet *expressDataSet, const IfcRegularTimeSeries &obj, const CopyOp &copyop) {
     IfcRegularTimeSeries *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRegularTimeSeries(id, 0);
+    ret = new IfcRegularTimeSeries(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRegularTimeSeries_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6893,7 +6893,7 @@ IfcRegularTimeSeries *ExpressDataSet::cloneIfcRegularTimeSeries(const IfcRegular
 IfcReinforcementBarProperties *ExpressDataSet::getIfcReinforcementBarProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcReinforcementBarProperties * > (current->second.get());
@@ -6914,7 +6914,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcReinforcementBarProperties(Step::Ba
     IfcReinforcementBarProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6927,7 +6927,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcReinforcementBarProperties(Step::Ba
 
 Step::RefPtr< IfcReinforcementBarProperties > ExpressDataSet::createIfcReinforcementBarProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcReinforcementBarProperties(Step::Id_UNSET, 0);
+        return new IfcReinforcementBarProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcReinforcementBarProperties * > (allocateIfcReinforcementBarProperties(this, Step::Id_UNSET));
@@ -6937,7 +6937,7 @@ Step::RefPtr< IfcReinforcementBarProperties > ExpressDataSet::createIfcReinforce
 IfcReinforcementBarProperties *ExpressDataSet::cloneIfcReinforcementBarProperties(ExpressDataSet *expressDataSet, const IfcReinforcementBarProperties &obj, const CopyOp &copyop) {
     IfcReinforcementBarProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcReinforcementBarProperties(id, 0);
+    ret = new IfcReinforcementBarProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcReinforcementBarProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -6958,7 +6958,7 @@ IfcReinforcementBarProperties *ExpressDataSet::cloneIfcReinforcementBarPropertie
 IfcReinforcementDefinitionProperties *ExpressDataSet::getIfcReinforcementDefinitionProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcReinforcementDefinitionProperties * > (current->second.get());
@@ -6979,7 +6979,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcReinforcementDefinitionProperties(S
     IfcReinforcementDefinitionProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -6992,7 +6992,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcReinforcementDefinitionProperties(S
 
 Step::RefPtr< IfcReinforcementDefinitionProperties > ExpressDataSet::createIfcReinforcementDefinitionProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcReinforcementDefinitionProperties(Step::Id_UNSET, 0);
+        return new IfcReinforcementDefinitionProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcReinforcementDefinitionProperties * > (allocateIfcReinforcementDefinitionProperties(this, Step::Id_UNSET));
@@ -7002,7 +7002,7 @@ Step::RefPtr< IfcReinforcementDefinitionProperties > ExpressDataSet::createIfcRe
 IfcReinforcementDefinitionProperties *ExpressDataSet::cloneIfcReinforcementDefinitionProperties(ExpressDataSet *expressDataSet, const IfcReinforcementDefinitionProperties &obj, const CopyOp &copyop) {
     IfcReinforcementDefinitionProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcReinforcementDefinitionProperties(id, 0);
+    ret = new IfcReinforcementDefinitionProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcReinforcementDefinitionProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7023,7 +7023,7 @@ IfcReinforcementDefinitionProperties *ExpressDataSet::cloneIfcReinforcementDefin
 IfcReinforcingBar *ExpressDataSet::getIfcReinforcingBar(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcReinforcingBar * > (current->second.get());
@@ -7044,7 +7044,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcReinforcingBar(Step::BaseExpressDat
     IfcReinforcingBar *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7057,7 +7057,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcReinforcingBar(Step::BaseExpressDat
 
 Step::RefPtr< IfcReinforcingBar > ExpressDataSet::createIfcReinforcingBar(bool isVolatile) {
     if (isVolatile) {
-        return new IfcReinforcingBar(Step::Id_UNSET, 0);
+        return new IfcReinforcingBar(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcReinforcingBar * > (allocateIfcReinforcingBar(this, Step::Id_UNSET));
@@ -7067,7 +7067,7 @@ Step::RefPtr< IfcReinforcingBar > ExpressDataSet::createIfcReinforcingBar(bool i
 IfcReinforcingBar *ExpressDataSet::cloneIfcReinforcingBar(ExpressDataSet *expressDataSet, const IfcReinforcingBar &obj, const CopyOp &copyop) {
     IfcReinforcingBar *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcReinforcingBar(id, 0);
+    ret = new IfcReinforcingBar(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcReinforcingBar_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7088,7 +7088,7 @@ IfcReinforcingBar *ExpressDataSet::cloneIfcReinforcingBar(const IfcReinforcingBa
 IfcReinforcingMesh *ExpressDataSet::getIfcReinforcingMesh(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcReinforcingMesh * > (current->second.get());
@@ -7109,7 +7109,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcReinforcingMesh(Step::BaseExpressDa
     IfcReinforcingMesh *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7122,7 +7122,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcReinforcingMesh(Step::BaseExpressDa
 
 Step::RefPtr< IfcReinforcingMesh > ExpressDataSet::createIfcReinforcingMesh(bool isVolatile) {
     if (isVolatile) {
-        return new IfcReinforcingMesh(Step::Id_UNSET, 0);
+        return new IfcReinforcingMesh(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcReinforcingMesh * > (allocateIfcReinforcingMesh(this, Step::Id_UNSET));
@@ -7132,7 +7132,7 @@ Step::RefPtr< IfcReinforcingMesh > ExpressDataSet::createIfcReinforcingMesh(bool
 IfcReinforcingMesh *ExpressDataSet::cloneIfcReinforcingMesh(ExpressDataSet *expressDataSet, const IfcReinforcingMesh &obj, const CopyOp &copyop) {
     IfcReinforcingMesh *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcReinforcingMesh(id, 0);
+    ret = new IfcReinforcingMesh(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcReinforcingMesh_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7153,7 +7153,7 @@ IfcReinforcingMesh *ExpressDataSet::cloneIfcReinforcingMesh(const IfcReinforcing
 IfcRelAggregates *ExpressDataSet::getIfcRelAggregates(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAggregates * > (current->second.get());
@@ -7174,7 +7174,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAggregates(Step::BaseExpressData
     IfcRelAggregates *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7187,7 +7187,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAggregates(Step::BaseExpressData
 
 Step::RefPtr< IfcRelAggregates > ExpressDataSet::createIfcRelAggregates(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAggregates(Step::Id_UNSET, 0);
+        return new IfcRelAggregates(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAggregates * > (allocateIfcRelAggregates(this, Step::Id_UNSET));
@@ -7197,7 +7197,7 @@ Step::RefPtr< IfcRelAggregates > ExpressDataSet::createIfcRelAggregates(bool isV
 IfcRelAggregates *ExpressDataSet::cloneIfcRelAggregates(ExpressDataSet *expressDataSet, const IfcRelAggregates &obj, const CopyOp &copyop) {
     IfcRelAggregates *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAggregates(id, 0);
+    ret = new IfcRelAggregates(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAggregates_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7218,7 +7218,7 @@ IfcRelAggregates *ExpressDataSet::cloneIfcRelAggregates(const IfcRelAggregates &
 IfcRelAssignsTasks *ExpressDataSet::getIfcRelAssignsTasks(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssignsTasks * > (current->second.get());
@@ -7239,7 +7239,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsTasks(Step::BaseExpressDa
     IfcRelAssignsTasks *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7252,7 +7252,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsTasks(Step::BaseExpressDa
 
 Step::RefPtr< IfcRelAssignsTasks > ExpressDataSet::createIfcRelAssignsTasks(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssignsTasks(Step::Id_UNSET, 0);
+        return new IfcRelAssignsTasks(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssignsTasks * > (allocateIfcRelAssignsTasks(this, Step::Id_UNSET));
@@ -7262,7 +7262,7 @@ Step::RefPtr< IfcRelAssignsTasks > ExpressDataSet::createIfcRelAssignsTasks(bool
 IfcRelAssignsTasks *ExpressDataSet::cloneIfcRelAssignsTasks(ExpressDataSet *expressDataSet, const IfcRelAssignsTasks &obj, const CopyOp &copyop) {
     IfcRelAssignsTasks *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssignsTasks(id, 0);
+    ret = new IfcRelAssignsTasks(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssignsTasks_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7283,7 +7283,7 @@ IfcRelAssignsTasks *ExpressDataSet::cloneIfcRelAssignsTasks(const IfcRelAssignsT
 IfcRelAssignsToActor *ExpressDataSet::getIfcRelAssignsToActor(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssignsToActor * > (current->second.get());
@@ -7304,7 +7304,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToActor(Step::BaseExpress
     IfcRelAssignsToActor *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7317,7 +7317,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToActor(Step::BaseExpress
 
 Step::RefPtr< IfcRelAssignsToActor > ExpressDataSet::createIfcRelAssignsToActor(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssignsToActor(Step::Id_UNSET, 0);
+        return new IfcRelAssignsToActor(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssignsToActor * > (allocateIfcRelAssignsToActor(this, Step::Id_UNSET));
@@ -7327,7 +7327,7 @@ Step::RefPtr< IfcRelAssignsToActor > ExpressDataSet::createIfcRelAssignsToActor(
 IfcRelAssignsToActor *ExpressDataSet::cloneIfcRelAssignsToActor(ExpressDataSet *expressDataSet, const IfcRelAssignsToActor &obj, const CopyOp &copyop) {
     IfcRelAssignsToActor *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssignsToActor(id, 0);
+    ret = new IfcRelAssignsToActor(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssignsToActor_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7348,7 +7348,7 @@ IfcRelAssignsToActor *ExpressDataSet::cloneIfcRelAssignsToActor(const IfcRelAssi
 IfcRelAssignsToControl *ExpressDataSet::getIfcRelAssignsToControl(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssignsToControl * > (current->second.get());
@@ -7369,7 +7369,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToControl(Step::BaseExpre
     IfcRelAssignsToControl *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7382,7 +7382,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToControl(Step::BaseExpre
 
 Step::RefPtr< IfcRelAssignsToControl > ExpressDataSet::createIfcRelAssignsToControl(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssignsToControl(Step::Id_UNSET, 0);
+        return new IfcRelAssignsToControl(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssignsToControl * > (allocateIfcRelAssignsToControl(this, Step::Id_UNSET));
@@ -7392,7 +7392,7 @@ Step::RefPtr< IfcRelAssignsToControl > ExpressDataSet::createIfcRelAssignsToCont
 IfcRelAssignsToControl *ExpressDataSet::cloneIfcRelAssignsToControl(ExpressDataSet *expressDataSet, const IfcRelAssignsToControl &obj, const CopyOp &copyop) {
     IfcRelAssignsToControl *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssignsToControl(id, 0);
+    ret = new IfcRelAssignsToControl(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssignsToControl_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7413,7 +7413,7 @@ IfcRelAssignsToControl *ExpressDataSet::cloneIfcRelAssignsToControl(const IfcRel
 IfcRelAssignsToGroup *ExpressDataSet::getIfcRelAssignsToGroup(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssignsToGroup * > (current->second.get());
@@ -7434,7 +7434,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToGroup(Step::BaseExpress
     IfcRelAssignsToGroup *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7447,7 +7447,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToGroup(Step::BaseExpress
 
 Step::RefPtr< IfcRelAssignsToGroup > ExpressDataSet::createIfcRelAssignsToGroup(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssignsToGroup(Step::Id_UNSET, 0);
+        return new IfcRelAssignsToGroup(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssignsToGroup * > (allocateIfcRelAssignsToGroup(this, Step::Id_UNSET));
@@ -7457,7 +7457,7 @@ Step::RefPtr< IfcRelAssignsToGroup > ExpressDataSet::createIfcRelAssignsToGroup(
 IfcRelAssignsToGroup *ExpressDataSet::cloneIfcRelAssignsToGroup(ExpressDataSet *expressDataSet, const IfcRelAssignsToGroup &obj, const CopyOp &copyop) {
     IfcRelAssignsToGroup *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssignsToGroup(id, 0);
+    ret = new IfcRelAssignsToGroup(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssignsToGroup_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7478,7 +7478,7 @@ IfcRelAssignsToGroup *ExpressDataSet::cloneIfcRelAssignsToGroup(const IfcRelAssi
 IfcRelAssignsToProcess *ExpressDataSet::getIfcRelAssignsToProcess(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssignsToProcess * > (current->second.get());
@@ -7499,7 +7499,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToProcess(Step::BaseExpre
     IfcRelAssignsToProcess *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7512,7 +7512,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToProcess(Step::BaseExpre
 
 Step::RefPtr< IfcRelAssignsToProcess > ExpressDataSet::createIfcRelAssignsToProcess(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssignsToProcess(Step::Id_UNSET, 0);
+        return new IfcRelAssignsToProcess(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssignsToProcess * > (allocateIfcRelAssignsToProcess(this, Step::Id_UNSET));
@@ -7522,7 +7522,7 @@ Step::RefPtr< IfcRelAssignsToProcess > ExpressDataSet::createIfcRelAssignsToProc
 IfcRelAssignsToProcess *ExpressDataSet::cloneIfcRelAssignsToProcess(ExpressDataSet *expressDataSet, const IfcRelAssignsToProcess &obj, const CopyOp &copyop) {
     IfcRelAssignsToProcess *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssignsToProcess(id, 0);
+    ret = new IfcRelAssignsToProcess(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssignsToProcess_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7543,7 +7543,7 @@ IfcRelAssignsToProcess *ExpressDataSet::cloneIfcRelAssignsToProcess(const IfcRel
 IfcRelAssignsToProduct *ExpressDataSet::getIfcRelAssignsToProduct(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssignsToProduct * > (current->second.get());
@@ -7564,7 +7564,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToProduct(Step::BaseExpre
     IfcRelAssignsToProduct *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7577,7 +7577,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToProduct(Step::BaseExpre
 
 Step::RefPtr< IfcRelAssignsToProduct > ExpressDataSet::createIfcRelAssignsToProduct(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssignsToProduct(Step::Id_UNSET, 0);
+        return new IfcRelAssignsToProduct(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssignsToProduct * > (allocateIfcRelAssignsToProduct(this, Step::Id_UNSET));
@@ -7587,7 +7587,7 @@ Step::RefPtr< IfcRelAssignsToProduct > ExpressDataSet::createIfcRelAssignsToProd
 IfcRelAssignsToProduct *ExpressDataSet::cloneIfcRelAssignsToProduct(ExpressDataSet *expressDataSet, const IfcRelAssignsToProduct &obj, const CopyOp &copyop) {
     IfcRelAssignsToProduct *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssignsToProduct(id, 0);
+    ret = new IfcRelAssignsToProduct(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssignsToProduct_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7608,7 +7608,7 @@ IfcRelAssignsToProduct *ExpressDataSet::cloneIfcRelAssignsToProduct(const IfcRel
 IfcRelAssignsToProjectOrder *ExpressDataSet::getIfcRelAssignsToProjectOrder(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssignsToProjectOrder * > (current->second.get());
@@ -7629,7 +7629,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToProjectOrder(Step::Base
     IfcRelAssignsToProjectOrder *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7642,7 +7642,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToProjectOrder(Step::Base
 
 Step::RefPtr< IfcRelAssignsToProjectOrder > ExpressDataSet::createIfcRelAssignsToProjectOrder(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssignsToProjectOrder(Step::Id_UNSET, 0);
+        return new IfcRelAssignsToProjectOrder(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssignsToProjectOrder * > (allocateIfcRelAssignsToProjectOrder(this, Step::Id_UNSET));
@@ -7652,7 +7652,7 @@ Step::RefPtr< IfcRelAssignsToProjectOrder > ExpressDataSet::createIfcRelAssignsT
 IfcRelAssignsToProjectOrder *ExpressDataSet::cloneIfcRelAssignsToProjectOrder(ExpressDataSet *expressDataSet, const IfcRelAssignsToProjectOrder &obj, const CopyOp &copyop) {
     IfcRelAssignsToProjectOrder *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssignsToProjectOrder(id, 0);
+    ret = new IfcRelAssignsToProjectOrder(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssignsToProjectOrder_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7673,7 +7673,7 @@ IfcRelAssignsToProjectOrder *ExpressDataSet::cloneIfcRelAssignsToProjectOrder(co
 IfcRelAssignsToResource *ExpressDataSet::getIfcRelAssignsToResource(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssignsToResource * > (current->second.get());
@@ -7694,7 +7694,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToResource(Step::BaseExpr
     IfcRelAssignsToResource *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7707,7 +7707,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssignsToResource(Step::BaseExpr
 
 Step::RefPtr< IfcRelAssignsToResource > ExpressDataSet::createIfcRelAssignsToResource(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssignsToResource(Step::Id_UNSET, 0);
+        return new IfcRelAssignsToResource(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssignsToResource * > (allocateIfcRelAssignsToResource(this, Step::Id_UNSET));
@@ -7717,7 +7717,7 @@ Step::RefPtr< IfcRelAssignsToResource > ExpressDataSet::createIfcRelAssignsToRes
 IfcRelAssignsToResource *ExpressDataSet::cloneIfcRelAssignsToResource(ExpressDataSet *expressDataSet, const IfcRelAssignsToResource &obj, const CopyOp &copyop) {
     IfcRelAssignsToResource *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssignsToResource(id, 0);
+    ret = new IfcRelAssignsToResource(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssignsToResource_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7738,7 +7738,7 @@ IfcRelAssignsToResource *ExpressDataSet::cloneIfcRelAssignsToResource(const IfcR
 IfcRelAssociates *ExpressDataSet::getIfcRelAssociates(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssociates * > (current->second.get());
@@ -7759,7 +7759,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociates(Step::BaseExpressData
     IfcRelAssociates *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7772,7 +7772,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociates(Step::BaseExpressData
 
 Step::RefPtr< IfcRelAssociates > ExpressDataSet::createIfcRelAssociates(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssociates(Step::Id_UNSET, 0);
+        return new IfcRelAssociates(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssociates * > (allocateIfcRelAssociates(this, Step::Id_UNSET));
@@ -7782,7 +7782,7 @@ Step::RefPtr< IfcRelAssociates > ExpressDataSet::createIfcRelAssociates(bool isV
 IfcRelAssociates *ExpressDataSet::cloneIfcRelAssociates(ExpressDataSet *expressDataSet, const IfcRelAssociates &obj, const CopyOp &copyop) {
     IfcRelAssociates *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssociates(id, 0);
+    ret = new IfcRelAssociates(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssociates_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7803,7 +7803,7 @@ IfcRelAssociates *ExpressDataSet::cloneIfcRelAssociates(const IfcRelAssociates &
 IfcRelAssociatesAppliedValue *ExpressDataSet::getIfcRelAssociatesAppliedValue(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssociatesAppliedValue * > (current->second.get());
@@ -7824,7 +7824,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesAppliedValue(Step::Bas
     IfcRelAssociatesAppliedValue *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7837,7 +7837,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesAppliedValue(Step::Bas
 
 Step::RefPtr< IfcRelAssociatesAppliedValue > ExpressDataSet::createIfcRelAssociatesAppliedValue(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssociatesAppliedValue(Step::Id_UNSET, 0);
+        return new IfcRelAssociatesAppliedValue(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssociatesAppliedValue * > (allocateIfcRelAssociatesAppliedValue(this, Step::Id_UNSET));
@@ -7847,7 +7847,7 @@ Step::RefPtr< IfcRelAssociatesAppliedValue > ExpressDataSet::createIfcRelAssocia
 IfcRelAssociatesAppliedValue *ExpressDataSet::cloneIfcRelAssociatesAppliedValue(ExpressDataSet *expressDataSet, const IfcRelAssociatesAppliedValue &obj, const CopyOp &copyop) {
     IfcRelAssociatesAppliedValue *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssociatesAppliedValue(id, 0);
+    ret = new IfcRelAssociatesAppliedValue(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssociatesAppliedValue_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7868,7 +7868,7 @@ IfcRelAssociatesAppliedValue *ExpressDataSet::cloneIfcRelAssociatesAppliedValue(
 IfcRelAssociatesApproval *ExpressDataSet::getIfcRelAssociatesApproval(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssociatesApproval * > (current->second.get());
@@ -7889,7 +7889,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesApproval(Step::BaseExp
     IfcRelAssociatesApproval *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7902,7 +7902,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesApproval(Step::BaseExp
 
 Step::RefPtr< IfcRelAssociatesApproval > ExpressDataSet::createIfcRelAssociatesApproval(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssociatesApproval(Step::Id_UNSET, 0);
+        return new IfcRelAssociatesApproval(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssociatesApproval * > (allocateIfcRelAssociatesApproval(this, Step::Id_UNSET));
@@ -7912,7 +7912,7 @@ Step::RefPtr< IfcRelAssociatesApproval > ExpressDataSet::createIfcRelAssociatesA
 IfcRelAssociatesApproval *ExpressDataSet::cloneIfcRelAssociatesApproval(ExpressDataSet *expressDataSet, const IfcRelAssociatesApproval &obj, const CopyOp &copyop) {
     IfcRelAssociatesApproval *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssociatesApproval(id, 0);
+    ret = new IfcRelAssociatesApproval(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssociatesApproval_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7933,7 +7933,7 @@ IfcRelAssociatesApproval *ExpressDataSet::cloneIfcRelAssociatesApproval(const If
 IfcRelAssociatesClassification *ExpressDataSet::getIfcRelAssociatesClassification(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssociatesClassification * > (current->second.get());
@@ -7954,7 +7954,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesClassification(Step::B
     IfcRelAssociatesClassification *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -7967,7 +7967,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesClassification(Step::B
 
 Step::RefPtr< IfcRelAssociatesClassification > ExpressDataSet::createIfcRelAssociatesClassification(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssociatesClassification(Step::Id_UNSET, 0);
+        return new IfcRelAssociatesClassification(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssociatesClassification * > (allocateIfcRelAssociatesClassification(this, Step::Id_UNSET));
@@ -7977,7 +7977,7 @@ Step::RefPtr< IfcRelAssociatesClassification > ExpressDataSet::createIfcRelAssoc
 IfcRelAssociatesClassification *ExpressDataSet::cloneIfcRelAssociatesClassification(ExpressDataSet *expressDataSet, const IfcRelAssociatesClassification &obj, const CopyOp &copyop) {
     IfcRelAssociatesClassification *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssociatesClassification(id, 0);
+    ret = new IfcRelAssociatesClassification(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssociatesClassification_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -7998,7 +7998,7 @@ IfcRelAssociatesClassification *ExpressDataSet::cloneIfcRelAssociatesClassificat
 IfcRelAssociatesConstraint *ExpressDataSet::getIfcRelAssociatesConstraint(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssociatesConstraint * > (current->second.get());
@@ -8019,7 +8019,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesConstraint(Step::BaseE
     IfcRelAssociatesConstraint *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8032,7 +8032,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesConstraint(Step::BaseE
 
 Step::RefPtr< IfcRelAssociatesConstraint > ExpressDataSet::createIfcRelAssociatesConstraint(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssociatesConstraint(Step::Id_UNSET, 0);
+        return new IfcRelAssociatesConstraint(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssociatesConstraint * > (allocateIfcRelAssociatesConstraint(this, Step::Id_UNSET));
@@ -8042,7 +8042,7 @@ Step::RefPtr< IfcRelAssociatesConstraint > ExpressDataSet::createIfcRelAssociate
 IfcRelAssociatesConstraint *ExpressDataSet::cloneIfcRelAssociatesConstraint(ExpressDataSet *expressDataSet, const IfcRelAssociatesConstraint &obj, const CopyOp &copyop) {
     IfcRelAssociatesConstraint *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssociatesConstraint(id, 0);
+    ret = new IfcRelAssociatesConstraint(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssociatesConstraint_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8063,7 +8063,7 @@ IfcRelAssociatesConstraint *ExpressDataSet::cloneIfcRelAssociatesConstraint(cons
 IfcRelAssociatesDocument *ExpressDataSet::getIfcRelAssociatesDocument(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssociatesDocument * > (current->second.get());
@@ -8084,7 +8084,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesDocument(Step::BaseExp
     IfcRelAssociatesDocument *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8097,7 +8097,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesDocument(Step::BaseExp
 
 Step::RefPtr< IfcRelAssociatesDocument > ExpressDataSet::createIfcRelAssociatesDocument(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssociatesDocument(Step::Id_UNSET, 0);
+        return new IfcRelAssociatesDocument(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssociatesDocument * > (allocateIfcRelAssociatesDocument(this, Step::Id_UNSET));
@@ -8107,7 +8107,7 @@ Step::RefPtr< IfcRelAssociatesDocument > ExpressDataSet::createIfcRelAssociatesD
 IfcRelAssociatesDocument *ExpressDataSet::cloneIfcRelAssociatesDocument(ExpressDataSet *expressDataSet, const IfcRelAssociatesDocument &obj, const CopyOp &copyop) {
     IfcRelAssociatesDocument *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssociatesDocument(id, 0);
+    ret = new IfcRelAssociatesDocument(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssociatesDocument_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8128,7 +8128,7 @@ IfcRelAssociatesDocument *ExpressDataSet::cloneIfcRelAssociatesDocument(const If
 IfcRelAssociatesLibrary *ExpressDataSet::getIfcRelAssociatesLibrary(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssociatesLibrary * > (current->second.get());
@@ -8149,7 +8149,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesLibrary(Step::BaseExpr
     IfcRelAssociatesLibrary *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8162,7 +8162,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesLibrary(Step::BaseExpr
 
 Step::RefPtr< IfcRelAssociatesLibrary > ExpressDataSet::createIfcRelAssociatesLibrary(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssociatesLibrary(Step::Id_UNSET, 0);
+        return new IfcRelAssociatesLibrary(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssociatesLibrary * > (allocateIfcRelAssociatesLibrary(this, Step::Id_UNSET));
@@ -8172,7 +8172,7 @@ Step::RefPtr< IfcRelAssociatesLibrary > ExpressDataSet::createIfcRelAssociatesLi
 IfcRelAssociatesLibrary *ExpressDataSet::cloneIfcRelAssociatesLibrary(ExpressDataSet *expressDataSet, const IfcRelAssociatesLibrary &obj, const CopyOp &copyop) {
     IfcRelAssociatesLibrary *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssociatesLibrary(id, 0);
+    ret = new IfcRelAssociatesLibrary(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssociatesLibrary_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8193,7 +8193,7 @@ IfcRelAssociatesLibrary *ExpressDataSet::cloneIfcRelAssociatesLibrary(const IfcR
 IfcRelAssociatesMaterial *ExpressDataSet::getIfcRelAssociatesMaterial(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssociatesMaterial * > (current->second.get());
@@ -8214,7 +8214,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesMaterial(Step::BaseExp
     IfcRelAssociatesMaterial *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8227,7 +8227,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesMaterial(Step::BaseExp
 
 Step::RefPtr< IfcRelAssociatesMaterial > ExpressDataSet::createIfcRelAssociatesMaterial(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssociatesMaterial(Step::Id_UNSET, 0);
+        return new IfcRelAssociatesMaterial(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssociatesMaterial * > (allocateIfcRelAssociatesMaterial(this, Step::Id_UNSET));
@@ -8237,7 +8237,7 @@ Step::RefPtr< IfcRelAssociatesMaterial > ExpressDataSet::createIfcRelAssociatesM
 IfcRelAssociatesMaterial *ExpressDataSet::cloneIfcRelAssociatesMaterial(ExpressDataSet *expressDataSet, const IfcRelAssociatesMaterial &obj, const CopyOp &copyop) {
     IfcRelAssociatesMaterial *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssociatesMaterial(id, 0);
+    ret = new IfcRelAssociatesMaterial(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssociatesMaterial_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8258,7 +8258,7 @@ IfcRelAssociatesMaterial *ExpressDataSet::cloneIfcRelAssociatesMaterial(const If
 IfcRelAssociatesProfileProperties *ExpressDataSet::getIfcRelAssociatesProfileProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelAssociatesProfileProperties * > (current->second.get());
@@ -8279,7 +8279,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesProfileProperties(Step
     IfcRelAssociatesProfileProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8292,7 +8292,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelAssociatesProfileProperties(Step
 
 Step::RefPtr< IfcRelAssociatesProfileProperties > ExpressDataSet::createIfcRelAssociatesProfileProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelAssociatesProfileProperties(Step::Id_UNSET, 0);
+        return new IfcRelAssociatesProfileProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelAssociatesProfileProperties * > (allocateIfcRelAssociatesProfileProperties(this, Step::Id_UNSET));
@@ -8302,7 +8302,7 @@ Step::RefPtr< IfcRelAssociatesProfileProperties > ExpressDataSet::createIfcRelAs
 IfcRelAssociatesProfileProperties *ExpressDataSet::cloneIfcRelAssociatesProfileProperties(ExpressDataSet *expressDataSet, const IfcRelAssociatesProfileProperties &obj, const CopyOp &copyop) {
     IfcRelAssociatesProfileProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelAssociatesProfileProperties(id, 0);
+    ret = new IfcRelAssociatesProfileProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelAssociatesProfileProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8323,7 +8323,7 @@ IfcRelAssociatesProfileProperties *ExpressDataSet::cloneIfcRelAssociatesProfileP
 IfcRelConnectsElements *ExpressDataSet::getIfcRelConnectsElements(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelConnectsElements * > (current->second.get());
@@ -8344,7 +8344,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsElements(Step::BaseExpre
     IfcRelConnectsElements *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8357,7 +8357,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsElements(Step::BaseExpre
 
 Step::RefPtr< IfcRelConnectsElements > ExpressDataSet::createIfcRelConnectsElements(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelConnectsElements(Step::Id_UNSET, 0);
+        return new IfcRelConnectsElements(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelConnectsElements * > (allocateIfcRelConnectsElements(this, Step::Id_UNSET));
@@ -8367,7 +8367,7 @@ Step::RefPtr< IfcRelConnectsElements > ExpressDataSet::createIfcRelConnectsEleme
 IfcRelConnectsElements *ExpressDataSet::cloneIfcRelConnectsElements(ExpressDataSet *expressDataSet, const IfcRelConnectsElements &obj, const CopyOp &copyop) {
     IfcRelConnectsElements *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelConnectsElements(id, 0);
+    ret = new IfcRelConnectsElements(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelConnectsElements_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8388,7 +8388,7 @@ IfcRelConnectsElements *ExpressDataSet::cloneIfcRelConnectsElements(const IfcRel
 IfcRelConnectsPathElements *ExpressDataSet::getIfcRelConnectsPathElements(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelConnectsPathElements * > (current->second.get());
@@ -8409,7 +8409,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsPathElements(Step::BaseE
     IfcRelConnectsPathElements *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8422,7 +8422,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsPathElements(Step::BaseE
 
 Step::RefPtr< IfcRelConnectsPathElements > ExpressDataSet::createIfcRelConnectsPathElements(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelConnectsPathElements(Step::Id_UNSET, 0);
+        return new IfcRelConnectsPathElements(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelConnectsPathElements * > (allocateIfcRelConnectsPathElements(this, Step::Id_UNSET));
@@ -8432,7 +8432,7 @@ Step::RefPtr< IfcRelConnectsPathElements > ExpressDataSet::createIfcRelConnectsP
 IfcRelConnectsPathElements *ExpressDataSet::cloneIfcRelConnectsPathElements(ExpressDataSet *expressDataSet, const IfcRelConnectsPathElements &obj, const CopyOp &copyop) {
     IfcRelConnectsPathElements *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelConnectsPathElements(id, 0);
+    ret = new IfcRelConnectsPathElements(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelConnectsPathElements_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8453,7 +8453,7 @@ IfcRelConnectsPathElements *ExpressDataSet::cloneIfcRelConnectsPathElements(cons
 IfcRelConnectsPortToElement *ExpressDataSet::getIfcRelConnectsPortToElement(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelConnectsPortToElement * > (current->second.get());
@@ -8474,7 +8474,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsPortToElement(Step::Base
     IfcRelConnectsPortToElement *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8487,7 +8487,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsPortToElement(Step::Base
 
 Step::RefPtr< IfcRelConnectsPortToElement > ExpressDataSet::createIfcRelConnectsPortToElement(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelConnectsPortToElement(Step::Id_UNSET, 0);
+        return new IfcRelConnectsPortToElement(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelConnectsPortToElement * > (allocateIfcRelConnectsPortToElement(this, Step::Id_UNSET));
@@ -8497,7 +8497,7 @@ Step::RefPtr< IfcRelConnectsPortToElement > ExpressDataSet::createIfcRelConnects
 IfcRelConnectsPortToElement *ExpressDataSet::cloneIfcRelConnectsPortToElement(ExpressDataSet *expressDataSet, const IfcRelConnectsPortToElement &obj, const CopyOp &copyop) {
     IfcRelConnectsPortToElement *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelConnectsPortToElement(id, 0);
+    ret = new IfcRelConnectsPortToElement(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelConnectsPortToElement_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8518,7 +8518,7 @@ IfcRelConnectsPortToElement *ExpressDataSet::cloneIfcRelConnectsPortToElement(co
 IfcRelConnectsPorts *ExpressDataSet::getIfcRelConnectsPorts(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelConnectsPorts * > (current->second.get());
@@ -8539,7 +8539,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsPorts(Step::BaseExpressD
     IfcRelConnectsPorts *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8552,7 +8552,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsPorts(Step::BaseExpressD
 
 Step::RefPtr< IfcRelConnectsPorts > ExpressDataSet::createIfcRelConnectsPorts(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelConnectsPorts(Step::Id_UNSET, 0);
+        return new IfcRelConnectsPorts(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelConnectsPorts * > (allocateIfcRelConnectsPorts(this, Step::Id_UNSET));
@@ -8562,7 +8562,7 @@ Step::RefPtr< IfcRelConnectsPorts > ExpressDataSet::createIfcRelConnectsPorts(bo
 IfcRelConnectsPorts *ExpressDataSet::cloneIfcRelConnectsPorts(ExpressDataSet *expressDataSet, const IfcRelConnectsPorts &obj, const CopyOp &copyop) {
     IfcRelConnectsPorts *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelConnectsPorts(id, 0);
+    ret = new IfcRelConnectsPorts(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelConnectsPorts_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8583,7 +8583,7 @@ IfcRelConnectsPorts *ExpressDataSet::cloneIfcRelConnectsPorts(const IfcRelConnec
 IfcRelConnectsStructuralActivity *ExpressDataSet::getIfcRelConnectsStructuralActivity(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelConnectsStructuralActivity * > (current->second.get());
@@ -8604,7 +8604,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsStructuralActivity(Step:
     IfcRelConnectsStructuralActivity *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8617,7 +8617,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsStructuralActivity(Step:
 
 Step::RefPtr< IfcRelConnectsStructuralActivity > ExpressDataSet::createIfcRelConnectsStructuralActivity(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelConnectsStructuralActivity(Step::Id_UNSET, 0);
+        return new IfcRelConnectsStructuralActivity(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelConnectsStructuralActivity * > (allocateIfcRelConnectsStructuralActivity(this, Step::Id_UNSET));
@@ -8627,7 +8627,7 @@ Step::RefPtr< IfcRelConnectsStructuralActivity > ExpressDataSet::createIfcRelCon
 IfcRelConnectsStructuralActivity *ExpressDataSet::cloneIfcRelConnectsStructuralActivity(ExpressDataSet *expressDataSet, const IfcRelConnectsStructuralActivity &obj, const CopyOp &copyop) {
     IfcRelConnectsStructuralActivity *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelConnectsStructuralActivity(id, 0);
+    ret = new IfcRelConnectsStructuralActivity(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelConnectsStructuralActivity_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8648,7 +8648,7 @@ IfcRelConnectsStructuralActivity *ExpressDataSet::cloneIfcRelConnectsStructuralA
 IfcRelConnectsStructuralElement *ExpressDataSet::getIfcRelConnectsStructuralElement(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelConnectsStructuralElement * > (current->second.get());
@@ -8669,7 +8669,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsStructuralElement(Step::
     IfcRelConnectsStructuralElement *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8682,7 +8682,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsStructuralElement(Step::
 
 Step::RefPtr< IfcRelConnectsStructuralElement > ExpressDataSet::createIfcRelConnectsStructuralElement(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelConnectsStructuralElement(Step::Id_UNSET, 0);
+        return new IfcRelConnectsStructuralElement(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelConnectsStructuralElement * > (allocateIfcRelConnectsStructuralElement(this, Step::Id_UNSET));
@@ -8692,7 +8692,7 @@ Step::RefPtr< IfcRelConnectsStructuralElement > ExpressDataSet::createIfcRelConn
 IfcRelConnectsStructuralElement *ExpressDataSet::cloneIfcRelConnectsStructuralElement(ExpressDataSet *expressDataSet, const IfcRelConnectsStructuralElement &obj, const CopyOp &copyop) {
     IfcRelConnectsStructuralElement *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelConnectsStructuralElement(id, 0);
+    ret = new IfcRelConnectsStructuralElement(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelConnectsStructuralElement_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8713,7 +8713,7 @@ IfcRelConnectsStructuralElement *ExpressDataSet::cloneIfcRelConnectsStructuralEl
 IfcRelConnectsStructuralMember *ExpressDataSet::getIfcRelConnectsStructuralMember(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelConnectsStructuralMember * > (current->second.get());
@@ -8734,7 +8734,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsStructuralMember(Step::B
     IfcRelConnectsStructuralMember *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8747,7 +8747,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsStructuralMember(Step::B
 
 Step::RefPtr< IfcRelConnectsStructuralMember > ExpressDataSet::createIfcRelConnectsStructuralMember(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelConnectsStructuralMember(Step::Id_UNSET, 0);
+        return new IfcRelConnectsStructuralMember(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelConnectsStructuralMember * > (allocateIfcRelConnectsStructuralMember(this, Step::Id_UNSET));
@@ -8757,7 +8757,7 @@ Step::RefPtr< IfcRelConnectsStructuralMember > ExpressDataSet::createIfcRelConne
 IfcRelConnectsStructuralMember *ExpressDataSet::cloneIfcRelConnectsStructuralMember(ExpressDataSet *expressDataSet, const IfcRelConnectsStructuralMember &obj, const CopyOp &copyop) {
     IfcRelConnectsStructuralMember *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelConnectsStructuralMember(id, 0);
+    ret = new IfcRelConnectsStructuralMember(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelConnectsStructuralMember_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8778,7 +8778,7 @@ IfcRelConnectsStructuralMember *ExpressDataSet::cloneIfcRelConnectsStructuralMem
 IfcRelConnectsWithEccentricity *ExpressDataSet::getIfcRelConnectsWithEccentricity(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelConnectsWithEccentricity * > (current->second.get());
@@ -8799,7 +8799,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsWithEccentricity(Step::B
     IfcRelConnectsWithEccentricity *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8812,7 +8812,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsWithEccentricity(Step::B
 
 Step::RefPtr< IfcRelConnectsWithEccentricity > ExpressDataSet::createIfcRelConnectsWithEccentricity(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelConnectsWithEccentricity(Step::Id_UNSET, 0);
+        return new IfcRelConnectsWithEccentricity(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelConnectsWithEccentricity * > (allocateIfcRelConnectsWithEccentricity(this, Step::Id_UNSET));
@@ -8822,7 +8822,7 @@ Step::RefPtr< IfcRelConnectsWithEccentricity > ExpressDataSet::createIfcRelConne
 IfcRelConnectsWithEccentricity *ExpressDataSet::cloneIfcRelConnectsWithEccentricity(ExpressDataSet *expressDataSet, const IfcRelConnectsWithEccentricity &obj, const CopyOp &copyop) {
     IfcRelConnectsWithEccentricity *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelConnectsWithEccentricity(id, 0);
+    ret = new IfcRelConnectsWithEccentricity(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelConnectsWithEccentricity_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8843,7 +8843,7 @@ IfcRelConnectsWithEccentricity *ExpressDataSet::cloneIfcRelConnectsWithEccentric
 IfcRelConnectsWithRealizingElements *ExpressDataSet::getIfcRelConnectsWithRealizingElements(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelConnectsWithRealizingElements * > (current->second.get());
@@ -8864,7 +8864,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsWithRealizingElements(St
     IfcRelConnectsWithRealizingElements *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8877,7 +8877,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelConnectsWithRealizingElements(St
 
 Step::RefPtr< IfcRelConnectsWithRealizingElements > ExpressDataSet::createIfcRelConnectsWithRealizingElements(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelConnectsWithRealizingElements(Step::Id_UNSET, 0);
+        return new IfcRelConnectsWithRealizingElements(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelConnectsWithRealizingElements * > (allocateIfcRelConnectsWithRealizingElements(this, Step::Id_UNSET));
@@ -8887,7 +8887,7 @@ Step::RefPtr< IfcRelConnectsWithRealizingElements > ExpressDataSet::createIfcRel
 IfcRelConnectsWithRealizingElements *ExpressDataSet::cloneIfcRelConnectsWithRealizingElements(ExpressDataSet *expressDataSet, const IfcRelConnectsWithRealizingElements &obj, const CopyOp &copyop) {
     IfcRelConnectsWithRealizingElements *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelConnectsWithRealizingElements(id, 0);
+    ret = new IfcRelConnectsWithRealizingElements(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelConnectsWithRealizingElements_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8908,7 +8908,7 @@ IfcRelConnectsWithRealizingElements *ExpressDataSet::cloneIfcRelConnectsWithReal
 IfcRelContainedInSpatialStructure *ExpressDataSet::getIfcRelContainedInSpatialStructure(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelContainedInSpatialStructure * > (current->second.get());
@@ -8929,7 +8929,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelContainedInSpatialStructure(Step
     IfcRelContainedInSpatialStructure *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -8942,7 +8942,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelContainedInSpatialStructure(Step
 
 Step::RefPtr< IfcRelContainedInSpatialStructure > ExpressDataSet::createIfcRelContainedInSpatialStructure(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelContainedInSpatialStructure(Step::Id_UNSET, 0);
+        return new IfcRelContainedInSpatialStructure(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelContainedInSpatialStructure * > (allocateIfcRelContainedInSpatialStructure(this, Step::Id_UNSET));
@@ -8952,7 +8952,7 @@ Step::RefPtr< IfcRelContainedInSpatialStructure > ExpressDataSet::createIfcRelCo
 IfcRelContainedInSpatialStructure *ExpressDataSet::cloneIfcRelContainedInSpatialStructure(ExpressDataSet *expressDataSet, const IfcRelContainedInSpatialStructure &obj, const CopyOp &copyop) {
     IfcRelContainedInSpatialStructure *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelContainedInSpatialStructure(id, 0);
+    ret = new IfcRelContainedInSpatialStructure(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelContainedInSpatialStructure_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -8973,7 +8973,7 @@ IfcRelContainedInSpatialStructure *ExpressDataSet::cloneIfcRelContainedInSpatial
 IfcRelCoversBldgElements *ExpressDataSet::getIfcRelCoversBldgElements(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelCoversBldgElements * > (current->second.get());
@@ -8994,7 +8994,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelCoversBldgElements(Step::BaseExp
     IfcRelCoversBldgElements *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9007,7 +9007,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelCoversBldgElements(Step::BaseExp
 
 Step::RefPtr< IfcRelCoversBldgElements > ExpressDataSet::createIfcRelCoversBldgElements(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelCoversBldgElements(Step::Id_UNSET, 0);
+        return new IfcRelCoversBldgElements(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelCoversBldgElements * > (allocateIfcRelCoversBldgElements(this, Step::Id_UNSET));
@@ -9017,7 +9017,7 @@ Step::RefPtr< IfcRelCoversBldgElements > ExpressDataSet::createIfcRelCoversBldgE
 IfcRelCoversBldgElements *ExpressDataSet::cloneIfcRelCoversBldgElements(ExpressDataSet *expressDataSet, const IfcRelCoversBldgElements &obj, const CopyOp &copyop) {
     IfcRelCoversBldgElements *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelCoversBldgElements(id, 0);
+    ret = new IfcRelCoversBldgElements(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelCoversBldgElements_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9038,7 +9038,7 @@ IfcRelCoversBldgElements *ExpressDataSet::cloneIfcRelCoversBldgElements(const If
 IfcRelCoversSpaces *ExpressDataSet::getIfcRelCoversSpaces(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelCoversSpaces * > (current->second.get());
@@ -9059,7 +9059,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelCoversSpaces(Step::BaseExpressDa
     IfcRelCoversSpaces *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9072,7 +9072,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelCoversSpaces(Step::BaseExpressDa
 
 Step::RefPtr< IfcRelCoversSpaces > ExpressDataSet::createIfcRelCoversSpaces(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelCoversSpaces(Step::Id_UNSET, 0);
+        return new IfcRelCoversSpaces(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelCoversSpaces * > (allocateIfcRelCoversSpaces(this, Step::Id_UNSET));
@@ -9082,7 +9082,7 @@ Step::RefPtr< IfcRelCoversSpaces > ExpressDataSet::createIfcRelCoversSpaces(bool
 IfcRelCoversSpaces *ExpressDataSet::cloneIfcRelCoversSpaces(ExpressDataSet *expressDataSet, const IfcRelCoversSpaces &obj, const CopyOp &copyop) {
     IfcRelCoversSpaces *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelCoversSpaces(id, 0);
+    ret = new IfcRelCoversSpaces(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelCoversSpaces_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9103,7 +9103,7 @@ IfcRelCoversSpaces *ExpressDataSet::cloneIfcRelCoversSpaces(const IfcRelCoversSp
 IfcRelDefinesByProperties *ExpressDataSet::getIfcRelDefinesByProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelDefinesByProperties * > (current->second.get());
@@ -9124,7 +9124,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelDefinesByProperties(Step::BaseEx
     IfcRelDefinesByProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9137,7 +9137,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelDefinesByProperties(Step::BaseEx
 
 Step::RefPtr< IfcRelDefinesByProperties > ExpressDataSet::createIfcRelDefinesByProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelDefinesByProperties(Step::Id_UNSET, 0);
+        return new IfcRelDefinesByProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelDefinesByProperties * > (allocateIfcRelDefinesByProperties(this, Step::Id_UNSET));
@@ -9147,7 +9147,7 @@ Step::RefPtr< IfcRelDefinesByProperties > ExpressDataSet::createIfcRelDefinesByP
 IfcRelDefinesByProperties *ExpressDataSet::cloneIfcRelDefinesByProperties(ExpressDataSet *expressDataSet, const IfcRelDefinesByProperties &obj, const CopyOp &copyop) {
     IfcRelDefinesByProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelDefinesByProperties(id, 0);
+    ret = new IfcRelDefinesByProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelDefinesByProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9168,7 +9168,7 @@ IfcRelDefinesByProperties *ExpressDataSet::cloneIfcRelDefinesByProperties(const 
 IfcRelDefinesByType *ExpressDataSet::getIfcRelDefinesByType(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelDefinesByType * > (current->second.get());
@@ -9189,7 +9189,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelDefinesByType(Step::BaseExpressD
     IfcRelDefinesByType *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9202,7 +9202,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelDefinesByType(Step::BaseExpressD
 
 Step::RefPtr< IfcRelDefinesByType > ExpressDataSet::createIfcRelDefinesByType(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelDefinesByType(Step::Id_UNSET, 0);
+        return new IfcRelDefinesByType(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelDefinesByType * > (allocateIfcRelDefinesByType(this, Step::Id_UNSET));
@@ -9212,7 +9212,7 @@ Step::RefPtr< IfcRelDefinesByType > ExpressDataSet::createIfcRelDefinesByType(bo
 IfcRelDefinesByType *ExpressDataSet::cloneIfcRelDefinesByType(ExpressDataSet *expressDataSet, const IfcRelDefinesByType &obj, const CopyOp &copyop) {
     IfcRelDefinesByType *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelDefinesByType(id, 0);
+    ret = new IfcRelDefinesByType(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelDefinesByType_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9233,7 +9233,7 @@ IfcRelDefinesByType *ExpressDataSet::cloneIfcRelDefinesByType(const IfcRelDefine
 IfcRelFillsElement *ExpressDataSet::getIfcRelFillsElement(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelFillsElement * > (current->second.get());
@@ -9254,7 +9254,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelFillsElement(Step::BaseExpressDa
     IfcRelFillsElement *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9267,7 +9267,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelFillsElement(Step::BaseExpressDa
 
 Step::RefPtr< IfcRelFillsElement > ExpressDataSet::createIfcRelFillsElement(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelFillsElement(Step::Id_UNSET, 0);
+        return new IfcRelFillsElement(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelFillsElement * > (allocateIfcRelFillsElement(this, Step::Id_UNSET));
@@ -9277,7 +9277,7 @@ Step::RefPtr< IfcRelFillsElement > ExpressDataSet::createIfcRelFillsElement(bool
 IfcRelFillsElement *ExpressDataSet::cloneIfcRelFillsElement(ExpressDataSet *expressDataSet, const IfcRelFillsElement &obj, const CopyOp &copyop) {
     IfcRelFillsElement *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelFillsElement(id, 0);
+    ret = new IfcRelFillsElement(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelFillsElement_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9298,7 +9298,7 @@ IfcRelFillsElement *ExpressDataSet::cloneIfcRelFillsElement(const IfcRelFillsEle
 IfcRelFlowControlElements *ExpressDataSet::getIfcRelFlowControlElements(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelFlowControlElements * > (current->second.get());
@@ -9319,7 +9319,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelFlowControlElements(Step::BaseEx
     IfcRelFlowControlElements *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9332,7 +9332,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelFlowControlElements(Step::BaseEx
 
 Step::RefPtr< IfcRelFlowControlElements > ExpressDataSet::createIfcRelFlowControlElements(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelFlowControlElements(Step::Id_UNSET, 0);
+        return new IfcRelFlowControlElements(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelFlowControlElements * > (allocateIfcRelFlowControlElements(this, Step::Id_UNSET));
@@ -9342,7 +9342,7 @@ Step::RefPtr< IfcRelFlowControlElements > ExpressDataSet::createIfcRelFlowContro
 IfcRelFlowControlElements *ExpressDataSet::cloneIfcRelFlowControlElements(ExpressDataSet *expressDataSet, const IfcRelFlowControlElements &obj, const CopyOp &copyop) {
     IfcRelFlowControlElements *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelFlowControlElements(id, 0);
+    ret = new IfcRelFlowControlElements(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelFlowControlElements_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9363,7 +9363,7 @@ IfcRelFlowControlElements *ExpressDataSet::cloneIfcRelFlowControlElements(const 
 IfcRelInteractionRequirements *ExpressDataSet::getIfcRelInteractionRequirements(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelInteractionRequirements * > (current->second.get());
@@ -9384,7 +9384,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelInteractionRequirements(Step::Ba
     IfcRelInteractionRequirements *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9397,7 +9397,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelInteractionRequirements(Step::Ba
 
 Step::RefPtr< IfcRelInteractionRequirements > ExpressDataSet::createIfcRelInteractionRequirements(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelInteractionRequirements(Step::Id_UNSET, 0);
+        return new IfcRelInteractionRequirements(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelInteractionRequirements * > (allocateIfcRelInteractionRequirements(this, Step::Id_UNSET));
@@ -9407,7 +9407,7 @@ Step::RefPtr< IfcRelInteractionRequirements > ExpressDataSet::createIfcRelIntera
 IfcRelInteractionRequirements *ExpressDataSet::cloneIfcRelInteractionRequirements(ExpressDataSet *expressDataSet, const IfcRelInteractionRequirements &obj, const CopyOp &copyop) {
     IfcRelInteractionRequirements *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelInteractionRequirements(id, 0);
+    ret = new IfcRelInteractionRequirements(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelInteractionRequirements_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9428,7 +9428,7 @@ IfcRelInteractionRequirements *ExpressDataSet::cloneIfcRelInteractionRequirement
 IfcRelNests *ExpressDataSet::getIfcRelNests(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelNests * > (current->second.get());
@@ -9449,7 +9449,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelNests(Step::BaseExpressDataSet *
     IfcRelNests *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9462,7 +9462,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelNests(Step::BaseExpressDataSet *
 
 Step::RefPtr< IfcRelNests > ExpressDataSet::createIfcRelNests(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelNests(Step::Id_UNSET, 0);
+        return new IfcRelNests(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelNests * > (allocateIfcRelNests(this, Step::Id_UNSET));
@@ -9472,7 +9472,7 @@ Step::RefPtr< IfcRelNests > ExpressDataSet::createIfcRelNests(bool isVolatile) {
 IfcRelNests *ExpressDataSet::cloneIfcRelNests(ExpressDataSet *expressDataSet, const IfcRelNests &obj, const CopyOp &copyop) {
     IfcRelNests *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelNests(id, 0);
+    ret = new IfcRelNests(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelNests_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9493,7 +9493,7 @@ IfcRelNests *ExpressDataSet::cloneIfcRelNests(const IfcRelNests &obj, const Copy
 IfcRelOccupiesSpaces *ExpressDataSet::getIfcRelOccupiesSpaces(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelOccupiesSpaces * > (current->second.get());
@@ -9514,7 +9514,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelOccupiesSpaces(Step::BaseExpress
     IfcRelOccupiesSpaces *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9527,7 +9527,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelOccupiesSpaces(Step::BaseExpress
 
 Step::RefPtr< IfcRelOccupiesSpaces > ExpressDataSet::createIfcRelOccupiesSpaces(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelOccupiesSpaces(Step::Id_UNSET, 0);
+        return new IfcRelOccupiesSpaces(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelOccupiesSpaces * > (allocateIfcRelOccupiesSpaces(this, Step::Id_UNSET));
@@ -9537,7 +9537,7 @@ Step::RefPtr< IfcRelOccupiesSpaces > ExpressDataSet::createIfcRelOccupiesSpaces(
 IfcRelOccupiesSpaces *ExpressDataSet::cloneIfcRelOccupiesSpaces(ExpressDataSet *expressDataSet, const IfcRelOccupiesSpaces &obj, const CopyOp &copyop) {
     IfcRelOccupiesSpaces *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelOccupiesSpaces(id, 0);
+    ret = new IfcRelOccupiesSpaces(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelOccupiesSpaces_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9558,7 +9558,7 @@ IfcRelOccupiesSpaces *ExpressDataSet::cloneIfcRelOccupiesSpaces(const IfcRelOccu
 IfcRelOverridesProperties *ExpressDataSet::getIfcRelOverridesProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelOverridesProperties * > (current->second.get());
@@ -9579,7 +9579,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelOverridesProperties(Step::BaseEx
     IfcRelOverridesProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9592,7 +9592,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelOverridesProperties(Step::BaseEx
 
 Step::RefPtr< IfcRelOverridesProperties > ExpressDataSet::createIfcRelOverridesProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelOverridesProperties(Step::Id_UNSET, 0);
+        return new IfcRelOverridesProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelOverridesProperties * > (allocateIfcRelOverridesProperties(this, Step::Id_UNSET));
@@ -9602,7 +9602,7 @@ Step::RefPtr< IfcRelOverridesProperties > ExpressDataSet::createIfcRelOverridesP
 IfcRelOverridesProperties *ExpressDataSet::cloneIfcRelOverridesProperties(ExpressDataSet *expressDataSet, const IfcRelOverridesProperties &obj, const CopyOp &copyop) {
     IfcRelOverridesProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelOverridesProperties(id, 0);
+    ret = new IfcRelOverridesProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelOverridesProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9623,7 +9623,7 @@ IfcRelOverridesProperties *ExpressDataSet::cloneIfcRelOverridesProperties(const 
 IfcRelProjectsElement *ExpressDataSet::getIfcRelProjectsElement(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelProjectsElement * > (current->second.get());
@@ -9644,7 +9644,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelProjectsElement(Step::BaseExpres
     IfcRelProjectsElement *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9657,7 +9657,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelProjectsElement(Step::BaseExpres
 
 Step::RefPtr< IfcRelProjectsElement > ExpressDataSet::createIfcRelProjectsElement(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelProjectsElement(Step::Id_UNSET, 0);
+        return new IfcRelProjectsElement(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelProjectsElement * > (allocateIfcRelProjectsElement(this, Step::Id_UNSET));
@@ -9667,7 +9667,7 @@ Step::RefPtr< IfcRelProjectsElement > ExpressDataSet::createIfcRelProjectsElemen
 IfcRelProjectsElement *ExpressDataSet::cloneIfcRelProjectsElement(ExpressDataSet *expressDataSet, const IfcRelProjectsElement &obj, const CopyOp &copyop) {
     IfcRelProjectsElement *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelProjectsElement(id, 0);
+    ret = new IfcRelProjectsElement(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelProjectsElement_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9688,7 +9688,7 @@ IfcRelProjectsElement *ExpressDataSet::cloneIfcRelProjectsElement(const IfcRelPr
 IfcRelReferencedInSpatialStructure *ExpressDataSet::getIfcRelReferencedInSpatialStructure(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelReferencedInSpatialStructure * > (current->second.get());
@@ -9709,7 +9709,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelReferencedInSpatialStructure(Ste
     IfcRelReferencedInSpatialStructure *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9722,7 +9722,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelReferencedInSpatialStructure(Ste
 
 Step::RefPtr< IfcRelReferencedInSpatialStructure > ExpressDataSet::createIfcRelReferencedInSpatialStructure(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelReferencedInSpatialStructure(Step::Id_UNSET, 0);
+        return new IfcRelReferencedInSpatialStructure(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelReferencedInSpatialStructure * > (allocateIfcRelReferencedInSpatialStructure(this, Step::Id_UNSET));
@@ -9732,7 +9732,7 @@ Step::RefPtr< IfcRelReferencedInSpatialStructure > ExpressDataSet::createIfcRelR
 IfcRelReferencedInSpatialStructure *ExpressDataSet::cloneIfcRelReferencedInSpatialStructure(ExpressDataSet *expressDataSet, const IfcRelReferencedInSpatialStructure &obj, const CopyOp &copyop) {
     IfcRelReferencedInSpatialStructure *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelReferencedInSpatialStructure(id, 0);
+    ret = new IfcRelReferencedInSpatialStructure(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelReferencedInSpatialStructure_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9753,7 +9753,7 @@ IfcRelReferencedInSpatialStructure *ExpressDataSet::cloneIfcRelReferencedInSpati
 IfcRelSchedulesCostItems *ExpressDataSet::getIfcRelSchedulesCostItems(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelSchedulesCostItems * > (current->second.get());
@@ -9774,7 +9774,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelSchedulesCostItems(Step::BaseExp
     IfcRelSchedulesCostItems *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9787,7 +9787,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelSchedulesCostItems(Step::BaseExp
 
 Step::RefPtr< IfcRelSchedulesCostItems > ExpressDataSet::createIfcRelSchedulesCostItems(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelSchedulesCostItems(Step::Id_UNSET, 0);
+        return new IfcRelSchedulesCostItems(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelSchedulesCostItems * > (allocateIfcRelSchedulesCostItems(this, Step::Id_UNSET));
@@ -9797,7 +9797,7 @@ Step::RefPtr< IfcRelSchedulesCostItems > ExpressDataSet::createIfcRelSchedulesCo
 IfcRelSchedulesCostItems *ExpressDataSet::cloneIfcRelSchedulesCostItems(ExpressDataSet *expressDataSet, const IfcRelSchedulesCostItems &obj, const CopyOp &copyop) {
     IfcRelSchedulesCostItems *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelSchedulesCostItems(id, 0);
+    ret = new IfcRelSchedulesCostItems(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelSchedulesCostItems_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9818,7 +9818,7 @@ IfcRelSchedulesCostItems *ExpressDataSet::cloneIfcRelSchedulesCostItems(const If
 IfcRelSequence *ExpressDataSet::getIfcRelSequence(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelSequence * > (current->second.get());
@@ -9839,7 +9839,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelSequence(Step::BaseExpressDataSe
     IfcRelSequence *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9852,7 +9852,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelSequence(Step::BaseExpressDataSe
 
 Step::RefPtr< IfcRelSequence > ExpressDataSet::createIfcRelSequence(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelSequence(Step::Id_UNSET, 0);
+        return new IfcRelSequence(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelSequence * > (allocateIfcRelSequence(this, Step::Id_UNSET));
@@ -9862,7 +9862,7 @@ Step::RefPtr< IfcRelSequence > ExpressDataSet::createIfcRelSequence(bool isVolat
 IfcRelSequence *ExpressDataSet::cloneIfcRelSequence(ExpressDataSet *expressDataSet, const IfcRelSequence &obj, const CopyOp &copyop) {
     IfcRelSequence *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelSequence(id, 0);
+    ret = new IfcRelSequence(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelSequence_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9883,7 +9883,7 @@ IfcRelSequence *ExpressDataSet::cloneIfcRelSequence(const IfcRelSequence &obj, c
 IfcRelServicesBuildings *ExpressDataSet::getIfcRelServicesBuildings(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelServicesBuildings * > (current->second.get());
@@ -9904,7 +9904,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelServicesBuildings(Step::BaseExpr
     IfcRelServicesBuildings *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9917,7 +9917,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelServicesBuildings(Step::BaseExpr
 
 Step::RefPtr< IfcRelServicesBuildings > ExpressDataSet::createIfcRelServicesBuildings(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelServicesBuildings(Step::Id_UNSET, 0);
+        return new IfcRelServicesBuildings(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelServicesBuildings * > (allocateIfcRelServicesBuildings(this, Step::Id_UNSET));
@@ -9927,7 +9927,7 @@ Step::RefPtr< IfcRelServicesBuildings > ExpressDataSet::createIfcRelServicesBuil
 IfcRelServicesBuildings *ExpressDataSet::cloneIfcRelServicesBuildings(ExpressDataSet *expressDataSet, const IfcRelServicesBuildings &obj, const CopyOp &copyop) {
     IfcRelServicesBuildings *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelServicesBuildings(id, 0);
+    ret = new IfcRelServicesBuildings(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelServicesBuildings_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -9948,7 +9948,7 @@ IfcRelServicesBuildings *ExpressDataSet::cloneIfcRelServicesBuildings(const IfcR
 IfcRelSpaceBoundary *ExpressDataSet::getIfcRelSpaceBoundary(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelSpaceBoundary * > (current->second.get());
@@ -9969,7 +9969,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelSpaceBoundary(Step::BaseExpressD
     IfcRelSpaceBoundary *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -9982,7 +9982,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelSpaceBoundary(Step::BaseExpressD
 
 Step::RefPtr< IfcRelSpaceBoundary > ExpressDataSet::createIfcRelSpaceBoundary(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelSpaceBoundary(Step::Id_UNSET, 0);
+        return new IfcRelSpaceBoundary(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelSpaceBoundary * > (allocateIfcRelSpaceBoundary(this, Step::Id_UNSET));
@@ -9992,7 +9992,7 @@ Step::RefPtr< IfcRelSpaceBoundary > ExpressDataSet::createIfcRelSpaceBoundary(bo
 IfcRelSpaceBoundary *ExpressDataSet::cloneIfcRelSpaceBoundary(ExpressDataSet *expressDataSet, const IfcRelSpaceBoundary &obj, const CopyOp &copyop) {
     IfcRelSpaceBoundary *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelSpaceBoundary(id, 0);
+    ret = new IfcRelSpaceBoundary(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelSpaceBoundary_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -10013,7 +10013,7 @@ IfcRelSpaceBoundary *ExpressDataSet::cloneIfcRelSpaceBoundary(const IfcRelSpaceB
 IfcRelVoidsElement *ExpressDataSet::getIfcRelVoidsElement(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelVoidsElement * > (current->second.get());
@@ -10034,7 +10034,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelVoidsElement(Step::BaseExpressDa
     IfcRelVoidsElement *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -10047,7 +10047,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelVoidsElement(Step::BaseExpressDa
 
 Step::RefPtr< IfcRelVoidsElement > ExpressDataSet::createIfcRelVoidsElement(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelVoidsElement(Step::Id_UNSET, 0);
+        return new IfcRelVoidsElement(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelVoidsElement * > (allocateIfcRelVoidsElement(this, Step::Id_UNSET));
@@ -10057,7 +10057,7 @@ Step::RefPtr< IfcRelVoidsElement > ExpressDataSet::createIfcRelVoidsElement(bool
 IfcRelVoidsElement *ExpressDataSet::cloneIfcRelVoidsElement(ExpressDataSet *expressDataSet, const IfcRelVoidsElement &obj, const CopyOp &copyop) {
     IfcRelVoidsElement *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelVoidsElement(id, 0);
+    ret = new IfcRelVoidsElement(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelVoidsElement_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -10078,7 +10078,7 @@ IfcRelVoidsElement *ExpressDataSet::cloneIfcRelVoidsElement(const IfcRelVoidsEle
 IfcRelaxation *ExpressDataSet::getIfcRelaxation(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRelaxation * > (current->second.get());
@@ -10099,7 +10099,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelaxation(Step::BaseExpressDataSet
     IfcRelaxation *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -10112,7 +10112,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRelaxation(Step::BaseExpressDataSet
 
 Step::RefPtr< IfcRelaxation > ExpressDataSet::createIfcRelaxation(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRelaxation(Step::Id_UNSET, 0);
+        return new IfcRelaxation(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRelaxation * > (allocateIfcRelaxation(this, Step::Id_UNSET));
@@ -10122,7 +10122,7 @@ Step::RefPtr< IfcRelaxation > ExpressDataSet::createIfcRelaxation(bool isVolatil
 IfcRelaxation *ExpressDataSet::cloneIfcRelaxation(ExpressDataSet *expressDataSet, const IfcRelaxation &obj, const CopyOp &copyop) {
     IfcRelaxation *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRelaxation(id, 0);
+    ret = new IfcRelaxation(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRelaxation_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -10143,7 +10143,7 @@ IfcRelaxation *ExpressDataSet::cloneIfcRelaxation(const IfcRelaxation &obj, cons
 IfcRepresentation *ExpressDataSet::getIfcRepresentation(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRepresentation * > (current->second.get());
@@ -10164,7 +10164,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRepresentation(Step::BaseExpressDat
     IfcRepresentation *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -10177,7 +10177,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRepresentation(Step::BaseExpressDat
 
 Step::RefPtr< IfcRepresentation > ExpressDataSet::createIfcRepresentation(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRepresentation(Step::Id_UNSET, 0);
+        return new IfcRepresentation(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRepresentation * > (allocateIfcRepresentation(this, Step::Id_UNSET));
@@ -10187,7 +10187,7 @@ Step::RefPtr< IfcRepresentation > ExpressDataSet::createIfcRepresentation(bool i
 IfcRepresentation *ExpressDataSet::cloneIfcRepresentation(ExpressDataSet *expressDataSet, const IfcRepresentation &obj, const CopyOp &copyop) {
     IfcRepresentation *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRepresentation(id, 0);
+    ret = new IfcRepresentation(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRepresentation_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -10208,7 +10208,7 @@ IfcRepresentation *ExpressDataSet::cloneIfcRepresentation(const IfcRepresentatio
 IfcRepresentationContext *ExpressDataSet::getIfcRepresentationContext(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRepresentationContext * > (current->second.get());
@@ -10229,7 +10229,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRepresentationContext(Step::BaseExp
     IfcRepresentationContext *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -10242,7 +10242,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRepresentationContext(Step::BaseExp
 
 Step::RefPtr< IfcRepresentationContext > ExpressDataSet::createIfcRepresentationContext(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRepresentationContext(Step::Id_UNSET, 0);
+        return new IfcRepresentationContext(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRepresentationContext * > (allocateIfcRepresentationContext(this, Step::Id_UNSET));
@@ -10252,7 +10252,7 @@ Step::RefPtr< IfcRepresentationContext > ExpressDataSet::createIfcRepresentation
 IfcRepresentationContext *ExpressDataSet::cloneIfcRepresentationContext(ExpressDataSet *expressDataSet, const IfcRepresentationContext &obj, const CopyOp &copyop) {
     IfcRepresentationContext *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRepresentationContext(id, 0);
+    ret = new IfcRepresentationContext(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRepresentationContext_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -10273,7 +10273,7 @@ IfcRepresentationContext *ExpressDataSet::cloneIfcRepresentationContext(const If
 IfcRepresentationMap *ExpressDataSet::getIfcRepresentationMap(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRepresentationMap * > (current->second.get());
@@ -10294,7 +10294,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRepresentationMap(Step::BaseExpress
     IfcRepresentationMap *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -10307,7 +10307,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRepresentationMap(Step::BaseExpress
 
 Step::RefPtr< IfcRepresentationMap > ExpressDataSet::createIfcRepresentationMap(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRepresentationMap(Step::Id_UNSET, 0);
+        return new IfcRepresentationMap(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRepresentationMap * > (allocateIfcRepresentationMap(this, Step::Id_UNSET));
@@ -10317,7 +10317,7 @@ Step::RefPtr< IfcRepresentationMap > ExpressDataSet::createIfcRepresentationMap(
 IfcRepresentationMap *ExpressDataSet::cloneIfcRepresentationMap(ExpressDataSet *expressDataSet, const IfcRepresentationMap &obj, const CopyOp &copyop) {
     IfcRepresentationMap *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRepresentationMap(id, 0);
+    ret = new IfcRepresentationMap(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRepresentationMap_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -10338,7 +10338,7 @@ IfcRepresentationMap *ExpressDataSet::cloneIfcRepresentationMap(const IfcReprese
 IfcRevolvedAreaSolid *ExpressDataSet::getIfcRevolvedAreaSolid(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRevolvedAreaSolid * > (current->second.get());
@@ -10359,7 +10359,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRevolvedAreaSolid(Step::BaseExpress
     IfcRevolvedAreaSolid *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -10372,7 +10372,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRevolvedAreaSolid(Step::BaseExpress
 
 Step::RefPtr< IfcRevolvedAreaSolid > ExpressDataSet::createIfcRevolvedAreaSolid(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRevolvedAreaSolid(Step::Id_UNSET, 0);
+        return new IfcRevolvedAreaSolid(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRevolvedAreaSolid * > (allocateIfcRevolvedAreaSolid(this, Step::Id_UNSET));
@@ -10382,7 +10382,7 @@ Step::RefPtr< IfcRevolvedAreaSolid > ExpressDataSet::createIfcRevolvedAreaSolid(
 IfcRevolvedAreaSolid *ExpressDataSet::cloneIfcRevolvedAreaSolid(ExpressDataSet *expressDataSet, const IfcRevolvedAreaSolid &obj, const CopyOp &copyop) {
     IfcRevolvedAreaSolid *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRevolvedAreaSolid(id, 0);
+    ret = new IfcRevolvedAreaSolid(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRevolvedAreaSolid_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -10403,7 +10403,7 @@ IfcRevolvedAreaSolid *ExpressDataSet::cloneIfcRevolvedAreaSolid(const IfcRevolve
 IfcRibPlateProfileProperties *ExpressDataSet::getIfcRibPlateProfileProperties(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRibPlateProfileProperties * > (current->second.get());
@@ -10424,7 +10424,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRibPlateProfileProperties(Step::Bas
     IfcRibPlateProfileProperties *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -10437,7 +10437,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRibPlateProfileProperties(Step::Bas
 
 Step::RefPtr< IfcRibPlateProfileProperties > ExpressDataSet::createIfcRibPlateProfileProperties(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRibPlateProfileProperties(Step::Id_UNSET, 0);
+        return new IfcRibPlateProfileProperties(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRibPlateProfileProperties * > (allocateIfcRibPlateProfileProperties(this, Step::Id_UNSET));
@@ -10447,7 +10447,7 @@ Step::RefPtr< IfcRibPlateProfileProperties > ExpressDataSet::createIfcRibPlatePr
 IfcRibPlateProfileProperties *ExpressDataSet::cloneIfcRibPlateProfileProperties(ExpressDataSet *expressDataSet, const IfcRibPlateProfileProperties &obj, const CopyOp &copyop) {
     IfcRibPlateProfileProperties *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRibPlateProfileProperties(id, 0);
+    ret = new IfcRibPlateProfileProperties(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRibPlateProfileProperties_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -10468,7 +10468,7 @@ IfcRibPlateProfileProperties *ExpressDataSet::cloneIfcRibPlateProfileProperties(
 IfcRightCircularCone *ExpressDataSet::getIfcRightCircularCone(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRightCircularCone * > (current->second.get());
@@ -10489,7 +10489,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRightCircularCone(Step::BaseExpress
     IfcRightCircularCone *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -10502,7 +10502,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRightCircularCone(Step::BaseExpress
 
 Step::RefPtr< IfcRightCircularCone > ExpressDataSet::createIfcRightCircularCone(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRightCircularCone(Step::Id_UNSET, 0);
+        return new IfcRightCircularCone(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRightCircularCone * > (allocateIfcRightCircularCone(this, Step::Id_UNSET));
@@ -10512,7 +10512,7 @@ Step::RefPtr< IfcRightCircularCone > ExpressDataSet::createIfcRightCircularCone(
 IfcRightCircularCone *ExpressDataSet::cloneIfcRightCircularCone(ExpressDataSet *expressDataSet, const IfcRightCircularCone &obj, const CopyOp &copyop) {
     IfcRightCircularCone *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRightCircularCone(id, 0);
+    ret = new IfcRightCircularCone(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRightCircularCone_Map[id] = ret;
     expressDataSet->registerObject(id, ret);
@@ -10533,7 +10533,7 @@ IfcRightCircularCone *ExpressDataSet::cloneIfcRightCircularCone(const IfcRightCi
 IfcRightCircularCylinder *ExpressDataSet::getIfcRightCircularCylinder(Step::Id id) {
     Step::MapOfEntities::iterator current = getAll().find(id);
     if (current == getAll().end()) {
-        return NULL;
+        return nullptr;
     }
     if (!current->second->isOfType(Step::BaseSPFObject::getClassType())) {
         return static_cast< IfcRightCircularCylinder * > (current->second.get());
@@ -10554,7 +10554,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRightCircularCylinder(Step::BaseExp
     IfcRightCircularCylinder *ret;
     if (id == Step::Id_UNSET) {
         id = static_cast< ExpressDataSet * > (expressDataSet)->getNewId();
-        arg = 0;
+        arg = nullptr;
     }
     else {
         arg = static_cast< ExpressDataSet * > (expressDataSet)->getArgs(id);
@@ -10567,7 +10567,7 @@ Step::BaseEntity *ExpressDataSet::allocateIfcRightCircularCylinder(Step::BaseExp
 
 Step::RefPtr< IfcRightCircularCylinder > ExpressDataSet::createIfcRightCircularCylinder(bool isVolatile) {
     if (isVolatile) {
-        return new IfcRightCircularCylinder(Step::Id_UNSET, 0);
+        return new IfcRightCircularCylinder(Step::Id_UNSET, nullptr);
     }
     else {
         return static_cast< IfcRightCircularCylinder * > (allocateIfcRightCircularCylinder(this, Step::Id_UNSET));
@@ -10577,7 +10577,7 @@ Step::RefPtr< IfcRightCircularCylinder > ExpressDataSet::createIfcRightCircularC
 IfcRightCircularCylinder *ExpressDataSet::cloneIfcRightCircularCylinder(ExpressDataSet *expressDataSet, const IfcRightCircularCylinder &obj, const CopyOp &copyop) {
     IfcRightCircularCylinder *ret;
     Step::Id id = expressDataSet->getNewId();
-    ret = new IfcRightCircularCylinder(id, 0);
+    ret = new IfcRightCircularCylinder(id, nullptr);
     ret->setKey(id);
     expressDataSet->m_IfcRightCircularCylinder_Map[id] = ret;
     expressDataSet->registerObject(id, ret);

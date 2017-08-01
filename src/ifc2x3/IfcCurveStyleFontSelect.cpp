@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcCurveStyleFontSelect::IfcCurveStyleFontSelect() : Step::BaseObject(0) {
+IfcCurveStyleFontSelect::IfcCurveStyleFontSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcPreDefinedCurveFont *IfcCurveStyleFontSelect::getIfcPreDefinedCurveFont() con
         return m_IfcCurveStyleFontSelect_union.m_IfcPreDefinedCurveFont;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcCurveStyleFont *IfcCurveStyleFontSelect::getIfcCurveStyleFont() const {
         return m_IfcCurveStyleFontSelect_union.m_IfcCurveStyleFont;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

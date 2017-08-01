@@ -42,7 +42,7 @@ std::vector<Id>* SPFData::getInverses(ClassType cl, unsigned i)
     if (it != m_inverses.end())
         return &it->second;
     else
-        return NULL;
+        return nullptr;
 }
 
 void SPFData::addInverse(ClassType cl, unsigned i , Id id)

@@ -35,7 +35,7 @@
 using namespace ifc2x3;
 
 IfcSubedge::IfcSubedge(Step::Id id, Step::SPFData *args) : IfcEdge(id, args) {
-    m_parentEdge = NULL;
+    m_parentEdge = nullptr;
 }
 
 IfcSubedge::~IfcSubedge() {
@@ -66,7 +66,7 @@ IfcEdge *IfcSubedge::getParentEdge() {
         return m_parentEdge.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ bool IfcSubedge::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_parentEdge = NULL;
+        m_parentEdge = nullptr;
     }
     else {
         m_parentEdge = static_cast< IfcEdge * > (m_expressDataSet->get(Step::getIdParam(arg)));

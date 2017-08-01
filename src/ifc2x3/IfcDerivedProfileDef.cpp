@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcDerivedProfileDef::IfcDerivedProfileDef(Step::Id id, Step::SPFData *args) : IfcProfileDef(id, args) {
-    m_parentProfile = NULL;
-    m_operator = NULL;
+    m_parentProfile = nullptr;
+    m_operator = nullptr;
     m_label = Step::getUnset(m_label);
 }
 
@@ -70,7 +70,7 @@ IfcProfileDef *IfcDerivedProfileDef::getParentProfile() {
         return m_parentProfile.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ IfcCartesianTransformationOperator2D *IfcDerivedProfileDef::getOperator() {
         return m_operator.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -151,14 +151,14 @@ bool IfcDerivedProfileDef::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_parentProfile = NULL;
+        m_parentProfile = nullptr;
     }
     else {
         m_parentProfile = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_operator = NULL;
+        m_operator = nullptr;
     }
     else {
         m_operator = static_cast< IfcCartesianTransformationOperator2D * > (m_expressDataSet->get(Step::getIdParam(arg)));

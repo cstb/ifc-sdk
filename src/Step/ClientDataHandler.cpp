@@ -22,7 +22,7 @@ using namespace Step;
 ClassType_child_implementations(STEP_EXPORT,ClientDataHandler,Referenced);
 
 
-ClientDataHandler::ClientDataHandler() : m_clientDataMap(0)
+ClientDataHandler::ClientDataHandler() : m_clientDataMap(nullptr)
 {
 }
 
@@ -33,7 +33,7 @@ ClientDataHandler::~ClientDataHandler()
         std::map<ClientDataKey, RefPtr<ClientData> >::iterator iter;
         for (iter = m_clientDataMap->begin(); iter != m_clientDataMap->end(); iter++)
         {
-            iter->second = 0;
+            iter->second = nullptr;
         }
         delete m_clientDataMap;
     }
@@ -58,7 +58,7 @@ void ClientDataHandler::clearClientData()
         std::map<ClientDataKey, RefPtr<ClientData> >::iterator iter;
         for (iter = m_clientDataMap->begin(); iter != m_clientDataMap->end(); iter++)
         {
-            iter->second = 0;
+            iter->second = nullptr;
         }
         m_clientDataMap->clear();
     }
@@ -79,12 +79,12 @@ ClientData* ClientDataHandler::getClientData(ClientDataKey key)
             return iter->second.get();
     }
 
-    return NULL;
+    return nullptr;
 }
 
 bool ClientDataHandler::setClientData(ClientDataKey key, ClientData* data)
 {
-    if (m_clientDataMap == 0)
+    if (m_clientDataMap == nullptr)
     {
         m_clientDataMap = new std::map<ClientDataKey, RefPtr<ClientData> >;
     }

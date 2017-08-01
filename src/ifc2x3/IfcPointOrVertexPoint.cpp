@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcPointOrVertexPoint::IfcPointOrVertexPoint() : Step::BaseObject(0) {
+IfcPointOrVertexPoint::IfcPointOrVertexPoint() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcPoint *IfcPointOrVertexPoint::getIfcPoint() const {
         return m_IfcPointOrVertexPoint_union.m_IfcPoint;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcVertexPoint *IfcPointOrVertexPoint::getIfcVertexPoint() const {
         return m_IfcPointOrVertexPoint_union.m_IfcVertexPoint;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

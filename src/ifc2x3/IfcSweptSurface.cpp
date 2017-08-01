@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcSweptSurface::IfcSweptSurface(Step::Id id, Step::SPFData *args) : IfcSurface(id, args) {
-    m_sweptCurve = NULL;
-    m_position = NULL;
+    m_sweptCurve = nullptr;
+    m_position = nullptr;
 }
 
 IfcSweptSurface::~IfcSweptSurface() {
@@ -69,7 +69,7 @@ IfcProfileDef *IfcSweptSurface::getSweptCurve() {
         return m_sweptCurve.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ IfcAxis2Placement3D *IfcSweptSurface::getPosition() {
         return m_position.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -124,14 +124,14 @@ bool IfcSweptSurface::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_sweptCurve = NULL;
+        m_sweptCurve = nullptr;
     }
     else {
         m_sweptCurve = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_position = NULL;
+        m_position = nullptr;
     }
     else {
         m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));

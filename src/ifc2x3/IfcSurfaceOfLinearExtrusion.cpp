@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcSurfaceOfLinearExtrusion::IfcSurfaceOfLinearExtrusion(Step::Id id, Step::SPFData *args) : IfcSweptSurface(id, args) {
-    m_extrudedDirection = NULL;
+    m_extrudedDirection = nullptr;
     m_depth = Step::getUnset(m_depth);
 }
 
@@ -68,7 +68,7 @@ IfcDirection *IfcSurfaceOfLinearExtrusion::getExtrudedDirection() {
         return m_extrudedDirection.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ bool IfcSurfaceOfLinearExtrusion::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_extrudedDirection = NULL;
+        m_extrudedDirection = nullptr;
     }
     else {
         m_extrudedDirection = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));

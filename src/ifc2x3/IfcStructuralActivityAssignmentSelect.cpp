@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcStructuralActivityAssignmentSelect::IfcStructuralActivityAssignmentSelect() : Step::BaseObject(0) {
+IfcStructuralActivityAssignmentSelect::IfcStructuralActivityAssignmentSelect() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -115,7 +115,7 @@ IfcStructuralItem *IfcStructuralActivityAssignmentSelect::getIfcStructuralItem()
         return m_IfcStructuralActivityAssignmentSelect_union.m_IfcStructuralItem;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -139,7 +139,7 @@ IfcElement *IfcStructuralActivityAssignmentSelect::getIfcElement() const {
         return m_IfcStructuralActivityAssignmentSelect_union.m_IfcElement;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

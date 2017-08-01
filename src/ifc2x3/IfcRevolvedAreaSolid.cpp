@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcRevolvedAreaSolid::IfcRevolvedAreaSolid(Step::Id id, Step::SPFData *args) : IfcSweptAreaSolid(id, args) {
-    m_axis = NULL;
+    m_axis = nullptr;
     m_angle = Step::getUnset(m_angle);
 }
 
@@ -68,7 +68,7 @@ IfcAxis1Placement *IfcRevolvedAreaSolid::getAxis() {
         return m_axis.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ bool IfcRevolvedAreaSolid::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_axis = NULL;
+        m_axis = nullptr;
     }
     else {
         m_axis = static_cast< IfcAxis1Placement * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -38,9 +38,9 @@
 using namespace ifc2x3;
 
 IfcPropertyBoundedValue::IfcPropertyBoundedValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
-    m_upperBoundValue = NULL;
-    m_lowerBoundValue = NULL;
-    m_unit = NULL;
+    m_upperBoundValue = nullptr;
+    m_lowerBoundValue = nullptr;
+    m_unit = nullptr;
 }
 
 IfcPropertyBoundedValue::~IfcPropertyBoundedValue() {
@@ -71,7 +71,7 @@ IfcValue *IfcPropertyBoundedValue::getUpperBoundValue() {
         return m_upperBoundValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -97,7 +97,7 @@ IfcValue *IfcPropertyBoundedValue::getLowerBoundValue() {
         return m_lowerBoundValue.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ IfcUnit *IfcPropertyBoundedValue::getUnit() {
         return m_unit.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -152,7 +152,7 @@ bool IfcPropertyBoundedValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_upperBoundValue = NULL;
+        m_upperBoundValue = nullptr;
     }
     else {
         m_upperBoundValue = new IfcValue;
@@ -681,7 +681,7 @@ bool IfcPropertyBoundedValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_lowerBoundValue = NULL;
+        m_lowerBoundValue = nullptr;
     }
     else {
         m_lowerBoundValue = new IfcValue;
@@ -1210,7 +1210,7 @@ bool IfcPropertyBoundedValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_unit = NULL;
+        m_unit = nullptr;
     }
     else {
         m_unit = new IfcUnit;

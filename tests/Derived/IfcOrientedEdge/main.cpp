@@ -28,8 +28,8 @@ int main(int n, char **p)
 	Step::RefPtr<ifc2x3::IfcOrientedEdge> OrientedEdge = eds->createIfcOrientedEdge();
 	TEST_VALIDITY(OrientedEdge);
 
-	TEST_ASSERT(OrientedEdge->getEdgeStart()==NULL);
-	TEST_ASSERT(OrientedEdge->getEdgeEnd()==NULL);
+	TEST_ASSERT(OrientedEdge->getEdgeStart()==nullptr);
+	TEST_ASSERT(OrientedEdge->getEdgeEnd()==nullptr);
 
 	Step::RefPtr<ifc2x3::IfcEdgeCurve> EdgeCurve = eds->createIfcEdgeCurve();
 	Step::RefPtr<ifc2x3::IfcVertexPoint> Vertex1 = eds->createIfcVertexPoint();

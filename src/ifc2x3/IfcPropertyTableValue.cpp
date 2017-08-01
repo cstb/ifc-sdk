@@ -40,8 +40,8 @@ using namespace ifc2x3;
 
 IfcPropertyTableValue::IfcPropertyTableValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
     m_expression = Step::getUnset(m_expression);
-    m_definingUnit = NULL;
-    m_definedUnit = NULL;
+    m_definingUnit = nullptr;
+    m_definedUnit = nullptr;
 }
 
 IfcPropertyTableValue::~IfcPropertyTableValue() {
@@ -154,7 +154,7 @@ IfcUnit *IfcPropertyTableValue::getDefiningUnit() {
         return m_definingUnit.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -180,7 +180,7 @@ IfcUnit *IfcPropertyTableValue::getDefinedUnit() {
         return m_definedUnit.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -1298,7 +1298,7 @@ bool IfcPropertyTableValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_definingUnit = NULL;
+        m_definingUnit = nullptr;
     }
     else {
         m_definingUnit = new IfcUnit;
@@ -1317,7 +1317,7 @@ bool IfcPropertyTableValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_definedUnit = NULL;
+        m_definedUnit = nullptr;
     }
     else {
         m_definedUnit = new IfcUnit;

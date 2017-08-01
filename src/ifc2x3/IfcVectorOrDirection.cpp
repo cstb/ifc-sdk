@@ -30,7 +30,7 @@
 
 using namespace ifc2x3;
 
-IfcVectorOrDirection::IfcVectorOrDirection() : Step::BaseObject(0) {
+IfcVectorOrDirection::IfcVectorOrDirection() : Step::BaseObject(nullptr) {
     m_type = UNSET;
 }
 
@@ -113,7 +113,7 @@ IfcDirection *IfcVectorOrDirection::getIfcDirection() const {
         return m_IfcVectorOrDirection_union.m_IfcDirection;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -137,7 +137,7 @@ IfcVector *IfcVectorOrDirection::getIfcVector() const {
         return m_IfcVectorOrDirection_union.m_IfcVector;
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 

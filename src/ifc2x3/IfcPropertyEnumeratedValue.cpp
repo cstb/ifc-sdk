@@ -39,7 +39,7 @@
 using namespace ifc2x3;
 
 IfcPropertyEnumeratedValue::IfcPropertyEnumeratedValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
-    m_enumerationReference = NULL;
+    m_enumerationReference = nullptr;
 }
 
 IfcPropertyEnumeratedValue::~IfcPropertyEnumeratedValue() {
@@ -98,7 +98,7 @@ IfcPropertyEnumeration *IfcPropertyEnumeratedValue::getEnumerationReference() {
         return m_enumerationReference.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -668,7 +668,7 @@ bool IfcPropertyEnumeratedValue::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_enumerationReference = NULL;
+        m_enumerationReference = nullptr;
     }
     else {
         m_enumerationReference = static_cast< IfcPropertyEnumeration * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -35,7 +35,7 @@
 using namespace ifc2x3;
 
 IfcRelAssociatesDocument::IfcRelAssociatesDocument(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
-    m_relatingDocument = NULL;
+    m_relatingDocument = nullptr;
 }
 
 IfcRelAssociatesDocument::~IfcRelAssociatesDocument() {
@@ -66,7 +66,7 @@ IfcDocumentSelect *IfcRelAssociatesDocument::getRelatingDocument() {
         return m_relatingDocument.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ bool IfcRelAssociatesDocument::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingDocument = NULL;
+        m_relatingDocument = nullptr;
     }
     else {
         m_relatingDocument = new IfcDocumentSelect;

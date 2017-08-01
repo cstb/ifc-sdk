@@ -29,7 +29,7 @@ int main(int n, char **p)
 	TEST_VALIDITY(SurfaceOfRevolution);
 
 	Step::RefPtr<ifc2x3::IfcLine> AxisLine = SurfaceOfRevolution->getAxisLine();
-	TEST_ASSERT(AxisLine==NULL);
+	TEST_ASSERT(AxisLine==nullptr);
 
 	Step::RefPtr<ifc2x3::IfcAxis1Placement> Axis = eds->createIfcAxis1Placement();
 	Step::RefPtr<ifc2x3::IfcDirection> Dir = eds->createIfcDirection();

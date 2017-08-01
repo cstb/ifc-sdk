@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcObjective::IfcObjective(Step::Id id, Step::SPFData *args) : IfcConstraint(id, args) {
-    m_benchmarkValues = NULL;
-    m_resultValues = NULL;
+    m_benchmarkValues = nullptr;
+    m_resultValues = nullptr;
     m_objectiveQualifier = IfcObjectiveEnum_UNSET;
     m_userDefinedQualifier = Step::getUnset(m_userDefinedQualifier);
 }
@@ -71,7 +71,7 @@ IfcMetric *IfcObjective::getBenchmarkValues() {
         return m_benchmarkValues.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -97,7 +97,7 @@ IfcMetric *IfcObjective::getResultValues() {
         return m_resultValues.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -178,14 +178,14 @@ bool IfcObjective::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_benchmarkValues = NULL;
+        m_benchmarkValues = nullptr;
     }
     else {
         m_benchmarkValues = static_cast< IfcMetric * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_resultValues = NULL;
+        m_resultValues = nullptr;
     }
     else {
         m_resultValues = static_cast< IfcMetric * > (m_expressDataSet->get(Step::getIdParam(arg)));

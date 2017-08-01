@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcApprovalRelationship::IfcApprovalRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_relatedApproval = NULL;
-    m_relatingApproval = NULL;
+    m_relatedApproval = nullptr;
+    m_relatingApproval = nullptr;
     m_description = Step::getUnset(m_description);
     m_name = Step::getUnset(m_name);
 }
@@ -71,7 +71,7 @@ IfcApproval *IfcApprovalRelationship::getRelatedApproval() {
         return m_relatedApproval.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -103,7 +103,7 @@ IfcApproval *IfcApprovalRelationship::getRelatingApproval() {
         return m_relatingApproval.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -186,14 +186,14 @@ bool IfcApprovalRelationship::init() {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedApproval = NULL;
+        m_relatedApproval = nullptr;
     }
     else {
         m_relatedApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingApproval = NULL;
+        m_relatingApproval = nullptr;
     }
     else {
         m_relatingApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));

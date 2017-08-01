@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcFaceBound::IfcFaceBound(Step::Id id, Step::SPFData *args) : IfcTopologicalRepresentationItem(id, args) {
-    m_bound = NULL;
+    m_bound = nullptr;
     m_orientation = Step::getUnset(m_orientation);
 }
 
@@ -68,7 +68,7 @@ IfcLoop *IfcFaceBound::getBound() {
         return m_bound.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -123,7 +123,7 @@ bool IfcFaceBound::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_bound = NULL;
+        m_bound = nullptr;
     }
     else {
         m_bound = static_cast< IfcLoop * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -43,7 +43,7 @@ IfcSpaceThermalLoadProperties::IfcSpaceThermalLoadProperties(Step::Id id, Step::
     m_sourceDescription = Step::getUnset(m_sourceDescription);
     m_maximumValue = Step::getUnset(m_maximumValue);
     m_minimumValue = Step::getUnset(m_minimumValue);
-    m_thermalLoadTimeSeriesValues = NULL;
+    m_thermalLoadTimeSeriesValues = nullptr;
     m_userDefinedThermalLoadSource = Step::getUnset(m_userDefinedThermalLoadSource);
     m_userDefinedPropertySource = Step::getUnset(m_userDefinedPropertySource);
     m_thermalLoadType = IfcThermalLoadTypeEnum_UNSET;
@@ -233,7 +233,7 @@ IfcTimeSeries *IfcSpaceThermalLoadProperties::getThermalLoadTimeSeriesValues() {
         return m_thermalLoadTimeSeriesValues.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -446,7 +446,7 @@ bool IfcSpaceThermalLoadProperties::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_thermalLoadTimeSeriesValues = NULL;
+        m_thermalLoadTimeSeriesValues = nullptr;
     }
     else {
         m_thermalLoadTimeSeriesValues = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));

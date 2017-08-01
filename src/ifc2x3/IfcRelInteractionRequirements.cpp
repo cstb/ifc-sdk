@@ -39,9 +39,9 @@ using namespace ifc2x3;
 IfcRelInteractionRequirements::IfcRelInteractionRequirements(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
     m_dailyInteraction = Step::getUnset(m_dailyInteraction);
     m_importanceRating = Step::getUnset(m_importanceRating);
-    m_locationOfInteraction = NULL;
-    m_relatedSpaceProgram = NULL;
-    m_relatingSpaceProgram = NULL;
+    m_locationOfInteraction = nullptr;
+    m_relatedSpaceProgram = nullptr;
+    m_relatingSpaceProgram = nullptr;
 }
 
 IfcRelInteractionRequirements::~IfcRelInteractionRequirements() {
@@ -124,7 +124,7 @@ IfcSpatialStructureElement *IfcRelInteractionRequirements::getLocationOfInteract
         return m_locationOfInteraction.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -150,7 +150,7 @@ IfcSpaceProgram *IfcRelInteractionRequirements::getRelatedSpaceProgram() {
         return m_relatedSpaceProgram.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -182,7 +182,7 @@ IfcSpaceProgram *IfcRelInteractionRequirements::getRelatingSpaceProgram() {
         return m_relatingSpaceProgram.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -231,21 +231,21 @@ bool IfcRelInteractionRequirements::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_locationOfInteraction = NULL;
+        m_locationOfInteraction = nullptr;
     }
     else {
         m_locationOfInteraction = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatedSpaceProgram = NULL;
+        m_relatedSpaceProgram = nullptr;
     }
     else {
         m_relatedSpaceProgram = static_cast< IfcSpaceProgram * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingSpaceProgram = NULL;
+        m_relatingSpaceProgram = nullptr;
     }
     else {
         m_relatingSpaceProgram = static_cast< IfcSpaceProgram * > (m_expressDataSet->get(Step::getIdParam(arg)));

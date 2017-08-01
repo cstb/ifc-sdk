@@ -38,7 +38,7 @@
 using namespace ifc2x3;
 
 IfcFillAreaStyleTiles::IfcFillAreaStyleTiles(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_tilingPattern = NULL;
+    m_tilingPattern = nullptr;
     m_tilingScale = Step::getUnset(m_tilingScale);
 }
 
@@ -70,7 +70,7 @@ IfcOneDirectionRepeatFactor *IfcFillAreaStyleTiles::getTilingPattern() {
         return m_tilingPattern.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -153,7 +153,7 @@ bool IfcFillAreaStyleTiles::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_tilingPattern = NULL;
+        m_tilingPattern = nullptr;
     }
     else {
         m_tilingPattern = static_cast< IfcOneDirectionRepeatFactor * > (m_expressDataSet->get(Step::getIdParam(arg)));

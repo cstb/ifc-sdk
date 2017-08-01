@@ -38,7 +38,7 @@
 using namespace ifc2x3;
 
 IfcStructuralConnection::IfcStructuralConnection(Step::Id id, Step::SPFData *args) : IfcStructuralItem(id, args) {
-    m_appliedCondition = NULL;
+    m_appliedCondition = nullptr;
 }
 
 IfcStructuralConnection::~IfcStructuralConnection() {
@@ -69,7 +69,7 @@ IfcBoundaryCondition *IfcStructuralConnection::getAppliedCondition() {
         return m_appliedCondition.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -118,7 +118,7 @@ bool IfcStructuralConnection::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_appliedCondition = NULL;
+        m_appliedCondition = nullptr;
     }
     else {
         m_appliedCondition = static_cast< IfcBoundaryCondition * > (m_expressDataSet->get(Step::getIdParam(arg)));

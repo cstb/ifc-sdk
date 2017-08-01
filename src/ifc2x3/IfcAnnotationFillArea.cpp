@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcAnnotationFillArea::IfcAnnotationFillArea(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_outerBoundary = NULL;
+    m_outerBoundary = nullptr;
     m_innerBoundaries.setUnset(true);
 }
 
@@ -68,7 +68,7 @@ IfcCurve *IfcAnnotationFillArea::getOuterBoundary() {
         return m_outerBoundary.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -125,7 +125,7 @@ bool IfcAnnotationFillArea::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_outerBoundary = NULL;
+        m_outerBoundary = nullptr;
     }
     else {
         m_outerBoundary = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));

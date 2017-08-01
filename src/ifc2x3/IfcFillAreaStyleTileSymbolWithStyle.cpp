@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcFillAreaStyleTileSymbolWithStyle::IfcFillAreaStyleTileSymbolWithStyle(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_symbol = NULL;
+    m_symbol = nullptr;
 }
 
 IfcFillAreaStyleTileSymbolWithStyle::~IfcFillAreaStyleTileSymbolWithStyle() {
@@ -67,7 +67,7 @@ IfcAnnotationSymbolOccurrence *IfcFillAreaStyleTileSymbolWithStyle::getSymbol() 
         return m_symbol.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcFillAreaStyleTileSymbolWithStyle::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_symbol = NULL;
+        m_symbol = nullptr;
     }
     else {
         m_symbol = static_cast< IfcAnnotationSymbolOccurrence * > (m_expressDataSet->get(Step::getIdParam(arg)));

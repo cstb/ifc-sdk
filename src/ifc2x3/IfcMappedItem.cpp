@@ -37,8 +37,8 @@
 using namespace ifc2x3;
 
 IfcMappedItem::IfcMappedItem(Step::Id id, Step::SPFData *args) : IfcRepresentationItem(id, args) {
-    m_mappingSource = NULL;
-    m_mappingTarget = NULL;
+    m_mappingSource = nullptr;
+    m_mappingTarget = nullptr;
 }
 
 IfcMappedItem::~IfcMappedItem() {
@@ -69,7 +69,7 @@ IfcRepresentationMap *IfcMappedItem::getMappingSource() {
         return m_mappingSource.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -101,7 +101,7 @@ IfcCartesianTransformationOperator *IfcMappedItem::getMappingTarget() {
         return m_mappingTarget.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -130,14 +130,14 @@ bool IfcMappedItem::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_mappingSource = NULL;
+        m_mappingSource = nullptr;
     }
     else {
         m_mappingSource = static_cast< IfcRepresentationMap * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_mappingTarget = NULL;
+        m_mappingTarget = nullptr;
     }
     else {
         m_mappingTarget = static_cast< IfcCartesianTransformationOperator * > (m_expressDataSet->get(Step::getIdParam(arg)));

@@ -35,7 +35,7 @@
 using namespace ifc2x3;
 
 IfcRelAssociatesMaterial::IfcRelAssociatesMaterial(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
-    m_relatingMaterial = NULL;
+    m_relatingMaterial = nullptr;
 }
 
 IfcRelAssociatesMaterial::~IfcRelAssociatesMaterial() {
@@ -66,7 +66,7 @@ IfcMaterialSelect *IfcRelAssociatesMaterial::getRelatingMaterial() {
         return m_relatingMaterial.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -95,7 +95,7 @@ bool IfcRelAssociatesMaterial::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_relatingMaterial = NULL;
+        m_relatingMaterial = nullptr;
     }
     else {
         m_relatingMaterial = new IfcMaterialSelect;

@@ -36,7 +36,7 @@
 using namespace ifc2x3;
 
 IfcVertexLoop::IfcVertexLoop(Step::Id id, Step::SPFData *args) : IfcLoop(id, args) {
-    m_loopVertex = NULL;
+    m_loopVertex = nullptr;
 }
 
 IfcVertexLoop::~IfcVertexLoop() {
@@ -67,7 +67,7 @@ IfcVertex *IfcVertexLoop::getLoopVertex() {
         return m_loopVertex.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -96,7 +96,7 @@ bool IfcVertexLoop::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_loopVertex = NULL;
+        m_loopVertex = nullptr;
     }
     else {
         m_loopVertex = static_cast< IfcVertex * > (m_expressDataSet->get(Step::getIdParam(arg)));

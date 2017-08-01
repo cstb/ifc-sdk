@@ -40,7 +40,7 @@ IfcConstructionResource::IfcConstructionResource(Step::Id id, Step::SPFData *arg
     m_resourceIdentifier = Step::getUnset(m_resourceIdentifier);
     m_resourceGroup = Step::getUnset(m_resourceGroup);
     m_resourceConsumption = IfcResourceConsumptionEnum_UNSET;
-    m_baseQuantity = NULL;
+    m_baseQuantity = nullptr;
 }
 
 IfcConstructionResource::~IfcConstructionResource() {
@@ -149,7 +149,7 @@ IfcMeasureWithUnit *IfcConstructionResource::getBaseQuantity() {
         return m_baseQuantity.get();
     }
     else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -222,7 +222,7 @@ bool IfcConstructionResource::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_baseQuantity = NULL;
+        m_baseQuantity = nullptr;
     }
     else {
         m_baseQuantity = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
