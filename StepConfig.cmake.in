@@ -59,7 +59,7 @@ endif()
 include(FindPackageHandleStandardArgs)
 
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(Step
-                                  REQUIRED_VARS STEP_LIBRARY STEP_INCLUDE_DIR
+                                  REQUIRED_VARS STEP_LIBRARIES STEP_INCLUDE_DIR
                                   VERSION_VAR Step_VERSION_FULL)
 
 endif()
