@@ -40,7 +40,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcGrid_UAxes_type::Inverted_IfcGrid_UAxes_type() {
+Inverted_IfcGrid_UAxes_type::Inverted_IfcGrid_UAxes_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcGrid_UAxes_type::setOwner(IfcGrid *owner) {
@@ -65,7 +67,9 @@ void Inverted_IfcGrid_UAxes_type::clear() {
     }
 }
 
-Inverted_IfcGrid_VAxes_type::Inverted_IfcGrid_VAxes_type() {
+Inverted_IfcGrid_VAxes_type::Inverted_IfcGrid_VAxes_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcGrid_VAxes_type::setOwner(IfcGrid *owner) {
@@ -90,7 +94,9 @@ void Inverted_IfcGrid_VAxes_type::clear() {
     }
 }
 
-Inverted_IfcGrid_WAxes_type::Inverted_IfcGrid_WAxes_type() {
+Inverted_IfcGrid_WAxes_type::Inverted_IfcGrid_WAxes_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcGrid_WAxes_type::setOwner(IfcGrid *owner) {

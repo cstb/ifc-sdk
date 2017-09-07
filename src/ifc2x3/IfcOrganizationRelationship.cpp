@@ -37,7 +37,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::Inverted_IfcOrganizationRelationship_RelatedOrganizations_type() {
+Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::Inverted_IfcOrganizationRelationship_RelatedOrganizations_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::setOwner(IfcOrganizationRelationship *owner) {

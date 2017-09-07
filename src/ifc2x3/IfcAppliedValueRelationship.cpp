@@ -37,7 +37,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcAppliedValueRelationship_Components_type::Inverted_IfcAppliedValueRelationship_Components_type() {
+Inverted_IfcAppliedValueRelationship_Components_type::Inverted_IfcAppliedValueRelationship_Components_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcAppliedValueRelationship_Components_type::setOwner(IfcAppliedValueRelationship *owner) {

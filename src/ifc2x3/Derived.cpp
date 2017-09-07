@@ -2644,7 +2644,7 @@ Step::List< T, Low2> IfcAddToBeginOfList( const T AScalar, const Step::List< T ,
 	{
 		Result.push_back(AScalar);
     }
-    for(Step::Integer i=0;i<AList.size();i++)
+    for(typename Step::List< T , Low2>::size_type i=0;i<AList.size();i++)
     {
         Result.push_back(AList[i]);
     }

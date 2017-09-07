@@ -37,21 +37,52 @@ int main(int n, char **p)
 	TEST_VALIDITY(BasisSurface);
 
 	Step::RefPtr<ifc2x3::IfcDirection> axis = eds->createIfcDirection();
-	axis->getDirectionRatios().push_back(1);
+#ifdef STEP_CHECK_RANGE
+    try
+    {
+#endif
+    axis->getDirectionRatios().push_back(1);
 	axis->getDirectionRatios().push_back(0);
 	axis->getDirectionRatios().push_back(0);
-
+#ifdef STEP_CHECK_RANGE
+    }
+    catch(std::out_of_range e)
+    {
+        TEST_FAILURE((std::string("Exception : ") + e.what()).c_str());
+    }
+#endif
 	Step::RefPtr<ifc2x3::IfcDirection> RefDirection = eds->createIfcDirection();
-	RefDirection->getDirectionRatios().push_back(1);
-	RefDirection->getDirectionRatios().push_back(1);
+#ifdef STEP_CHECK_RANGE
+    try
+    {
+#endif
+    RefDirection->getDirectionRatios().push_back(1);
+    RefDirection->getDirectionRatios().push_back(1);
 	RefDirection->getDirectionRatios().push_back(0);
-
+#ifdef STEP_CHECK_RANGE
+    }
+    catch(std::out_of_range e)
+    {
+        TEST_FAILURE((std::string("Exception : ") + e.what()).c_str());
+    }
+#endif
 	Step::RefPtr<ifc2x3::IfcCartesianPoint> Location = eds->createIfcCartesianPoint();
 	ifc2x3::List_IfcLengthMeasure_1_3 Coordinates;
+#ifdef STEP_CHECK_RANGE
+    try
+    {
+#endif
+    Coordinates.push_back(0);
 	Coordinates.push_back(0);
 	Coordinates.push_back(0);
-	Coordinates.push_back(0);
-	Location->setCoordinates(Coordinates);
+#ifdef STEP_CHECK_RANGE
+    }
+    catch(std::out_of_range e)
+    {
+        TEST_FAILURE((std::string("Exception : ") + e.what()).c_str());
+    }
+#endif
+    Location->setCoordinates(Coordinates);
 
 	Step::RefPtr<ifc2x3::IfcAxis2Placement3D> Pos = eds->createIfcAxis2Placement3D();
 	Pos->setAxis(axis);

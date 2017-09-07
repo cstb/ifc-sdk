@@ -36,7 +36,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcCompositeCurve_Segments_type::Inverted_IfcCompositeCurve_Segments_type() {
+Inverted_IfcCompositeCurve_Segments_type::Inverted_IfcCompositeCurve_Segments_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcCompositeCurve_Segments_type::setOwner(IfcCompositeCurve *owner) {

@@ -134,15 +134,14 @@ namespace Step {
           * helper method to produce a SPF string representation of a binary
           * \return the string in SPF representation
           */
-        std::string &to_spfstring() const
+        std::string to_spfstring() const
         {
             unsigned i, idx;
             char *t;
-            std::string *s;
+
             if (m_unset)
             {
-                s = new std::string("0");
-                return *s;
+                return std::string("0");
             }
 #ifdef __GNUG__
 # define TEST std::bitset<N>::test
@@ -199,7 +198,7 @@ namespace Step {
 
 #undef TEST
             // Precede the sequence with the 4bit representation of m_n
-            t[0] = (char)m_n;
+            t[0] = char(m_n);
 
             // If the decimal value of a 4-bit group is <= 9 add 48
             // else add 55 to create the 8bit char.
@@ -210,9 +209,9 @@ namespace Step {
 
             // set trailing char to 0 to end string
             t[m_k / 4 + 1] = 0;
-            s = new std::string(t);
-            delete t;
-            return *s;
+            std::string s(t);
+            delete[] t;
+            return s;
         }
 
         /*!

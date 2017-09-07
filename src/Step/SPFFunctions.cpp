@@ -199,7 +199,10 @@ bool Step::getLine(std::istream& ifs, unsigned int& counter, std::string& str, s
         STEP_LOG_ERROR(logger, "Reached end-of-file ");
         return false;
     }
-    return true;
+    else
+    {
+        return true;
+    }
 }
 
 bool Step::removeQuotes(std::string& s) {
