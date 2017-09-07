@@ -112,11 +112,22 @@ int main(int n, char **p)
 	Point4_3D->setCoordinates(Coordinates4_3D);
 
 	ifc2x3::List_IfcCartesianPoint_2_n ListOfIfcCartesianPoint_3D;
-	ListOfIfcCartesianPoint_3D.push_back(Point1_3D);
+
+#ifdef STEP_CHECK_RANGE
+    try
+    {
+#endif
+    ListOfIfcCartesianPoint_3D.push_back(Point1_3D);
 	ListOfIfcCartesianPoint_3D.push_back(Point2_3D);
 	ListOfIfcCartesianPoint_3D.push_back(Point3_3D);
 	ListOfIfcCartesianPoint_3D.push_back(Point4_3D);
-
+#ifdef STEP_CHECK_RANGE
+    }
+    catch(std::out_of_range e)
+    {
+        TEST_FAILURE((std::string("Exception : ") + e.what()).c_str());
+    }
+#endif
 	BSpline_3D->setControlPointsList(ListOfIfcCartesianPoint_3D);
 
 	Point->setBasisCurve(BSpline_3D);

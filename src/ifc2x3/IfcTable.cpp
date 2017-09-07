@@ -37,7 +37,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcTable_Rows_type::Inverted_IfcTable_Rows_type() {
+Inverted_IfcTable_Rows_type::Inverted_IfcTable_Rows_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcTable_Rows_type::setOwner(IfcTable *owner) {

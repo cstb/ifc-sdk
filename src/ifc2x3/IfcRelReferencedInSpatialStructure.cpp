@@ -38,7 +38,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type() {
+Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::setOwner(IfcRelReferencedInSpatialStructure *owner) {
