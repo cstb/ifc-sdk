@@ -44,7 +44,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcDocumentInformation_DocumentReferences_type::Inverted_IfcDocumentInformation_DocumentReferences_type() {
+Inverted_IfcDocumentInformation_DocumentReferences_type::Inverted_IfcDocumentInformation_DocumentReferences_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcDocumentInformation_DocumentReferences_type::setOwner(IfcDocumentInformation *owner) {

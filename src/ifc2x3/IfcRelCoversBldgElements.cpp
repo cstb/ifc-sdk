@@ -37,7 +37,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::Inverted_IfcRelCoversBldgElements_RelatedCoverings_type() {
+Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::Inverted_IfcRelCoversBldgElements_RelatedCoverings_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::setOwner(IfcRelCoversBldgElements *owner) {

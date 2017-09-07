@@ -24,7 +24,15 @@
 using namespace std;
 using namespace Step;
 
-BaseSPFReader::BaseSPFReader() : _callback(nullptr), m_logger(new StepLogger)
+BaseSPFReader::BaseSPFReader() :
+    m_expressDataSet(nullptr),
+    m_currentId(0),
+    m_currentType(nullptr),
+    m_currentLineNb(0),
+    m_currentObj(nullptr),
+    _callback(nullptr),
+    m_logger(new StepLogger)
+
 {
     m_schemaIdentifiers.push_back("UNDEFINED");
 }

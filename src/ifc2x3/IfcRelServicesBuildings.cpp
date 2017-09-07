@@ -37,7 +37,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcRelServicesBuildings_RelatedBuildings_type::Inverted_IfcRelServicesBuildings_RelatedBuildings_type() {
+Inverted_IfcRelServicesBuildings_RelatedBuildings_type::Inverted_IfcRelServicesBuildings_RelatedBuildings_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcRelServicesBuildings_RelatedBuildings_type::setOwner(IfcRelServicesBuildings *owner) {

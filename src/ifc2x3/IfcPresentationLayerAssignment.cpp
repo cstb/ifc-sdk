@@ -40,7 +40,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcPresentationLayerAssignment_AssignedItems_type::Inverted_IfcPresentationLayerAssignment_AssignedItems_type() {
+Inverted_IfcPresentationLayerAssignment_AssignedItems_type::Inverted_IfcPresentationLayerAssignment_AssignedItems_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcPresentationLayerAssignment_AssignedItems_type::setOwner(IfcPresentationLayerAssignment *owner) {

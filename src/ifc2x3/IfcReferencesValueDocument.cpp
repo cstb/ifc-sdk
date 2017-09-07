@@ -39,7 +39,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcReferencesValueDocument_ReferencingValues_type::Inverted_IfcReferencesValueDocument_ReferencingValues_type() {
+Inverted_IfcReferencesValueDocument_ReferencingValues_type::Inverted_IfcReferencesValueDocument_ReferencingValues_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcReferencesValueDocument_ReferencingValues_type::setOwner(IfcReferencesValueDocument *owner) {

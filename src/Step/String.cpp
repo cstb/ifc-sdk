@@ -1043,7 +1043,7 @@ std::string String::toSPF() const
                         result += toHex( c & 0x000f       );
 
                     }
-                    else if(unsigned(c) <= 0xFFFFFFFF)
+                    else
                     {
                         sizeOfChar = setSizeOfChar(result, sizeOfChar, 4);
                         result += toHex((unsigned(c) & 0xf0000000) >> 28);

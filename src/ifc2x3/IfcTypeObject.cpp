@@ -39,7 +39,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcTypeObject_HasPropertySets_type::Inverted_IfcTypeObject_HasPropertySets_type() {
+Inverted_IfcTypeObject_HasPropertySets_type::Inverted_IfcTypeObject_HasPropertySets_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcTypeObject_HasPropertySets_type::setOwner(IfcTypeObject *owner) {

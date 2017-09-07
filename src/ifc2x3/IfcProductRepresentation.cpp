@@ -37,7 +37,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcProductRepresentation_Representations_type::Inverted_IfcProductRepresentation_Representations_type() {
+Inverted_IfcProductRepresentation_Representations_type::Inverted_IfcProductRepresentation_Representations_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcProductRepresentation_Representations_type::setOwner(IfcProductRepresentation *owner) {

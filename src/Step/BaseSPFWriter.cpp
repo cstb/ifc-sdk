@@ -26,6 +26,7 @@
 #include <locale>
 #include <cassert>
 #include <algorithm>
+#include <iostream>
 
 using namespace Step;
 
@@ -33,10 +34,12 @@ using namespace Step;
 #  define DBL_DIG __DBL_DIG__
 #endif
 
-BaseSPFWriter::BaseSPFWriter(BaseExpressDataSet * e) : _callback(nullptr)
+BaseSPFWriter::BaseSPFWriter(BaseExpressDataSet * e) :
+    m_out(&std::cout),
+    m_expressDataSet(e),
+    m_precision(DBL_DIG + 1),
+    _callback(nullptr)
 {
-    m_expressDataSet = e;
-    m_precision = DBL_DIG + 1;
 }
 
 BaseSPFWriter::~BaseSPFWriter()
@@ -124,7 +127,7 @@ void BaseSPFWriter::writeEnder()
 
 bool BaseSPFWriter::writeIfNotInited(Id id)
 {
-#define CHECK_IF_EXIST(str) (str[0] == '#'?(m_expressDataSet->exists((unsigned)atol(str.substr(1).c_str()))?str:"$"):str)
+#define CHECK_IF_EXIST(str) (str[0] == '#'?(m_expressDataSet->exists(unsigned(atol(str.substr(1).c_str())))?str:"$"):str)
     SPFData* args = m_expressDataSet->getArgs(id);
 
     if (!args || args->argc() <= 0)
@@ -176,7 +179,7 @@ void BaseSPFWriter::writeAttribute(Real value)
 
             const double exp = log10(fabs_value);
 
-            size_t end;
+            std::string::size_type end;
             if(exp > DBL_DIG + 1)
             {
                 stream << std::setprecision(DBL_DIG + 1)
@@ -188,7 +191,7 @@ void BaseSPFWriter::writeAttribute(Real value)
             }
             else
             {
-                const int digits = exp < 0.0 ? 0 : ((int) exp);
+                const int digits = exp < 0.0 ? 0 : int(exp);
 
                 stream << std::setprecision(std::min(m_precision, DBL_DIG + 1 - digits))
                        << std::setiosflags (std::ios_base::fixed | std::ios_base::uppercase | std::ios_base::showpoint)
@@ -198,18 +201,21 @@ void BaseSPFWriter::writeAttribute(Real value)
                 end = str.size();
             }
 
-            size_t begin = str.find('.');
-            size_t it = end;
+            std::string::size_type begin = str.find('.');
+            std::string::size_type it = end;
 
-            // Remove trailing zeros
-            while(--it > begin)
+            if (it != std::string::npos && begin != std::string::npos)
             {
-                if(str[it] != '0')
-                    break;
-            }
+                // Remove trailing zeros
+                while(--it > begin)
+                {
+                    if(str[it] != '0')
+                        break;
+                }
 
-            it++;
-            str.erase(it, end - it);
+                it++;
+                str.erase(it, end - it);
+            }
 
             //assert(fabs(Step::fromString<double>(str) - value) < pow(10.0, m_precision));
 

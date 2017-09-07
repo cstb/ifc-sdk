@@ -104,7 +104,9 @@ void IfcVectorOrDirection::deleteUnion() {
     case IFCVECTOR:
         m_IfcVectorOrDirection_union.m_IfcVector->unref();
         break;
-        }
+    case UNSET:
+        break;
+    }
     m_type = UNSET;
 }
 

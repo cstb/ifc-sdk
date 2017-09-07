@@ -37,7 +37,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcRelFlowControlElements_RelatedControlElements_type::Inverted_IfcRelFlowControlElements_RelatedControlElements_type() {
+Inverted_IfcRelFlowControlElements_RelatedControlElements_type::Inverted_IfcRelFlowControlElements_RelatedControlElements_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcRelFlowControlElements_RelatedControlElements_type::setOwner(IfcRelFlowControlElements *owner) {

@@ -38,7 +38,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcShapeAspect_ShapeRepresentations_type::Inverted_IfcShapeAspect_ShapeRepresentations_type() {
+Inverted_IfcShapeAspect_ShapeRepresentations_type::Inverted_IfcShapeAspect_ShapeRepresentations_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcShapeAspect_ShapeRepresentations_type::setOwner(IfcShapeAspect *owner) {

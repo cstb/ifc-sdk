@@ -36,7 +36,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcRelDecomposes_RelatedObjects_type::Inverted_IfcRelDecomposes_RelatedObjects_type() {
+Inverted_IfcRelDecomposes_RelatedObjects_type::Inverted_IfcRelDecomposes_RelatedObjects_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcRelDecomposes_RelatedObjects_type::setOwner(IfcRelDecomposes *owner) {

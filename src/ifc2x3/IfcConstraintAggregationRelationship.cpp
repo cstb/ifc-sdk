@@ -37,7 +37,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type() {
+Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::setOwner(IfcConstraintAggregationRelationship *owner) {

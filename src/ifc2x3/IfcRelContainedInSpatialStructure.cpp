@@ -40,7 +40,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type() {
+Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::setOwner(IfcRelContainedInSpatialStructure *owner) {

@@ -693,7 +693,9 @@ void IfcValue::deleteUnion() {
     case IFCCOMPOUNDPLANEANGLEMEASURE:
         delete m_IfcValue_union.m_IfcCompoundPlaneAngleMeasure;
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

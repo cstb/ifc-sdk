@@ -36,7 +36,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::Inverted_IfcPhysicalComplexQuantity_HasQuantities_type() {
+Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::Inverted_IfcPhysicalComplexQuantity_HasQuantities_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::setOwner(IfcPhysicalComplexQuantity *owner) {

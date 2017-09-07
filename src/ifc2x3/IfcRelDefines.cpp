@@ -36,7 +36,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcRelDefines_RelatedObjects_type::Inverted_IfcRelDefines_RelatedObjects_type() {
+Inverted_IfcRelDefines_RelatedObjects_type::Inverted_IfcRelDefines_RelatedObjects_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcRelDefines_RelatedObjects_type::setOwner(IfcRelDefines *owner) {

@@ -37,7 +37,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type() {
+Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type():
+    mOwner(nullptr)
+{
 }
 
 void Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::setOwner(IfcRelConnectsWithRealizingElements *owner) {
