@@ -160,7 +160,7 @@ void IfcLayeredItem::setIfcRepresentation(IfcRepresentation *value) {
 
 void IfcLayeredItem::set(Step::BaseObject *v)
 {
-    if (v != nullptr)
+    if (v != 0)
     {
         if (v->isOfType(IfcRepresentationItem::getClassType())) {
             setIfcRepresentationItem(static_cast< IfcRepresentationItem* > (v));
