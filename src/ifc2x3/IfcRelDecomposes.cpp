@@ -172,7 +172,7 @@ bool IfcRelDecomposes::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcObjectDefinition > attr2;
                 attr2 = static_cast< IfcObjectDefinition * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                if (attr2 != nullptr)
+                if (attr2 != NULL)
                     m_relatedObjects.insert(attr2);
             }
             else {
