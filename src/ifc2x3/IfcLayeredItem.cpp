@@ -158,12 +158,16 @@ void IfcLayeredItem::setIfcRepresentation(IfcRepresentation *value) {
     m_type = IFCREPRESENTATION;
 }
 
-void IfcLayeredItem::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcRepresentationItem::getClassType())) {
-        setIfcRepresentationItem(static_cast< IfcRepresentationItem* > (v));
-    }
-    else if (v->isOfType(IfcRepresentation::getClassType())) {
-        setIfcRepresentation(static_cast< IfcRepresentation* > (v));
+void IfcLayeredItem::set(Step::BaseObject *v)
+{
+    if (v != nullptr)
+    {
+        if (v->isOfType(IfcRepresentationItem::getClassType())) {
+            setIfcRepresentationItem(static_cast< IfcRepresentationItem* > (v));
+        }
+        else if (v->isOfType(IfcRepresentation::getClassType())) {
+            setIfcRepresentation(static_cast< IfcRepresentation* > (v));
+        }
     }
 }
 
