@@ -134,7 +134,7 @@ bool IfcCompositeProfileDef::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcProfileDef > attr2;
                 attr2 = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_profiles.insert(attr2);
+                if (attr2.valid()) m_profiles.insert(attr2);
             }
             else {
                 break;

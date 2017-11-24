@@ -271,7 +271,7 @@ bool IfcStructuralAnalysisModel::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcStructuralLoadGroup > attr2;
                 attr2 = static_cast< IfcStructuralLoadGroup * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_loadedBy.insert(attr2);
+                if (attr2.valid()) m_loadedBy.insert(attr2);
             }
             else {
                 break;
@@ -290,7 +290,7 @@ bool IfcStructuralAnalysisModel::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcStructuralResultGroup > attr2;
                 attr2 = static_cast< IfcStructuralResultGroup * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_hasResults.insert(attr2);
+                if (attr2.valid()) m_hasResults.insert(attr2);
             }
             else {
                 break;

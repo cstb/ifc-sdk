@@ -300,7 +300,7 @@ bool IfcSectionReinforcementProperties::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcReinforcementBarProperties > attr2;
                 attr2 = static_cast< IfcReinforcementBarProperties * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_crossSectionReinforcementDefinitions.insert(attr2);
+                if (attr2.valid()) m_crossSectionReinforcementDefinitions.insert(attr2);
             }
             else {
                 break;

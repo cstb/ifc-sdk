@@ -168,7 +168,7 @@ bool IfcClassificationItemRelationship::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcClassificationItem > attr2;
                 attr2 = static_cast< IfcClassificationItem * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_relatedItems.insert(attr2);
+                if (attr2.valid()) m_relatedItems.insert(attr2);
             }
             else {
                 break;

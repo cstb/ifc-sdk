@@ -107,7 +107,7 @@ bool IfcTextureMap::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcVertexBasedTextureMap > attr2;
                 attr2 = static_cast< IfcVertexBasedTextureMap * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_textureMaps.insert(attr2);
+                if (attr2.valid()) m_textureMaps.insert(attr2);
             }
             else {
                 break;

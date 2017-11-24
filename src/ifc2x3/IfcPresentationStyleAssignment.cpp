@@ -123,7 +123,7 @@ bool IfcPresentationStyleAssignment::init() {
                         }
                     }
                 }
-                m_styles.insert(attr2);
+                if (attr2.valid()) m_styles.insert(attr2);
             }
             else {
                 break;

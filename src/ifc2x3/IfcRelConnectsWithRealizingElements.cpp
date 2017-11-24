@@ -160,7 +160,7 @@ bool IfcRelConnectsWithRealizingElements::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcElement > attr2;
                 attr2 = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_realizingElements.insert(attr2);
+                if (attr2.valid()) m_realizingElements.insert(attr2);
             }
             else {
                 break;

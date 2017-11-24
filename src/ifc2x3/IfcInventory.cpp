@@ -286,7 +286,7 @@ bool IfcInventory::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcPerson > attr2;
                 attr2 = static_cast< IfcPerson * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_responsiblePersons.insert(attr2);
+                if (attr2.valid()) m_responsiblePersons.insert(attr2);
             }
             else {
                 break;

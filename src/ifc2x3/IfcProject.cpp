@@ -204,7 +204,7 @@ bool IfcProject::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcRepresentationContext > attr2;
                 attr2 = static_cast< IfcRepresentationContext * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_representationContexts.insert(attr2);
+                if (attr2.valid()) m_representationContexts.insert(attr2);
             }
             else {
                 break;

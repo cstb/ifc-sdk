@@ -242,7 +242,7 @@ bool IfcTrimmedCurve::init() {
                         }
                     }
                 }
-                m_trim1.insert(attr2);
+                if (attr2.valid()) m_trim1.insert(attr2);
             }
             else {
                 break;
@@ -278,7 +278,7 @@ bool IfcTrimmedCurve::init() {
                         }
                     }
                 }
-                m_trim2.insert(attr2);
+                if (attr2.valid()) m_trim2.insert(attr2);
             }
             else {
                 break;

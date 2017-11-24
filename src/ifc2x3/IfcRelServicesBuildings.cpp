@@ -173,7 +173,7 @@ bool IfcRelServicesBuildings::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcSpatialStructureElement > attr2;
                 attr2 = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_relatedBuildings.insert(attr2);
+                if (attr2.valid()) m_relatedBuildings.insert(attr2);
             }
             else {
                 break;

@@ -107,7 +107,7 @@ bool IfcFacetedBrepWithVoids::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcClosedShell > attr2;
                 attr2 = static_cast< IfcClosedShell * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_voids.insert(attr2);
+                if (attr2.valid()) m_voids.insert(attr2);
             }
             else {
                 break;

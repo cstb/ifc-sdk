@@ -196,7 +196,7 @@ bool IfcDocumentInformationRelationship::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcDocumentInformation > attr2;
                 attr2 = static_cast< IfcDocumentInformation * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_relatedDocuments.insert(attr2);
+                if (attr2.valid()) m_relatedDocuments.insert(attr2);
             }
             else {
                 break;

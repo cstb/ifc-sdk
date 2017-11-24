@@ -167,7 +167,7 @@ bool IfcRelReferencedInSpatialStructure::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcProduct > attr2;
                 attr2 = static_cast< IfcProduct * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_relatedElements.insert(attr2);
+                if (attr2.valid()) m_relatedElements.insert(attr2);
             }
             else {
                 break;

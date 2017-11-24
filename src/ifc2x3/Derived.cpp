@@ -2039,7 +2039,6 @@ IfcLengthMeasure IfcMlsTotalThickness(const IfcMaterialLayerSet* LayerSet)
 
 IfcLengthMeasure IfcMaterialLayerSet::getTotalThickness() const
 {
-	LOG_DEBUG("IfcMaterialLayerSet::getTotalThickness()");
 	return IfcMlsTotalThickness(this);
 }
 
