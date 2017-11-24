@@ -253,7 +253,7 @@ bool IfcPresentationLayerAssignment::init() {
                         str1 = str1.substr(i2 + 1, str1.length() - i2 - 2);
                     }
                 }
-                m_assignedItems.insert(attr2);
+                if (attr2.valid()) m_assignedItems.insert(attr2);
             }
             else {
                 break;

@@ -107,7 +107,7 @@ bool IfcPropertySet::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcProperty > attr2;
                 attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_hasProperties.insert(attr2);
+                if (attr2.valid()) m_hasProperties.insert(attr2);
             }
             else {
                 break;

@@ -107,7 +107,7 @@ bool IfcFaceBasedSurfaceModel::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcConnectedFaceSet > attr2;
                 attr2 = static_cast< IfcConnectedFaceSet * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_fbsmFaces.insert(attr2);
+                if (attr2.valid()) m_fbsmFaces.insert(attr2);
             }
             else {
                 break;

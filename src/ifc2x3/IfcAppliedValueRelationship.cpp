@@ -250,7 +250,7 @@ bool IfcAppliedValueRelationship::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcAppliedValue > attr2;
                 attr2 = static_cast< IfcAppliedValue * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_components.insert(attr2);
+                if (attr2.valid()) m_components.insert(attr2);
             }
             else {
                 break;

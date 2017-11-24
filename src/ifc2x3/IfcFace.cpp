@@ -107,7 +107,7 @@ bool IfcFace::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcFaceBound > attr2;
                 attr2 = static_cast< IfcFaceBound * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_bounds.insert(attr2);
+                if (attr2.valid()) m_bounds.insert(attr2);
             }
             else {
                 break;

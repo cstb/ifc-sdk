@@ -631,7 +631,7 @@ bool IfcDocumentInformation::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcDocumentReference > attr2;
                 attr2 = static_cast< IfcDocumentReference * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_documentReferences.insert(attr2);
+                if (attr2.valid()) m_documentReferences.insert(attr2);
             }
             else {
                 break;
@@ -709,7 +709,7 @@ bool IfcDocumentInformation::init() {
                         str1 = str1.substr(i2 + 1, str1.length() - i2 - 2);
                     }
                 }
-                m_editors.insert(attr2);
+                if (attr2.valid()) m_editors.insert(attr2);
             }
             else {
                 break;

@@ -229,7 +229,7 @@ bool IfcPresentationLayerWithStyle::init() {
                         }
                     }
                 }
-                m_layerStyles.insert(attr2);
+                if (attr2.valid()) m_layerStyles.insert(attr2);
             }
             else {
                 break;

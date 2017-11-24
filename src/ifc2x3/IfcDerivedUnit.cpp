@@ -158,7 +158,7 @@ bool IfcDerivedUnit::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcDerivedUnitElement > attr2;
                 attr2 = static_cast< IfcDerivedUnitElement * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_elements.insert(attr2);
+                if (attr2.valid()) m_elements.insert(attr2);
             }
             else {
                 break;

@@ -166,7 +166,7 @@ bool IfcRelFlowControlElements::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcDistributionControlElement > attr2;
                 attr2 = static_cast< IfcDistributionControlElement * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_relatedControlElements.insert(attr2);
+                if (attr2.valid()) m_relatedControlElements.insert(attr2);
             }
             else {
                 break;

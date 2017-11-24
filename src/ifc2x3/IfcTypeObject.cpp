@@ -190,7 +190,7 @@ bool IfcTypeObject::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcPropertySetDefinition > attr2;
                 attr2 = static_cast< IfcPropertySetDefinition * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_hasPropertySets.insert(attr2);
+                if (attr2.valid()) m_hasPropertySets.insert(attr2);
             }
             else {
                 break;

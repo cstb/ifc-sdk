@@ -213,7 +213,7 @@ bool IfcPhysicalComplexQuantity::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcPhysicalQuantity > attr2;
                 attr2 = static_cast< IfcPhysicalQuantity * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_hasQuantities.insert(attr2);
+                if (attr2.valid()) m_hasQuantities.insert(attr2);
             }
             else {
                 break;

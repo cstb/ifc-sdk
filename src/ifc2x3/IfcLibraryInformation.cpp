@@ -268,7 +268,7 @@ bool IfcLibraryInformation::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcLibraryReference > attr2;
                 attr2 = static_cast< IfcLibraryReference * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_libraryReference.insert(attr2);
+                if (attr2.valid()) m_libraryReference.insert(attr2);
             }
             else {
                 break;

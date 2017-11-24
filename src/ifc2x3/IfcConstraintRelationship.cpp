@@ -237,7 +237,7 @@ bool IfcConstraintRelationship::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcConstraint > attr2;
                 attr2 = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_relatedConstraints.insert(attr2);
+                if (attr2.valid()) m_relatedConstraints.insert(attr2);
             }
             else {
                 break;

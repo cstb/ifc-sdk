@@ -237,7 +237,7 @@ bool IfcOrganizationRelationship::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcOrganization > attr2;
                 attr2 = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_relatedOrganizations.insert(attr2);
+                if (attr2.valid()) m_relatedOrganizations.insert(attr2);
             }
             else {
                 break;
