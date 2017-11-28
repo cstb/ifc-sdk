@@ -107,6 +107,10 @@ bool BaseExpressDataSet::exists(Id id) const
 
 BaseEntity *BaseExpressDataSet::get(Id id)
 {
+#ifdef STEP_THREAD_SAFE
+    std::lock_guard<std::mutex> lock(_mutex);
+#endif
+
     MapOfEntities::iterator it = m_Id2BaseEntity.find(id);
 
     if (it == m_Id2BaseEntity.end())

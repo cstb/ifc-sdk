@@ -28,6 +28,10 @@
 #include <map>
 #include <string>
 
+#ifdef STEP_THREAD_SAFE
+#include <mutex>
+#endif
+
 namespace Step {
     class BaseObject;
     class BaseSPFObject;
@@ -147,6 +151,9 @@ namespace Step {
         MapOfEntities m_Id2BaseEntity;
         SPFHeader m_header;
         RefPtr<StepLogger> m_logger;
+#ifdef STEP_THREAD_SAFE
+        std::mutex _mutex;
+#endif
 
         friend class BaseSPFReader;
     };
