@@ -50,13 +50,64 @@ bool BaseObject::acceptVisitor(BaseVisitor *v)
     return v->visitBaseObject(this);
 }
 
+/*
+
+std::atomic<Singleton*> Singleton::m_instance;
+std::mutex Singleton::m_mutex;
+
+Singleton* Singleton::getInstance() {
+    Singleton* tmp = m_instance.load(std::memory_order_relaxed);
+    std::atomic_thread_fence(std::memory_order_acquire);
+    if (tmp == nullptr) {
+        std::lock_guard<std::mutex> lock(m_mutex);
+        tmp = m_instance.load(std::memory_order_relaxed);
+        if (tmp == nullptr) {
+            tmp = new Singleton;
+            std::atomic_thread_fence(std::memory_order_release);
+            m_instance.store(tmp, std::memory_order_relaxed);
+        }
+    }
+    return tmp;
+}
+
+
+*/
+
 bool BaseObject::inited()
 {
+#ifdef STEP_THREAD_SAFE
+    bool inited  = m_inited.load(std::memory_order_relaxed);
+    std::atomic_thread_fence(std::memory_order_acquire);
+    if (!inited)
+    {
+        _mutex.lock();
+        inited  = m_inited.load(std::memory_order_relaxed);
+
+        if (!inited)
+        {
+            inited = true; // set this to break cycle when inverse attribute inits
+            std::atomic_thread_fence(std::memory_order_release);
+            m_inited.store(inited, std::memory_order_relaxed);
+
+            _mutex.unlock();
+
+            bool succesful = init();
+
+            if (succesful)
+            {
+                delete m_args;
+                m_args = 0;
+            }
+        }
+        else
+        {
+            _mutex.unlock();
+        }
+    }
+    return m_inited;
+#else
     if (!m_inited)
     {
-#ifdef STEP_THREAD_SAFE
-        OpenThreads::ScopedLock<OpenThreads::Mutex> lock(m_mutex);
-#endif
         m_inited = true; // set this to break cycle when inverse attribute inits
         bool inited = init();
         if (inited)
@@ -65,8 +116,9 @@ bool BaseObject::inited()
             m_args = 0;
         }
     }
-
     return m_inited;
+
+#endif
 }
 
 BaseExpressDataSet* BaseObject::getExpressDataSet() const

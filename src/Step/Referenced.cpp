@@ -28,17 +28,11 @@ typedef std::set<Observer*> ObserverSet;
 Referenced::Referenced() :
     _refCount(0), _observers(0)
 {
-#ifdef STEP_THREAD_SAFE
-    _refMutex = new OpenThreads::Mutex;
-#endif
 }
 
 Referenced::Referenced(const Referenced &) :
     _refCount(0), _observers(0)
 {
-#ifdef STEP_THREAD_SAFE
-    _refMutex = new OpenThreads::Mutex;
-#endif
 }
 
 Referenced::~Referenced()
@@ -60,39 +54,39 @@ Referenced::~Referenced()
         delete os;
         _observers = 0;
     }
-
-#ifdef STEP_THREAD_SAFE
-    OpenThreads::Mutex* tmpMutexPtr = _refMutex;
-    _refMutex = 0;
-    delete tmpMutexPtr;
-#endif
 }
 
-void Referenced::unref_nodelete() const
+void Referenced::unref_nodelete()
 {
-#ifdef STEP_THREAD_SAFE
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_refMutex);
-#endif
     --_refCount;
 }
 
 void Referenced::addObserver(Observer* observer)
 {
 #ifdef STEP_THREAD_SAFE
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(*_refMutex);
+    std::atomic_thread_fence(std::memory_order_acquire);
+    std::lock_guard<std::mutex> lock(_mutex);
 #endif
     if (!_observers)
         _observers = new ObserverSet;
     if (_observers)
         static_cast<ObserverSet*> (_observers)->insert(observer);
+
+#ifdef STEP_THREAD_SAFE
+    std::atomic_thread_fence(std::memory_order_release);
+#endif
 }
 
 void Referenced::removeObserver(Observer* observer)
 {
 #ifdef STEP_THREAD_SAFE
-    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(*_refMutex);
+    std::atomic_thread_fence(std::memory_order_acquire);
+    std::lock_guard<std::mutex> lock(_mutex);
 #endif
     if (_observers)
         static_cast<ObserverSet*> (_observers)->erase(observer);
+#ifdef STEP_THREAD_SAFE
+    std::atomic_thread_fence(std::memory_order_release);
+#endif
 }
 

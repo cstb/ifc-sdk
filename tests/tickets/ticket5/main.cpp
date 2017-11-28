@@ -1,11 +1,26 @@
 #include <ifc2x3/all.h>
 #include <ifc2x3/SPFReader.h>
 
+#include <Step/CallBack.h>
+
 #include "../../tests.h"
 
 #include <sstream>
 #include <fstream>
 
+
+
+class ConsoleCallBack : public Step::CallBack
+{
+public:
+    ConsoleCallBack() : _max(1) {}
+    virtual void setMaximum(size_t max) { std::cerr << "max=" << max << std::endl; _max = max; }
+    virtual void setProgress(size_t progress) { std::cerr << double(progress)/double(_max)*100.0 << "%" << std::endl; }
+    virtual bool stop() const {return false;}
+
+protected:
+    size_t _max;
+};
 
 /// tests for ticket5
 
@@ -43,7 +58,8 @@ int main (int n, char **p)
 //        //allIfcFooting
 
         //eds->get(47228);
-        eds->instantiateAll();
+        ConsoleCallBack cb;
+        eds->instantiateAll(&cb);
         std::cout << "eds->instantiateAll();" << std::endl;
 
         Step::MapOfEntities::const_iterator end = eds->getAll().end();

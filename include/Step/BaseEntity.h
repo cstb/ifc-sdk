@@ -72,10 +72,6 @@ namespace Step {
          */
         Id mId;
 
-#ifdef STEP_THREAD_SAFE
-        mutable OpenThreads::Mutex m_mutex;
-#endif
-
         friend class BaseExpressDataSet;
     };
 

@@ -117,8 +117,11 @@ namespace Step {
         /*!
          \short Flag about entity initialization (Lazy Loading)
          */
+#ifdef STEP_THREAD_SAFE
+        std::atomic<bool> m_inited;
+#else
         bool m_inited;
-
+#endif
         /*!
          \short Data from a Step-21 file (Lazy Loading)
          */

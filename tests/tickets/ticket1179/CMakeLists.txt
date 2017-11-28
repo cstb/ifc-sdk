@@ -1,4 +1,4 @@
-find_package(Qt4)
+find_package(Qt4 QUIET)
 
 if(QT4_FOUND)
 

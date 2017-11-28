@@ -23,8 +23,8 @@
 #include <vector>
 
 #ifdef STEP_THREAD_SAFE
-#include <OpenThreads/ScopedLock>
-#include <OpenThreads/Mutex>
+#include <atomic>
+#include <mutex>
 #endif
 
 namespace Step {
@@ -57,11 +57,8 @@ namespace Step {
          Increment the reference count by one, indicating that
          this object has another pointer which is referencing it.
          */
-        inline void ref() const
+        inline void ref()
         {
-        #ifdef STEP_THREAD_SAFE
-            OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_refMutex);
-        #endif
             ++_refCount;
         }
 
@@ -72,14 +69,11 @@ namespace Step {
          reference count goes to zero, it is assumed that this object
          is no longer referenced and is automatically deleted.
          */
-        inline void unref() const
+        inline void unref()
         {
-            {
-        #ifdef STEP_THREAD_SAFE
-                OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_refMutex);
-        #endif
-                --_refCount;
-            }
+            
+            --_refCount;
+            
             if (_refCount <= 0)
                 delete this;
         }
@@ -91,7 +85,7 @@ namespace Step {
          be responsible for, one should prefer unref() over unref_nodelete()
          as the later can lead to memory leaks.
          */
-        void unref_nodelete() const;
+        void unref_nodelete();
 
         /*!
          \short return the number pointers currently referencing this object.
@@ -116,11 +110,15 @@ namespace Step {
     protected:
         virtual ~Referenced();
 
+#ifdef STEP_THREAD_SAFE
+        std::mutex _mutex;
+#endif
     private:
 #ifdef STEP_THREAD_SAFE
-        mutable OpenThreads::Mutex _refMutex;
-#endif
-        mutable int _refCount;
+        std::atomic<int> _refCount;
+#else
+        int _refCount;
+#endif       
         void * _observers;
 
     };

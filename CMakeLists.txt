@@ -12,7 +12,7 @@ endif()
 
 
 PROJECT(ifc2x3_sdk)
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 IF(UNIX AND NOT WIN32 AND NOT APPLE)
   IF(CMAKE_SIZEOF_VOID_P MATCHES "8")
@@ -127,11 +127,11 @@ ENDIF(MSVC)
 if(APPLE)
     set(CMAKE_OSX_ARCHITECTURES "x86_64" CACHE STRING "Build architectures for OSX" FORCE)
     if( NOT (${CMAKE_CXX_FLAGS} MATCHES "10.7") )
-        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mmacosx-version-min=10.7" CACHE STRING "Flags used by the compiler during all build types." FORCE)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=10.7" CACHE STRING "Flags used by the compiler during all build types." FORCE)
-        set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -mmacosx-version-min=10.7" CACHE STRING "Flags used by the linker during all build types." FORCE)
-        set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -mmacosx-version-min=10.7" CACHE STRING "Flags used by the linker during all build types." FORCE)
-        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mmacosx-version-min=10.7" CACHE STRING "Flags used by the linker during all build types." FORCE)
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mmacosx-version-min=10.7 -std=c++11 -stdlib=libc++" CACHE STRING "Flags used by the compiler during all build types." FORCE)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=10.7 -std=c++11 -stdlib=libc++" CACHE STRING "Flags used by the compiler during all build types." FORCE)
+        set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -mmacosx-version-min=10.7 -std=c++11 -stdlib=libc++" CACHE STRING "Flags used by the linker during all build types." FORCE)
+        set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -mmacosx-version-min=10.7 -std=c++11 -stdlib=libc++" CACHE STRING "Flags used by the linker during all build types." FORCE)
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mmacosx-version-min=10.7 -std=c++11 -stdlib=libc++" CACHE STRING "Flags used by the linker during all build types." FORCE)
     endif()
 
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ferror-limit=300 -Wno-overloaded-virtual -Wno-conversion")
@@ -217,6 +217,12 @@ macro(install_pdb target config)
   endif()
 
 endmacro(install_pdb)
+
+option(STEP_THREAD_SAFE "Compile thread safe libs" OFF)
+
+if(STEP_THREAD_SAFE)
+  add_definitions(-DSTEP_THREAD_SAFE)
+endif()
 
 add_subdirectory(src)
 add_subdirectory(doc EXCLUDE_FROM_ALL)
