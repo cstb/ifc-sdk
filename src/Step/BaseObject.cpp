@@ -24,7 +24,7 @@ ClassType_child_implementations(STEP_EXPORT,BaseObject,ClientDataHandler);
 
 BaseObject::BaseObject(SPFData* data) :
     m_expressDataSet(0),
-    m_inited(false), m_args(data)
+    m_inited(data == nullptr), m_args(data)
 {
 }
 
