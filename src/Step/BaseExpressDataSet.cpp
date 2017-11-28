@@ -168,6 +168,7 @@ BaseSPFObject* BaseExpressDataSet::getSPFObject(Id id)
             m_maxId = id;
         };
         BaseSPFObject* bo = new BaseSPFObject(id, new SPFData());
+        bo->m_inited = false;
         bo->setExpressDataSet(this);
         m_Id2BaseEntity.insert(std::make_pair(id,bo));
         return bo;
