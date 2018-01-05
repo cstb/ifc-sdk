@@ -143,7 +143,7 @@ namespace Step {
         ** @param value an EXPRESS binary value
         */
         template<unsigned N>
-        inline void writeAttribute(Binary<N>& value)
+        inline void writeAttribute(const Binary<N>& value)
         {
             if (isUnset(value))
                 *m_out << "$";
