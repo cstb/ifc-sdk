@@ -119,6 +119,23 @@ namespace ifc2x3 {
          * @return true if set, false if unset
          */
         virtual bool testDescription() const;
+                /**
+         * Gets the value of the inverse attribute 'PartOfPset'.
+         * 
+         */
+        Inverse_Set_IfcPropertySet_0_n &getPartOfPset();
+        /**
+         * (const) Returns the value of the explicit attribute 'PartOfPset'.
+         * 
+         * @return the value of the explicit attribute 'PartOfPset'
+         */
+        virtual const Inverse_Set_IfcPropertySet_0_n &getPartOfPset() const;
+        /**
+         * Test if the attribute 'PartOfPset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPartOfPset() const;
         /**
          * Gets the value of the inverse attribute 'PropertyForDependance'.
          * 
@@ -201,6 +218,9 @@ namespace ifc2x3 {
         /**
          */
         Step::String m_description;
+        /**
+         */
+        Inverse_Set_IfcPropertySet_0_n *m_partOfPset;
         /**
          */
         Inverse_Set_IfcPropertyDependencyRelationship_0_n *m_propertyForDependance;

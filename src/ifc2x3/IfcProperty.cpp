@@ -131,6 +131,22 @@ bool IfcProperty::testDescription() const {
     return *A; \
 }
 
+GETINVERSE(Inverse_Set_IfcPropertySet_0_n,
+           IfcProperty::getPartOfPset,m_partOfPset);
+
+
+const Inverse_Set_IfcPropertySet_0_n &IfcProperty::getPartOfPset() const {
+    IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
+    return deConstObject->getPartOfPset();
+}
+
+bool IfcProperty::testPartOfPset() const {
+    if (m_partOfPset)
+        return !m_partOfPset->isUnset();
+    return false;
+}
+
+
 GETINVERSE(Inverse_Set_IfcPropertyDependencyRelationship_0_n,
            IfcProperty::getPropertyForDependance,m_propertyForDependance);
 
@@ -191,6 +207,15 @@ bool IfcProperty::init() {
     }
     else {
         m_description = Step::String::fromSPF(arg);
+    }
+    inverses = m_args->getInverses(IfcPropertySet::getClassType(), 4);
+    if (inverses) {
+        unsigned int i;
+        m_partOfPset = new Inverse_Set_IfcPropertySet_0_n;
+        m_partOfPset->setUnset(false);
+        for (i = 0; i < inverses->size(); i++) {
+            m_partOfPset->insert(static_cast< IfcPropertySet * > (m_expressDataSet->get((*inverses)[i])));
+        }
     }
     inverses = m_args->getInverses(IfcPropertyDependencyRelationship::getClassType(), 0);
     if (inverses) {
