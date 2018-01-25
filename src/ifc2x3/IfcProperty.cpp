@@ -19,6 +19,7 @@
 #include <ifc2x3/IfcProperty.h>
 
 #include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPropertySet.h>
 #include <ifc2x3/IfcComplexProperty.h>
 #include <ifc2x3/IfcPropertyDependencyRelationship.h>
 #include <ifc2x3/Visitor.h>
