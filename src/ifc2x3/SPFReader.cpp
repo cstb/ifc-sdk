@@ -3523,12 +3523,28 @@ bool SPFReader::loadIFCELEMENTCOMPONENTTYPE(bool /*isFirst*/) {
 }
 
 bool SPFReader::loadIFCPROPERTYSET(bool isFirst) {
+    std::vector< Step::Id > currentRefList;
+
     if (!loadIFCPROPERTYSETDEFINITION(false)) {
         return false;
     }
     if (isFirst) {
         m_currentType = &ExpressDataSet::allocateIfcPropertySet;
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcPropertySet_Map[m_currentId] = m_currentObj;
+    }
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4) {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcPropertySet, line " << m_currentLineNb);
+        return false;
+    }
+    Step::getIdListParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4), currentRefList);
+    if (currentRefList[0] == Step::Id_UNDEF) {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcPropertySet, line " << m_currentLineNb);
+        return false;
+    }
+    if (currentRefList[0] != Step::Id_UNSET) {
+        for (unsigned int i = 0; i < currentRefList.size(); i++) {
+            m_expressDataSet->getArgs(currentRefList[i])->addInverse(IfcPropertySet::getClassType(), 4, m_currentId);
+        }
     }
     return true;
 }
