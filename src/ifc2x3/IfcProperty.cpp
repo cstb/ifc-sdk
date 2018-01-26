@@ -38,6 +38,7 @@
 using namespace ifc2x3;
 
 IfcProperty::IfcProperty(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args),
+    m_partOfPset(0),
     m_propertyForDependance(0),
     m_propertyDependsOn(0),
     m_partOfComplex(0)
