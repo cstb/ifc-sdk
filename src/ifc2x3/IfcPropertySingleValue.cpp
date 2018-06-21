@@ -186,7 +186,7 @@ bool IfcPropertySingleValue::init() {
                 }
                 if (type1 == "IFCNUMERICMEASURE") {
                     Step::Number tmp_attr1;
-                    tmp_attr1 = Step::spfToInteger(arg);
+                    tmp_attr1 = Step::spfToReal(arg);
                     m_nominalValue->setIfcNumericMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCMASSMEASURE") {
