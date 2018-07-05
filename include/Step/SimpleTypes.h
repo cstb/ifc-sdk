@@ -22,8 +22,8 @@
 #include <Step/Binary.h>
 #include <Step/String.h>
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <fstream>
 #include <sstream>
 #include <vector>

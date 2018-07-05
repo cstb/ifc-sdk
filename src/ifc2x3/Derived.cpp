@@ -82,7 +82,11 @@
 
 #include "precompiled.h"
 
-#define LOG_DEBUG(msg) std::cerr << msg
+#ifdef _DEBUG
+#  define LOG_DEBUG(msg) std::cerr << msg
+#else
+#  define LOG_DEBUG(msg)
+#endif
 #define LOG_ERROR(msg) std::cerr << msg
 
 using namespace ifc2x3;

@@ -144,40 +144,40 @@ namespace Step {
                 return std::string("0");
             }
 #ifdef __GNUG__
-# define TEST std::bitset<N>::test
+# define STEP_BINARY_TEST std::bitset<N>::test
 #else
-# define TEST test
+# define STEP_BINARY_TEST test
 #endif
             t = new char[m_k / 4 + 1 + 1]; // +1 for trailing 0
             t[1] = 0;
             switch (m_n)
             {
             case 0:
-                if (TEST(0))
+                if (STEP_BINARY_TEST(0))
                     t[1] += 8;
-                if (TEST(1))
+                if (STEP_BINARY_TEST(1))
                     t[1] += 4;
-                if (TEST(2))
+                if (STEP_BINARY_TEST(2))
                     t[1] += 2;
-                if (TEST(3))
+                if (STEP_BINARY_TEST(3))
                     t[1] += 1;
                 break;
             case 1:
-                if (TEST(0))
+                if (STEP_BINARY_TEST(0))
                     t[1] += 4;
-                if (TEST(1))
+                if (STEP_BINARY_TEST(1))
                     t[1] += 2;
-                if (TEST(2))
+                if (STEP_BINARY_TEST(2))
                     t[1] += 1;
                 break;
             case 2:
-                if (TEST(0))
+                if (STEP_BINARY_TEST(0))
                     t[1] += 2;
-                if (TEST(1))
+                if (STEP_BINARY_TEST(1))
                     t[1] += 1;
                 break;
             case 3:
-                if (TEST(0))
+                if (STEP_BINARY_TEST(0))
                     t[1] += 1;
                 break;
             }
@@ -186,17 +186,17 @@ namespace Step {
             for (i = 4 - m_n, idx = 2; i < m_width; i += 4, idx++)
             {
                 t[idx] = 0;
-                if (TEST(i))
+                if (STEP_BINARY_TEST(i))
                     t[idx] += 8;
-                if (TEST(i + 1))
+                if (STEP_BINARY_TEST(i + 1))
                     t[idx] += 4;
-                if (TEST(i + 2))
+                if (STEP_BINARY_TEST(i + 2))
                     t[idx] += 2;
-                if (TEST(i + 3))
+                if (STEP_BINARY_TEST(i + 3))
                     t[idx] += 1;
             }
 
-#undef TEST
+#undef STEP_BINARY_TEST
             // Precede the sequence with the 4bit representation of m_n
             t[0] = char(m_n);
 
