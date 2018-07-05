@@ -48,6 +48,7 @@ IfcProperty::IfcProperty(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id
 }
 
 IfcProperty::~IfcProperty() {
+    delete m_partOfPset;
     delete m_propertyForDependance;
     delete m_propertyDependsOn;
     delete m_partOfComplex;
