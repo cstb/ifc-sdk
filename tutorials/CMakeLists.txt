@@ -1,0 +1,8 @@
+
+set(TUTORIALS 01_ReadFile  02_CountObjectsPSet  03_PrintProject 04_CollectConnectedSpaces)
+
+foreach(TUTORIAL ${TUTORIALS})
+    ADD_EXECUTABLE(${TUTORIAL}  ${TUTORIAL}.cpp)
+    TARGET_LINK_LIBRARIES(${TUTORIAL}  ifc2x3)
+    SET_TARGET_PROPERTIES(${TUTORIAL}  PROPERTIES PROJECT_LABEL "Tutorials Ifc2x3 SDK - ${TUTORIAL}")
+endforeach(TUTORIAL)

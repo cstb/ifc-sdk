@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 2.8)
 cmake_policy(VERSION 2.8)
 
 if(${CMAKE_VERSION} VERSION_GREATER 3.0.0)
-  cmake_policy(SET CMP0042 OLD)
-  cmake_policy(SET CMP0048 OLD)
+  cmake_policy(SET CMP0042 NEW)
+  cmake_policy(SET CMP0048 NEW)
 endif()
 
 #cmake_policy(SET CMP0043 OLD)
@@ -29,7 +29,7 @@ option(STEP_ONLY "Build and install only Step" OFF)
 # The CMake version number.
 SET(ifc2x3_sdk_VERSION_MAJOR 1 CACHE STRING "Version" FORCE)
 SET(ifc2x3_sdk_VERSION_MINOR 2 CACHE STRING "Version" FORCE)
-SET(ifc2x3_sdk_VERSION_PATCH 0 CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION_PATCH 1 CACHE STRING "Version" FORCE)
 SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}" CACHE STRING "Version" FORCE)
 SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}" CACHE STRING "Version" FORCE)
 
@@ -92,7 +92,7 @@ endif()
 
 IF(MSVC)
   add_definitions(-D_UNICODE)
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /Zm377")
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /Zm2000")
 
   if(MSVC_IDE)
      add_definitions(-DMSVC_IDE)
@@ -231,8 +231,14 @@ if(NOT STEP_ONLY)
     add_subdirectory(examples)
   endif()
 
+  option(ENABLE_TUTORIALS "Enable tutorials compilation" ON)
+
+  if(ENABLE_TUTORIALS)
+    add_subdirectory(tutorials)
+  endif()
+
   if(IS_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/tests)
-    option(ENABLE_TESTING "Enable tests compilation" ON)
+    option(ENABLE_TESTING "Enable tests compilation" OFF)
     if(ENABLE_TESTING)
       ENABLE_TESTING()
       if(UNIX)
