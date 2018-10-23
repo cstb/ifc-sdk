@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,103 +24,104 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcFurnitureType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcFurnishingElementType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcFurnitureType::IfcFurnitureType(Step::Id id, Step::SPFData *args) : IfcFurnishingElementType(id, args) {
-    m_assemblyPlace = IfcAssemblyPlaceEnum_UNSET;
+IfcFurnitureType::IfcFurnitureType(Step::Id id, Step::SPFData *args) : 
+    IfcFurnishingElementType(id, args)
+{
+    m_AssemblyPlace = IfcAssemblyPlaceEnum_UNSET;
 }
 
-IfcFurnitureType::~IfcFurnitureType() {
+IfcFurnitureType::~IfcFurnitureType()
+{}
+
+bool IfcFurnitureType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcFurnitureType(this);
 }
 
-bool IfcFurnitureType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcFurnitureType(this);
-}
 
-const std::string &IfcFurnitureType::type() const {
-    return IfcFurnitureType::s_type.getName();
-}
-
-const Step::ClassType &IfcFurnitureType::getClassType() {
-    return IfcFurnitureType::s_type;
-}
-
-const Step::ClassType &IfcFurnitureType::getType() const {
-    return IfcFurnitureType::s_type;
-}
-
-bool IfcFurnitureType::isOfType(const Step::ClassType &t) const {
-    return IfcFurnitureType::s_type == t ? true : IfcFurnishingElementType::isOfType(t);
-}
-
-IfcAssemblyPlaceEnum IfcFurnitureType::getAssemblyPlace() {
-    if (Step::BaseObject::inited()) {
-        return m_assemblyPlace;
+IfcAssemblyPlaceEnum IfcFurnitureType::getAssemblyPlace()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_AssemblyPlace;
     }
-    else {
+    else 
+    {
         return IfcAssemblyPlaceEnum_UNSET;
-    }
+    }    
 }
 
-const IfcAssemblyPlaceEnum IfcFurnitureType::getAssemblyPlace() const {
-    IfcFurnitureType * deConstObject = const_cast< IfcFurnitureType * > (this);
-    return deConstObject->getAssemblyPlace();
+IfcAssemblyPlaceEnum IfcFurnitureType::getAssemblyPlace() const
+{
+    return const_cast<IfcFurnitureType *>(this)->getAssemblyPlace();
 }
 
-void IfcFurnitureType::setAssemblyPlace(IfcAssemblyPlaceEnum value) {
-    m_assemblyPlace = value;
+void IfcFurnitureType::setAssemblyPlace(IfcAssemblyPlaceEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_AssemblyPlace = value;
 }
 
-void IfcFurnitureType::unsetAssemblyPlace() {
-    m_assemblyPlace = IfcAssemblyPlaceEnum_UNSET;
+void IfcFurnitureType::unsetAssemblyPlace()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_AssemblyPlace = IfcAssemblyPlaceEnum_UNSET;
 }
 
-bool IfcFurnitureType::testAssemblyPlace() const {
-    return getAssemblyPlace() != IfcAssemblyPlaceEnum_UNSET;
+bool IfcFurnitureType::testAssemblyPlace() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getAssemblyPlace()) == false;
 }
 
-bool IfcFurnitureType::init() {
-    bool status = IfcFurnishingElementType::init();
-    std::string arg;
-    if (!status) {
+bool IfcFurnitureType::init()
+{
+    if (IfcFurnishingElementType::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_assemblyPlace = IfcAssemblyPlaceEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_AssemblyPlace = IfcAssemblyPlaceEnum_UNSET;
     }
-    else {
-        if (arg == ".SITE.") {
-            m_assemblyPlace = IfcAssemblyPlaceEnum_SITE;
+    else
+    {
+        if (arg == ".SITE.")
+        {
+            m_AssemblyPlace = IfcAssemblyPlaceEnum_SITE;
         }
-        else if (arg == ".FACTORY.") {
-            m_assemblyPlace = IfcAssemblyPlaceEnum_FACTORY;
+        else if (arg == ".FACTORY.")
+        {
+            m_AssemblyPlace = IfcAssemblyPlaceEnum_FACTORY;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_assemblyPlace = IfcAssemblyPlaceEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_AssemblyPlace = IfcAssemblyPlaceEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcFurnitureType::copy(const IfcFurnitureType &obj, const CopyOp &copyop) {
+void IfcFurnitureType::copy(const IfcFurnitureType &obj, const CopyOp &copyop)
+{
     IfcFurnishingElementType::copy(obj, copyop);
-    setAssemblyPlace(obj.m_assemblyPlace);
+    setAssemblyPlace(obj.m_AssemblyPlace);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFurnitureType::s_type("IfcFurnitureType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcFurnitureType, IfcFurnishingElementType)

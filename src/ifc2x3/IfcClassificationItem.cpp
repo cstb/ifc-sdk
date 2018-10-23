@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,230 +24,262 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcClassificationItem.h>
 
-#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcClassificationNotationFacet.h>
 #include <ifc2x3/IfcClassification.h>
 #include <ifc2x3/IfcClassificationItemRelationship.h>
-#include <ifc2x3/IfcClassificationNotationFacet.h>
+#include <ifc2x3/IfcClassificationItemRelationship.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcClassificationItem::IfcClassificationItem(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_notation = NULL;
-    m_itemOf = NULL;
-    m_title = Step::getUnset(m_title);
+IfcClassificationItem::IfcClassificationItem(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_Notation = NULL;
+    m_Title = Step::getUnset(m_Title);
+    m_ItemOf = NULL;
 }
 
-IfcClassificationItem::~IfcClassificationItem() {
+IfcClassificationItem::~IfcClassificationItem()
+{}
+
+bool IfcClassificationItem::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcClassificationItem(this);
 }
 
-bool IfcClassificationItem::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcClassificationItem(this);
-}
 
-const std::string &IfcClassificationItem::type() const {
-    return IfcClassificationItem::s_type.getName();
-}
-
-const Step::ClassType &IfcClassificationItem::getClassType() {
-    return IfcClassificationItem::s_type;
-}
-
-const Step::ClassType &IfcClassificationItem::getType() const {
-    return IfcClassificationItem::s_type;
-}
-
-bool IfcClassificationItem::isOfType(const Step::ClassType &t) const {
-    return IfcClassificationItem::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcClassificationNotationFacet *IfcClassificationItem::getNotation() {
-    if (Step::BaseObject::inited()) {
-        return m_notation.get();
+IfcClassificationNotationFacet *IfcClassificationItem::getNotation()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Notation.get();
     }
-    else {
+    else 
+    {
+        return NULL;
+    }    
+}
+
+const IfcClassificationNotationFacet *IfcClassificationItem::getNotation() const
+{
+    return const_cast<IfcClassificationItem *>(this)->getNotation();
+}
+
+void IfcClassificationItem::setNotation(const Step::RefPtr< IfcClassificationNotationFacet > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Notation = value;
+}
+
+void IfcClassificationItem::unsetNotation()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Notation = Step::getUnset(getNotation());
+}
+
+bool IfcClassificationItem::testNotation() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getNotation()) == false;
+}
+
+
+IfcLabel IfcClassificationItem::getTitle()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Title;
+    }
+    else 
+    {
+        return Step::getUnset(m_Title);
+    }    
+}
+
+const IfcLabel IfcClassificationItem::getTitle() const
+{
+    return const_cast<IfcClassificationItem *>(this)->getTitle();
+}
+
+void IfcClassificationItem::setTitle(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Title = value;
+}
+
+void IfcClassificationItem::unsetTitle()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Title = Step::getUnset(getTitle());
+}
+
+bool IfcClassificationItem::testTitle() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTitle()) == false;
+}
+
+IfcClassification *IfcClassificationItem::getItemOf()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ItemOf.get();
+    }
+    else
+    {
         return NULL;
     }
 }
 
-const IfcClassificationNotationFacet *IfcClassificationItem::getNotation() const {
-    IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
-    return deConstObject->getNotation();
+const IfcClassification *IfcClassificationItem::getItemOf() const
+{
+    return const_cast< IfcClassificationItem * > (this)->getItemOf();
 }
 
-void IfcClassificationItem::setNotation(const Step::RefPtr< IfcClassificationNotationFacet > &value) {
-    m_notation = value;
-}
-
-void IfcClassificationItem::unsetNotation() {
-    m_notation = Step::getUnset(getNotation());
-}
-
-bool IfcClassificationItem::testNotation() const {
-    return !Step::isUnset(getNotation());
-}
-
-IfcClassification *IfcClassificationItem::getItemOf() {
-    if (Step::BaseObject::inited()) {
-        return m_itemOf.get();
+void IfcClassificationItem::setItemOf(const Step::RefPtr< IfcClassification > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_ItemOf.valid())
+    {
+        m_ItemOf->m_Contains.erase(this);
     }
-    else {
-        return NULL;
+    if (value.valid() )
+    {
+       value->m_Contains.insert(this);
     }
+    m_ItemOf = value;
 }
 
-const IfcClassification *IfcClassificationItem::getItemOf() const {
-    IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
-    return deConstObject->getItemOf();
+void IfcClassificationItem::unsetItemOf()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ItemOf = Step::getUnset(getItemOf());
 }
 
-void IfcClassificationItem::setItemOf(const Step::RefPtr< IfcClassification > &value) {
-    if (m_itemOf.valid()) {
-        m_itemOf->m_contains.erase(this);
+bool IfcClassificationItem::testItemOf() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getItemOf()) == false;
+}
+
+Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifyingItemIn()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_IsClassifyingItemIn;
     }
-    if (value.valid()) {
-        value->m_contains.insert(this);
+ 
+    m_IsClassifyingItemIn.setUnset(true);
+    return m_IsClassifyingItemIn;
+}
+
+const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifyingItemIn() const
+{
+    return  const_cast< IfcClassificationItem * > (this)->getIsClassifyingItemIn();
+}
+
+bool IfcClassificationItem::testIsClassifyingItemIn() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_IsClassifyingItemIn.isUnset() == false;
+}
+
+Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifiedItemIn()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_IsClassifiedItemIn;
     }
-    m_itemOf = value;
+ 
+    m_IsClassifiedItemIn.setUnset(true);
+    return m_IsClassifiedItemIn;
 }
 
-void IfcClassificationItem::unsetItemOf() {
-    m_itemOf = Step::getUnset(getItemOf());
+const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifiedItemIn() const
+{
+    return  const_cast< IfcClassificationItem * > (this)->getIsClassifiedItemIn();
 }
 
-bool IfcClassificationItem::testItemOf() const {
-    return !Step::isUnset(getItemOf());
+bool IfcClassificationItem::testIsClassifiedItemIn() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_IsClassifiedItemIn.isUnset() == false;
 }
 
-IfcLabel IfcClassificationItem::getTitle() {
-    if (Step::BaseObject::inited()) {
-        return m_title;
-    }
-    else {
-        return Step::getUnset(m_title);
-    }
-}
-
-const IfcLabel IfcClassificationItem::getTitle() const {
-    IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
-    return deConstObject->getTitle();
-}
-
-void IfcClassificationItem::setTitle(const IfcLabel &value) {
-    m_title = value;
-}
-
-void IfcClassificationItem::unsetTitle() {
-    m_title = Step::getUnset(getTitle());
-}
-
-bool IfcClassificationItem::testTitle() const {
-    return !Step::isUnset(getTitle());
-}
-
-Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifiedItemIn() {
-    if (Step::BaseObject::inited()) {
-        return m_isClassifiedItemIn;
-    }
-    else {
-        m_isClassifiedItemIn.setUnset(true);
-        return m_isClassifiedItemIn;
-    }
-}
-
-const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifiedItemIn() const {
-    IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
-    return deConstObject->getIsClassifiedItemIn();
-}
-
-bool IfcClassificationItem::testIsClassifiedItemIn() const {
-    return !m_isClassifiedItemIn.isUnset();
-}
-
-Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifyingItemIn() {
-    if (Step::BaseObject::inited()) {
-        return m_isClassifyingItemIn;
-    }
-    else {
-        m_isClassifyingItemIn.setUnset(true);
-        return m_isClassifyingItemIn;
-    }
-}
-
-const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifyingItemIn() const {
-    IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
-    return deConstObject->getIsClassifyingItemIn();
-}
-
-bool IfcClassificationItem::testIsClassifyingItemIn() const {
-    return !m_isClassifyingItemIn.isUnset();
-}
-
-bool IfcClassificationItem::init() {
+bool IfcClassificationItem::init()
+{
     std::string arg;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Notation = NULL;
+    }
+    else
+    {
+        m_Notation = static_cast< IfcClassificationNotationFacet * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Title = Step::getUnset(m_Title);
+    }
+    else
+    {
+        m_Title = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ItemOf = NULL;
+    }
+    else
+    {
+        m_ItemOf = static_cast< IfcClassification * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
     std::vector< Step::Id > *inverses;
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_notation = NULL;
-    }
-    else {
-        m_notation = static_cast< IfcClassificationNotationFacet * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_itemOf = NULL;
-    }
-    else {
-        m_itemOf = static_cast< IfcClassification * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_title = Step::getUnset(m_title);
-    }
-    else {
-        m_title = Step::String::fromSPF(arg);
-    }
-    inverses = m_args->getInverses(IfcClassificationItemRelationship::getClassType(), 1);
-    if (inverses) {
+    inverses = m_args->getInverses(IfcClassificationItemRelationship::getClassType(), 0);
+    if (inverses)
+    {
         unsigned int i;
-        m_isClassifiedItemIn.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_isClassifiedItemIn.insert(static_cast< IfcClassificationItemRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        m_IsClassifyingItemIn.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_IsClassifyingItemIn.insert(static_cast< IfcClassificationItemRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
-    inverses = m_args->getInverses(IfcClassificationItemRelationship::getClassType(), 0);
-    if (inverses) {
+    inverses = m_args->getInverses(IfcClassificationItemRelationship::getClassType(), 1);
+    if (inverses)
+    {
         unsigned int i;
-        m_isClassifyingItemIn.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_isClassifyingItemIn.insert(static_cast< IfcClassificationItemRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        m_IsClassifiedItemIn.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_IsClassifiedItemIn.insert(static_cast< IfcClassificationItemRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcClassificationItem::copy(const IfcClassificationItem &obj, const CopyOp &copyop) {
+void IfcClassificationItem::copy(const IfcClassificationItem &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setNotation((IfcClassificationNotationFacet*)copyop(obj.m_notation.get()));
-    setItemOf((IfcClassification*)copyop(obj.m_itemOf.get()));
-    setTitle(obj.m_title);
+    setNotation((IfcClassificationNotationFacet*)copyop(obj.m_Notation.get()));
+    setTitle(obj.m_Title);
+    setItemOf((IfcClassification*)copyop(obj.m_ItemOf.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcClassificationItem::s_type("IfcClassificationItem");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcClassificationItem, Step::BaseEntity)

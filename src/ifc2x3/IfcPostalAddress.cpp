@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,325 +24,403 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPostalAddress.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcAddress.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPostalAddress::IfcPostalAddress(Step::Id id, Step::SPFData *args) : IfcAddress(id, args) {
-    m_internalLocation = Step::getUnset(m_internalLocation);
-    m_addressLines.setUnset(true);
-    m_postalBox = Step::getUnset(m_postalBox);
-    m_town = Step::getUnset(m_town);
-    m_region = Step::getUnset(m_region);
-    m_postalCode = Step::getUnset(m_postalCode);
-    m_country = Step::getUnset(m_country);
+IfcPostalAddress::IfcPostalAddress(Step::Id id, Step::SPFData *args) : 
+    IfcAddress(id, args)
+{
+    m_InternalLocation = Step::getUnset(m_InternalLocation);
+    m_AddressLines.setUnset(true);
+    m_PostalBox = Step::getUnset(m_PostalBox);
+    m_Town = Step::getUnset(m_Town);
+    m_Region = Step::getUnset(m_Region);
+    m_PostalCode = Step::getUnset(m_PostalCode);
+    m_Country = Step::getUnset(m_Country);
 }
 
-IfcPostalAddress::~IfcPostalAddress() {
+IfcPostalAddress::~IfcPostalAddress()
+{}
+
+bool IfcPostalAddress::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPostalAddress(this);
 }
 
-bool IfcPostalAddress::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPostalAddress(this);
-}
 
-const std::string &IfcPostalAddress::type() const {
-    return IfcPostalAddress::s_type.getName();
-}
-
-const Step::ClassType &IfcPostalAddress::getClassType() {
-    return IfcPostalAddress::s_type;
-}
-
-const Step::ClassType &IfcPostalAddress::getType() const {
-    return IfcPostalAddress::s_type;
-}
-
-bool IfcPostalAddress::isOfType(const Step::ClassType &t) const {
-    return IfcPostalAddress::s_type == t ? true : IfcAddress::isOfType(t);
-}
-
-IfcLabel IfcPostalAddress::getInternalLocation() {
-    if (Step::BaseObject::inited()) {
-        return m_internalLocation;
+IfcLabel IfcPostalAddress::getInternalLocation()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_InternalLocation;
     }
-    else {
-        return Step::getUnset(m_internalLocation);
+    else 
+    {
+        return Step::getUnset(m_InternalLocation);
+    }    
+}
+
+const IfcLabel IfcPostalAddress::getInternalLocation() const
+{
+    return const_cast<IfcPostalAddress *>(this)->getInternalLocation();
+}
+
+void IfcPostalAddress::setInternalLocation(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InternalLocation = value;
+}
+
+void IfcPostalAddress::unsetInternalLocation()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InternalLocation = Step::getUnset(getInternalLocation());
+}
+
+bool IfcPostalAddress::testInternalLocation() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getInternalLocation()) == false;
+}
+
+
+List_IfcLabel_1_n &IfcPostalAddress::getAddressLines()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_AddressLines;
     }
+    else 
+    {
+        m_AddressLines.setUnset(true);
+        return m_AddressLines;
+    }    
 }
 
-const IfcLabel IfcPostalAddress::getInternalLocation() const {
-    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
-    return deConstObject->getInternalLocation();
+const List_IfcLabel_1_n &IfcPostalAddress::getAddressLines() const
+{
+    return const_cast<IfcPostalAddress *>(this)->getAddressLines();
 }
 
-void IfcPostalAddress::setInternalLocation(const IfcLabel &value) {
-    m_internalLocation = value;
+void IfcPostalAddress::setAddressLines(const List_IfcLabel_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_AddressLines = value;
 }
 
-void IfcPostalAddress::unsetInternalLocation() {
-    m_internalLocation = Step::getUnset(getInternalLocation());
+void IfcPostalAddress::unsetAddressLines()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_AddressLines.clear();
+    m_AddressLines.setUnset(true);
 }
 
-bool IfcPostalAddress::testInternalLocation() const {
-    return !Step::isUnset(getInternalLocation());
+bool IfcPostalAddress::testAddressLines() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_AddressLines.isUnset() == false;
 }
 
-List_IfcLabel_1_n &IfcPostalAddress::getAddressLines() {
-    if (Step::BaseObject::inited()) {
-        return m_addressLines;
+
+IfcLabel IfcPostalAddress::getPostalBox()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PostalBox;
     }
-    else {
-        m_addressLines.setUnset(true);
-        return m_addressLines;
+    else 
+    {
+        return Step::getUnset(m_PostalBox);
+    }    
+}
+
+const IfcLabel IfcPostalAddress::getPostalBox() const
+{
+    return const_cast<IfcPostalAddress *>(this)->getPostalBox();
+}
+
+void IfcPostalAddress::setPostalBox(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PostalBox = value;
+}
+
+void IfcPostalAddress::unsetPostalBox()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PostalBox = Step::getUnset(getPostalBox());
+}
+
+bool IfcPostalAddress::testPostalBox() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPostalBox()) == false;
+}
+
+
+IfcLabel IfcPostalAddress::getTown()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Town;
     }
+    else 
+    {
+        return Step::getUnset(m_Town);
+    }    
 }
 
-const List_IfcLabel_1_n &IfcPostalAddress::getAddressLines() const {
-    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
-    return deConstObject->getAddressLines();
+const IfcLabel IfcPostalAddress::getTown() const
+{
+    return const_cast<IfcPostalAddress *>(this)->getTown();
 }
 
-void IfcPostalAddress::setAddressLines(const List_IfcLabel_1_n &value) {
-    m_addressLines = value;
+void IfcPostalAddress::setTown(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Town = value;
 }
 
-void IfcPostalAddress::unsetAddressLines() {
-    m_addressLines.clear();
-    m_addressLines.setUnset(true);
+void IfcPostalAddress::unsetTown()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Town = Step::getUnset(getTown());
 }
 
-bool IfcPostalAddress::testAddressLines() const {
-    return !m_addressLines.isUnset();
+bool IfcPostalAddress::testTown() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTown()) == false;
 }
 
-IfcLabel IfcPostalAddress::getPostalBox() {
-    if (Step::BaseObject::inited()) {
-        return m_postalBox;
+
+IfcLabel IfcPostalAddress::getRegion()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Region;
     }
-    else {
-        return Step::getUnset(m_postalBox);
+    else 
+    {
+        return Step::getUnset(m_Region);
+    }    
+}
+
+const IfcLabel IfcPostalAddress::getRegion() const
+{
+    return const_cast<IfcPostalAddress *>(this)->getRegion();
+}
+
+void IfcPostalAddress::setRegion(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Region = value;
+}
+
+void IfcPostalAddress::unsetRegion()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Region = Step::getUnset(getRegion());
+}
+
+bool IfcPostalAddress::testRegion() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRegion()) == false;
+}
+
+
+IfcLabel IfcPostalAddress::getPostalCode()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PostalCode;
     }
+    else 
+    {
+        return Step::getUnset(m_PostalCode);
+    }    
 }
 
-const IfcLabel IfcPostalAddress::getPostalBox() const {
-    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
-    return deConstObject->getPostalBox();
+const IfcLabel IfcPostalAddress::getPostalCode() const
+{
+    return const_cast<IfcPostalAddress *>(this)->getPostalCode();
 }
 
-void IfcPostalAddress::setPostalBox(const IfcLabel &value) {
-    m_postalBox = value;
+void IfcPostalAddress::setPostalCode(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PostalCode = value;
 }
 
-void IfcPostalAddress::unsetPostalBox() {
-    m_postalBox = Step::getUnset(getPostalBox());
+void IfcPostalAddress::unsetPostalCode()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PostalCode = Step::getUnset(getPostalCode());
 }
 
-bool IfcPostalAddress::testPostalBox() const {
-    return !Step::isUnset(getPostalBox());
+bool IfcPostalAddress::testPostalCode() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPostalCode()) == false;
 }
 
-IfcLabel IfcPostalAddress::getTown() {
-    if (Step::BaseObject::inited()) {
-        return m_town;
+
+IfcLabel IfcPostalAddress::getCountry()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Country;
     }
-    else {
-        return Step::getUnset(m_town);
-    }
+    else 
+    {
+        return Step::getUnset(m_Country);
+    }    
 }
 
-const IfcLabel IfcPostalAddress::getTown() const {
-    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
-    return deConstObject->getTown();
+const IfcLabel IfcPostalAddress::getCountry() const
+{
+    return const_cast<IfcPostalAddress *>(this)->getCountry();
 }
 
-void IfcPostalAddress::setTown(const IfcLabel &value) {
-    m_town = value;
+void IfcPostalAddress::setCountry(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Country = value;
 }
 
-void IfcPostalAddress::unsetTown() {
-    m_town = Step::getUnset(getTown());
+void IfcPostalAddress::unsetCountry()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Country = Step::getUnset(getCountry());
 }
 
-bool IfcPostalAddress::testTown() const {
-    return !Step::isUnset(getTown());
+bool IfcPostalAddress::testCountry() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCountry()) == false;
 }
 
-IfcLabel IfcPostalAddress::getRegion() {
-    if (Step::BaseObject::inited()) {
-        return m_region;
-    }
-    else {
-        return Step::getUnset(m_region);
-    }
-}
-
-const IfcLabel IfcPostalAddress::getRegion() const {
-    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
-    return deConstObject->getRegion();
-}
-
-void IfcPostalAddress::setRegion(const IfcLabel &value) {
-    m_region = value;
-}
-
-void IfcPostalAddress::unsetRegion() {
-    m_region = Step::getUnset(getRegion());
-}
-
-bool IfcPostalAddress::testRegion() const {
-    return !Step::isUnset(getRegion());
-}
-
-IfcLabel IfcPostalAddress::getPostalCode() {
-    if (Step::BaseObject::inited()) {
-        return m_postalCode;
-    }
-    else {
-        return Step::getUnset(m_postalCode);
-    }
-}
-
-const IfcLabel IfcPostalAddress::getPostalCode() const {
-    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
-    return deConstObject->getPostalCode();
-}
-
-void IfcPostalAddress::setPostalCode(const IfcLabel &value) {
-    m_postalCode = value;
-}
-
-void IfcPostalAddress::unsetPostalCode() {
-    m_postalCode = Step::getUnset(getPostalCode());
-}
-
-bool IfcPostalAddress::testPostalCode() const {
-    return !Step::isUnset(getPostalCode());
-}
-
-IfcLabel IfcPostalAddress::getCountry() {
-    if (Step::BaseObject::inited()) {
-        return m_country;
-    }
-    else {
-        return Step::getUnset(m_country);
-    }
-}
-
-const IfcLabel IfcPostalAddress::getCountry() const {
-    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
-    return deConstObject->getCountry();
-}
-
-void IfcPostalAddress::setCountry(const IfcLabel &value) {
-    m_country = value;
-}
-
-void IfcPostalAddress::unsetCountry() {
-    m_country = Step::getUnset(getCountry());
-}
-
-bool IfcPostalAddress::testCountry() const {
-    return !Step::isUnset(getCountry());
-}
-
-bool IfcPostalAddress::init() {
-    bool status = IfcAddress::init();
-    std::string arg;
-    if (!status) {
+bool IfcPostalAddress::init()
+{
+    if (IfcAddress::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_internalLocation = Step::getUnset(m_internalLocation);
+    if (arg == "$" || arg == "*")
+    {
+        m_InternalLocation = Step::getUnset(m_InternalLocation);
     }
-    else {
-        m_internalLocation = Step::String::fromSPF(arg);
+    else
+    {
+        m_InternalLocation = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_addressLines.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_AddressLines.setUnset(true);
     }
-    else {
-        m_addressLines.setUnset(false);
-        while (true) {
+    else
+    {
+        m_AddressLines.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                IfcLabel attr2;
-                attr2 = Step::String::fromSPF(str1);
-                m_addressLines.push_back(attr2);
+            if (!str1.empty())
+            {
+                m_AddressLines.push_back(Step::String::fromSPF(str1)
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_postalBox = Step::getUnset(m_postalBox);
+    if (arg == "$" || arg == "*")
+    {
+        m_PostalBox = Step::getUnset(m_PostalBox);
     }
-    else {
-        m_postalBox = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_town = Step::getUnset(m_town);
-    }
-    else {
-        m_town = Step::String::fromSPF(arg);
+    else
+    {
+        m_PostalBox = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_region = Step::getUnset(m_region);
+    if (arg == "$" || arg == "*")
+    {
+        m_Town = Step::getUnset(m_Town);
     }
-    else {
-        m_region = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_postalCode = Step::getUnset(m_postalCode);
-    }
-    else {
-        m_postalCode = Step::String::fromSPF(arg);
+    else
+    {
+        m_Town = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_country = Step::getUnset(m_country);
+    if (arg == "$" || arg == "*")
+    {
+        m_Region = Step::getUnset(m_Region);
     }
-    else {
-        m_country = Step::String::fromSPF(arg);
+    else
+    {
+        m_Region = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_PostalCode = Step::getUnset(m_PostalCode);
+    }
+    else
+    {
+        m_PostalCode = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Country = Step::getUnset(m_Country);
+    }
+    else
+    {
+        m_Country = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcPostalAddress::copy(const IfcPostalAddress &obj, const CopyOp &copyop) {
-    Step::List< IfcLabel, 1 >::const_iterator it_m_addressLines;
+void IfcPostalAddress::copy(const IfcPostalAddress &obj, const CopyOp &copyop)
+{
     IfcAddress::copy(obj, copyop);
-    setInternalLocation(obj.m_internalLocation);
-    for (it_m_addressLines = obj.m_addressLines.begin(); it_m_addressLines != obj.m_addressLines.end(); ++it_m_addressLines) {
-        IfcLabel copyTarget = (*it_m_addressLines);
-        m_addressLines.push_back(copyTarget);
+    setInternalLocation(obj.m_InternalLocation);
+    List_IfcLabel_1_n::const_iterator it_m_AddressLines;
+    for (it_m_AddressLines = obj.m_AddressLines.begin(); it_m_AddressLines != obj.m_AddressLines.end(); ++it_m_AddressLines)
+    {
+        IfcLabel copyTarget = (*it_m_AddressLines);
+        m_AddressLines.push_back(copyTarget);
     }
-    setPostalBox(obj.m_postalBox);
-    setTown(obj.m_town);
-    setRegion(obj.m_region);
-    setPostalCode(obj.m_postalCode);
-    setCountry(obj.m_country);
+    
+    setPostalBox(obj.m_PostalBox);
+    setTown(obj.m_Town);
+    setRegion(obj.m_Region);
+    setPostalCode(obj.m_PostalCode);
+    setCountry(obj.m_Country);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPostalAddress::s_type("IfcPostalAddress");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPostalAddress, IfcAddress)

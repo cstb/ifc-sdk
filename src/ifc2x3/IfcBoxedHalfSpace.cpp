@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,99 +24,95 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcBoxedHalfSpace.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcBoundingBox.h>
-#include <ifc2x3/IfcHalfSpaceSolid.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcBoxedHalfSpace::IfcBoxedHalfSpace(Step::Id id, Step::SPFData *args) : IfcHalfSpaceSolid(id, args) {
-    m_enclosure = NULL;
+IfcBoxedHalfSpace::IfcBoxedHalfSpace(Step::Id id, Step::SPFData *args) : 
+    IfcHalfSpaceSolid(id, args)
+{
+    m_Enclosure = NULL;
 }
 
-IfcBoxedHalfSpace::~IfcBoxedHalfSpace() {
+IfcBoxedHalfSpace::~IfcBoxedHalfSpace()
+{}
+
+bool IfcBoxedHalfSpace::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcBoxedHalfSpace(this);
 }
 
-bool IfcBoxedHalfSpace::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcBoxedHalfSpace(this);
-}
 
-const std::string &IfcBoxedHalfSpace::type() const {
-    return IfcBoxedHalfSpace::s_type.getName();
-}
-
-const Step::ClassType &IfcBoxedHalfSpace::getClassType() {
-    return IfcBoxedHalfSpace::s_type;
-}
-
-const Step::ClassType &IfcBoxedHalfSpace::getType() const {
-    return IfcBoxedHalfSpace::s_type;
-}
-
-bool IfcBoxedHalfSpace::isOfType(const Step::ClassType &t) const {
-    return IfcBoxedHalfSpace::s_type == t ? true : IfcHalfSpaceSolid::isOfType(t);
-}
-
-IfcBoundingBox *IfcBoxedHalfSpace::getEnclosure() {
-    if (Step::BaseObject::inited()) {
-        return m_enclosure.get();
+IfcBoundingBox *IfcBoxedHalfSpace::getEnclosure()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Enclosure.get();
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcBoundingBox *IfcBoxedHalfSpace::getEnclosure() const {
-    IfcBoxedHalfSpace * deConstObject = const_cast< IfcBoxedHalfSpace * > (this);
-    return deConstObject->getEnclosure();
+const IfcBoundingBox *IfcBoxedHalfSpace::getEnclosure() const
+{
+    return const_cast<IfcBoxedHalfSpace *>(this)->getEnclosure();
 }
 
-void IfcBoxedHalfSpace::setEnclosure(const Step::RefPtr< IfcBoundingBox > &value) {
-    m_enclosure = value;
+void IfcBoxedHalfSpace::setEnclosure(const Step::RefPtr< IfcBoundingBox > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Enclosure = value;
 }
 
-void IfcBoxedHalfSpace::unsetEnclosure() {
-    m_enclosure = Step::getUnset(getEnclosure());
+void IfcBoxedHalfSpace::unsetEnclosure()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Enclosure = Step::getUnset(getEnclosure());
 }
 
-bool IfcBoxedHalfSpace::testEnclosure() const {
-    return !Step::isUnset(getEnclosure());
+bool IfcBoxedHalfSpace::testEnclosure() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getEnclosure()) == false;
 }
 
-bool IfcBoxedHalfSpace::init() {
-    bool status = IfcHalfSpaceSolid::init();
-    std::string arg;
-    if (!status) {
+bool IfcBoxedHalfSpace::init()
+{
+    if (IfcHalfSpaceSolid::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_enclosure = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Enclosure = NULL;
     }
-    else {
-        m_enclosure = static_cast< IfcBoundingBox * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Enclosure = static_cast< IfcBoundingBox * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcBoxedHalfSpace::copy(const IfcBoxedHalfSpace &obj, const CopyOp &copyop) {
+void IfcBoxedHalfSpace::copy(const IfcBoxedHalfSpace &obj, const CopyOp &copyop)
+{
     IfcHalfSpaceSolid::copy(obj, copyop);
-    setEnclosure((IfcBoundingBox*)copyop(obj.m_enclosure.get()));
+    setEnclosure((IfcBoundingBox*)copyop(obj.m_Enclosure.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoxedHalfSpace::s_type("IfcBoxedHalfSpace");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcBoxedHalfSpace, IfcHalfSpaceSolid)

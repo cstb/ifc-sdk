@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,112 +24,116 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcCableCarrierSegmentType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcFlowSegmentType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcCableCarrierSegmentType::IfcCableCarrierSegmentType(Step::Id id, Step::SPFData *args) : IfcFlowSegmentType(id, args) {
-    m_predefinedType = IfcCableCarrierSegmentTypeEnum_UNSET;
+IfcCableCarrierSegmentType::IfcCableCarrierSegmentType(Step::Id id, Step::SPFData *args) : 
+    IfcFlowSegmentType(id, args)
+{
+    m_PredefinedType = IfcCableCarrierSegmentTypeEnum_UNSET;
 }
 
-IfcCableCarrierSegmentType::~IfcCableCarrierSegmentType() {
+IfcCableCarrierSegmentType::~IfcCableCarrierSegmentType()
+{}
+
+bool IfcCableCarrierSegmentType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcCableCarrierSegmentType(this);
 }
 
-bool IfcCableCarrierSegmentType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcCableCarrierSegmentType(this);
-}
 
-const std::string &IfcCableCarrierSegmentType::type() const {
-    return IfcCableCarrierSegmentType::s_type.getName();
-}
-
-const Step::ClassType &IfcCableCarrierSegmentType::getClassType() {
-    return IfcCableCarrierSegmentType::s_type;
-}
-
-const Step::ClassType &IfcCableCarrierSegmentType::getType() const {
-    return IfcCableCarrierSegmentType::s_type;
-}
-
-bool IfcCableCarrierSegmentType::isOfType(const Step::ClassType &t) const {
-    return IfcCableCarrierSegmentType::s_type == t ? true : IfcFlowSegmentType::isOfType(t);
-}
-
-IfcCableCarrierSegmentTypeEnum IfcCableCarrierSegmentType::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcCableCarrierSegmentTypeEnum IfcCableCarrierSegmentType::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcCableCarrierSegmentTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcCableCarrierSegmentTypeEnum IfcCableCarrierSegmentType::getPredefinedType() const {
-    IfcCableCarrierSegmentType * deConstObject = const_cast< IfcCableCarrierSegmentType * > (this);
-    return deConstObject->getPredefinedType();
+IfcCableCarrierSegmentTypeEnum IfcCableCarrierSegmentType::getPredefinedType() const
+{
+    return const_cast<IfcCableCarrierSegmentType *>(this)->getPredefinedType();
 }
 
-void IfcCableCarrierSegmentType::setPredefinedType(IfcCableCarrierSegmentTypeEnum value) {
-    m_predefinedType = value;
+void IfcCableCarrierSegmentType::setPredefinedType(IfcCableCarrierSegmentTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcCableCarrierSegmentType::unsetPredefinedType() {
-    m_predefinedType = IfcCableCarrierSegmentTypeEnum_UNSET;
+void IfcCableCarrierSegmentType::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcCableCarrierSegmentTypeEnum_UNSET;
 }
 
-bool IfcCableCarrierSegmentType::testPredefinedType() const {
-    return getPredefinedType() != IfcCableCarrierSegmentTypeEnum_UNSET;
+bool IfcCableCarrierSegmentType::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcCableCarrierSegmentType::init() {
-    bool status = IfcFlowSegmentType::init();
-    std::string arg;
-    if (!status) {
+bool IfcCableCarrierSegmentType::init()
+{
+    if (IfcFlowSegmentType::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcCableCarrierSegmentTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcCableCarrierSegmentTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".CABLELADDERSEGMENT.") {
-            m_predefinedType = IfcCableCarrierSegmentTypeEnum_CABLELADDERSEGMENT;
+    else
+    {
+        if (arg == ".CABLELADDERSEGMENT.")
+        {
+            m_PredefinedType = IfcCableCarrierSegmentTypeEnum_CABLELADDERSEGMENT;
         }
-        else if (arg == ".CABLETRAYSEGMENT.") {
-            m_predefinedType = IfcCableCarrierSegmentTypeEnum_CABLETRAYSEGMENT;
+        else if (arg == ".CABLETRAYSEGMENT.")
+        {
+            m_PredefinedType = IfcCableCarrierSegmentTypeEnum_CABLETRAYSEGMENT;
         }
-        else if (arg == ".CABLETRUNKINGSEGMENT.") {
-            m_predefinedType = IfcCableCarrierSegmentTypeEnum_CABLETRUNKINGSEGMENT;
+        else if (arg == ".CABLETRUNKINGSEGMENT.")
+        {
+            m_PredefinedType = IfcCableCarrierSegmentTypeEnum_CABLETRUNKINGSEGMENT;
         }
-        else if (arg == ".CONDUITSEGMENT.") {
-            m_predefinedType = IfcCableCarrierSegmentTypeEnum_CONDUITSEGMENT;
+        else if (arg == ".CONDUITSEGMENT.")
+        {
+            m_PredefinedType = IfcCableCarrierSegmentTypeEnum_CONDUITSEGMENT;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcCableCarrierSegmentTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcCableCarrierSegmentTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcCableCarrierSegmentTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcCableCarrierSegmentTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcCableCarrierSegmentType::copy(const IfcCableCarrierSegmentType &obj, const CopyOp &copyop) {
+void IfcCableCarrierSegmentType::copy(const IfcCableCarrierSegmentType &obj, const CopyOp &copyop)
+{
     IfcFlowSegmentType::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCableCarrierSegmentType::s_type("IfcCableCarrierSegmentType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcCableCarrierSegmentType, IfcFlowSegmentType)

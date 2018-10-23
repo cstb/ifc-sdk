@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,91 +24,79 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcDimensionCurve.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcAnnotationCurveOccurrence.h>
 #include <ifc2x3/IfcTerminatorSymbol.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcDimensionCurve::IfcDimensionCurve(Step::Id id, Step::SPFData *args) : IfcAnnotationCurveOccurrence(id, args) {
+IfcDimensionCurve::IfcDimensionCurve(Step::Id id, Step::SPFData *args) : 
+    IfcAnnotationCurveOccurrence(id, args)
+{
 }
 
-IfcDimensionCurve::~IfcDimensionCurve() {
+IfcDimensionCurve::~IfcDimensionCurve()
+{}
+
+bool IfcDimensionCurve::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcDimensionCurve(this);
 }
 
-bool IfcDimensionCurve::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcDimensionCurve(this);
-}
-
-const std::string &IfcDimensionCurve::type() const {
-    return IfcDimensionCurve::s_type.getName();
-}
-
-const Step::ClassType &IfcDimensionCurve::getClassType() {
-    return IfcDimensionCurve::s_type;
-}
-
-const Step::ClassType &IfcDimensionCurve::getType() const {
-    return IfcDimensionCurve::s_type;
-}
-
-bool IfcDimensionCurve::isOfType(const Step::ClassType &t) const {
-    return IfcDimensionCurve::s_type == t ? true : IfcAnnotationCurveOccurrence::isOfType(t);
-}
-
-Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols() {
-    if (Step::BaseObject::inited()) {
-        return m_annotatedBySymbols;
+Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_AnnotatedBySymbols;
     }
-    else {
-        m_annotatedBySymbols.setUnset(true);
-        return m_annotatedBySymbols;
-    }
+ 
+    m_AnnotatedBySymbols.setUnset(true);
+    return m_AnnotatedBySymbols;
 }
 
-const Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols() const {
-    IfcDimensionCurve * deConstObject = const_cast< IfcDimensionCurve * > (this);
-    return deConstObject->getAnnotatedBySymbols();
+const Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols() const
+{
+    return  const_cast< IfcDimensionCurve * > (this)->getAnnotatedBySymbols();
 }
 
-bool IfcDimensionCurve::testAnnotatedBySymbols() const {
-    return !m_annotatedBySymbols.isUnset();
+bool IfcDimensionCurve::testAnnotatedBySymbols() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_AnnotatedBySymbols.isUnset() == false;
 }
 
-bool IfcDimensionCurve::init() {
-    bool status = IfcAnnotationCurveOccurrence::init();
-    std::string arg;
-    std::vector< Step::Id > *inverses;
-    if (!status) {
+bool IfcDimensionCurve::init()
+{
+    if (IfcAnnotationCurveOccurrence::init() == false)
+    {
         return false;
     }
+    std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcTerminatorSymbol::getClassType(), 3);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_annotatedBySymbols.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_annotatedBySymbols.insert(static_cast< IfcTerminatorSymbol * > (m_expressDataSet->get((*inverses)[i])));
+        m_AnnotatedBySymbols.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_AnnotatedBySymbols.insert(static_cast< IfcTerminatorSymbol * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcDimensionCurve::copy(const IfcDimensionCurve &obj, const CopyOp &copyop) {
+void IfcDimensionCurve::copy(const IfcDimensionCurve &obj, const CopyOp &copyop)
+{
     IfcAnnotationCurveOccurrence::copy(obj, copyop);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDimensionCurve::s_type("IfcDimensionCurve");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcDimensionCurve, IfcAnnotationCurveOccurrence)

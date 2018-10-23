@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,298 +24,368 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcLightSourceGoniometric.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcAxis2Placement3D.h>
 #include <ifc2x3/IfcColourRgb.h>
 #include <ifc2x3/IfcLightDistributionDataSourceSelect.h>
-#include <ifc2x3/IfcLightSource.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcLightSourceGoniometric::IfcLightSourceGoniometric(Step::Id id, Step::SPFData *args) : IfcLightSource(id, args) {
-    m_position = NULL;
-    m_colourAppearance = NULL;
-    m_colourTemperature = Step::getUnset(m_colourTemperature);
-    m_luminousFlux = Step::getUnset(m_luminousFlux);
-    m_lightEmissionSource = IfcLightEmissionSourceEnum_UNSET;
-    m_lightDistributionDataSource = NULL;
+IfcLightSourceGoniometric::IfcLightSourceGoniometric(Step::Id id, Step::SPFData *args) : 
+    IfcLightSource(id, args)
+{
+    m_Position = NULL;
+    m_ColourAppearance = NULL;
+    m_ColourTemperature = Step::getUnset(m_ColourTemperature);
+    m_LuminousFlux = Step::getUnset(m_LuminousFlux);
+    m_LightEmissionSource = IfcLightEmissionSourceEnum_UNSET;
+    m_LightDistributionDataSource = NULL;
 }
 
-IfcLightSourceGoniometric::~IfcLightSourceGoniometric() {
+IfcLightSourceGoniometric::~IfcLightSourceGoniometric()
+{}
+
+bool IfcLightSourceGoniometric::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcLightSourceGoniometric(this);
 }
 
-bool IfcLightSourceGoniometric::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcLightSourceGoniometric(this);
-}
 
-const std::string &IfcLightSourceGoniometric::type() const {
-    return IfcLightSourceGoniometric::s_type.getName();
-}
-
-const Step::ClassType &IfcLightSourceGoniometric::getClassType() {
-    return IfcLightSourceGoniometric::s_type;
-}
-
-const Step::ClassType &IfcLightSourceGoniometric::getType() const {
-    return IfcLightSourceGoniometric::s_type;
-}
-
-bool IfcLightSourceGoniometric::isOfType(const Step::ClassType &t) const {
-    return IfcLightSourceGoniometric::s_type == t ? true : IfcLightSource::isOfType(t);
-}
-
-IfcAxis2Placement3D *IfcLightSourceGoniometric::getPosition() {
-    if (Step::BaseObject::inited()) {
-        return m_position.get();
+IfcAxis2Placement3D *IfcLightSourceGoniometric::getPosition()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Position.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcAxis2Placement3D *IfcLightSourceGoniometric::getPosition() const
+{
+    return const_cast<IfcLightSourceGoniometric *>(this)->getPosition();
+}
+
+void IfcLightSourceGoniometric::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Position = value;
+}
+
+void IfcLightSourceGoniometric::unsetPosition()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Position = Step::getUnset(getPosition());
+}
+
+bool IfcLightSourceGoniometric::testPosition() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPosition()) == false;
+}
+
+
+IfcColourRgb *IfcLightSourceGoniometric::getColourAppearance()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ColourAppearance.get();
     }
-}
-
-const IfcAxis2Placement3D *IfcLightSourceGoniometric::getPosition() const {
-    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
-    return deConstObject->getPosition();
-}
-
-void IfcLightSourceGoniometric::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
-    m_position = value;
-}
-
-void IfcLightSourceGoniometric::unsetPosition() {
-    m_position = Step::getUnset(getPosition());
-}
-
-bool IfcLightSourceGoniometric::testPosition() const {
-    return !Step::isUnset(getPosition());
-}
-
-IfcColourRgb *IfcLightSourceGoniometric::getColourAppearance() {
-    if (Step::BaseObject::inited()) {
-        return m_colourAppearance.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcColourRgb *IfcLightSourceGoniometric::getColourAppearance() const
+{
+    return const_cast<IfcLightSourceGoniometric *>(this)->getColourAppearance();
+}
+
+void IfcLightSourceGoniometric::setColourAppearance(const Step::RefPtr< IfcColourRgb > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ColourAppearance = value;
+}
+
+void IfcLightSourceGoniometric::unsetColourAppearance()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ColourAppearance = Step::getUnset(getColourAppearance());
+}
+
+bool IfcLightSourceGoniometric::testColourAppearance() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getColourAppearance()) == false;
+}
+
+
+IfcThermodynamicTemperatureMeasure IfcLightSourceGoniometric::getColourTemperature()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ColourTemperature;
     }
+    else 
+    {
+        return Step::getUnset(m_ColourTemperature);
+    }    
 }
 
-const IfcColourRgb *IfcLightSourceGoniometric::getColourAppearance() const {
-    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
-    return deConstObject->getColourAppearance();
+IfcThermodynamicTemperatureMeasure IfcLightSourceGoniometric::getColourTemperature() const
+{
+    return const_cast<IfcLightSourceGoniometric *>(this)->getColourTemperature();
 }
 
-void IfcLightSourceGoniometric::setColourAppearance(const Step::RefPtr< IfcColourRgb > &value) {
-    m_colourAppearance = value;
+void IfcLightSourceGoniometric::setColourTemperature(IfcThermodynamicTemperatureMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ColourTemperature = value;
 }
 
-void IfcLightSourceGoniometric::unsetColourAppearance() {
-    m_colourAppearance = Step::getUnset(getColourAppearance());
+void IfcLightSourceGoniometric::unsetColourTemperature()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ColourTemperature = Step::getUnset(getColourTemperature());
 }
 
-bool IfcLightSourceGoniometric::testColourAppearance() const {
-    return !Step::isUnset(getColourAppearance());
+bool IfcLightSourceGoniometric::testColourTemperature() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getColourTemperature()) == false;
 }
 
-IfcThermodynamicTemperatureMeasure IfcLightSourceGoniometric::getColourTemperature() {
-    if (Step::BaseObject::inited()) {
-        return m_colourTemperature;
+
+IfcLuminousFluxMeasure IfcLightSourceGoniometric::getLuminousFlux()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LuminousFlux;
     }
-    else {
-        return Step::getUnset(m_colourTemperature);
+    else 
+    {
+        return Step::getUnset(m_LuminousFlux);
+    }    
+}
+
+IfcLuminousFluxMeasure IfcLightSourceGoniometric::getLuminousFlux() const
+{
+    return const_cast<IfcLightSourceGoniometric *>(this)->getLuminousFlux();
+}
+
+void IfcLightSourceGoniometric::setLuminousFlux(IfcLuminousFluxMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LuminousFlux = value;
+}
+
+void IfcLightSourceGoniometric::unsetLuminousFlux()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LuminousFlux = Step::getUnset(getLuminousFlux());
+}
+
+bool IfcLightSourceGoniometric::testLuminousFlux() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLuminousFlux()) == false;
+}
+
+
+IfcLightEmissionSourceEnum IfcLightSourceGoniometric::getLightEmissionSource()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LightEmissionSource;
     }
-}
-
-const IfcThermodynamicTemperatureMeasure IfcLightSourceGoniometric::getColourTemperature() const {
-    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
-    return deConstObject->getColourTemperature();
-}
-
-void IfcLightSourceGoniometric::setColourTemperature(IfcThermodynamicTemperatureMeasure value) {
-    m_colourTemperature = value;
-}
-
-void IfcLightSourceGoniometric::unsetColourTemperature() {
-    m_colourTemperature = Step::getUnset(getColourTemperature());
-}
-
-bool IfcLightSourceGoniometric::testColourTemperature() const {
-    return !Step::isUnset(getColourTemperature());
-}
-
-IfcLuminousFluxMeasure IfcLightSourceGoniometric::getLuminousFlux() {
-    if (Step::BaseObject::inited()) {
-        return m_luminousFlux;
-    }
-    else {
-        return Step::getUnset(m_luminousFlux);
-    }
-}
-
-const IfcLuminousFluxMeasure IfcLightSourceGoniometric::getLuminousFlux() const {
-    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
-    return deConstObject->getLuminousFlux();
-}
-
-void IfcLightSourceGoniometric::setLuminousFlux(IfcLuminousFluxMeasure value) {
-    m_luminousFlux = value;
-}
-
-void IfcLightSourceGoniometric::unsetLuminousFlux() {
-    m_luminousFlux = Step::getUnset(getLuminousFlux());
-}
-
-bool IfcLightSourceGoniometric::testLuminousFlux() const {
-    return !Step::isUnset(getLuminousFlux());
-}
-
-IfcLightEmissionSourceEnum IfcLightSourceGoniometric::getLightEmissionSource() {
-    if (Step::BaseObject::inited()) {
-        return m_lightEmissionSource;
-    }
-    else {
+    else 
+    {
         return IfcLightEmissionSourceEnum_UNSET;
+    }    
+}
+
+IfcLightEmissionSourceEnum IfcLightSourceGoniometric::getLightEmissionSource() const
+{
+    return const_cast<IfcLightSourceGoniometric *>(this)->getLightEmissionSource();
+}
+
+void IfcLightSourceGoniometric::setLightEmissionSource(IfcLightEmissionSourceEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LightEmissionSource = value;
+}
+
+void IfcLightSourceGoniometric::unsetLightEmissionSource()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LightEmissionSource = IfcLightEmissionSourceEnum_UNSET;
+}
+
+bool IfcLightSourceGoniometric::testLightEmissionSource() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLightEmissionSource()) == false;
+}
+
+
+IfcLightDistributionDataSourceSelect *IfcLightSourceGoniometric::getLightDistributionDataSource()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LightDistributionDataSource.get();
     }
-}
-
-const IfcLightEmissionSourceEnum IfcLightSourceGoniometric::getLightEmissionSource() const {
-    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
-    return deConstObject->getLightEmissionSource();
-}
-
-void IfcLightSourceGoniometric::setLightEmissionSource(IfcLightEmissionSourceEnum value) {
-    m_lightEmissionSource = value;
-}
-
-void IfcLightSourceGoniometric::unsetLightEmissionSource() {
-    m_lightEmissionSource = IfcLightEmissionSourceEnum_UNSET;
-}
-
-bool IfcLightSourceGoniometric::testLightEmissionSource() const {
-    return getLightEmissionSource() != IfcLightEmissionSourceEnum_UNSET;
-}
-
-IfcLightDistributionDataSourceSelect *IfcLightSourceGoniometric::getLightDistributionDataSource() {
-    if (Step::BaseObject::inited()) {
-        return m_lightDistributionDataSource.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcLightDistributionDataSourceSelect *IfcLightSourceGoniometric::getLightDistributionDataSource() const {
-    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
-    return deConstObject->getLightDistributionDataSource();
+const IfcLightDistributionDataSourceSelect *IfcLightSourceGoniometric::getLightDistributionDataSource() const
+{
+    return const_cast<IfcLightSourceGoniometric *>(this)->getLightDistributionDataSource();
 }
 
-void IfcLightSourceGoniometric::setLightDistributionDataSource(const Step::RefPtr< IfcLightDistributionDataSourceSelect > &value) {
-    m_lightDistributionDataSource = value;
+void IfcLightSourceGoniometric::setLightDistributionDataSource(const Step::RefPtr< IfcLightDistributionDataSourceSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LightDistributionDataSource = value;
 }
 
-void IfcLightSourceGoniometric::unsetLightDistributionDataSource() {
-    m_lightDistributionDataSource = Step::getUnset(getLightDistributionDataSource());
+void IfcLightSourceGoniometric::unsetLightDistributionDataSource()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LightDistributionDataSource = Step::getUnset(getLightDistributionDataSource());
 }
 
-bool IfcLightSourceGoniometric::testLightDistributionDataSource() const {
-    return !Step::isUnset(getLightDistributionDataSource());
+bool IfcLightSourceGoniometric::testLightDistributionDataSource() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLightDistributionDataSource()) == false;
 }
 
-bool IfcLightSourceGoniometric::init() {
-    bool status = IfcLightSource::init();
-    std::string arg;
-    if (!status) {
+bool IfcLightSourceGoniometric::init()
+{
+    if (IfcLightSource::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_position = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Position = NULL;
     }
-    else {
-        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_colourAppearance = NULL;
-    }
-    else {
-        m_colourAppearance = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_colourTemperature = Step::getUnset(m_colourTemperature);
+    if (arg == "$" || arg == "*")
+    {
+        m_ColourAppearance = NULL;
     }
-    else {
-        m_colourTemperature = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_luminousFlux = Step::getUnset(m_luminousFlux);
-    }
-    else {
-        m_luminousFlux = Step::spfToReal(arg);
+    else
+    {
+        m_ColourAppearance = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_lightEmissionSource = IfcLightEmissionSourceEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_ColourTemperature = Step::getUnset(m_ColourTemperature);
     }
-    else {
-        if (arg == ".COMPACTFLUORESCENT.") {
-            m_lightEmissionSource = IfcLightEmissionSourceEnum_COMPACTFLUORESCENT;
+    else
+    {
+        m_ColourTemperature = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_LuminousFlux = Step::getUnset(m_LuminousFlux);
+    }
+    else
+    {
+        m_LuminousFlux = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_LightEmissionSource = IfcLightEmissionSourceEnum_UNSET;
+    }
+    else
+    {
+        if (arg == ".COMPACTFLUORESCENT.")
+        {
+            m_LightEmissionSource = IfcLightEmissionSourceEnum_COMPACTFLUORESCENT;
         }
-        else if (arg == ".FLUORESCENT.") {
-            m_lightEmissionSource = IfcLightEmissionSourceEnum_FLUORESCENT;
+        else if (arg == ".FLUORESCENT.")
+        {
+            m_LightEmissionSource = IfcLightEmissionSourceEnum_FLUORESCENT;
         }
-        else if (arg == ".HIGHPRESSUREMERCURY.") {
-            m_lightEmissionSource = IfcLightEmissionSourceEnum_HIGHPRESSUREMERCURY;
+        else if (arg == ".HIGHPRESSUREMERCURY.")
+        {
+            m_LightEmissionSource = IfcLightEmissionSourceEnum_HIGHPRESSUREMERCURY;
         }
-        else if (arg == ".HIGHPRESSURESODIUM.") {
-            m_lightEmissionSource = IfcLightEmissionSourceEnum_HIGHPRESSURESODIUM;
+        else if (arg == ".HIGHPRESSURESODIUM.")
+        {
+            m_LightEmissionSource = IfcLightEmissionSourceEnum_HIGHPRESSURESODIUM;
         }
-        else if (arg == ".LIGHTEMITTINGDIODE.") {
-            m_lightEmissionSource = IfcLightEmissionSourceEnum_LIGHTEMITTINGDIODE;
+        else if (arg == ".LIGHTEMITTINGDIODE.")
+        {
+            m_LightEmissionSource = IfcLightEmissionSourceEnum_LIGHTEMITTINGDIODE;
         }
-        else if (arg == ".LOWPRESSURESODIUM.") {
-            m_lightEmissionSource = IfcLightEmissionSourceEnum_LOWPRESSURESODIUM;
+        else if (arg == ".LOWPRESSURESODIUM.")
+        {
+            m_LightEmissionSource = IfcLightEmissionSourceEnum_LOWPRESSURESODIUM;
         }
-        else if (arg == ".LOWVOLTAGEHALOGEN.") {
-            m_lightEmissionSource = IfcLightEmissionSourceEnum_LOWVOLTAGEHALOGEN;
+        else if (arg == ".LOWVOLTAGEHALOGEN.")
+        {
+            m_LightEmissionSource = IfcLightEmissionSourceEnum_LOWVOLTAGEHALOGEN;
         }
-        else if (arg == ".MAINVOLTAGEHALOGEN.") {
-            m_lightEmissionSource = IfcLightEmissionSourceEnum_MAINVOLTAGEHALOGEN;
+        else if (arg == ".MAINVOLTAGEHALOGEN.")
+        {
+            m_LightEmissionSource = IfcLightEmissionSourceEnum_MAINVOLTAGEHALOGEN;
         }
-        else if (arg == ".METALHALIDE.") {
-            m_lightEmissionSource = IfcLightEmissionSourceEnum_METALHALIDE;
+        else if (arg == ".METALHALIDE.")
+        {
+            m_LightEmissionSource = IfcLightEmissionSourceEnum_METALHALIDE;
         }
-        else if (arg == ".TUNGSTENFILAMENT.") {
-            m_lightEmissionSource = IfcLightEmissionSourceEnum_TUNGSTENFILAMENT;
+        else if (arg == ".TUNGSTENFILAMENT.")
+        {
+            m_LightEmissionSource = IfcLightEmissionSourceEnum_TUNGSTENFILAMENT;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_lightEmissionSource = IfcLightEmissionSourceEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_LightEmissionSource = IfcLightEmissionSourceEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_lightDistributionDataSource = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_LightDistributionDataSource = NULL;
     }
-    else {
-        m_lightDistributionDataSource = new IfcLightDistributionDataSourceSelect;
+    else
+    {
+        m_LightDistributionDataSource = new IfcLightDistributionDataSourceSelect;
         if (arg[0] == '#') {
-            m_lightDistributionDataSource->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_LightDistributionDataSource->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -321,16 +400,16 @@ bool IfcLightSourceGoniometric::init() {
     return true;
 }
 
-void IfcLightSourceGoniometric::copy(const IfcLightSourceGoniometric &obj, const CopyOp &copyop) {
+void IfcLightSourceGoniometric::copy(const IfcLightSourceGoniometric &obj, const CopyOp &copyop)
+{
     IfcLightSource::copy(obj, copyop);
-    setPosition((IfcAxis2Placement3D*)copyop(obj.m_position.get()));
-    setColourAppearance((IfcColourRgb*)copyop(obj.m_colourAppearance.get()));
-    setColourTemperature(obj.m_colourTemperature);
-    setLuminousFlux(obj.m_luminousFlux);
-    setLightEmissionSource(obj.m_lightEmissionSource);
-    m_lightDistributionDataSource = new IfcLightDistributionDataSourceSelect;
-    m_lightDistributionDataSource->copy(*(obj.m_lightDistributionDataSource.get()), copyop);
+    setPosition((IfcAxis2Placement3D*)copyop(obj.m_Position.get()));
+    setColourAppearance((IfcColourRgb*)copyop(obj.m_ColourAppearance.get()));
+    setColourTemperature(obj.m_ColourTemperature);
+    setLuminousFlux(obj.m_LuminousFlux);
+    setLightEmissionSource(obj.m_LightEmissionSource);
+    setLightDistributionDataSource((IfcLightDistributionDataSourceSelect*)copyop(obj.m_LightDistributionDataSource.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightSourceGoniometric::s_type("IfcLightSourceGoniometric");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcLightSourceGoniometric, IfcLightSource)

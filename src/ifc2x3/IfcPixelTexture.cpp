@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,201 +24,239 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPixelTexture.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcSurfaceTexture.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/Binary.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPixelTexture::IfcPixelTexture(Step::Id id, Step::SPFData *args) : IfcSurfaceTexture(id, args) {
-    m_width = Step::getUnset(m_width);
-    m_height = Step::getUnset(m_height);
-    m_colourComponents = Step::getUnset(m_colourComponents);
+IfcPixelTexture::IfcPixelTexture(Step::Id id, Step::SPFData *args) : 
+    IfcSurfaceTexture(id, args)
+{
+    m_Width = Step::getUnset(m_Width);
+    m_Height = Step::getUnset(m_Height);
+    m_ColourComponents = Step::getUnset(m_ColourComponents);
+    m_Pixel.setUnset(true);
 }
 
-IfcPixelTexture::~IfcPixelTexture() {
+IfcPixelTexture::~IfcPixelTexture()
+{}
+
+bool IfcPixelTexture::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPixelTexture(this);
 }
 
-bool IfcPixelTexture::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPixelTexture(this);
-}
 
-const std::string &IfcPixelTexture::type() const {
-    return IfcPixelTexture::s_type.getName();
-}
-
-const Step::ClassType &IfcPixelTexture::getClassType() {
-    return IfcPixelTexture::s_type;
-}
-
-const Step::ClassType &IfcPixelTexture::getType() const {
-    return IfcPixelTexture::s_type;
-}
-
-bool IfcPixelTexture::isOfType(const Step::ClassType &t) const {
-    return IfcPixelTexture::s_type == t ? true : IfcSurfaceTexture::isOfType(t);
-}
-
-IfcInteger IfcPixelTexture::getWidth() {
-    if (Step::BaseObject::inited()) {
-        return m_width;
+IfcInteger IfcPixelTexture::getWidth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Width;
     }
-    else {
-        return Step::getUnset(m_width);
+    else 
+    {
+        return Step::getUnset(m_Width);
+    }    
+}
+
+IfcInteger IfcPixelTexture::getWidth() const
+{
+    return const_cast<IfcPixelTexture *>(this)->getWidth();
+}
+
+void IfcPixelTexture::setWidth(IfcInteger value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Width = value;
+}
+
+void IfcPixelTexture::unsetWidth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Width = Step::getUnset(getWidth());
+}
+
+bool IfcPixelTexture::testWidth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getWidth()) == false;
+}
+
+
+IfcInteger IfcPixelTexture::getHeight()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Height;
     }
+    else 
+    {
+        return Step::getUnset(m_Height);
+    }    
 }
 
-const IfcInteger IfcPixelTexture::getWidth() const {
-    IfcPixelTexture * deConstObject = const_cast< IfcPixelTexture * > (this);
-    return deConstObject->getWidth();
+IfcInteger IfcPixelTexture::getHeight() const
+{
+    return const_cast<IfcPixelTexture *>(this)->getHeight();
 }
 
-void IfcPixelTexture::setWidth(IfcInteger value) {
-    m_width = value;
+void IfcPixelTexture::setHeight(IfcInteger value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Height = value;
 }
 
-void IfcPixelTexture::unsetWidth() {
-    m_width = Step::getUnset(getWidth());
+void IfcPixelTexture::unsetHeight()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Height = Step::getUnset(getHeight());
 }
 
-bool IfcPixelTexture::testWidth() const {
-    return !Step::isUnset(getWidth());
+bool IfcPixelTexture::testHeight() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getHeight()) == false;
 }
 
-IfcInteger IfcPixelTexture::getHeight() {
-    if (Step::BaseObject::inited()) {
-        return m_height;
+
+IfcInteger IfcPixelTexture::getColourComponents()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ColourComponents;
     }
-    else {
-        return Step::getUnset(m_height);
+    else 
+    {
+        return Step::getUnset(m_ColourComponents);
+    }    
+}
+
+IfcInteger IfcPixelTexture::getColourComponents() const
+{
+    return const_cast<IfcPixelTexture *>(this)->getColourComponents();
+}
+
+void IfcPixelTexture::setColourComponents(IfcInteger value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ColourComponents = value;
+}
+
+void IfcPixelTexture::unsetColourComponents()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ColourComponents = Step::getUnset(getColourComponents());
+}
+
+bool IfcPixelTexture::testColourComponents() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getColourComponents()) == false;
+}
+
+
+List_Binary_32__1_n &IfcPixelTexture::getPixel()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Pixel;
     }
+    else 
+    {
+        m_Pixel.setUnset(true);
+        return m_Pixel;
+    }    
 }
 
-const IfcInteger IfcPixelTexture::getHeight() const {
-    IfcPixelTexture * deConstObject = const_cast< IfcPixelTexture * > (this);
-    return deConstObject->getHeight();
+const List_Binary_32__1_n &IfcPixelTexture::getPixel() const
+{
+    return const_cast<IfcPixelTexture *>(this)->getPixel();
 }
 
-void IfcPixelTexture::setHeight(IfcInteger value) {
-    m_height = value;
+void IfcPixelTexture::setPixel(const List_Binary_32__1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Pixel = value;
 }
 
-void IfcPixelTexture::unsetHeight() {
-    m_height = Step::getUnset(getHeight());
+void IfcPixelTexture::unsetPixel()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Pixel.clear();
+    m_Pixel.setUnset(true);
 }
 
-bool IfcPixelTexture::testHeight() const {
-    return !Step::isUnset(getHeight());
+bool IfcPixelTexture::testPixel() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_Pixel.isUnset() == false;
 }
 
-IfcInteger IfcPixelTexture::getColourComponents() {
-    if (Step::BaseObject::inited()) {
-        return m_colourComponents;
-    }
-    else {
-        return Step::getUnset(m_colourComponents);
-    }
-}
-
-const IfcInteger IfcPixelTexture::getColourComponents() const {
-    IfcPixelTexture * deConstObject = const_cast< IfcPixelTexture * > (this);
-    return deConstObject->getColourComponents();
-}
-
-void IfcPixelTexture::setColourComponents(IfcInteger value) {
-    m_colourComponents = value;
-}
-
-void IfcPixelTexture::unsetColourComponents() {
-    m_colourComponents = Step::getUnset(getColourComponents());
-}
-
-bool IfcPixelTexture::testColourComponents() const {
-    return !Step::isUnset(getColourComponents());
-}
-
-List_32_1_n &IfcPixelTexture::getPixel() {
-    if (Step::BaseObject::inited()) {
-        return m_pixel;
-    }
-    else {
-        m_pixel.setUnset(true);
-        return m_pixel;
-    }
-}
-
-const List_32_1_n &IfcPixelTexture::getPixel() const {
-    IfcPixelTexture * deConstObject = const_cast< IfcPixelTexture * > (this);
-    return deConstObject->getPixel();
-}
-
-void IfcPixelTexture::setPixel(const List_32_1_n &value) {
-    m_pixel = value;
-}
-
-void IfcPixelTexture::unsetPixel() {
-    m_pixel.clear();
-    m_pixel.setUnset(true);
-}
-
-bool IfcPixelTexture::testPixel() const {
-    return !m_pixel.isUnset();
-}
-
-bool IfcPixelTexture::init() {
-    bool status = IfcSurfaceTexture::init();
-    std::string arg;
-    if (!status) {
+bool IfcPixelTexture::init()
+{
+    if (IfcSurfaceTexture::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_width = Step::getUnset(m_width);
+    if (arg == "$" || arg == "*")
+    {
+        m_Width = Step::getUnset(m_Width);
     }
-    else {
-        m_width = Step::spfToInteger(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_height = Step::getUnset(m_height);
-    }
-    else {
-        m_height = Step::spfToInteger(arg);
+    else
+    {
+        m_Width = Step::spfToInteger(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_colourComponents = Step::getUnset(m_colourComponents);
+    if (arg == "$" || arg == "*")
+    {
+        m_Height = Step::getUnset(m_Height);
     }
-    else {
-        m_colourComponents = Step::spfToInteger(arg);
+    else
+    {
+        m_Height = Step::spfToInteger(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_pixel.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_ColourComponents = Step::getUnset(m_ColourComponents);
     }
-    else {
-        m_pixel.setUnset(false);
-        while (true) {
+    else
+    {
+        m_ColourComponents = Step::spfToInteger(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Pixel.setUnset(true);
+    }
+    else
+    {
+        m_Pixel.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::Binary< 32 > attr2;
+            if (!str1.empty())
+            {
+                Step::Binary<32> attr2;
                 attr2 = Step::spfToBinary<32>(str1);
-                m_pixel.push_back(attr2);
+                m_Pixel.push_back(attr2);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
@@ -217,17 +264,20 @@ bool IfcPixelTexture::init() {
     return true;
 }
 
-void IfcPixelTexture::copy(const IfcPixelTexture &obj, const CopyOp &copyop) {
-    Step::List< Step::Binary< 32 >, 1 >::const_iterator it_m_pixel;
+void IfcPixelTexture::copy(const IfcPixelTexture &obj, const CopyOp &copyop)
+{
     IfcSurfaceTexture::copy(obj, copyop);
-    setWidth(obj.m_width);
-    setHeight(obj.m_height);
-    setColourComponents(obj.m_colourComponents);
-    for (it_m_pixel = obj.m_pixel.begin(); it_m_pixel != obj.m_pixel.end(); ++it_m_pixel) {
-        Step::Binary< 32 > copyTarget = (*it_m_pixel);
-        m_pixel.push_back(copyTarget);
+    setWidth(obj.m_Width);
+    setHeight(obj.m_Height);
+    setColourComponents(obj.m_ColourComponents);
+    List_Binary_32__1_n::const_iterator it_m_Pixel;
+    for (it_m_Pixel = obj.m_Pixel.begin(); it_m_Pixel != obj.m_Pixel.end(); ++it_m_Pixel)
+    {
+        Step::Binary<32> copyTarget = (*it_m_Pixel);
+        m_Pixel.push_back(copyTarget);
     }
+    
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPixelTexture::s_type("IfcPixelTexture");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPixelTexture, IfcSurfaceTexture)

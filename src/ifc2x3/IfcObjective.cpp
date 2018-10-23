@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,228 +24,270 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcObjective.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcConstraint.h>
 #include <ifc2x3/IfcMetric.h>
+#include <ifc2x3/IfcMetric.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcObjective::IfcObjective(Step::Id id, Step::SPFData *args) : IfcConstraint(id, args) {
-    m_benchmarkValues = NULL;
-    m_resultValues = NULL;
-    m_objectiveQualifier = IfcObjectiveEnum_UNSET;
-    m_userDefinedQualifier = Step::getUnset(m_userDefinedQualifier);
+IfcObjective::IfcObjective(Step::Id id, Step::SPFData *args) : 
+    IfcConstraint(id, args)
+{
+    m_BenchmarkValues = NULL;
+    m_ResultValues = NULL;
+    m_ObjectiveQualifier = IfcObjectiveEnum_UNSET;
+    m_UserDefinedQualifier = Step::getUnset(m_UserDefinedQualifier);
 }
 
-IfcObjective::~IfcObjective() {
+IfcObjective::~IfcObjective()
+{}
+
+bool IfcObjective::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcObjective(this);
 }
 
-bool IfcObjective::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcObjective(this);
-}
 
-const std::string &IfcObjective::type() const {
-    return IfcObjective::s_type.getName();
-}
-
-const Step::ClassType &IfcObjective::getClassType() {
-    return IfcObjective::s_type;
-}
-
-const Step::ClassType &IfcObjective::getType() const {
-    return IfcObjective::s_type;
-}
-
-bool IfcObjective::isOfType(const Step::ClassType &t) const {
-    return IfcObjective::s_type == t ? true : IfcConstraint::isOfType(t);
-}
-
-IfcMetric *IfcObjective::getBenchmarkValues() {
-    if (Step::BaseObject::inited()) {
-        return m_benchmarkValues.get();
+IfcMetric *IfcObjective::getBenchmarkValues()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BenchmarkValues.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcMetric *IfcObjective::getBenchmarkValues() const
+{
+    return const_cast<IfcObjective *>(this)->getBenchmarkValues();
+}
+
+void IfcObjective::setBenchmarkValues(const Step::RefPtr< IfcMetric > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BenchmarkValues = value;
+}
+
+void IfcObjective::unsetBenchmarkValues()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BenchmarkValues = Step::getUnset(getBenchmarkValues());
+}
+
+bool IfcObjective::testBenchmarkValues() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBenchmarkValues()) == false;
+}
+
+
+IfcMetric *IfcObjective::getResultValues()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ResultValues.get();
     }
-}
-
-const IfcMetric *IfcObjective::getBenchmarkValues() const {
-    IfcObjective * deConstObject = const_cast< IfcObjective * > (this);
-    return deConstObject->getBenchmarkValues();
-}
-
-void IfcObjective::setBenchmarkValues(const Step::RefPtr< IfcMetric > &value) {
-    m_benchmarkValues = value;
-}
-
-void IfcObjective::unsetBenchmarkValues() {
-    m_benchmarkValues = Step::getUnset(getBenchmarkValues());
-}
-
-bool IfcObjective::testBenchmarkValues() const {
-    return !Step::isUnset(getBenchmarkValues());
-}
-
-IfcMetric *IfcObjective::getResultValues() {
-    if (Step::BaseObject::inited()) {
-        return m_resultValues.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcMetric *IfcObjective::getResultValues() const
+{
+    return const_cast<IfcObjective *>(this)->getResultValues();
+}
+
+void IfcObjective::setResultValues(const Step::RefPtr< IfcMetric > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ResultValues = value;
+}
+
+void IfcObjective::unsetResultValues()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ResultValues = Step::getUnset(getResultValues());
+}
+
+bool IfcObjective::testResultValues() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getResultValues()) == false;
+}
+
+
+IfcObjectiveEnum IfcObjective::getObjectiveQualifier()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ObjectiveQualifier;
     }
-}
-
-const IfcMetric *IfcObjective::getResultValues() const {
-    IfcObjective * deConstObject = const_cast< IfcObjective * > (this);
-    return deConstObject->getResultValues();
-}
-
-void IfcObjective::setResultValues(const Step::RefPtr< IfcMetric > &value) {
-    m_resultValues = value;
-}
-
-void IfcObjective::unsetResultValues() {
-    m_resultValues = Step::getUnset(getResultValues());
-}
-
-bool IfcObjective::testResultValues() const {
-    return !Step::isUnset(getResultValues());
-}
-
-IfcObjectiveEnum IfcObjective::getObjectiveQualifier() {
-    if (Step::BaseObject::inited()) {
-        return m_objectiveQualifier;
-    }
-    else {
+    else 
+    {
         return IfcObjectiveEnum_UNSET;
+    }    
+}
+
+IfcObjectiveEnum IfcObjective::getObjectiveQualifier() const
+{
+    return const_cast<IfcObjective *>(this)->getObjectiveQualifier();
+}
+
+void IfcObjective::setObjectiveQualifier(IfcObjectiveEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ObjectiveQualifier = value;
+}
+
+void IfcObjective::unsetObjectiveQualifier()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ObjectiveQualifier = IfcObjectiveEnum_UNSET;
+}
+
+bool IfcObjective::testObjectiveQualifier() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getObjectiveQualifier()) == false;
+}
+
+
+IfcLabel IfcObjective::getUserDefinedQualifier()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UserDefinedQualifier;
     }
+    else 
+    {
+        return Step::getUnset(m_UserDefinedQualifier);
+    }    
 }
 
-const IfcObjectiveEnum IfcObjective::getObjectiveQualifier() const {
-    IfcObjective * deConstObject = const_cast< IfcObjective * > (this);
-    return deConstObject->getObjectiveQualifier();
+const IfcLabel IfcObjective::getUserDefinedQualifier() const
+{
+    return const_cast<IfcObjective *>(this)->getUserDefinedQualifier();
 }
 
-void IfcObjective::setObjectiveQualifier(IfcObjectiveEnum value) {
-    m_objectiveQualifier = value;
+void IfcObjective::setUserDefinedQualifier(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedQualifier = value;
 }
 
-void IfcObjective::unsetObjectiveQualifier() {
-    m_objectiveQualifier = IfcObjectiveEnum_UNSET;
+void IfcObjective::unsetUserDefinedQualifier()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedQualifier = Step::getUnset(getUserDefinedQualifier());
 }
 
-bool IfcObjective::testObjectiveQualifier() const {
-    return getObjectiveQualifier() != IfcObjectiveEnum_UNSET;
+bool IfcObjective::testUserDefinedQualifier() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUserDefinedQualifier()) == false;
 }
 
-IfcLabel IfcObjective::getUserDefinedQualifier() {
-    if (Step::BaseObject::inited()) {
-        return m_userDefinedQualifier;
-    }
-    else {
-        return Step::getUnset(m_userDefinedQualifier);
-    }
-}
-
-const IfcLabel IfcObjective::getUserDefinedQualifier() const {
-    IfcObjective * deConstObject = const_cast< IfcObjective * > (this);
-    return deConstObject->getUserDefinedQualifier();
-}
-
-void IfcObjective::setUserDefinedQualifier(const IfcLabel &value) {
-    m_userDefinedQualifier = value;
-}
-
-void IfcObjective::unsetUserDefinedQualifier() {
-    m_userDefinedQualifier = Step::getUnset(getUserDefinedQualifier());
-}
-
-bool IfcObjective::testUserDefinedQualifier() const {
-    return !Step::isUnset(getUserDefinedQualifier());
-}
-
-bool IfcObjective::init() {
-    bool status = IfcConstraint::init();
-    std::string arg;
-    if (!status) {
+bool IfcObjective::init()
+{
+    if (IfcConstraint::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_benchmarkValues = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_BenchmarkValues = NULL;
     }
-    else {
-        m_benchmarkValues = static_cast< IfcMetric * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_resultValues = NULL;
-    }
-    else {
-        m_resultValues = static_cast< IfcMetric * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_BenchmarkValues = static_cast< IfcMetric * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_objectiveQualifier = IfcObjectiveEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_ResultValues = NULL;
     }
-    else {
-        if (arg == ".CODECOMPLIANCE.") {
-            m_objectiveQualifier = IfcObjectiveEnum_CODECOMPLIANCE;
+    else
+    {
+        m_ResultValues = static_cast< IfcMetric * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ObjectiveQualifier = IfcObjectiveEnum_UNSET;
+    }
+    else
+    {
+        if (arg == ".CODECOMPLIANCE.")
+        {
+            m_ObjectiveQualifier = IfcObjectiveEnum_CODECOMPLIANCE;
         }
-        else if (arg == ".DESIGNINTENT.") {
-            m_objectiveQualifier = IfcObjectiveEnum_DESIGNINTENT;
+        else if (arg == ".DESIGNINTENT.")
+        {
+            m_ObjectiveQualifier = IfcObjectiveEnum_DESIGNINTENT;
         }
-        else if (arg == ".HEALTHANDSAFETY.") {
-            m_objectiveQualifier = IfcObjectiveEnum_HEALTHANDSAFETY;
+        else if (arg == ".HEALTHANDSAFETY.")
+        {
+            m_ObjectiveQualifier = IfcObjectiveEnum_HEALTHANDSAFETY;
         }
-        else if (arg == ".REQUIREMENT.") {
-            m_objectiveQualifier = IfcObjectiveEnum_REQUIREMENT;
+        else if (arg == ".REQUIREMENT.")
+        {
+            m_ObjectiveQualifier = IfcObjectiveEnum_REQUIREMENT;
         }
-        else if (arg == ".SPECIFICATION.") {
-            m_objectiveQualifier = IfcObjectiveEnum_SPECIFICATION;
+        else if (arg == ".SPECIFICATION.")
+        {
+            m_ObjectiveQualifier = IfcObjectiveEnum_SPECIFICATION;
         }
-        else if (arg == ".TRIGGERCONDITION.") {
-            m_objectiveQualifier = IfcObjectiveEnum_TRIGGERCONDITION;
+        else if (arg == ".TRIGGERCONDITION.")
+        {
+            m_ObjectiveQualifier = IfcObjectiveEnum_TRIGGERCONDITION;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_objectiveQualifier = IfcObjectiveEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_ObjectiveQualifier = IfcObjectiveEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_objectiveQualifier = IfcObjectiveEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_ObjectiveQualifier = IfcObjectiveEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_userDefinedQualifier = Step::getUnset(m_userDefinedQualifier);
+    if (arg == "$" || arg == "*")
+    {
+        m_UserDefinedQualifier = Step::getUnset(m_UserDefinedQualifier);
     }
-    else {
-        m_userDefinedQualifier = Step::String::fromSPF(arg);
+    else
+    {
+        m_UserDefinedQualifier = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcObjective::copy(const IfcObjective &obj, const CopyOp &copyop) {
+void IfcObjective::copy(const IfcObjective &obj, const CopyOp &copyop)
+{
     IfcConstraint::copy(obj, copyop);
-    setBenchmarkValues((IfcMetric*)copyop(obj.m_benchmarkValues.get()));
-    setResultValues((IfcMetric*)copyop(obj.m_resultValues.get()));
-    setObjectiveQualifier(obj.m_objectiveQualifier);
-    setUserDefinedQualifier(obj.m_userDefinedQualifier);
+    setBenchmarkValues((IfcMetric*)copyop(obj.m_BenchmarkValues.get()));
+    setResultValues((IfcMetric*)copyop(obj.m_ResultValues.get()));
+    setObjectiveQualifier(obj.m_ObjectiveQualifier);
+    setUserDefinedQualifier(obj.m_UserDefinedQualifier);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcObjective::s_type("IfcObjective");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcObjective, IfcConstraint)

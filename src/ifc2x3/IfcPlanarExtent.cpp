@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,130 +24,144 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPlanarExtent.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcGeometricRepresentationItem.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPlanarExtent::IfcPlanarExtent(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_sizeInX = Step::getUnset(m_sizeInX);
-    m_sizeInY = Step::getUnset(m_sizeInY);
+IfcPlanarExtent::IfcPlanarExtent(Step::Id id, Step::SPFData *args) : 
+    IfcGeometricRepresentationItem(id, args)
+{
+    m_SizeInX = Step::getUnset(m_SizeInX);
+    m_SizeInY = Step::getUnset(m_SizeInY);
 }
 
-IfcPlanarExtent::~IfcPlanarExtent() {
+IfcPlanarExtent::~IfcPlanarExtent()
+{}
+
+bool IfcPlanarExtent::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPlanarExtent(this);
 }
 
-bool IfcPlanarExtent::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPlanarExtent(this);
-}
 
-const std::string &IfcPlanarExtent::type() const {
-    return IfcPlanarExtent::s_type.getName();
-}
-
-const Step::ClassType &IfcPlanarExtent::getClassType() {
-    return IfcPlanarExtent::s_type;
-}
-
-const Step::ClassType &IfcPlanarExtent::getType() const {
-    return IfcPlanarExtent::s_type;
-}
-
-bool IfcPlanarExtent::isOfType(const Step::ClassType &t) const {
-    return IfcPlanarExtent::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-IfcLengthMeasure IfcPlanarExtent::getSizeInX() {
-    if (Step::BaseObject::inited()) {
-        return m_sizeInX;
+IfcLengthMeasure IfcPlanarExtent::getSizeInX()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SizeInX;
     }
-    else {
-        return Step::getUnset(m_sizeInX);
+    else 
+    {
+        return Step::getUnset(m_SizeInX);
+    }    
+}
+
+IfcLengthMeasure IfcPlanarExtent::getSizeInX() const
+{
+    return const_cast<IfcPlanarExtent *>(this)->getSizeInX();
+}
+
+void IfcPlanarExtent::setSizeInX(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SizeInX = value;
+}
+
+void IfcPlanarExtent::unsetSizeInX()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SizeInX = Step::getUnset(getSizeInX());
+}
+
+bool IfcPlanarExtent::testSizeInX() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSizeInX()) == false;
+}
+
+
+IfcLengthMeasure IfcPlanarExtent::getSizeInY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SizeInY;
     }
+    else 
+    {
+        return Step::getUnset(m_SizeInY);
+    }    
 }
 
-const IfcLengthMeasure IfcPlanarExtent::getSizeInX() const {
-    IfcPlanarExtent * deConstObject = const_cast< IfcPlanarExtent * > (this);
-    return deConstObject->getSizeInX();
+IfcLengthMeasure IfcPlanarExtent::getSizeInY() const
+{
+    return const_cast<IfcPlanarExtent *>(this)->getSizeInY();
 }
 
-void IfcPlanarExtent::setSizeInX(IfcLengthMeasure value) {
-    m_sizeInX = value;
+void IfcPlanarExtent::setSizeInY(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SizeInY = value;
 }
 
-void IfcPlanarExtent::unsetSizeInX() {
-    m_sizeInX = Step::getUnset(getSizeInX());
+void IfcPlanarExtent::unsetSizeInY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SizeInY = Step::getUnset(getSizeInY());
 }
 
-bool IfcPlanarExtent::testSizeInX() const {
-    return !Step::isUnset(getSizeInX());
+bool IfcPlanarExtent::testSizeInY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSizeInY()) == false;
 }
 
-IfcLengthMeasure IfcPlanarExtent::getSizeInY() {
-    if (Step::BaseObject::inited()) {
-        return m_sizeInY;
-    }
-    else {
-        return Step::getUnset(m_sizeInY);
-    }
-}
-
-const IfcLengthMeasure IfcPlanarExtent::getSizeInY() const {
-    IfcPlanarExtent * deConstObject = const_cast< IfcPlanarExtent * > (this);
-    return deConstObject->getSizeInY();
-}
-
-void IfcPlanarExtent::setSizeInY(IfcLengthMeasure value) {
-    m_sizeInY = value;
-}
-
-void IfcPlanarExtent::unsetSizeInY() {
-    m_sizeInY = Step::getUnset(getSizeInY());
-}
-
-bool IfcPlanarExtent::testSizeInY() const {
-    return !Step::isUnset(getSizeInY());
-}
-
-bool IfcPlanarExtent::init() {
-    bool status = IfcGeometricRepresentationItem::init();
-    std::string arg;
-    if (!status) {
+bool IfcPlanarExtent::init()
+{
+    if (IfcGeometricRepresentationItem::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_sizeInX = Step::getUnset(m_sizeInX);
+    if (arg == "$" || arg == "*")
+    {
+        m_SizeInX = Step::getUnset(m_SizeInX);
     }
-    else {
-        m_sizeInX = Step::spfToReal(arg);
+    else
+    {
+        m_SizeInX = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_sizeInY = Step::getUnset(m_sizeInY);
+    if (arg == "$" || arg == "*")
+    {
+        m_SizeInY = Step::getUnset(m_SizeInY);
     }
-    else {
-        m_sizeInY = Step::spfToReal(arg);
+    else
+    {
+        m_SizeInY = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcPlanarExtent::copy(const IfcPlanarExtent &obj, const CopyOp &copyop) {
+void IfcPlanarExtent::copy(const IfcPlanarExtent &obj, const CopyOp &copyop)
+{
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setSizeInX(obj.m_sizeInX);
-    setSizeInY(obj.m_sizeInY);
+    setSizeInX(obj.m_SizeInX);
+    setSizeInY(obj.m_SizeInY);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPlanarExtent::s_type("IfcPlanarExtent");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPlanarExtent, IfcGeometricRepresentationItem)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,110 +24,103 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcTerminatorSymbol.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcAnnotationCurveOccurrence.h>
-#include <ifc2x3/IfcAnnotationSymbolOccurrence.h>
 #include <ifc2x3/IfcDimensionCurve.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcTerminatorSymbol::IfcTerminatorSymbol(Step::Id id, Step::SPFData *args) : IfcAnnotationSymbolOccurrence(id, args) {
-    m_annotatedCurve = NULL;
+IfcTerminatorSymbol::IfcTerminatorSymbol(Step::Id id, Step::SPFData *args) : 
+    IfcAnnotationSymbolOccurrence(id, args)
+{
+    m_AnnotatedCurve = NULL;
 }
 
-IfcTerminatorSymbol::~IfcTerminatorSymbol() {
+IfcTerminatorSymbol::~IfcTerminatorSymbol()
+{}
+
+bool IfcTerminatorSymbol::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcTerminatorSymbol(this);
 }
 
-bool IfcTerminatorSymbol::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcTerminatorSymbol(this);
-}
-
-const std::string &IfcTerminatorSymbol::type() const {
-    return IfcTerminatorSymbol::s_type.getName();
-}
-
-const Step::ClassType &IfcTerminatorSymbol::getClassType() {
-    return IfcTerminatorSymbol::s_type;
-}
-
-const Step::ClassType &IfcTerminatorSymbol::getType() const {
-    return IfcTerminatorSymbol::s_type;
-}
-
-bool IfcTerminatorSymbol::isOfType(const Step::ClassType &t) const {
-    return IfcTerminatorSymbol::s_type == t ? true : IfcAnnotationSymbolOccurrence::isOfType(t);
-}
-
-IfcAnnotationCurveOccurrence *IfcTerminatorSymbol::getAnnotatedCurve() {
-    if (Step::BaseObject::inited()) {
-        return m_annotatedCurve.get();
+IfcAnnotationCurveOccurrence *IfcTerminatorSymbol::getAnnotatedCurve()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_AnnotatedCurve.get();
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcAnnotationCurveOccurrence *IfcTerminatorSymbol::getAnnotatedCurve() const {
-    IfcTerminatorSymbol * deConstObject = const_cast< IfcTerminatorSymbol * > (this);
-    return deConstObject->getAnnotatedCurve();
+const IfcAnnotationCurveOccurrence *IfcTerminatorSymbol::getAnnotatedCurve() const
+{
+    return const_cast< IfcTerminatorSymbol * > (this)->getAnnotatedCurve();
 }
 
-void IfcTerminatorSymbol::setAnnotatedCurve(const Step::RefPtr< IfcAnnotationCurveOccurrence > &value) {
-    if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
-        ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.erase(this);
+void IfcTerminatorSymbol::setAnnotatedCurve(const Step::RefPtr< IfcAnnotationCurveOccurrence > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_AnnotatedCurve.valid() && m_AnnotatedCurve->isOfType(IfcDimensionCurve::getClassType()))
+    {
+        static_cast<IfcDimensionCurve*>(m_AnnotatedCurve.get())->m_AnnotatedBySymbols.erase(this);
     }
-	m_annotatedCurve = value;
-	if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
-        ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.insert(this);
+    if (value.valid() && value->isOfType(IfcDimensionCurve::getClassType()))
+    {
+       static_cast<IfcDimensionCurve*>(value.get())->m_AnnotatedBySymbols.insert(this);
     }
-
+    m_AnnotatedCurve = value;
 }
 
-void IfcTerminatorSymbol::unsetAnnotatedCurve() {
-    if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
-        ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.erase(this);
-    }
-    m_annotatedCurve = Step::getUnset(getAnnotatedCurve());
+void IfcTerminatorSymbol::unsetAnnotatedCurve()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_AnnotatedCurve = Step::getUnset(getAnnotatedCurve());
 }
 
-bool IfcTerminatorSymbol::testAnnotatedCurve() const {
-    return !Step::isUnset(getAnnotatedCurve());
+bool IfcTerminatorSymbol::testAnnotatedCurve() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getAnnotatedCurve()) == false;
 }
 
-bool IfcTerminatorSymbol::init() {
-    bool status = IfcAnnotationSymbolOccurrence::init();
-    std::string arg;
-    if (!status) {
+bool IfcTerminatorSymbol::init()
+{
+    if (IfcAnnotationSymbolOccurrence::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_annotatedCurve = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_AnnotatedCurve = NULL;
     }
-    else {
-        m_annotatedCurve = static_cast< IfcAnnotationCurveOccurrence * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_AnnotatedCurve = static_cast< IfcAnnotationCurveOccurrence * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcTerminatorSymbol::copy(const IfcTerminatorSymbol &obj, const CopyOp &copyop) {
+void IfcTerminatorSymbol::copy(const IfcTerminatorSymbol &obj, const CopyOp &copyop)
+{
     IfcAnnotationSymbolOccurrence::copy(obj, copyop);
-    setAnnotatedCurve((IfcAnnotationCurveOccurrence*)copyop(obj.m_annotatedCurve.get()));
+    setAnnotatedCurve((IfcAnnotationCurveOccurrence*)copyop(obj.m_AnnotatedCurve.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTerminatorSymbol::s_type("IfcTerminatorSymbol");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcTerminatorSymbol, IfcAnnotationSymbolOccurrence)

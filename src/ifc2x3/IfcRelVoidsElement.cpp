@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,147 +24,158 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRelVoidsElement.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcElement.h>
 #include <ifc2x3/IfcFeatureElementSubtraction.h>
-#include <ifc2x3/IfcRelConnects.h>
+#include <ifc2x3/IfcElement.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRelVoidsElement::IfcRelVoidsElement(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingBuildingElement = NULL;
-    m_relatedOpeningElement = NULL;
+IfcRelVoidsElement::IfcRelVoidsElement(Step::Id id, Step::SPFData *args) : 
+    IfcRelConnects(id, args)
+{
+    m_RelatedOpeningElement = NULL;
+    m_RelatingBuildingElement = NULL;
 }
 
-IfcRelVoidsElement::~IfcRelVoidsElement() {
+IfcRelVoidsElement::~IfcRelVoidsElement()
+{}
+
+bool IfcRelVoidsElement::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRelVoidsElement(this);
 }
 
-bool IfcRelVoidsElement::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRelVoidsElement(this);
-}
-
-const std::string &IfcRelVoidsElement::type() const {
-    return IfcRelVoidsElement::s_type.getName();
-}
-
-const Step::ClassType &IfcRelVoidsElement::getClassType() {
-    return IfcRelVoidsElement::s_type;
-}
-
-const Step::ClassType &IfcRelVoidsElement::getType() const {
-    return IfcRelVoidsElement::s_type;
-}
-
-bool IfcRelVoidsElement::isOfType(const Step::ClassType &t) const {
-    return IfcRelVoidsElement::s_type == t ? true : IfcRelConnects::isOfType(t);
-}
-
-IfcElement *IfcRelVoidsElement::getRelatingBuildingElement() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingBuildingElement.get();
+IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedOpeningElement.get();
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcElement *IfcRelVoidsElement::getRelatingBuildingElement() const {
-    IfcRelVoidsElement * deConstObject = const_cast< IfcRelVoidsElement * > (this);
-    return deConstObject->getRelatingBuildingElement();
+const IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement() const
+{
+    return const_cast< IfcRelVoidsElement * > (this)->getRelatedOpeningElement();
 }
 
-void IfcRelVoidsElement::setRelatingBuildingElement(const Step::RefPtr< IfcElement > &value) {
-    if (m_relatingBuildingElement.valid()) {
-        m_relatingBuildingElement->m_hasOpenings.erase(this);
+void IfcRelVoidsElement::setRelatedOpeningElement(const Step::RefPtr< IfcFeatureElementSubtraction > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatedOpeningElement.valid())
+    {
+        m_RelatedOpeningElement->m_VoidsElements = NULL;
     }
-    if (value.valid()) {
-        value->m_hasOpenings.insert(this);
+    if (value.valid() )
+    {
+        value->m_VoidsElements = this;
     }
-    m_relatingBuildingElement = value;
+    m_RelatedOpeningElement = value;
 }
 
-void IfcRelVoidsElement::unsetRelatingBuildingElement() {
-    m_relatingBuildingElement = Step::getUnset(getRelatingBuildingElement());
+void IfcRelVoidsElement::unsetRelatedOpeningElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedOpeningElement = Step::getUnset(getRelatedOpeningElement());
 }
 
-bool IfcRelVoidsElement::testRelatingBuildingElement() const {
-    return !Step::isUnset(getRelatingBuildingElement());
+bool IfcRelVoidsElement::testRelatedOpeningElement() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatedOpeningElement()) == false;
 }
 
-IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement() {
-    if (Step::BaseObject::inited()) {
-        return m_relatedOpeningElement.get();
+IfcElement *IfcRelVoidsElement::getRelatingBuildingElement()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingBuildingElement.get();
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement() const {
-    IfcRelVoidsElement * deConstObject = const_cast< IfcRelVoidsElement * > (this);
-    return deConstObject->getRelatedOpeningElement();
+const IfcElement *IfcRelVoidsElement::getRelatingBuildingElement() const
+{
+    return const_cast< IfcRelVoidsElement * > (this)->getRelatingBuildingElement();
 }
 
-void IfcRelVoidsElement::setRelatedOpeningElement(const Step::RefPtr< IfcFeatureElementSubtraction > &value) {
-    if (m_relatedOpeningElement.valid()) {
-        m_relatedOpeningElement->m_voidsElements = NULL;
+void IfcRelVoidsElement::setRelatingBuildingElement(const Step::RefPtr< IfcElement > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingBuildingElement.valid())
+    {
+        m_RelatingBuildingElement->m_HasOpenings.erase(this);
     }
-    if (value.valid()) {
-        value->m_voidsElements = this;
+    if (value.valid() )
+    {
+       value->m_HasOpenings.insert(this);
     }
-    m_relatedOpeningElement = value;
+    m_RelatingBuildingElement = value;
 }
 
-void IfcRelVoidsElement::unsetRelatedOpeningElement() {
-    m_relatedOpeningElement = Step::getUnset(getRelatedOpeningElement());
+void IfcRelVoidsElement::unsetRelatingBuildingElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingBuildingElement = Step::getUnset(getRelatingBuildingElement());
 }
 
-bool IfcRelVoidsElement::testRelatedOpeningElement() const {
-    return !Step::isUnset(getRelatedOpeningElement());
+bool IfcRelVoidsElement::testRelatingBuildingElement() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingBuildingElement()) == false;
 }
 
-bool IfcRelVoidsElement::init() {
-    bool status = IfcRelConnects::init();
-    std::string arg;
-    if (!status) {
+bool IfcRelVoidsElement::init()
+{
+    if (IfcRelConnects::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingBuildingElement = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedOpeningElement = NULL;
     }
-    else {
-        m_relatingBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_RelatedOpeningElement = static_cast< IfcFeatureElementSubtraction * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatedOpeningElement = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingBuildingElement = NULL;
     }
-    else {
-        m_relatedOpeningElement = static_cast< IfcFeatureElementSubtraction * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_RelatingBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcRelVoidsElement::copy(const IfcRelVoidsElement &obj, const CopyOp &copyop) {
+void IfcRelVoidsElement::copy(const IfcRelVoidsElement &obj, const CopyOp &copyop)
+{
     IfcRelConnects::copy(obj, copyop);
-    setRelatingBuildingElement((IfcElement*)copyop(obj.m_relatingBuildingElement.get()));
-    setRelatedOpeningElement((IfcFeatureElementSubtraction*)copyop(obj.m_relatedOpeningElement.get()));
+    setRelatedOpeningElement((IfcFeatureElementSubtraction*)copyop(obj.m_RelatedOpeningElement.get()));
+    setRelatingBuildingElement((IfcElement*)copyop(obj.m_RelatingBuildingElement.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelVoidsElement::s_type("IfcRelVoidsElement");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRelVoidsElement, IfcRelConnects)

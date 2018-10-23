@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,144 +24,161 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcStructuralSurfaceMember.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcStructuralMember.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcStructuralSurfaceMember::IfcStructuralSurfaceMember(Step::Id id, Step::SPFData *args) : IfcStructuralMember(id, args) {
-    m_predefinedType = IfcStructuralSurfaceTypeEnum_UNSET;
-    m_thickness = Step::getUnset(m_thickness);
+IfcStructuralSurfaceMember::IfcStructuralSurfaceMember(Step::Id id, Step::SPFData *args) : 
+    IfcStructuralMember(id, args)
+{
+    m_PredefinedType = IfcStructuralSurfaceTypeEnum_UNSET;
+    m_Thickness = Step::getUnset(m_Thickness);
 }
 
-IfcStructuralSurfaceMember::~IfcStructuralSurfaceMember() {
+IfcStructuralSurfaceMember::~IfcStructuralSurfaceMember()
+{}
+
+bool IfcStructuralSurfaceMember::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcStructuralSurfaceMember(this);
 }
 
-bool IfcStructuralSurfaceMember::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcStructuralSurfaceMember(this);
-}
 
-const std::string &IfcStructuralSurfaceMember::type() const {
-    return IfcStructuralSurfaceMember::s_type.getName();
-}
-
-const Step::ClassType &IfcStructuralSurfaceMember::getClassType() {
-    return IfcStructuralSurfaceMember::s_type;
-}
-
-const Step::ClassType &IfcStructuralSurfaceMember::getType() const {
-    return IfcStructuralSurfaceMember::s_type;
-}
-
-bool IfcStructuralSurfaceMember::isOfType(const Step::ClassType &t) const {
-    return IfcStructuralSurfaceMember::s_type == t ? true : IfcStructuralMember::isOfType(t);
-}
-
-IfcStructuralSurfaceTypeEnum IfcStructuralSurfaceMember::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcStructuralSurfaceTypeEnum IfcStructuralSurfaceMember::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcStructuralSurfaceTypeEnum_UNSET;
+    }    
+}
+
+IfcStructuralSurfaceTypeEnum IfcStructuralSurfaceMember::getPredefinedType() const
+{
+    return const_cast<IfcStructuralSurfaceMember *>(this)->getPredefinedType();
+}
+
+void IfcStructuralSurfaceMember::setPredefinedType(IfcStructuralSurfaceTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
+}
+
+void IfcStructuralSurfaceMember::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcStructuralSurfaceTypeEnum_UNSET;
+}
+
+bool IfcStructuralSurfaceMember::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcStructuralSurfaceMember::getThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Thickness;
     }
+    else 
+    {
+        return Step::getUnset(m_Thickness);
+    }    
 }
 
-const IfcStructuralSurfaceTypeEnum IfcStructuralSurfaceMember::getPredefinedType() const {
-    IfcStructuralSurfaceMember * deConstObject = const_cast< IfcStructuralSurfaceMember * > (this);
-    return deConstObject->getPredefinedType();
+IfcPositiveLengthMeasure IfcStructuralSurfaceMember::getThickness() const
+{
+    return const_cast<IfcStructuralSurfaceMember *>(this)->getThickness();
 }
 
-void IfcStructuralSurfaceMember::setPredefinedType(IfcStructuralSurfaceTypeEnum value) {
-    m_predefinedType = value;
+void IfcStructuralSurfaceMember::setThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Thickness = value;
 }
 
-void IfcStructuralSurfaceMember::unsetPredefinedType() {
-    m_predefinedType = IfcStructuralSurfaceTypeEnum_UNSET;
+void IfcStructuralSurfaceMember::unsetThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Thickness = Step::getUnset(getThickness());
 }
 
-bool IfcStructuralSurfaceMember::testPredefinedType() const {
-    return getPredefinedType() != IfcStructuralSurfaceTypeEnum_UNSET;
+bool IfcStructuralSurfaceMember::testThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getThickness()) == false;
 }
 
-IfcPositiveLengthMeasure IfcStructuralSurfaceMember::getThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_thickness;
-    }
-    else {
-        return Step::getUnset(m_thickness);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcStructuralSurfaceMember::getThickness() const {
-    IfcStructuralSurfaceMember * deConstObject = const_cast< IfcStructuralSurfaceMember * > (this);
-    return deConstObject->getThickness();
-}
-
-void IfcStructuralSurfaceMember::setThickness(IfcPositiveLengthMeasure value) {
-    m_thickness = value;
-}
-
-void IfcStructuralSurfaceMember::unsetThickness() {
-    m_thickness = Step::getUnset(getThickness());
-}
-
-bool IfcStructuralSurfaceMember::testThickness() const {
-    return !Step::isUnset(getThickness());
-}
-
-bool IfcStructuralSurfaceMember::init() {
-    bool status = IfcStructuralMember::init();
-    std::string arg;
-    if (!status) {
+bool IfcStructuralSurfaceMember::init()
+{
+    if (IfcStructuralMember::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcStructuralSurfaceTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcStructuralSurfaceTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".BENDING_ELEMENT.") {
-            m_predefinedType = IfcStructuralSurfaceTypeEnum_BENDING_ELEMENT;
+    else
+    {
+        if (arg == ".BENDING_ELEMENT.")
+        {
+            m_PredefinedType = IfcStructuralSurfaceTypeEnum_BENDING_ELEMENT;
         }
-        else if (arg == ".MEMBRANE_ELEMENT.") {
-            m_predefinedType = IfcStructuralSurfaceTypeEnum_MEMBRANE_ELEMENT;
+        else if (arg == ".MEMBRANE_ELEMENT.")
+        {
+            m_PredefinedType = IfcStructuralSurfaceTypeEnum_MEMBRANE_ELEMENT;
         }
-        else if (arg == ".SHELL.") {
-            m_predefinedType = IfcStructuralSurfaceTypeEnum_SHELL;
+        else if (arg == ".SHELL.")
+        {
+            m_PredefinedType = IfcStructuralSurfaceTypeEnum_SHELL;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcStructuralSurfaceTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcStructuralSurfaceTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcStructuralSurfaceTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcStructuralSurfaceTypeEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_thickness = Step::getUnset(m_thickness);
+    if (arg == "$" || arg == "*")
+    {
+        m_Thickness = Step::getUnset(m_Thickness);
     }
-    else {
-        m_thickness = Step::spfToReal(arg);
+    else
+    {
+        m_Thickness = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcStructuralSurfaceMember::copy(const IfcStructuralSurfaceMember &obj, const CopyOp &copyop) {
+void IfcStructuralSurfaceMember::copy(const IfcStructuralSurfaceMember &obj, const CopyOp &copyop)
+{
     IfcStructuralMember::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
-    setThickness(obj.m_thickness);
+    setPredefinedType(obj.m_PredefinedType);
+    setThickness(obj.m_Thickness);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralSurfaceMember::s_type("IfcStructuralSurfaceMember");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcStructuralSurfaceMember, IfcStructuralMember)

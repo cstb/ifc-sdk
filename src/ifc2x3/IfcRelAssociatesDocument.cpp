@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,92 +24,87 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRelAssociatesDocument.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcDocumentSelect.h>
-#include <ifc2x3/IfcRelAssociates.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRelAssociatesDocument::IfcRelAssociatesDocument(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
-    m_relatingDocument = NULL;
+IfcRelAssociatesDocument::IfcRelAssociatesDocument(Step::Id id, Step::SPFData *args) : 
+    IfcRelAssociates(id, args)
+{
+    m_RelatingDocument = NULL;
 }
 
-IfcRelAssociatesDocument::~IfcRelAssociatesDocument() {
+IfcRelAssociatesDocument::~IfcRelAssociatesDocument()
+{}
+
+bool IfcRelAssociatesDocument::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRelAssociatesDocument(this);
 }
 
-bool IfcRelAssociatesDocument::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRelAssociatesDocument(this);
-}
 
-const std::string &IfcRelAssociatesDocument::type() const {
-    return IfcRelAssociatesDocument::s_type.getName();
-}
-
-const Step::ClassType &IfcRelAssociatesDocument::getClassType() {
-    return IfcRelAssociatesDocument::s_type;
-}
-
-const Step::ClassType &IfcRelAssociatesDocument::getType() const {
-    return IfcRelAssociatesDocument::s_type;
-}
-
-bool IfcRelAssociatesDocument::isOfType(const Step::ClassType &t) const {
-    return IfcRelAssociatesDocument::s_type == t ? true : IfcRelAssociates::isOfType(t);
-}
-
-IfcDocumentSelect *IfcRelAssociatesDocument::getRelatingDocument() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingDocument.get();
+IfcDocumentSelect *IfcRelAssociatesDocument::getRelatingDocument()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RelatingDocument.get();
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcDocumentSelect *IfcRelAssociatesDocument::getRelatingDocument() const {
-    IfcRelAssociatesDocument * deConstObject = const_cast< IfcRelAssociatesDocument * > (this);
-    return deConstObject->getRelatingDocument();
+const IfcDocumentSelect *IfcRelAssociatesDocument::getRelatingDocument() const
+{
+    return const_cast<IfcRelAssociatesDocument *>(this)->getRelatingDocument();
 }
 
-void IfcRelAssociatesDocument::setRelatingDocument(const Step::RefPtr< IfcDocumentSelect > &value) {
-    m_relatingDocument = value;
+void IfcRelAssociatesDocument::setRelatingDocument(const Step::RefPtr< IfcDocumentSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingDocument = value;
 }
 
-void IfcRelAssociatesDocument::unsetRelatingDocument() {
-    m_relatingDocument = Step::getUnset(getRelatingDocument());
+void IfcRelAssociatesDocument::unsetRelatingDocument()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingDocument = Step::getUnset(getRelatingDocument());
 }
 
-bool IfcRelAssociatesDocument::testRelatingDocument() const {
-    return !Step::isUnset(getRelatingDocument());
+bool IfcRelAssociatesDocument::testRelatingDocument() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingDocument()) == false;
 }
 
-bool IfcRelAssociatesDocument::init() {
-    bool status = IfcRelAssociates::init();
-    std::string arg;
-    if (!status) {
+bool IfcRelAssociatesDocument::init()
+{
+    if (IfcRelAssociates::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingDocument = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingDocument = NULL;
     }
-    else {
-        m_relatingDocument = new IfcDocumentSelect;
+    else
+    {
+        m_RelatingDocument = new IfcDocumentSelect;
         if (arg[0] == '#') {
-            m_relatingDocument->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_RelatingDocument->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -115,11 +119,11 @@ bool IfcRelAssociatesDocument::init() {
     return true;
 }
 
-void IfcRelAssociatesDocument::copy(const IfcRelAssociatesDocument &obj, const CopyOp &copyop) {
+void IfcRelAssociatesDocument::copy(const IfcRelAssociatesDocument &obj, const CopyOp &copyop)
+{
     IfcRelAssociates::copy(obj, copyop);
-    m_relatingDocument = new IfcDocumentSelect;
-    m_relatingDocument->copy(*(obj.m_relatingDocument.get()), copyop);
+    setRelatingDocument((IfcDocumentSelect*)copyop(obj.m_RelatingDocument.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssociatesDocument::s_type("IfcRelAssociatesDocument");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRelAssociatesDocument, IfcRelAssociates)

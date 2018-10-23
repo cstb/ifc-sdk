@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,109 +24,112 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcChillerType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcEnergyConversionDeviceType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcChillerType::IfcChillerType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
-    m_predefinedType = IfcChillerTypeEnum_UNSET;
+IfcChillerType::IfcChillerType(Step::Id id, Step::SPFData *args) : 
+    IfcEnergyConversionDeviceType(id, args)
+{
+    m_PredefinedType = IfcChillerTypeEnum_UNSET;
 }
 
-IfcChillerType::~IfcChillerType() {
+IfcChillerType::~IfcChillerType()
+{}
+
+bool IfcChillerType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcChillerType(this);
 }
 
-bool IfcChillerType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcChillerType(this);
-}
 
-const std::string &IfcChillerType::type() const {
-    return IfcChillerType::s_type.getName();
-}
-
-const Step::ClassType &IfcChillerType::getClassType() {
-    return IfcChillerType::s_type;
-}
-
-const Step::ClassType &IfcChillerType::getType() const {
-    return IfcChillerType::s_type;
-}
-
-bool IfcChillerType::isOfType(const Step::ClassType &t) const {
-    return IfcChillerType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
-}
-
-IfcChillerTypeEnum IfcChillerType::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcChillerTypeEnum IfcChillerType::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcChillerTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcChillerTypeEnum IfcChillerType::getPredefinedType() const {
-    IfcChillerType * deConstObject = const_cast< IfcChillerType * > (this);
-    return deConstObject->getPredefinedType();
+IfcChillerTypeEnum IfcChillerType::getPredefinedType() const
+{
+    return const_cast<IfcChillerType *>(this)->getPredefinedType();
 }
 
-void IfcChillerType::setPredefinedType(IfcChillerTypeEnum value) {
-    m_predefinedType = value;
+void IfcChillerType::setPredefinedType(IfcChillerTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcChillerType::unsetPredefinedType() {
-    m_predefinedType = IfcChillerTypeEnum_UNSET;
+void IfcChillerType::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcChillerTypeEnum_UNSET;
 }
 
-bool IfcChillerType::testPredefinedType() const {
-    return getPredefinedType() != IfcChillerTypeEnum_UNSET;
+bool IfcChillerType::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcChillerType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
-    std::string arg;
-    if (!status) {
+bool IfcChillerType::init()
+{
+    if (IfcEnergyConversionDeviceType::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcChillerTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcChillerTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".AIRCOOLED.") {
-            m_predefinedType = IfcChillerTypeEnum_AIRCOOLED;
+    else
+    {
+        if (arg == ".AIRCOOLED.")
+        {
+            m_PredefinedType = IfcChillerTypeEnum_AIRCOOLED;
         }
-        else if (arg == ".WATERCOOLED.") {
-            m_predefinedType = IfcChillerTypeEnum_WATERCOOLED;
+        else if (arg == ".WATERCOOLED.")
+        {
+            m_PredefinedType = IfcChillerTypeEnum_WATERCOOLED;
         }
-        else if (arg == ".HEATRECOVERY.") {
-            m_predefinedType = IfcChillerTypeEnum_HEATRECOVERY;
+        else if (arg == ".HEATRECOVERY.")
+        {
+            m_PredefinedType = IfcChillerTypeEnum_HEATRECOVERY;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcChillerTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcChillerTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcChillerTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcChillerTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcChillerType::copy(const IfcChillerType &obj, const CopyOp &copyop) {
+void IfcChillerType::copy(const IfcChillerType &obj, const CopyOp &copyop)
+{
     IfcEnergyConversionDeviceType::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcChillerType::s_type("IfcChillerType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcChillerType, IfcEnergyConversionDeviceType)

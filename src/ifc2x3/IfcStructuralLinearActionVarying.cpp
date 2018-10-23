@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,136 +24,146 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcStructuralLinearActionVarying.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcShapeAspect.h>
-#include <ifc2x3/IfcStructuralLinearAction.h>
 #include <ifc2x3/IfcStructuralLoad.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcStructuralLinearActionVarying::IfcStructuralLinearActionVarying(Step::Id id, Step::SPFData *args) : IfcStructuralLinearAction(id, args) {
-    m_varyingAppliedLoadLocation = NULL;
+IfcStructuralLinearActionVarying::IfcStructuralLinearActionVarying(Step::Id id, Step::SPFData *args) : 
+    IfcStructuralLinearAction(id, args)
+{
+    m_VaryingAppliedLoadLocation = NULL;
+    m_SubsequentAppliedLoads.setUnset(true);
 }
 
-IfcStructuralLinearActionVarying::~IfcStructuralLinearActionVarying() {
+IfcStructuralLinearActionVarying::~IfcStructuralLinearActionVarying()
+{}
+
+bool IfcStructuralLinearActionVarying::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcStructuralLinearActionVarying(this);
 }
 
-bool IfcStructuralLinearActionVarying::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcStructuralLinearActionVarying(this);
-}
 
-const std::string &IfcStructuralLinearActionVarying::type() const {
-    return IfcStructuralLinearActionVarying::s_type.getName();
-}
-
-const Step::ClassType &IfcStructuralLinearActionVarying::getClassType() {
-    return IfcStructuralLinearActionVarying::s_type;
-}
-
-const Step::ClassType &IfcStructuralLinearActionVarying::getType() const {
-    return IfcStructuralLinearActionVarying::s_type;
-}
-
-bool IfcStructuralLinearActionVarying::isOfType(const Step::ClassType &t) const {
-    return IfcStructuralLinearActionVarying::s_type == t ? true : IfcStructuralLinearAction::isOfType(t);
-}
-
-IfcShapeAspect *IfcStructuralLinearActionVarying::getVaryingAppliedLoadLocation() {
-    if (Step::BaseObject::inited()) {
-        return m_varyingAppliedLoadLocation.get();
+IfcShapeAspect *IfcStructuralLinearActionVarying::getVaryingAppliedLoadLocation()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_VaryingAppliedLoadLocation.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcShapeAspect *IfcStructuralLinearActionVarying::getVaryingAppliedLoadLocation() const
+{
+    return const_cast<IfcStructuralLinearActionVarying *>(this)->getVaryingAppliedLoadLocation();
+}
+
+void IfcStructuralLinearActionVarying::setVaryingAppliedLoadLocation(const Step::RefPtr< IfcShapeAspect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VaryingAppliedLoadLocation = value;
+}
+
+void IfcStructuralLinearActionVarying::unsetVaryingAppliedLoadLocation()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VaryingAppliedLoadLocation = Step::getUnset(getVaryingAppliedLoadLocation());
+}
+
+bool IfcStructuralLinearActionVarying::testVaryingAppliedLoadLocation() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getVaryingAppliedLoadLocation()) == false;
+}
+
+
+List_IfcStructuralLoad_1_n &IfcStructuralLinearActionVarying::getSubsequentAppliedLoads()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SubsequentAppliedLoads;
     }
+    else 
+    {
+        m_SubsequentAppliedLoads.setUnset(true);
+        return m_SubsequentAppliedLoads;
+    }    
 }
 
-const IfcShapeAspect *IfcStructuralLinearActionVarying::getVaryingAppliedLoadLocation() const {
-    IfcStructuralLinearActionVarying * deConstObject = const_cast< IfcStructuralLinearActionVarying * > (this);
-    return deConstObject->getVaryingAppliedLoadLocation();
+const List_IfcStructuralLoad_1_n &IfcStructuralLinearActionVarying::getSubsequentAppliedLoads() const
+{
+    return const_cast<IfcStructuralLinearActionVarying *>(this)->getSubsequentAppliedLoads();
 }
 
-void IfcStructuralLinearActionVarying::setVaryingAppliedLoadLocation(const Step::RefPtr< IfcShapeAspect > &value) {
-    m_varyingAppliedLoadLocation = value;
+void IfcStructuralLinearActionVarying::setSubsequentAppliedLoads(const List_IfcStructuralLoad_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SubsequentAppliedLoads = value;
 }
 
-void IfcStructuralLinearActionVarying::unsetVaryingAppliedLoadLocation() {
-    m_varyingAppliedLoadLocation = Step::getUnset(getVaryingAppliedLoadLocation());
+void IfcStructuralLinearActionVarying::unsetSubsequentAppliedLoads()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SubsequentAppliedLoads.clear();
+    m_SubsequentAppliedLoads.setUnset(true);
 }
 
-bool IfcStructuralLinearActionVarying::testVaryingAppliedLoadLocation() const {
-    return !Step::isUnset(getVaryingAppliedLoadLocation());
+bool IfcStructuralLinearActionVarying::testSubsequentAppliedLoads() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_SubsequentAppliedLoads.isUnset() == false;
 }
 
-List_IfcStructuralLoad_1_n &IfcStructuralLinearActionVarying::getSubsequentAppliedLoads() {
-    if (Step::BaseObject::inited()) {
-        return m_subsequentAppliedLoads;
-    }
-    else {
-        m_subsequentAppliedLoads.setUnset(true);
-        return m_subsequentAppliedLoads;
-    }
-}
-
-const List_IfcStructuralLoad_1_n &IfcStructuralLinearActionVarying::getSubsequentAppliedLoads() const {
-    IfcStructuralLinearActionVarying * deConstObject = const_cast< IfcStructuralLinearActionVarying * > (this);
-    return deConstObject->getSubsequentAppliedLoads();
-}
-
-void IfcStructuralLinearActionVarying::setSubsequentAppliedLoads(const List_IfcStructuralLoad_1_n &value) {
-    m_subsequentAppliedLoads = value;
-}
-
-void IfcStructuralLinearActionVarying::unsetSubsequentAppliedLoads() {
-    m_subsequentAppliedLoads.clear();
-    m_subsequentAppliedLoads.setUnset(true);
-}
-
-bool IfcStructuralLinearActionVarying::testSubsequentAppliedLoads() const {
-    return !m_subsequentAppliedLoads.isUnset();
-}
-
-bool IfcStructuralLinearActionVarying::init() {
-    bool status = IfcStructuralLinearAction::init();
-    std::string arg;
-    if (!status) {
+bool IfcStructuralLinearActionVarying::init()
+{
+    if (IfcStructuralLinearAction::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_varyingAppliedLoadLocation = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_VaryingAppliedLoadLocation = NULL;
     }
-    else {
-        m_varyingAppliedLoadLocation = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_VaryingAppliedLoadLocation = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_subsequentAppliedLoads.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_SubsequentAppliedLoads.setUnset(true);
     }
-    else {
-        m_subsequentAppliedLoads.setUnset(false);
-        while (true) {
+    else
+    {
+        m_SubsequentAppliedLoads.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcStructuralLoad > attr2;
-                attr2 = static_cast< IfcStructuralLoad * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_subsequentAppliedLoads.push_back(attr2);
+            if (!str1.empty())
+            {
+                m_SubsequentAppliedLoads.push_back(static_cast< IfcStructuralLoad * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
@@ -152,15 +171,18 @@ bool IfcStructuralLinearActionVarying::init() {
     return true;
 }
 
-void IfcStructuralLinearActionVarying::copy(const IfcStructuralLinearActionVarying &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcStructuralLoad >, 1 >::const_iterator it_m_subsequentAppliedLoads;
+void IfcStructuralLinearActionVarying::copy(const IfcStructuralLinearActionVarying &obj, const CopyOp &copyop)
+{
     IfcStructuralLinearAction::copy(obj, copyop);
-    setVaryingAppliedLoadLocation((IfcShapeAspect*)copyop(obj.m_varyingAppliedLoadLocation.get()));
-    for (it_m_subsequentAppliedLoads = obj.m_subsequentAppliedLoads.begin(); it_m_subsequentAppliedLoads != obj.m_subsequentAppliedLoads.end(); ++it_m_subsequentAppliedLoads) {
-        Step::RefPtr< IfcStructuralLoad > copyTarget = (IfcStructuralLoad *) (copyop((*it_m_subsequentAppliedLoads).get()));
-        m_subsequentAppliedLoads.push_back(copyTarget.get());
+    setVaryingAppliedLoadLocation((IfcShapeAspect*)copyop(obj.m_VaryingAppliedLoadLocation.get()));
+    List_IfcStructuralLoad_1_n::const_iterator it_m_SubsequentAppliedLoads;
+    for (it_m_SubsequentAppliedLoads = obj.m_SubsequentAppliedLoads.begin(); it_m_SubsequentAppliedLoads != obj.m_SubsequentAppliedLoads.end(); ++it_m_SubsequentAppliedLoads)
+    {
+        Step::RefPtr< IfcStructuralLoad > copyTarget = (IfcStructuralLoad *) (copyop((*it_m_SubsequentAppliedLoads).get()));
+        m_SubsequentAppliedLoads.push_back(copyTarget);
     }
+    
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralLinearActionVarying::s_type("IfcStructuralLinearActionVarying");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcStructuralLinearActionVarying, IfcStructuralLinearAction)

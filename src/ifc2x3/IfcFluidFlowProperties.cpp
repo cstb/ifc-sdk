@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,578 +24,758 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcFluidFlowProperties.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcDerivedMeasureValue.h>
-#include <ifc2x3/IfcMaterial.h>
-#include <ifc2x3/IfcPropertySetDefinition.h>
 #include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/IfcMaterial.h>
+#include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/IfcDerivedMeasureValue.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcFluidFlowProperties::IfcFluidFlowProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
-    m_propertySource = IfcPropertySourceEnum_UNSET;
-    m_flowConditionTimeSeries = NULL;
-    m_velocityTimeSeries = NULL;
-    m_flowrateTimeSeries = NULL;
-    m_fluid = NULL;
-    m_pressureTimeSeries = NULL;
-    m_userDefinedPropertySource = Step::getUnset(m_userDefinedPropertySource);
-    m_temperatureSingleValue = Step::getUnset(m_temperatureSingleValue);
-    m_wetBulbTemperatureSingleValue = Step::getUnset(m_wetBulbTemperatureSingleValue);
-    m_wetBulbTemperatureTimeSeries = NULL;
-    m_temperatureTimeSeries = NULL;
-    m_flowrateSingleValue = NULL;
-    m_flowConditionSingleValue = Step::getUnset(m_flowConditionSingleValue);
-    m_velocitySingleValue = Step::getUnset(m_velocitySingleValue);
-    m_pressureSingleValue = Step::getUnset(m_pressureSingleValue);
+IfcFluidFlowProperties::IfcFluidFlowProperties(Step::Id id, Step::SPFData *args) : 
+    IfcPropertySetDefinition(id, args)
+{
+    m_PropertySource = IfcPropertySourceEnum_UNSET;
+    m_FlowConditionTimeSeries = NULL;
+    m_VelocityTimeSeries = NULL;
+    m_FlowrateTimeSeries = NULL;
+    m_Fluid = NULL;
+    m_PressureTimeSeries = NULL;
+    m_UserDefinedPropertySource = Step::getUnset(m_UserDefinedPropertySource);
+    m_TemperatureSingleValue = Step::getUnset(m_TemperatureSingleValue);
+    m_WetBulbTemperatureSingleValue = Step::getUnset(m_WetBulbTemperatureSingleValue);
+    m_WetBulbTemperatureTimeSeries = NULL;
+    m_TemperatureTimeSeries = NULL;
+    m_FlowrateSingleValue = NULL;
+    m_FlowConditionSingleValue = Step::getUnset(m_FlowConditionSingleValue);
+    m_VelocitySingleValue = Step::getUnset(m_VelocitySingleValue);
+    m_PressureSingleValue = Step::getUnset(m_PressureSingleValue);
 }
 
-IfcFluidFlowProperties::~IfcFluidFlowProperties() {
+IfcFluidFlowProperties::~IfcFluidFlowProperties()
+{}
+
+bool IfcFluidFlowProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcFluidFlowProperties(this);
 }
 
-bool IfcFluidFlowProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcFluidFlowProperties(this);
-}
 
-const std::string &IfcFluidFlowProperties::type() const {
-    return IfcFluidFlowProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcFluidFlowProperties::getClassType() {
-    return IfcFluidFlowProperties::s_type;
-}
-
-const Step::ClassType &IfcFluidFlowProperties::getType() const {
-    return IfcFluidFlowProperties::s_type;
-}
-
-bool IfcFluidFlowProperties::isOfType(const Step::ClassType &t) const {
-    return IfcFluidFlowProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
-}
-
-IfcPropertySourceEnum IfcFluidFlowProperties::getPropertySource() {
-    if (Step::BaseObject::inited()) {
-        return m_propertySource;
+IfcPropertySourceEnum IfcFluidFlowProperties::getPropertySource()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PropertySource;
     }
-    else {
+    else 
+    {
         return IfcPropertySourceEnum_UNSET;
+    }    
+}
+
+IfcPropertySourceEnum IfcFluidFlowProperties::getPropertySource() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getPropertySource();
+}
+
+void IfcFluidFlowProperties::setPropertySource(IfcPropertySourceEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PropertySource = value;
+}
+
+void IfcFluidFlowProperties::unsetPropertySource()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PropertySource = IfcPropertySourceEnum_UNSET;
+}
+
+bool IfcFluidFlowProperties::testPropertySource() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPropertySource()) == false;
+}
+
+
+IfcTimeSeries *IfcFluidFlowProperties::getFlowConditionTimeSeries()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FlowConditionTimeSeries.get();
     }
-}
-
-const IfcPropertySourceEnum IfcFluidFlowProperties::getPropertySource() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getPropertySource();
-}
-
-void IfcFluidFlowProperties::setPropertySource(IfcPropertySourceEnum value) {
-    m_propertySource = value;
-}
-
-void IfcFluidFlowProperties::unsetPropertySource() {
-    m_propertySource = IfcPropertySourceEnum_UNSET;
-}
-
-bool IfcFluidFlowProperties::testPropertySource() const {
-    return getPropertySource() != IfcPropertySourceEnum_UNSET;
-}
-
-IfcTimeSeries *IfcFluidFlowProperties::getFlowConditionTimeSeries() {
-    if (Step::BaseObject::inited()) {
-        return m_flowConditionTimeSeries.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcTimeSeries *IfcFluidFlowProperties::getFlowConditionTimeSeries() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getFlowConditionTimeSeries();
+}
+
+void IfcFluidFlowProperties::setFlowConditionTimeSeries(const Step::RefPtr< IfcTimeSeries > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FlowConditionTimeSeries = value;
+}
+
+void IfcFluidFlowProperties::unsetFlowConditionTimeSeries()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FlowConditionTimeSeries = Step::getUnset(getFlowConditionTimeSeries());
+}
+
+bool IfcFluidFlowProperties::testFlowConditionTimeSeries() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFlowConditionTimeSeries()) == false;
+}
+
+
+IfcTimeSeries *IfcFluidFlowProperties::getVelocityTimeSeries()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_VelocityTimeSeries.get();
     }
-}
-
-const IfcTimeSeries *IfcFluidFlowProperties::getFlowConditionTimeSeries() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getFlowConditionTimeSeries();
-}
-
-void IfcFluidFlowProperties::setFlowConditionTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
-    m_flowConditionTimeSeries = value;
-}
-
-void IfcFluidFlowProperties::unsetFlowConditionTimeSeries() {
-    m_flowConditionTimeSeries = Step::getUnset(getFlowConditionTimeSeries());
-}
-
-bool IfcFluidFlowProperties::testFlowConditionTimeSeries() const {
-    return !Step::isUnset(getFlowConditionTimeSeries());
-}
-
-IfcTimeSeries *IfcFluidFlowProperties::getVelocityTimeSeries() {
-    if (Step::BaseObject::inited()) {
-        return m_velocityTimeSeries.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcTimeSeries *IfcFluidFlowProperties::getVelocityTimeSeries() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getVelocityTimeSeries();
+}
+
+void IfcFluidFlowProperties::setVelocityTimeSeries(const Step::RefPtr< IfcTimeSeries > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VelocityTimeSeries = value;
+}
+
+void IfcFluidFlowProperties::unsetVelocityTimeSeries()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VelocityTimeSeries = Step::getUnset(getVelocityTimeSeries());
+}
+
+bool IfcFluidFlowProperties::testVelocityTimeSeries() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getVelocityTimeSeries()) == false;
+}
+
+
+IfcTimeSeries *IfcFluidFlowProperties::getFlowrateTimeSeries()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FlowrateTimeSeries.get();
     }
-}
-
-const IfcTimeSeries *IfcFluidFlowProperties::getVelocityTimeSeries() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getVelocityTimeSeries();
-}
-
-void IfcFluidFlowProperties::setVelocityTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
-    m_velocityTimeSeries = value;
-}
-
-void IfcFluidFlowProperties::unsetVelocityTimeSeries() {
-    m_velocityTimeSeries = Step::getUnset(getVelocityTimeSeries());
-}
-
-bool IfcFluidFlowProperties::testVelocityTimeSeries() const {
-    return !Step::isUnset(getVelocityTimeSeries());
-}
-
-IfcTimeSeries *IfcFluidFlowProperties::getFlowrateTimeSeries() {
-    if (Step::BaseObject::inited()) {
-        return m_flowrateTimeSeries.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcTimeSeries *IfcFluidFlowProperties::getFlowrateTimeSeries() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getFlowrateTimeSeries();
+}
+
+void IfcFluidFlowProperties::setFlowrateTimeSeries(const Step::RefPtr< IfcTimeSeries > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FlowrateTimeSeries = value;
+}
+
+void IfcFluidFlowProperties::unsetFlowrateTimeSeries()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FlowrateTimeSeries = Step::getUnset(getFlowrateTimeSeries());
+}
+
+bool IfcFluidFlowProperties::testFlowrateTimeSeries() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFlowrateTimeSeries()) == false;
+}
+
+
+IfcMaterial *IfcFluidFlowProperties::getFluid()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Fluid.get();
     }
-}
-
-const IfcTimeSeries *IfcFluidFlowProperties::getFlowrateTimeSeries() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getFlowrateTimeSeries();
-}
-
-void IfcFluidFlowProperties::setFlowrateTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
-    m_flowrateTimeSeries = value;
-}
-
-void IfcFluidFlowProperties::unsetFlowrateTimeSeries() {
-    m_flowrateTimeSeries = Step::getUnset(getFlowrateTimeSeries());
-}
-
-bool IfcFluidFlowProperties::testFlowrateTimeSeries() const {
-    return !Step::isUnset(getFlowrateTimeSeries());
-}
-
-IfcMaterial *IfcFluidFlowProperties::getFluid() {
-    if (Step::BaseObject::inited()) {
-        return m_fluid.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcMaterial *IfcFluidFlowProperties::getFluid() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getFluid();
+}
+
+void IfcFluidFlowProperties::setFluid(const Step::RefPtr< IfcMaterial > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Fluid = value;
+}
+
+void IfcFluidFlowProperties::unsetFluid()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Fluid = Step::getUnset(getFluid());
+}
+
+bool IfcFluidFlowProperties::testFluid() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFluid()) == false;
+}
+
+
+IfcTimeSeries *IfcFluidFlowProperties::getPressureTimeSeries()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PressureTimeSeries.get();
     }
-}
-
-const IfcMaterial *IfcFluidFlowProperties::getFluid() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getFluid();
-}
-
-void IfcFluidFlowProperties::setFluid(const Step::RefPtr< IfcMaterial > &value) {
-    m_fluid = value;
-}
-
-void IfcFluidFlowProperties::unsetFluid() {
-    m_fluid = Step::getUnset(getFluid());
-}
-
-bool IfcFluidFlowProperties::testFluid() const {
-    return !Step::isUnset(getFluid());
-}
-
-IfcTimeSeries *IfcFluidFlowProperties::getPressureTimeSeries() {
-    if (Step::BaseObject::inited()) {
-        return m_pressureTimeSeries.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcTimeSeries *IfcFluidFlowProperties::getPressureTimeSeries() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getPressureTimeSeries();
+}
+
+void IfcFluidFlowProperties::setPressureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PressureTimeSeries = value;
+}
+
+void IfcFluidFlowProperties::unsetPressureTimeSeries()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PressureTimeSeries = Step::getUnset(getPressureTimeSeries());
+}
+
+bool IfcFluidFlowProperties::testPressureTimeSeries() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPressureTimeSeries()) == false;
+}
+
+
+IfcLabel IfcFluidFlowProperties::getUserDefinedPropertySource()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UserDefinedPropertySource;
     }
+    else 
+    {
+        return Step::getUnset(m_UserDefinedPropertySource);
+    }    
 }
 
-const IfcTimeSeries *IfcFluidFlowProperties::getPressureTimeSeries() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getPressureTimeSeries();
+const IfcLabel IfcFluidFlowProperties::getUserDefinedPropertySource() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getUserDefinedPropertySource();
 }
 
-void IfcFluidFlowProperties::setPressureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
-    m_pressureTimeSeries = value;
+void IfcFluidFlowProperties::setUserDefinedPropertySource(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedPropertySource = value;
 }
 
-void IfcFluidFlowProperties::unsetPressureTimeSeries() {
-    m_pressureTimeSeries = Step::getUnset(getPressureTimeSeries());
+void IfcFluidFlowProperties::unsetUserDefinedPropertySource()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedPropertySource = Step::getUnset(getUserDefinedPropertySource());
 }
 
-bool IfcFluidFlowProperties::testPressureTimeSeries() const {
-    return !Step::isUnset(getPressureTimeSeries());
+bool IfcFluidFlowProperties::testUserDefinedPropertySource() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUserDefinedPropertySource()) == false;
 }
 
-IfcLabel IfcFluidFlowProperties::getUserDefinedPropertySource() {
-    if (Step::BaseObject::inited()) {
-        return m_userDefinedPropertySource;
+
+IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getTemperatureSingleValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TemperatureSingleValue;
     }
-    else {
-        return Step::getUnset(m_userDefinedPropertySource);
+    else 
+    {
+        return Step::getUnset(m_TemperatureSingleValue);
+    }    
+}
+
+IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getTemperatureSingleValue() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getTemperatureSingleValue();
+}
+
+void IfcFluidFlowProperties::setTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TemperatureSingleValue = value;
+}
+
+void IfcFluidFlowProperties::unsetTemperatureSingleValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TemperatureSingleValue = Step::getUnset(getTemperatureSingleValue());
+}
+
+bool IfcFluidFlowProperties::testTemperatureSingleValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTemperatureSingleValue()) == false;
+}
+
+
+IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getWetBulbTemperatureSingleValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_WetBulbTemperatureSingleValue;
     }
+    else 
+    {
+        return Step::getUnset(m_WetBulbTemperatureSingleValue);
+    }    
 }
 
-const IfcLabel IfcFluidFlowProperties::getUserDefinedPropertySource() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getUserDefinedPropertySource();
+IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getWetBulbTemperatureSingleValue() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getWetBulbTemperatureSingleValue();
 }
 
-void IfcFluidFlowProperties::setUserDefinedPropertySource(const IfcLabel &value) {
-    m_userDefinedPropertySource = value;
+void IfcFluidFlowProperties::setWetBulbTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WetBulbTemperatureSingleValue = value;
 }
 
-void IfcFluidFlowProperties::unsetUserDefinedPropertySource() {
-    m_userDefinedPropertySource = Step::getUnset(getUserDefinedPropertySource());
+void IfcFluidFlowProperties::unsetWetBulbTemperatureSingleValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WetBulbTemperatureSingleValue = Step::getUnset(getWetBulbTemperatureSingleValue());
 }
 
-bool IfcFluidFlowProperties::testUserDefinedPropertySource() const {
-    return !Step::isUnset(getUserDefinedPropertySource());
+bool IfcFluidFlowProperties::testWetBulbTemperatureSingleValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getWetBulbTemperatureSingleValue()) == false;
 }
 
-IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getTemperatureSingleValue() {
-    if (Step::BaseObject::inited()) {
-        return m_temperatureSingleValue;
+
+IfcTimeSeries *IfcFluidFlowProperties::getWetBulbTemperatureTimeSeries()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_WetBulbTemperatureTimeSeries.get();
     }
-    else {
-        return Step::getUnset(m_temperatureSingleValue);
-    }
-}
-
-const IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getTemperatureSingleValue() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getTemperatureSingleValue();
-}
-
-void IfcFluidFlowProperties::setTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value) {
-    m_temperatureSingleValue = value;
-}
-
-void IfcFluidFlowProperties::unsetTemperatureSingleValue() {
-    m_temperatureSingleValue = Step::getUnset(getTemperatureSingleValue());
-}
-
-bool IfcFluidFlowProperties::testTemperatureSingleValue() const {
-    return !Step::isUnset(getTemperatureSingleValue());
-}
-
-IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getWetBulbTemperatureSingleValue() {
-    if (Step::BaseObject::inited()) {
-        return m_wetBulbTemperatureSingleValue;
-    }
-    else {
-        return Step::getUnset(m_wetBulbTemperatureSingleValue);
-    }
-}
-
-const IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getWetBulbTemperatureSingleValue() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getWetBulbTemperatureSingleValue();
-}
-
-void IfcFluidFlowProperties::setWetBulbTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value) {
-    m_wetBulbTemperatureSingleValue = value;
-}
-
-void IfcFluidFlowProperties::unsetWetBulbTemperatureSingleValue() {
-    m_wetBulbTemperatureSingleValue = Step::getUnset(getWetBulbTemperatureSingleValue());
-}
-
-bool IfcFluidFlowProperties::testWetBulbTemperatureSingleValue() const {
-    return !Step::isUnset(getWetBulbTemperatureSingleValue());
-}
-
-IfcTimeSeries *IfcFluidFlowProperties::getWetBulbTemperatureTimeSeries() {
-    if (Step::BaseObject::inited()) {
-        return m_wetBulbTemperatureTimeSeries.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcTimeSeries *IfcFluidFlowProperties::getWetBulbTemperatureTimeSeries() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getWetBulbTemperatureTimeSeries();
+}
+
+void IfcFluidFlowProperties::setWetBulbTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WetBulbTemperatureTimeSeries = value;
+}
+
+void IfcFluidFlowProperties::unsetWetBulbTemperatureTimeSeries()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WetBulbTemperatureTimeSeries = Step::getUnset(getWetBulbTemperatureTimeSeries());
+}
+
+bool IfcFluidFlowProperties::testWetBulbTemperatureTimeSeries() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getWetBulbTemperatureTimeSeries()) == false;
+}
+
+
+IfcTimeSeries *IfcFluidFlowProperties::getTemperatureTimeSeries()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TemperatureTimeSeries.get();
     }
-}
-
-const IfcTimeSeries *IfcFluidFlowProperties::getWetBulbTemperatureTimeSeries() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getWetBulbTemperatureTimeSeries();
-}
-
-void IfcFluidFlowProperties::setWetBulbTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
-    m_wetBulbTemperatureTimeSeries = value;
-}
-
-void IfcFluidFlowProperties::unsetWetBulbTemperatureTimeSeries() {
-    m_wetBulbTemperatureTimeSeries = Step::getUnset(getWetBulbTemperatureTimeSeries());
-}
-
-bool IfcFluidFlowProperties::testWetBulbTemperatureTimeSeries() const {
-    return !Step::isUnset(getWetBulbTemperatureTimeSeries());
-}
-
-IfcTimeSeries *IfcFluidFlowProperties::getTemperatureTimeSeries() {
-    if (Step::BaseObject::inited()) {
-        return m_temperatureTimeSeries.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcTimeSeries *IfcFluidFlowProperties::getTemperatureTimeSeries() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getTemperatureTimeSeries();
+}
+
+void IfcFluidFlowProperties::setTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TemperatureTimeSeries = value;
+}
+
+void IfcFluidFlowProperties::unsetTemperatureTimeSeries()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TemperatureTimeSeries = Step::getUnset(getTemperatureTimeSeries());
+}
+
+bool IfcFluidFlowProperties::testTemperatureTimeSeries() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTemperatureTimeSeries()) == false;
+}
+
+
+IfcDerivedMeasureValue *IfcFluidFlowProperties::getFlowrateSingleValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FlowrateSingleValue.get();
     }
-}
-
-const IfcTimeSeries *IfcFluidFlowProperties::getTemperatureTimeSeries() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getTemperatureTimeSeries();
-}
-
-void IfcFluidFlowProperties::setTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
-    m_temperatureTimeSeries = value;
-}
-
-void IfcFluidFlowProperties::unsetTemperatureTimeSeries() {
-    m_temperatureTimeSeries = Step::getUnset(getTemperatureTimeSeries());
-}
-
-bool IfcFluidFlowProperties::testTemperatureTimeSeries() const {
-    return !Step::isUnset(getTemperatureTimeSeries());
-}
-
-IfcDerivedMeasureValue *IfcFluidFlowProperties::getFlowrateSingleValue() {
-    if (Step::BaseObject::inited()) {
-        return m_flowrateSingleValue.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDerivedMeasureValue *IfcFluidFlowProperties::getFlowrateSingleValue() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getFlowrateSingleValue();
+}
+
+void IfcFluidFlowProperties::setFlowrateSingleValue(const Step::RefPtr< IfcDerivedMeasureValue > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FlowrateSingleValue = value;
+}
+
+void IfcFluidFlowProperties::unsetFlowrateSingleValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FlowrateSingleValue = Step::getUnset(getFlowrateSingleValue());
+}
+
+bool IfcFluidFlowProperties::testFlowrateSingleValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFlowrateSingleValue()) == false;
+}
+
+
+IfcPositiveRatioMeasure IfcFluidFlowProperties::getFlowConditionSingleValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FlowConditionSingleValue;
     }
+    else 
+    {
+        return Step::getUnset(m_FlowConditionSingleValue);
+    }    
 }
 
-const IfcDerivedMeasureValue *IfcFluidFlowProperties::getFlowrateSingleValue() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getFlowrateSingleValue();
+IfcPositiveRatioMeasure IfcFluidFlowProperties::getFlowConditionSingleValue() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getFlowConditionSingleValue();
 }
 
-void IfcFluidFlowProperties::setFlowrateSingleValue(const Step::RefPtr< IfcDerivedMeasureValue > &value) {
-    m_flowrateSingleValue = value;
+void IfcFluidFlowProperties::setFlowConditionSingleValue(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FlowConditionSingleValue = value;
 }
 
-void IfcFluidFlowProperties::unsetFlowrateSingleValue() {
-    m_flowrateSingleValue = Step::getUnset(getFlowrateSingleValue());
+void IfcFluidFlowProperties::unsetFlowConditionSingleValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FlowConditionSingleValue = Step::getUnset(getFlowConditionSingleValue());
 }
 
-bool IfcFluidFlowProperties::testFlowrateSingleValue() const {
-    return !Step::isUnset(getFlowrateSingleValue());
+bool IfcFluidFlowProperties::testFlowConditionSingleValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFlowConditionSingleValue()) == false;
 }
 
-IfcPositiveRatioMeasure IfcFluidFlowProperties::getFlowConditionSingleValue() {
-    if (Step::BaseObject::inited()) {
-        return m_flowConditionSingleValue;
+
+IfcLinearVelocityMeasure IfcFluidFlowProperties::getVelocitySingleValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_VelocitySingleValue;
     }
-    else {
-        return Step::getUnset(m_flowConditionSingleValue);
+    else 
+    {
+        return Step::getUnset(m_VelocitySingleValue);
+    }    
+}
+
+IfcLinearVelocityMeasure IfcFluidFlowProperties::getVelocitySingleValue() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getVelocitySingleValue();
+}
+
+void IfcFluidFlowProperties::setVelocitySingleValue(IfcLinearVelocityMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VelocitySingleValue = value;
+}
+
+void IfcFluidFlowProperties::unsetVelocitySingleValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VelocitySingleValue = Step::getUnset(getVelocitySingleValue());
+}
+
+bool IfcFluidFlowProperties::testVelocitySingleValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getVelocitySingleValue()) == false;
+}
+
+
+IfcPressureMeasure IfcFluidFlowProperties::getPressureSingleValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PressureSingleValue;
     }
+    else 
+    {
+        return Step::getUnset(m_PressureSingleValue);
+    }    
 }
 
-const IfcPositiveRatioMeasure IfcFluidFlowProperties::getFlowConditionSingleValue() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getFlowConditionSingleValue();
+IfcPressureMeasure IfcFluidFlowProperties::getPressureSingleValue() const
+{
+    return const_cast<IfcFluidFlowProperties *>(this)->getPressureSingleValue();
 }
 
-void IfcFluidFlowProperties::setFlowConditionSingleValue(IfcPositiveRatioMeasure value) {
-    m_flowConditionSingleValue = value;
+void IfcFluidFlowProperties::setPressureSingleValue(IfcPressureMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PressureSingleValue = value;
 }
 
-void IfcFluidFlowProperties::unsetFlowConditionSingleValue() {
-    m_flowConditionSingleValue = Step::getUnset(getFlowConditionSingleValue());
+void IfcFluidFlowProperties::unsetPressureSingleValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PressureSingleValue = Step::getUnset(getPressureSingleValue());
 }
 
-bool IfcFluidFlowProperties::testFlowConditionSingleValue() const {
-    return !Step::isUnset(getFlowConditionSingleValue());
+bool IfcFluidFlowProperties::testPressureSingleValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPressureSingleValue()) == false;
 }
 
-IfcLinearVelocityMeasure IfcFluidFlowProperties::getVelocitySingleValue() {
-    if (Step::BaseObject::inited()) {
-        return m_velocitySingleValue;
-    }
-    else {
-        return Step::getUnset(m_velocitySingleValue);
-    }
-}
-
-const IfcLinearVelocityMeasure IfcFluidFlowProperties::getVelocitySingleValue() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getVelocitySingleValue();
-}
-
-void IfcFluidFlowProperties::setVelocitySingleValue(IfcLinearVelocityMeasure value) {
-    m_velocitySingleValue = value;
-}
-
-void IfcFluidFlowProperties::unsetVelocitySingleValue() {
-    m_velocitySingleValue = Step::getUnset(getVelocitySingleValue());
-}
-
-bool IfcFluidFlowProperties::testVelocitySingleValue() const {
-    return !Step::isUnset(getVelocitySingleValue());
-}
-
-IfcPressureMeasure IfcFluidFlowProperties::getPressureSingleValue() {
-    if (Step::BaseObject::inited()) {
-        return m_pressureSingleValue;
-    }
-    else {
-        return Step::getUnset(m_pressureSingleValue);
-    }
-}
-
-const IfcPressureMeasure IfcFluidFlowProperties::getPressureSingleValue() const {
-    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
-    return deConstObject->getPressureSingleValue();
-}
-
-void IfcFluidFlowProperties::setPressureSingleValue(IfcPressureMeasure value) {
-    m_pressureSingleValue = value;
-}
-
-void IfcFluidFlowProperties::unsetPressureSingleValue() {
-    m_pressureSingleValue = Step::getUnset(getPressureSingleValue());
-}
-
-bool IfcFluidFlowProperties::testPressureSingleValue() const {
-    return !Step::isUnset(getPressureSingleValue());
-}
-
-bool IfcFluidFlowProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
-    std::string arg;
-    if (!status) {
+bool IfcFluidFlowProperties::init()
+{
+    if (IfcPropertySetDefinition::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_propertySource = IfcPropertySourceEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PropertySource = IfcPropertySourceEnum_UNSET;
     }
-    else {
-        if (arg == ".DESIGN.") {
-            m_propertySource = IfcPropertySourceEnum_DESIGN;
+    else
+    {
+        if (arg == ".DESIGN.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_DESIGN;
         }
-        else if (arg == ".DESIGNMAXIMUM.") {
-            m_propertySource = IfcPropertySourceEnum_DESIGNMAXIMUM;
+        else if (arg == ".DESIGNMAXIMUM.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_DESIGNMAXIMUM;
         }
-        else if (arg == ".DESIGNMINIMUM.") {
-            m_propertySource = IfcPropertySourceEnum_DESIGNMINIMUM;
+        else if (arg == ".DESIGNMINIMUM.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_DESIGNMINIMUM;
         }
-        else if (arg == ".SIMULATED.") {
-            m_propertySource = IfcPropertySourceEnum_SIMULATED;
+        else if (arg == ".SIMULATED.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_SIMULATED;
         }
-        else if (arg == ".ASBUILT.") {
-            m_propertySource = IfcPropertySourceEnum_ASBUILT;
+        else if (arg == ".ASBUILT.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_ASBUILT;
         }
-        else if (arg == ".COMMISSIONING.") {
-            m_propertySource = IfcPropertySourceEnum_COMMISSIONING;
+        else if (arg == ".COMMISSIONING.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_COMMISSIONING;
         }
-        else if (arg == ".MEASURED.") {
-            m_propertySource = IfcPropertySourceEnum_MEASURED;
+        else if (arg == ".MEASURED.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_MEASURED;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_propertySource = IfcPropertySourceEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_USERDEFINED;
         }
-        else if (arg == ".NOTKNOWN.") {
-            m_propertySource = IfcPropertySourceEnum_NOTKNOWN;
+        else if (arg == ".NOTKNOWN.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_NOTKNOWN;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_flowConditionTimeSeries = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_FlowConditionTimeSeries = NULL;
     }
-    else {
-        m_flowConditionTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_velocityTimeSeries = NULL;
-    }
-    else {
-        m_velocityTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_FlowConditionTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_flowrateTimeSeries = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_VelocityTimeSeries = NULL;
     }
-    else {
-        m_flowrateTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_fluid = NULL;
-    }
-    else {
-        m_fluid = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_VelocityTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_pressureTimeSeries = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_FlowrateTimeSeries = NULL;
     }
-    else {
-        m_pressureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_userDefinedPropertySource = Step::getUnset(m_userDefinedPropertySource);
-    }
-    else {
-        m_userDefinedPropertySource = Step::String::fromSPF(arg);
+    else
+    {
+        m_FlowrateTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_temperatureSingleValue = Step::getUnset(m_temperatureSingleValue);
+    if (arg == "$" || arg == "*")
+    {
+        m_Fluid = NULL;
     }
-    else {
-        m_temperatureSingleValue = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_wetBulbTemperatureSingleValue = Step::getUnset(m_wetBulbTemperatureSingleValue);
-    }
-    else {
-        m_wetBulbTemperatureSingleValue = Step::spfToReal(arg);
+    else
+    {
+        m_Fluid = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_wetBulbTemperatureTimeSeries = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_PressureTimeSeries = NULL;
     }
-    else {
-        m_wetBulbTemperatureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_temperatureTimeSeries = NULL;
-    }
-    else {
-        m_temperatureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_PressureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_flowrateSingleValue = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_UserDefinedPropertySource = Step::getUnset(m_UserDefinedPropertySource);
     }
-    else {
-        m_flowrateSingleValue = new IfcDerivedMeasureValue;
+    else
+    {
+        m_UserDefinedPropertySource = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_TemperatureSingleValue = Step::getUnset(m_TemperatureSingleValue);
+    }
+    else
+    {
+        m_TemperatureSingleValue = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_WetBulbTemperatureSingleValue = Step::getUnset(m_WetBulbTemperatureSingleValue);
+    }
+    else
+    {
+        m_WetBulbTemperatureSingleValue = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_WetBulbTemperatureTimeSeries = NULL;
+    }
+    else
+    {
+        m_WetBulbTemperatureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_TemperatureTimeSeries = NULL;
+    }
+    else
+    {
+        m_TemperatureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_FlowrateSingleValue = NULL;
+    }
+    else
+    {
+        m_FlowrateSingleValue = new IfcDerivedMeasureValue;
         if (arg[0] == '#') {
-            m_flowrateSingleValue->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_FlowrateSingleValue->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -595,404 +784,519 @@ bool IfcFluidFlowProperties::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCVOLUMETRICFLOWRATEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcVolumetricFlowRateMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTIMESTAMP") {
-                    Step::Integer tmp_attr1;
-                    tmp_attr1 = Step::spfToInteger(arg);
-                    m_flowrateSingleValue->setIfcTimeStamp(tmp_attr1);
-                }
-                if (type1 == "IFCTHERMALTRANSMITTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcThermalTransmittanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTHERMALRESISTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcThermalResistanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTHERMALADMITTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcThermalAdmittanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCPRESSUREMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcPressureMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCPOWERMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcPowerMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMASSFLOWRATEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcMassFlowRateMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMASSDENSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcMassDensityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLINEARVELOCITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcLinearVelocityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCKINEMATICVISCOSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcKinematicViscosityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCINTEGERCOUNTRATEMEASURE") {
-                    Step::Integer tmp_attr1;
-                    tmp_attr1 = Step::spfToInteger(arg);
-                    m_flowrateSingleValue->setIfcIntegerCountRateMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCHEATFLUXDENSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcHeatFluxDensityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCFREQUENCYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcFrequencyMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCENERGYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcEnergyMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCELECTRICVOLTAGEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcElectricVoltageMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCDYNAMICVISCOSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcDynamicViscosityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                    List_Integer_3_4 tmp_attr1;
-                    tmp_attr1.setUnset(false);
-                    while (true) {
-                        std::string str2;
-                        Step::getSubParameter(arg, str2);
-                        if (str2 != "") {
-                            Step::Integer attr3;
-                            attr3 = Step::spfToInteger(str2);
-                            tmp_attr1.push_back(attr3);
-                        }
-                        else {
-                            break;
-                        }
-                    }
-                    m_flowrateSingleValue->setIfcCompoundPlaneAngleMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCANGULARVELOCITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcAngularVelocityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTHERMALCONDUCTIVITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcThermalConductivityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMOLECULARWEIGHTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcMolecularWeightMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCVAPORPERMEABILITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcVaporPermeabilityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMOISTUREDIFFUSIVITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcMoistureDiffusivityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCISOTHERMALMOISTURECAPACITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcIsothermalMoistureCapacityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSPECIFICHEATCAPACITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcSpecificHeatCapacityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMONETARYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcMonetaryMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMAGNETICFLUXDENSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcMagneticFluxDensityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMAGNETICFLUXMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcMagneticFluxMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLUMINOUSFLUXMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcLuminousFluxMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCFORCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcForceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCINDUCTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcInductanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCILLUMINANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcIlluminanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCELECTRICRESISTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcElectricResistanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCELECTRICCONDUCTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcElectricConductanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCELECTRICCHARGEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcElectricChargeMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCDOSEEQUIVALENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcDoseEquivalentMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCELECTRICCAPACITANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcElectricCapacitanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCABSORBEDDOSEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcAbsorbedDoseMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCRADIOACTIVITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcRadioActivityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCROTATIONALFREQUENCYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcRotationalFrequencyMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTORQUEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcTorqueMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCACCELERATIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcAccelerationMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLINEARFORCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcLinearForceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLINEARSTIFFNESSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcLinearStiffnessMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMODULUSOFSUBGRADEREACTIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcModulusOfSubgradeReactionMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMODULUSOFELASTICITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcModulusOfElasticityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMOMENTOFINERTIAMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcMomentOfInertiaMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCPLANARFORCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcPlanarForceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCROTATIONALSTIFFNESSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcRotationalStiffnessMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSHEARMODULUSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcShearModulusMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLINEARMOMENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcLinearMomentMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLUMINOUSINTENSITYDISTRIBUTIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcLuminousIntensityDistributionMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCCURVATUREMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcCurvatureMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMASSPERLENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcMassPerLengthMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMODULUSOFLINEARSUBGRADEREACTIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcModulusOfLinearSubgradeReactionMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMODULUSOFROTATIONALSUBGRADEREACTIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcModulusOfRotationalSubgradeReactionMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCROTATIONALMASSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcRotationalMassMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSECTIONALAREAINTEGRALMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcSectionalAreaIntegralMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSECTIONMODULUSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcSectionModulusMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTEMPERATUREGRADIENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcTemperatureGradientMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTHERMALEXPANSIONCOEFFICIENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcThermalExpansionCoefficientMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCWARPINGCONSTANTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcWarpingConstantMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCWARPINGMOMENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcWarpingMomentMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSOUNDPOWERMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcSoundPowerMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSOUNDPRESSUREMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcSoundPressureMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCHEATINGVALUEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcHeatingValueMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCPHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcPHMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCIONCONCENTRATIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_flowrateSingleValue->setIfcIonConcentrationMeasure(tmp_attr1);
+                if (type1 == "IFCVOLUMETRICFLOWRATEMEASURE")
+                {
+                    IfcVolumetricFlowRateMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcVolumetricFlowRateMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTHERMALTRANSMITTANCEMEASURE")
+                {
+                    IfcThermalTransmittanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcThermalTransmittanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTHERMALRESISTANCEMEASURE")
+                {
+                    IfcThermalResistanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcThermalResistanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTHERMALADMITTANCEMEASURE")
+                {
+                    IfcThermalAdmittanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcThermalAdmittanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCPRESSUREMEASURE")
+                {
+                    IfcPressureMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcPressureMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCPOWERMEASURE")
+                {
+                    IfcPowerMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcPowerMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMASSFLOWRATEMEASURE")
+                {
+                    IfcMassFlowRateMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcMassFlowRateMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMASSDENSITYMEASURE")
+                {
+                    IfcMassDensityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcMassDensityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLINEARVELOCITYMEASURE")
+                {
+                    IfcLinearVelocityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcLinearVelocityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCKINEMATICVISCOSITYMEASURE")
+                {
+                    IfcKinematicViscosityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcKinematicViscosityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCHEATFLUXDENSITYMEASURE")
+                {
+                    IfcHeatFluxDensityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcHeatFluxDensityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCFREQUENCYMEASURE")
+                {
+                    IfcFrequencyMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcFrequencyMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCENERGYMEASURE")
+                {
+                    IfcEnergyMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcEnergyMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCELECTRICVOLTAGEMEASURE")
+                {
+                    IfcElectricVoltageMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcElectricVoltageMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCDYNAMICVISCOSITYMEASURE")
+                {
+                    IfcDynamicViscosityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcDynamicViscosityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCANGULARVELOCITYMEASURE")
+                {
+                    IfcAngularVelocityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcAngularVelocityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTHERMALCONDUCTIVITYMEASURE")
+                {
+                    IfcThermalConductivityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcThermalConductivityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMOLECULARWEIGHTMEASURE")
+                {
+                    IfcMolecularWeightMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcMolecularWeightMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCVAPORPERMEABILITYMEASURE")
+                {
+                    IfcVaporPermeabilityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcVaporPermeabilityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMOISTUREDIFFUSIVITYMEASURE")
+                {
+                    IfcMoistureDiffusivityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcMoistureDiffusivityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCISOTHERMALMOISTURECAPACITYMEASURE")
+                {
+                    IfcIsothermalMoistureCapacityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcIsothermalMoistureCapacityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSPECIFICHEATCAPACITYMEASURE")
+                {
+                    IfcSpecificHeatCapacityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcSpecificHeatCapacityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMONETARYMEASURE")
+                {
+                    IfcMonetaryMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcMonetaryMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMAGNETICFLUXDENSITYMEASURE")
+                {
+                    IfcMagneticFluxDensityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcMagneticFluxDensityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMAGNETICFLUXMEASURE")
+                {
+                    IfcMagneticFluxMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcMagneticFluxMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLUMINOUSFLUXMEASURE")
+                {
+                    IfcLuminousFluxMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcLuminousFluxMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCFORCEMEASURE")
+                {
+                    IfcForceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcForceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCINDUCTANCEMEASURE")
+                {
+                    IfcInductanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcInductanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCILLUMINANCEMEASURE")
+                {
+                    IfcIlluminanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcIlluminanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCELECTRICRESISTANCEMEASURE")
+                {
+                    IfcElectricResistanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcElectricResistanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCELECTRICCONDUCTANCEMEASURE")
+                {
+                    IfcElectricConductanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcElectricConductanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCELECTRICCHARGEMEASURE")
+                {
+                    IfcElectricChargeMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcElectricChargeMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCDOSEEQUIVALENTMEASURE")
+                {
+                    IfcDoseEquivalentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcDoseEquivalentMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCELECTRICCAPACITANCEMEASURE")
+                {
+                    IfcElectricCapacitanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcElectricCapacitanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCABSORBEDDOSEMEASURE")
+                {
+                    IfcAbsorbedDoseMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcAbsorbedDoseMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCRADIOACTIVITYMEASURE")
+                {
+                    IfcRadioActivityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcRadioActivityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCROTATIONALFREQUENCYMEASURE")
+                {
+                    IfcRotationalFrequencyMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcRotationalFrequencyMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTORQUEMEASURE")
+                {
+                    IfcTorqueMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcTorqueMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCACCELERATIONMEASURE")
+                {
+                    IfcAccelerationMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcAccelerationMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLINEARFORCEMEASURE")
+                {
+                    IfcLinearForceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcLinearForceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLINEARSTIFFNESSMEASURE")
+                {
+                    IfcLinearStiffnessMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcLinearStiffnessMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMODULUSOFSUBGRADEREACTIONMEASURE")
+                {
+                    IfcModulusOfSubgradeReactionMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcModulusOfSubgradeReactionMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMODULUSOFELASTICITYMEASURE")
+                {
+                    IfcModulusOfElasticityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcModulusOfElasticityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMOMENTOFINERTIAMEASURE")
+                {
+                    IfcMomentOfInertiaMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcMomentOfInertiaMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCPLANARFORCEMEASURE")
+                {
+                    IfcPlanarForceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcPlanarForceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCROTATIONALSTIFFNESSMEASURE")
+                {
+                    IfcRotationalStiffnessMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcRotationalStiffnessMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSHEARMODULUSMEASURE")
+                {
+                    IfcShearModulusMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcShearModulusMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLINEARMOMENTMEASURE")
+                {
+                    IfcLinearMomentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcLinearMomentMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLUMINOUSINTENSITYDISTRIBUTIONMEASURE")
+                {
+                    IfcLuminousIntensityDistributionMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcLuminousIntensityDistributionMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCCURVATUREMEASURE")
+                {
+                    IfcCurvatureMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcCurvatureMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMASSPERLENGTHMEASURE")
+                {
+                    IfcMassPerLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcMassPerLengthMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMODULUSOFLINEARSUBGRADEREACTIONMEASURE")
+                {
+                    IfcModulusOfLinearSubgradeReactionMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcModulusOfLinearSubgradeReactionMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMODULUSOFROTATIONALSUBGRADEREACTIONMEASURE")
+                {
+                    IfcModulusOfRotationalSubgradeReactionMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcModulusOfRotationalSubgradeReactionMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCROTATIONALMASSMEASURE")
+                {
+                    IfcRotationalMassMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcRotationalMassMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSECTIONALAREAINTEGRALMEASURE")
+                {
+                    IfcSectionalAreaIntegralMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcSectionalAreaIntegralMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSECTIONMODULUSMEASURE")
+                {
+                    IfcSectionModulusMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcSectionModulusMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTEMPERATUREGRADIENTMEASURE")
+                {
+                    IfcTemperatureGradientMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcTemperatureGradientMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTHERMALEXPANSIONCOEFFICIENTMEASURE")
+                {
+                    IfcThermalExpansionCoefficientMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcThermalExpansionCoefficientMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCWARPINGCONSTANTMEASURE")
+                {
+                    IfcWarpingConstantMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcWarpingConstantMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCWARPINGMOMENTMEASURE")
+                {
+                    IfcWarpingMomentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcWarpingMomentMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSOUNDPOWERMEASURE")
+                {
+                    IfcSoundPowerMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcSoundPowerMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSOUNDPRESSUREMEASURE")
+                {
+                    IfcSoundPressureMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcSoundPressureMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCHEATINGVALUEMEASURE")
+                {
+                    IfcHeatingValueMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcHeatingValueMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCPHMEASURE")
+                {
+                    IfcPHMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcPHMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCIONCONCENTRATIONMEASURE")
+                {
+                    IfcIonConcentrationMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_FlowrateSingleValue->setIfcIonConcentrationMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_flowConditionSingleValue = Step::getUnset(m_flowConditionSingleValue);
+    if (arg == "$" || arg == "*")
+    {
+        m_FlowConditionSingleValue = Step::getUnset(m_FlowConditionSingleValue);
     }
-    else {
-        m_flowConditionSingleValue = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_velocitySingleValue = Step::getUnset(m_velocitySingleValue);
-    }
-    else {
-        m_velocitySingleValue = Step::spfToReal(arg);
+    else
+    {
+        m_FlowConditionSingleValue = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_pressureSingleValue = Step::getUnset(m_pressureSingleValue);
+    if (arg == "$" || arg == "*")
+    {
+        m_VelocitySingleValue = Step::getUnset(m_VelocitySingleValue);
     }
-    else {
-        m_pressureSingleValue = Step::spfToReal(arg);
+    else
+    {
+        m_VelocitySingleValue = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_PressureSingleValue = Step::getUnset(m_PressureSingleValue);
+    }
+    else
+    {
+        m_PressureSingleValue = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcFluidFlowProperties::copy(const IfcFluidFlowProperties &obj, const CopyOp &copyop) {
+void IfcFluidFlowProperties::copy(const IfcFluidFlowProperties &obj, const CopyOp &copyop)
+{
     IfcPropertySetDefinition::copy(obj, copyop);
-    setPropertySource(obj.m_propertySource);
-    setFlowConditionTimeSeries((IfcTimeSeries*)copyop(obj.m_flowConditionTimeSeries.get()));
-    setVelocityTimeSeries((IfcTimeSeries*)copyop(obj.m_velocityTimeSeries.get()));
-    setFlowrateTimeSeries((IfcTimeSeries*)copyop(obj.m_flowrateTimeSeries.get()));
-    setFluid((IfcMaterial*)copyop(obj.m_fluid.get()));
-    setPressureTimeSeries((IfcTimeSeries*)copyop(obj.m_pressureTimeSeries.get()));
-    setUserDefinedPropertySource(obj.m_userDefinedPropertySource);
-    setTemperatureSingleValue(obj.m_temperatureSingleValue);
-    setWetBulbTemperatureSingleValue(obj.m_wetBulbTemperatureSingleValue);
-    setWetBulbTemperatureTimeSeries((IfcTimeSeries*)copyop(obj.m_wetBulbTemperatureTimeSeries.get()));
-    setTemperatureTimeSeries((IfcTimeSeries*)copyop(obj.m_temperatureTimeSeries.get()));
-    m_flowrateSingleValue = new IfcDerivedMeasureValue;
-    m_flowrateSingleValue->copy(*(obj.m_flowrateSingleValue.get()), copyop);
-    setFlowConditionSingleValue(obj.m_flowConditionSingleValue);
-    setVelocitySingleValue(obj.m_velocitySingleValue);
-    setPressureSingleValue(obj.m_pressureSingleValue);
+    setPropertySource(obj.m_PropertySource);
+    setFlowConditionTimeSeries((IfcTimeSeries*)copyop(obj.m_FlowConditionTimeSeries.get()));
+    setVelocityTimeSeries((IfcTimeSeries*)copyop(obj.m_VelocityTimeSeries.get()));
+    setFlowrateTimeSeries((IfcTimeSeries*)copyop(obj.m_FlowrateTimeSeries.get()));
+    setFluid((IfcMaterial*)copyop(obj.m_Fluid.get()));
+    setPressureTimeSeries((IfcTimeSeries*)copyop(obj.m_PressureTimeSeries.get()));
+    setUserDefinedPropertySource(obj.m_UserDefinedPropertySource);
+    setTemperatureSingleValue(obj.m_TemperatureSingleValue);
+    setWetBulbTemperatureSingleValue(obj.m_WetBulbTemperatureSingleValue);
+    setWetBulbTemperatureTimeSeries((IfcTimeSeries*)copyop(obj.m_WetBulbTemperatureTimeSeries.get()));
+    setTemperatureTimeSeries((IfcTimeSeries*)copyop(obj.m_TemperatureTimeSeries.get()));
+    setFlowrateSingleValue((IfcDerivedMeasureValue*)copyop(obj.m_FlowrateSingleValue.get()));
+    setFlowConditionSingleValue(obj.m_FlowConditionSingleValue);
+    setVelocitySingleValue(obj.m_VelocitySingleValue);
+    setPressureSingleValue(obj.m_PressureSingleValue);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFluidFlowProperties::s_type("IfcFluidFlowProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcFluidFlowProperties, IfcPropertySetDefinition)

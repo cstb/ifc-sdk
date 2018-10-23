@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,134 +24,144 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcVector.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcDirection.h>
-#include <ifc2x3/IfcGeometricRepresentationItem.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcVector::IfcVector(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_orientation = NULL;
-    m_magnitude = Step::getUnset(m_magnitude);
+IfcVector::IfcVector(Step::Id id, Step::SPFData *args) : 
+    IfcGeometricRepresentationItem(id, args)
+{
+    m_Orientation = NULL;
+    m_Magnitude = Step::getUnset(m_Magnitude);
 }
 
-IfcVector::~IfcVector() {
+IfcVector::~IfcVector()
+{}
+
+bool IfcVector::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcVector(this);
 }
 
-bool IfcVector::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcVector(this);
-}
 
-const std::string &IfcVector::type() const {
-    return IfcVector::s_type.getName();
-}
-
-const Step::ClassType &IfcVector::getClassType() {
-    return IfcVector::s_type;
-}
-
-const Step::ClassType &IfcVector::getType() const {
-    return IfcVector::s_type;
-}
-
-bool IfcVector::isOfType(const Step::ClassType &t) const {
-    return IfcVector::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-IfcDirection *IfcVector::getOrientation() {
-    if (Step::BaseObject::inited()) {
-        return m_orientation.get();
+IfcDirection *IfcVector::getOrientation()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Orientation.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDirection *IfcVector::getOrientation() const
+{
+    return const_cast<IfcVector *>(this)->getOrientation();
+}
+
+void IfcVector::setOrientation(const Step::RefPtr< IfcDirection > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Orientation = value;
+}
+
+void IfcVector::unsetOrientation()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Orientation = Step::getUnset(getOrientation());
+}
+
+bool IfcVector::testOrientation() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getOrientation()) == false;
+}
+
+
+IfcLengthMeasure IfcVector::getMagnitude()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Magnitude;
     }
+    else 
+    {
+        return Step::getUnset(m_Magnitude);
+    }    
 }
 
-const IfcDirection *IfcVector::getOrientation() const {
-    IfcVector * deConstObject = const_cast< IfcVector * > (this);
-    return deConstObject->getOrientation();
+IfcLengthMeasure IfcVector::getMagnitude() const
+{
+    return const_cast<IfcVector *>(this)->getMagnitude();
 }
 
-void IfcVector::setOrientation(const Step::RefPtr< IfcDirection > &value) {
-    m_orientation = value;
+void IfcVector::setMagnitude(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Magnitude = value;
 }
 
-void IfcVector::unsetOrientation() {
-    m_orientation = Step::getUnset(getOrientation());
+void IfcVector::unsetMagnitude()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Magnitude = Step::getUnset(getMagnitude());
 }
 
-bool IfcVector::testOrientation() const {
-    return !Step::isUnset(getOrientation());
+bool IfcVector::testMagnitude() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMagnitude()) == false;
 }
 
-IfcLengthMeasure IfcVector::getMagnitude() {
-    if (Step::BaseObject::inited()) {
-        return m_magnitude;
-    }
-    else {
-        return Step::getUnset(m_magnitude);
-    }
-}
-
-const IfcLengthMeasure IfcVector::getMagnitude() const {
-    IfcVector * deConstObject = const_cast< IfcVector * > (this);
-    return deConstObject->getMagnitude();
-}
-
-void IfcVector::setMagnitude(IfcLengthMeasure value) {
-    m_magnitude = value;
-}
-
-void IfcVector::unsetMagnitude() {
-    m_magnitude = Step::getUnset(getMagnitude());
-}
-
-bool IfcVector::testMagnitude() const {
-    return !Step::isUnset(getMagnitude());
-}
-
-bool IfcVector::init() {
-    bool status = IfcGeometricRepresentationItem::init();
-    std::string arg;
-    if (!status) {
+bool IfcVector::init()
+{
+    if (IfcGeometricRepresentationItem::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_orientation = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Orientation = NULL;
     }
-    else {
-        m_orientation = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Orientation = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_magnitude = Step::getUnset(m_magnitude);
+    if (arg == "$" || arg == "*")
+    {
+        m_Magnitude = Step::getUnset(m_Magnitude);
     }
-    else {
-        m_magnitude = Step::spfToReal(arg);
+    else
+    {
+        m_Magnitude = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcVector::copy(const IfcVector &obj, const CopyOp &copyop) {
+void IfcVector::copy(const IfcVector &obj, const CopyOp &copyop)
+{
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setOrientation((IfcDirection*)copyop(obj.m_orientation.get()));
-    setMagnitude(obj.m_magnitude);
+    setOrientation((IfcDirection*)copyop(obj.m_Orientation.get()));
+    setMagnitude(obj.m_Magnitude);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcVector::s_type("IfcVector");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcVector, IfcGeometricRepresentationItem)

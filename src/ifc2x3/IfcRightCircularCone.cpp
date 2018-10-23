@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,130 +24,144 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRightCircularCone.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcCsgPrimitive3D.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRightCircularCone::IfcRightCircularCone(Step::Id id, Step::SPFData *args) : IfcCsgPrimitive3D(id, args) {
-    m_height = Step::getUnset(m_height);
-    m_bottomRadius = Step::getUnset(m_bottomRadius);
+IfcRightCircularCone::IfcRightCircularCone(Step::Id id, Step::SPFData *args) : 
+    IfcCsgPrimitive3D(id, args)
+{
+    m_Height = Step::getUnset(m_Height);
+    m_BottomRadius = Step::getUnset(m_BottomRadius);
 }
 
-IfcRightCircularCone::~IfcRightCircularCone() {
+IfcRightCircularCone::~IfcRightCircularCone()
+{}
+
+bool IfcRightCircularCone::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRightCircularCone(this);
 }
 
-bool IfcRightCircularCone::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRightCircularCone(this);
-}
 
-const std::string &IfcRightCircularCone::type() const {
-    return IfcRightCircularCone::s_type.getName();
-}
-
-const Step::ClassType &IfcRightCircularCone::getClassType() {
-    return IfcRightCircularCone::s_type;
-}
-
-const Step::ClassType &IfcRightCircularCone::getType() const {
-    return IfcRightCircularCone::s_type;
-}
-
-bool IfcRightCircularCone::isOfType(const Step::ClassType &t) const {
-    return IfcRightCircularCone::s_type == t ? true : IfcCsgPrimitive3D::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcRightCircularCone::getHeight() {
-    if (Step::BaseObject::inited()) {
-        return m_height;
+IfcPositiveLengthMeasure IfcRightCircularCone::getHeight()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Height;
     }
-    else {
-        return Step::getUnset(m_height);
+    else 
+    {
+        return Step::getUnset(m_Height);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcRightCircularCone::getHeight() const
+{
+    return const_cast<IfcRightCircularCone *>(this)->getHeight();
+}
+
+void IfcRightCircularCone::setHeight(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Height = value;
+}
+
+void IfcRightCircularCone::unsetHeight()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Height = Step::getUnset(getHeight());
+}
+
+bool IfcRightCircularCone::testHeight() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getHeight()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcRightCircularCone::getBottomRadius()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BottomRadius;
     }
+    else 
+    {
+        return Step::getUnset(m_BottomRadius);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcRightCircularCone::getHeight() const {
-    IfcRightCircularCone * deConstObject = const_cast< IfcRightCircularCone * > (this);
-    return deConstObject->getHeight();
+IfcPositiveLengthMeasure IfcRightCircularCone::getBottomRadius() const
+{
+    return const_cast<IfcRightCircularCone *>(this)->getBottomRadius();
 }
 
-void IfcRightCircularCone::setHeight(IfcPositiveLengthMeasure value) {
-    m_height = value;
+void IfcRightCircularCone::setBottomRadius(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BottomRadius = value;
 }
 
-void IfcRightCircularCone::unsetHeight() {
-    m_height = Step::getUnset(getHeight());
+void IfcRightCircularCone::unsetBottomRadius()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BottomRadius = Step::getUnset(getBottomRadius());
 }
 
-bool IfcRightCircularCone::testHeight() const {
-    return !Step::isUnset(getHeight());
+bool IfcRightCircularCone::testBottomRadius() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBottomRadius()) == false;
 }
 
-IfcPositiveLengthMeasure IfcRightCircularCone::getBottomRadius() {
-    if (Step::BaseObject::inited()) {
-        return m_bottomRadius;
-    }
-    else {
-        return Step::getUnset(m_bottomRadius);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcRightCircularCone::getBottomRadius() const {
-    IfcRightCircularCone * deConstObject = const_cast< IfcRightCircularCone * > (this);
-    return deConstObject->getBottomRadius();
-}
-
-void IfcRightCircularCone::setBottomRadius(IfcPositiveLengthMeasure value) {
-    m_bottomRadius = value;
-}
-
-void IfcRightCircularCone::unsetBottomRadius() {
-    m_bottomRadius = Step::getUnset(getBottomRadius());
-}
-
-bool IfcRightCircularCone::testBottomRadius() const {
-    return !Step::isUnset(getBottomRadius());
-}
-
-bool IfcRightCircularCone::init() {
-    bool status = IfcCsgPrimitive3D::init();
-    std::string arg;
-    if (!status) {
+bool IfcRightCircularCone::init()
+{
+    if (IfcCsgPrimitive3D::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_height = Step::getUnset(m_height);
+    if (arg == "$" || arg == "*")
+    {
+        m_Height = Step::getUnset(m_Height);
     }
-    else {
-        m_height = Step::spfToReal(arg);
+    else
+    {
+        m_Height = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_bottomRadius = Step::getUnset(m_bottomRadius);
+    if (arg == "$" || arg == "*")
+    {
+        m_BottomRadius = Step::getUnset(m_BottomRadius);
     }
-    else {
-        m_bottomRadius = Step::spfToReal(arg);
+    else
+    {
+        m_BottomRadius = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcRightCircularCone::copy(const IfcRightCircularCone &obj, const CopyOp &copyop) {
+void IfcRightCircularCone::copy(const IfcRightCircularCone &obj, const CopyOp &copyop)
+{
     IfcCsgPrimitive3D::copy(obj, copyop);
-    setHeight(obj.m_height);
-    setBottomRadius(obj.m_bottomRadius);
+    setHeight(obj.m_Height);
+    setBottomRadius(obj.m_BottomRadius);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRightCircularCone::s_type("IfcRightCircularCone");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRightCircularCone, IfcCsgPrimitive3D)

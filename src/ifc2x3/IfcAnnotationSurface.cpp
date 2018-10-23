@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,140 +24,151 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcAnnotationSurface.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcGeometricRepresentationItem.h>
 #include <ifc2x3/IfcTextureCoordinate.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcAnnotationSurface::IfcAnnotationSurface(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_item = NULL;
-    m_textureCoordinates = NULL;
+IfcAnnotationSurface::IfcAnnotationSurface(Step::Id id, Step::SPFData *args) : 
+    IfcGeometricRepresentationItem(id, args)
+{
+    m_Item = NULL;
+    m_TextureCoordinates = NULL;
 }
 
-IfcAnnotationSurface::~IfcAnnotationSurface() {
+IfcAnnotationSurface::~IfcAnnotationSurface()
+{}
+
+bool IfcAnnotationSurface::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcAnnotationSurface(this);
 }
 
-bool IfcAnnotationSurface::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcAnnotationSurface(this);
-}
 
-const std::string &IfcAnnotationSurface::type() const {
-    return IfcAnnotationSurface::s_type.getName();
-}
-
-const Step::ClassType &IfcAnnotationSurface::getClassType() {
-    return IfcAnnotationSurface::s_type;
-}
-
-const Step::ClassType &IfcAnnotationSurface::getType() const {
-    return IfcAnnotationSurface::s_type;
-}
-
-bool IfcAnnotationSurface::isOfType(const Step::ClassType &t) const {
-    return IfcAnnotationSurface::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-IfcGeometricRepresentationItem *IfcAnnotationSurface::getItem() {
-    if (Step::BaseObject::inited()) {
-        return m_item.get();
+IfcGeometricRepresentationItem *IfcAnnotationSurface::getItem()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Item.get();
     }
-    else {
+    else 
+    {
+        return NULL;
+    }    
+}
+
+const IfcGeometricRepresentationItem *IfcAnnotationSurface::getItem() const
+{
+    return const_cast<IfcAnnotationSurface *>(this)->getItem();
+}
+
+void IfcAnnotationSurface::setItem(const Step::RefPtr< IfcGeometricRepresentationItem > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Item = value;
+}
+
+void IfcAnnotationSurface::unsetItem()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Item = Step::getUnset(getItem());
+}
+
+bool IfcAnnotationSurface::testItem() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getItem()) == false;
+}
+
+IfcTextureCoordinate *IfcAnnotationSurface::getTextureCoordinates()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_TextureCoordinates.get();
+    }
+    else
+    {
         return NULL;
     }
 }
 
-const IfcGeometricRepresentationItem *IfcAnnotationSurface::getItem() const {
-    IfcAnnotationSurface * deConstObject = const_cast< IfcAnnotationSurface * > (this);
-    return deConstObject->getItem();
+const IfcTextureCoordinate *IfcAnnotationSurface::getTextureCoordinates() const
+{
+    return const_cast< IfcAnnotationSurface * > (this)->getTextureCoordinates();
 }
 
-void IfcAnnotationSurface::setItem(const Step::RefPtr< IfcGeometricRepresentationItem > &value) {
-    m_item = value;
-}
-
-void IfcAnnotationSurface::unsetItem() {
-    m_item = Step::getUnset(getItem());
-}
-
-bool IfcAnnotationSurface::testItem() const {
-    return !Step::isUnset(getItem());
-}
-
-IfcTextureCoordinate *IfcAnnotationSurface::getTextureCoordinates() {
-    if (Step::BaseObject::inited()) {
-        return m_textureCoordinates.get();
+void IfcAnnotationSurface::setTextureCoordinates(const Step::RefPtr< IfcTextureCoordinate > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_TextureCoordinates.valid())
+    {
+        m_TextureCoordinates->m_AnnotatedSurface.erase(this);
     }
-    else {
-        return NULL;
+    if (value.valid() )
+    {
+       value->m_AnnotatedSurface.insert(this);
     }
+    m_TextureCoordinates = value;
 }
 
-const IfcTextureCoordinate *IfcAnnotationSurface::getTextureCoordinates() const {
-    IfcAnnotationSurface * deConstObject = const_cast< IfcAnnotationSurface * > (this);
-    return deConstObject->getTextureCoordinates();
+void IfcAnnotationSurface::unsetTextureCoordinates()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextureCoordinates = Step::getUnset(getTextureCoordinates());
 }
 
-void IfcAnnotationSurface::setTextureCoordinates(const Step::RefPtr< IfcTextureCoordinate > &value) {
-    if (m_textureCoordinates.valid()) {
-        m_textureCoordinates->m_annotatedSurface.erase(this);
-    }
-    if (value.valid()) {
-        value->m_annotatedSurface.insert(this);
-    }
-    m_textureCoordinates = value;
+bool IfcAnnotationSurface::testTextureCoordinates() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTextureCoordinates()) == false;
 }
 
-void IfcAnnotationSurface::unsetTextureCoordinates() {
-    m_textureCoordinates = Step::getUnset(getTextureCoordinates());
-}
-
-bool IfcAnnotationSurface::testTextureCoordinates() const {
-    return !Step::isUnset(getTextureCoordinates());
-}
-
-bool IfcAnnotationSurface::init() {
-    bool status = IfcGeometricRepresentationItem::init();
-    std::string arg;
-    if (!status) {
+bool IfcAnnotationSurface::init()
+{
+    if (IfcGeometricRepresentationItem::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_item = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Item = NULL;
     }
-    else {
-        m_item = static_cast< IfcGeometricRepresentationItem * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Item = static_cast< IfcGeometricRepresentationItem * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_textureCoordinates = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TextureCoordinates = NULL;
     }
-    else {
-        m_textureCoordinates = static_cast< IfcTextureCoordinate * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_TextureCoordinates = static_cast< IfcTextureCoordinate * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcAnnotationSurface::copy(const IfcAnnotationSurface &obj, const CopyOp &copyop) {
+void IfcAnnotationSurface::copy(const IfcAnnotationSurface &obj, const CopyOp &copyop)
+{
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setItem((IfcGeometricRepresentationItem*)copyop(obj.m_item.get()));
-    setTextureCoordinates((IfcTextureCoordinate*)copyop(obj.m_textureCoordinates.get()));
+    setItem((IfcGeometricRepresentationItem*)copyop(obj.m_Item.get()));
+    setTextureCoordinates((IfcTextureCoordinate*)copyop(obj.m_TextureCoordinates.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAnnotationSurface::s_type("IfcAnnotationSurface");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcAnnotationSurface, IfcGeometricRepresentationItem)

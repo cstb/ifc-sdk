@@ -1,5 +1,14 @@
 // IFC SDK : IFC2X3 C++ Early Classes
-// Copyright (C) 2009 CSTB
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -15,289 +24,362 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcSurfaceStyleRendering.h>
 
-#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcColourOrFactor.h>
+#include <ifc2x3/IfcColourOrFactor.h>
+#include <ifc2x3/IfcColourOrFactor.h>
+#include <ifc2x3/IfcColourOrFactor.h>
 #include <ifc2x3/IfcColourOrFactor.h>
 #include <ifc2x3/IfcSpecularHighlightSelect.h>
-#include <ifc2x3/IfcSurfaceStyleShading.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcSurfaceStyleRendering::IfcSurfaceStyleRendering(Step::Id id, Step::SPFData *args) : IfcSurfaceStyleShading(id, args) {
-    m_transparency = Step::getUnset(m_transparency);
-    m_diffuseColour = NULL;
-    m_transmissionColour = NULL;
-    m_diffuseTransmissionColour = NULL;
-    m_reflectionColour = NULL;
-    m_specularColour = NULL;
-    m_specularHighlight = NULL;
-    m_reflectanceMethod = IfcReflectanceMethodEnum_UNSET;
+IfcSurfaceStyleRendering::IfcSurfaceStyleRendering(Step::Id id, Step::SPFData *args) : 
+    IfcSurfaceStyleShading(id, args)
+{
+    m_Transparency = Step::getUnset(m_Transparency);
+    m_DiffuseColour = NULL;
+    m_TransmissionColour = NULL;
+    m_DiffuseTransmissionColour = NULL;
+    m_ReflectionColour = NULL;
+    m_SpecularColour = NULL;
+    m_SpecularHighlight = NULL;
+    m_ReflectanceMethod = IfcReflectanceMethodEnum_UNSET;
 }
 
-IfcSurfaceStyleRendering::~IfcSurfaceStyleRendering() {
+IfcSurfaceStyleRendering::~IfcSurfaceStyleRendering()
+{}
+
+bool IfcSurfaceStyleRendering::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcSurfaceStyleRendering(this);
 }
 
-bool IfcSurfaceStyleRendering::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcSurfaceStyleRendering(this);
-}
 
-const std::string &IfcSurfaceStyleRendering::type() const {
-    return IfcSurfaceStyleRendering::s_type.getName();
-}
-
-const Step::ClassType &IfcSurfaceStyleRendering::getClassType() {
-    return IfcSurfaceStyleRendering::s_type;
-}
-
-const Step::ClassType &IfcSurfaceStyleRendering::getType() const {
-    return IfcSurfaceStyleRendering::s_type;
-}
-
-bool IfcSurfaceStyleRendering::isOfType(const Step::ClassType &t) const {
-    return IfcSurfaceStyleRendering::s_type == t ? true : IfcSurfaceStyleShading::isOfType(t);
-}
-
-IfcNormalisedRatioMeasure IfcSurfaceStyleRendering::getTransparency() {
-    if (Step::BaseObject::inited()) {
-        return m_transparency;
+IfcNormalisedRatioMeasure IfcSurfaceStyleRendering::getTransparency()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Transparency;
     }
-    else {
-        return Step::getUnset(m_transparency);
+    else 
+    {
+        return Step::getUnset(m_Transparency);
+    }    
+}
+
+IfcNormalisedRatioMeasure IfcSurfaceStyleRendering::getTransparency() const
+{
+    return const_cast<IfcSurfaceStyleRendering *>(this)->getTransparency();
+}
+
+void IfcSurfaceStyleRendering::setTransparency(IfcNormalisedRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Transparency = value;
+}
+
+void IfcSurfaceStyleRendering::unsetTransparency()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Transparency = Step::getUnset(getTransparency());
+}
+
+bool IfcSurfaceStyleRendering::testTransparency() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTransparency()) == false;
+}
+
+
+IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseColour()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_DiffuseColour.get();
     }
-}
-
-const IfcNormalisedRatioMeasure IfcSurfaceStyleRendering::getTransparency() const {
-    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
-    return deConstObject->getTransparency();
-}
-
-void IfcSurfaceStyleRendering::setTransparency(IfcNormalisedRatioMeasure value) {
-    m_transparency = value;
-}
-
-void IfcSurfaceStyleRendering::unsetTransparency() {
-    m_transparency = Step::getUnset(getTransparency());
-}
-
-bool IfcSurfaceStyleRendering::testTransparency() const {
-    return !Step::isUnset(getTransparency());
-}
-
-IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseColour() {
-    if (Step::BaseObject::inited()) {
-        return m_diffuseColour.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseColour() const
+{
+    return const_cast<IfcSurfaceStyleRendering *>(this)->getDiffuseColour();
+}
+
+void IfcSurfaceStyleRendering::setDiffuseColour(const Step::RefPtr< IfcColourOrFactor > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DiffuseColour = value;
+}
+
+void IfcSurfaceStyleRendering::unsetDiffuseColour()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DiffuseColour = Step::getUnset(getDiffuseColour());
+}
+
+bool IfcSurfaceStyleRendering::testDiffuseColour() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDiffuseColour()) == false;
+}
+
+
+IfcColourOrFactor *IfcSurfaceStyleRendering::getTransmissionColour()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TransmissionColour.get();
     }
-}
-
-const IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseColour() const {
-    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
-    return deConstObject->getDiffuseColour();
-}
-
-void IfcSurfaceStyleRendering::setDiffuseColour(const Step::RefPtr< IfcColourOrFactor > &value) {
-    m_diffuseColour = value;
-}
-
-void IfcSurfaceStyleRendering::unsetDiffuseColour() {
-    m_diffuseColour = Step::getUnset(getDiffuseColour());
-}
-
-bool IfcSurfaceStyleRendering::testDiffuseColour() const {
-    return !Step::isUnset(getDiffuseColour());
-}
-
-IfcColourOrFactor *IfcSurfaceStyleRendering::getTransmissionColour() {
-    if (Step::BaseObject::inited()) {
-        return m_transmissionColour.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcColourOrFactor *IfcSurfaceStyleRendering::getTransmissionColour() const
+{
+    return const_cast<IfcSurfaceStyleRendering *>(this)->getTransmissionColour();
+}
+
+void IfcSurfaceStyleRendering::setTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransmissionColour = value;
+}
+
+void IfcSurfaceStyleRendering::unsetTransmissionColour()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransmissionColour = Step::getUnset(getTransmissionColour());
+}
+
+bool IfcSurfaceStyleRendering::testTransmissionColour() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTransmissionColour()) == false;
+}
+
+
+IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseTransmissionColour()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_DiffuseTransmissionColour.get();
     }
-}
-
-const IfcColourOrFactor *IfcSurfaceStyleRendering::getTransmissionColour() const {
-    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
-    return deConstObject->getTransmissionColour();
-}
-
-void IfcSurfaceStyleRendering::setTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value) {
-    m_transmissionColour = value;
-}
-
-void IfcSurfaceStyleRendering::unsetTransmissionColour() {
-    m_transmissionColour = Step::getUnset(getTransmissionColour());
-}
-
-bool IfcSurfaceStyleRendering::testTransmissionColour() const {
-    return !Step::isUnset(getTransmissionColour());
-}
-
-IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseTransmissionColour() {
-    if (Step::BaseObject::inited()) {
-        return m_diffuseTransmissionColour.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseTransmissionColour() const
+{
+    return const_cast<IfcSurfaceStyleRendering *>(this)->getDiffuseTransmissionColour();
+}
+
+void IfcSurfaceStyleRendering::setDiffuseTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DiffuseTransmissionColour = value;
+}
+
+void IfcSurfaceStyleRendering::unsetDiffuseTransmissionColour()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DiffuseTransmissionColour = Step::getUnset(getDiffuseTransmissionColour());
+}
+
+bool IfcSurfaceStyleRendering::testDiffuseTransmissionColour() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDiffuseTransmissionColour()) == false;
+}
+
+
+IfcColourOrFactor *IfcSurfaceStyleRendering::getReflectionColour()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ReflectionColour.get();
     }
-}
-
-const IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseTransmissionColour() const {
-    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
-    return deConstObject->getDiffuseTransmissionColour();
-}
-
-void IfcSurfaceStyleRendering::setDiffuseTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value) {
-    m_diffuseTransmissionColour = value;
-}
-
-void IfcSurfaceStyleRendering::unsetDiffuseTransmissionColour() {
-    m_diffuseTransmissionColour = Step::getUnset(getDiffuseTransmissionColour());
-}
-
-bool IfcSurfaceStyleRendering::testDiffuseTransmissionColour() const {
-    return !Step::isUnset(getDiffuseTransmissionColour());
-}
-
-IfcColourOrFactor *IfcSurfaceStyleRendering::getReflectionColour() {
-    if (Step::BaseObject::inited()) {
-        return m_reflectionColour.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcColourOrFactor *IfcSurfaceStyleRendering::getReflectionColour() const
+{
+    return const_cast<IfcSurfaceStyleRendering *>(this)->getReflectionColour();
+}
+
+void IfcSurfaceStyleRendering::setReflectionColour(const Step::RefPtr< IfcColourOrFactor > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ReflectionColour = value;
+}
+
+void IfcSurfaceStyleRendering::unsetReflectionColour()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ReflectionColour = Step::getUnset(getReflectionColour());
+}
+
+bool IfcSurfaceStyleRendering::testReflectionColour() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getReflectionColour()) == false;
+}
+
+
+IfcColourOrFactor *IfcSurfaceStyleRendering::getSpecularColour()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SpecularColour.get();
     }
-}
-
-const IfcColourOrFactor *IfcSurfaceStyleRendering::getReflectionColour() const {
-    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
-    return deConstObject->getReflectionColour();
-}
-
-void IfcSurfaceStyleRendering::setReflectionColour(const Step::RefPtr< IfcColourOrFactor > &value) {
-    m_reflectionColour = value;
-}
-
-void IfcSurfaceStyleRendering::unsetReflectionColour() {
-    m_reflectionColour = Step::getUnset(getReflectionColour());
-}
-
-bool IfcSurfaceStyleRendering::testReflectionColour() const {
-    return !Step::isUnset(getReflectionColour());
-}
-
-IfcColourOrFactor *IfcSurfaceStyleRendering::getSpecularColour() {
-    if (Step::BaseObject::inited()) {
-        return m_specularColour.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcColourOrFactor *IfcSurfaceStyleRendering::getSpecularColour() const
+{
+    return const_cast<IfcSurfaceStyleRendering *>(this)->getSpecularColour();
+}
+
+void IfcSurfaceStyleRendering::setSpecularColour(const Step::RefPtr< IfcColourOrFactor > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SpecularColour = value;
+}
+
+void IfcSurfaceStyleRendering::unsetSpecularColour()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SpecularColour = Step::getUnset(getSpecularColour());
+}
+
+bool IfcSurfaceStyleRendering::testSpecularColour() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSpecularColour()) == false;
+}
+
+
+IfcSpecularHighlightSelect *IfcSurfaceStyleRendering::getSpecularHighlight()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SpecularHighlight.get();
     }
-}
-
-const IfcColourOrFactor *IfcSurfaceStyleRendering::getSpecularColour() const {
-    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
-    return deConstObject->getSpecularColour();
-}
-
-void IfcSurfaceStyleRendering::setSpecularColour(const Step::RefPtr< IfcColourOrFactor > &value) {
-    m_specularColour = value;
-}
-
-void IfcSurfaceStyleRendering::unsetSpecularColour() {
-    m_specularColour = Step::getUnset(getSpecularColour());
-}
-
-bool IfcSurfaceStyleRendering::testSpecularColour() const {
-    return !Step::isUnset(getSpecularColour());
-}
-
-IfcSpecularHighlightSelect *IfcSurfaceStyleRendering::getSpecularHighlight() {
-    if (Step::BaseObject::inited()) {
-        return m_specularHighlight.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcSpecularHighlightSelect *IfcSurfaceStyleRendering::getSpecularHighlight() const
+{
+    return const_cast<IfcSurfaceStyleRendering *>(this)->getSpecularHighlight();
+}
+
+void IfcSurfaceStyleRendering::setSpecularHighlight(const Step::RefPtr< IfcSpecularHighlightSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SpecularHighlight = value;
+}
+
+void IfcSurfaceStyleRendering::unsetSpecularHighlight()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SpecularHighlight = Step::getUnset(getSpecularHighlight());
+}
+
+bool IfcSurfaceStyleRendering::testSpecularHighlight() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSpecularHighlight()) == false;
+}
+
+
+IfcReflectanceMethodEnum IfcSurfaceStyleRendering::getReflectanceMethod()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ReflectanceMethod;
     }
-}
-
-const IfcSpecularHighlightSelect *IfcSurfaceStyleRendering::getSpecularHighlight() const {
-    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
-    return deConstObject->getSpecularHighlight();
-}
-
-void IfcSurfaceStyleRendering::setSpecularHighlight(const Step::RefPtr< IfcSpecularHighlightSelect > &value) {
-    m_specularHighlight = value;
-}
-
-void IfcSurfaceStyleRendering::unsetSpecularHighlight() {
-    m_specularHighlight = Step::getUnset(getSpecularHighlight());
-}
-
-bool IfcSurfaceStyleRendering::testSpecularHighlight() const {
-    return !Step::isUnset(getSpecularHighlight());
-}
-
-IfcReflectanceMethodEnum IfcSurfaceStyleRendering::getReflectanceMethod() {
-    if (Step::BaseObject::inited()) {
-        return m_reflectanceMethod;
-    }
-    else {
+    else 
+    {
         return IfcReflectanceMethodEnum_UNSET;
-    }
+    }    
 }
 
-const IfcReflectanceMethodEnum IfcSurfaceStyleRendering::getReflectanceMethod() const {
-    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
-    return deConstObject->getReflectanceMethod();
+IfcReflectanceMethodEnum IfcSurfaceStyleRendering::getReflectanceMethod() const
+{
+    return const_cast<IfcSurfaceStyleRendering *>(this)->getReflectanceMethod();
 }
 
-void IfcSurfaceStyleRendering::setReflectanceMethod(IfcReflectanceMethodEnum value) {
-    m_reflectanceMethod = value;
+void IfcSurfaceStyleRendering::setReflectanceMethod(IfcReflectanceMethodEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ReflectanceMethod = value;
 }
 
-void IfcSurfaceStyleRendering::unsetReflectanceMethod() {
-    m_reflectanceMethod = IfcReflectanceMethodEnum_UNSET;
+void IfcSurfaceStyleRendering::unsetReflectanceMethod()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ReflectanceMethod = IfcReflectanceMethodEnum_UNSET;
 }
 
-bool IfcSurfaceStyleRendering::testReflectanceMethod() const {
-    return getReflectanceMethod() != IfcReflectanceMethodEnum_UNSET;
+bool IfcSurfaceStyleRendering::testReflectanceMethod() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getReflectanceMethod()) == false;
 }
 
-bool IfcSurfaceStyleRendering::init() {
-    bool status = IfcSurfaceStyleShading::init();
-    std::string arg;
-    if (!status) {
+bool IfcSurfaceStyleRendering::init()
+{
+    if (IfcSurfaceStyleShading::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_transparency = Step::getUnset(m_transparency);
+    if (arg == "$" || arg == "*")
+    {
+        m_Transparency = Step::getUnset(m_Transparency);
     }
-    else {
-        m_transparency = Step::spfToReal(arg);
+    else
+    {
+        m_Transparency = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_diffuseColour = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_DiffuseColour = NULL;
     }
-    else {
-        m_diffuseColour = new IfcColourOrFactor;
+    else
+    {
+        m_DiffuseColour = new IfcColourOrFactor;
         if (arg[0] == '#') {
-            m_diffuseColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_DiffuseColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -306,22 +388,26 @@ bool IfcSurfaceStyleRendering::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_diffuseColour->setIfcNormalisedRatioMeasure(tmp_attr1);
+                if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_DiffuseColour->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_transmissionColour = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TransmissionColour = NULL;
     }
-    else {
-        m_transmissionColour = new IfcColourOrFactor;
+    else
+    {
+        m_TransmissionColour = new IfcColourOrFactor;
         if (arg[0] == '#') {
-            m_transmissionColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_TransmissionColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -330,22 +416,26 @@ bool IfcSurfaceStyleRendering::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_transmissionColour->setIfcNormalisedRatioMeasure(tmp_attr1);
+                if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_TransmissionColour->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_diffuseTransmissionColour = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_DiffuseTransmissionColour = NULL;
     }
-    else {
-        m_diffuseTransmissionColour = new IfcColourOrFactor;
+    else
+    {
+        m_DiffuseTransmissionColour = new IfcColourOrFactor;
         if (arg[0] == '#') {
-            m_diffuseTransmissionColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_DiffuseTransmissionColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -354,22 +444,26 @@ bool IfcSurfaceStyleRendering::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_diffuseTransmissionColour->setIfcNormalisedRatioMeasure(tmp_attr1);
+                if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_DiffuseTransmissionColour->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_reflectionColour = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_ReflectionColour = NULL;
     }
-    else {
-        m_reflectionColour = new IfcColourOrFactor;
+    else
+    {
+        m_ReflectionColour = new IfcColourOrFactor;
         if (arg[0] == '#') {
-            m_reflectionColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_ReflectionColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -378,22 +472,26 @@ bool IfcSurfaceStyleRendering::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_reflectionColour->setIfcNormalisedRatioMeasure(tmp_attr1);
+                if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_ReflectionColour->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_specularColour = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_SpecularColour = NULL;
     }
-    else {
-        m_specularColour = new IfcColourOrFactor;
+    else
+    {
+        m_SpecularColour = new IfcColourOrFactor;
         if (arg[0] == '#') {
-            m_specularColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_SpecularColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -402,22 +500,26 @@ bool IfcSurfaceStyleRendering::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_specularColour->setIfcNormalisedRatioMeasure(tmp_attr1);
+                if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SpecularColour->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_specularHighlight = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_SpecularHighlight = NULL;
     }
-    else {
-        m_specularHighlight = new IfcSpecularHighlightSelect;
+    else
+    {
+        m_SpecularHighlight = new IfcSpecularHighlightSelect;
         if (arg[0] == '#') {
-            m_specularHighlight->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_SpecularHighlight->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -426,98 +528,86 @@ bool IfcSurfaceStyleRendering::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCSPECULAREXPONENT") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_specularHighlight->setIfcSpecularExponent(tmp_attr1);
+                if (type1 == "IFCSPECULAREXPONENT")
+                {
+                    IfcSpecularExponent tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SpecularHighlight->setIfcSpecularExponent(tmp_attr1);
                 }
-                if (type1 == "IFCSPECULARROUGHNESS") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_specularHighlight->setIfcSpecularRoughness(tmp_attr1);
+                else if (type1 == "IFCSPECULARROUGHNESS")
+                {
+                    IfcSpecularRoughness tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SpecularHighlight->setIfcSpecularRoughness(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_reflectanceMethod = IfcReflectanceMethodEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_ReflectanceMethod = IfcReflectanceMethodEnum_UNSET;
     }
-    else {
-        if (arg == ".BLINN.") {
-            m_reflectanceMethod = IfcReflectanceMethodEnum_BLINN;
+    else
+    {
+        if (arg == ".BLINN.")
+        {
+            m_ReflectanceMethod = IfcReflectanceMethodEnum_BLINN;
         }
-        else if (arg == ".FLAT.") {
-            m_reflectanceMethod = IfcReflectanceMethodEnum_FLAT;
+        else if (arg == ".FLAT.")
+        {
+            m_ReflectanceMethod = IfcReflectanceMethodEnum_FLAT;
         }
-        else if (arg == ".GLASS.") {
-            m_reflectanceMethod = IfcReflectanceMethodEnum_GLASS;
+        else if (arg == ".GLASS.")
+        {
+            m_ReflectanceMethod = IfcReflectanceMethodEnum_GLASS;
         }
-        else if (arg == ".MATT.") {
-            m_reflectanceMethod = IfcReflectanceMethodEnum_MATT;
+        else if (arg == ".MATT.")
+        {
+            m_ReflectanceMethod = IfcReflectanceMethodEnum_MATT;
         }
-        else if (arg == ".METAL.") {
-            m_reflectanceMethod = IfcReflectanceMethodEnum_METAL;
+        else if (arg == ".METAL.")
+        {
+            m_ReflectanceMethod = IfcReflectanceMethodEnum_METAL;
         }
-        else if (arg == ".MIRROR.") {
-            m_reflectanceMethod = IfcReflectanceMethodEnum_MIRROR;
+        else if (arg == ".MIRROR.")
+        {
+            m_ReflectanceMethod = IfcReflectanceMethodEnum_MIRROR;
         }
-        else if (arg == ".PHONG.") {
-            m_reflectanceMethod = IfcReflectanceMethodEnum_PHONG;
+        else if (arg == ".PHONG.")
+        {
+            m_ReflectanceMethod = IfcReflectanceMethodEnum_PHONG;
         }
-        else if (arg == ".PLASTIC.") {
-            m_reflectanceMethod = IfcReflectanceMethodEnum_PLASTIC;
+        else if (arg == ".PLASTIC.")
+        {
+            m_ReflectanceMethod = IfcReflectanceMethodEnum_PLASTIC;
         }
-        else if (arg == ".STRAUSS.") {
-            m_reflectanceMethod = IfcReflectanceMethodEnum_STRAUSS;
+        else if (arg == ".STRAUSS.")
+        {
+            m_ReflectanceMethod = IfcReflectanceMethodEnum_STRAUSS;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_reflectanceMethod = IfcReflectanceMethodEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_ReflectanceMethod = IfcReflectanceMethodEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-#define T(v,t) v = new t; v->copy(*(obj.v.get()), copyop)
-
 void IfcSurfaceStyleRendering::copy(const IfcSurfaceStyleRendering &obj, const CopyOp &copyop)
 {
     IfcSurfaceStyleShading::copy(obj, copyop);
-
-    setTransparency(obj.m_transparency);
-
-    if(obj.testDiffuseColour())
-    {
-        T(m_diffuseColour, IfcColourOrFactor);
-    }
-
-    if(obj.testTransmissionColour())
-    {
-        T(m_transmissionColour, IfcColourOrFactor);
-    }
-
-    if (obj.testDiffuseTransmissionColour())
-    {
-        T(m_diffuseTransmissionColour, IfcColourOrFactor);
-    }
-
-    if (obj.testReflectionColour())
-    {
-        T(m_reflectionColour, IfcColourOrFactor);
-    }
-
-    if (obj.testSpecularColour())
-    {
-        T(m_specularColour, IfcColourOrFactor);
-    }
-
-    if (obj.testSpecularHighlight())
-    {
-        T(m_specularHighlight, IfcSpecularHighlightSelect);
-    }
-
-    setReflectanceMethod(obj.m_reflectanceMethod);
+    setTransparency(obj.m_Transparency);
+    setDiffuseColour((IfcColourOrFactor*)copyop(obj.m_DiffuseColour.get()));
+    setTransmissionColour((IfcColourOrFactor*)copyop(obj.m_TransmissionColour.get()));
+    setDiffuseTransmissionColour((IfcColourOrFactor*)copyop(obj.m_DiffuseTransmissionColour.get()));
+    setReflectionColour((IfcColourOrFactor*)copyop(obj.m_ReflectionColour.get()));
+    setSpecularColour((IfcColourOrFactor*)copyop(obj.m_SpecularColour.get()));
+    setSpecularHighlight((IfcSpecularHighlightSelect*)copyop(obj.m_SpecularHighlight.get()));
+    setReflectanceMethod(obj.m_ReflectanceMethod);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleRendering::s_type("IfcSurfaceStyleRendering");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcSurfaceStyleRendering, IfcSurfaceStyleShading)

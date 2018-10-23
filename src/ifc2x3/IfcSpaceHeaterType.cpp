@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,121 +24,128 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcSpaceHeaterType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcEnergyConversionDeviceType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcSpaceHeaterType::IfcSpaceHeaterType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
-    m_predefinedType = IfcSpaceHeaterTypeEnum_UNSET;
+IfcSpaceHeaterType::IfcSpaceHeaterType(Step::Id id, Step::SPFData *args) : 
+    IfcEnergyConversionDeviceType(id, args)
+{
+    m_PredefinedType = IfcSpaceHeaterTypeEnum_UNSET;
 }
 
-IfcSpaceHeaterType::~IfcSpaceHeaterType() {
+IfcSpaceHeaterType::~IfcSpaceHeaterType()
+{}
+
+bool IfcSpaceHeaterType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcSpaceHeaterType(this);
 }
 
-bool IfcSpaceHeaterType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcSpaceHeaterType(this);
-}
 
-const std::string &IfcSpaceHeaterType::type() const {
-    return IfcSpaceHeaterType::s_type.getName();
-}
-
-const Step::ClassType &IfcSpaceHeaterType::getClassType() {
-    return IfcSpaceHeaterType::s_type;
-}
-
-const Step::ClassType &IfcSpaceHeaterType::getType() const {
-    return IfcSpaceHeaterType::s_type;
-}
-
-bool IfcSpaceHeaterType::isOfType(const Step::ClassType &t) const {
-    return IfcSpaceHeaterType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
-}
-
-IfcSpaceHeaterTypeEnum IfcSpaceHeaterType::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcSpaceHeaterTypeEnum IfcSpaceHeaterType::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcSpaceHeaterTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcSpaceHeaterTypeEnum IfcSpaceHeaterType::getPredefinedType() const {
-    IfcSpaceHeaterType * deConstObject = const_cast< IfcSpaceHeaterType * > (this);
-    return deConstObject->getPredefinedType();
+IfcSpaceHeaterTypeEnum IfcSpaceHeaterType::getPredefinedType() const
+{
+    return const_cast<IfcSpaceHeaterType *>(this)->getPredefinedType();
 }
 
-void IfcSpaceHeaterType::setPredefinedType(IfcSpaceHeaterTypeEnum value) {
-    m_predefinedType = value;
+void IfcSpaceHeaterType::setPredefinedType(IfcSpaceHeaterTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcSpaceHeaterType::unsetPredefinedType() {
-    m_predefinedType = IfcSpaceHeaterTypeEnum_UNSET;
+void IfcSpaceHeaterType::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcSpaceHeaterTypeEnum_UNSET;
 }
 
-bool IfcSpaceHeaterType::testPredefinedType() const {
-    return getPredefinedType() != IfcSpaceHeaterTypeEnum_UNSET;
+bool IfcSpaceHeaterType::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcSpaceHeaterType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
-    std::string arg;
-    if (!status) {
+bool IfcSpaceHeaterType::init()
+{
+    if (IfcEnergyConversionDeviceType::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcSpaceHeaterTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcSpaceHeaterTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".SECTIONALRADIATOR.") {
-            m_predefinedType = IfcSpaceHeaterTypeEnum_SECTIONALRADIATOR;
+    else
+    {
+        if (arg == ".SECTIONALRADIATOR.")
+        {
+            m_PredefinedType = IfcSpaceHeaterTypeEnum_SECTIONALRADIATOR;
         }
-        else if (arg == ".PANELRADIATOR.") {
-            m_predefinedType = IfcSpaceHeaterTypeEnum_PANELRADIATOR;
+        else if (arg == ".PANELRADIATOR.")
+        {
+            m_PredefinedType = IfcSpaceHeaterTypeEnum_PANELRADIATOR;
         }
-        else if (arg == ".TUBULARRADIATOR.") {
-            m_predefinedType = IfcSpaceHeaterTypeEnum_TUBULARRADIATOR;
+        else if (arg == ".TUBULARRADIATOR.")
+        {
+            m_PredefinedType = IfcSpaceHeaterTypeEnum_TUBULARRADIATOR;
         }
-        else if (arg == ".CONVECTOR.") {
-            m_predefinedType = IfcSpaceHeaterTypeEnum_CONVECTOR;
+        else if (arg == ".CONVECTOR.")
+        {
+            m_PredefinedType = IfcSpaceHeaterTypeEnum_CONVECTOR;
         }
-        else if (arg == ".BASEBOARDHEATER.") {
-            m_predefinedType = IfcSpaceHeaterTypeEnum_BASEBOARDHEATER;
+        else if (arg == ".BASEBOARDHEATER.")
+        {
+            m_PredefinedType = IfcSpaceHeaterTypeEnum_BASEBOARDHEATER;
         }
-        else if (arg == ".FINNEDTUBEUNIT.") {
-            m_predefinedType = IfcSpaceHeaterTypeEnum_FINNEDTUBEUNIT;
+        else if (arg == ".FINNEDTUBEUNIT.")
+        {
+            m_PredefinedType = IfcSpaceHeaterTypeEnum_FINNEDTUBEUNIT;
         }
-        else if (arg == ".UNITHEATER.") {
-            m_predefinedType = IfcSpaceHeaterTypeEnum_UNITHEATER;
+        else if (arg == ".UNITHEATER.")
+        {
+            m_PredefinedType = IfcSpaceHeaterTypeEnum_UNITHEATER;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcSpaceHeaterTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcSpaceHeaterTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcSpaceHeaterTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcSpaceHeaterTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcSpaceHeaterType::copy(const IfcSpaceHeaterType &obj, const CopyOp &copyop) {
+void IfcSpaceHeaterType::copy(const IfcSpaceHeaterType &obj, const CopyOp &copyop)
+{
     IfcEnergyConversionDeviceType::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSpaceHeaterType::s_type("IfcSpaceHeaterType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcSpaceHeaterType, IfcEnergyConversionDeviceType)

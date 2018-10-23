@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,119 +24,125 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcConnectionSurfaceGeometry.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcConnectionGeometry.h>
 #include <ifc2x3/IfcSurfaceOrFaceSurface.h>
+#include <ifc2x3/IfcSurfaceOrFaceSurface.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcConnectionSurfaceGeometry::IfcConnectionSurfaceGeometry(Step::Id id, Step::SPFData *args) : IfcConnectionGeometry(id, args) {
-    m_surfaceOnRelatingElement = NULL;
-    m_surfaceOnRelatedElement = NULL;
+IfcConnectionSurfaceGeometry::IfcConnectionSurfaceGeometry(Step::Id id, Step::SPFData *args) : 
+    IfcConnectionGeometry(id, args)
+{
+    m_SurfaceOnRelatingElement = NULL;
+    m_SurfaceOnRelatedElement = NULL;
 }
 
-IfcConnectionSurfaceGeometry::~IfcConnectionSurfaceGeometry() {
+IfcConnectionSurfaceGeometry::~IfcConnectionSurfaceGeometry()
+{}
+
+bool IfcConnectionSurfaceGeometry::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcConnectionSurfaceGeometry(this);
 }
 
-bool IfcConnectionSurfaceGeometry::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcConnectionSurfaceGeometry(this);
-}
 
-const std::string &IfcConnectionSurfaceGeometry::type() const {
-    return IfcConnectionSurfaceGeometry::s_type.getName();
-}
-
-const Step::ClassType &IfcConnectionSurfaceGeometry::getClassType() {
-    return IfcConnectionSurfaceGeometry::s_type;
-}
-
-const Step::ClassType &IfcConnectionSurfaceGeometry::getType() const {
-    return IfcConnectionSurfaceGeometry::s_type;
-}
-
-bool IfcConnectionSurfaceGeometry::isOfType(const Step::ClassType &t) const {
-    return IfcConnectionSurfaceGeometry::s_type == t ? true : IfcConnectionGeometry::isOfType(t);
-}
-
-IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelatingElement() {
-    if (Step::BaseObject::inited()) {
-        return m_surfaceOnRelatingElement.get();
+IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelatingElement()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SurfaceOnRelatingElement.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelatingElement() const
+{
+    return const_cast<IfcConnectionSurfaceGeometry *>(this)->getSurfaceOnRelatingElement();
+}
+
+void IfcConnectionSurfaceGeometry::setSurfaceOnRelatingElement(const Step::RefPtr< IfcSurfaceOrFaceSurface > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SurfaceOnRelatingElement = value;
+}
+
+void IfcConnectionSurfaceGeometry::unsetSurfaceOnRelatingElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SurfaceOnRelatingElement = Step::getUnset(getSurfaceOnRelatingElement());
+}
+
+bool IfcConnectionSurfaceGeometry::testSurfaceOnRelatingElement() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSurfaceOnRelatingElement()) == false;
+}
+
+
+IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelatedElement()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SurfaceOnRelatedElement.get();
     }
-}
-
-const IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelatingElement() const {
-    IfcConnectionSurfaceGeometry * deConstObject = const_cast< IfcConnectionSurfaceGeometry * > (this);
-    return deConstObject->getSurfaceOnRelatingElement();
-}
-
-void IfcConnectionSurfaceGeometry::setSurfaceOnRelatingElement(const Step::RefPtr< IfcSurfaceOrFaceSurface > &value) {
-    m_surfaceOnRelatingElement = value;
-}
-
-void IfcConnectionSurfaceGeometry::unsetSurfaceOnRelatingElement() {
-    m_surfaceOnRelatingElement = Step::getUnset(getSurfaceOnRelatingElement());
-}
-
-bool IfcConnectionSurfaceGeometry::testSurfaceOnRelatingElement() const {
-    return !Step::isUnset(getSurfaceOnRelatingElement());
-}
-
-IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelatedElement() {
-    if (Step::BaseObject::inited()) {
-        return m_surfaceOnRelatedElement.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelatedElement() const {
-    IfcConnectionSurfaceGeometry * deConstObject = const_cast< IfcConnectionSurfaceGeometry * > (this);
-    return deConstObject->getSurfaceOnRelatedElement();
+const IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelatedElement() const
+{
+    return const_cast<IfcConnectionSurfaceGeometry *>(this)->getSurfaceOnRelatedElement();
 }
 
-void IfcConnectionSurfaceGeometry::setSurfaceOnRelatedElement(const Step::RefPtr< IfcSurfaceOrFaceSurface > &value) {
-    m_surfaceOnRelatedElement = value;
+void IfcConnectionSurfaceGeometry::setSurfaceOnRelatedElement(const Step::RefPtr< IfcSurfaceOrFaceSurface > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SurfaceOnRelatedElement = value;
 }
 
-void IfcConnectionSurfaceGeometry::unsetSurfaceOnRelatedElement() {
-    m_surfaceOnRelatedElement = Step::getUnset(getSurfaceOnRelatedElement());
+void IfcConnectionSurfaceGeometry::unsetSurfaceOnRelatedElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SurfaceOnRelatedElement = Step::getUnset(getSurfaceOnRelatedElement());
 }
 
-bool IfcConnectionSurfaceGeometry::testSurfaceOnRelatedElement() const {
-    return !Step::isUnset(getSurfaceOnRelatedElement());
+bool IfcConnectionSurfaceGeometry::testSurfaceOnRelatedElement() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSurfaceOnRelatedElement()) == false;
 }
 
-bool IfcConnectionSurfaceGeometry::init() {
-    bool status = IfcConnectionGeometry::init();
-    std::string arg;
-    if (!status) {
+bool IfcConnectionSurfaceGeometry::init()
+{
+    if (IfcConnectionGeometry::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_surfaceOnRelatingElement = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_SurfaceOnRelatingElement = NULL;
     }
-    else {
-        m_surfaceOnRelatingElement = new IfcSurfaceOrFaceSurface;
+    else
+    {
+        m_SurfaceOnRelatingElement = new IfcSurfaceOrFaceSurface;
         if (arg[0] == '#') {
-            m_surfaceOnRelatingElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_SurfaceOnRelatingElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -140,13 +155,15 @@ bool IfcConnectionSurfaceGeometry::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_surfaceOnRelatedElement = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_SurfaceOnRelatedElement = NULL;
     }
-    else {
-        m_surfaceOnRelatedElement = new IfcSurfaceOrFaceSurface;
+    else
+    {
+        m_SurfaceOnRelatedElement = new IfcSurfaceOrFaceSurface;
         if (arg[0] == '#') {
-            m_surfaceOnRelatedElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_SurfaceOnRelatedElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -161,13 +178,12 @@ bool IfcConnectionSurfaceGeometry::init() {
     return true;
 }
 
-void IfcConnectionSurfaceGeometry::copy(const IfcConnectionSurfaceGeometry &obj, const CopyOp &copyop) {
+void IfcConnectionSurfaceGeometry::copy(const IfcConnectionSurfaceGeometry &obj, const CopyOp &copyop)
+{
     IfcConnectionGeometry::copy(obj, copyop);
-    m_surfaceOnRelatingElement = new IfcSurfaceOrFaceSurface;
-    m_surfaceOnRelatingElement->copy(*(obj.m_surfaceOnRelatingElement.get()), copyop);
-    m_surfaceOnRelatedElement = new IfcSurfaceOrFaceSurface;
-    m_surfaceOnRelatedElement->copy(*(obj.m_surfaceOnRelatedElement.get()), copyop);
+    setSurfaceOnRelatingElement((IfcSurfaceOrFaceSurface*)copyop(obj.m_SurfaceOnRelatingElement.get()));
+    setSurfaceOnRelatedElement((IfcSurfaceOrFaceSurface*)copyop(obj.m_SurfaceOnRelatedElement.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConnectionSurfaceGeometry::s_type("IfcConnectionSurfaceGeometry");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcConnectionSurfaceGeometry, IfcConnectionGeometry)

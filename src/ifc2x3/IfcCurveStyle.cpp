@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,149 +24,163 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcCurveStyle.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcColour.h>
 #include <ifc2x3/IfcCurveFontOrScaledCurveFontSelect.h>
-#include <ifc2x3/IfcPresentationStyle.h>
 #include <ifc2x3/IfcSizeSelect.h>
+#include <ifc2x3/IfcColour.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcCurveStyle::IfcCurveStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
-    m_curveFont = NULL;
-    m_curveWidth = NULL;
-    m_curveColour = NULL;
+IfcCurveStyle::IfcCurveStyle(Step::Id id, Step::SPFData *args) : 
+    IfcPresentationStyle(id, args)
+{
+    m_CurveFont = NULL;
+    m_CurveWidth = NULL;
+    m_CurveColour = NULL;
 }
 
-IfcCurveStyle::~IfcCurveStyle() {
+IfcCurveStyle::~IfcCurveStyle()
+{}
+
+bool IfcCurveStyle::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcCurveStyle(this);
 }
 
-bool IfcCurveStyle::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcCurveStyle(this);
-}
 
-const std::string &IfcCurveStyle::type() const {
-    return IfcCurveStyle::s_type.getName();
-}
-
-const Step::ClassType &IfcCurveStyle::getClassType() {
-    return IfcCurveStyle::s_type;
-}
-
-const Step::ClassType &IfcCurveStyle::getType() const {
-    return IfcCurveStyle::s_type;
-}
-
-bool IfcCurveStyle::isOfType(const Step::ClassType &t) const {
-    return IfcCurveStyle::s_type == t ? true : IfcPresentationStyle::isOfType(t);
-}
-
-IfcCurveFontOrScaledCurveFontSelect *IfcCurveStyle::getCurveFont() {
-    if (Step::BaseObject::inited()) {
-        return m_curveFont.get();
+IfcCurveFontOrScaledCurveFontSelect *IfcCurveStyle::getCurveFont()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CurveFont.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcCurveFontOrScaledCurveFontSelect *IfcCurveStyle::getCurveFont() const
+{
+    return const_cast<IfcCurveStyle *>(this)->getCurveFont();
+}
+
+void IfcCurveStyle::setCurveFont(const Step::RefPtr< IfcCurveFontOrScaledCurveFontSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveFont = value;
+}
+
+void IfcCurveStyle::unsetCurveFont()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveFont = Step::getUnset(getCurveFont());
+}
+
+bool IfcCurveStyle::testCurveFont() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCurveFont()) == false;
+}
+
+
+IfcSizeSelect *IfcCurveStyle::getCurveWidth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CurveWidth.get();
     }
-}
-
-const IfcCurveFontOrScaledCurveFontSelect *IfcCurveStyle::getCurveFont() const {
-    IfcCurveStyle * deConstObject = const_cast< IfcCurveStyle * > (this);
-    return deConstObject->getCurveFont();
-}
-
-void IfcCurveStyle::setCurveFont(const Step::RefPtr< IfcCurveFontOrScaledCurveFontSelect > &value) {
-    m_curveFont = value;
-}
-
-void IfcCurveStyle::unsetCurveFont() {
-    m_curveFont = Step::getUnset(getCurveFont());
-}
-
-bool IfcCurveStyle::testCurveFont() const {
-    return !Step::isUnset(getCurveFont());
-}
-
-IfcSizeSelect *IfcCurveStyle::getCurveWidth() {
-    if (Step::BaseObject::inited()) {
-        return m_curveWidth.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcSizeSelect *IfcCurveStyle::getCurveWidth() const
+{
+    return const_cast<IfcCurveStyle *>(this)->getCurveWidth();
+}
+
+void IfcCurveStyle::setCurveWidth(const Step::RefPtr< IfcSizeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveWidth = value;
+}
+
+void IfcCurveStyle::unsetCurveWidth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveWidth = Step::getUnset(getCurveWidth());
+}
+
+bool IfcCurveStyle::testCurveWidth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCurveWidth()) == false;
+}
+
+
+IfcColour *IfcCurveStyle::getCurveColour()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CurveColour.get();
     }
-}
-
-const IfcSizeSelect *IfcCurveStyle::getCurveWidth() const {
-    IfcCurveStyle * deConstObject = const_cast< IfcCurveStyle * > (this);
-    return deConstObject->getCurveWidth();
-}
-
-void IfcCurveStyle::setCurveWidth(const Step::RefPtr< IfcSizeSelect > &value) {
-    m_curveWidth = value;
-}
-
-void IfcCurveStyle::unsetCurveWidth() {
-    m_curveWidth = Step::getUnset(getCurveWidth());
-}
-
-bool IfcCurveStyle::testCurveWidth() const {
-    return !Step::isUnset(getCurveWidth());
-}
-
-IfcColour *IfcCurveStyle::getCurveColour() {
-    if (Step::BaseObject::inited()) {
-        return m_curveColour.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcColour *IfcCurveStyle::getCurveColour() const {
-    IfcCurveStyle * deConstObject = const_cast< IfcCurveStyle * > (this);
-    return deConstObject->getCurveColour();
+const IfcColour *IfcCurveStyle::getCurveColour() const
+{
+    return const_cast<IfcCurveStyle *>(this)->getCurveColour();
 }
 
-void IfcCurveStyle::setCurveColour(const Step::RefPtr< IfcColour > &value) {
-    m_curveColour = value;
+void IfcCurveStyle::setCurveColour(const Step::RefPtr< IfcColour > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveColour = value;
 }
 
-void IfcCurveStyle::unsetCurveColour() {
-    m_curveColour = Step::getUnset(getCurveColour());
+void IfcCurveStyle::unsetCurveColour()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveColour = Step::getUnset(getCurveColour());
 }
 
-bool IfcCurveStyle::testCurveColour() const {
-    return !Step::isUnset(getCurveColour());
+bool IfcCurveStyle::testCurveColour() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCurveColour()) == false;
 }
 
-bool IfcCurveStyle::init() {
-    bool status = IfcPresentationStyle::init();
-    std::string arg;
-    if (!status) {
+bool IfcCurveStyle::init()
+{
+    if (IfcPresentationStyle::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_curveFont = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_CurveFont = NULL;
     }
-    else {
-        m_curveFont = new IfcCurveFontOrScaledCurveFontSelect;
+    else
+    {
+        m_CurveFont = new IfcCurveFontOrScaledCurveFontSelect;
         if (arg[0] == '#') {
-            m_curveFont->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_CurveFont->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -170,13 +193,15 @@ bool IfcCurveStyle::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_curveWidth = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_CurveWidth = NULL;
     }
-    else {
-        m_curveWidth = new IfcSizeSelect;
+    else
+    {
+        m_CurveWidth = new IfcSizeSelect;
         if (arg[0] == '#') {
-            m_curveWidth->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_CurveWidth->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -185,47 +210,60 @@ bool IfcCurveStyle::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_curveWidth->setIfcRatioMeasure(tmp_attr1);
+                if (type1 == "IFCRATIOMEASURE")
+                {
+                    IfcRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_CurveWidth->setIfcRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_curveWidth->setIfcLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCLENGTHMEASURE")
+                {
+                    IfcLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_CurveWidth->setIfcLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    Step::String tmp_attr1;
-                    tmp_attr1 = Step::String::fromSPF(arg);
-                    m_curveWidth->setIfcDescriptiveMeasure(tmp_attr1);
+                else if (type1 == "IFCDESCRIPTIVEMEASURE")
+                {
+                    IfcDescriptiveMeasure tmp_attr1 = Step::String::fromSPF(arg)
+;
+                    m_CurveWidth->setIfcDescriptiveMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVELENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_curveWidth->setIfcPositiveLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVELENGTHMEASURE")
+                {
+                    IfcPositiveLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_CurveWidth->setIfcPositiveLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_curveWidth->setIfcNormalisedRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_CurveWidth->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVERATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_curveWidth->setIfcPositiveRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVERATIOMEASURE")
+                {
+                    IfcPositiveRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_CurveWidth->setIfcPositiveRatioMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_curveColour = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_CurveColour = NULL;
     }
-    else {
-        m_curveColour = new IfcColour;
+    else
+    {
+        m_CurveColour = new IfcColour;
         if (arg[0] == '#') {
-            m_curveColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_CurveColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -240,15 +278,13 @@ bool IfcCurveStyle::init() {
     return true;
 }
 
-void IfcCurveStyle::copy(const IfcCurveStyle &obj, const CopyOp &copyop) {
+void IfcCurveStyle::copy(const IfcCurveStyle &obj, const CopyOp &copyop)
+{
     IfcPresentationStyle::copy(obj, copyop);
-    m_curveFont = new IfcCurveFontOrScaledCurveFontSelect;
-    m_curveFont->copy(*(obj.m_curveFont.get()), copyop);
-    m_curveWidth = new IfcSizeSelect;
-    m_curveWidth->copy(*(obj.m_curveWidth.get()), copyop);
-    m_curveColour = new IfcColour;
-    m_curveColour->copy(*(obj.m_curveColour.get()), copyop);
+    setCurveFont((IfcCurveFontOrScaledCurveFontSelect*)copyop(obj.m_CurveFont.get()));
+    setCurveWidth((IfcSizeSelect*)copyop(obj.m_CurveWidth.get()));
+    setCurveColour((IfcColour*)copyop(obj.m_CurveColour.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurveStyle::s_type("IfcCurveStyle");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcCurveStyle, IfcPresentationStyle)

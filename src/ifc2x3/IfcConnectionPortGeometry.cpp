@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,149 +24,163 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcConnectionPortGeometry.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcAxis2Placement.h>
-#include <ifc2x3/IfcConnectionGeometry.h>
+#include <ifc2x3/IfcAxis2Placement.h>
 #include <ifc2x3/IfcProfileDef.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcConnectionPortGeometry::IfcConnectionPortGeometry(Step::Id id, Step::SPFData *args) : IfcConnectionGeometry(id, args) {
-    m_locationAtRelatingElement = NULL;
-    m_locationAtRelatedElement = NULL;
-    m_profileOfPort = NULL;
+IfcConnectionPortGeometry::IfcConnectionPortGeometry(Step::Id id, Step::SPFData *args) : 
+    IfcConnectionGeometry(id, args)
+{
+    m_LocationAtRelatingElement = NULL;
+    m_LocationAtRelatedElement = NULL;
+    m_ProfileOfPort = NULL;
 }
 
-IfcConnectionPortGeometry::~IfcConnectionPortGeometry() {
+IfcConnectionPortGeometry::~IfcConnectionPortGeometry()
+{}
+
+bool IfcConnectionPortGeometry::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcConnectionPortGeometry(this);
 }
 
-bool IfcConnectionPortGeometry::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcConnectionPortGeometry(this);
-}
 
-const std::string &IfcConnectionPortGeometry::type() const {
-    return IfcConnectionPortGeometry::s_type.getName();
-}
-
-const Step::ClassType &IfcConnectionPortGeometry::getClassType() {
-    return IfcConnectionPortGeometry::s_type;
-}
-
-const Step::ClassType &IfcConnectionPortGeometry::getType() const {
-    return IfcConnectionPortGeometry::s_type;
-}
-
-bool IfcConnectionPortGeometry::isOfType(const Step::ClassType &t) const {
-    return IfcConnectionPortGeometry::s_type == t ? true : IfcConnectionGeometry::isOfType(t);
-}
-
-IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatingElement() {
-    if (Step::BaseObject::inited()) {
-        return m_locationAtRelatingElement.get();
+IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatingElement()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LocationAtRelatingElement.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatingElement() const
+{
+    return const_cast<IfcConnectionPortGeometry *>(this)->getLocationAtRelatingElement();
+}
+
+void IfcConnectionPortGeometry::setLocationAtRelatingElement(const Step::RefPtr< IfcAxis2Placement > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LocationAtRelatingElement = value;
+}
+
+void IfcConnectionPortGeometry::unsetLocationAtRelatingElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LocationAtRelatingElement = Step::getUnset(getLocationAtRelatingElement());
+}
+
+bool IfcConnectionPortGeometry::testLocationAtRelatingElement() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLocationAtRelatingElement()) == false;
+}
+
+
+IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatedElement()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LocationAtRelatedElement.get();
     }
-}
-
-const IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatingElement() const {
-    IfcConnectionPortGeometry * deConstObject = const_cast< IfcConnectionPortGeometry * > (this);
-    return deConstObject->getLocationAtRelatingElement();
-}
-
-void IfcConnectionPortGeometry::setLocationAtRelatingElement(const Step::RefPtr< IfcAxis2Placement > &value) {
-    m_locationAtRelatingElement = value;
-}
-
-void IfcConnectionPortGeometry::unsetLocationAtRelatingElement() {
-    m_locationAtRelatingElement = Step::getUnset(getLocationAtRelatingElement());
-}
-
-bool IfcConnectionPortGeometry::testLocationAtRelatingElement() const {
-    return !Step::isUnset(getLocationAtRelatingElement());
-}
-
-IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatedElement() {
-    if (Step::BaseObject::inited()) {
-        return m_locationAtRelatedElement.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatedElement() const
+{
+    return const_cast<IfcConnectionPortGeometry *>(this)->getLocationAtRelatedElement();
+}
+
+void IfcConnectionPortGeometry::setLocationAtRelatedElement(const Step::RefPtr< IfcAxis2Placement > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LocationAtRelatedElement = value;
+}
+
+void IfcConnectionPortGeometry::unsetLocationAtRelatedElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LocationAtRelatedElement = Step::getUnset(getLocationAtRelatedElement());
+}
+
+bool IfcConnectionPortGeometry::testLocationAtRelatedElement() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLocationAtRelatedElement()) == false;
+}
+
+
+IfcProfileDef *IfcConnectionPortGeometry::getProfileOfPort()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ProfileOfPort.get();
     }
-}
-
-const IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatedElement() const {
-    IfcConnectionPortGeometry * deConstObject = const_cast< IfcConnectionPortGeometry * > (this);
-    return deConstObject->getLocationAtRelatedElement();
-}
-
-void IfcConnectionPortGeometry::setLocationAtRelatedElement(const Step::RefPtr< IfcAxis2Placement > &value) {
-    m_locationAtRelatedElement = value;
-}
-
-void IfcConnectionPortGeometry::unsetLocationAtRelatedElement() {
-    m_locationAtRelatedElement = Step::getUnset(getLocationAtRelatedElement());
-}
-
-bool IfcConnectionPortGeometry::testLocationAtRelatedElement() const {
-    return !Step::isUnset(getLocationAtRelatedElement());
-}
-
-IfcProfileDef *IfcConnectionPortGeometry::getProfileOfPort() {
-    if (Step::BaseObject::inited()) {
-        return m_profileOfPort.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcProfileDef *IfcConnectionPortGeometry::getProfileOfPort() const {
-    IfcConnectionPortGeometry * deConstObject = const_cast< IfcConnectionPortGeometry * > (this);
-    return deConstObject->getProfileOfPort();
+const IfcProfileDef *IfcConnectionPortGeometry::getProfileOfPort() const
+{
+    return const_cast<IfcConnectionPortGeometry *>(this)->getProfileOfPort();
 }
 
-void IfcConnectionPortGeometry::setProfileOfPort(const Step::RefPtr< IfcProfileDef > &value) {
-    m_profileOfPort = value;
+void IfcConnectionPortGeometry::setProfileOfPort(const Step::RefPtr< IfcProfileDef > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ProfileOfPort = value;
 }
 
-void IfcConnectionPortGeometry::unsetProfileOfPort() {
-    m_profileOfPort = Step::getUnset(getProfileOfPort());
+void IfcConnectionPortGeometry::unsetProfileOfPort()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ProfileOfPort = Step::getUnset(getProfileOfPort());
 }
 
-bool IfcConnectionPortGeometry::testProfileOfPort() const {
-    return !Step::isUnset(getProfileOfPort());
+bool IfcConnectionPortGeometry::testProfileOfPort() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getProfileOfPort()) == false;
 }
 
-bool IfcConnectionPortGeometry::init() {
-    bool status = IfcConnectionGeometry::init();
-    std::string arg;
-    if (!status) {
+bool IfcConnectionPortGeometry::init()
+{
+    if (IfcConnectionGeometry::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_locationAtRelatingElement = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_LocationAtRelatingElement = NULL;
     }
-    else {
-        m_locationAtRelatingElement = new IfcAxis2Placement;
+    else
+    {
+        m_LocationAtRelatingElement = new IfcAxis2Placement;
         if (arg[0] == '#') {
-            m_locationAtRelatingElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_LocationAtRelatingElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -170,13 +193,15 @@ bool IfcConnectionPortGeometry::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_locationAtRelatedElement = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_LocationAtRelatedElement = NULL;
     }
-    else {
-        m_locationAtRelatedElement = new IfcAxis2Placement;
+    else
+    {
+        m_LocationAtRelatedElement = new IfcAxis2Placement;
         if (arg[0] == '#') {
-            m_locationAtRelatedElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_LocationAtRelatedElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -189,23 +214,25 @@ bool IfcConnectionPortGeometry::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_profileOfPort = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_ProfileOfPort = NULL;
     }
-    else {
-        m_profileOfPort = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_ProfileOfPort = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcConnectionPortGeometry::copy(const IfcConnectionPortGeometry &obj, const CopyOp &copyop) {
+void IfcConnectionPortGeometry::copy(const IfcConnectionPortGeometry &obj, const CopyOp &copyop)
+{
     IfcConnectionGeometry::copy(obj, copyop);
-    m_locationAtRelatingElement = new IfcAxis2Placement;
-    m_locationAtRelatingElement->copy(*(obj.m_locationAtRelatingElement.get()), copyop);
-    m_locationAtRelatedElement = new IfcAxis2Placement;
-    m_locationAtRelatedElement->copy(*(obj.m_locationAtRelatedElement.get()), copyop);
-    setProfileOfPort((IfcProfileDef*)copyop(obj.m_profileOfPort.get()));
+    setLocationAtRelatingElement((IfcAxis2Placement*)copyop(obj.m_LocationAtRelatingElement.get()));
+    setLocationAtRelatedElement((IfcAxis2Placement*)copyop(obj.m_LocationAtRelatedElement.get()));
+    setProfileOfPort((IfcProfileDef*)copyop(obj.m_ProfileOfPort.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConnectionPortGeometry::s_type("IfcConnectionPortGeometry");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcConnectionPortGeometry, IfcConnectionGeometry)

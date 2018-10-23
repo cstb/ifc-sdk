@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,121 +24,128 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPipeFittingType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcFlowFittingType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPipeFittingType::IfcPipeFittingType(Step::Id id, Step::SPFData *args) : IfcFlowFittingType(id, args) {
-    m_predefinedType = IfcPipeFittingTypeEnum_UNSET;
+IfcPipeFittingType::IfcPipeFittingType(Step::Id id, Step::SPFData *args) : 
+    IfcFlowFittingType(id, args)
+{
+    m_PredefinedType = IfcPipeFittingTypeEnum_UNSET;
 }
 
-IfcPipeFittingType::~IfcPipeFittingType() {
+IfcPipeFittingType::~IfcPipeFittingType()
+{}
+
+bool IfcPipeFittingType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPipeFittingType(this);
 }
 
-bool IfcPipeFittingType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPipeFittingType(this);
-}
 
-const std::string &IfcPipeFittingType::type() const {
-    return IfcPipeFittingType::s_type.getName();
-}
-
-const Step::ClassType &IfcPipeFittingType::getClassType() {
-    return IfcPipeFittingType::s_type;
-}
-
-const Step::ClassType &IfcPipeFittingType::getType() const {
-    return IfcPipeFittingType::s_type;
-}
-
-bool IfcPipeFittingType::isOfType(const Step::ClassType &t) const {
-    return IfcPipeFittingType::s_type == t ? true : IfcFlowFittingType::isOfType(t);
-}
-
-IfcPipeFittingTypeEnum IfcPipeFittingType::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcPipeFittingTypeEnum IfcPipeFittingType::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcPipeFittingTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcPipeFittingTypeEnum IfcPipeFittingType::getPredefinedType() const {
-    IfcPipeFittingType * deConstObject = const_cast< IfcPipeFittingType * > (this);
-    return deConstObject->getPredefinedType();
+IfcPipeFittingTypeEnum IfcPipeFittingType::getPredefinedType() const
+{
+    return const_cast<IfcPipeFittingType *>(this)->getPredefinedType();
 }
 
-void IfcPipeFittingType::setPredefinedType(IfcPipeFittingTypeEnum value) {
-    m_predefinedType = value;
+void IfcPipeFittingType::setPredefinedType(IfcPipeFittingTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcPipeFittingType::unsetPredefinedType() {
-    m_predefinedType = IfcPipeFittingTypeEnum_UNSET;
+void IfcPipeFittingType::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcPipeFittingTypeEnum_UNSET;
 }
 
-bool IfcPipeFittingType::testPredefinedType() const {
-    return getPredefinedType() != IfcPipeFittingTypeEnum_UNSET;
+bool IfcPipeFittingType::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcPipeFittingType::init() {
-    bool status = IfcFlowFittingType::init();
-    std::string arg;
-    if (!status) {
+bool IfcPipeFittingType::init()
+{
+    if (IfcFlowFittingType::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcPipeFittingTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcPipeFittingTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".BEND.") {
-            m_predefinedType = IfcPipeFittingTypeEnum_BEND;
+    else
+    {
+        if (arg == ".BEND.")
+        {
+            m_PredefinedType = IfcPipeFittingTypeEnum_BEND;
         }
-        else if (arg == ".CONNECTOR.") {
-            m_predefinedType = IfcPipeFittingTypeEnum_CONNECTOR;
+        else if (arg == ".CONNECTOR.")
+        {
+            m_PredefinedType = IfcPipeFittingTypeEnum_CONNECTOR;
         }
-        else if (arg == ".ENTRY.") {
-            m_predefinedType = IfcPipeFittingTypeEnum_ENTRY;
+        else if (arg == ".ENTRY.")
+        {
+            m_PredefinedType = IfcPipeFittingTypeEnum_ENTRY;
         }
-        else if (arg == ".EXIT.") {
-            m_predefinedType = IfcPipeFittingTypeEnum_EXIT;
+        else if (arg == ".EXIT.")
+        {
+            m_PredefinedType = IfcPipeFittingTypeEnum_EXIT;
         }
-        else if (arg == ".JUNCTION.") {
-            m_predefinedType = IfcPipeFittingTypeEnum_JUNCTION;
+        else if (arg == ".JUNCTION.")
+        {
+            m_PredefinedType = IfcPipeFittingTypeEnum_JUNCTION;
         }
-        else if (arg == ".OBSTRUCTION.") {
-            m_predefinedType = IfcPipeFittingTypeEnum_OBSTRUCTION;
+        else if (arg == ".OBSTRUCTION.")
+        {
+            m_PredefinedType = IfcPipeFittingTypeEnum_OBSTRUCTION;
         }
-        else if (arg == ".TRANSITION.") {
-            m_predefinedType = IfcPipeFittingTypeEnum_TRANSITION;
+        else if (arg == ".TRANSITION.")
+        {
+            m_PredefinedType = IfcPipeFittingTypeEnum_TRANSITION;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcPipeFittingTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcPipeFittingTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcPipeFittingTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcPipeFittingTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcPipeFittingType::copy(const IfcPipeFittingType &obj, const CopyOp &copyop) {
+void IfcPipeFittingType::copy(const IfcPipeFittingType &obj, const CopyOp &copyop)
+{
     IfcFlowFittingType::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPipeFittingType::s_type("IfcPipeFittingType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPipeFittingType, IfcFlowFittingType)

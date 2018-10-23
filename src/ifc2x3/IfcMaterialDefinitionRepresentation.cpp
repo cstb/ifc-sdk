@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,105 +24,102 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcMaterialDefinitionRepresentation.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcMaterial.h>
-#include <ifc2x3/IfcProductRepresentation.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcMaterialDefinitionRepresentation::IfcMaterialDefinitionRepresentation(Step::Id id, Step::SPFData *args) : IfcProductRepresentation(id, args) {
-    m_representedMaterial = NULL;
+IfcMaterialDefinitionRepresentation::IfcMaterialDefinitionRepresentation(Step::Id id, Step::SPFData *args) : 
+    IfcProductRepresentation(id, args)
+{
+    m_RepresentedMaterial = NULL;
 }
 
-IfcMaterialDefinitionRepresentation::~IfcMaterialDefinitionRepresentation() {
+IfcMaterialDefinitionRepresentation::~IfcMaterialDefinitionRepresentation()
+{}
+
+bool IfcMaterialDefinitionRepresentation::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcMaterialDefinitionRepresentation(this);
 }
 
-bool IfcMaterialDefinitionRepresentation::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcMaterialDefinitionRepresentation(this);
-}
-
-const std::string &IfcMaterialDefinitionRepresentation::type() const {
-    return IfcMaterialDefinitionRepresentation::s_type.getName();
-}
-
-const Step::ClassType &IfcMaterialDefinitionRepresentation::getClassType() {
-    return IfcMaterialDefinitionRepresentation::s_type;
-}
-
-const Step::ClassType &IfcMaterialDefinitionRepresentation::getType() const {
-    return IfcMaterialDefinitionRepresentation::s_type;
-}
-
-bool IfcMaterialDefinitionRepresentation::isOfType(const Step::ClassType &t) const {
-    return IfcMaterialDefinitionRepresentation::s_type == t ? true : IfcProductRepresentation::isOfType(t);
-}
-
-IfcMaterial *IfcMaterialDefinitionRepresentation::getRepresentedMaterial() {
-    if (Step::BaseObject::inited()) {
-        return m_representedMaterial.get();
+IfcMaterial *IfcMaterialDefinitionRepresentation::getRepresentedMaterial()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RepresentedMaterial.get();
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcMaterial *IfcMaterialDefinitionRepresentation::getRepresentedMaterial() const {
-    IfcMaterialDefinitionRepresentation * deConstObject = const_cast< IfcMaterialDefinitionRepresentation * > (this);
-    return deConstObject->getRepresentedMaterial();
+const IfcMaterial *IfcMaterialDefinitionRepresentation::getRepresentedMaterial() const
+{
+    return const_cast< IfcMaterialDefinitionRepresentation * > (this)->getRepresentedMaterial();
 }
 
-void IfcMaterialDefinitionRepresentation::setRepresentedMaterial(const Step::RefPtr< IfcMaterial > &value) {
-    if (m_representedMaterial.valid()) {
-        m_representedMaterial->m_hasRepresentation.erase(this);
+void IfcMaterialDefinitionRepresentation::setRepresentedMaterial(const Step::RefPtr< IfcMaterial > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RepresentedMaterial.valid())
+    {
+        m_RepresentedMaterial->m_HasRepresentation.erase(this);
     }
-    if (value.valid()) {
-        value->m_hasRepresentation.insert(this);
+    if (value.valid() )
+    {
+       value->m_HasRepresentation.insert(this);
     }
-    m_representedMaterial = value;
+    m_RepresentedMaterial = value;
 }
 
-void IfcMaterialDefinitionRepresentation::unsetRepresentedMaterial() {
-    m_representedMaterial = Step::getUnset(getRepresentedMaterial());
+void IfcMaterialDefinitionRepresentation::unsetRepresentedMaterial()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RepresentedMaterial = Step::getUnset(getRepresentedMaterial());
 }
 
-bool IfcMaterialDefinitionRepresentation::testRepresentedMaterial() const {
-    return !Step::isUnset(getRepresentedMaterial());
+bool IfcMaterialDefinitionRepresentation::testRepresentedMaterial() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRepresentedMaterial()) == false;
 }
 
-bool IfcMaterialDefinitionRepresentation::init() {
-    bool status = IfcProductRepresentation::init();
-    std::string arg;
-    if (!status) {
+bool IfcMaterialDefinitionRepresentation::init()
+{
+    if (IfcProductRepresentation::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_representedMaterial = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RepresentedMaterial = NULL;
     }
-    else {
-        m_representedMaterial = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_RepresentedMaterial = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcMaterialDefinitionRepresentation::copy(const IfcMaterialDefinitionRepresentation &obj, const CopyOp &copyop) {
+void IfcMaterialDefinitionRepresentation::copy(const IfcMaterialDefinitionRepresentation &obj, const CopyOp &copyop)
+{
     IfcProductRepresentation::copy(obj, copyop);
-    setRepresentedMaterial((IfcMaterial*)copyop(obj.m_representedMaterial.get()));
+    setRepresentedMaterial((IfcMaterial*)copyop(obj.m_RepresentedMaterial.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMaterialDefinitionRepresentation::s_type("IfcMaterialDefinitionRepresentation");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcMaterialDefinitionRepresentation, IfcProductRepresentation)

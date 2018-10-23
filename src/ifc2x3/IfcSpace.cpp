@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,197 +24,220 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcSpace.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcRelCoversSpaces.h>
 #include <ifc2x3/IfcRelSpaceBoundary.h>
-#include <ifc2x3/IfcSpatialStructureElement.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcSpace::IfcSpace(Step::Id id, Step::SPFData *args) : IfcSpatialStructureElement(id, args) {
-    m_interiorOrExteriorSpace = IfcInternalOrExternalEnum_UNSET;
-    m_elevationWithFlooring = Step::getUnset(m_elevationWithFlooring);
+IfcSpace::IfcSpace(Step::Id id, Step::SPFData *args) : 
+    IfcSpatialStructureElement(id, args)
+{
+    m_InteriorOrExteriorSpace = IfcInternalOrExternalEnum_UNSET;
+    m_ElevationWithFlooring = Step::getUnset(m_ElevationWithFlooring);
 }
 
-IfcSpace::~IfcSpace() {
+IfcSpace::~IfcSpace()
+{}
+
+bool IfcSpace::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcSpace(this);
 }
 
-bool IfcSpace::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcSpace(this);
-}
 
-const std::string &IfcSpace::type() const {
-    return IfcSpace::s_type.getName();
-}
-
-const Step::ClassType &IfcSpace::getClassType() {
-    return IfcSpace::s_type;
-}
-
-const Step::ClassType &IfcSpace::getType() const {
-    return IfcSpace::s_type;
-}
-
-bool IfcSpace::isOfType(const Step::ClassType &t) const {
-    return IfcSpace::s_type == t ? true : IfcSpatialStructureElement::isOfType(t);
-}
-
-IfcInternalOrExternalEnum IfcSpace::getInteriorOrExteriorSpace() {
-    if (Step::BaseObject::inited()) {
-        return m_interiorOrExteriorSpace;
+IfcInternalOrExternalEnum IfcSpace::getInteriorOrExteriorSpace()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_InteriorOrExteriorSpace;
     }
-    else {
+    else 
+    {
         return IfcInternalOrExternalEnum_UNSET;
+    }    
+}
+
+IfcInternalOrExternalEnum IfcSpace::getInteriorOrExteriorSpace() const
+{
+    return const_cast<IfcSpace *>(this)->getInteriorOrExteriorSpace();
+}
+
+void IfcSpace::setInteriorOrExteriorSpace(IfcInternalOrExternalEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InteriorOrExteriorSpace = value;
+}
+
+void IfcSpace::unsetInteriorOrExteriorSpace()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InteriorOrExteriorSpace = IfcInternalOrExternalEnum_UNSET;
+}
+
+bool IfcSpace::testInteriorOrExteriorSpace() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getInteriorOrExteriorSpace()) == false;
+}
+
+
+IfcLengthMeasure IfcSpace::getElevationWithFlooring()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ElevationWithFlooring;
     }
+    else 
+    {
+        return Step::getUnset(m_ElevationWithFlooring);
+    }    
 }
 
-const IfcInternalOrExternalEnum IfcSpace::getInteriorOrExteriorSpace() const {
-    IfcSpace * deConstObject = const_cast< IfcSpace * > (this);
-    return deConstObject->getInteriorOrExteriorSpace();
+IfcLengthMeasure IfcSpace::getElevationWithFlooring() const
+{
+    return const_cast<IfcSpace *>(this)->getElevationWithFlooring();
 }
 
-void IfcSpace::setInteriorOrExteriorSpace(IfcInternalOrExternalEnum value) {
-    m_interiorOrExteriorSpace = value;
+void IfcSpace::setElevationWithFlooring(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ElevationWithFlooring = value;
 }
 
-void IfcSpace::unsetInteriorOrExteriorSpace() {
-    m_interiorOrExteriorSpace = IfcInternalOrExternalEnum_UNSET;
+void IfcSpace::unsetElevationWithFlooring()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ElevationWithFlooring = Step::getUnset(getElevationWithFlooring());
 }
 
-bool IfcSpace::testInteriorOrExteriorSpace() const {
-    return getInteriorOrExteriorSpace() != IfcInternalOrExternalEnum_UNSET;
+bool IfcSpace::testElevationWithFlooring() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getElevationWithFlooring()) == false;
 }
 
-IfcLengthMeasure IfcSpace::getElevationWithFlooring() {
-    if (Step::BaseObject::inited()) {
-        return m_elevationWithFlooring;
+Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_HasCoverings;
     }
-    else {
-        return Step::getUnset(m_elevationWithFlooring);
+ 
+    m_HasCoverings.setUnset(true);
+    return m_HasCoverings;
+}
+
+const Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() const
+{
+    return  const_cast< IfcSpace * > (this)->getHasCoverings();
+}
+
+bool IfcSpace::testHasCoverings() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_HasCoverings.isUnset() == false;
+}
+
+Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_BoundedBy;
     }
+ 
+    m_BoundedBy.setUnset(true);
+    return m_BoundedBy;
 }
 
-const IfcLengthMeasure IfcSpace::getElevationWithFlooring() const {
-    IfcSpace * deConstObject = const_cast< IfcSpace * > (this);
-    return deConstObject->getElevationWithFlooring();
+const Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() const
+{
+    return  const_cast< IfcSpace * > (this)->getBoundedBy();
 }
 
-void IfcSpace::setElevationWithFlooring(IfcLengthMeasure value) {
-    m_elevationWithFlooring = value;
+bool IfcSpace::testBoundedBy() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_BoundedBy.isUnset() == false;
 }
 
-void IfcSpace::unsetElevationWithFlooring() {
-    m_elevationWithFlooring = Step::getUnset(getElevationWithFlooring());
-}
-
-bool IfcSpace::testElevationWithFlooring() const {
-    return !Step::isUnset(getElevationWithFlooring());
-}
-
-Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() {
-    if (Step::BaseObject::inited()) {
-        return m_hasCoverings;
-    }
-    else {
-        m_hasCoverings.setUnset(true);
-        return m_hasCoverings;
-    }
-}
-
-const Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() const {
-    IfcSpace * deConstObject = const_cast< IfcSpace * > (this);
-    return deConstObject->getHasCoverings();
-}
-
-bool IfcSpace::testHasCoverings() const {
-    return !m_hasCoverings.isUnset();
-}
-
-Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() {
-    if (Step::BaseObject::inited()) {
-        return m_boundedBy;
-    }
-    else {
-        m_boundedBy.setUnset(true);
-        return m_boundedBy;
-    }
-}
-
-const Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() const {
-    IfcSpace * deConstObject = const_cast< IfcSpace * > (this);
-    return deConstObject->getBoundedBy();
-}
-
-bool IfcSpace::testBoundedBy() const {
-    return !m_boundedBy.isUnset();
-}
-
-bool IfcSpace::init() {
-    bool status = IfcSpatialStructureElement::init();
-    std::string arg;
-    std::vector< Step::Id > *inverses;
-    if (!status) {
+bool IfcSpace::init()
+{
+    if (IfcSpatialStructureElement::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_interiorOrExteriorSpace = IfcInternalOrExternalEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_InteriorOrExteriorSpace = IfcInternalOrExternalEnum_UNSET;
     }
-    else {
-        if (arg == ".INTERNAL.") {
-            m_interiorOrExteriorSpace = IfcInternalOrExternalEnum_INTERNAL;
+    else
+    {
+        if (arg == ".INTERNAL.")
+        {
+            m_InteriorOrExteriorSpace = IfcInternalOrExternalEnum_INTERNAL;
         }
-        else if (arg == ".EXTERNAL.") {
-            m_interiorOrExteriorSpace = IfcInternalOrExternalEnum_EXTERNAL;
+        else if (arg == ".EXTERNAL.")
+        {
+            m_InteriorOrExteriorSpace = IfcInternalOrExternalEnum_EXTERNAL;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_interiorOrExteriorSpace = IfcInternalOrExternalEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_InteriorOrExteriorSpace = IfcInternalOrExternalEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_elevationWithFlooring = Step::getUnset(m_elevationWithFlooring);
+    if (arg == "$" || arg == "*")
+    {
+        m_ElevationWithFlooring = Step::getUnset(m_ElevationWithFlooring);
     }
-    else {
-        m_elevationWithFlooring = Step::spfToReal(arg);
+    else
+    {
+        m_ElevationWithFlooring = Step::spfToReal(arg)
+
+;
     }
+    std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcRelCoversSpaces::getClassType(), 4);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_hasCoverings.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_hasCoverings.insert(static_cast< IfcRelCoversSpaces * > (m_expressDataSet->get((*inverses)[i])));
+        m_HasCoverings.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_HasCoverings.insert(static_cast< IfcRelCoversSpaces * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelSpaceBoundary::getClassType(), 4);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_boundedBy.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_boundedBy.insert(static_cast< IfcRelSpaceBoundary * > (m_expressDataSet->get((*inverses)[i])));
+        m_BoundedBy.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_BoundedBy.insert(static_cast< IfcRelSpaceBoundary * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcSpace::copy(const IfcSpace &obj, const CopyOp &copyop) {
+void IfcSpace::copy(const IfcSpace &obj, const CopyOp &copyop)
+{
     IfcSpatialStructureElement::copy(obj, copyop);
-    setInteriorOrExteriorSpace(obj.m_interiorOrExteriorSpace);
-    setElevationWithFlooring(obj.m_elevationWithFlooring);
+    setInteriorOrExteriorSpace(obj.m_InteriorOrExteriorSpace);
+    setElevationWithFlooring(obj.m_ElevationWithFlooring);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSpace::s_type("IfcSpace");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcSpace, IfcSpatialStructureElement)

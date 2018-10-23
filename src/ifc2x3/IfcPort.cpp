@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,141 +24,139 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPort.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcProduct.h>
 #include <ifc2x3/IfcRelConnectsPortToElement.h>
 #include <ifc2x3/IfcRelConnectsPorts.h>
+#include <ifc2x3/IfcRelConnectsPorts.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPort::IfcPort(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
+IfcPort::IfcPort(Step::Id id, Step::SPFData *args) : 
+    IfcProduct(id, args)
+{
 }
 
-IfcPort::~IfcPort() {
+IfcPort::~IfcPort()
+{}
+
+bool IfcPort::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPort(this);
 }
 
-bool IfcPort::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPort(this);
-}
-
-const std::string &IfcPort::type() const {
-    return IfcPort::s_type.getName();
-}
-
-const Step::ClassType &IfcPort::getClassType() {
-    return IfcPort::s_type;
-}
-
-const Step::ClassType &IfcPort::getType() const {
-    return IfcPort::s_type;
-}
-
-bool IfcPort::isOfType(const Step::ClassType &t) const {
-    return IfcPort::s_type == t ? true : IfcProduct::isOfType(t);
-}
-
-IfcRelConnectsPortToElement *IfcPort::getContainedIn() {
-    if (Step::BaseObject::inited()) {
-        return m_containedIn.get();
+IfcRelConnectsPortToElement *IfcPort::getContainedIn()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ContainedIn.get();
     }
-    else {
-        return NULL;
+ 
+    return NULL;
+}
+
+const IfcRelConnectsPortToElement *IfcPort::getContainedIn() const
+{
+    return  const_cast< IfcPort * > (this)->getContainedIn();
+}
+
+bool IfcPort::testContainedIn() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getContainedIn()) == false;
+}
+
+Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ConnectedTo;
     }
+ 
+    m_ConnectedTo.setUnset(true);
+    return m_ConnectedTo;
 }
 
-const IfcRelConnectsPortToElement *IfcPort::getContainedIn() const {
-    IfcPort * deConstObject = const_cast< IfcPort * > (this);
-    return deConstObject->getContainedIn();
+const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() const
+{
+    return  const_cast< IfcPort * > (this)->getConnectedTo();
 }
 
-bool IfcPort::testContainedIn() const {
-    return !Step::isUnset(getContainedIn());
+bool IfcPort::testConnectedTo() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_ConnectedTo.isUnset() == false;
 }
 
-Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() {
-    if (Step::BaseObject::inited()) {
-        return m_connectedFrom;
+Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ConnectedFrom;
     }
-    else {
-        m_connectedFrom.setUnset(true);
-        return m_connectedFrom;
-    }
+ 
+    m_ConnectedFrom.setUnset(true);
+    return m_ConnectedFrom;
 }
 
-const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() const {
-    IfcPort * deConstObject = const_cast< IfcPort * > (this);
-    return deConstObject->getConnectedFrom();
+const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() const
+{
+    return  const_cast< IfcPort * > (this)->getConnectedFrom();
 }
 
-bool IfcPort::testConnectedFrom() const {
-    return !m_connectedFrom.isUnset();
+bool IfcPort::testConnectedFrom() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_ConnectedFrom.isUnset() == false;
 }
 
-Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() {
-    if (Step::BaseObject::inited()) {
-        return m_connectedTo;
-    }
-    else {
-        m_connectedTo.setUnset(true);
-        return m_connectedTo;
-    }
-}
-
-const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() const {
-    IfcPort * deConstObject = const_cast< IfcPort * > (this);
-    return deConstObject->getConnectedTo();
-}
-
-bool IfcPort::testConnectedTo() const {
-    return !m_connectedTo.isUnset();
-}
-
-bool IfcPort::init() {
-    bool status = IfcProduct::init();
-    std::string arg;
-    std::vector< Step::Id > *inverses;
-    if (!status) {
+bool IfcPort::init()
+{
+    if (IfcProduct::init() == false)
+    {
         return false;
     }
+    std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcRelConnectsPortToElement::getClassType(), 4);
-    if (inverses) {
-        m_containedIn = static_cast< IfcRelConnectsPortToElement * > (m_expressDataSet->get((*inverses)[0]));
-    }
-    inverses = m_args->getInverses(IfcRelConnectsPorts::getClassType(), 5);
-    if (inverses) {
-        unsigned int i;
-        m_connectedFrom.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_connectedFrom.insert(static_cast< IfcRelConnectsPorts * > (m_expressDataSet->get((*inverses)[i])));
-        }
+    if (inverses)
+    {
+        m_ContainedIn = static_cast< IfcRelConnectsPortToElement * > (m_expressDataSet->get((*inverses)[0]));
     }
     inverses = m_args->getInverses(IfcRelConnectsPorts::getClassType(), 4);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_connectedTo.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_connectedTo.insert(static_cast< IfcRelConnectsPorts * > (m_expressDataSet->get((*inverses)[i])));
+        m_ConnectedTo.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_ConnectedTo.insert(static_cast< IfcRelConnectsPorts * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcRelConnectsPorts::getClassType(), 5);
+    if (inverses)
+    {
+        unsigned int i;
+        m_ConnectedFrom.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_ConnectedFrom.insert(static_cast< IfcRelConnectsPorts * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcPort::copy(const IfcPort &obj, const CopyOp &copyop) {
+void IfcPort::copy(const IfcPort &obj, const CopyOp &copyop)
+{
     IfcProduct::copy(obj, copyop);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPort::s_type("IfcPort");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPort, IfcProduct)

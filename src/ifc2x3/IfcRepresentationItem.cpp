@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,121 +24,108 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRepresentationItem.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcPresentationLayerAssignment.h>
 #include <ifc2x3/IfcStyledItem.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRepresentationItem::IfcRepresentationItem(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) ,
-    m_layerAssignments(0),
-    m_styledByItem(0)
+IfcRepresentationItem::IfcRepresentationItem(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
 {
 }
 
-IfcRepresentationItem::~IfcRepresentationItem() {
-    delete m_layerAssignments;
-    delete m_styledByItem;
+IfcRepresentationItem::~IfcRepresentationItem()
+{}
+
+bool IfcRepresentationItem::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRepresentationItem(this);
 }
 
-bool IfcRepresentationItem::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRepresentationItem(this);
+Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::getLayerAssignments()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_LayerAssignments;
+    }
+ 
+    m_LayerAssignments.setUnset(true);
+    return m_LayerAssignments;
 }
 
-const std::string &IfcRepresentationItem::type() const {
-    return IfcRepresentationItem::s_type.getName();
+const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::getLayerAssignments() const
+{
+    return  const_cast< IfcRepresentationItem * > (this)->getLayerAssignments();
 }
 
-const Step::ClassType &IfcRepresentationItem::getClassType() {
-    return IfcRepresentationItem::s_type;
+bool IfcRepresentationItem::testLayerAssignments() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_LayerAssignments.isUnset() == false;
 }
 
-const Step::ClassType &IfcRepresentationItem::getType() const {
-    return IfcRepresentationItem::s_type;
+Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_StyledByItem;
+    }
+ 
+    m_StyledByItem.setUnset(true);
+    return m_StyledByItem;
 }
 
-bool IfcRepresentationItem::isOfType(const Step::ClassType &t) const {
-    return IfcRepresentationItem::s_type == t ? true : Step::BaseObject::isOfType(t);
+const Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() const
+{
+    return  const_cast< IfcRepresentationItem * > (this)->getStyledByItem();
 }
 
-#define GETINVERSE(T,M,A) T &M { \
-    if (!Step::BaseObject::inited() || !A ) { \
-        A = new T; \
-        A->setUnset(true); \
-    } \
-    return *A; \
+bool IfcRepresentationItem::testStyledByItem() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_StyledByItem.isUnset() == false;
 }
 
-GETINVERSE(Inverse_Set_IfcPresentationLayerAssignment_0_n,IfcRepresentationItem::getLayerAssignments(),m_layerAssignments);
-
-const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::getLayerAssignments() const {
-    IfcRepresentationItem * deConstObject = const_cast< IfcRepresentationItem * > (this);
-    return deConstObject->getLayerAssignments();
-}
-
-bool IfcRepresentationItem::testLayerAssignments() const {
-    if (m_layerAssignments)
-        return m_layerAssignments->isUnset();
-    return false;
-}
-
-
-
-
-GETINVERSE(Inverse_Set_IfcStyledItem_0_1,IfcRepresentationItem::getStyledByItem(),m_styledByItem);
-
-const Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() const {
-    IfcRepresentationItem * deConstObject = const_cast< IfcRepresentationItem * > (this);
-    return deConstObject->getStyledByItem();
-}
-
-bool IfcRepresentationItem::testStyledByItem() const {
-    if (m_styledByItem)
-        return !m_styledByItem->isUnset();
-    return false;
-}
-
-bool IfcRepresentationItem::init() {
-    std::string arg;
+bool IfcRepresentationItem::init()
+{
     std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcPresentationLayerAssignment::getClassType(), 2);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_layerAssignments = new Inverse_Set_IfcPresentationLayerAssignment_0_n;
-        m_layerAssignments->setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_layerAssignments->insert(static_cast< IfcPresentationLayerAssignment * > (m_expressDataSet->get((*inverses)[i])));
+        m_LayerAssignments.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_LayerAssignments.insert(static_cast< IfcPresentationLayerAssignment * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcStyledItem::getClassType(), 0);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_styledByItem = new Inverse_Set_IfcStyledItem_0_1;
-        m_styledByItem->setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_styledByItem->insert(static_cast< IfcStyledItem * > (m_expressDataSet->get((*inverses)[i])));
+        m_StyledByItem.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_StyledByItem.insert(static_cast< IfcStyledItem * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcRepresentationItem::copy(const IfcRepresentationItem &obj, const CopyOp &copyop) {
+void IfcRepresentationItem::copy(const IfcRepresentationItem &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRepresentationItem::s_type("IfcRepresentationItem");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRepresentationItem, Step::BaseEntity)

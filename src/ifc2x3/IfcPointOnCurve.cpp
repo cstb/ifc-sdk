@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,134 +24,144 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPointOnCurve.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcCurve.h>
-#include <ifc2x3/IfcPoint.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPointOnCurve::IfcPointOnCurve(Step::Id id, Step::SPFData *args) : IfcPoint(id, args) {
-    m_basisCurve = NULL;
-    m_pointParameter = Step::getUnset(m_pointParameter);
+IfcPointOnCurve::IfcPointOnCurve(Step::Id id, Step::SPFData *args) : 
+    IfcPoint(id, args)
+{
+    m_BasisCurve = NULL;
+    m_PointParameter = Step::getUnset(m_PointParameter);
 }
 
-IfcPointOnCurve::~IfcPointOnCurve() {
+IfcPointOnCurve::~IfcPointOnCurve()
+{}
+
+bool IfcPointOnCurve::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPointOnCurve(this);
 }
 
-bool IfcPointOnCurve::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPointOnCurve(this);
-}
 
-const std::string &IfcPointOnCurve::type() const {
-    return IfcPointOnCurve::s_type.getName();
-}
-
-const Step::ClassType &IfcPointOnCurve::getClassType() {
-    return IfcPointOnCurve::s_type;
-}
-
-const Step::ClassType &IfcPointOnCurve::getType() const {
-    return IfcPointOnCurve::s_type;
-}
-
-bool IfcPointOnCurve::isOfType(const Step::ClassType &t) const {
-    return IfcPointOnCurve::s_type == t ? true : IfcPoint::isOfType(t);
-}
-
-IfcCurve *IfcPointOnCurve::getBasisCurve() {
-    if (Step::BaseObject::inited()) {
-        return m_basisCurve.get();
+IfcCurve *IfcPointOnCurve::getBasisCurve()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BasisCurve.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcCurve *IfcPointOnCurve::getBasisCurve() const
+{
+    return const_cast<IfcPointOnCurve *>(this)->getBasisCurve();
+}
+
+void IfcPointOnCurve::setBasisCurve(const Step::RefPtr< IfcCurve > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BasisCurve = value;
+}
+
+void IfcPointOnCurve::unsetBasisCurve()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BasisCurve = Step::getUnset(getBasisCurve());
+}
+
+bool IfcPointOnCurve::testBasisCurve() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBasisCurve()) == false;
+}
+
+
+IfcParameterValue IfcPointOnCurve::getPointParameter()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PointParameter;
     }
+    else 
+    {
+        return Step::getUnset(m_PointParameter);
+    }    
 }
 
-const IfcCurve *IfcPointOnCurve::getBasisCurve() const {
-    IfcPointOnCurve * deConstObject = const_cast< IfcPointOnCurve * > (this);
-    return deConstObject->getBasisCurve();
+IfcParameterValue IfcPointOnCurve::getPointParameter() const
+{
+    return const_cast<IfcPointOnCurve *>(this)->getPointParameter();
 }
 
-void IfcPointOnCurve::setBasisCurve(const Step::RefPtr< IfcCurve > &value) {
-    m_basisCurve = value;
+void IfcPointOnCurve::setPointParameter(IfcParameterValue value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PointParameter = value;
 }
 
-void IfcPointOnCurve::unsetBasisCurve() {
-    m_basisCurve = Step::getUnset(getBasisCurve());
+void IfcPointOnCurve::unsetPointParameter()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PointParameter = Step::getUnset(getPointParameter());
 }
 
-bool IfcPointOnCurve::testBasisCurve() const {
-    return !Step::isUnset(getBasisCurve());
+bool IfcPointOnCurve::testPointParameter() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPointParameter()) == false;
 }
 
-IfcParameterValue IfcPointOnCurve::getPointParameter() {
-    if (Step::BaseObject::inited()) {
-        return m_pointParameter;
-    }
-    else {
-        return Step::getUnset(m_pointParameter);
-    }
-}
-
-const IfcParameterValue IfcPointOnCurve::getPointParameter() const {
-    IfcPointOnCurve * deConstObject = const_cast< IfcPointOnCurve * > (this);
-    return deConstObject->getPointParameter();
-}
-
-void IfcPointOnCurve::setPointParameter(IfcParameterValue value) {
-    m_pointParameter = value;
-}
-
-void IfcPointOnCurve::unsetPointParameter() {
-    m_pointParameter = Step::getUnset(getPointParameter());
-}
-
-bool IfcPointOnCurve::testPointParameter() const {
-    return !Step::isUnset(getPointParameter());
-}
-
-bool IfcPointOnCurve::init() {
-    bool status = IfcPoint::init();
-    std::string arg;
-    if (!status) {
+bool IfcPointOnCurve::init()
+{
+    if (IfcPoint::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_basisCurve = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_BasisCurve = NULL;
     }
-    else {
-        m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_BasisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_pointParameter = Step::getUnset(m_pointParameter);
+    if (arg == "$" || arg == "*")
+    {
+        m_PointParameter = Step::getUnset(m_PointParameter);
     }
-    else {
-        m_pointParameter = Step::spfToReal(arg);
+    else
+    {
+        m_PointParameter = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcPointOnCurve::copy(const IfcPointOnCurve &obj, const CopyOp &copyop) {
+void IfcPointOnCurve::copy(const IfcPointOnCurve &obj, const CopyOp &copyop)
+{
     IfcPoint::copy(obj, copyop);
-    setBasisCurve((IfcCurve*)copyop(obj.m_basisCurve.get()));
-    setPointParameter(obj.m_pointParameter);
+    setBasisCurve((IfcCurve*)copyop(obj.m_BasisCurve.get()));
+    setPointParameter(obj.m_PointParameter);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPointOnCurve::s_type("IfcPointOnCurve");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPointOnCurve, IfcPoint)

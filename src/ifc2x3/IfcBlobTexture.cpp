@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,131 +24,142 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcBlobTexture.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcSurfaceTexture.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcBlobTexture::IfcBlobTexture(Step::Id id, Step::SPFData *args) : IfcSurfaceTexture(id, args) {
-    m_rasterFormat = Step::getUnset(m_rasterFormat);
-    m_rasterCode = Step::getUnset(m_rasterCode);
+IfcBlobTexture::IfcBlobTexture(Step::Id id, Step::SPFData *args) : 
+    IfcSurfaceTexture(id, args)
+{
+    m_RasterFormat = Step::getUnset(m_RasterFormat);
+    m_RasterCode = Step::getUnset(m_RasterCode);
 }
 
-IfcBlobTexture::~IfcBlobTexture() {
+IfcBlobTexture::~IfcBlobTexture()
+{}
+
+bool IfcBlobTexture::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcBlobTexture(this);
 }
 
-bool IfcBlobTexture::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcBlobTexture(this);
-}
 
-const std::string &IfcBlobTexture::type() const {
-    return IfcBlobTexture::s_type.getName();
-}
-
-const Step::ClassType &IfcBlobTexture::getClassType() {
-    return IfcBlobTexture::s_type;
-}
-
-const Step::ClassType &IfcBlobTexture::getType() const {
-    return IfcBlobTexture::s_type;
-}
-
-bool IfcBlobTexture::isOfType(const Step::ClassType &t) const {
-    return IfcBlobTexture::s_type == t ? true : IfcSurfaceTexture::isOfType(t);
-}
-
-IfcIdentifier IfcBlobTexture::getRasterFormat() {
-    if (Step::BaseObject::inited()) {
-        return m_rasterFormat;
+IfcIdentifier IfcBlobTexture::getRasterFormat()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RasterFormat;
     }
-    else {
-        return Step::getUnset(m_rasterFormat);
+    else 
+    {
+        return Step::getUnset(m_RasterFormat);
+    }    
+}
+
+const IfcIdentifier IfcBlobTexture::getRasterFormat() const
+{
+    return const_cast<IfcBlobTexture *>(this)->getRasterFormat();
+}
+
+void IfcBlobTexture::setRasterFormat(const IfcIdentifier &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RasterFormat = value;
+}
+
+void IfcBlobTexture::unsetRasterFormat()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RasterFormat = Step::getUnset(getRasterFormat());
+}
+
+bool IfcBlobTexture::testRasterFormat() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRasterFormat()) == false;
+}
+
+
+Step::Boolean IfcBlobTexture::getRasterCode()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RasterCode;
     }
+    else 
+    {
+        return Step::getUnset(m_RasterCode);
+    }    
 }
 
-const IfcIdentifier IfcBlobTexture::getRasterFormat() const {
-    IfcBlobTexture * deConstObject = const_cast< IfcBlobTexture * > (this);
-    return deConstObject->getRasterFormat();
+Step::Boolean IfcBlobTexture::getRasterCode() const
+{
+    return const_cast<IfcBlobTexture *>(this)->getRasterCode();
 }
 
-void IfcBlobTexture::setRasterFormat(const IfcIdentifier &value) {
-    m_rasterFormat = value;
+void IfcBlobTexture::setRasterCode(Step::Boolean value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RasterCode = value;
 }
 
-void IfcBlobTexture::unsetRasterFormat() {
-    m_rasterFormat = Step::getUnset(getRasterFormat());
+void IfcBlobTexture::unsetRasterCode()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RasterCode = Step::getUnset(getRasterCode());
 }
 
-bool IfcBlobTexture::testRasterFormat() const {
-    return !Step::isUnset(getRasterFormat());
+bool IfcBlobTexture::testRasterCode() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRasterCode()) == false;
 }
 
-Step::Boolean IfcBlobTexture::getRasterCode() {
-    if (Step::BaseObject::inited()) {
-        return m_rasterCode;
-    }
-    else {
-        return Step::getUnset(m_rasterCode);
-    }
-}
-
-const Step::Boolean IfcBlobTexture::getRasterCode() const {
-    IfcBlobTexture * deConstObject = const_cast< IfcBlobTexture * > (this);
-    return deConstObject->getRasterCode();
-}
-
-void IfcBlobTexture::setRasterCode(Step::Boolean value) {
-    m_rasterCode = value;
-}
-
-void IfcBlobTexture::unsetRasterCode() {
-    m_rasterCode = Step::getUnset(getRasterCode());
-}
-
-bool IfcBlobTexture::testRasterCode() const {
-    return !Step::isUnset(getRasterCode());
-}
-
-bool IfcBlobTexture::init() {
-    bool status = IfcSurfaceTexture::init();
-    std::string arg;
-    if (!status) {
+bool IfcBlobTexture::init()
+{
+    if (IfcSurfaceTexture::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_rasterFormat = Step::getUnset(m_rasterFormat);
+    if (arg == "$" || arg == "*")
+    {
+        m_RasterFormat = Step::getUnset(m_RasterFormat);
     }
-    else {
-        m_rasterFormat = Step::String::fromSPF(arg);
+    else
+    {
+        m_RasterFormat = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_rasterCode = Step::getUnset(m_rasterCode);
+    if (arg == "$" || arg == "*")
+    {
+        m_RasterCode = Step::getUnset(m_RasterCode);
     }
-    else {
-        m_rasterCode = Step::spfToBoolean(arg);
+    else
+    {
+        m_RasterCode = Step::spfToBoolean(arg)
+;
     }
     return true;
 }
 
-void IfcBlobTexture::copy(const IfcBlobTexture &obj, const CopyOp &copyop) {
+void IfcBlobTexture::copy(const IfcBlobTexture &obj, const CopyOp &copyop)
+{
     IfcSurfaceTexture::copy(obj, copyop);
-    setRasterFormat(obj.m_rasterFormat);
-    setRasterCode(obj.m_rasterCode);
+    setRasterFormat(obj.m_RasterFormat);
+    setRasterCode(obj.m_RasterCode);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBlobTexture::s_type("IfcBlobTexture");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcBlobTexture, IfcSurfaceTexture)

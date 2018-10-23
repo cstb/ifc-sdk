@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,154 +24,171 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcTextLiteral.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcAxis2Placement.h>
-#include <ifc2x3/IfcGeometricRepresentationItem.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcTextLiteral::IfcTextLiteral(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_literal = Step::getUnset(m_literal);
-    m_placement = NULL;
-    m_path = IfcTextPath_UNSET;
+IfcTextLiteral::IfcTextLiteral(Step::Id id, Step::SPFData *args) : 
+    IfcGeometricRepresentationItem(id, args)
+{
+    m_Literal = Step::getUnset(m_Literal);
+    m_Placement = NULL;
+    m_Path = IfcTextPath_UNSET;
 }
 
-IfcTextLiteral::~IfcTextLiteral() {
+IfcTextLiteral::~IfcTextLiteral()
+{}
+
+bool IfcTextLiteral::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcTextLiteral(this);
 }
 
-bool IfcTextLiteral::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcTextLiteral(this);
-}
 
-const std::string &IfcTextLiteral::type() const {
-    return IfcTextLiteral::s_type.getName();
-}
-
-const Step::ClassType &IfcTextLiteral::getClassType() {
-    return IfcTextLiteral::s_type;
-}
-
-const Step::ClassType &IfcTextLiteral::getType() const {
-    return IfcTextLiteral::s_type;
-}
-
-bool IfcTextLiteral::isOfType(const Step::ClassType &t) const {
-    return IfcTextLiteral::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-IfcPresentableText IfcTextLiteral::getLiteral() {
-    if (Step::BaseObject::inited()) {
-        return m_literal;
+IfcPresentableText IfcTextLiteral::getLiteral()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Literal;
     }
-    else {
-        return Step::getUnset(m_literal);
+    else 
+    {
+        return Step::getUnset(m_Literal);
+    }    
+}
+
+const IfcPresentableText IfcTextLiteral::getLiteral() const
+{
+    return const_cast<IfcTextLiteral *>(this)->getLiteral();
+}
+
+void IfcTextLiteral::setLiteral(const IfcPresentableText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Literal = value;
+}
+
+void IfcTextLiteral::unsetLiteral()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Literal = Step::getUnset(getLiteral());
+}
+
+bool IfcTextLiteral::testLiteral() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLiteral()) == false;
+}
+
+
+IfcAxis2Placement *IfcTextLiteral::getPlacement()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Placement.get();
     }
-}
-
-const IfcPresentableText IfcTextLiteral::getLiteral() const {
-    IfcTextLiteral * deConstObject = const_cast< IfcTextLiteral * > (this);
-    return deConstObject->getLiteral();
-}
-
-void IfcTextLiteral::setLiteral(const IfcPresentableText &value) {
-    m_literal = value;
-}
-
-void IfcTextLiteral::unsetLiteral() {
-    m_literal = Step::getUnset(getLiteral());
-}
-
-bool IfcTextLiteral::testLiteral() const {
-    return !Step::isUnset(getLiteral());
-}
-
-IfcAxis2Placement *IfcTextLiteral::getPlacement() {
-    if (Step::BaseObject::inited()) {
-        return m_placement.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcAxis2Placement *IfcTextLiteral::getPlacement() const
+{
+    return const_cast<IfcTextLiteral *>(this)->getPlacement();
+}
+
+void IfcTextLiteral::setPlacement(const Step::RefPtr< IfcAxis2Placement > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Placement = value;
+}
+
+void IfcTextLiteral::unsetPlacement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Placement = Step::getUnset(getPlacement());
+}
+
+bool IfcTextLiteral::testPlacement() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPlacement()) == false;
+}
+
+
+IfcTextPath IfcTextLiteral::getPath()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Path;
     }
-}
-
-const IfcAxis2Placement *IfcTextLiteral::getPlacement() const {
-    IfcTextLiteral * deConstObject = const_cast< IfcTextLiteral * > (this);
-    return deConstObject->getPlacement();
-}
-
-void IfcTextLiteral::setPlacement(const Step::RefPtr< IfcAxis2Placement > &value) {
-    m_placement = value;
-}
-
-void IfcTextLiteral::unsetPlacement() {
-    m_placement = Step::getUnset(getPlacement());
-}
-
-bool IfcTextLiteral::testPlacement() const {
-    return !Step::isUnset(getPlacement());
-}
-
-IfcTextPath IfcTextLiteral::getPath() {
-    if (Step::BaseObject::inited()) {
-        return m_path;
-    }
-    else {
+    else 
+    {
         return IfcTextPath_UNSET;
-    }
+    }    
 }
 
-const IfcTextPath IfcTextLiteral::getPath() const {
-    IfcTextLiteral * deConstObject = const_cast< IfcTextLiteral * > (this);
-    return deConstObject->getPath();
+IfcTextPath IfcTextLiteral::getPath() const
+{
+    return const_cast<IfcTextLiteral *>(this)->getPath();
 }
 
-void IfcTextLiteral::setPath(IfcTextPath value) {
-    m_path = value;
+void IfcTextLiteral::setPath(IfcTextPath value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Path = value;
 }
 
-void IfcTextLiteral::unsetPath() {
-    m_path = IfcTextPath_UNSET;
+void IfcTextLiteral::unsetPath()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Path = IfcTextPath_UNSET;
 }
 
-bool IfcTextLiteral::testPath() const {
-    return getPath() != IfcTextPath_UNSET;
+bool IfcTextLiteral::testPath() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPath()) == false;
 }
 
-bool IfcTextLiteral::init() {
-    bool status = IfcGeometricRepresentationItem::init();
-    std::string arg;
-    if (!status) {
+bool IfcTextLiteral::init()
+{
+    if (IfcGeometricRepresentationItem::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_literal = Step::getUnset(m_literal);
+    if (arg == "$" || arg == "*")
+    {
+        m_Literal = Step::getUnset(m_Literal);
     }
-    else {
-        m_literal = Step::String::fromSPF(arg);
+    else
+    {
+        m_Literal = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_placement = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Placement = NULL;
     }
-    else {
-        m_placement = new IfcAxis2Placement;
+    else
+    {
+        m_Placement = new IfcAxis2Placement;
         if (arg[0] == '#') {
-            m_placement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_Placement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -175,33 +201,39 @@ bool IfcTextLiteral::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_path = IfcTextPath_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_Path = IfcTextPath_UNSET;
     }
-    else {
-        if (arg == ".LEFT.") {
-            m_path = IfcTextPath_LEFT;
+    else
+    {
+        if (arg == ".LEFT.")
+        {
+            m_Path = IfcTextPath_LEFT;
         }
-        else if (arg == ".RIGHT.") {
-            m_path = IfcTextPath_RIGHT;
+        else if (arg == ".RIGHT.")
+        {
+            m_Path = IfcTextPath_RIGHT;
         }
-        else if (arg == ".UP.") {
-            m_path = IfcTextPath_UP;
+        else if (arg == ".UP.")
+        {
+            m_Path = IfcTextPath_UP;
         }
-        else if (arg == ".DOWN.") {
-            m_path = IfcTextPath_DOWN;
+        else if (arg == ".DOWN.")
+        {
+            m_Path = IfcTextPath_DOWN;
         }
     }
     return true;
 }
 
-void IfcTextLiteral::copy(const IfcTextLiteral &obj, const CopyOp &copyop) {
+void IfcTextLiteral::copy(const IfcTextLiteral &obj, const CopyOp &copyop)
+{
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setLiteral(obj.m_literal);
-    m_placement = new IfcAxis2Placement;
-    m_placement->copy(*(obj.m_placement.get()), copyop);
-    setPath(obj.m_path);
+    setLiteral(obj.m_Literal);
+    setPlacement((IfcAxis2Placement*)copyop(obj.m_Placement.get()));
+    setPath(obj.m_Path);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextLiteral::s_type("IfcTextLiteral");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcTextLiteral, IfcGeometricRepresentationItem)

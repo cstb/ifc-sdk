@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,141 +24,151 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRelAssignsToActor.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcActor.h>
 #include <ifc2x3/IfcActorRole.h>
-#include <ifc2x3/IfcRelAssigns.h>
+#include <ifc2x3/IfcActor.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRelAssignsToActor::IfcRelAssignsToActor(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
-    m_relatingActor = NULL;
-    m_actingRole = NULL;
+IfcRelAssignsToActor::IfcRelAssignsToActor(Step::Id id, Step::SPFData *args) : 
+    IfcRelAssigns(id, args)
+{
+    m_ActingRole = NULL;
+    m_RelatingActor = NULL;
 }
 
-IfcRelAssignsToActor::~IfcRelAssignsToActor() {
+IfcRelAssignsToActor::~IfcRelAssignsToActor()
+{}
+
+bool IfcRelAssignsToActor::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRelAssignsToActor(this);
 }
 
-bool IfcRelAssignsToActor::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRelAssignsToActor(this);
-}
 
-const std::string &IfcRelAssignsToActor::type() const {
-    return IfcRelAssignsToActor::s_type.getName();
-}
-
-const Step::ClassType &IfcRelAssignsToActor::getClassType() {
-    return IfcRelAssignsToActor::s_type;
-}
-
-const Step::ClassType &IfcRelAssignsToActor::getType() const {
-    return IfcRelAssignsToActor::s_type;
-}
-
-bool IfcRelAssignsToActor::isOfType(const Step::ClassType &t) const {
-    return IfcRelAssignsToActor::s_type == t ? true : IfcRelAssigns::isOfType(t);
-}
-
-IfcActor *IfcRelAssignsToActor::getRelatingActor() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingActor.get();
+IfcActorRole *IfcRelAssignsToActor::getActingRole()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ActingRole.get();
     }
-    else {
+    else 
+    {
+        return NULL;
+    }    
+}
+
+const IfcActorRole *IfcRelAssignsToActor::getActingRole() const
+{
+    return const_cast<IfcRelAssignsToActor *>(this)->getActingRole();
+}
+
+void IfcRelAssignsToActor::setActingRole(const Step::RefPtr< IfcActorRole > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ActingRole = value;
+}
+
+void IfcRelAssignsToActor::unsetActingRole()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ActingRole = Step::getUnset(getActingRole());
+}
+
+bool IfcRelAssignsToActor::testActingRole() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getActingRole()) == false;
+}
+
+IfcActor *IfcRelAssignsToActor::getRelatingActor()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingActor.get();
+    }
+    else
+    {
         return NULL;
     }
 }
 
-const IfcActor *IfcRelAssignsToActor::getRelatingActor() const {
-    IfcRelAssignsToActor * deConstObject = const_cast< IfcRelAssignsToActor * > (this);
-    return deConstObject->getRelatingActor();
+const IfcActor *IfcRelAssignsToActor::getRelatingActor() const
+{
+    return const_cast< IfcRelAssignsToActor * > (this)->getRelatingActor();
 }
 
-void IfcRelAssignsToActor::setRelatingActor(const Step::RefPtr< IfcActor > &value) {
-    if (m_relatingActor.valid()) {
-        m_relatingActor->m_isActingUpon.erase(this);
+void IfcRelAssignsToActor::setRelatingActor(const Step::RefPtr< IfcActor > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingActor.valid())
+    {
+        m_RelatingActor->m_IsActingUpon.erase(this);
     }
-    if (value.valid()) {
-        value->m_isActingUpon.insert(this);
+    if (value.valid() )
+    {
+       value->m_IsActingUpon.insert(this);
     }
-    m_relatingActor = value;
+    m_RelatingActor = value;
 }
 
-void IfcRelAssignsToActor::unsetRelatingActor() {
-    m_relatingActor = Step::getUnset(getRelatingActor());
+void IfcRelAssignsToActor::unsetRelatingActor()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingActor = Step::getUnset(getRelatingActor());
 }
 
-bool IfcRelAssignsToActor::testRelatingActor() const {
-    return !Step::isUnset(getRelatingActor());
+bool IfcRelAssignsToActor::testRelatingActor() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingActor()) == false;
 }
 
-IfcActorRole *IfcRelAssignsToActor::getActingRole() {
-    if (Step::BaseObject::inited()) {
-        return m_actingRole.get();
-    }
-    else {
-        return NULL;
-    }
-}
-
-const IfcActorRole *IfcRelAssignsToActor::getActingRole() const {
-    IfcRelAssignsToActor * deConstObject = const_cast< IfcRelAssignsToActor * > (this);
-    return deConstObject->getActingRole();
-}
-
-void IfcRelAssignsToActor::setActingRole(const Step::RefPtr< IfcActorRole > &value) {
-    m_actingRole = value;
-}
-
-void IfcRelAssignsToActor::unsetActingRole() {
-    m_actingRole = Step::getUnset(getActingRole());
-}
-
-bool IfcRelAssignsToActor::testActingRole() const {
-    return !Step::isUnset(getActingRole());
-}
-
-bool IfcRelAssignsToActor::init() {
-    bool status = IfcRelAssigns::init();
-    std::string arg;
-    if (!status) {
+bool IfcRelAssignsToActor::init()
+{
+    if (IfcRelAssigns::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingActor = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_ActingRole = NULL;
     }
-    else {
-        m_relatingActor = static_cast< IfcActor * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_ActingRole = static_cast< IfcActorRole * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_actingRole = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingActor = NULL;
     }
-    else {
-        m_actingRole = static_cast< IfcActorRole * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_RelatingActor = static_cast< IfcActor * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcRelAssignsToActor::copy(const IfcRelAssignsToActor &obj, const CopyOp &copyop) {
+void IfcRelAssignsToActor::copy(const IfcRelAssignsToActor &obj, const CopyOp &copyop)
+{
     IfcRelAssigns::copy(obj, copyop);
-    setRelatingActor((IfcActor*)copyop(obj.m_relatingActor.get()));
-    setActingRole((IfcActorRole*)copyop(obj.m_actingRole.get()));
+    setActingRole((IfcActorRole*)copyop(obj.m_ActingRole.get()));
+    setRelatingActor((IfcActor*)copyop(obj.m_RelatingActor.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssignsToActor::s_type("IfcRelAssignsToActor");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRelAssignsToActor, IfcRelAssigns)

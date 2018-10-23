@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,306 +24,386 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcMechanicalSteelMaterialProperties.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcMechanicalMaterialProperties.h>
 #include <ifc2x3/IfcRelaxation.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcMechanicalSteelMaterialProperties::IfcMechanicalSteelMaterialProperties(Step::Id id, Step::SPFData *args) : IfcMechanicalMaterialProperties(id, args) {
-    m_yieldStress = Step::getUnset(m_yieldStress);
-    m_ultimateStress = Step::getUnset(m_ultimateStress);
-    m_ultimateStrain = Step::getUnset(m_ultimateStrain);
-    m_hardeningModule = Step::getUnset(m_hardeningModule);
-    m_proportionalStress = Step::getUnset(m_proportionalStress);
-    m_plasticStrain = Step::getUnset(m_plasticStrain);
-    m_relaxations.setUnset(true);
+IfcMechanicalSteelMaterialProperties::IfcMechanicalSteelMaterialProperties(Step::Id id, Step::SPFData *args) : 
+    IfcMechanicalMaterialProperties(id, args)
+{
+    m_YieldStress = Step::getUnset(m_YieldStress);
+    m_UltimateStress = Step::getUnset(m_UltimateStress);
+    m_UltimateStrain = Step::getUnset(m_UltimateStrain);
+    m_HardeningModule = Step::getUnset(m_HardeningModule);
+    m_ProportionalStress = Step::getUnset(m_ProportionalStress);
+    m_PlasticStrain = Step::getUnset(m_PlasticStrain);
+    m_Relaxations.setUnset(true);
 }
 
-IfcMechanicalSteelMaterialProperties::~IfcMechanicalSteelMaterialProperties() {
+IfcMechanicalSteelMaterialProperties::~IfcMechanicalSteelMaterialProperties()
+{}
+
+bool IfcMechanicalSteelMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcMechanicalSteelMaterialProperties(this);
 }
 
-bool IfcMechanicalSteelMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcMechanicalSteelMaterialProperties(this);
-}
 
-const std::string &IfcMechanicalSteelMaterialProperties::type() const {
-    return IfcMechanicalSteelMaterialProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcMechanicalSteelMaterialProperties::getClassType() {
-    return IfcMechanicalSteelMaterialProperties::s_type;
-}
-
-const Step::ClassType &IfcMechanicalSteelMaterialProperties::getType() const {
-    return IfcMechanicalSteelMaterialProperties::s_type;
-}
-
-bool IfcMechanicalSteelMaterialProperties::isOfType(const Step::ClassType &t) const {
-    return IfcMechanicalSteelMaterialProperties::s_type == t ? true : IfcMechanicalMaterialProperties::isOfType(t);
-}
-
-IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getYieldStress() {
-    if (Step::BaseObject::inited()) {
-        return m_yieldStress;
+IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getYieldStress()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_YieldStress;
     }
-    else {
-        return Step::getUnset(m_yieldStress);
+    else 
+    {
+        return Step::getUnset(m_YieldStress);
+    }    
+}
+
+IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getYieldStress() const
+{
+    return const_cast<IfcMechanicalSteelMaterialProperties *>(this)->getYieldStress();
+}
+
+void IfcMechanicalSteelMaterialProperties::setYieldStress(IfcPressureMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_YieldStress = value;
+}
+
+void IfcMechanicalSteelMaterialProperties::unsetYieldStress()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_YieldStress = Step::getUnset(getYieldStress());
+}
+
+bool IfcMechanicalSteelMaterialProperties::testYieldStress() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getYieldStress()) == false;
+}
+
+
+IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getUltimateStress()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UltimateStress;
     }
+    else 
+    {
+        return Step::getUnset(m_UltimateStress);
+    }    
 }
 
-const IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getYieldStress() const {
-    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
-    return deConstObject->getYieldStress();
+IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getUltimateStress() const
+{
+    return const_cast<IfcMechanicalSteelMaterialProperties *>(this)->getUltimateStress();
 }
 
-void IfcMechanicalSteelMaterialProperties::setYieldStress(IfcPressureMeasure value) {
-    m_yieldStress = value;
+void IfcMechanicalSteelMaterialProperties::setUltimateStress(IfcPressureMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UltimateStress = value;
 }
 
-void IfcMechanicalSteelMaterialProperties::unsetYieldStress() {
-    m_yieldStress = Step::getUnset(getYieldStress());
+void IfcMechanicalSteelMaterialProperties::unsetUltimateStress()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UltimateStress = Step::getUnset(getUltimateStress());
 }
 
-bool IfcMechanicalSteelMaterialProperties::testYieldStress() const {
-    return !Step::isUnset(getYieldStress());
+bool IfcMechanicalSteelMaterialProperties::testUltimateStress() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUltimateStress()) == false;
 }
 
-IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getUltimateStress() {
-    if (Step::BaseObject::inited()) {
-        return m_ultimateStress;
+
+IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getUltimateStrain()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UltimateStrain;
     }
-    else {
-        return Step::getUnset(m_ultimateStress);
+    else 
+    {
+        return Step::getUnset(m_UltimateStrain);
+    }    
+}
+
+IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getUltimateStrain() const
+{
+    return const_cast<IfcMechanicalSteelMaterialProperties *>(this)->getUltimateStrain();
+}
+
+void IfcMechanicalSteelMaterialProperties::setUltimateStrain(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UltimateStrain = value;
+}
+
+void IfcMechanicalSteelMaterialProperties::unsetUltimateStrain()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UltimateStrain = Step::getUnset(getUltimateStrain());
+}
+
+bool IfcMechanicalSteelMaterialProperties::testUltimateStrain() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUltimateStrain()) == false;
+}
+
+
+IfcModulusOfElasticityMeasure IfcMechanicalSteelMaterialProperties::getHardeningModule()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_HardeningModule;
     }
+    else 
+    {
+        return Step::getUnset(m_HardeningModule);
+    }    
 }
 
-const IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getUltimateStress() const {
-    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
-    return deConstObject->getUltimateStress();
+IfcModulusOfElasticityMeasure IfcMechanicalSteelMaterialProperties::getHardeningModule() const
+{
+    return const_cast<IfcMechanicalSteelMaterialProperties *>(this)->getHardeningModule();
 }
 
-void IfcMechanicalSteelMaterialProperties::setUltimateStress(IfcPressureMeasure value) {
-    m_ultimateStress = value;
+void IfcMechanicalSteelMaterialProperties::setHardeningModule(IfcModulusOfElasticityMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_HardeningModule = value;
 }
 
-void IfcMechanicalSteelMaterialProperties::unsetUltimateStress() {
-    m_ultimateStress = Step::getUnset(getUltimateStress());
+void IfcMechanicalSteelMaterialProperties::unsetHardeningModule()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_HardeningModule = Step::getUnset(getHardeningModule());
 }
 
-bool IfcMechanicalSteelMaterialProperties::testUltimateStress() const {
-    return !Step::isUnset(getUltimateStress());
+bool IfcMechanicalSteelMaterialProperties::testHardeningModule() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getHardeningModule()) == false;
 }
 
-IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getUltimateStrain() {
-    if (Step::BaseObject::inited()) {
-        return m_ultimateStrain;
+
+IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getProportionalStress()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ProportionalStress;
     }
-    else {
-        return Step::getUnset(m_ultimateStrain);
+    else 
+    {
+        return Step::getUnset(m_ProportionalStress);
+    }    
+}
+
+IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getProportionalStress() const
+{
+    return const_cast<IfcMechanicalSteelMaterialProperties *>(this)->getProportionalStress();
+}
+
+void IfcMechanicalSteelMaterialProperties::setProportionalStress(IfcPressureMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ProportionalStress = value;
+}
+
+void IfcMechanicalSteelMaterialProperties::unsetProportionalStress()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ProportionalStress = Step::getUnset(getProportionalStress());
+}
+
+bool IfcMechanicalSteelMaterialProperties::testProportionalStress() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getProportionalStress()) == false;
+}
+
+
+IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getPlasticStrain()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PlasticStrain;
     }
+    else 
+    {
+        return Step::getUnset(m_PlasticStrain);
+    }    
 }
 
-const IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getUltimateStrain() const {
-    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
-    return deConstObject->getUltimateStrain();
+IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getPlasticStrain() const
+{
+    return const_cast<IfcMechanicalSteelMaterialProperties *>(this)->getPlasticStrain();
 }
 
-void IfcMechanicalSteelMaterialProperties::setUltimateStrain(IfcPositiveRatioMeasure value) {
-    m_ultimateStrain = value;
+void IfcMechanicalSteelMaterialProperties::setPlasticStrain(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PlasticStrain = value;
 }
 
-void IfcMechanicalSteelMaterialProperties::unsetUltimateStrain() {
-    m_ultimateStrain = Step::getUnset(getUltimateStrain());
+void IfcMechanicalSteelMaterialProperties::unsetPlasticStrain()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PlasticStrain = Step::getUnset(getPlasticStrain());
 }
 
-bool IfcMechanicalSteelMaterialProperties::testUltimateStrain() const {
-    return !Step::isUnset(getUltimateStrain());
+bool IfcMechanicalSteelMaterialProperties::testPlasticStrain() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPlasticStrain()) == false;
 }
 
-IfcModulusOfElasticityMeasure IfcMechanicalSteelMaterialProperties::getHardeningModule() {
-    if (Step::BaseObject::inited()) {
-        return m_hardeningModule;
+
+Set_IfcRelaxation_1_n &IfcMechanicalSteelMaterialProperties::getRelaxations()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Relaxations;
     }
-    else {
-        return Step::getUnset(m_hardeningModule);
-    }
+    else 
+    {
+        m_Relaxations.setUnset(true);
+        return m_Relaxations;
+    }    
 }
 
-const IfcModulusOfElasticityMeasure IfcMechanicalSteelMaterialProperties::getHardeningModule() const {
-    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
-    return deConstObject->getHardeningModule();
+const Set_IfcRelaxation_1_n &IfcMechanicalSteelMaterialProperties::getRelaxations() const
+{
+    return const_cast<IfcMechanicalSteelMaterialProperties *>(this)->getRelaxations();
 }
 
-void IfcMechanicalSteelMaterialProperties::setHardeningModule(IfcModulusOfElasticityMeasure value) {
-    m_hardeningModule = value;
+void IfcMechanicalSteelMaterialProperties::setRelaxations(const Set_IfcRelaxation_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Relaxations = value;
 }
 
-void IfcMechanicalSteelMaterialProperties::unsetHardeningModule() {
-    m_hardeningModule = Step::getUnset(getHardeningModule());
+void IfcMechanicalSteelMaterialProperties::unsetRelaxations()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Relaxations.clear();
+    m_Relaxations.setUnset(true);
 }
 
-bool IfcMechanicalSteelMaterialProperties::testHardeningModule() const {
-    return !Step::isUnset(getHardeningModule());
+bool IfcMechanicalSteelMaterialProperties::testRelaxations() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_Relaxations.isUnset() == false;
 }
 
-IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getProportionalStress() {
-    if (Step::BaseObject::inited()) {
-        return m_proportionalStress;
-    }
-    else {
-        return Step::getUnset(m_proportionalStress);
-    }
-}
-
-const IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getProportionalStress() const {
-    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
-    return deConstObject->getProportionalStress();
-}
-
-void IfcMechanicalSteelMaterialProperties::setProportionalStress(IfcPressureMeasure value) {
-    m_proportionalStress = value;
-}
-
-void IfcMechanicalSteelMaterialProperties::unsetProportionalStress() {
-    m_proportionalStress = Step::getUnset(getProportionalStress());
-}
-
-bool IfcMechanicalSteelMaterialProperties::testProportionalStress() const {
-    return !Step::isUnset(getProportionalStress());
-}
-
-IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getPlasticStrain() {
-    if (Step::BaseObject::inited()) {
-        return m_plasticStrain;
-    }
-    else {
-        return Step::getUnset(m_plasticStrain);
-    }
-}
-
-const IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getPlasticStrain() const {
-    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
-    return deConstObject->getPlasticStrain();
-}
-
-void IfcMechanicalSteelMaterialProperties::setPlasticStrain(IfcPositiveRatioMeasure value) {
-    m_plasticStrain = value;
-}
-
-void IfcMechanicalSteelMaterialProperties::unsetPlasticStrain() {
-    m_plasticStrain = Step::getUnset(getPlasticStrain());
-}
-
-bool IfcMechanicalSteelMaterialProperties::testPlasticStrain() const {
-    return !Step::isUnset(getPlasticStrain());
-}
-
-Set_IfcRelaxation_1_n &IfcMechanicalSteelMaterialProperties::getRelaxations() {
-    if (Step::BaseObject::inited()) {
-        return m_relaxations;
-    }
-    else {
-        m_relaxations.setUnset(true);
-        return m_relaxations;
-    }
-}
-
-const Set_IfcRelaxation_1_n &IfcMechanicalSteelMaterialProperties::getRelaxations() const {
-    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
-    return deConstObject->getRelaxations();
-}
-
-void IfcMechanicalSteelMaterialProperties::setRelaxations(const Set_IfcRelaxation_1_n &value) {
-    m_relaxations = value;
-}
-
-void IfcMechanicalSteelMaterialProperties::unsetRelaxations() {
-    m_relaxations.clear();
-    m_relaxations.setUnset(true);
-}
-
-bool IfcMechanicalSteelMaterialProperties::testRelaxations() const {
-    return !m_relaxations.isUnset();
-}
-
-bool IfcMechanicalSteelMaterialProperties::init() {
-    bool status = IfcMechanicalMaterialProperties::init();
-    std::string arg;
-    if (!status) {
+bool IfcMechanicalSteelMaterialProperties::init()
+{
+    if (IfcMechanicalMaterialProperties::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_yieldStress = Step::getUnset(m_yieldStress);
+    if (arg == "$" || arg == "*")
+    {
+        m_YieldStress = Step::getUnset(m_YieldStress);
     }
-    else {
-        m_yieldStress = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_ultimateStress = Step::getUnset(m_ultimateStress);
-    }
-    else {
-        m_ultimateStress = Step::spfToReal(arg);
+    else
+    {
+        m_YieldStress = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_ultimateStrain = Step::getUnset(m_ultimateStrain);
+    if (arg == "$" || arg == "*")
+    {
+        m_UltimateStress = Step::getUnset(m_UltimateStress);
     }
-    else {
-        m_ultimateStrain = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_hardeningModule = Step::getUnset(m_hardeningModule);
-    }
-    else {
-        m_hardeningModule = Step::spfToReal(arg);
+    else
+    {
+        m_UltimateStress = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_proportionalStress = Step::getUnset(m_proportionalStress);
+    if (arg == "$" || arg == "*")
+    {
+        m_UltimateStrain = Step::getUnset(m_UltimateStrain);
     }
-    else {
-        m_proportionalStress = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_plasticStrain = Step::getUnset(m_plasticStrain);
-    }
-    else {
-        m_plasticStrain = Step::spfToReal(arg);
+    else
+    {
+        m_UltimateStrain = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relaxations.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_HardeningModule = Step::getUnset(m_HardeningModule);
     }
-    else {
-        m_relaxations.setUnset(false);
-        while (true) {
+    else
+    {
+        m_HardeningModule = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ProportionalStress = Step::getUnset(m_ProportionalStress);
+    }
+    else
+    {
+        m_ProportionalStress = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_PlasticStrain = Step::getUnset(m_PlasticStrain);
+    }
+    else
+    {
+        m_PlasticStrain = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Relaxations.setUnset(true);
+    }
+    else
+    {
+        m_Relaxations.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcRelaxation > attr2;
-                attr2 = static_cast< IfcRelaxation * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                if (attr2.valid()) m_relaxations.insert(attr2);
+            if (!str1.empty())
+            {
+                m_Relaxations.insert(static_cast< IfcRelaxation * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
@@ -322,20 +411,23 @@ bool IfcMechanicalSteelMaterialProperties::init() {
     return true;
 }
 
-void IfcMechanicalSteelMaterialProperties::copy(const IfcMechanicalSteelMaterialProperties &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcRelaxation >, 1 >::const_iterator it_m_relaxations;
+void IfcMechanicalSteelMaterialProperties::copy(const IfcMechanicalSteelMaterialProperties &obj, const CopyOp &copyop)
+{
     IfcMechanicalMaterialProperties::copy(obj, copyop);
-    setYieldStress(obj.m_yieldStress);
-    setUltimateStress(obj.m_ultimateStress);
-    setUltimateStrain(obj.m_ultimateStrain);
-    setHardeningModule(obj.m_hardeningModule);
-    setProportionalStress(obj.m_proportionalStress);
-    setPlasticStrain(obj.m_plasticStrain);
-    for (it_m_relaxations = obj.m_relaxations.begin(); it_m_relaxations != obj.m_relaxations.end(); ++it_m_relaxations) {
-        Step::RefPtr< IfcRelaxation > copyTarget = (IfcRelaxation *) (copyop((*it_m_relaxations).get()));
-        m_relaxations.insert(copyTarget.get());
+    setYieldStress(obj.m_YieldStress);
+    setUltimateStress(obj.m_UltimateStress);
+    setUltimateStrain(obj.m_UltimateStrain);
+    setHardeningModule(obj.m_HardeningModule);
+    setProportionalStress(obj.m_ProportionalStress);
+    setPlasticStrain(obj.m_PlasticStrain);
+    Set_IfcRelaxation_1_n::const_iterator it_m_Relaxations;
+    for (it_m_Relaxations = obj.m_Relaxations.begin(); it_m_Relaxations != obj.m_Relaxations.end(); ++it_m_Relaxations)
+    {
+        Step::RefPtr< IfcRelaxation > copyTarget = (IfcRelaxation *) (copyop((*it_m_Relaxations).get()));
+        m_Relaxations.insert(copyTarget);
     }
+    
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMechanicalSteelMaterialProperties::s_type("IfcMechanicalSteelMaterialProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcMechanicalSteelMaterialProperties, IfcMechanicalMaterialProperties)

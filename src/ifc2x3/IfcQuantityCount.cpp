@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,95 +24,95 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcQuantityCount.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcPhysicalSimpleQuantity.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcQuantityCount::IfcQuantityCount(Step::Id id, Step::SPFData *args) : IfcPhysicalSimpleQuantity(id, args) {
-    m_countValue = Step::getUnset(m_countValue);
+IfcQuantityCount::IfcQuantityCount(Step::Id id, Step::SPFData *args) : 
+    IfcPhysicalSimpleQuantity(id, args)
+{
+    m_CountValue = Step::getUnset(m_CountValue);
 }
 
-IfcQuantityCount::~IfcQuantityCount() {
+IfcQuantityCount::~IfcQuantityCount()
+{}
+
+bool IfcQuantityCount::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcQuantityCount(this);
 }
 
-bool IfcQuantityCount::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcQuantityCount(this);
-}
 
-const std::string &IfcQuantityCount::type() const {
-    return IfcQuantityCount::s_type.getName();
-}
-
-const Step::ClassType &IfcQuantityCount::getClassType() {
-    return IfcQuantityCount::s_type;
-}
-
-const Step::ClassType &IfcQuantityCount::getType() const {
-    return IfcQuantityCount::s_type;
-}
-
-bool IfcQuantityCount::isOfType(const Step::ClassType &t) const {
-    return IfcQuantityCount::s_type == t ? true : IfcPhysicalSimpleQuantity::isOfType(t);
-}
-
-IfcCountMeasure IfcQuantityCount::getCountValue() {
-    if (Step::BaseObject::inited()) {
-        return m_countValue;
+IfcCountMeasure IfcQuantityCount::getCountValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CountValue;
     }
-    else {
-        return Step::getUnset(m_countValue);
-    }
+    else 
+    {
+        return Step::getUnset(m_CountValue);
+    }    
 }
 
-const IfcCountMeasure IfcQuantityCount::getCountValue() const {
-    IfcQuantityCount * deConstObject = const_cast< IfcQuantityCount * > (this);
-    return deConstObject->getCountValue();
+IfcCountMeasure IfcQuantityCount::getCountValue() const
+{
+    return const_cast<IfcQuantityCount *>(this)->getCountValue();
 }
 
-void IfcQuantityCount::setCountValue(IfcCountMeasure value) {
-    m_countValue = value;
+void IfcQuantityCount::setCountValue(IfcCountMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CountValue = value;
 }
 
-void IfcQuantityCount::unsetCountValue() {
-    m_countValue = Step::getUnset(getCountValue());
+void IfcQuantityCount::unsetCountValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CountValue = Step::getUnset(getCountValue());
 }
 
-bool IfcQuantityCount::testCountValue() const {
-    return !Step::isUnset(getCountValue());
+bool IfcQuantityCount::testCountValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCountValue()) == false;
 }
 
-bool IfcQuantityCount::init() {
-    bool status = IfcPhysicalSimpleQuantity::init();
-    std::string arg;
-    if (!status) {
+bool IfcQuantityCount::init()
+{
+    if (IfcPhysicalSimpleQuantity::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_countValue = Step::getUnset(m_countValue);
+    if (arg == "$" || arg == "*")
+    {
+        m_CountValue = Step::getUnset(m_CountValue);
     }
-    else {
-        m_countValue = Step::spfToInteger(arg);
+    else
+    {
+        m_CountValue = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcQuantityCount::copy(const IfcQuantityCount &obj, const CopyOp &copyop) {
+void IfcQuantityCount::copy(const IfcQuantityCount &obj, const CopyOp &copyop)
+{
     IfcPhysicalSimpleQuantity::copy(obj, copyop);
-    setCountValue(obj.m_countValue);
+    setCountValue(obj.m_CountValue);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcQuantityCount::s_type("IfcQuantityCount");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcQuantityCount, IfcPhysicalSimpleQuantity)

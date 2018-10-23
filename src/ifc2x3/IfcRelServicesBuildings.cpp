@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,167 +24,185 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRelServicesBuildings.h>
 
+#include <ifc2x3/IfcSystem.h>
+#include <ifc2x3/IfcSpatialStructureElement.h>
+#include <ifc2x3/IfcSpatialStructureElement.h>
 
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcRelConnects.h>
-#include <ifc2x3/IfcSpatialStructureElement.h>
-#include <ifc2x3/IfcSystem.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-Inverted_IfcRelServicesBuildings_RelatedBuildings_type::Inverted_IfcRelServicesBuildings_RelatedBuildings_type():
-    mOwner(0)
+Inverted_IfcRelServicesBuildings_RelatedBuildings_type::Inverted_IfcRelServicesBuildings_RelatedBuildings_type()
 {
+
 }
 
-void Inverted_IfcRelServicesBuildings_RelatedBuildings_type::setOwner(IfcRelServicesBuildings *owner) {
+void Inverted_IfcRelServicesBuildings_RelatedBuildings_type::setOwner(IfcRelServicesBuildings *owner)
+{
     mOwner = owner;
 }
 
-void Inverted_IfcRelServicesBuildings_RelatedBuildings_type::insert(const Step::RefPtr< IfcSpatialStructureElement > &value) throw(std::out_of_range) {
+void Inverted_IfcRelServicesBuildings_RelatedBuildings_type::insert(const Step::RefPtr< IfcSpatialStructureElement > &value)
+#ifdef STEP_CHECK_RANGE
+    throw(std::out_of_range)
+#endif
+{
     IfcSpatialStructureElement *inverse = const_cast< IfcSpatialStructureElement * > (value.get());
     Set_IfcSpatialStructureElement_1_n::insert(value);
-    inverse->m_servicedBySystems.insert(mOwner);
+    inverse->m_ServicedBySystems.insert(mOwner);
 }
 
-Inverted_IfcRelServicesBuildings_RelatedBuildings_type::size_type Inverted_IfcRelServicesBuildings_RelatedBuildings_type::erase(const Step::RefPtr< IfcSpatialStructureElement > &value) {
+
+Inverted_IfcRelServicesBuildings_RelatedBuildings_type::size_type Inverted_IfcRelServicesBuildings_RelatedBuildings_type::erase(const Step::RefPtr< IfcSpatialStructureElement > &value)
+{
     IfcSpatialStructureElement *inverse = const_cast< IfcSpatialStructureElement * > (value.get());
-    inverse->m_servicedBySystems.erase(mOwner);
+    inverse->m_ServicedBySystems.erase(mOwner);
     return Set_IfcSpatialStructureElement_1_n::erase(value);
 }
 
-void Inverted_IfcRelServicesBuildings_RelatedBuildings_type::clear() {
-    while (size()) {
+void Inverted_IfcRelServicesBuildings_RelatedBuildings_type::clear()
+{
+    while (size())
+    {
         erase(*begin());
     }
 }
 
-IfcRelServicesBuildings::IfcRelServicesBuildings(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingSystem = NULL;
-    m_relatedBuildings.setOwner(this);
+
+IfcRelServicesBuildings::IfcRelServicesBuildings(Step::Id id, Step::SPFData *args) : 
+    IfcRelConnects(id, args)
+{
+    m_RelatingSystem = NULL;
+    m_RelatedBuildings.setUnset(true);
+    m_RelatedBuildings.setOwner(this);
 }
 
-IfcRelServicesBuildings::~IfcRelServicesBuildings() {
+IfcRelServicesBuildings::~IfcRelServicesBuildings()
+{}
+
+bool IfcRelServicesBuildings::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRelServicesBuildings(this);
 }
 
-bool IfcRelServicesBuildings::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRelServicesBuildings(this);
-}
-
-const std::string &IfcRelServicesBuildings::type() const {
-    return IfcRelServicesBuildings::s_type.getName();
-}
-
-const Step::ClassType &IfcRelServicesBuildings::getClassType() {
-    return IfcRelServicesBuildings::s_type;
-}
-
-const Step::ClassType &IfcRelServicesBuildings::getType() const {
-    return IfcRelServicesBuildings::s_type;
-}
-
-bool IfcRelServicesBuildings::isOfType(const Step::ClassType &t) const {
-    return IfcRelServicesBuildings::s_type == t ? true : IfcRelConnects::isOfType(t);
-}
-
-IfcSystem *IfcRelServicesBuildings::getRelatingSystem() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingSystem.get();
+IfcSystem *IfcRelServicesBuildings::getRelatingSystem()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingSystem.get();
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcSystem *IfcRelServicesBuildings::getRelatingSystem() const {
-    IfcRelServicesBuildings * deConstObject = const_cast< IfcRelServicesBuildings * > (this);
-    return deConstObject->getRelatingSystem();
+const IfcSystem *IfcRelServicesBuildings::getRelatingSystem() const
+{
+    return const_cast< IfcRelServicesBuildings * > (this)->getRelatingSystem();
 }
 
-void IfcRelServicesBuildings::setRelatingSystem(const Step::RefPtr< IfcSystem > &value) {
-    if (m_relatingSystem.valid()) {
-        m_relatingSystem->m_servicesBuildings.erase(this);
+void IfcRelServicesBuildings::setRelatingSystem(const Step::RefPtr< IfcSystem > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingSystem.valid())
+    {
+        m_RelatingSystem->m_ServicesBuildings.erase(this);
     }
-    if (value.valid()) {
-        value->m_servicesBuildings.insert(this);
+    if (value.valid() )
+    {
+       value->m_ServicesBuildings.insert(this);
     }
-    m_relatingSystem = value;
+    m_RelatingSystem = value;
 }
 
-void IfcRelServicesBuildings::unsetRelatingSystem() {
-    m_relatingSystem = Step::getUnset(getRelatingSystem());
+void IfcRelServicesBuildings::unsetRelatingSystem()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingSystem = Step::getUnset(getRelatingSystem());
 }
 
-bool IfcRelServicesBuildings::testRelatingSystem() const {
-    return !Step::isUnset(getRelatingSystem());
+bool IfcRelServicesBuildings::testRelatingSystem() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingSystem()) == false;
 }
 
-Set_IfcSpatialStructureElement_1_n &IfcRelServicesBuildings::getRelatedBuildings() {
-    if (Step::BaseObject::inited()) {
-        return m_relatedBuildings;
+Set_IfcSpatialStructureElement_1_n &IfcRelServicesBuildings::getRelatedBuildings()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedBuildings;
     }
-    else {
-        m_relatedBuildings.setUnset(true);
-        return m_relatedBuildings;
+    else
+    {
+        m_RelatedBuildings.setUnset(true);
+        return m_RelatedBuildings;
     }
 }
 
-const Set_IfcSpatialStructureElement_1_n &IfcRelServicesBuildings::getRelatedBuildings() const {
-    IfcRelServicesBuildings * deConstObject = const_cast< IfcRelServicesBuildings * > (this);
-    return deConstObject->getRelatedBuildings();
+const Set_IfcSpatialStructureElement_1_n &IfcRelServicesBuildings::getRelatedBuildings() const
+{
+    return const_cast< IfcRelServicesBuildings * > (this)->getRelatedBuildings();
 }
 
-void IfcRelServicesBuildings::unsetRelatedBuildings() {
-    m_relatedBuildings.clear();
-    m_relatedBuildings.setUnset(true);
+void IfcRelServicesBuildings::unsetRelatedBuildings()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedBuildings.clear();
+    m_RelatedBuildings.setUnset(true);
 }
 
-bool IfcRelServicesBuildings::testRelatedBuildings() const {
-    return !m_relatedBuildings.isUnset();
+bool IfcRelServicesBuildings::testRelatedBuildings() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_RelatedBuildings.isUnset() == false;
 }
 
-bool IfcRelServicesBuildings::init() {
-    bool status = IfcRelConnects::init();
-    std::string arg;
-    if (!status) {
+bool IfcRelServicesBuildings::init()
+{
+    if (IfcRelConnects::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingSystem = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingSystem = NULL;
     }
-    else {
-        m_relatingSystem = static_cast< IfcSystem * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_RelatingSystem = static_cast< IfcSystem * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatedBuildings.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedBuildings.setUnset(true);
     }
-    else {
-        m_relatedBuildings.setUnset(false);
-        while (true) {
+    else
+    {
+        m_RelatedBuildings.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcSpatialStructureElement > attr2;
-                attr2 = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                if (attr2.valid()) m_relatedBuildings.insert(attr2);
+            if (!str1.empty())
+            {
+                m_RelatedBuildings.insert(static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
@@ -183,15 +210,18 @@ bool IfcRelServicesBuildings::init() {
     return true;
 }
 
-void IfcRelServicesBuildings::copy(const IfcRelServicesBuildings &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcSpatialStructureElement >, 1 >::const_iterator it_m_relatedBuildings;
+void IfcRelServicesBuildings::copy(const IfcRelServicesBuildings &obj, const CopyOp &copyop)
+{
     IfcRelConnects::copy(obj, copyop);
-    setRelatingSystem((IfcSystem*)copyop(obj.m_relatingSystem.get()));
-    for (it_m_relatedBuildings = obj.m_relatedBuildings.begin(); it_m_relatedBuildings != obj.m_relatedBuildings.end(); ++it_m_relatedBuildings) {
-        Step::RefPtr< IfcSpatialStructureElement > copyTarget = (IfcSpatialStructureElement *) (copyop((*it_m_relatedBuildings).get()));
-        m_relatedBuildings.insert(copyTarget.get());
+    setRelatingSystem((IfcSystem*)copyop(obj.m_RelatingSystem.get()));
+    Set_IfcSpatialStructureElement_1_n::const_iterator it_m_RelatedBuildings;
+    for (it_m_RelatedBuildings = obj.m_RelatedBuildings.begin(); it_m_RelatedBuildings != obj.m_RelatedBuildings.end(); ++it_m_RelatedBuildings)
+    {
+        Step::RefPtr< IfcSpatialStructureElement > copyTarget = (IfcSpatialStructureElement *) (copyop((*it_m_RelatedBuildings).get()));
+        m_RelatedBuildings.insert(copyTarget);
     }
+    
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelServicesBuildings::s_type("IfcRelServicesBuildings");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRelServicesBuildings, IfcRelConnects)

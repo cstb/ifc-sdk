@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,239 +24,291 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcSweptDiskSolid.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcCurve.h>
-#include <ifc2x3/IfcSolidModel.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcSweptDiskSolid::IfcSweptDiskSolid(Step::Id id, Step::SPFData *args) : IfcSolidModel(id, args) {
-    m_directrix = NULL;
-    m_radius = Step::getUnset(m_radius);
-    m_innerRadius = Step::getUnset(m_innerRadius);
-    m_startParam = Step::getUnset(m_startParam);
-    m_endParam = Step::getUnset(m_endParam);
+IfcSweptDiskSolid::IfcSweptDiskSolid(Step::Id id, Step::SPFData *args) : 
+    IfcSolidModel(id, args)
+{
+    m_Directrix = NULL;
+    m_Radius = Step::getUnset(m_Radius);
+    m_InnerRadius = Step::getUnset(m_InnerRadius);
+    m_StartParam = Step::getUnset(m_StartParam);
+    m_EndParam = Step::getUnset(m_EndParam);
 }
 
-IfcSweptDiskSolid::~IfcSweptDiskSolid() {
+IfcSweptDiskSolid::~IfcSweptDiskSolid()
+{}
+
+bool IfcSweptDiskSolid::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcSweptDiskSolid(this);
 }
 
-bool IfcSweptDiskSolid::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcSweptDiskSolid(this);
-}
 
-const std::string &IfcSweptDiskSolid::type() const {
-    return IfcSweptDiskSolid::s_type.getName();
-}
-
-const Step::ClassType &IfcSweptDiskSolid::getClassType() {
-    return IfcSweptDiskSolid::s_type;
-}
-
-const Step::ClassType &IfcSweptDiskSolid::getType() const {
-    return IfcSweptDiskSolid::s_type;
-}
-
-bool IfcSweptDiskSolid::isOfType(const Step::ClassType &t) const {
-    return IfcSweptDiskSolid::s_type == t ? true : IfcSolidModel::isOfType(t);
-}
-
-IfcCurve *IfcSweptDiskSolid::getDirectrix() {
-    if (Step::BaseObject::inited()) {
-        return m_directrix.get();
+IfcCurve *IfcSweptDiskSolid::getDirectrix()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Directrix.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcCurve *IfcSweptDiskSolid::getDirectrix() const
+{
+    return const_cast<IfcSweptDiskSolid *>(this)->getDirectrix();
+}
+
+void IfcSweptDiskSolid::setDirectrix(const Step::RefPtr< IfcCurve > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Directrix = value;
+}
+
+void IfcSweptDiskSolid::unsetDirectrix()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Directrix = Step::getUnset(getDirectrix());
+}
+
+bool IfcSweptDiskSolid::testDirectrix() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDirectrix()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcSweptDiskSolid::getRadius()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Radius;
     }
+    else 
+    {
+        return Step::getUnset(m_Radius);
+    }    
 }
 
-const IfcCurve *IfcSweptDiskSolid::getDirectrix() const {
-    IfcSweptDiskSolid * deConstObject = const_cast< IfcSweptDiskSolid * > (this);
-    return deConstObject->getDirectrix();
+IfcPositiveLengthMeasure IfcSweptDiskSolid::getRadius() const
+{
+    return const_cast<IfcSweptDiskSolid *>(this)->getRadius();
 }
 
-void IfcSweptDiskSolid::setDirectrix(const Step::RefPtr< IfcCurve > &value) {
-    m_directrix = value;
+void IfcSweptDiskSolid::setRadius(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Radius = value;
 }
 
-void IfcSweptDiskSolid::unsetDirectrix() {
-    m_directrix = Step::getUnset(getDirectrix());
+void IfcSweptDiskSolid::unsetRadius()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Radius = Step::getUnset(getRadius());
 }
 
-bool IfcSweptDiskSolid::testDirectrix() const {
-    return !Step::isUnset(getDirectrix());
+bool IfcSweptDiskSolid::testRadius() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRadius()) == false;
 }
 
-IfcPositiveLengthMeasure IfcSweptDiskSolid::getRadius() {
-    if (Step::BaseObject::inited()) {
-        return m_radius;
+
+IfcPositiveLengthMeasure IfcSweptDiskSolid::getInnerRadius()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_InnerRadius;
     }
-    else {
-        return Step::getUnset(m_radius);
+    else 
+    {
+        return Step::getUnset(m_InnerRadius);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcSweptDiskSolid::getInnerRadius() const
+{
+    return const_cast<IfcSweptDiskSolid *>(this)->getInnerRadius();
+}
+
+void IfcSweptDiskSolid::setInnerRadius(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InnerRadius = value;
+}
+
+void IfcSweptDiskSolid::unsetInnerRadius()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InnerRadius = Step::getUnset(getInnerRadius());
+}
+
+bool IfcSweptDiskSolid::testInnerRadius() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getInnerRadius()) == false;
+}
+
+
+IfcParameterValue IfcSweptDiskSolid::getStartParam()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_StartParam;
     }
+    else 
+    {
+        return Step::getUnset(m_StartParam);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcSweptDiskSolid::getRadius() const {
-    IfcSweptDiskSolid * deConstObject = const_cast< IfcSweptDiskSolid * > (this);
-    return deConstObject->getRadius();
+IfcParameterValue IfcSweptDiskSolid::getStartParam() const
+{
+    return const_cast<IfcSweptDiskSolid *>(this)->getStartParam();
 }
 
-void IfcSweptDiskSolid::setRadius(IfcPositiveLengthMeasure value) {
-    m_radius = value;
+void IfcSweptDiskSolid::setStartParam(IfcParameterValue value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_StartParam = value;
 }
 
-void IfcSweptDiskSolid::unsetRadius() {
-    m_radius = Step::getUnset(getRadius());
+void IfcSweptDiskSolid::unsetStartParam()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_StartParam = Step::getUnset(getStartParam());
 }
 
-bool IfcSweptDiskSolid::testRadius() const {
-    return !Step::isUnset(getRadius());
+bool IfcSweptDiskSolid::testStartParam() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getStartParam()) == false;
 }
 
-IfcPositiveLengthMeasure IfcSweptDiskSolid::getInnerRadius() {
-    if (Step::BaseObject::inited()) {
-        return m_innerRadius;
+
+IfcParameterValue IfcSweptDiskSolid::getEndParam()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_EndParam;
     }
-    else {
-        return Step::getUnset(m_innerRadius);
-    }
+    else 
+    {
+        return Step::getUnset(m_EndParam);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcSweptDiskSolid::getInnerRadius() const {
-    IfcSweptDiskSolid * deConstObject = const_cast< IfcSweptDiskSolid * > (this);
-    return deConstObject->getInnerRadius();
+IfcParameterValue IfcSweptDiskSolid::getEndParam() const
+{
+    return const_cast<IfcSweptDiskSolid *>(this)->getEndParam();
 }
 
-void IfcSweptDiskSolid::setInnerRadius(IfcPositiveLengthMeasure value) {
-    m_innerRadius = value;
+void IfcSweptDiskSolid::setEndParam(IfcParameterValue value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EndParam = value;
 }
 
-void IfcSweptDiskSolid::unsetInnerRadius() {
-    m_innerRadius = Step::getUnset(getInnerRadius());
+void IfcSweptDiskSolid::unsetEndParam()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EndParam = Step::getUnset(getEndParam());
 }
 
-bool IfcSweptDiskSolid::testInnerRadius() const {
-    return !Step::isUnset(getInnerRadius());
+bool IfcSweptDiskSolid::testEndParam() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getEndParam()) == false;
 }
 
-IfcParameterValue IfcSweptDiskSolid::getStartParam() {
-    if (Step::BaseObject::inited()) {
-        return m_startParam;
-    }
-    else {
-        return Step::getUnset(m_startParam);
-    }
-}
-
-const IfcParameterValue IfcSweptDiskSolid::getStartParam() const {
-    IfcSweptDiskSolid * deConstObject = const_cast< IfcSweptDiskSolid * > (this);
-    return deConstObject->getStartParam();
-}
-
-void IfcSweptDiskSolid::setStartParam(IfcParameterValue value) {
-    m_startParam = value;
-}
-
-void IfcSweptDiskSolid::unsetStartParam() {
-    m_startParam = Step::getUnset(getStartParam());
-}
-
-bool IfcSweptDiskSolid::testStartParam() const {
-    return !Step::isUnset(getStartParam());
-}
-
-IfcParameterValue IfcSweptDiskSolid::getEndParam() {
-    if (Step::BaseObject::inited()) {
-        return m_endParam;
-    }
-    else {
-        return Step::getUnset(m_endParam);
-    }
-}
-
-const IfcParameterValue IfcSweptDiskSolid::getEndParam() const {
-    IfcSweptDiskSolid * deConstObject = const_cast< IfcSweptDiskSolid * > (this);
-    return deConstObject->getEndParam();
-}
-
-void IfcSweptDiskSolid::setEndParam(IfcParameterValue value) {
-    m_endParam = value;
-}
-
-void IfcSweptDiskSolid::unsetEndParam() {
-    m_endParam = Step::getUnset(getEndParam());
-}
-
-bool IfcSweptDiskSolid::testEndParam() const {
-    return !Step::isUnset(getEndParam());
-}
-
-bool IfcSweptDiskSolid::init() {
-    bool status = IfcSolidModel::init();
-    std::string arg;
-    if (!status) {
+bool IfcSweptDiskSolid::init()
+{
+    if (IfcSolidModel::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_directrix = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Directrix = NULL;
     }
-    else {
-        m_directrix = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_radius = Step::getUnset(m_radius);
-    }
-    else {
-        m_radius = Step::spfToReal(arg);
+    else
+    {
+        m_Directrix = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_innerRadius = Step::getUnset(m_innerRadius);
+    if (arg == "$" || arg == "*")
+    {
+        m_Radius = Step::getUnset(m_Radius);
     }
-    else {
-        m_innerRadius = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_startParam = Step::getUnset(m_startParam);
-    }
-    else {
-        m_startParam = Step::spfToReal(arg);
+    else
+    {
+        m_Radius = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_endParam = Step::getUnset(m_endParam);
+    if (arg == "$" || arg == "*")
+    {
+        m_InnerRadius = Step::getUnset(m_InnerRadius);
     }
-    else {
-        m_endParam = Step::spfToReal(arg);
+    else
+    {
+        m_InnerRadius = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_StartParam = Step::getUnset(m_StartParam);
+    }
+    else
+    {
+        m_StartParam = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_EndParam = Step::getUnset(m_EndParam);
+    }
+    else
+    {
+        m_EndParam = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcSweptDiskSolid::copy(const IfcSweptDiskSolid &obj, const CopyOp &copyop) {
+void IfcSweptDiskSolid::copy(const IfcSweptDiskSolid &obj, const CopyOp &copyop)
+{
     IfcSolidModel::copy(obj, copyop);
-    setDirectrix((IfcCurve*)copyop(obj.m_directrix.get()));
-    setRadius(obj.m_radius);
-    setInnerRadius(obj.m_innerRadius);
-    setStartParam(obj.m_startParam);
-    setEndParam(obj.m_endParam);
+    setDirectrix((IfcCurve*)copyop(obj.m_Directrix.get()));
+    setRadius(obj.m_Radius);
+    setInnerRadius(obj.m_InnerRadius);
+    setStartParam(obj.m_StartParam);
+    setEndParam(obj.m_EndParam);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSweptDiskSolid::s_type("IfcSweptDiskSolid");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcSweptDiskSolid, IfcSolidModel)

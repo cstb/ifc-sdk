@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,205 +24,242 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcCartesianTransformationOperator.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcCartesianPoint.h>
 #include <ifc2x3/IfcDirection.h>
-#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/IfcDirection.h>
+#include <ifc2x3/IfcCartesianPoint.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcCartesianTransformationOperator::IfcCartesianTransformationOperator(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_axis1 = NULL;
-    m_axis2 = NULL;
-    m_localOrigin = NULL;
-    m_scale = Step::getUnset(m_scale);
+IfcCartesianTransformationOperator::IfcCartesianTransformationOperator(Step::Id id, Step::SPFData *args) : 
+    IfcGeometricRepresentationItem(id, args)
+{
+    m_Axis1 = NULL;
+    m_Axis2 = NULL;
+    m_LocalOrigin = NULL;
+    m_Scale = Step::getUnset(m_Scale);
 }
 
-IfcCartesianTransformationOperator::~IfcCartesianTransformationOperator() {
+IfcCartesianTransformationOperator::~IfcCartesianTransformationOperator()
+{}
+
+bool IfcCartesianTransformationOperator::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcCartesianTransformationOperator(this);
 }
 
-bool IfcCartesianTransformationOperator::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcCartesianTransformationOperator(this);
-}
 
-const std::string &IfcCartesianTransformationOperator::type() const {
-    return IfcCartesianTransformationOperator::s_type.getName();
-}
-
-const Step::ClassType &IfcCartesianTransformationOperator::getClassType() {
-    return IfcCartesianTransformationOperator::s_type;
-}
-
-const Step::ClassType &IfcCartesianTransformationOperator::getType() const {
-    return IfcCartesianTransformationOperator::s_type;
-}
-
-bool IfcCartesianTransformationOperator::isOfType(const Step::ClassType &t) const {
-    return IfcCartesianTransformationOperator::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-IfcDirection *IfcCartesianTransformationOperator::getAxis1() {
-    if (Step::BaseObject::inited()) {
-        return m_axis1.get();
+IfcDirection *IfcCartesianTransformationOperator::getAxis1()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Axis1.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDirection *IfcCartesianTransformationOperator::getAxis1() const
+{
+    return const_cast<IfcCartesianTransformationOperator *>(this)->getAxis1();
+}
+
+void IfcCartesianTransformationOperator::setAxis1(const Step::RefPtr< IfcDirection > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Axis1 = value;
+}
+
+void IfcCartesianTransformationOperator::unsetAxis1()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Axis1 = Step::getUnset(getAxis1());
+}
+
+bool IfcCartesianTransformationOperator::testAxis1() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getAxis1()) == false;
+}
+
+
+IfcDirection *IfcCartesianTransformationOperator::getAxis2()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Axis2.get();
     }
-}
-
-const IfcDirection *IfcCartesianTransformationOperator::getAxis1() const {
-    IfcCartesianTransformationOperator * deConstObject = const_cast< IfcCartesianTransformationOperator * > (this);
-    return deConstObject->getAxis1();
-}
-
-void IfcCartesianTransformationOperator::setAxis1(const Step::RefPtr< IfcDirection > &value) {
-    m_axis1 = value;
-}
-
-void IfcCartesianTransformationOperator::unsetAxis1() {
-    m_axis1 = Step::getUnset(getAxis1());
-}
-
-bool IfcCartesianTransformationOperator::testAxis1() const {
-    return !Step::isUnset(getAxis1());
-}
-
-IfcDirection *IfcCartesianTransformationOperator::getAxis2() {
-    if (Step::BaseObject::inited()) {
-        return m_axis2.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDirection *IfcCartesianTransformationOperator::getAxis2() const
+{
+    return const_cast<IfcCartesianTransformationOperator *>(this)->getAxis2();
+}
+
+void IfcCartesianTransformationOperator::setAxis2(const Step::RefPtr< IfcDirection > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Axis2 = value;
+}
+
+void IfcCartesianTransformationOperator::unsetAxis2()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Axis2 = Step::getUnset(getAxis2());
+}
+
+bool IfcCartesianTransformationOperator::testAxis2() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getAxis2()) == false;
+}
+
+
+IfcCartesianPoint *IfcCartesianTransformationOperator::getLocalOrigin()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LocalOrigin.get();
     }
-}
-
-const IfcDirection *IfcCartesianTransformationOperator::getAxis2() const {
-    IfcCartesianTransformationOperator * deConstObject = const_cast< IfcCartesianTransformationOperator * > (this);
-    return deConstObject->getAxis2();
-}
-
-void IfcCartesianTransformationOperator::setAxis2(const Step::RefPtr< IfcDirection > &value) {
-    m_axis2 = value;
-}
-
-void IfcCartesianTransformationOperator::unsetAxis2() {
-    m_axis2 = Step::getUnset(getAxis2());
-}
-
-bool IfcCartesianTransformationOperator::testAxis2() const {
-    return !Step::isUnset(getAxis2());
-}
-
-IfcCartesianPoint *IfcCartesianTransformationOperator::getLocalOrigin() {
-    if (Step::BaseObject::inited()) {
-        return m_localOrigin.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcCartesianPoint *IfcCartesianTransformationOperator::getLocalOrigin() const
+{
+    return const_cast<IfcCartesianTransformationOperator *>(this)->getLocalOrigin();
+}
+
+void IfcCartesianTransformationOperator::setLocalOrigin(const Step::RefPtr< IfcCartesianPoint > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LocalOrigin = value;
+}
+
+void IfcCartesianTransformationOperator::unsetLocalOrigin()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LocalOrigin = Step::getUnset(getLocalOrigin());
+}
+
+bool IfcCartesianTransformationOperator::testLocalOrigin() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLocalOrigin()) == false;
+}
+
+
+Step::Real IfcCartesianTransformationOperator::getScale()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Scale;
     }
+    else 
+    {
+        return Step::getUnset(m_Scale);
+    }    
 }
 
-const IfcCartesianPoint *IfcCartesianTransformationOperator::getLocalOrigin() const {
-    IfcCartesianTransformationOperator * deConstObject = const_cast< IfcCartesianTransformationOperator * > (this);
-    return deConstObject->getLocalOrigin();
+Step::Real IfcCartesianTransformationOperator::getScale() const
+{
+    return const_cast<IfcCartesianTransformationOperator *>(this)->getScale();
 }
 
-void IfcCartesianTransformationOperator::setLocalOrigin(const Step::RefPtr< IfcCartesianPoint > &value) {
-    m_localOrigin = value;
+void IfcCartesianTransformationOperator::setScale(Step::Real value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Scale = value;
 }
 
-void IfcCartesianTransformationOperator::unsetLocalOrigin() {
-    m_localOrigin = Step::getUnset(getLocalOrigin());
+void IfcCartesianTransformationOperator::unsetScale()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Scale = Step::getUnset(getScale());
 }
 
-bool IfcCartesianTransformationOperator::testLocalOrigin() const {
-    return !Step::isUnset(getLocalOrigin());
+bool IfcCartesianTransformationOperator::testScale() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getScale()) == false;
 }
 
-Step::Real IfcCartesianTransformationOperator::getScale() {
-    if (Step::BaseObject::inited()) {
-        return m_scale;
-    }
-    else {
-        return Step::getUnset(m_scale);
-    }
-}
-
-const Step::Real IfcCartesianTransformationOperator::getScale() const {
-    IfcCartesianTransformationOperator * deConstObject = const_cast< IfcCartesianTransformationOperator * > (this);
-    return deConstObject->getScale();
-}
-
-void IfcCartesianTransformationOperator::setScale(Step::Real value) {
-    m_scale = value;
-}
-
-void IfcCartesianTransformationOperator::unsetScale() {
-    m_scale = Step::getUnset(getScale());
-}
-
-bool IfcCartesianTransformationOperator::testScale() const {
-    return !Step::isUnset(getScale());
-}
-
-bool IfcCartesianTransformationOperator::init() {
-    bool status = IfcGeometricRepresentationItem::init();
-    std::string arg;
-    if (!status) {
+bool IfcCartesianTransformationOperator::init()
+{
+    if (IfcGeometricRepresentationItem::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_axis1 = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Axis1 = NULL;
     }
-    else {
-        m_axis1 = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_axis2 = NULL;
-    }
-    else {
-        m_axis2 = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Axis1 = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_localOrigin = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Axis2 = NULL;
     }
-    else {
-        m_localOrigin = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Axis2 = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_scale = Step::getUnset(m_scale);
+    if (arg == "$" || arg == "*")
+    {
+        m_LocalOrigin = NULL;
     }
-    else {
-        m_scale = Step::spfToReal(arg);
+    else
+    {
+        m_LocalOrigin = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Scale = Step::getUnset(m_Scale);
+    }
+    else
+    {
+        m_Scale = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcCartesianTransformationOperator::copy(const IfcCartesianTransformationOperator &obj, const CopyOp &copyop) {
+void IfcCartesianTransformationOperator::copy(const IfcCartesianTransformationOperator &obj, const CopyOp &copyop)
+{
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setAxis1((IfcDirection*)copyop(obj.m_axis1.get()));
-    setAxis2((IfcDirection*)copyop(obj.m_axis2.get()));
-    setLocalOrigin((IfcCartesianPoint*)copyop(obj.m_localOrigin.get()));
-    setScale(obj.m_scale);
+    setAxis1((IfcDirection*)copyop(obj.m_Axis1.get()));
+    setAxis2((IfcDirection*)copyop(obj.m_Axis2.get()));
+    setLocalOrigin((IfcCartesianPoint*)copyop(obj.m_LocalOrigin.get()));
+    setScale(obj.m_Scale);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCartesianTransformationOperator::s_type("IfcCartesianTransformationOperator");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcCartesianTransformationOperator, IfcGeometricRepresentationItem)

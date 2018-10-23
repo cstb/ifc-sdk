@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,348 +24,446 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcElectricalBaseProperties.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcEnergyProperties.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcElectricalBaseProperties::IfcElectricalBaseProperties(Step::Id id, Step::SPFData *args) : IfcEnergyProperties(id, args) {
-    m_electricCurrentType = IfcElectricCurrentEnum_UNSET;
-    m_inputVoltage = Step::getUnset(m_inputVoltage);
-    m_inputFrequency = Step::getUnset(m_inputFrequency);
-    m_fullLoadCurrent = Step::getUnset(m_fullLoadCurrent);
-    m_minimumCircuitCurrent = Step::getUnset(m_minimumCircuitCurrent);
-    m_maximumPowerInput = Step::getUnset(m_maximumPowerInput);
-    m_ratedPowerInput = Step::getUnset(m_ratedPowerInput);
-    m_inputPhase = Step::getUnset(m_inputPhase);
+IfcElectricalBaseProperties::IfcElectricalBaseProperties(Step::Id id, Step::SPFData *args) : 
+    IfcEnergyProperties(id, args)
+{
+    m_ElectricCurrentType = IfcElectricCurrentEnum_UNSET;
+    m_InputVoltage = Step::getUnset(m_InputVoltage);
+    m_InputFrequency = Step::getUnset(m_InputFrequency);
+    m_FullLoadCurrent = Step::getUnset(m_FullLoadCurrent);
+    m_MinimumCircuitCurrent = Step::getUnset(m_MinimumCircuitCurrent);
+    m_MaximumPowerInput = Step::getUnset(m_MaximumPowerInput);
+    m_RatedPowerInput = Step::getUnset(m_RatedPowerInput);
+    m_InputPhase = Step::getUnset(m_InputPhase);
 }
 
-IfcElectricalBaseProperties::~IfcElectricalBaseProperties() {
+IfcElectricalBaseProperties::~IfcElectricalBaseProperties()
+{}
+
+bool IfcElectricalBaseProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcElectricalBaseProperties(this);
 }
 
-bool IfcElectricalBaseProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcElectricalBaseProperties(this);
-}
 
-const std::string &IfcElectricalBaseProperties::type() const {
-    return IfcElectricalBaseProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcElectricalBaseProperties::getClassType() {
-    return IfcElectricalBaseProperties::s_type;
-}
-
-const Step::ClassType &IfcElectricalBaseProperties::getType() const {
-    return IfcElectricalBaseProperties::s_type;
-}
-
-bool IfcElectricalBaseProperties::isOfType(const Step::ClassType &t) const {
-    return IfcElectricalBaseProperties::s_type == t ? true : IfcEnergyProperties::isOfType(t);
-}
-
-IfcElectricCurrentEnum IfcElectricalBaseProperties::getElectricCurrentType() {
-    if (Step::BaseObject::inited()) {
-        return m_electricCurrentType;
+IfcElectricCurrentEnum IfcElectricalBaseProperties::getElectricCurrentType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ElectricCurrentType;
     }
-    else {
+    else 
+    {
         return IfcElectricCurrentEnum_UNSET;
+    }    
+}
+
+IfcElectricCurrentEnum IfcElectricalBaseProperties::getElectricCurrentType() const
+{
+    return const_cast<IfcElectricalBaseProperties *>(this)->getElectricCurrentType();
+}
+
+void IfcElectricalBaseProperties::setElectricCurrentType(IfcElectricCurrentEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ElectricCurrentType = value;
+}
+
+void IfcElectricalBaseProperties::unsetElectricCurrentType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ElectricCurrentType = IfcElectricCurrentEnum_UNSET;
+}
+
+bool IfcElectricalBaseProperties::testElectricCurrentType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getElectricCurrentType()) == false;
+}
+
+
+IfcElectricVoltageMeasure IfcElectricalBaseProperties::getInputVoltage()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_InputVoltage;
     }
+    else 
+    {
+        return Step::getUnset(m_InputVoltage);
+    }    
 }
 
-const IfcElectricCurrentEnum IfcElectricalBaseProperties::getElectricCurrentType() const {
-    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
-    return deConstObject->getElectricCurrentType();
+IfcElectricVoltageMeasure IfcElectricalBaseProperties::getInputVoltage() const
+{
+    return const_cast<IfcElectricalBaseProperties *>(this)->getInputVoltage();
 }
 
-void IfcElectricalBaseProperties::setElectricCurrentType(IfcElectricCurrentEnum value) {
-    m_electricCurrentType = value;
+void IfcElectricalBaseProperties::setInputVoltage(IfcElectricVoltageMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InputVoltage = value;
 }
 
-void IfcElectricalBaseProperties::unsetElectricCurrentType() {
-    m_electricCurrentType = IfcElectricCurrentEnum_UNSET;
+void IfcElectricalBaseProperties::unsetInputVoltage()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InputVoltage = Step::getUnset(getInputVoltage());
 }
 
-bool IfcElectricalBaseProperties::testElectricCurrentType() const {
-    return getElectricCurrentType() != IfcElectricCurrentEnum_UNSET;
+bool IfcElectricalBaseProperties::testInputVoltage() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getInputVoltage()) == false;
 }
 
-IfcElectricVoltageMeasure IfcElectricalBaseProperties::getInputVoltage() {
-    if (Step::BaseObject::inited()) {
-        return m_inputVoltage;
+
+IfcFrequencyMeasure IfcElectricalBaseProperties::getInputFrequency()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_InputFrequency;
     }
-    else {
-        return Step::getUnset(m_inputVoltage);
+    else 
+    {
+        return Step::getUnset(m_InputFrequency);
+    }    
+}
+
+IfcFrequencyMeasure IfcElectricalBaseProperties::getInputFrequency() const
+{
+    return const_cast<IfcElectricalBaseProperties *>(this)->getInputFrequency();
+}
+
+void IfcElectricalBaseProperties::setInputFrequency(IfcFrequencyMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InputFrequency = value;
+}
+
+void IfcElectricalBaseProperties::unsetInputFrequency()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InputFrequency = Step::getUnset(getInputFrequency());
+}
+
+bool IfcElectricalBaseProperties::testInputFrequency() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getInputFrequency()) == false;
+}
+
+
+IfcElectricCurrentMeasure IfcElectricalBaseProperties::getFullLoadCurrent()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FullLoadCurrent;
     }
+    else 
+    {
+        return Step::getUnset(m_FullLoadCurrent);
+    }    
 }
 
-const IfcElectricVoltageMeasure IfcElectricalBaseProperties::getInputVoltage() const {
-    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
-    return deConstObject->getInputVoltage();
+IfcElectricCurrentMeasure IfcElectricalBaseProperties::getFullLoadCurrent() const
+{
+    return const_cast<IfcElectricalBaseProperties *>(this)->getFullLoadCurrent();
 }
 
-void IfcElectricalBaseProperties::setInputVoltage(IfcElectricVoltageMeasure value) {
-    m_inputVoltage = value;
+void IfcElectricalBaseProperties::setFullLoadCurrent(IfcElectricCurrentMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FullLoadCurrent = value;
 }
 
-void IfcElectricalBaseProperties::unsetInputVoltage() {
-    m_inputVoltage = Step::getUnset(getInputVoltage());
+void IfcElectricalBaseProperties::unsetFullLoadCurrent()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FullLoadCurrent = Step::getUnset(getFullLoadCurrent());
 }
 
-bool IfcElectricalBaseProperties::testInputVoltage() const {
-    return !Step::isUnset(getInputVoltage());
+bool IfcElectricalBaseProperties::testFullLoadCurrent() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFullLoadCurrent()) == false;
 }
 
-IfcFrequencyMeasure IfcElectricalBaseProperties::getInputFrequency() {
-    if (Step::BaseObject::inited()) {
-        return m_inputFrequency;
+
+IfcElectricCurrentMeasure IfcElectricalBaseProperties::getMinimumCircuitCurrent()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MinimumCircuitCurrent;
     }
-    else {
-        return Step::getUnset(m_inputFrequency);
+    else 
+    {
+        return Step::getUnset(m_MinimumCircuitCurrent);
+    }    
+}
+
+IfcElectricCurrentMeasure IfcElectricalBaseProperties::getMinimumCircuitCurrent() const
+{
+    return const_cast<IfcElectricalBaseProperties *>(this)->getMinimumCircuitCurrent();
+}
+
+void IfcElectricalBaseProperties::setMinimumCircuitCurrent(IfcElectricCurrentMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinimumCircuitCurrent = value;
+}
+
+void IfcElectricalBaseProperties::unsetMinimumCircuitCurrent()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinimumCircuitCurrent = Step::getUnset(getMinimumCircuitCurrent());
+}
+
+bool IfcElectricalBaseProperties::testMinimumCircuitCurrent() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMinimumCircuitCurrent()) == false;
+}
+
+
+IfcPowerMeasure IfcElectricalBaseProperties::getMaximumPowerInput()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MaximumPowerInput;
     }
+    else 
+    {
+        return Step::getUnset(m_MaximumPowerInput);
+    }    
 }
 
-const IfcFrequencyMeasure IfcElectricalBaseProperties::getInputFrequency() const {
-    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
-    return deConstObject->getInputFrequency();
+IfcPowerMeasure IfcElectricalBaseProperties::getMaximumPowerInput() const
+{
+    return const_cast<IfcElectricalBaseProperties *>(this)->getMaximumPowerInput();
 }
 
-void IfcElectricalBaseProperties::setInputFrequency(IfcFrequencyMeasure value) {
-    m_inputFrequency = value;
+void IfcElectricalBaseProperties::setMaximumPowerInput(IfcPowerMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MaximumPowerInput = value;
 }
 
-void IfcElectricalBaseProperties::unsetInputFrequency() {
-    m_inputFrequency = Step::getUnset(getInputFrequency());
+void IfcElectricalBaseProperties::unsetMaximumPowerInput()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MaximumPowerInput = Step::getUnset(getMaximumPowerInput());
 }
 
-bool IfcElectricalBaseProperties::testInputFrequency() const {
-    return !Step::isUnset(getInputFrequency());
+bool IfcElectricalBaseProperties::testMaximumPowerInput() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMaximumPowerInput()) == false;
 }
 
-IfcElectricCurrentMeasure IfcElectricalBaseProperties::getFullLoadCurrent() {
-    if (Step::BaseObject::inited()) {
-        return m_fullLoadCurrent;
+
+IfcPowerMeasure IfcElectricalBaseProperties::getRatedPowerInput()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RatedPowerInput;
     }
-    else {
-        return Step::getUnset(m_fullLoadCurrent);
+    else 
+    {
+        return Step::getUnset(m_RatedPowerInput);
+    }    
+}
+
+IfcPowerMeasure IfcElectricalBaseProperties::getRatedPowerInput() const
+{
+    return const_cast<IfcElectricalBaseProperties *>(this)->getRatedPowerInput();
+}
+
+void IfcElectricalBaseProperties::setRatedPowerInput(IfcPowerMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RatedPowerInput = value;
+}
+
+void IfcElectricalBaseProperties::unsetRatedPowerInput()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RatedPowerInput = Step::getUnset(getRatedPowerInput());
+}
+
+bool IfcElectricalBaseProperties::testRatedPowerInput() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRatedPowerInput()) == false;
+}
+
+
+Step::Integer IfcElectricalBaseProperties::getInputPhase()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_InputPhase;
     }
+    else 
+    {
+        return Step::getUnset(m_InputPhase);
+    }    
 }
 
-const IfcElectricCurrentMeasure IfcElectricalBaseProperties::getFullLoadCurrent() const {
-    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
-    return deConstObject->getFullLoadCurrent();
+Step::Integer IfcElectricalBaseProperties::getInputPhase() const
+{
+    return const_cast<IfcElectricalBaseProperties *>(this)->getInputPhase();
 }
 
-void IfcElectricalBaseProperties::setFullLoadCurrent(IfcElectricCurrentMeasure value) {
-    m_fullLoadCurrent = value;
+void IfcElectricalBaseProperties::setInputPhase(Step::Integer value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InputPhase = value;
 }
 
-void IfcElectricalBaseProperties::unsetFullLoadCurrent() {
-    m_fullLoadCurrent = Step::getUnset(getFullLoadCurrent());
+void IfcElectricalBaseProperties::unsetInputPhase()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InputPhase = Step::getUnset(getInputPhase());
 }
 
-bool IfcElectricalBaseProperties::testFullLoadCurrent() const {
-    return !Step::isUnset(getFullLoadCurrent());
+bool IfcElectricalBaseProperties::testInputPhase() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getInputPhase()) == false;
 }
 
-IfcElectricCurrentMeasure IfcElectricalBaseProperties::getMinimumCircuitCurrent() {
-    if (Step::BaseObject::inited()) {
-        return m_minimumCircuitCurrent;
-    }
-    else {
-        return Step::getUnset(m_minimumCircuitCurrent);
-    }
-}
-
-const IfcElectricCurrentMeasure IfcElectricalBaseProperties::getMinimumCircuitCurrent() const {
-    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
-    return deConstObject->getMinimumCircuitCurrent();
-}
-
-void IfcElectricalBaseProperties::setMinimumCircuitCurrent(IfcElectricCurrentMeasure value) {
-    m_minimumCircuitCurrent = value;
-}
-
-void IfcElectricalBaseProperties::unsetMinimumCircuitCurrent() {
-    m_minimumCircuitCurrent = Step::getUnset(getMinimumCircuitCurrent());
-}
-
-bool IfcElectricalBaseProperties::testMinimumCircuitCurrent() const {
-    return !Step::isUnset(getMinimumCircuitCurrent());
-}
-
-IfcPowerMeasure IfcElectricalBaseProperties::getMaximumPowerInput() {
-    if (Step::BaseObject::inited()) {
-        return m_maximumPowerInput;
-    }
-    else {
-        return Step::getUnset(m_maximumPowerInput);
-    }
-}
-
-const IfcPowerMeasure IfcElectricalBaseProperties::getMaximumPowerInput() const {
-    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
-    return deConstObject->getMaximumPowerInput();
-}
-
-void IfcElectricalBaseProperties::setMaximumPowerInput(IfcPowerMeasure value) {
-    m_maximumPowerInput = value;
-}
-
-void IfcElectricalBaseProperties::unsetMaximumPowerInput() {
-    m_maximumPowerInput = Step::getUnset(getMaximumPowerInput());
-}
-
-bool IfcElectricalBaseProperties::testMaximumPowerInput() const {
-    return !Step::isUnset(getMaximumPowerInput());
-}
-
-IfcPowerMeasure IfcElectricalBaseProperties::getRatedPowerInput() {
-    if (Step::BaseObject::inited()) {
-        return m_ratedPowerInput;
-    }
-    else {
-        return Step::getUnset(m_ratedPowerInput);
-    }
-}
-
-const IfcPowerMeasure IfcElectricalBaseProperties::getRatedPowerInput() const {
-    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
-    return deConstObject->getRatedPowerInput();
-}
-
-void IfcElectricalBaseProperties::setRatedPowerInput(IfcPowerMeasure value) {
-    m_ratedPowerInput = value;
-}
-
-void IfcElectricalBaseProperties::unsetRatedPowerInput() {
-    m_ratedPowerInput = Step::getUnset(getRatedPowerInput());
-}
-
-bool IfcElectricalBaseProperties::testRatedPowerInput() const {
-    return !Step::isUnset(getRatedPowerInput());
-}
-
-Step::Integer IfcElectricalBaseProperties::getInputPhase() {
-    if (Step::BaseObject::inited()) {
-        return m_inputPhase;
-    }
-    else {
-        return Step::getUnset(m_inputPhase);
-    }
-}
-
-const Step::Integer IfcElectricalBaseProperties::getInputPhase() const {
-    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
-    return deConstObject->getInputPhase();
-}
-
-void IfcElectricalBaseProperties::setInputPhase(Step::Integer value) {
-    m_inputPhase = value;
-}
-
-void IfcElectricalBaseProperties::unsetInputPhase() {
-    m_inputPhase = Step::getUnset(getInputPhase());
-}
-
-bool IfcElectricalBaseProperties::testInputPhase() const {
-    return !Step::isUnset(getInputPhase());
-}
-
-bool IfcElectricalBaseProperties::init() {
-    bool status = IfcEnergyProperties::init();
-    std::string arg;
-    if (!status) {
+bool IfcElectricalBaseProperties::init()
+{
+    if (IfcEnergyProperties::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_electricCurrentType = IfcElectricCurrentEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_ElectricCurrentType = IfcElectricCurrentEnum_UNSET;
     }
-    else {
-        if (arg == ".ALTERNATING.") {
-            m_electricCurrentType = IfcElectricCurrentEnum_ALTERNATING;
+    else
+    {
+        if (arg == ".ALTERNATING.")
+        {
+            m_ElectricCurrentType = IfcElectricCurrentEnum_ALTERNATING;
         }
-        else if (arg == ".DIRECT.") {
-            m_electricCurrentType = IfcElectricCurrentEnum_DIRECT;
+        else if (arg == ".DIRECT.")
+        {
+            m_ElectricCurrentType = IfcElectricCurrentEnum_DIRECT;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_electricCurrentType = IfcElectricCurrentEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_ElectricCurrentType = IfcElectricCurrentEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_inputVoltage = Step::getUnset(m_inputVoltage);
+    if (arg == "$" || arg == "*")
+    {
+        m_InputVoltage = Step::getUnset(m_InputVoltage);
     }
-    else {
-        m_inputVoltage = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_inputFrequency = Step::getUnset(m_inputFrequency);
-    }
-    else {
-        m_inputFrequency = Step::spfToReal(arg);
+    else
+    {
+        m_InputVoltage = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_fullLoadCurrent = Step::getUnset(m_fullLoadCurrent);
+    if (arg == "$" || arg == "*")
+    {
+        m_InputFrequency = Step::getUnset(m_InputFrequency);
     }
-    else {
-        m_fullLoadCurrent = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_minimumCircuitCurrent = Step::getUnset(m_minimumCircuitCurrent);
-    }
-    else {
-        m_minimumCircuitCurrent = Step::spfToReal(arg);
+    else
+    {
+        m_InputFrequency = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_maximumPowerInput = Step::getUnset(m_maximumPowerInput);
+    if (arg == "$" || arg == "*")
+    {
+        m_FullLoadCurrent = Step::getUnset(m_FullLoadCurrent);
     }
-    else {
-        m_maximumPowerInput = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_ratedPowerInput = Step::getUnset(m_ratedPowerInput);
-    }
-    else {
-        m_ratedPowerInput = Step::spfToReal(arg);
+    else
+    {
+        m_FullLoadCurrent = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_inputPhase = Step::getUnset(m_inputPhase);
+    if (arg == "$" || arg == "*")
+    {
+        m_MinimumCircuitCurrent = Step::getUnset(m_MinimumCircuitCurrent);
     }
-    else {
-        m_inputPhase = Step::spfToInteger(arg);
+    else
+    {
+        m_MinimumCircuitCurrent = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_MaximumPowerInput = Step::getUnset(m_MaximumPowerInput);
+    }
+    else
+    {
+        m_MaximumPowerInput = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RatedPowerInput = Step::getUnset(m_RatedPowerInput);
+    }
+    else
+    {
+        m_RatedPowerInput = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_InputPhase = Step::getUnset(m_InputPhase);
+    }
+    else
+    {
+        m_InputPhase = Step::spfToInteger(arg)
+;
     }
     return true;
 }
 
-void IfcElectricalBaseProperties::copy(const IfcElectricalBaseProperties &obj, const CopyOp &copyop) {
+void IfcElectricalBaseProperties::copy(const IfcElectricalBaseProperties &obj, const CopyOp &copyop)
+{
     IfcEnergyProperties::copy(obj, copyop);
-    setElectricCurrentType(obj.m_electricCurrentType);
-    setInputVoltage(obj.m_inputVoltage);
-    setInputFrequency(obj.m_inputFrequency);
-    setFullLoadCurrent(obj.m_fullLoadCurrent);
-    setMinimumCircuitCurrent(obj.m_minimumCircuitCurrent);
-    setMaximumPowerInput(obj.m_maximumPowerInput);
-    setRatedPowerInput(obj.m_ratedPowerInput);
-    setInputPhase(obj.m_inputPhase);
+    setElectricCurrentType(obj.m_ElectricCurrentType);
+    setInputVoltage(obj.m_InputVoltage);
+    setInputFrequency(obj.m_InputFrequency);
+    setFullLoadCurrent(obj.m_FullLoadCurrent);
+    setMinimumCircuitCurrent(obj.m_MinimumCircuitCurrent);
+    setMaximumPowerInput(obj.m_MaximumPowerInput);
+    setRatedPowerInput(obj.m_RatedPowerInput);
+    setInputPhase(obj.m_InputPhase);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricalBaseProperties::s_type("IfcElectricalBaseProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcElectricalBaseProperties, IfcEnergyProperties)

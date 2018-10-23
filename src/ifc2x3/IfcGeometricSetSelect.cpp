@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,83 +24,73 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcGeometricSetSelect.h>
 
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcCurve.h>
-#include <ifc2x3/IfcPoint.h>
-#include <ifc2x3/IfcSurface.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
+
+#include <ifc2x3/IfcPoint.h>
+#include <ifc2x3/IfcCurve.h>
+#include <ifc2x3/IfcSurface.h>
 
 
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcGeometricSetSelect::IfcGeometricSetSelect() : Step::BaseObject(0) {
+IfcGeometricSetSelect::IfcGeometricSetSelect() : Step::BaseObject(0)
+{
     m_type = UNSET;
 }
 
-IfcGeometricSetSelect::IfcGeometricSetSelect(Step::SPFData *args) : Step::BaseObject(args) {
+IfcGeometricSetSelect::IfcGeometricSetSelect(Step::SPFData *args) : Step::BaseObject(args)
+{
     m_type = UNSET;
 }
 
-IfcGeometricSetSelect::~IfcGeometricSetSelect() {
+IfcGeometricSetSelect::~IfcGeometricSetSelect()
+{
     deleteUnion();
 }
 
-bool IfcGeometricSetSelect::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcGeometricSetSelect(this);
+bool IfcGeometricSetSelect::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcGeometricSetSelect(this);
 }
 
-bool IfcGeometricSetSelect::init() {
+bool IfcGeometricSetSelect::init()
+{
     return false;
 }
 
-const std::string &IfcGeometricSetSelect::type() const {
-    return IfcGeometricSetSelect::s_type.getName();
-}
-
-const Step::ClassType &IfcGeometricSetSelect::getClassType() {
-    return IfcGeometricSetSelect::s_type;
-}
-
-const Step::ClassType &IfcGeometricSetSelect::getType() const {
-    return IfcGeometricSetSelect::s_type;
-}
-
-bool IfcGeometricSetSelect::isOfType(const Step::ClassType &t) const {
-    return IfcGeometricSetSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-void IfcGeometricSetSelect::copy(const IfcGeometricSetSelect &obj, const CopyOp &copyop) {
-    switch(obj.m_type) {
-    case IFCPOINT:
-        setIfcPoint((IfcPoint *) (copyop(obj.m_IfcGeometricSetSelect_union.m_IfcPoint)));
+void IfcGeometricSetSelect::copy(const IfcGeometricSetSelect &obj, const CopyOp &copyop)
+{
+    switch(obj.m_type)
+    {
+    case IFCPOINT :
+        setIfcPoint((IfcPoint*)(copyop(obj.m_union.m_IfcPoint)));
         break;
-    case IFCCURVE:
-        setIfcCurve((IfcCurve *) (copyop(obj.m_IfcGeometricSetSelect_union.m_IfcCurve)));
+    case IFCCURVE :
+        setIfcCurve((IfcCurve*)(copyop(obj.m_union.m_IfcCurve)));
         break;
-    case IFCSURFACE:
-        setIfcSurface((IfcSurface *) (copyop(obj.m_IfcGeometricSetSelect_union.m_IfcSurface)));
+    case IFCSURFACE :
+        setIfcSurface((IfcSurface*)(copyop(obj.m_union.m_IfcSurface)));
         break;
     default:
         break;
     }
 }
 
-std::string IfcGeometricSetSelect::currentTypeName() const {
-    switch(m_type) {
-    case IFCPOINT:
+std::string IfcGeometricSetSelect::currentTypeName() const
+{
+    switch(m_type)
+    {
+    case IFCPOINT :
         return "IfcPoint";
         break;
-    case IFCCURVE:
+    case IFCCURVE :
         return "IfcCurve";
         break;
-    case IFCSURFACE:
+    case IFCSURFACE :
         return "IfcSurface";
         break;
     default:
@@ -99,20 +98,23 @@ std::string IfcGeometricSetSelect::currentTypeName() const {
     }
 }
 
-IfcGeometricSetSelect::IfcGeometricSetSelect_select IfcGeometricSetSelect::currentType() const {
+IfcGeometricSetSelect::IfcGeometricSetSelect_select IfcGeometricSetSelect::currentType() const 
+{
     return m_type;
 }
 
-void IfcGeometricSetSelect::deleteUnion() {
-    switch(m_type) {
-    case IFCPOINT:
-        m_IfcGeometricSetSelect_union.m_IfcPoint->unref();
+void IfcGeometricSetSelect::deleteUnion() 
+{ 
+    switch(m_type)
+    {
+    case IFCPOINT :
+        m_union.m_IfcPoint->unref();
         break;
-    case IFCCURVE:
-        m_IfcGeometricSetSelect_union.m_IfcCurve->unref();
+    case IFCCURVE :
+        m_union.m_IfcCurve->unref();
         break;
-    case IFCSURFACE:
-        m_IfcGeometricSetSelect_union.m_IfcSurface->unref();
+    case IFCSURFACE :
+        m_union.m_IfcSurface->unref();
         break;
     default:
         break;
@@ -120,88 +122,112 @@ void IfcGeometricSetSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcPoint *IfcGeometricSetSelect::getIfcPoint() const {
-    if (m_type == IFCPOINT) {
-        return m_IfcGeometricSetSelect_union.m_IfcPoint;
+
+IfcPoint *IfcGeometricSetSelect::getIfcPoint() const
+{
+    if (m_type == IFCPOINT ) 
+    {
+        return m_union.m_IfcPoint;
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-void IfcGeometricSetSelect::setIfcPoint(IfcPoint *value) {
-    if (m_type != UNSET) {
+void IfcGeometricSetSelect::setIfcPoint(IfcPoint *value)
+{
+    if (m_type != UNSET)
+    {
         deleteUnion();
     }
-    m_IfcGeometricSetSelect_union.m_IfcPoint = value;
-    if (value) {
+
+    m_union.m_IfcPoint = value;
+
+    if (value != 0)
+    {
         value->ref();
-        m_type = IFCPOINT;
     }
-    else {
-        m_type = UNSET;
-    }
-    m_type = IFCPOINT;
+    m_type = IFCPOINT ;
 }
 
-IfcCurve *IfcGeometricSetSelect::getIfcCurve() const {
-    if (m_type == IFCCURVE) {
-        return m_IfcGeometricSetSelect_union.m_IfcCurve;
+IfcCurve *IfcGeometricSetSelect::getIfcCurve() const
+{
+    if (m_type == IFCCURVE ) 
+    {
+        return m_union.m_IfcCurve;
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-void IfcGeometricSetSelect::setIfcCurve(IfcCurve *value) {
-    if (m_type != UNSET) {
+void IfcGeometricSetSelect::setIfcCurve(IfcCurve *value)
+{
+    if (m_type != UNSET)
+    {
         deleteUnion();
     }
-    m_IfcGeometricSetSelect_union.m_IfcCurve = value;
-    if (value) {
+
+    m_union.m_IfcCurve = value;
+
+    if (value != 0)
+    {
         value->ref();
-        m_type = IFCCURVE;
     }
-    else {
-        m_type = UNSET;
-    }
-    m_type = IFCCURVE;
+    m_type = IFCCURVE ;
 }
 
-IfcSurface *IfcGeometricSetSelect::getIfcSurface() const {
-    if (m_type == IFCSURFACE) {
-        return m_IfcGeometricSetSelect_union.m_IfcSurface;
+IfcSurface *IfcGeometricSetSelect::getIfcSurface() const
+{
+    if (m_type == IFCSURFACE ) 
+    {
+        return m_union.m_IfcSurface;
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-void IfcGeometricSetSelect::setIfcSurface(IfcSurface *value) {
-    if (m_type != UNSET) {
+void IfcGeometricSetSelect::setIfcSurface(IfcSurface *value)
+{
+    if (m_type != UNSET)
+    {
         deleteUnion();
     }
-    m_IfcGeometricSetSelect_union.m_IfcSurface = value;
-    if (value) {
+
+    m_union.m_IfcSurface = value;
+
+    if (value != 0)
+    {
         value->ref();
-        m_type = IFCSURFACE;
     }
-    else {
-        m_type = UNSET;
-    }
-    m_type = IFCSURFACE;
+    m_type = IFCSURFACE ;
 }
 
-void IfcGeometricSetSelect::set(Step::BaseObject *v) {
-    if (v && v->isOfType(IfcPoint::getClassType())) {
-        setIfcPoint(static_cast< IfcPoint* > (v));
-    }
-    else if (v && v->isOfType(IfcCurve::getClassType())) {
-        setIfcCurve(static_cast< IfcCurve* > (v));
-    }
-    else if (v && v->isOfType(IfcSurface::getClassType())) {
-        setIfcSurface(static_cast< IfcSurface* > (v));
+void IfcGeometricSetSelect::set(Step::BaseObject *v) 
+{
+    if (v) 
+    {
+        if (v->isOfType(IfcPoint::getClassType())) 
+        {
+            setIfcPoint(static_cast< IfcPoint* > (v));
+            return;
+        }
+        if (v->isOfType(IfcCurve::getClassType())) 
+        {
+            setIfcCurve(static_cast< IfcCurve* > (v));
+            return;
+        }
+        if (v->isOfType(IfcSurface::getClassType())) 
+        {
+            setIfcSurface(static_cast< IfcSurface* > (v));
+            return;
+        }
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGeometricSetSelect::s_type("IfcGeometricSetSelect");
+
+ClassType_child_implementations(IFC2X3_EXPORT, IfcGeometricSetSelect, Step::BaseObject)

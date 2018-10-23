@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,266 +24,329 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcReinforcingBar.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcReinforcingElement.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcReinforcingBar::IfcReinforcingBar(Step::Id id, Step::SPFData *args) : IfcReinforcingElement(id, args) {
-    m_nominalDiameter = Step::getUnset(m_nominalDiameter);
-    m_crossSectionArea = Step::getUnset(m_crossSectionArea);
-    m_barLength = Step::getUnset(m_barLength);
-    m_barRole = IfcReinforcingBarRoleEnum_UNSET;
-    m_barSurface = IfcReinforcingBarSurfaceEnum_UNSET;
+IfcReinforcingBar::IfcReinforcingBar(Step::Id id, Step::SPFData *args) : 
+    IfcReinforcingElement(id, args)
+{
+    m_NominalDiameter = Step::getUnset(m_NominalDiameter);
+    m_CrossSectionArea = Step::getUnset(m_CrossSectionArea);
+    m_BarLength = Step::getUnset(m_BarLength);
+    m_BarRole = IfcReinforcingBarRoleEnum_UNSET;
+    m_BarSurface = IfcReinforcingBarSurfaceEnum_UNSET;
 }
 
-IfcReinforcingBar::~IfcReinforcingBar() {
+IfcReinforcingBar::~IfcReinforcingBar()
+{}
+
+bool IfcReinforcingBar::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcReinforcingBar(this);
 }
 
-bool IfcReinforcingBar::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcReinforcingBar(this);
-}
 
-const std::string &IfcReinforcingBar::type() const {
-    return IfcReinforcingBar::s_type.getName();
-}
-
-const Step::ClassType &IfcReinforcingBar::getClassType() {
-    return IfcReinforcingBar::s_type;
-}
-
-const Step::ClassType &IfcReinforcingBar::getType() const {
-    return IfcReinforcingBar::s_type;
-}
-
-bool IfcReinforcingBar::isOfType(const Step::ClassType &t) const {
-    return IfcReinforcingBar::s_type == t ? true : IfcReinforcingElement::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcReinforcingBar::getNominalDiameter() {
-    if (Step::BaseObject::inited()) {
-        return m_nominalDiameter;
+IfcPositiveLengthMeasure IfcReinforcingBar::getNominalDiameter()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_NominalDiameter;
     }
-    else {
-        return Step::getUnset(m_nominalDiameter);
+    else 
+    {
+        return Step::getUnset(m_NominalDiameter);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcReinforcingBar::getNominalDiameter() const
+{
+    return const_cast<IfcReinforcingBar *>(this)->getNominalDiameter();
+}
+
+void IfcReinforcingBar::setNominalDiameter(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NominalDiameter = value;
+}
+
+void IfcReinforcingBar::unsetNominalDiameter()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NominalDiameter = Step::getUnset(getNominalDiameter());
+}
+
+bool IfcReinforcingBar::testNominalDiameter() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getNominalDiameter()) == false;
+}
+
+
+IfcAreaMeasure IfcReinforcingBar::getCrossSectionArea()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CrossSectionArea;
     }
+    else 
+    {
+        return Step::getUnset(m_CrossSectionArea);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcReinforcingBar::getNominalDiameter() const {
-    IfcReinforcingBar * deConstObject = const_cast< IfcReinforcingBar * > (this);
-    return deConstObject->getNominalDiameter();
+IfcAreaMeasure IfcReinforcingBar::getCrossSectionArea() const
+{
+    return const_cast<IfcReinforcingBar *>(this)->getCrossSectionArea();
 }
 
-void IfcReinforcingBar::setNominalDiameter(IfcPositiveLengthMeasure value) {
-    m_nominalDiameter = value;
+void IfcReinforcingBar::setCrossSectionArea(IfcAreaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CrossSectionArea = value;
 }
 
-void IfcReinforcingBar::unsetNominalDiameter() {
-    m_nominalDiameter = Step::getUnset(getNominalDiameter());
+void IfcReinforcingBar::unsetCrossSectionArea()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CrossSectionArea = Step::getUnset(getCrossSectionArea());
 }
 
-bool IfcReinforcingBar::testNominalDiameter() const {
-    return !Step::isUnset(getNominalDiameter());
+bool IfcReinforcingBar::testCrossSectionArea() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCrossSectionArea()) == false;
 }
 
-IfcAreaMeasure IfcReinforcingBar::getCrossSectionArea() {
-    if (Step::BaseObject::inited()) {
-        return m_crossSectionArea;
+
+IfcPositiveLengthMeasure IfcReinforcingBar::getBarLength()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BarLength;
     }
-    else {
-        return Step::getUnset(m_crossSectionArea);
+    else 
+    {
+        return Step::getUnset(m_BarLength);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcReinforcingBar::getBarLength() const
+{
+    return const_cast<IfcReinforcingBar *>(this)->getBarLength();
+}
+
+void IfcReinforcingBar::setBarLength(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BarLength = value;
+}
+
+void IfcReinforcingBar::unsetBarLength()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BarLength = Step::getUnset(getBarLength());
+}
+
+bool IfcReinforcingBar::testBarLength() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBarLength()) == false;
+}
+
+
+IfcReinforcingBarRoleEnum IfcReinforcingBar::getBarRole()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BarRole;
     }
-}
-
-const IfcAreaMeasure IfcReinforcingBar::getCrossSectionArea() const {
-    IfcReinforcingBar * deConstObject = const_cast< IfcReinforcingBar * > (this);
-    return deConstObject->getCrossSectionArea();
-}
-
-void IfcReinforcingBar::setCrossSectionArea(IfcAreaMeasure value) {
-    m_crossSectionArea = value;
-}
-
-void IfcReinforcingBar::unsetCrossSectionArea() {
-    m_crossSectionArea = Step::getUnset(getCrossSectionArea());
-}
-
-bool IfcReinforcingBar::testCrossSectionArea() const {
-    return !Step::isUnset(getCrossSectionArea());
-}
-
-IfcPositiveLengthMeasure IfcReinforcingBar::getBarLength() {
-    if (Step::BaseObject::inited()) {
-        return m_barLength;
-    }
-    else {
-        return Step::getUnset(m_barLength);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcReinforcingBar::getBarLength() const {
-    IfcReinforcingBar * deConstObject = const_cast< IfcReinforcingBar * > (this);
-    return deConstObject->getBarLength();
-}
-
-void IfcReinforcingBar::setBarLength(IfcPositiveLengthMeasure value) {
-    m_barLength = value;
-}
-
-void IfcReinforcingBar::unsetBarLength() {
-    m_barLength = Step::getUnset(getBarLength());
-}
-
-bool IfcReinforcingBar::testBarLength() const {
-    return !Step::isUnset(getBarLength());
-}
-
-IfcReinforcingBarRoleEnum IfcReinforcingBar::getBarRole() {
-    if (Step::BaseObject::inited()) {
-        return m_barRole;
-    }
-    else {
+    else 
+    {
         return IfcReinforcingBarRoleEnum_UNSET;
+    }    
+}
+
+IfcReinforcingBarRoleEnum IfcReinforcingBar::getBarRole() const
+{
+    return const_cast<IfcReinforcingBar *>(this)->getBarRole();
+}
+
+void IfcReinforcingBar::setBarRole(IfcReinforcingBarRoleEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BarRole = value;
+}
+
+void IfcReinforcingBar::unsetBarRole()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BarRole = IfcReinforcingBarRoleEnum_UNSET;
+}
+
+bool IfcReinforcingBar::testBarRole() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBarRole()) == false;
+}
+
+
+IfcReinforcingBarSurfaceEnum IfcReinforcingBar::getBarSurface()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BarSurface;
     }
-}
-
-const IfcReinforcingBarRoleEnum IfcReinforcingBar::getBarRole() const {
-    IfcReinforcingBar * deConstObject = const_cast< IfcReinforcingBar * > (this);
-    return deConstObject->getBarRole();
-}
-
-void IfcReinforcingBar::setBarRole(IfcReinforcingBarRoleEnum value) {
-    m_barRole = value;
-}
-
-void IfcReinforcingBar::unsetBarRole() {
-    m_barRole = IfcReinforcingBarRoleEnum_UNSET;
-}
-
-bool IfcReinforcingBar::testBarRole() const {
-    return getBarRole() != IfcReinforcingBarRoleEnum_UNSET;
-}
-
-IfcReinforcingBarSurfaceEnum IfcReinforcingBar::getBarSurface() {
-    if (Step::BaseObject::inited()) {
-        return m_barSurface;
-    }
-    else {
+    else 
+    {
         return IfcReinforcingBarSurfaceEnum_UNSET;
-    }
+    }    
 }
 
-const IfcReinforcingBarSurfaceEnum IfcReinforcingBar::getBarSurface() const {
-    IfcReinforcingBar * deConstObject = const_cast< IfcReinforcingBar * > (this);
-    return deConstObject->getBarSurface();
+IfcReinforcingBarSurfaceEnum IfcReinforcingBar::getBarSurface() const
+{
+    return const_cast<IfcReinforcingBar *>(this)->getBarSurface();
 }
 
-void IfcReinforcingBar::setBarSurface(IfcReinforcingBarSurfaceEnum value) {
-    m_barSurface = value;
+void IfcReinforcingBar::setBarSurface(IfcReinforcingBarSurfaceEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BarSurface = value;
 }
 
-void IfcReinforcingBar::unsetBarSurface() {
-    m_barSurface = IfcReinforcingBarSurfaceEnum_UNSET;
+void IfcReinforcingBar::unsetBarSurface()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BarSurface = IfcReinforcingBarSurfaceEnum_UNSET;
 }
 
-bool IfcReinforcingBar::testBarSurface() const {
-    return getBarSurface() != IfcReinforcingBarSurfaceEnum_UNSET;
+bool IfcReinforcingBar::testBarSurface() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBarSurface()) == false;
 }
 
-bool IfcReinforcingBar::init() {
-    bool status = IfcReinforcingElement::init();
-    std::string arg;
-    if (!status) {
+bool IfcReinforcingBar::init()
+{
+    if (IfcReinforcingElement::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_nominalDiameter = Step::getUnset(m_nominalDiameter);
+    if (arg == "$" || arg == "*")
+    {
+        m_NominalDiameter = Step::getUnset(m_NominalDiameter);
     }
-    else {
-        m_nominalDiameter = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_crossSectionArea = Step::getUnset(m_crossSectionArea);
-    }
-    else {
-        m_crossSectionArea = Step::spfToReal(arg);
+    else
+    {
+        m_NominalDiameter = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_barLength = Step::getUnset(m_barLength);
+    if (arg == "$" || arg == "*")
+    {
+        m_CrossSectionArea = Step::getUnset(m_CrossSectionArea);
     }
-    else {
-        m_barLength = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_barRole = IfcReinforcingBarRoleEnum_UNSET;
-    }
-    else {
-        if (arg == ".MAIN.") {
-            m_barRole = IfcReinforcingBarRoleEnum_MAIN;
-        }
-        else if (arg == ".SHEAR.") {
-            m_barRole = IfcReinforcingBarRoleEnum_SHEAR;
-        }
-        else if (arg == ".LIGATURE.") {
-            m_barRole = IfcReinforcingBarRoleEnum_LIGATURE;
-        }
-        else if (arg == ".STUD.") {
-            m_barRole = IfcReinforcingBarRoleEnum_STUD;
-        }
-        else if (arg == ".PUNCHING.") {
-            m_barRole = IfcReinforcingBarRoleEnum_PUNCHING;
-        }
-        else if (arg == ".EDGE.") {
-            m_barRole = IfcReinforcingBarRoleEnum_EDGE;
-        }
-        else if (arg == ".RING.") {
-            m_barRole = IfcReinforcingBarRoleEnum_RING;
-        }
-        else if (arg == ".USERDEFINED.") {
-            m_barRole = IfcReinforcingBarRoleEnum_USERDEFINED;
-        }
-        else if (arg == ".NOTDEFINED.") {
-            m_barRole = IfcReinforcingBarRoleEnum_NOTDEFINED;
-        }
+    else
+    {
+        m_CrossSectionArea = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_barSurface = IfcReinforcingBarSurfaceEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_BarLength = Step::getUnset(m_BarLength);
     }
-    else {
-        if (arg == ".PLAIN.") {
-            m_barSurface = IfcReinforcingBarSurfaceEnum_PLAIN;
+    else
+    {
+        m_BarLength = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_BarRole = IfcReinforcingBarRoleEnum_UNSET;
+    }
+    else
+    {
+        if (arg == ".MAIN.")
+        {
+            m_BarRole = IfcReinforcingBarRoleEnum_MAIN;
         }
-        else if (arg == ".TEXTURED.") {
-            m_barSurface = IfcReinforcingBarSurfaceEnum_TEXTURED;
+        else if (arg == ".SHEAR.")
+        {
+            m_BarRole = IfcReinforcingBarRoleEnum_SHEAR;
+        }
+        else if (arg == ".LIGATURE.")
+        {
+            m_BarRole = IfcReinforcingBarRoleEnum_LIGATURE;
+        }
+        else if (arg == ".STUD.")
+        {
+            m_BarRole = IfcReinforcingBarRoleEnum_STUD;
+        }
+        else if (arg == ".PUNCHING.")
+        {
+            m_BarRole = IfcReinforcingBarRoleEnum_PUNCHING;
+        }
+        else if (arg == ".EDGE.")
+        {
+            m_BarRole = IfcReinforcingBarRoleEnum_EDGE;
+        }
+        else if (arg == ".RING.")
+        {
+            m_BarRole = IfcReinforcingBarRoleEnum_RING;
+        }
+        else if (arg == ".USERDEFINED.")
+        {
+            m_BarRole = IfcReinforcingBarRoleEnum_USERDEFINED;
+        }
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_BarRole = IfcReinforcingBarRoleEnum_NOTDEFINED;
+        }
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_BarSurface = IfcReinforcingBarSurfaceEnum_UNSET;
+    }
+    else
+    {
+        if (arg == ".PLAIN.")
+        {
+            m_BarSurface = IfcReinforcingBarSurfaceEnum_PLAIN;
+        }
+        else if (arg == ".TEXTURED.")
+        {
+            m_BarSurface = IfcReinforcingBarSurfaceEnum_TEXTURED;
         }
     }
     return true;
 }
 
-void IfcReinforcingBar::copy(const IfcReinforcingBar &obj, const CopyOp &copyop) {
+void IfcReinforcingBar::copy(const IfcReinforcingBar &obj, const CopyOp &copyop)
+{
     IfcReinforcingElement::copy(obj, copyop);
-    setNominalDiameter(obj.m_nominalDiameter);
-    setCrossSectionArea(obj.m_crossSectionArea);
-    setBarLength(obj.m_barLength);
-    setBarRole(obj.m_barRole);
-    setBarSurface(obj.m_barSurface);
+    setNominalDiameter(obj.m_NominalDiameter);
+    setCrossSectionArea(obj.m_CrossSectionArea);
+    setBarLength(obj.m_BarLength);
+    setBarRole(obj.m_BarRole);
+    setBarSurface(obj.m_BarSurface);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcReinforcingBar::s_type("IfcReinforcingBar");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcReinforcingBar, IfcReinforcingElement)

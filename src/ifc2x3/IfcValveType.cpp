@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,163 +24,184 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcValveType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcFlowControllerType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcValveType::IfcValveType(Step::Id id, Step::SPFData *args) : IfcFlowControllerType(id, args) {
-    m_predefinedType = IfcValveTypeEnum_UNSET;
+IfcValveType::IfcValveType(Step::Id id, Step::SPFData *args) : 
+    IfcFlowControllerType(id, args)
+{
+    m_PredefinedType = IfcValveTypeEnum_UNSET;
 }
 
-IfcValveType::~IfcValveType() {
+IfcValveType::~IfcValveType()
+{}
+
+bool IfcValveType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcValveType(this);
 }
 
-bool IfcValveType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcValveType(this);
-}
 
-const std::string &IfcValveType::type() const {
-    return IfcValveType::s_type.getName();
-}
-
-const Step::ClassType &IfcValveType::getClassType() {
-    return IfcValveType::s_type;
-}
-
-const Step::ClassType &IfcValveType::getType() const {
-    return IfcValveType::s_type;
-}
-
-bool IfcValveType::isOfType(const Step::ClassType &t) const {
-    return IfcValveType::s_type == t ? true : IfcFlowControllerType::isOfType(t);
-}
-
-IfcValveTypeEnum IfcValveType::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcValveTypeEnum IfcValveType::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcValveTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcValveTypeEnum IfcValveType::getPredefinedType() const {
-    IfcValveType * deConstObject = const_cast< IfcValveType * > (this);
-    return deConstObject->getPredefinedType();
+IfcValveTypeEnum IfcValveType::getPredefinedType() const
+{
+    return const_cast<IfcValveType *>(this)->getPredefinedType();
 }
 
-void IfcValveType::setPredefinedType(IfcValveTypeEnum value) {
-    m_predefinedType = value;
+void IfcValveType::setPredefinedType(IfcValveTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcValveType::unsetPredefinedType() {
-    m_predefinedType = IfcValveTypeEnum_UNSET;
+void IfcValveType::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcValveTypeEnum_UNSET;
 }
 
-bool IfcValveType::testPredefinedType() const {
-    return getPredefinedType() != IfcValveTypeEnum_UNSET;
+bool IfcValveType::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcValveType::init() {
-    bool status = IfcFlowControllerType::init();
-    std::string arg;
-    if (!status) {
+bool IfcValveType::init()
+{
+    if (IfcFlowControllerType::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcValveTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcValveTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".AIRRELEASE.") {
-            m_predefinedType = IfcValveTypeEnum_AIRRELEASE;
+    else
+    {
+        if (arg == ".AIRRELEASE.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_AIRRELEASE;
         }
-        else if (arg == ".ANTIVACUUM.") {
-            m_predefinedType = IfcValveTypeEnum_ANTIVACUUM;
+        else if (arg == ".ANTIVACUUM.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_ANTIVACUUM;
         }
-        else if (arg == ".CHANGEOVER.") {
-            m_predefinedType = IfcValveTypeEnum_CHANGEOVER;
+        else if (arg == ".CHANGEOVER.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_CHANGEOVER;
         }
-        else if (arg == ".CHECK.") {
-            m_predefinedType = IfcValveTypeEnum_CHECK;
+        else if (arg == ".CHECK.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_CHECK;
         }
-        else if (arg == ".COMMISSIONING.") {
-            m_predefinedType = IfcValveTypeEnum_COMMISSIONING;
+        else if (arg == ".COMMISSIONING.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_COMMISSIONING;
         }
-        else if (arg == ".DIVERTING.") {
-            m_predefinedType = IfcValveTypeEnum_DIVERTING;
+        else if (arg == ".DIVERTING.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_DIVERTING;
         }
-        else if (arg == ".DRAWOFFCOCK.") {
-            m_predefinedType = IfcValveTypeEnum_DRAWOFFCOCK;
+        else if (arg == ".DRAWOFFCOCK.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_DRAWOFFCOCK;
         }
-        else if (arg == ".DOUBLECHECK.") {
-            m_predefinedType = IfcValveTypeEnum_DOUBLECHECK;
+        else if (arg == ".DOUBLECHECK.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_DOUBLECHECK;
         }
-        else if (arg == ".DOUBLEREGULATING.") {
-            m_predefinedType = IfcValveTypeEnum_DOUBLEREGULATING;
+        else if (arg == ".DOUBLEREGULATING.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_DOUBLEREGULATING;
         }
-        else if (arg == ".FAUCET.") {
-            m_predefinedType = IfcValveTypeEnum_FAUCET;
+        else if (arg == ".FAUCET.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_FAUCET;
         }
-        else if (arg == ".FLUSHING.") {
-            m_predefinedType = IfcValveTypeEnum_FLUSHING;
+        else if (arg == ".FLUSHING.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_FLUSHING;
         }
-        else if (arg == ".GASCOCK.") {
-            m_predefinedType = IfcValveTypeEnum_GASCOCK;
+        else if (arg == ".GASCOCK.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_GASCOCK;
         }
-        else if (arg == ".GASTAP.") {
-            m_predefinedType = IfcValveTypeEnum_GASTAP;
+        else if (arg == ".GASTAP.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_GASTAP;
         }
-        else if (arg == ".ISOLATING.") {
-            m_predefinedType = IfcValveTypeEnum_ISOLATING;
+        else if (arg == ".ISOLATING.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_ISOLATING;
         }
-        else if (arg == ".MIXING.") {
-            m_predefinedType = IfcValveTypeEnum_MIXING;
+        else if (arg == ".MIXING.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_MIXING;
         }
-        else if (arg == ".PRESSUREREDUCING.") {
-            m_predefinedType = IfcValveTypeEnum_PRESSUREREDUCING;
+        else if (arg == ".PRESSUREREDUCING.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_PRESSUREREDUCING;
         }
-        else if (arg == ".PRESSURERELIEF.") {
-            m_predefinedType = IfcValveTypeEnum_PRESSURERELIEF;
+        else if (arg == ".PRESSURERELIEF.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_PRESSURERELIEF;
         }
-        else if (arg == ".REGULATING.") {
-            m_predefinedType = IfcValveTypeEnum_REGULATING;
+        else if (arg == ".REGULATING.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_REGULATING;
         }
-        else if (arg == ".SAFETYCUTOFF.") {
-            m_predefinedType = IfcValveTypeEnum_SAFETYCUTOFF;
+        else if (arg == ".SAFETYCUTOFF.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_SAFETYCUTOFF;
         }
-        else if (arg == ".STEAMTRAP.") {
-            m_predefinedType = IfcValveTypeEnum_STEAMTRAP;
+        else if (arg == ".STEAMTRAP.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_STEAMTRAP;
         }
-        else if (arg == ".STOPCOCK.") {
-            m_predefinedType = IfcValveTypeEnum_STOPCOCK;
+        else if (arg == ".STOPCOCK.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_STOPCOCK;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcValveTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcValveTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcValveTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcValveType::copy(const IfcValveType &obj, const CopyOp &copyop) {
+void IfcValveType::copy(const IfcValveType &obj, const CopyOp &copyop)
+{
     IfcFlowControllerType::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcValveType::s_type("IfcValveType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcValveType, IfcFlowControllerType)

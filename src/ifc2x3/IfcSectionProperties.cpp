@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,170 +24,194 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcSectionProperties.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcProfileDef.h>
+#include <ifc2x3/IfcProfileDef.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcSectionProperties::IfcSectionProperties(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_sectionType = IfcSectionTypeEnum_UNSET;
-    m_startProfile = NULL;
-    m_endProfile = NULL;
+IfcSectionProperties::IfcSectionProperties(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_SectionType = IfcSectionTypeEnum_UNSET;
+    m_StartProfile = NULL;
+    m_EndProfile = NULL;
 }
 
-IfcSectionProperties::~IfcSectionProperties() {
+IfcSectionProperties::~IfcSectionProperties()
+{}
+
+bool IfcSectionProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcSectionProperties(this);
 }
 
-bool IfcSectionProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcSectionProperties(this);
-}
 
-const std::string &IfcSectionProperties::type() const {
-    return IfcSectionProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcSectionProperties::getClassType() {
-    return IfcSectionProperties::s_type;
-}
-
-const Step::ClassType &IfcSectionProperties::getType() const {
-    return IfcSectionProperties::s_type;
-}
-
-bool IfcSectionProperties::isOfType(const Step::ClassType &t) const {
-    return IfcSectionProperties::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcSectionTypeEnum IfcSectionProperties::getSectionType() {
-    if (Step::BaseObject::inited()) {
-        return m_sectionType;
+IfcSectionTypeEnum IfcSectionProperties::getSectionType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SectionType;
     }
-    else {
+    else 
+    {
         return IfcSectionTypeEnum_UNSET;
+    }    
+}
+
+IfcSectionTypeEnum IfcSectionProperties::getSectionType() const
+{
+    return const_cast<IfcSectionProperties *>(this)->getSectionType();
+}
+
+void IfcSectionProperties::setSectionType(IfcSectionTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SectionType = value;
+}
+
+void IfcSectionProperties::unsetSectionType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SectionType = IfcSectionTypeEnum_UNSET;
+}
+
+bool IfcSectionProperties::testSectionType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSectionType()) == false;
+}
+
+
+IfcProfileDef *IfcSectionProperties::getStartProfile()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_StartProfile.get();
     }
-}
-
-const IfcSectionTypeEnum IfcSectionProperties::getSectionType() const {
-    IfcSectionProperties * deConstObject = const_cast< IfcSectionProperties * > (this);
-    return deConstObject->getSectionType();
-}
-
-void IfcSectionProperties::setSectionType(IfcSectionTypeEnum value) {
-    m_sectionType = value;
-}
-
-void IfcSectionProperties::unsetSectionType() {
-    m_sectionType = IfcSectionTypeEnum_UNSET;
-}
-
-bool IfcSectionProperties::testSectionType() const {
-    return getSectionType() != IfcSectionTypeEnum_UNSET;
-}
-
-IfcProfileDef *IfcSectionProperties::getStartProfile() {
-    if (Step::BaseObject::inited()) {
-        return m_startProfile.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcProfileDef *IfcSectionProperties::getStartProfile() const
+{
+    return const_cast<IfcSectionProperties *>(this)->getStartProfile();
+}
+
+void IfcSectionProperties::setStartProfile(const Step::RefPtr< IfcProfileDef > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_StartProfile = value;
+}
+
+void IfcSectionProperties::unsetStartProfile()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_StartProfile = Step::getUnset(getStartProfile());
+}
+
+bool IfcSectionProperties::testStartProfile() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getStartProfile()) == false;
+}
+
+
+IfcProfileDef *IfcSectionProperties::getEndProfile()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_EndProfile.get();
     }
-}
-
-const IfcProfileDef *IfcSectionProperties::getStartProfile() const {
-    IfcSectionProperties * deConstObject = const_cast< IfcSectionProperties * > (this);
-    return deConstObject->getStartProfile();
-}
-
-void IfcSectionProperties::setStartProfile(const Step::RefPtr< IfcProfileDef > &value) {
-    m_startProfile = value;
-}
-
-void IfcSectionProperties::unsetStartProfile() {
-    m_startProfile = Step::getUnset(getStartProfile());
-}
-
-bool IfcSectionProperties::testStartProfile() const {
-    return !Step::isUnset(getStartProfile());
-}
-
-IfcProfileDef *IfcSectionProperties::getEndProfile() {
-    if (Step::BaseObject::inited()) {
-        return m_endProfile.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcProfileDef *IfcSectionProperties::getEndProfile() const {
-    IfcSectionProperties * deConstObject = const_cast< IfcSectionProperties * > (this);
-    return deConstObject->getEndProfile();
+const IfcProfileDef *IfcSectionProperties::getEndProfile() const
+{
+    return const_cast<IfcSectionProperties *>(this)->getEndProfile();
 }
 
-void IfcSectionProperties::setEndProfile(const Step::RefPtr< IfcProfileDef > &value) {
-    m_endProfile = value;
+void IfcSectionProperties::setEndProfile(const Step::RefPtr< IfcProfileDef > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EndProfile = value;
 }
 
-void IfcSectionProperties::unsetEndProfile() {
-    m_endProfile = Step::getUnset(getEndProfile());
+void IfcSectionProperties::unsetEndProfile()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EndProfile = Step::getUnset(getEndProfile());
 }
 
-bool IfcSectionProperties::testEndProfile() const {
-    return !Step::isUnset(getEndProfile());
+bool IfcSectionProperties::testEndProfile() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getEndProfile()) == false;
 }
 
-bool IfcSectionProperties::init() {
+bool IfcSectionProperties::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_sectionType = IfcSectionTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_SectionType = IfcSectionTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".UNIFORM.") {
-            m_sectionType = IfcSectionTypeEnum_UNIFORM;
+    else
+    {
+        if (arg == ".UNIFORM.")
+        {
+            m_SectionType = IfcSectionTypeEnum_UNIFORM;
         }
-        else if (arg == ".TAPERED.") {
-            m_sectionType = IfcSectionTypeEnum_TAPERED;
+        else if (arg == ".TAPERED.")
+        {
+            m_SectionType = IfcSectionTypeEnum_TAPERED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_startProfile = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_StartProfile = NULL;
     }
-    else {
-        m_startProfile = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_StartProfile = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_endProfile = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_EndProfile = NULL;
     }
-    else {
-        m_endProfile = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_EndProfile = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcSectionProperties::copy(const IfcSectionProperties &obj, const CopyOp &copyop) {
+void IfcSectionProperties::copy(const IfcSectionProperties &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setSectionType(obj.m_sectionType);
-    setStartProfile((IfcProfileDef*)copyop(obj.m_startProfile.get()));
-    setEndProfile((IfcProfileDef*)copyop(obj.m_endProfile.get()));
+    setSectionType(obj.m_SectionType);
+    setStartProfile((IfcProfileDef*)copyop(obj.m_StartProfile.get()));
+    setEndProfile((IfcProfileDef*)copyop(obj.m_EndProfile.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSectionProperties::s_type("IfcSectionProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcSectionProperties, Step::BaseEntity)

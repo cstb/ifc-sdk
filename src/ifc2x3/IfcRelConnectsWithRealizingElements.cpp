@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,177 +24,196 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRelConnectsWithRealizingElements.h>
 
+#include <ifc2x3/IfcElement.h>
+#include <ifc2x3/IfcElement.h>
 
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcElement.h>
-#include <ifc2x3/IfcRelConnectsElements.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type():
-    mOwner(0)
+Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type()
 {
+
 }
 
-void Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::setOwner(IfcRelConnectsWithRealizingElements *owner) {
+void Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::setOwner(IfcRelConnectsWithRealizingElements *owner)
+{
     mOwner = owner;
 }
 
-void Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::insert(const Step::RefPtr< IfcElement > &value) throw(std::out_of_range) {
+void Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::insert(const Step::RefPtr< IfcElement > &value)
+#ifdef STEP_CHECK_RANGE
+    throw(std::out_of_range)
+#endif
+{
     IfcElement *inverse = const_cast< IfcElement * > (value.get());
     Set_IfcElement_1_n::insert(value);
-    inverse->m_isConnectionRealization.insert(mOwner);
+    inverse->m_IsConnectionRealization.insert(mOwner);
 }
 
-Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::size_type Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::erase(const Step::RefPtr< IfcElement > &value) {
+
+Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::size_type Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::erase(const Step::RefPtr< IfcElement > &value)
+{
     IfcElement *inverse = const_cast< IfcElement * > (value.get());
-    inverse->m_isConnectionRealization.erase(mOwner);
+    inverse->m_IsConnectionRealization.erase(mOwner);
     return Set_IfcElement_1_n::erase(value);
 }
 
-void Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::clear() {
-    while (size()) {
+void Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::clear()
+{
+    while (size())
+    {
         erase(*begin());
     }
 }
 
-IfcRelConnectsWithRealizingElements::IfcRelConnectsWithRealizingElements(Step::Id id, Step::SPFData *args) : IfcRelConnectsElements(id, args) {
-    m_realizingElements.setOwner(this);
-    m_connectionType = Step::getUnset(m_connectionType);
+
+IfcRelConnectsWithRealizingElements::IfcRelConnectsWithRealizingElements(Step::Id id, Step::SPFData *args) : 
+    IfcRelConnectsElements(id, args)
+{
+    m_ConnectionType = Step::getUnset(m_ConnectionType);
+    m_RealizingElements.setUnset(true);
+    m_RealizingElements.setOwner(this);
 }
 
-IfcRelConnectsWithRealizingElements::~IfcRelConnectsWithRealizingElements() {
+IfcRelConnectsWithRealizingElements::~IfcRelConnectsWithRealizingElements()
+{}
+
+bool IfcRelConnectsWithRealizingElements::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRelConnectsWithRealizingElements(this);
 }
 
-bool IfcRelConnectsWithRealizingElements::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRelConnectsWithRealizingElements(this);
-}
 
-const std::string &IfcRelConnectsWithRealizingElements::type() const {
-    return IfcRelConnectsWithRealizingElements::s_type.getName();
-}
-
-const Step::ClassType &IfcRelConnectsWithRealizingElements::getClassType() {
-    return IfcRelConnectsWithRealizingElements::s_type;
-}
-
-const Step::ClassType &IfcRelConnectsWithRealizingElements::getType() const {
-    return IfcRelConnectsWithRealizingElements::s_type;
-}
-
-bool IfcRelConnectsWithRealizingElements::isOfType(const Step::ClassType &t) const {
-    return IfcRelConnectsWithRealizingElements::s_type == t ? true : IfcRelConnectsElements::isOfType(t);
-}
-
-Set_IfcElement_1_n &IfcRelConnectsWithRealizingElements::getRealizingElements() {
-    if (Step::BaseObject::inited()) {
-        return m_realizingElements;
+IfcLabel IfcRelConnectsWithRealizingElements::getConnectionType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ConnectionType;
     }
-    else {
-        m_realizingElements.setUnset(true);
-        return m_realizingElements;
+    else 
+    {
+        return Step::getUnset(m_ConnectionType);
+    }    
+}
+
+const IfcLabel IfcRelConnectsWithRealizingElements::getConnectionType() const
+{
+    return const_cast<IfcRelConnectsWithRealizingElements *>(this)->getConnectionType();
+}
+
+void IfcRelConnectsWithRealizingElements::setConnectionType(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ConnectionType = value;
+}
+
+void IfcRelConnectsWithRealizingElements::unsetConnectionType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ConnectionType = Step::getUnset(getConnectionType());
+}
+
+bool IfcRelConnectsWithRealizingElements::testConnectionType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getConnectionType()) == false;
+}
+
+Set_IfcElement_1_n &IfcRelConnectsWithRealizingElements::getRealizingElements()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RealizingElements;
+    }
+    else
+    {
+        m_RealizingElements.setUnset(true);
+        return m_RealizingElements;
     }
 }
 
-const Set_IfcElement_1_n &IfcRelConnectsWithRealizingElements::getRealizingElements() const {
-    IfcRelConnectsWithRealizingElements * deConstObject = const_cast< IfcRelConnectsWithRealizingElements * > (this);
-    return deConstObject->getRealizingElements();
+const Set_IfcElement_1_n &IfcRelConnectsWithRealizingElements::getRealizingElements() const
+{
+    return const_cast< IfcRelConnectsWithRealizingElements * > (this)->getRealizingElements();
 }
 
-void IfcRelConnectsWithRealizingElements::unsetRealizingElements() {
-    m_realizingElements.clear();
-    m_realizingElements.setUnset(true);
+void IfcRelConnectsWithRealizingElements::unsetRealizingElements()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RealizingElements.clear();
+    m_RealizingElements.setUnset(true);
 }
 
-bool IfcRelConnectsWithRealizingElements::testRealizingElements() const {
-    return !m_realizingElements.isUnset();
+bool IfcRelConnectsWithRealizingElements::testRealizingElements() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_RealizingElements.isUnset() == false;
 }
 
-IfcLabel IfcRelConnectsWithRealizingElements::getConnectionType() {
-    if (Step::BaseObject::inited()) {
-        return m_connectionType;
-    }
-    else {
-        return Step::getUnset(m_connectionType);
-    }
-}
-
-const IfcLabel IfcRelConnectsWithRealizingElements::getConnectionType() const {
-    IfcRelConnectsWithRealizingElements * deConstObject = const_cast< IfcRelConnectsWithRealizingElements * > (this);
-    return deConstObject->getConnectionType();
-}
-
-void IfcRelConnectsWithRealizingElements::setConnectionType(const IfcLabel &value) {
-    m_connectionType = value;
-}
-
-void IfcRelConnectsWithRealizingElements::unsetConnectionType() {
-    m_connectionType = Step::getUnset(getConnectionType());
-}
-
-bool IfcRelConnectsWithRealizingElements::testConnectionType() const {
-    return !Step::isUnset(getConnectionType());
-}
-
-bool IfcRelConnectsWithRealizingElements::init() {
-    bool status = IfcRelConnectsElements::init();
-    std::string arg;
-    if (!status) {
+bool IfcRelConnectsWithRealizingElements::init()
+{
+    if (IfcRelConnectsElements::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_realizingElements.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_ConnectionType = Step::getUnset(m_ConnectionType);
     }
-    else {
-        m_realizingElements.setUnset(false);
-        while (true) {
+    else
+    {
+        m_ConnectionType = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RealizingElements.setUnset(true);
+    }
+    else
+    {
+        m_RealizingElements.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcElement > attr2;
-                attr2 = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                if (attr2.valid()) m_realizingElements.insert(attr2);
+            if (!str1.empty())
+            {
+                m_RealizingElements.insert(static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_connectionType = Step::getUnset(m_connectionType);
-    }
-    else {
-        m_connectionType = Step::String::fromSPF(arg);
-    }
     return true;
 }
 
-void IfcRelConnectsWithRealizingElements::copy(const IfcRelConnectsWithRealizingElements &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcElement >, 1 >::const_iterator it_m_realizingElements;
+void IfcRelConnectsWithRealizingElements::copy(const IfcRelConnectsWithRealizingElements &obj, const CopyOp &copyop)
+{
     IfcRelConnectsElements::copy(obj, copyop);
-    for (it_m_realizingElements = obj.m_realizingElements.begin(); it_m_realizingElements != obj.m_realizingElements.end(); ++it_m_realizingElements) {
-        Step::RefPtr< IfcElement > copyTarget = (IfcElement *) (copyop((*it_m_realizingElements).get()));
-        m_realizingElements.insert(copyTarget.get());
+    setConnectionType(obj.m_ConnectionType);
+    Set_IfcElement_1_n::const_iterator it_m_RealizingElements;
+    for (it_m_RealizingElements = obj.m_RealizingElements.begin(); it_m_RealizingElements != obj.m_RealizingElements.end(); ++it_m_RealizingElements)
+    {
+        Step::RefPtr< IfcElement > copyTarget = (IfcElement *) (copyop((*it_m_RealizingElements).get()));
+        m_RealizingElements.insert(copyTarget);
     }
-    setConnectionType(obj.m_connectionType);
+    
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelConnectsWithRealizingElements::s_type("IfcRelConnectsWithRealizingElements");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRelConnectsWithRealizingElements, IfcRelConnectsElements)

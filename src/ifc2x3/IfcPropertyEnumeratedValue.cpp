@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,677 +24,820 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPropertyEnumeratedValue.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcPropertyEnumeration.h>
-#include <ifc2x3/IfcSimpleProperty.h>
 #include <ifc2x3/IfcValue.h>
+#include <ifc2x3/IfcPropertyEnumeration.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPropertyEnumeratedValue::IfcPropertyEnumeratedValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
-    m_enumerationReference = NULL;
+IfcPropertyEnumeratedValue::IfcPropertyEnumeratedValue(Step::Id id, Step::SPFData *args) : 
+    IfcSimpleProperty(id, args)
+{
+    m_EnumerationValues.setUnset(true);
+    m_EnumerationReference = NULL;
 }
 
-IfcPropertyEnumeratedValue::~IfcPropertyEnumeratedValue() {
+IfcPropertyEnumeratedValue::~IfcPropertyEnumeratedValue()
+{}
+
+bool IfcPropertyEnumeratedValue::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPropertyEnumeratedValue(this);
 }
 
-bool IfcPropertyEnumeratedValue::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPropertyEnumeratedValue(this);
-}
 
-const std::string &IfcPropertyEnumeratedValue::type() const {
-    return IfcPropertyEnumeratedValue::s_type.getName();
-}
-
-const Step::ClassType &IfcPropertyEnumeratedValue::getClassType() {
-    return IfcPropertyEnumeratedValue::s_type;
-}
-
-const Step::ClassType &IfcPropertyEnumeratedValue::getType() const {
-    return IfcPropertyEnumeratedValue::s_type;
-}
-
-bool IfcPropertyEnumeratedValue::isOfType(const Step::ClassType &t) const {
-    return IfcPropertyEnumeratedValue::s_type == t ? true : IfcSimpleProperty::isOfType(t);
-}
-
-List_IfcValue_1_n &IfcPropertyEnumeratedValue::getEnumerationValues() {
-    if (Step::BaseObject::inited()) {
-        return m_enumerationValues;
+List_IfcValue_1_n &IfcPropertyEnumeratedValue::getEnumerationValues()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_EnumerationValues;
     }
-    else {
-        m_enumerationValues.setUnset(true);
-        return m_enumerationValues;
+    else 
+    {
+        m_EnumerationValues.setUnset(true);
+        return m_EnumerationValues;
+    }    
+}
+
+const List_IfcValue_1_n &IfcPropertyEnumeratedValue::getEnumerationValues() const
+{
+    return const_cast<IfcPropertyEnumeratedValue *>(this)->getEnumerationValues();
+}
+
+void IfcPropertyEnumeratedValue::setEnumerationValues(const List_IfcValue_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EnumerationValues = value;
+}
+
+void IfcPropertyEnumeratedValue::unsetEnumerationValues()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EnumerationValues.clear();
+    m_EnumerationValues.setUnset(true);
+}
+
+bool IfcPropertyEnumeratedValue::testEnumerationValues() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_EnumerationValues.isUnset() == false;
+}
+
+
+IfcPropertyEnumeration *IfcPropertyEnumeratedValue::getEnumerationReference()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_EnumerationReference.get();
     }
-}
-
-const List_IfcValue_1_n &IfcPropertyEnumeratedValue::getEnumerationValues() const {
-    IfcPropertyEnumeratedValue * deConstObject = const_cast< IfcPropertyEnumeratedValue * > (this);
-    return deConstObject->getEnumerationValues();
-}
-
-void IfcPropertyEnumeratedValue::setEnumerationValues(const List_IfcValue_1_n &value) {
-    m_enumerationValues = value;
-}
-
-void IfcPropertyEnumeratedValue::unsetEnumerationValues() {
-    m_enumerationValues.clear();
-    m_enumerationValues.setUnset(true);
-}
-
-bool IfcPropertyEnumeratedValue::testEnumerationValues() const {
-    return !m_enumerationValues.isUnset();
-}
-
-IfcPropertyEnumeration *IfcPropertyEnumeratedValue::getEnumerationReference() {
-    if (Step::BaseObject::inited()) {
-        return m_enumerationReference.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcPropertyEnumeration *IfcPropertyEnumeratedValue::getEnumerationReference() const {
-    IfcPropertyEnumeratedValue * deConstObject = const_cast< IfcPropertyEnumeratedValue * > (this);
-    return deConstObject->getEnumerationReference();
+const IfcPropertyEnumeration *IfcPropertyEnumeratedValue::getEnumerationReference() const
+{
+    return const_cast<IfcPropertyEnumeratedValue *>(this)->getEnumerationReference();
 }
 
-void IfcPropertyEnumeratedValue::setEnumerationReference(const Step::RefPtr< IfcPropertyEnumeration > &value) {
-    m_enumerationReference = value;
+void IfcPropertyEnumeratedValue::setEnumerationReference(const Step::RefPtr< IfcPropertyEnumeration > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EnumerationReference = value;
 }
 
-void IfcPropertyEnumeratedValue::unsetEnumerationReference() {
-    m_enumerationReference = Step::getUnset(getEnumerationReference());
+void IfcPropertyEnumeratedValue::unsetEnumerationReference()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EnumerationReference = Step::getUnset(getEnumerationReference());
 }
 
-bool IfcPropertyEnumeratedValue::testEnumerationReference() const {
-    return !Step::isUnset(getEnumerationReference());
+bool IfcPropertyEnumeratedValue::testEnumerationReference() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getEnumerationReference()) == false;
 }
 
-bool IfcPropertyEnumeratedValue::init() {
-    bool status = IfcSimpleProperty::init();
-    std::string arg;
-    if (!status) {
+bool IfcPropertyEnumeratedValue::init()
+{
+    if (IfcSimpleProperty::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_enumerationValues.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_EnumerationValues.setUnset(true);
     }
-    else {
-        m_enumerationValues.setUnset(false);
-        while (true) {
+    else
+    {
+        m_EnumerationValues.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcValue > attr2;
-                attr2 = new IfcValue;
-                if (str1[0] == '#') {
+            if (!str1.empty())
+            {
+                Step::RefPtr< IfcValue > attr2 = new IfcValue();
+                if (str1[0] == '#') 
+                {
                     attr2->set(m_expressDataSet->get((Step::Id)atol(str1.c_str() + 1)));
                 }
-                else if (str1[str1.length() - 1] == ')') {
-                    std::string type2;
-                    std::string::size_type i2;
-                    i2 = str1.find('(');
-                    if (i2 != std::string::npos) {
-                        type2 = str1.substr(0, i2);
+                else if (str1[str1.length() - 1] == ')') 
+                {
+                    std::string::size_type i2 = str1.find('(');
+                    if (i2 != std::string::npos) 
+                    {
+                        std::string type2 = str1.substr(0, i2);
                         str1 = str1.substr(i2 + 1, str1.length() - i2 - 2);
-                        if (type2 == "IFCVOLUMEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        if (type2 == "IFCVOLUMEMEASURE")
+                        {
+                            IfcVolumeMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcVolumeMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCTIMEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCTIMEMEASURE")
+                        {
+                            IfcTimeMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcTimeMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCTHERMODYNAMICTEMPERATUREMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCTHERMODYNAMICTEMPERATUREMEASURE")
+                        {
+                            IfcThermodynamicTemperatureMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcThermodynamicTemperatureMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCSOLIDANGLEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCSOLIDANGLEMEASURE")
+                        {
+                            IfcSolidAngleMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcSolidAngleMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCPOSITIVERATIOMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCPOSITIVERATIOMEASURE")
+                        {
+                            IfcPositiveRatioMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcPositiveRatioMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCRATIOMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCRATIOMEASURE")
+                        {
+                            IfcRatioMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcRatioMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCPOSITIVEPLANEANGLEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCPOSITIVEPLANEANGLEMEASURE")
+                        {
+                            IfcPositivePlaneAngleMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcPositivePlaneAngleMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCPLANEANGLEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCPLANEANGLEMEASURE")
+                        {
+                            IfcPlaneAngleMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcPlaneAngleMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCPARAMETERVALUE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCPARAMETERVALUE")
+                        {
+                            IfcParameterValue tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcParameterValue(tmp_attr2);
                         }
-                        if (type2 == "IFCNUMERICMEASURE") {
-                            Step::Number tmp_attr2;
-                            tmp_attr2 = Step::spfToInteger(str1);
+                        else if (type2 == "IFCNUMERICMEASURE")
+                        {
+                            IfcNumericMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcNumericMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMASSMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMASSMEASURE")
+                        {
+                            IfcMassMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcMassMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCPOSITIVELENGTHMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCPOSITIVELENGTHMEASURE")
+                        {
+                            IfcPositiveLengthMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcPositiveLengthMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCLENGTHMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCLENGTHMEASURE")
+                        {
+                            IfcLengthMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcLengthMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCELECTRICCURRENTMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCELECTRICCURRENTMEASURE")
+                        {
+                            IfcElectricCurrentMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcElectricCurrentMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCDESCRIPTIVEMEASURE") {
-                            Step::String tmp_attr2;
-                            tmp_attr2 = Step::String::fromSPF(str1);
+                        else if (type2 == "IFCDESCRIPTIVEMEASURE")
+                        {
+                            IfcDescriptiveMeasure tmp_attr2 = Step::String::fromSPF(arg)
+;
                             attr2->setIfcDescriptiveMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCCOUNTMEASURE") {
-                            Step::Number tmp_attr2;
-                            tmp_attr2 = Step::spfToInteger(str1);
+                        else if (type2 == "IFCCOUNTMEASURE")
+                        {
+                            IfcCountMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcCountMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCCONTEXTDEPENDENTMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCCONTEXTDEPENDENTMEASURE")
+                        {
+                            IfcContextDependentMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcContextDependentMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCAREAMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCAREAMEASURE")
+                        {
+                            IfcAreaMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcAreaMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCAMOUNTOFSUBSTANCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCAMOUNTOFSUBSTANCEMEASURE")
+                        {
+                            IfcAmountOfSubstanceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcAmountOfSubstanceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCLUMINOUSINTENSITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCLUMINOUSINTENSITYMEASURE")
+                        {
+                            IfcLuminousIntensityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcLuminousIntensityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCNORMALISEDRATIOMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCNORMALISEDRATIOMEASURE")
+                        {
+                            IfcNormalisedRatioMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcNormalisedRatioMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCCOMPLEXNUMBER") {
-                            Array_Real_1_2 tmp_attr2;
-                            Array_Real_1_2::iterator it_tmp_attr2 = tmp_attr2.begin();
-                            tmp_attr2.setUnset(false);
-                            while (true) {
-                                std::string str3;
-                                Step::getSubParameter(str1, str3);
-                                if (str3 != "") {
-                                    Step::Real attr4;
-                                    attr4 = Step::spfToReal(str3);
-                                    *(it_tmp_attr2++) = attr4;
-                                }
-                                else {
-                                    break;
-                                }
-                            }
-                            attr2->setIfcComplexNumber(tmp_attr2);
-                        }
-                        if (type2 == "IFCINTEGER") {
-                            Step::Integer tmp_attr2;
-                            tmp_attr2 = Step::spfToInteger(str1);
-                            attr2->setIfcInteger(tmp_attr2);
-                        }
-                        if (type2 == "IFCREAL") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCREAL")
+                        {
+                            IfcReal tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcReal(tmp_attr2);
                         }
-                        if (type2 == "IFCBOOLEAN") {
-                            Step::Boolean tmp_attr2;
-                            tmp_attr2 = Step::spfToBoolean(str1);
+                        else if (type2 == "IFCBOOLEAN")
+                        {
+                            IfcBoolean tmp_attr2 = Step::spfToBoolean(arg)
+;
                             attr2->setIfcBoolean(tmp_attr2);
                         }
-                        if (type2 == "IFCIDENTIFIER") {
-                            Step::String tmp_attr2;
-                            tmp_attr2 = Step::String::fromSPF(str1);
+                        else if (type2 == "IFCIDENTIFIER")
+                        {
+                            IfcIdentifier tmp_attr2 = Step::String::fromSPF(arg)
+;
                             attr2->setIfcIdentifier(tmp_attr2);
                         }
-                        if (type2 == "IFCTEXT") {
-                            Step::String tmp_attr2;
-                            tmp_attr2 = Step::String::fromSPF(str1);
+                        else if (type2 == "IFCTEXT")
+                        {
+                            IfcText tmp_attr2 = Step::String::fromSPF(arg)
+;
                             attr2->setIfcText(tmp_attr2);
                         }
-                        if (type2 == "IFCLABEL") {
-                            Step::String tmp_attr2;
-                            tmp_attr2 = Step::String::fromSPF(str1);
+                        else if (type2 == "IFCLABEL")
+                        {
+                            IfcLabel tmp_attr2 = Step::String::fromSPF(arg)
+;
                             attr2->setIfcLabel(tmp_attr2);
                         }
-                        if (type2 == "IFCLOGICAL") {
-                            Step::Logical tmp_attr2;
-                            tmp_attr2 = Step::spfToLogical(str1);
+                        else if (type2 == "IFCLOGICAL")
+                        {
+                            IfcLogical tmp_attr2 = Step::spfToLogical(arg)
+;
                             attr2->setIfcLogical(tmp_attr2);
                         }
-                        if (type2 == "IFCVOLUMETRICFLOWRATEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCVOLUMETRICFLOWRATEMEASURE")
+                        {
+                            IfcVolumetricFlowRateMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcVolumetricFlowRateMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCTIMESTAMP") {
-                            Step::Integer tmp_attr2;
-                            tmp_attr2 = Step::spfToInteger(str1);
-                            attr2->setIfcTimeStamp(tmp_attr2);
-                        }
-                        if (type2 == "IFCTHERMALTRANSMITTANCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCTHERMALTRANSMITTANCEMEASURE")
+                        {
+                            IfcThermalTransmittanceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcThermalTransmittanceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCTHERMALRESISTANCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCTHERMALRESISTANCEMEASURE")
+                        {
+                            IfcThermalResistanceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcThermalResistanceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCTHERMALADMITTANCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCTHERMALADMITTANCEMEASURE")
+                        {
+                            IfcThermalAdmittanceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcThermalAdmittanceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCPRESSUREMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCPRESSUREMEASURE")
+                        {
+                            IfcPressureMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcPressureMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCPOWERMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCPOWERMEASURE")
+                        {
+                            IfcPowerMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcPowerMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMASSFLOWRATEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMASSFLOWRATEMEASURE")
+                        {
+                            IfcMassFlowRateMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcMassFlowRateMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMASSDENSITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMASSDENSITYMEASURE")
+                        {
+                            IfcMassDensityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcMassDensityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCLINEARVELOCITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCLINEARVELOCITYMEASURE")
+                        {
+                            IfcLinearVelocityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcLinearVelocityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCKINEMATICVISCOSITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCKINEMATICVISCOSITYMEASURE")
+                        {
+                            IfcKinematicViscosityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcKinematicViscosityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCINTEGERCOUNTRATEMEASURE") {
-                            Step::Integer tmp_attr2;
-                            tmp_attr2 = Step::spfToInteger(str1);
-                            attr2->setIfcIntegerCountRateMeasure(tmp_attr2);
-                        }
-                        if (type2 == "IFCHEATFLUXDENSITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCHEATFLUXDENSITYMEASURE")
+                        {
+                            IfcHeatFluxDensityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcHeatFluxDensityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCFREQUENCYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCFREQUENCYMEASURE")
+                        {
+                            IfcFrequencyMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcFrequencyMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCENERGYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCENERGYMEASURE")
+                        {
+                            IfcEnergyMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcEnergyMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCELECTRICVOLTAGEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCELECTRICVOLTAGEMEASURE")
+                        {
+                            IfcElectricVoltageMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcElectricVoltageMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCDYNAMICVISCOSITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCDYNAMICVISCOSITYMEASURE")
+                        {
+                            IfcDynamicViscosityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcDynamicViscosityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                            List_Integer_3_4 tmp_attr2;
-                            tmp_attr2.setUnset(false);
-                            while (true) {
-                                std::string str3;
-                                Step::getSubParameter(str1, str3);
-                                if (str3 != "") {
-                                    Step::Integer attr4;
-                                    attr4 = Step::spfToInteger(str3);
-                                    tmp_attr2.push_back(attr4);
-                                }
-                                else {
-                                    break;
-                                }
-                            }
-                            attr2->setIfcCompoundPlaneAngleMeasure(tmp_attr2);
-                        }
-                        if (type2 == "IFCANGULARVELOCITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCANGULARVELOCITYMEASURE")
+                        {
+                            IfcAngularVelocityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcAngularVelocityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCTHERMALCONDUCTIVITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCTHERMALCONDUCTIVITYMEASURE")
+                        {
+                            IfcThermalConductivityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcThermalConductivityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMOLECULARWEIGHTMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMOLECULARWEIGHTMEASURE")
+                        {
+                            IfcMolecularWeightMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcMolecularWeightMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCVAPORPERMEABILITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCVAPORPERMEABILITYMEASURE")
+                        {
+                            IfcVaporPermeabilityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcVaporPermeabilityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMOISTUREDIFFUSIVITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMOISTUREDIFFUSIVITYMEASURE")
+                        {
+                            IfcMoistureDiffusivityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcMoistureDiffusivityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCISOTHERMALMOISTURECAPACITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCISOTHERMALMOISTURECAPACITYMEASURE")
+                        {
+                            IfcIsothermalMoistureCapacityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcIsothermalMoistureCapacityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCSPECIFICHEATCAPACITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCSPECIFICHEATCAPACITYMEASURE")
+                        {
+                            IfcSpecificHeatCapacityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcSpecificHeatCapacityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMONETARYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMONETARYMEASURE")
+                        {
+                            IfcMonetaryMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcMonetaryMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMAGNETICFLUXDENSITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMAGNETICFLUXDENSITYMEASURE")
+                        {
+                            IfcMagneticFluxDensityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcMagneticFluxDensityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMAGNETICFLUXMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMAGNETICFLUXMEASURE")
+                        {
+                            IfcMagneticFluxMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcMagneticFluxMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCLUMINOUSFLUXMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCLUMINOUSFLUXMEASURE")
+                        {
+                            IfcLuminousFluxMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcLuminousFluxMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCFORCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCFORCEMEASURE")
+                        {
+                            IfcForceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcForceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCINDUCTANCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCINDUCTANCEMEASURE")
+                        {
+                            IfcInductanceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcInductanceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCILLUMINANCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCILLUMINANCEMEASURE")
+                        {
+                            IfcIlluminanceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcIlluminanceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCELECTRICRESISTANCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCELECTRICRESISTANCEMEASURE")
+                        {
+                            IfcElectricResistanceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcElectricResistanceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCELECTRICCONDUCTANCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCELECTRICCONDUCTANCEMEASURE")
+                        {
+                            IfcElectricConductanceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcElectricConductanceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCELECTRICCHARGEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCELECTRICCHARGEMEASURE")
+                        {
+                            IfcElectricChargeMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcElectricChargeMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCDOSEEQUIVALENTMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCDOSEEQUIVALENTMEASURE")
+                        {
+                            IfcDoseEquivalentMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcDoseEquivalentMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCELECTRICCAPACITANCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCELECTRICCAPACITANCEMEASURE")
+                        {
+                            IfcElectricCapacitanceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcElectricCapacitanceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCABSORBEDDOSEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCABSORBEDDOSEMEASURE")
+                        {
+                            IfcAbsorbedDoseMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcAbsorbedDoseMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCRADIOACTIVITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCRADIOACTIVITYMEASURE")
+                        {
+                            IfcRadioActivityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcRadioActivityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCROTATIONALFREQUENCYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCROTATIONALFREQUENCYMEASURE")
+                        {
+                            IfcRotationalFrequencyMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcRotationalFrequencyMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCTORQUEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCTORQUEMEASURE")
+                        {
+                            IfcTorqueMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcTorqueMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCACCELERATIONMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCACCELERATIONMEASURE")
+                        {
+                            IfcAccelerationMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcAccelerationMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCLINEARFORCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCLINEARFORCEMEASURE")
+                        {
+                            IfcLinearForceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcLinearForceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCLINEARSTIFFNESSMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCLINEARSTIFFNESSMEASURE")
+                        {
+                            IfcLinearStiffnessMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcLinearStiffnessMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMODULUSOFSUBGRADEREACTIONMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMODULUSOFSUBGRADEREACTIONMEASURE")
+                        {
+                            IfcModulusOfSubgradeReactionMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcModulusOfSubgradeReactionMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMODULUSOFELASTICITYMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMODULUSOFELASTICITYMEASURE")
+                        {
+                            IfcModulusOfElasticityMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcModulusOfElasticityMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMOMENTOFINERTIAMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMOMENTOFINERTIAMEASURE")
+                        {
+                            IfcMomentOfInertiaMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcMomentOfInertiaMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCPLANARFORCEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCPLANARFORCEMEASURE")
+                        {
+                            IfcPlanarForceMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcPlanarForceMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCROTATIONALSTIFFNESSMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCROTATIONALSTIFFNESSMEASURE")
+                        {
+                            IfcRotationalStiffnessMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcRotationalStiffnessMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCSHEARMODULUSMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCSHEARMODULUSMEASURE")
+                        {
+                            IfcShearModulusMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcShearModulusMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCLINEARMOMENTMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCLINEARMOMENTMEASURE")
+                        {
+                            IfcLinearMomentMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcLinearMomentMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCLUMINOUSINTENSITYDISTRIBUTIONMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCLUMINOUSINTENSITYDISTRIBUTIONMEASURE")
+                        {
+                            IfcLuminousIntensityDistributionMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcLuminousIntensityDistributionMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCCURVATUREMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCCURVATUREMEASURE")
+                        {
+                            IfcCurvatureMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcCurvatureMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMASSPERLENGTHMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMASSPERLENGTHMEASURE")
+                        {
+                            IfcMassPerLengthMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcMassPerLengthMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMODULUSOFLINEARSUBGRADEREACTIONMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMODULUSOFLINEARSUBGRADEREACTIONMEASURE")
+                        {
+                            IfcModulusOfLinearSubgradeReactionMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcModulusOfLinearSubgradeReactionMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCMODULUSOFROTATIONALSUBGRADEREACTIONMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCMODULUSOFROTATIONALSUBGRADEREACTIONMEASURE")
+                        {
+                            IfcModulusOfRotationalSubgradeReactionMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcModulusOfRotationalSubgradeReactionMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCROTATIONALMASSMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCROTATIONALMASSMEASURE")
+                        {
+                            IfcRotationalMassMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcRotationalMassMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCSECTIONALAREAINTEGRALMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCSECTIONALAREAINTEGRALMEASURE")
+                        {
+                            IfcSectionalAreaIntegralMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcSectionalAreaIntegralMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCSECTIONMODULUSMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCSECTIONMODULUSMEASURE")
+                        {
+                            IfcSectionModulusMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcSectionModulusMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCTEMPERATUREGRADIENTMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCTEMPERATUREGRADIENTMEASURE")
+                        {
+                            IfcTemperatureGradientMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcTemperatureGradientMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCTHERMALEXPANSIONCOEFFICIENTMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCTHERMALEXPANSIONCOEFFICIENTMEASURE")
+                        {
+                            IfcThermalExpansionCoefficientMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcThermalExpansionCoefficientMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCWARPINGCONSTANTMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCWARPINGCONSTANTMEASURE")
+                        {
+                            IfcWarpingConstantMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcWarpingConstantMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCWARPINGMOMENTMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCWARPINGMOMENTMEASURE")
+                        {
+                            IfcWarpingMomentMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcWarpingMomentMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCSOUNDPOWERMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCSOUNDPOWERMEASURE")
+                        {
+                            IfcSoundPowerMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcSoundPowerMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCSOUNDPRESSUREMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCSOUNDPRESSUREMEASURE")
+                        {
+                            IfcSoundPressureMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcSoundPressureMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCHEATINGVALUEMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCHEATINGVALUEMEASURE")
+                        {
+                            IfcHeatingValueMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcHeatingValueMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCPHMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCPHMEASURE")
+                        {
+                            IfcPHMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcPHMeasure(tmp_attr2);
                         }
-                        if (type2 == "IFCIONCONCENTRATIONMEASURE") {
-                            Step::Real tmp_attr2;
-                            tmp_attr2 = Step::spfToReal(str1);
+                        else if (type2 == "IFCIONCONCENTRATIONMEASURE")
+                        {
+                            IfcIonConcentrationMeasure tmp_attr2 = Step::spfToReal(arg)
+
+;
                             attr2->setIfcIonConcentrationMeasure(tmp_attr2);
                         }
                     }
                 }
-                m_enumerationValues.push_back(attr2);
+                if (attr2.valid()) 
+                {
+                    m_EnumerationValues.push_back(attr2);
+                }
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_enumerationReference = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_EnumerationReference = NULL;
     }
-    else {
-        m_enumerationReference = static_cast< IfcPropertyEnumeration * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_EnumerationReference = static_cast< IfcPropertyEnumeration * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcPropertyEnumeratedValue::copy(const IfcPropertyEnumeratedValue &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcValue >, 1 >::const_iterator it_m_enumerationValues;
+void IfcPropertyEnumeratedValue::copy(const IfcPropertyEnumeratedValue &obj, const CopyOp &copyop)
+{
     IfcSimpleProperty::copy(obj, copyop);
-    for (it_m_enumerationValues = obj.m_enumerationValues.begin(); it_m_enumerationValues != obj.m_enumerationValues.end(); ++it_m_enumerationValues) {
+    List_IfcValue_1_n::const_iterator it_m_EnumerationValues;
+    for (it_m_EnumerationValues = obj.m_EnumerationValues.begin(); it_m_EnumerationValues != obj.m_EnumerationValues.end(); ++it_m_EnumerationValues)
+    {
         Step::RefPtr< IfcValue > copyTarget = new IfcValue;
-        copyTarget->copy(*((*it_m_enumerationValues).get()), copyop);
-        m_enumerationValues.push_back(copyTarget.get());
+        copyTarget->copy(*((*it_m_EnumerationValues).get()), copyop);
+        m_EnumerationValues.push_back(copyTarget.get());
     }
-    setEnumerationReference((IfcPropertyEnumeration*)copyop(obj.m_enumerationReference.get()));
+    
+    setEnumerationReference((IfcPropertyEnumeration*)copyop(obj.m_EnumerationReference.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertyEnumeratedValue::s_type("IfcPropertyEnumeratedValue");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPropertyEnumeratedValue, IfcSimpleProperty)

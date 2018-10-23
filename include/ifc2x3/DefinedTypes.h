@@ -1,5 +1,16 @@
+#pragma once
+
 // IFC SDK : IFC2X3 C++ Early Classes
-// Copyright (C) 2009 CSTB
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -14,520 +25,20 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifndef IFC2X3_DEFINEDTYPES_H
-#define IFC2X3_DEFINEDTYPES_H
+
+#include <Step/SimpleTypes.h>
+
 #include <Step/Array.h>
 #include <Step/Set.h>
 #include <Step/List.h>
 #include <Step/Bag.h>
-#include <Step/SimpleTypes.h>
-#include <ifc2x3/fwDecl.h>
 
-namespace ifc2x3 {
+#include <ifc2x3/FwDecl.h>
 
-    /**
-     */
-    typedef Step::Real IfcAbsorbedDoseMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcAccelerationMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcAmountOfSubstanceMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcAngularVelocityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcAreaMeasure;
-
-    /**
-     */
-    typedef Step::Boolean IfcBoolean;
-
-    /**
-     */
-    typedef Step::String IfcBoxAlignment;
-
-    /**
-     */
-    typedef Step::Real IfcContextDependentMeasure;
-
-    /**
-     */
-    typedef Step::Number IfcCountMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcCurvatureMeasure;
-
-    /**
-     */
-    typedef Step::Integer IfcDayInMonthNumber;
-
-    /**
-     */
-    typedef Step::Integer IfcDaylightSavingHour;
-
-    /**
-     */
-    typedef Step::String IfcDescriptiveMeasure;
-
-    /**
-     */
-    typedef Step::Integer IfcDimensionCount;
-
-    /**
-     */
-    typedef Step::Real IfcDoseEquivalentMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcDynamicViscosityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcElectricCapacitanceMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcElectricChargeMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcElectricConductanceMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcElectricCurrentMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcElectricResistanceMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcElectricVoltageMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcEnergyMeasure;
-
-    /**
-     */
-    typedef Step::String IfcFontStyle;
-
-    /**
-     */
-    typedef Step::String IfcFontVariant;
-
-    /**
-     */
-    typedef Step::String IfcFontWeight;
-
-    /**
-     */
-    typedef Step::Real IfcForceMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcFrequencyMeasure;
-
-    /**
-     */
-    typedef Step::String IfcGloballyUniqueId;
-
-    /**
-     */
-    typedef Step::Real IfcHeatFluxDensityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcHeatingValueMeasure;
-
-    /**
-     */
-    typedef Step::Integer IfcHourInDay;
-
-    /**
-     */
-    typedef Step::String IfcIdentifier;
-
-    /**
-     */
-    typedef Step::Real IfcIlluminanceMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcInductanceMeasure;
-
-    /**
-     */
-    typedef Step::Integer IfcInteger;
-
-    /**
-     */
-    typedef Step::Integer IfcIntegerCountRateMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcIonConcentrationMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcIsothermalMoistureCapacityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcKinematicViscosityMeasure;
-
-    /**
-     */
-    typedef Step::String IfcLabel;
-
-    /**
-     */
-    typedef Step::List< IfcLabel, 1 > List_IfcLabel_1_n;
-
-    /**
-     */
-    typedef Step::Real IfcLengthMeasure;
-
-    /**
-     */
-    typedef Step::List< IfcLengthMeasure, 1, 3 > List_IfcLengthMeasure_1_3;
-
-    /**
-     */
-    typedef Step::List< IfcLengthMeasure, 2, 3 > List_IfcLengthMeasure_2_3;
-
-    /**
-     */
-    typedef Step::Real IfcLinearForceMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcLinearMomentMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcLinearStiffnessMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcLinearVelocityMeasure;
-
-    /**
-     */
-    typedef Step::Logical IfcLogical;
-
-    /**
-     */
-    typedef Step::Real IfcLuminousFluxMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcLuminousIntensityDistributionMeasure;
-
-    /**
-     */
-    typedef Step::List< IfcLuminousIntensityDistributionMeasure, 1 > List_IfcLuminousIntensityDistributionMeasure_1_n;
-
-    /**
-     */
-    typedef Step::Real IfcLuminousIntensityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcMagneticFluxDensityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcMagneticFluxMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcMassDensityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcMassFlowRateMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcMassMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcMassPerLengthMeasure;
-
-    /**
-     */
-    typedef Step::Integer IfcMinuteInHour;
-
-    /**
-     */
-    typedef Step::Real IfcModulusOfElasticityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcModulusOfLinearSubgradeReactionMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcModulusOfRotationalSubgradeReactionMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcModulusOfSubgradeReactionMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcMoistureDiffusivityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcMolecularWeightMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcMomentOfInertiaMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcMonetaryMeasure;
-
-    /**
-     */
-    typedef Step::Integer IfcMonthInYearNumber;
-
-    /**
-     */
-    typedef Step::Real IfcNormalisedRatioMeasure;
-
-    /**
-     */
-    typedef Step::Number IfcNumericMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcPHMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcParameterValue;
-
-    /**
-     */
-    typedef Step::List< IfcParameterValue, 2, 2 > List_IfcParameterValue_2_2;
-
-    /**
-     */
-    typedef Step::Real IfcPlanarForceMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcPlaneAngleMeasure;
-
-    /**
-     */
-    typedef Step::List< IfcPlaneAngleMeasure, 1 > List_IfcPlaneAngleMeasure_1_n;
-
-    /**
-     */
-    typedef Step::Real IfcPositiveLengthMeasure;
-
-    /**
-     */
-    typedef Step::List< IfcPositiveLengthMeasure, 3 > List_IfcPositiveLengthMeasure_3_n;
-
-    /**
-     */
-    typedef Step::List< IfcPositiveLengthMeasure, 2 > List_IfcPositiveLengthMeasure_2_n;
-
-    /**
-     */
-    typedef Step::Real IfcPositivePlaneAngleMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcPositiveRatioMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcPowerMeasure;
-
-    /**
-     */
-    typedef Step::String IfcPresentableText;
-
-    /**
-     */
-    typedef Step::Real IfcPressureMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcRadioActivityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcRatioMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcReal;
-
-    /**
-     */
-    typedef Step::Real IfcRotationalFrequencyMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcRotationalMassMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcRotationalStiffnessMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcSecondInMinute;
-
-    /**
-     */
-    typedef Step::Real IfcSectionModulusMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcSectionalAreaIntegralMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcShearModulusMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcSolidAngleMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcSoundPowerMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcSoundPressureMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcSpecificHeatCapacityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcSpecularExponent;
-
-    /**
-     */
-    typedef Step::Real IfcSpecularRoughness;
-
-    /**
-     */
-    typedef Step::Real IfcTemperatureGradientMeasure;
-
-    /**
-     */
-    typedef Step::String IfcText;
-
-    /**
-     */
-    typedef Step::List< IfcText, 1 > List_IfcText_1_n;
-
-    /**
-     */
-    typedef Step::String IfcTextAlignment;
-
-    /**
-     */
-    typedef Step::String IfcTextDecoration;
-
-    /**
-     */
-    typedef Step::String IfcTextFontName;
-
-    /**
-     */
-    typedef Step::List< IfcTextFontName, 1 > List_IfcTextFontName_1_n;
-
-    /**
-     */
-    typedef Step::String IfcTextTransformation;
-
-    /**
-     */
-    typedef Step::Real IfcThermalAdmittanceMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcThermalConductivityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcThermalExpansionCoefficientMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcThermalResistanceMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcThermalTransmittanceMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcThermodynamicTemperatureMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcTimeMeasure;
-
-    /**
-     */
-    typedef Step::Integer IfcTimeStamp;
-
-    /**
-     */
-    typedef Step::Real IfcTorqueMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcVaporPermeabilityMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcVolumeMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcVolumetricFlowRateMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcWarpingConstantMeasure;
-
-    /**
-     */
-    typedef Step::Real IfcWarpingMomentMeasure;
-
-    /**
-     */
-    typedef Step::Integer IfcYearNumber;
-
-/**
- */
-enum IfcActionSourceTypeEnum {
+namespace ifc2x3
+{
+    enum  IfcActionSourceTypeEnum 
+    {
         IfcActionSourceTypeEnum_UNSET,
         IfcActionSourceTypeEnum_DEAD_LOAD_G,
         IfcActionSourceTypeEnum_COMPLETION_G1,
@@ -555,23 +66,19 @@ enum IfcActionSourceTypeEnum {
         IfcActionSourceTypeEnum_RAIN,
         IfcActionSourceTypeEnum_BRAKES,
         IfcActionSourceTypeEnum_USERDEFINED,
-        IfcActionSourceTypeEnum_NOTDEFINED,
+        IfcActionSourceTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcActionTypeEnum {
+    enum  IfcActionTypeEnum 
+    {
         IfcActionTypeEnum_UNSET,
         IfcActionTypeEnum_PERMANENT_G,
         IfcActionTypeEnum_VARIABLE_Q,
         IfcActionTypeEnum_EXTRAORDINARY_A,
         IfcActionTypeEnum_USERDEFINED,
-        IfcActionTypeEnum_NOTDEFINED,
+        IfcActionTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcActuatorTypeEnum {
+    enum  IfcActuatorTypeEnum 
+    {
         IfcActuatorTypeEnum_UNSET,
         IfcActuatorTypeEnum_ELECTRICACTUATOR,
         IfcActuatorTypeEnum_HANDOPERATEDACTUATOR,
@@ -579,42 +86,34 @@ enum IfcActuatorTypeEnum {
         IfcActuatorTypeEnum_PNEUMATICACTUATOR,
         IfcActuatorTypeEnum_THERMOSTATICACTUATOR,
         IfcActuatorTypeEnum_USERDEFINED,
-        IfcActuatorTypeEnum_NOTDEFINED,
+        IfcActuatorTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcAddressTypeEnum {
+    enum  IfcAddressTypeEnum 
+    {
         IfcAddressTypeEnum_UNSET,
         IfcAddressTypeEnum_OFFICE,
         IfcAddressTypeEnum_SITE,
         IfcAddressTypeEnum_HOME,
         IfcAddressTypeEnum_DISTRIBUTIONPOINT,
-        IfcAddressTypeEnum_USERDEFINED,
+        IfcAddressTypeEnum_USERDEFINED
     };
-
-/**
- */
-enum IfcAheadOrBehind {
+    enum  IfcAheadOrBehind 
+    {
         IfcAheadOrBehind_UNSET,
         IfcAheadOrBehind_AHEAD,
-        IfcAheadOrBehind_BEHIND,
+        IfcAheadOrBehind_BEHIND
     };
-
-/**
- */
-enum IfcAirTerminalBoxTypeEnum {
+    enum  IfcAirTerminalBoxTypeEnum 
+    {
         IfcAirTerminalBoxTypeEnum_UNSET,
         IfcAirTerminalBoxTypeEnum_CONSTANTFLOW,
         IfcAirTerminalBoxTypeEnum_VARIABLEFLOWPRESSUREDEPENDANT,
         IfcAirTerminalBoxTypeEnum_VARIABLEFLOWPRESSUREINDEPENDANT,
         IfcAirTerminalBoxTypeEnum_USERDEFINED,
-        IfcAirTerminalBoxTypeEnum_NOTDEFINED,
+        IfcAirTerminalBoxTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcAirTerminalTypeEnum {
+    enum  IfcAirTerminalTypeEnum 
+    {
         IfcAirTerminalTypeEnum_UNSET,
         IfcAirTerminalTypeEnum_GRILLE,
         IfcAirTerminalTypeEnum_REGISTER,
@@ -624,12 +123,10 @@ enum IfcAirTerminalTypeEnum {
         IfcAirTerminalTypeEnum_LINEARGRILLE,
         IfcAirTerminalTypeEnum_LINEARDIFFUSER,
         IfcAirTerminalTypeEnum_USERDEFINED,
-        IfcAirTerminalTypeEnum_NOTDEFINED,
+        IfcAirTerminalTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcAirToAirHeatRecoveryTypeEnum {
+    enum  IfcAirToAirHeatRecoveryTypeEnum 
+    {
         IfcAirToAirHeatRecoveryTypeEnum_UNSET,
         IfcAirToAirHeatRecoveryTypeEnum_FIXEDPLATECOUNTERFLOWEXCHANGER,
         IfcAirToAirHeatRecoveryTypeEnum_FIXEDPLATECROSSFLOWEXCHANGER,
@@ -641,12 +138,10 @@ enum IfcAirToAirHeatRecoveryTypeEnum {
         IfcAirToAirHeatRecoveryTypeEnum_THERMOSIPHONSEALEDTUBEHEATEXCHANGERS,
         IfcAirToAirHeatRecoveryTypeEnum_THERMOSIPHONCOILTYPEHEATEXCHANGERS,
         IfcAirToAirHeatRecoveryTypeEnum_USERDEFINED,
-        IfcAirToAirHeatRecoveryTypeEnum_NOTDEFINED,
+        IfcAirToAirHeatRecoveryTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcAlarmTypeEnum {
+    enum  IfcAlarmTypeEnum 
+    {
         IfcAlarmTypeEnum_UNSET,
         IfcAlarmTypeEnum_BELL,
         IfcAlarmTypeEnum_BREAKGLASSBUTTON,
@@ -655,174 +150,142 @@ enum IfcAlarmTypeEnum {
         IfcAlarmTypeEnum_SIREN,
         IfcAlarmTypeEnum_WHISTLE,
         IfcAlarmTypeEnum_USERDEFINED,
-        IfcAlarmTypeEnum_NOTDEFINED,
+        IfcAlarmTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcAnalysisModelTypeEnum {
+    enum  IfcAnalysisModelTypeEnum 
+    {
         IfcAnalysisModelTypeEnum_UNSET,
         IfcAnalysisModelTypeEnum_IN_PLANE_LOADING_2D,
         IfcAnalysisModelTypeEnum_OUT_PLANE_LOADING_2D,
         IfcAnalysisModelTypeEnum_LOADING_3D,
         IfcAnalysisModelTypeEnum_USERDEFINED,
-        IfcAnalysisModelTypeEnum_NOTDEFINED,
+        IfcAnalysisModelTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcAnalysisTheoryTypeEnum {
+    enum  IfcAnalysisTheoryTypeEnum 
+    {
         IfcAnalysisTheoryTypeEnum_UNSET,
         IfcAnalysisTheoryTypeEnum_FIRST_ORDER_THEORY,
         IfcAnalysisTheoryTypeEnum_SECOND_ORDER_THEORY,
         IfcAnalysisTheoryTypeEnum_THIRD_ORDER_THEORY,
         IfcAnalysisTheoryTypeEnum_FULL_NONLINEAR_THEORY,
         IfcAnalysisTheoryTypeEnum_USERDEFINED,
-        IfcAnalysisTheoryTypeEnum_NOTDEFINED,
+        IfcAnalysisTheoryTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcArithmeticOperatorEnum {
+    enum  IfcArithmeticOperatorEnum 
+    {
         IfcArithmeticOperatorEnum_UNSET,
         IfcArithmeticOperatorEnum_ADD,
         IfcArithmeticOperatorEnum_DIVIDE,
         IfcArithmeticOperatorEnum_MULTIPLY,
-        IfcArithmeticOperatorEnum_SUBTRACT,
+        IfcArithmeticOperatorEnum_SUBTRACT
     };
-
-/**
- */
-enum IfcAssemblyPlaceEnum {
+    enum  IfcAssemblyPlaceEnum 
+    {
         IfcAssemblyPlaceEnum_UNSET,
         IfcAssemblyPlaceEnum_SITE,
         IfcAssemblyPlaceEnum_FACTORY,
-        IfcAssemblyPlaceEnum_NOTDEFINED,
+        IfcAssemblyPlaceEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcBSplineCurveForm {
+    enum  IfcBSplineCurveForm 
+    {
         IfcBSplineCurveForm_UNSET,
         IfcBSplineCurveForm_POLYLINE_FORM,
         IfcBSplineCurveForm_CIRCULAR_ARC,
         IfcBSplineCurveForm_ELLIPTIC_ARC,
         IfcBSplineCurveForm_PARABOLIC_ARC,
         IfcBSplineCurveForm_HYPERBOLIC_ARC,
-        IfcBSplineCurveForm_UNSPECIFIED,
+        IfcBSplineCurveForm_UNSPECIFIED
     };
-
-/**
- */
-enum IfcBeamTypeEnum {
+    enum  IfcBeamTypeEnum 
+    {
         IfcBeamTypeEnum_UNSET,
         IfcBeamTypeEnum_BEAM,
         IfcBeamTypeEnum_JOIST,
         IfcBeamTypeEnum_LINTEL,
         IfcBeamTypeEnum_T_BEAM,
         IfcBeamTypeEnum_USERDEFINED,
-        IfcBeamTypeEnum_NOTDEFINED,
+        IfcBeamTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcBenchmarkEnum {
+    enum  IfcBenchmarkEnum 
+    {
         IfcBenchmarkEnum_UNSET,
         IfcBenchmarkEnum_GREATERTHAN,
         IfcBenchmarkEnum_GREATERTHANOREQUALTO,
         IfcBenchmarkEnum_LESSTHAN,
         IfcBenchmarkEnum_LESSTHANOREQUALTO,
         IfcBenchmarkEnum_EQUALTO,
-        IfcBenchmarkEnum_NOTEQUALTO,
+        IfcBenchmarkEnum_NOTEQUALTO
     };
-
-/**
- */
-enum IfcBoilerTypeEnum {
+    enum  IfcBoilerTypeEnum 
+    {
         IfcBoilerTypeEnum_UNSET,
         IfcBoilerTypeEnum_WATER,
         IfcBoilerTypeEnum_STEAM,
         IfcBoilerTypeEnum_USERDEFINED,
-        IfcBoilerTypeEnum_NOTDEFINED,
+        IfcBoilerTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcBooleanOperator {
+    enum  IfcBooleanOperator 
+    {
         IfcBooleanOperator_UNSET,
         IfcBooleanOperator_UNION,
         IfcBooleanOperator_INTERSECTION,
-        IfcBooleanOperator_DIFFERENCE,
+        IfcBooleanOperator_DIFFERENCE
     };
-
-/**
- */
-enum IfcBuildingElementProxyTypeEnum {
+    enum  IfcBuildingElementProxyTypeEnum 
+    {
         IfcBuildingElementProxyTypeEnum_UNSET,
         IfcBuildingElementProxyTypeEnum_USERDEFINED,
-        IfcBuildingElementProxyTypeEnum_NOTDEFINED,
+        IfcBuildingElementProxyTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcCableCarrierFittingTypeEnum {
+    enum  IfcCableCarrierFittingTypeEnum 
+    {
         IfcCableCarrierFittingTypeEnum_UNSET,
         IfcCableCarrierFittingTypeEnum_BEND,
         IfcCableCarrierFittingTypeEnum_CROSS,
         IfcCableCarrierFittingTypeEnum_REDUCER,
         IfcCableCarrierFittingTypeEnum_TEE,
         IfcCableCarrierFittingTypeEnum_USERDEFINED,
-        IfcCableCarrierFittingTypeEnum_NOTDEFINED,
+        IfcCableCarrierFittingTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcCableCarrierSegmentTypeEnum {
+    enum  IfcCableCarrierSegmentTypeEnum 
+    {
         IfcCableCarrierSegmentTypeEnum_UNSET,
         IfcCableCarrierSegmentTypeEnum_CABLELADDERSEGMENT,
         IfcCableCarrierSegmentTypeEnum_CABLETRAYSEGMENT,
         IfcCableCarrierSegmentTypeEnum_CABLETRUNKINGSEGMENT,
         IfcCableCarrierSegmentTypeEnum_CONDUITSEGMENT,
         IfcCableCarrierSegmentTypeEnum_USERDEFINED,
-        IfcCableCarrierSegmentTypeEnum_NOTDEFINED,
+        IfcCableCarrierSegmentTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcCableSegmentTypeEnum {
+    enum  IfcCableSegmentTypeEnum 
+    {
         IfcCableSegmentTypeEnum_UNSET,
         IfcCableSegmentTypeEnum_CABLESEGMENT,
         IfcCableSegmentTypeEnum_CONDUCTORSEGMENT,
         IfcCableSegmentTypeEnum_USERDEFINED,
-        IfcCableSegmentTypeEnum_NOTDEFINED,
+        IfcCableSegmentTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcChangeActionEnum {
+    enum  IfcChangeActionEnum 
+    {
         IfcChangeActionEnum_UNSET,
         IfcChangeActionEnum_NOCHANGE,
         IfcChangeActionEnum_MODIFIED,
         IfcChangeActionEnum_ADDED,
         IfcChangeActionEnum_DELETED,
         IfcChangeActionEnum_MODIFIEDADDED,
-        IfcChangeActionEnum_MODIFIEDDELETED,
+        IfcChangeActionEnum_MODIFIEDDELETED
     };
-
-/**
- */
-enum IfcChillerTypeEnum {
+    enum  IfcChillerTypeEnum 
+    {
         IfcChillerTypeEnum_UNSET,
         IfcChillerTypeEnum_AIRCOOLED,
         IfcChillerTypeEnum_WATERCOOLED,
         IfcChillerTypeEnum_HEATRECOVERY,
         IfcChillerTypeEnum_USERDEFINED,
-        IfcChillerTypeEnum_NOTDEFINED,
+        IfcChillerTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcCoilTypeEnum {
+    enum  IfcCoilTypeEnum 
+    {
         IfcCoilTypeEnum_UNSET,
         IfcCoilTypeEnum_DXCOOLINGCOIL,
         IfcCoilTypeEnum_WATERCOOLINGCOIL,
@@ -831,21 +294,17 @@ enum IfcCoilTypeEnum {
         IfcCoilTypeEnum_ELECTRICHEATINGCOIL,
         IfcCoilTypeEnum_GASHEATINGCOIL,
         IfcCoilTypeEnum_USERDEFINED,
-        IfcCoilTypeEnum_NOTDEFINED,
+        IfcCoilTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcColumnTypeEnum {
+    enum  IfcColumnTypeEnum 
+    {
         IfcColumnTypeEnum_UNSET,
         IfcColumnTypeEnum_COLUMN,
         IfcColumnTypeEnum_USERDEFINED,
-        IfcColumnTypeEnum_NOTDEFINED,
+        IfcColumnTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcCompressorTypeEnum {
+    enum  IfcCompressorTypeEnum 
+    {
         IfcCompressorTypeEnum_UNSET,
         IfcCompressorTypeEnum_DYNAMIC,
         IfcCompressorTypeEnum_RECIPROCATING,
@@ -863,12 +322,10 @@ enum IfcCompressorTypeEnum {
         IfcCompressorTypeEnum_SINGLESCREW,
         IfcCompressorTypeEnum_TWINSCREW,
         IfcCompressorTypeEnum_USERDEFINED,
-        IfcCompressorTypeEnum_NOTDEFINED,
+        IfcCompressorTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcCondenserTypeEnum {
+    enum  IfcCondenserTypeEnum 
+    {
         IfcCondenserTypeEnum_UNSET,
         IfcCondenserTypeEnum_WATERCOOLEDSHELLTUBE,
         IfcCondenserTypeEnum_WATERCOOLEDSHELLCOIL,
@@ -877,33 +334,27 @@ enum IfcCondenserTypeEnum {
         IfcCondenserTypeEnum_AIRCOOLED,
         IfcCondenserTypeEnum_EVAPORATIVECOOLED,
         IfcCondenserTypeEnum_USERDEFINED,
-        IfcCondenserTypeEnum_NOTDEFINED,
+        IfcCondenserTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcConnectionTypeEnum {
+    enum  IfcConnectionTypeEnum 
+    {
         IfcConnectionTypeEnum_UNSET,
         IfcConnectionTypeEnum_ATPATH,
         IfcConnectionTypeEnum_ATSTART,
         IfcConnectionTypeEnum_ATEND,
-        IfcConnectionTypeEnum_NOTDEFINED,
+        IfcConnectionTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcConstraintEnum {
+    enum  IfcConstraintEnum 
+    {
         IfcConstraintEnum_UNSET,
         IfcConstraintEnum_HARD,
         IfcConstraintEnum_SOFT,
         IfcConstraintEnum_ADVISORY,
         IfcConstraintEnum_USERDEFINED,
-        IfcConstraintEnum_NOTDEFINED,
+        IfcConstraintEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcControllerTypeEnum {
+    enum  IfcControllerTypeEnum 
+    {
         IfcControllerTypeEnum_UNSET,
         IfcControllerTypeEnum_FLOATING,
         IfcControllerTypeEnum_PROPORTIONAL,
@@ -912,33 +363,27 @@ enum IfcControllerTypeEnum {
         IfcControllerTypeEnum_TIMEDTWOPOSITION,
         IfcControllerTypeEnum_TWOPOSITION,
         IfcControllerTypeEnum_USERDEFINED,
-        IfcControllerTypeEnum_NOTDEFINED,
+        IfcControllerTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcCooledBeamTypeEnum {
+    enum  IfcCooledBeamTypeEnum 
+    {
         IfcCooledBeamTypeEnum_UNSET,
         IfcCooledBeamTypeEnum_ACTIVE,
         IfcCooledBeamTypeEnum_PASSIVE,
         IfcCooledBeamTypeEnum_USERDEFINED,
-        IfcCooledBeamTypeEnum_NOTDEFINED,
+        IfcCooledBeamTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcCoolingTowerTypeEnum {
+    enum  IfcCoolingTowerTypeEnum 
+    {
         IfcCoolingTowerTypeEnum_UNSET,
         IfcCoolingTowerTypeEnum_NATURALDRAFT,
         IfcCoolingTowerTypeEnum_MECHANICALINDUCEDDRAFT,
         IfcCoolingTowerTypeEnum_MECHANICALFORCEDDRAFT,
         IfcCoolingTowerTypeEnum_USERDEFINED,
-        IfcCoolingTowerTypeEnum_NOTDEFINED,
+        IfcCoolingTowerTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcCostScheduleTypeEnum {
+    enum  IfcCostScheduleTypeEnum 
+    {
         IfcCostScheduleTypeEnum_UNSET,
         IfcCostScheduleTypeEnum_BUDGET,
         IfcCostScheduleTypeEnum_COSTPLAN,
@@ -948,12 +393,10 @@ enum IfcCostScheduleTypeEnum {
         IfcCostScheduleTypeEnum_UNPRICEDBILLOFQUANTITIES,
         IfcCostScheduleTypeEnum_SCHEDULEOFRATES,
         IfcCostScheduleTypeEnum_USERDEFINED,
-        IfcCostScheduleTypeEnum_NOTDEFINED,
+        IfcCostScheduleTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcCoveringTypeEnum {
+    enum  IfcCoveringTypeEnum 
+    {
         IfcCoveringTypeEnum_UNSET,
         IfcCoveringTypeEnum_CEILING,
         IfcCoveringTypeEnum_FLOORING,
@@ -964,12 +407,10 @@ enum IfcCoveringTypeEnum {
         IfcCoveringTypeEnum_SLEEVING,
         IfcCoveringTypeEnum_WRAPPING,
         IfcCoveringTypeEnum_USERDEFINED,
-        IfcCoveringTypeEnum_NOTDEFINED,
+        IfcCoveringTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcCurrencyEnum {
+    enum  IfcCurrencyEnum 
+    {
         IfcCurrencyEnum_UNSET,
         IfcCurrencyEnum_AED,
         IfcCurrencyEnum_AES,
@@ -1053,20 +494,16 @@ enum IfcCurrencyEnum {
         IfcCurrencyEnum_XEU,
         IfcCurrencyEnum_ZAR,
         IfcCurrencyEnum_ZWD,
-        IfcCurrencyEnum_NOK,
+        IfcCurrencyEnum_NOK
     };
-
-/**
- */
-enum IfcCurtainWallTypeEnum {
+    enum  IfcCurtainWallTypeEnum 
+    {
         IfcCurtainWallTypeEnum_UNSET,
         IfcCurtainWallTypeEnum_USERDEFINED,
-        IfcCurtainWallTypeEnum_NOTDEFINED,
+        IfcCurtainWallTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDamperTypeEnum {
+    enum  IfcDamperTypeEnum 
+    {
         IfcDamperTypeEnum_UNSET,
         IfcDamperTypeEnum_CONTROLDAMPER,
         IfcDamperTypeEnum_FIREDAMPER,
@@ -1080,23 +517,19 @@ enum IfcDamperTypeEnum {
         IfcDamperTypeEnum_BALANCINGDAMPER,
         IfcDamperTypeEnum_FUMEHOODEXHAUST,
         IfcDamperTypeEnum_USERDEFINED,
-        IfcDamperTypeEnum_NOTDEFINED,
+        IfcDamperTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDataOriginEnum {
+    enum  IfcDataOriginEnum 
+    {
         IfcDataOriginEnum_UNSET,
         IfcDataOriginEnum_MEASURED,
         IfcDataOriginEnum_PREDICTED,
         IfcDataOriginEnum_SIMULATED,
         IfcDataOriginEnum_USERDEFINED,
-        IfcDataOriginEnum_NOTDEFINED,
+        IfcDataOriginEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDerivedUnitEnum {
+    enum  IfcDerivedUnitEnum 
+    {
         IfcDerivedUnitEnum_UNSET,
         IfcDerivedUnitEnum_ANGULARVELOCITYUNIT,
         IfcDerivedUnitEnum_COMPOUNDPLANEANGLEUNIT,
@@ -1146,28 +579,22 @@ enum IfcDerivedUnitEnum {
         IfcDerivedUnitEnum_THERMALEXPANSIONCOEFFICIENTUNIT,
         IfcDerivedUnitEnum_WARPINGCONSTANTUNIT,
         IfcDerivedUnitEnum_WARPINGMOMENTUNIT,
-        IfcDerivedUnitEnum_USERDEFINED,
+        IfcDerivedUnitEnum_USERDEFINED
     };
-
-/**
- */
-enum IfcDimensionExtentUsage {
+    enum  IfcDimensionExtentUsage 
+    {
         IfcDimensionExtentUsage_UNSET,
         IfcDimensionExtentUsage_ORIGIN,
-        IfcDimensionExtentUsage_TARGET,
+        IfcDimensionExtentUsage_TARGET
     };
-
-/**
- */
-enum IfcDirectionSenseEnum {
+    enum  IfcDirectionSenseEnum 
+    {
         IfcDirectionSenseEnum_UNSET,
         IfcDirectionSenseEnum_POSITIVE,
-        IfcDirectionSenseEnum_NEGATIVE,
+        IfcDirectionSenseEnum_NEGATIVE
     };
-
-/**
- */
-enum IfcDistributionChamberElementTypeEnum {
+    enum  IfcDistributionChamberElementTypeEnum 
+    {
         IfcDistributionChamberElementTypeEnum_UNSET,
         IfcDistributionChamberElementTypeEnum_FORMEDDUCT,
         IfcDistributionChamberElementTypeEnum_INSPECTIONCHAMBER,
@@ -1178,35 +605,29 @@ enum IfcDistributionChamberElementTypeEnum {
         IfcDistributionChamberElementTypeEnum_TRENCH,
         IfcDistributionChamberElementTypeEnum_VALVECHAMBER,
         IfcDistributionChamberElementTypeEnum_USERDEFINED,
-        IfcDistributionChamberElementTypeEnum_NOTDEFINED,
+        IfcDistributionChamberElementTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDocumentConfidentialityEnum {
+    enum  IfcDocumentConfidentialityEnum 
+    {
         IfcDocumentConfidentialityEnum_UNSET,
         IfcDocumentConfidentialityEnum_PUBLIC,
         IfcDocumentConfidentialityEnum_RESTRICTED,
         IfcDocumentConfidentialityEnum_CONFIDENTIAL,
         IfcDocumentConfidentialityEnum_PERSONAL,
         IfcDocumentConfidentialityEnum_USERDEFINED,
-        IfcDocumentConfidentialityEnum_NOTDEFINED,
+        IfcDocumentConfidentialityEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDocumentStatusEnum {
+    enum  IfcDocumentStatusEnum 
+    {
         IfcDocumentStatusEnum_UNSET,
         IfcDocumentStatusEnum_DRAFT,
         IfcDocumentStatusEnum_FINALDRAFT,
         IfcDocumentStatusEnum_FINAL,
         IfcDocumentStatusEnum_REVISION,
-        IfcDocumentStatusEnum_NOTDEFINED,
+        IfcDocumentStatusEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDoorPanelOperationEnum {
+    enum  IfcDoorPanelOperationEnum 
+    {
         IfcDoorPanelOperationEnum_UNSET,
         IfcDoorPanelOperationEnum_SWINGING,
         IfcDoorPanelOperationEnum_DOUBLE_ACTING,
@@ -1215,22 +636,18 @@ enum IfcDoorPanelOperationEnum {
         IfcDoorPanelOperationEnum_REVOLVING,
         IfcDoorPanelOperationEnum_ROLLINGUP,
         IfcDoorPanelOperationEnum_USERDEFINED,
-        IfcDoorPanelOperationEnum_NOTDEFINED,
+        IfcDoorPanelOperationEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDoorPanelPositionEnum {
+    enum  IfcDoorPanelPositionEnum 
+    {
         IfcDoorPanelPositionEnum_UNSET,
         IfcDoorPanelPositionEnum_LEFT,
         IfcDoorPanelPositionEnum_MIDDLE,
         IfcDoorPanelPositionEnum_RIGHT,
-        IfcDoorPanelPositionEnum_NOTDEFINED,
+        IfcDoorPanelPositionEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDoorStyleConstructionEnum {
+    enum  IfcDoorStyleConstructionEnum 
+    {
         IfcDoorStyleConstructionEnum_UNSET,
         IfcDoorStyleConstructionEnum_ALUMINIUM,
         IfcDoorStyleConstructionEnum_HIGH_GRADE_STEEL,
@@ -1240,12 +657,10 @@ enum IfcDoorStyleConstructionEnum {
         IfcDoorStyleConstructionEnum_ALUMINIUM_PLASTIC,
         IfcDoorStyleConstructionEnum_PLASTIC,
         IfcDoorStyleConstructionEnum_USERDEFINED,
-        IfcDoorStyleConstructionEnum_NOTDEFINED,
+        IfcDoorStyleConstructionEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDoorStyleOperationEnum {
+    enum  IfcDoorStyleOperationEnum 
+    {
         IfcDoorStyleOperationEnum_UNSET,
         IfcDoorStyleOperationEnum_SINGLE_SWING_LEFT,
         IfcDoorStyleOperationEnum_SINGLE_SWING_RIGHT,
@@ -1264,12 +679,10 @@ enum IfcDoorStyleOperationEnum {
         IfcDoorStyleOperationEnum_REVOLVING,
         IfcDoorStyleOperationEnum_ROLLINGUP,
         IfcDoorStyleOperationEnum_USERDEFINED,
-        IfcDoorStyleOperationEnum_NOTDEFINED,
+        IfcDoorStyleOperationEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDuctFittingTypeEnum {
+    enum  IfcDuctFittingTypeEnum 
+    {
         IfcDuctFittingTypeEnum_UNSET,
         IfcDuctFittingTypeEnum_BEND,
         IfcDuctFittingTypeEnum_CONNECTOR,
@@ -1279,33 +692,27 @@ enum IfcDuctFittingTypeEnum {
         IfcDuctFittingTypeEnum_OBSTRUCTION,
         IfcDuctFittingTypeEnum_TRANSITION,
         IfcDuctFittingTypeEnum_USERDEFINED,
-        IfcDuctFittingTypeEnum_NOTDEFINED,
+        IfcDuctFittingTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDuctSegmentTypeEnum {
+    enum  IfcDuctSegmentTypeEnum 
+    {
         IfcDuctSegmentTypeEnum_UNSET,
         IfcDuctSegmentTypeEnum_RIGIDSEGMENT,
         IfcDuctSegmentTypeEnum_FLEXIBLESEGMENT,
         IfcDuctSegmentTypeEnum_USERDEFINED,
-        IfcDuctSegmentTypeEnum_NOTDEFINED,
+        IfcDuctSegmentTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcDuctSilencerTypeEnum {
+    enum  IfcDuctSilencerTypeEnum 
+    {
         IfcDuctSilencerTypeEnum_UNSET,
         IfcDuctSilencerTypeEnum_FLATOVAL,
         IfcDuctSilencerTypeEnum_RECTANGULAR,
         IfcDuctSilencerTypeEnum_ROUND,
         IfcDuctSilencerTypeEnum_USERDEFINED,
-        IfcDuctSilencerTypeEnum_NOTDEFINED,
+        IfcDuctSilencerTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcElectricApplianceTypeEnum {
+    enum  IfcElectricApplianceTypeEnum 
+    {
         IfcElectricApplianceTypeEnum_UNSET,
         IfcElectricApplianceTypeEnum_COMPUTER,
         IfcElectricApplianceTypeEnum_DIRECTWATERHEATER,
@@ -1332,21 +739,17 @@ enum IfcElectricApplianceTypeEnum {
         IfcElectricApplianceTypeEnum_WATERHEATER,
         IfcElectricApplianceTypeEnum_WATERCOOLER,
         IfcElectricApplianceTypeEnum_USERDEFINED,
-        IfcElectricApplianceTypeEnum_NOTDEFINED,
+        IfcElectricApplianceTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcElectricCurrentEnum {
+    enum  IfcElectricCurrentEnum 
+    {
         IfcElectricCurrentEnum_UNSET,
         IfcElectricCurrentEnum_ALTERNATING,
         IfcElectricCurrentEnum_DIRECT,
-        IfcElectricCurrentEnum_NOTDEFINED,
+        IfcElectricCurrentEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcElectricDistributionPointFunctionEnum {
+    enum  IfcElectricDistributionPointFunctionEnum 
+    {
         IfcElectricDistributionPointFunctionEnum_UNSET,
         IfcElectricDistributionPointFunctionEnum_ALARMPANEL,
         IfcElectricDistributionPointFunctionEnum_CONSUMERUNIT,
@@ -1358,12 +761,10 @@ enum IfcElectricDistributionPointFunctionEnum {
         IfcElectricDistributionPointFunctionEnum_MOTORCONTROLCENTRE,
         IfcElectricDistributionPointFunctionEnum_SWITCHBOARD,
         IfcElectricDistributionPointFunctionEnum_USERDEFINED,
-        IfcElectricDistributionPointFunctionEnum_NOTDEFINED,
+        IfcElectricDistributionPointFunctionEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcElectricFlowStorageDeviceTypeEnum {
+    enum  IfcElectricFlowStorageDeviceTypeEnum 
+    {
         IfcElectricFlowStorageDeviceTypeEnum_UNSET,
         IfcElectricFlowStorageDeviceTypeEnum_BATTERY,
         IfcElectricFlowStorageDeviceTypeEnum_CAPACITORBANK,
@@ -1371,31 +772,25 @@ enum IfcElectricFlowStorageDeviceTypeEnum {
         IfcElectricFlowStorageDeviceTypeEnum_INDUCTORBANK,
         IfcElectricFlowStorageDeviceTypeEnum_UPS,
         IfcElectricFlowStorageDeviceTypeEnum_USERDEFINED,
-        IfcElectricFlowStorageDeviceTypeEnum_NOTDEFINED,
+        IfcElectricFlowStorageDeviceTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcElectricGeneratorTypeEnum {
+    enum  IfcElectricGeneratorTypeEnum 
+    {
         IfcElectricGeneratorTypeEnum_UNSET,
         IfcElectricGeneratorTypeEnum_USERDEFINED,
-        IfcElectricGeneratorTypeEnum_NOTDEFINED,
+        IfcElectricGeneratorTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcElectricHeaterTypeEnum {
+    enum  IfcElectricHeaterTypeEnum 
+    {
         IfcElectricHeaterTypeEnum_UNSET,
         IfcElectricHeaterTypeEnum_ELECTRICPOINTHEATER,
         IfcElectricHeaterTypeEnum_ELECTRICCABLEHEATER,
         IfcElectricHeaterTypeEnum_ELECTRICMATHEATER,
         IfcElectricHeaterTypeEnum_USERDEFINED,
-        IfcElectricHeaterTypeEnum_NOTDEFINED,
+        IfcElectricHeaterTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcElectricMotorTypeEnum {
+    enum  IfcElectricMotorTypeEnum 
+    {
         IfcElectricMotorTypeEnum_UNSET,
         IfcElectricMotorTypeEnum_DC,
         IfcElectricMotorTypeEnum_INDUCTION,
@@ -1403,23 +798,19 @@ enum IfcElectricMotorTypeEnum {
         IfcElectricMotorTypeEnum_RELUCTANCESYNCHRONOUS,
         IfcElectricMotorTypeEnum_SYNCHRONOUS,
         IfcElectricMotorTypeEnum_USERDEFINED,
-        IfcElectricMotorTypeEnum_NOTDEFINED,
+        IfcElectricMotorTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcElectricTimeControlTypeEnum {
+    enum  IfcElectricTimeControlTypeEnum 
+    {
         IfcElectricTimeControlTypeEnum_UNSET,
         IfcElectricTimeControlTypeEnum_TIMECLOCK,
         IfcElectricTimeControlTypeEnum_TIMEDELAY,
         IfcElectricTimeControlTypeEnum_RELAY,
         IfcElectricTimeControlTypeEnum_USERDEFINED,
-        IfcElectricTimeControlTypeEnum_NOTDEFINED,
+        IfcElectricTimeControlTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcElementAssemblyTypeEnum {
+    enum  IfcElementAssemblyTypeEnum 
+    {
         IfcElementAssemblyTypeEnum_UNSET,
         IfcElementAssemblyTypeEnum_ACCESSORY_ASSEMBLY,
         IfcElementAssemblyTypeEnum_ARCH,
@@ -1431,33 +822,27 @@ enum IfcElementAssemblyTypeEnum {
         IfcElementAssemblyTypeEnum_SLAB_FIELD,
         IfcElementAssemblyTypeEnum_TRUSS,
         IfcElementAssemblyTypeEnum_USERDEFINED,
-        IfcElementAssemblyTypeEnum_NOTDEFINED,
+        IfcElementAssemblyTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcElementCompositionEnum {
+    enum  IfcElementCompositionEnum 
+    {
         IfcElementCompositionEnum_UNSET,
         IfcElementCompositionEnum_COMPLEX,
         IfcElementCompositionEnum_ELEMENT,
-        IfcElementCompositionEnum_PARTIAL,
+        IfcElementCompositionEnum_PARTIAL
     };
-
-/**
- */
-enum IfcEnergySequenceEnum {
+    enum  IfcEnergySequenceEnum 
+    {
         IfcEnergySequenceEnum_UNSET,
         IfcEnergySequenceEnum_PRIMARY,
         IfcEnergySequenceEnum_SECONDARY,
         IfcEnergySequenceEnum_TERTIARY,
         IfcEnergySequenceEnum_AUXILIARY,
         IfcEnergySequenceEnum_USERDEFINED,
-        IfcEnergySequenceEnum_NOTDEFINED,
+        IfcEnergySequenceEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcEnvironmentalImpactCategoryEnum {
+    enum  IfcEnvironmentalImpactCategoryEnum 
+    {
         IfcEnvironmentalImpactCategoryEnum_UNSET,
         IfcEnvironmentalImpactCategoryEnum_COMBINEDVALUE,
         IfcEnvironmentalImpactCategoryEnum_DISPOSAL,
@@ -1466,12 +851,10 @@ enum IfcEnvironmentalImpactCategoryEnum {
         IfcEnvironmentalImpactCategoryEnum_MANUFACTURE,
         IfcEnvironmentalImpactCategoryEnum_TRANSPORTATION,
         IfcEnvironmentalImpactCategoryEnum_USERDEFINED,
-        IfcEnvironmentalImpactCategoryEnum_NOTDEFINED,
+        IfcEnvironmentalImpactCategoryEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcEvaporativeCoolerTypeEnum {
+    enum  IfcEvaporativeCoolerTypeEnum 
+    {
         IfcEvaporativeCoolerTypeEnum_UNSET,
         IfcEvaporativeCoolerTypeEnum_DIRECTEVAPORATIVERANDOMMEDIAAIRCOOLER,
         IfcEvaporativeCoolerTypeEnum_DIRECTEVAPORATIVERIGIDMEDIAAIRCOOLER,
@@ -1483,12 +866,10 @@ enum IfcEvaporativeCoolerTypeEnum {
         IfcEvaporativeCoolerTypeEnum_INDIRECTEVAPORATIVECOOLINGTOWERORCOILCOOLER,
         IfcEvaporativeCoolerTypeEnum_INDIRECTDIRECTCOMBINATION,
         IfcEvaporativeCoolerTypeEnum_USERDEFINED,
-        IfcEvaporativeCoolerTypeEnum_NOTDEFINED,
+        IfcEvaporativeCoolerTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcEvaporatorTypeEnum {
+    enum  IfcEvaporatorTypeEnum 
+    {
         IfcEvaporatorTypeEnum_UNSET,
         IfcEvaporatorTypeEnum_DIRECTEXPANSIONSHELLANDTUBE,
         IfcEvaporatorTypeEnum_DIRECTEXPANSIONTUBEINTUBE,
@@ -1496,12 +877,10 @@ enum IfcEvaporatorTypeEnum {
         IfcEvaporatorTypeEnum_FLOODEDSHELLANDTUBE,
         IfcEvaporatorTypeEnum_SHELLANDCOIL,
         IfcEvaporatorTypeEnum_USERDEFINED,
-        IfcEvaporatorTypeEnum_NOTDEFINED,
+        IfcEvaporatorTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcFanTypeEnum {
+    enum  IfcFanTypeEnum 
+    {
         IfcFanTypeEnum_UNSET,
         IfcFanTypeEnum_CENTRIFUGALFORWARDCURVED,
         IfcFanTypeEnum_CENTRIFUGALRADIAL,
@@ -1511,12 +890,10 @@ enum IfcFanTypeEnum {
         IfcFanTypeEnum_VANEAXIAL,
         IfcFanTypeEnum_PROPELLORAXIAL,
         IfcFanTypeEnum_USERDEFINED,
-        IfcFanTypeEnum_NOTDEFINED,
+        IfcFanTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcFilterTypeEnum {
+    enum  IfcFilterTypeEnum 
+    {
         IfcFilterTypeEnum_UNSET,
         IfcFilterTypeEnum_AIRPARTICLEFILTER,
         IfcFilterTypeEnum_ODORFILTER,
@@ -1524,12 +901,10 @@ enum IfcFilterTypeEnum {
         IfcFilterTypeEnum_STRAINER,
         IfcFilterTypeEnum_WATERFILTER,
         IfcFilterTypeEnum_USERDEFINED,
-        IfcFilterTypeEnum_NOTDEFINED,
+        IfcFilterTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcFireSuppressionTerminalTypeEnum {
+    enum  IfcFireSuppressionTerminalTypeEnum 
+    {
         IfcFireSuppressionTerminalTypeEnum_UNSET,
         IfcFireSuppressionTerminalTypeEnum_BREECHINGINLET,
         IfcFireSuppressionTerminalTypeEnum_FIREHYDRANT,
@@ -1537,22 +912,18 @@ enum IfcFireSuppressionTerminalTypeEnum {
         IfcFireSuppressionTerminalTypeEnum_SPRINKLER,
         IfcFireSuppressionTerminalTypeEnum_SPRINKLERDEFLECTOR,
         IfcFireSuppressionTerminalTypeEnum_USERDEFINED,
-        IfcFireSuppressionTerminalTypeEnum_NOTDEFINED,
+        IfcFireSuppressionTerminalTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcFlowDirectionEnum {
+    enum  IfcFlowDirectionEnum 
+    {
         IfcFlowDirectionEnum_UNSET,
         IfcFlowDirectionEnum_SOURCE,
         IfcFlowDirectionEnum_SINK,
         IfcFlowDirectionEnum_SOURCEANDSINK,
-        IfcFlowDirectionEnum_NOTDEFINED,
+        IfcFlowDirectionEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcFlowInstrumentTypeEnum {
+    enum  IfcFlowInstrumentTypeEnum 
+    {
         IfcFlowInstrumentTypeEnum_UNSET,
         IfcFlowInstrumentTypeEnum_PRESSUREGAUGE,
         IfcFlowInstrumentTypeEnum_THERMOMETER,
@@ -1563,12 +934,10 @@ enum IfcFlowInstrumentTypeEnum {
         IfcFlowInstrumentTypeEnum_VOLTMETER_PEAK,
         IfcFlowInstrumentTypeEnum_VOLTMETER_RMS,
         IfcFlowInstrumentTypeEnum_USERDEFINED,
-        IfcFlowInstrumentTypeEnum_NOTDEFINED,
+        IfcFlowInstrumentTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcFlowMeterTypeEnum {
+    enum  IfcFlowMeterTypeEnum 
+    {
         IfcFlowMeterTypeEnum_UNSET,
         IfcFlowMeterTypeEnum_ELECTRICMETER,
         IfcFlowMeterTypeEnum_ENERGYMETER,
@@ -1577,35 +946,29 @@ enum IfcFlowMeterTypeEnum {
         IfcFlowMeterTypeEnum_OILMETER,
         IfcFlowMeterTypeEnum_WATERMETER,
         IfcFlowMeterTypeEnum_USERDEFINED,
-        IfcFlowMeterTypeEnum_NOTDEFINED,
+        IfcFlowMeterTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcFootingTypeEnum {
+    enum  IfcFootingTypeEnum 
+    {
         IfcFootingTypeEnum_UNSET,
         IfcFootingTypeEnum_FOOTING_BEAM,
         IfcFootingTypeEnum_PAD_FOOTING,
         IfcFootingTypeEnum_PILE_CAP,
         IfcFootingTypeEnum_STRIP_FOOTING,
         IfcFootingTypeEnum_USERDEFINED,
-        IfcFootingTypeEnum_NOTDEFINED,
+        IfcFootingTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcGasTerminalTypeEnum {
+    enum  IfcGasTerminalTypeEnum 
+    {
         IfcGasTerminalTypeEnum_UNSET,
         IfcGasTerminalTypeEnum_GASAPPLIANCE,
         IfcGasTerminalTypeEnum_GASBOOSTER,
         IfcGasTerminalTypeEnum_GASBURNER,
         IfcGasTerminalTypeEnum_USERDEFINED,
-        IfcGasTerminalTypeEnum_NOTDEFINED,
+        IfcGasTerminalTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcGeometricProjectionEnum {
+    enum  IfcGeometricProjectionEnum 
+    {
         IfcGeometricProjectionEnum_UNSET,
         IfcGeometricProjectionEnum_GRAPH_VIEW,
         IfcGeometricProjectionEnum_SKETCH_VIEW,
@@ -1615,30 +978,24 @@ enum IfcGeometricProjectionEnum {
         IfcGeometricProjectionEnum_SECTION_VIEW,
         IfcGeometricProjectionEnum_ELEVATION_VIEW,
         IfcGeometricProjectionEnum_USERDEFINED,
-        IfcGeometricProjectionEnum_NOTDEFINED,
+        IfcGeometricProjectionEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcGlobalOrLocalEnum {
+    enum  IfcGlobalOrLocalEnum 
+    {
         IfcGlobalOrLocalEnum_UNSET,
         IfcGlobalOrLocalEnum_GLOBAL_COORDS,
-        IfcGlobalOrLocalEnum_LOCAL_COORDS,
+        IfcGlobalOrLocalEnum_LOCAL_COORDS
     };
-
-/**
- */
-enum IfcHeatExchangerTypeEnum {
+    enum  IfcHeatExchangerTypeEnum 
+    {
         IfcHeatExchangerTypeEnum_UNSET,
         IfcHeatExchangerTypeEnum_PLATE,
         IfcHeatExchangerTypeEnum_SHELLANDTUBE,
         IfcHeatExchangerTypeEnum_USERDEFINED,
-        IfcHeatExchangerTypeEnum_NOTDEFINED,
+        IfcHeatExchangerTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcHumidifierTypeEnum {
+    enum  IfcHumidifierTypeEnum 
+    {
         IfcHumidifierTypeEnum_UNSET,
         IfcHumidifierTypeEnum_STEAMINJECTION,
         IfcHumidifierTypeEnum_ADIABATICAIRWASHER,
@@ -1654,40 +1011,32 @@ enum IfcHumidifierTypeEnum {
         IfcHumidifierTypeEnum_ASSISTEDBUTANE,
         IfcHumidifierTypeEnum_ASSISTEDSTEAM,
         IfcHumidifierTypeEnum_USERDEFINED,
-        IfcHumidifierTypeEnum_NOTDEFINED,
+        IfcHumidifierTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcInternalOrExternalEnum {
+    enum  IfcInternalOrExternalEnum 
+    {
         IfcInternalOrExternalEnum_UNSET,
         IfcInternalOrExternalEnum_INTERNAL,
         IfcInternalOrExternalEnum_EXTERNAL,
-        IfcInternalOrExternalEnum_NOTDEFINED,
+        IfcInternalOrExternalEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcInventoryTypeEnum {
+    enum  IfcInventoryTypeEnum 
+    {
         IfcInventoryTypeEnum_UNSET,
         IfcInventoryTypeEnum_ASSETINVENTORY,
         IfcInventoryTypeEnum_SPACEINVENTORY,
         IfcInventoryTypeEnum_FURNITUREINVENTORY,
         IfcInventoryTypeEnum_USERDEFINED,
-        IfcInventoryTypeEnum_NOTDEFINED,
+        IfcInventoryTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcJunctionBoxTypeEnum {
+    enum  IfcJunctionBoxTypeEnum 
+    {
         IfcJunctionBoxTypeEnum_UNSET,
         IfcJunctionBoxTypeEnum_USERDEFINED,
-        IfcJunctionBoxTypeEnum_NOTDEFINED,
+        IfcJunctionBoxTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcLampTypeEnum {
+    enum  IfcLampTypeEnum 
+    {
         IfcLampTypeEnum_UNSET,
         IfcLampTypeEnum_COMPACTFLUORESCENT,
         IfcLampTypeEnum_FLUORESCENT,
@@ -1696,31 +1045,25 @@ enum IfcLampTypeEnum {
         IfcLampTypeEnum_METALHALIDE,
         IfcLampTypeEnum_TUNGSTENFILAMENT,
         IfcLampTypeEnum_USERDEFINED,
-        IfcLampTypeEnum_NOTDEFINED,
+        IfcLampTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcLayerSetDirectionEnum {
+    enum  IfcLayerSetDirectionEnum 
+    {
         IfcLayerSetDirectionEnum_UNSET,
         IfcLayerSetDirectionEnum_AXIS1,
         IfcLayerSetDirectionEnum_AXIS2,
-        IfcLayerSetDirectionEnum_AXIS3,
+        IfcLayerSetDirectionEnum_AXIS3
     };
-
-/**
- */
-enum IfcLightDistributionCurveEnum {
+    enum  IfcLightDistributionCurveEnum 
+    {
         IfcLightDistributionCurveEnum_UNSET,
         IfcLightDistributionCurveEnum_TYPE_A,
         IfcLightDistributionCurveEnum_TYPE_B,
         IfcLightDistributionCurveEnum_TYPE_C,
-        IfcLightDistributionCurveEnum_NOTDEFINED,
+        IfcLightDistributionCurveEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcLightEmissionSourceEnum {
+    enum  IfcLightEmissionSourceEnum 
+    {
         IfcLightEmissionSourceEnum_UNSET,
         IfcLightEmissionSourceEnum_COMPACTFLUORESCENT,
         IfcLightEmissionSourceEnum_FLUORESCENT,
@@ -1732,42 +1075,34 @@ enum IfcLightEmissionSourceEnum {
         IfcLightEmissionSourceEnum_MAINVOLTAGEHALOGEN,
         IfcLightEmissionSourceEnum_METALHALIDE,
         IfcLightEmissionSourceEnum_TUNGSTENFILAMENT,
-        IfcLightEmissionSourceEnum_NOTDEFINED,
+        IfcLightEmissionSourceEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcLightFixtureTypeEnum {
+    enum  IfcLightFixtureTypeEnum 
+    {
         IfcLightFixtureTypeEnum_UNSET,
         IfcLightFixtureTypeEnum_POINTSOURCE,
         IfcLightFixtureTypeEnum_DIRECTIONSOURCE,
         IfcLightFixtureTypeEnum_USERDEFINED,
-        IfcLightFixtureTypeEnum_NOTDEFINED,
+        IfcLightFixtureTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcLoadGroupTypeEnum {
+    enum  IfcLoadGroupTypeEnum 
+    {
         IfcLoadGroupTypeEnum_UNSET,
         IfcLoadGroupTypeEnum_LOAD_GROUP,
         IfcLoadGroupTypeEnum_LOAD_CASE,
         IfcLoadGroupTypeEnum_LOAD_COMBINATION_GROUP,
         IfcLoadGroupTypeEnum_LOAD_COMBINATION,
         IfcLoadGroupTypeEnum_USERDEFINED,
-        IfcLoadGroupTypeEnum_NOTDEFINED,
+        IfcLoadGroupTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcLogicalOperatorEnum {
+    enum  IfcLogicalOperatorEnum 
+    {
         IfcLogicalOperatorEnum_UNSET,
         IfcLogicalOperatorEnum_LOGICALAND,
-        IfcLogicalOperatorEnum_LOGICALOR,
+        IfcLogicalOperatorEnum_LOGICALOR
     };
-
-/**
- */
-enum IfcMemberTypeEnum {
+    enum  IfcMemberTypeEnum 
+    {
         IfcMemberTypeEnum_UNSET,
         IfcMemberTypeEnum_BRACE,
         IfcMemberTypeEnum_CHORD,
@@ -1782,30 +1117,24 @@ enum IfcMemberTypeEnum {
         IfcMemberTypeEnum_STRUT,
         IfcMemberTypeEnum_STUD,
         IfcMemberTypeEnum_USERDEFINED,
-        IfcMemberTypeEnum_NOTDEFINED,
+        IfcMemberTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcMotorConnectionTypeEnum {
+    enum  IfcMotorConnectionTypeEnum 
+    {
         IfcMotorConnectionTypeEnum_UNSET,
         IfcMotorConnectionTypeEnum_BELTDRIVE,
         IfcMotorConnectionTypeEnum_COUPLING,
         IfcMotorConnectionTypeEnum_DIRECTDRIVE,
         IfcMotorConnectionTypeEnum_USERDEFINED,
-        IfcMotorConnectionTypeEnum_NOTDEFINED,
+        IfcMotorConnectionTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcNullStyle {
+    enum  IfcNullStyle 
+    {
         IfcNullStyle_UNSET,
-        IfcNullStyle_NULL,
+        IfcNullStyle_NULL
     };
-
-/**
- */
-enum IfcObjectTypeEnum {
+    enum  IfcObjectTypeEnum 
+    {
         IfcObjectTypeEnum_UNSET,
         IfcObjectTypeEnum_PRODUCT,
         IfcObjectTypeEnum_PROCESS,
@@ -1814,12 +1143,10 @@ enum IfcObjectTypeEnum {
         IfcObjectTypeEnum_ACTOR,
         IfcObjectTypeEnum_GROUP,
         IfcObjectTypeEnum_PROJECT,
-        IfcObjectTypeEnum_NOTDEFINED,
+        IfcObjectTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcObjectiveEnum {
+    enum  IfcObjectiveEnum 
+    {
         IfcObjectiveEnum_UNSET,
         IfcObjectiveEnum_CODECOMPLIANCE,
         IfcObjectiveEnum_DESIGNINTENT,
@@ -1828,12 +1155,10 @@ enum IfcObjectiveEnum {
         IfcObjectiveEnum_SPECIFICATION,
         IfcObjectiveEnum_TRIGGERCONDITION,
         IfcObjectiveEnum_USERDEFINED,
-        IfcObjectiveEnum_NOTDEFINED,
+        IfcObjectiveEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcOccupantTypeEnum {
+    enum  IfcOccupantTypeEnum 
+    {
         IfcOccupantTypeEnum_UNSET,
         IfcOccupantTypeEnum_ASSIGNEE,
         IfcOccupantTypeEnum_ASSIGNOR,
@@ -1843,66 +1168,54 @@ enum IfcOccupantTypeEnum {
         IfcOccupantTypeEnum_OWNER,
         IfcOccupantTypeEnum_TENANT,
         IfcOccupantTypeEnum_USERDEFINED,
-        IfcOccupantTypeEnum_NOTDEFINED,
+        IfcOccupantTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcOutletTypeEnum {
+    enum  IfcOutletTypeEnum 
+    {
         IfcOutletTypeEnum_UNSET,
         IfcOutletTypeEnum_AUDIOVISUALOUTLET,
         IfcOutletTypeEnum_COMMUNICATIONSOUTLET,
         IfcOutletTypeEnum_POWEROUTLET,
         IfcOutletTypeEnum_USERDEFINED,
-        IfcOutletTypeEnum_NOTDEFINED,
+        IfcOutletTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcPermeableCoveringOperationEnum {
+    enum  IfcPermeableCoveringOperationEnum 
+    {
         IfcPermeableCoveringOperationEnum_UNSET,
         IfcPermeableCoveringOperationEnum_GRILL,
         IfcPermeableCoveringOperationEnum_LOUVER,
         IfcPermeableCoveringOperationEnum_SCREEN,
         IfcPermeableCoveringOperationEnum_USERDEFINED,
-        IfcPermeableCoveringOperationEnum_NOTDEFINED,
+        IfcPermeableCoveringOperationEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcPhysicalOrVirtualEnum {
+    enum  IfcPhysicalOrVirtualEnum 
+    {
         IfcPhysicalOrVirtualEnum_UNSET,
         IfcPhysicalOrVirtualEnum_PHYSICAL,
         IfcPhysicalOrVirtualEnum_VIRTUAL,
-        IfcPhysicalOrVirtualEnum_NOTDEFINED,
+        IfcPhysicalOrVirtualEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcPileConstructionEnum {
+    enum  IfcPileConstructionEnum 
+    {
         IfcPileConstructionEnum_UNSET,
         IfcPileConstructionEnum_CAST_IN_PLACE,
         IfcPileConstructionEnum_COMPOSITE,
         IfcPileConstructionEnum_PRECAST_CONCRETE,
         IfcPileConstructionEnum_PREFAB_STEEL,
         IfcPileConstructionEnum_USERDEFINED,
-        IfcPileConstructionEnum_NOTDEFINED,
+        IfcPileConstructionEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcPileTypeEnum {
+    enum  IfcPileTypeEnum 
+    {
         IfcPileTypeEnum_UNSET,
         IfcPileTypeEnum_COHESION,
         IfcPileTypeEnum_FRICTION,
         IfcPileTypeEnum_SUPPORT,
         IfcPileTypeEnum_USERDEFINED,
-        IfcPileTypeEnum_NOTDEFINED,
+        IfcPileTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcPipeFittingTypeEnum {
+    enum  IfcPipeFittingTypeEnum 
+    {
         IfcPipeFittingTypeEnum_UNSET,
         IfcPipeFittingTypeEnum_BEND,
         IfcPipeFittingTypeEnum_CONNECTOR,
@@ -1912,34 +1225,28 @@ enum IfcPipeFittingTypeEnum {
         IfcPipeFittingTypeEnum_OBSTRUCTION,
         IfcPipeFittingTypeEnum_TRANSITION,
         IfcPipeFittingTypeEnum_USERDEFINED,
-        IfcPipeFittingTypeEnum_NOTDEFINED,
+        IfcPipeFittingTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcPipeSegmentTypeEnum {
+    enum  IfcPipeSegmentTypeEnum 
+    {
         IfcPipeSegmentTypeEnum_UNSET,
         IfcPipeSegmentTypeEnum_FLEXIBLESEGMENT,
         IfcPipeSegmentTypeEnum_RIGIDSEGMENT,
         IfcPipeSegmentTypeEnum_GUTTER,
         IfcPipeSegmentTypeEnum_SPOOL,
         IfcPipeSegmentTypeEnum_USERDEFINED,
-        IfcPipeSegmentTypeEnum_NOTDEFINED,
+        IfcPipeSegmentTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcPlateTypeEnum {
+    enum  IfcPlateTypeEnum 
+    {
         IfcPlateTypeEnum_UNSET,
         IfcPlateTypeEnum_CURTAIN_PANEL,
         IfcPlateTypeEnum_SHEET,
         IfcPlateTypeEnum_USERDEFINED,
-        IfcPlateTypeEnum_NOTDEFINED,
+        IfcPlateTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcProcedureTypeEnum {
+    enum  IfcProcedureTypeEnum 
+    {
         IfcProcedureTypeEnum_UNSET,
         IfcProcedureTypeEnum_ADVICE_CAUTION,
         IfcProcedureTypeEnum_ADVICE_NOTE,
@@ -1949,20 +1256,16 @@ enum IfcProcedureTypeEnum {
         IfcProcedureTypeEnum_SHUTDOWN,
         IfcProcedureTypeEnum_STARTUP,
         IfcProcedureTypeEnum_USERDEFINED,
-        IfcProcedureTypeEnum_NOTDEFINED,
+        IfcProcedureTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcProfileTypeEnum {
+    enum  IfcProfileTypeEnum 
+    {
         IfcProfileTypeEnum_UNSET,
         IfcProfileTypeEnum_CURVE,
-        IfcProfileTypeEnum_AREA,
+        IfcProfileTypeEnum_AREA
     };
-
-/**
- */
-enum IfcProjectOrderRecordTypeEnum {
+    enum  IfcProjectOrderRecordTypeEnum 
+    {
         IfcProjectOrderRecordTypeEnum_UNSET,
         IfcProjectOrderRecordTypeEnum_CHANGE,
         IfcProjectOrderRecordTypeEnum_MAINTENANCE,
@@ -1970,12 +1273,10 @@ enum IfcProjectOrderRecordTypeEnum {
         IfcProjectOrderRecordTypeEnum_PURCHASE,
         IfcProjectOrderRecordTypeEnum_WORK,
         IfcProjectOrderRecordTypeEnum_USERDEFINED,
-        IfcProjectOrderRecordTypeEnum_NOTDEFINED,
+        IfcProjectOrderRecordTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcProjectOrderTypeEnum {
+    enum  IfcProjectOrderTypeEnum 
+    {
         IfcProjectOrderTypeEnum_UNSET,
         IfcProjectOrderTypeEnum_CHANGEORDER,
         IfcProjectOrderTypeEnum_MAINTENANCEWORKORDER,
@@ -1983,20 +1284,16 @@ enum IfcProjectOrderTypeEnum {
         IfcProjectOrderTypeEnum_PURCHASEORDER,
         IfcProjectOrderTypeEnum_WORKORDER,
         IfcProjectOrderTypeEnum_USERDEFINED,
-        IfcProjectOrderTypeEnum_NOTDEFINED,
+        IfcProjectOrderTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcProjectedOrTrueLengthEnum {
+    enum  IfcProjectedOrTrueLengthEnum 
+    {
         IfcProjectedOrTrueLengthEnum_UNSET,
         IfcProjectedOrTrueLengthEnum_PROJECTED_LENGTH,
-        IfcProjectedOrTrueLengthEnum_TRUE_LENGTH,
+        IfcProjectedOrTrueLengthEnum_TRUE_LENGTH
     };
-
-/**
- */
-enum IfcPropertySourceEnum {
+    enum  IfcPropertySourceEnum 
+    {
         IfcPropertySourceEnum_UNSET,
         IfcPropertySourceEnum_DESIGN,
         IfcPropertySourceEnum_DESIGNMAXIMUM,
@@ -2006,12 +1303,10 @@ enum IfcPropertySourceEnum {
         IfcPropertySourceEnum_COMMISSIONING,
         IfcPropertySourceEnum_MEASURED,
         IfcPropertySourceEnum_USERDEFINED,
-        IfcPropertySourceEnum_NOTKNOWN,
+        IfcPropertySourceEnum_NOTKNOWN
     };
-
-/**
- */
-enum IfcProtectiveDeviceTypeEnum {
+    enum  IfcProtectiveDeviceTypeEnum 
+    {
         IfcProtectiveDeviceTypeEnum_UNSET,
         IfcProtectiveDeviceTypeEnum_FUSEDISCONNECTOR,
         IfcProtectiveDeviceTypeEnum_CIRCUITBREAKER,
@@ -2020,12 +1315,10 @@ enum IfcProtectiveDeviceTypeEnum {
         IfcProtectiveDeviceTypeEnum_RESIDUALCURRENTSWITCH,
         IfcProtectiveDeviceTypeEnum_VARISTOR,
         IfcProtectiveDeviceTypeEnum_USERDEFINED,
-        IfcProtectiveDeviceTypeEnum_NOTDEFINED,
+        IfcProtectiveDeviceTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcPumpTypeEnum {
+    enum  IfcPumpTypeEnum 
+    {
         IfcPumpTypeEnum_UNSET,
         IfcPumpTypeEnum_CIRCULATOR,
         IfcPumpTypeEnum_ENDSUCTION,
@@ -2033,33 +1326,27 @@ enum IfcPumpTypeEnum {
         IfcPumpTypeEnum_VERTICALINLINE,
         IfcPumpTypeEnum_VERTICALTURBINE,
         IfcPumpTypeEnum_USERDEFINED,
-        IfcPumpTypeEnum_NOTDEFINED,
+        IfcPumpTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcRailingTypeEnum {
+    enum  IfcRailingTypeEnum 
+    {
         IfcRailingTypeEnum_UNSET,
         IfcRailingTypeEnum_HANDRAIL,
         IfcRailingTypeEnum_GUARDRAIL,
         IfcRailingTypeEnum_BALUSTRADE,
         IfcRailingTypeEnum_USERDEFINED,
-        IfcRailingTypeEnum_NOTDEFINED,
+        IfcRailingTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcRampFlightTypeEnum {
+    enum  IfcRampFlightTypeEnum 
+    {
         IfcRampFlightTypeEnum_UNSET,
         IfcRampFlightTypeEnum_STRAIGHT,
         IfcRampFlightTypeEnum_SPIRAL,
         IfcRampFlightTypeEnum_USERDEFINED,
-        IfcRampFlightTypeEnum_NOTDEFINED,
+        IfcRampFlightTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcRampTypeEnum {
+    enum  IfcRampTypeEnum 
+    {
         IfcRampTypeEnum_UNSET,
         IfcRampTypeEnum_STRAIGHT_RUN_RAMP,
         IfcRampTypeEnum_TWO_STRAIGHT_RUN_RAMP,
@@ -2068,12 +1355,10 @@ enum IfcRampTypeEnum {
         IfcRampTypeEnum_HALF_TURN_RAMP,
         IfcRampTypeEnum_SPIRAL_RAMP,
         IfcRampTypeEnum_USERDEFINED,
-        IfcRampTypeEnum_NOTDEFINED,
+        IfcRampTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcReflectanceMethodEnum {
+    enum  IfcReflectanceMethodEnum 
+    {
         IfcReflectanceMethodEnum_UNSET,
         IfcReflectanceMethodEnum_BLINN,
         IfcReflectanceMethodEnum_FLAT,
@@ -2084,12 +1369,10 @@ enum IfcReflectanceMethodEnum {
         IfcReflectanceMethodEnum_PHONG,
         IfcReflectanceMethodEnum_PLASTIC,
         IfcReflectanceMethodEnum_STRAUSS,
-        IfcReflectanceMethodEnum_NOTDEFINED,
+        IfcReflectanceMethodEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcReinforcingBarRoleEnum {
+    enum  IfcReinforcingBarRoleEnum 
+    {
         IfcReinforcingBarRoleEnum_UNSET,
         IfcReinforcingBarRoleEnum_MAIN,
         IfcReinforcingBarRoleEnum_SHEAR,
@@ -2099,20 +1382,16 @@ enum IfcReinforcingBarRoleEnum {
         IfcReinforcingBarRoleEnum_EDGE,
         IfcReinforcingBarRoleEnum_RING,
         IfcReinforcingBarRoleEnum_USERDEFINED,
-        IfcReinforcingBarRoleEnum_NOTDEFINED,
+        IfcReinforcingBarRoleEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcReinforcingBarSurfaceEnum {
+    enum  IfcReinforcingBarSurfaceEnum 
+    {
         IfcReinforcingBarSurfaceEnum_UNSET,
         IfcReinforcingBarSurfaceEnum_PLAIN,
-        IfcReinforcingBarSurfaceEnum_TEXTURED,
+        IfcReinforcingBarSurfaceEnum_TEXTURED
     };
-
-/**
- */
-enum IfcResourceConsumptionEnum {
+    enum  IfcResourceConsumptionEnum 
+    {
         IfcResourceConsumptionEnum_UNSET,
         IfcResourceConsumptionEnum_CONSUMED,
         IfcResourceConsumptionEnum_PARTIALLYCONSUMED,
@@ -2121,20 +1400,16 @@ enum IfcResourceConsumptionEnum {
         IfcResourceConsumptionEnum_PARTIALLYOCCUPIED,
         IfcResourceConsumptionEnum_NOTOCCUPIED,
         IfcResourceConsumptionEnum_USERDEFINED,
-        IfcResourceConsumptionEnum_NOTDEFINED,
+        IfcResourceConsumptionEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcRibPlateDirectionEnum {
+    enum  IfcRibPlateDirectionEnum 
+    {
         IfcRibPlateDirectionEnum_UNSET,
         IfcRibPlateDirectionEnum_DIRECTION_X,
-        IfcRibPlateDirectionEnum_DIRECTION_Y,
+        IfcRibPlateDirectionEnum_DIRECTION_Y
     };
-
-/**
- */
-enum IfcRoleEnum {
+    enum  IfcRoleEnum 
+    {
         IfcRoleEnum_UNSET,
         IfcRoleEnum_SUPPLIER,
         IfcRoleEnum_MANUFACTURER,
@@ -2158,12 +1433,10 @@ enum IfcRoleEnum {
         IfcRoleEnum_CONSTRUCTIONMANAGER,
         IfcRoleEnum_FIELDCONSTRUCTIONMANAGER,
         IfcRoleEnum_RESELLER,
-        IfcRoleEnum_USERDEFINED,
+        IfcRoleEnum_USERDEFINED
     };
-
-/**
- */
-enum IfcRoofTypeEnum {
+    enum  IfcRoofTypeEnum 
+    {
         IfcRoofTypeEnum_UNSET,
         IfcRoofTypeEnum_FLAT_ROOF,
         IfcRoofTypeEnum_SHED_ROOF,
@@ -2178,12 +1451,10 @@ enum IfcRoofTypeEnum {
         IfcRoofTypeEnum_PAVILION_ROOF,
         IfcRoofTypeEnum_DOME_ROOF,
         IfcRoofTypeEnum_FREEFORM,
-        IfcRoofTypeEnum_NOTDEFINED,
+        IfcRoofTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcSIPrefix {
+    enum  IfcSIPrefix 
+    {
         IfcSIPrefix_UNSET,
         IfcSIPrefix_EXA,
         IfcSIPrefix_PETA,
@@ -2200,12 +1471,10 @@ enum IfcSIPrefix {
         IfcSIPrefix_NANO,
         IfcSIPrefix_PICO,
         IfcSIPrefix_FEMTO,
-        IfcSIPrefix_ATTO,
+        IfcSIPrefix_ATTO
     };
-
-/**
- */
-enum IfcSIUnitName {
+    enum  IfcSIUnitName 
+    {
         IfcSIUnitName_UNSET,
         IfcSIUnitName_AMPERE,
         IfcSIUnitName_BECQUEREL,
@@ -2236,12 +1505,10 @@ enum IfcSIUnitName {
         IfcSIUnitName_TESLA,
         IfcSIUnitName_VOLT,
         IfcSIUnitName_WATT,
-        IfcSIUnitName_WEBER,
+        IfcSIUnitName_WEBER
     };
-
-/**
- */
-enum IfcSanitaryTerminalTypeEnum {
+    enum  IfcSanitaryTerminalTypeEnum 
+    {
         IfcSanitaryTerminalTypeEnum_UNSET,
         IfcSanitaryTerminalTypeEnum_BATH,
         IfcSanitaryTerminalTypeEnum_BIDET,
@@ -2254,20 +1521,16 @@ enum IfcSanitaryTerminalTypeEnum {
         IfcSanitaryTerminalTypeEnum_WASHHANDBASIN,
         IfcSanitaryTerminalTypeEnum_WCSEAT,
         IfcSanitaryTerminalTypeEnum_USERDEFINED,
-        IfcSanitaryTerminalTypeEnum_NOTDEFINED,
+        IfcSanitaryTerminalTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcSectionTypeEnum {
+    enum  IfcSectionTypeEnum 
+    {
         IfcSectionTypeEnum_UNSET,
         IfcSectionTypeEnum_UNIFORM,
-        IfcSectionTypeEnum_TAPERED,
+        IfcSectionTypeEnum_TAPERED
     };
-
-/**
- */
-enum IfcSensorTypeEnum {
+    enum  IfcSensorTypeEnum 
+    {
         IfcSensorTypeEnum_UNSET,
         IfcSensorTypeEnum_CO2SENSOR,
         IfcSensorTypeEnum_FIRESENSOR,
@@ -2283,23 +1546,19 @@ enum IfcSensorTypeEnum {
         IfcSensorTypeEnum_SOUNDSENSOR,
         IfcSensorTypeEnum_TEMPERATURESENSOR,
         IfcSensorTypeEnum_USERDEFINED,
-        IfcSensorTypeEnum_NOTDEFINED,
+        IfcSensorTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcSequenceEnum {
+    enum  IfcSequenceEnum 
+    {
         IfcSequenceEnum_UNSET,
         IfcSequenceEnum_START_START,
         IfcSequenceEnum_START_FINISH,
         IfcSequenceEnum_FINISH_START,
         IfcSequenceEnum_FINISH_FINISH,
-        IfcSequenceEnum_NOTDEFINED,
+        IfcSequenceEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcServiceLifeFactorTypeEnum {
+    enum  IfcServiceLifeFactorTypeEnum 
+    {
         IfcServiceLifeFactorTypeEnum_UNSET,
         IfcServiceLifeFactorTypeEnum_A_QUALITYOFCOMPONENTS,
         IfcServiceLifeFactorTypeEnum_B_DESIGNLEVEL,
@@ -2309,35 +1568,29 @@ enum IfcServiceLifeFactorTypeEnum {
         IfcServiceLifeFactorTypeEnum_F_INUSECONDITIONS,
         IfcServiceLifeFactorTypeEnum_G_MAINTENANCELEVEL,
         IfcServiceLifeFactorTypeEnum_USERDEFINED,
-        IfcServiceLifeFactorTypeEnum_NOTDEFINED,
+        IfcServiceLifeFactorTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcServiceLifeTypeEnum {
+    enum  IfcServiceLifeTypeEnum 
+    {
         IfcServiceLifeTypeEnum_UNSET,
         IfcServiceLifeTypeEnum_ACTUALSERVICELIFE,
         IfcServiceLifeTypeEnum_EXPECTEDSERVICELIFE,
         IfcServiceLifeTypeEnum_OPTIMISTICREFERENCESERVICELIFE,
         IfcServiceLifeTypeEnum_PESSIMISTICREFERENCESERVICELIFE,
-        IfcServiceLifeTypeEnum_REFERENCESERVICELIFE,
+        IfcServiceLifeTypeEnum_REFERENCESERVICELIFE
     };
-
-/**
- */
-enum IfcSlabTypeEnum {
+    enum  IfcSlabTypeEnum 
+    {
         IfcSlabTypeEnum_UNSET,
         IfcSlabTypeEnum_FLOOR,
         IfcSlabTypeEnum_ROOF,
         IfcSlabTypeEnum_LANDING,
         IfcSlabTypeEnum_BASESLAB,
         IfcSlabTypeEnum_USERDEFINED,
-        IfcSlabTypeEnum_NOTDEFINED,
+        IfcSlabTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcSoundScaleEnum {
+    enum  IfcSoundScaleEnum 
+    {
         IfcSoundScaleEnum_UNSET,
         IfcSoundScaleEnum_DBA,
         IfcSoundScaleEnum_DBB,
@@ -2345,12 +1598,10 @@ enum IfcSoundScaleEnum {
         IfcSoundScaleEnum_NC,
         IfcSoundScaleEnum_NR,
         IfcSoundScaleEnum_USERDEFINED,
-        IfcSoundScaleEnum_NOTDEFINED,
+        IfcSoundScaleEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcSpaceHeaterTypeEnum {
+    enum  IfcSpaceHeaterTypeEnum 
+    {
         IfcSpaceHeaterTypeEnum_UNSET,
         IfcSpaceHeaterTypeEnum_SECTIONALRADIATOR,
         IfcSpaceHeaterTypeEnum_PANELRADIATOR,
@@ -2360,31 +1611,25 @@ enum IfcSpaceHeaterTypeEnum {
         IfcSpaceHeaterTypeEnum_FINNEDTUBEUNIT,
         IfcSpaceHeaterTypeEnum_UNITHEATER,
         IfcSpaceHeaterTypeEnum_USERDEFINED,
-        IfcSpaceHeaterTypeEnum_NOTDEFINED,
+        IfcSpaceHeaterTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcSpaceTypeEnum {
+    enum  IfcSpaceTypeEnum 
+    {
         IfcSpaceTypeEnum_UNSET,
         IfcSpaceTypeEnum_USERDEFINED,
-        IfcSpaceTypeEnum_NOTDEFINED,
+        IfcSpaceTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcStackTerminalTypeEnum {
+    enum  IfcStackTerminalTypeEnum 
+    {
         IfcStackTerminalTypeEnum_UNSET,
         IfcStackTerminalTypeEnum_BIRDCAGE,
         IfcStackTerminalTypeEnum_COWL,
         IfcStackTerminalTypeEnum_RAINWATERHOPPER,
         IfcStackTerminalTypeEnum_USERDEFINED,
-        IfcStackTerminalTypeEnum_NOTDEFINED,
+        IfcStackTerminalTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcStairFlightTypeEnum {
+    enum  IfcStairFlightTypeEnum 
+    {
         IfcStairFlightTypeEnum_UNSET,
         IfcStairFlightTypeEnum_STRAIGHT,
         IfcStairFlightTypeEnum_WINDER,
@@ -2392,12 +1637,10 @@ enum IfcStairFlightTypeEnum {
         IfcStairFlightTypeEnum_CURVED,
         IfcStairFlightTypeEnum_FREEFORM,
         IfcStairFlightTypeEnum_USERDEFINED,
-        IfcStairFlightTypeEnum_NOTDEFINED,
+        IfcStairFlightTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcStairTypeEnum {
+    enum  IfcStairTypeEnum 
+    {
         IfcStairTypeEnum_UNSET,
         IfcStairTypeEnum_STRAIGHT_RUN_STAIR,
         IfcStairTypeEnum_TWO_STRAIGHT_RUN_STAIR,
@@ -2414,23 +1657,19 @@ enum IfcStairTypeEnum {
         IfcStairTypeEnum_CURVED_RUN_STAIR,
         IfcStairTypeEnum_TWO_CURVED_RUN_STAIR,
         IfcStairTypeEnum_USERDEFINED,
-        IfcStairTypeEnum_NOTDEFINED,
+        IfcStairTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcStateEnum {
+    enum  IfcStateEnum 
+    {
         IfcStateEnum_UNSET,
         IfcStateEnum_READWRITE,
         IfcStateEnum_READONLY,
         IfcStateEnum_LOCKED,
         IfcStateEnum_READWRITELOCKED,
-        IfcStateEnum_READONLYLOCKED,
+        IfcStateEnum_READONLYLOCKED
     };
-
-/**
- */
-enum IfcStructuralCurveTypeEnum {
+    enum  IfcStructuralCurveTypeEnum 
+    {
         IfcStructuralCurveTypeEnum_UNSET,
         IfcStructuralCurveTypeEnum_RIGID_JOINED_MEMBER,
         IfcStructuralCurveTypeEnum_PIN_JOINED_MEMBER,
@@ -2438,32 +1677,26 @@ enum IfcStructuralCurveTypeEnum {
         IfcStructuralCurveTypeEnum_TENSION_MEMBER,
         IfcStructuralCurveTypeEnum_COMPRESSION_MEMBER,
         IfcStructuralCurveTypeEnum_USERDEFINED,
-        IfcStructuralCurveTypeEnum_NOTDEFINED,
+        IfcStructuralCurveTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcStructuralSurfaceTypeEnum {
+    enum  IfcStructuralSurfaceTypeEnum 
+    {
         IfcStructuralSurfaceTypeEnum_UNSET,
         IfcStructuralSurfaceTypeEnum_BENDING_ELEMENT,
         IfcStructuralSurfaceTypeEnum_MEMBRANE_ELEMENT,
         IfcStructuralSurfaceTypeEnum_SHELL,
         IfcStructuralSurfaceTypeEnum_USERDEFINED,
-        IfcStructuralSurfaceTypeEnum_NOTDEFINED,
+        IfcStructuralSurfaceTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcSurfaceSide {
+    enum  IfcSurfaceSide 
+    {
         IfcSurfaceSide_UNSET,
         IfcSurfaceSide_POSITIVE,
         IfcSurfaceSide_NEGATIVE,
-        IfcSurfaceSide_BOTH,
+        IfcSurfaceSide_BOTH
     };
-
-/**
- */
-enum IfcSurfaceTextureEnum {
+    enum  IfcSurfaceTextureEnum 
+    {
         IfcSurfaceTextureEnum_UNSET,
         IfcSurfaceTextureEnum_BUMP,
         IfcSurfaceTextureEnum_OPACITY,
@@ -2473,12 +1706,10 @@ enum IfcSurfaceTextureEnum {
         IfcSurfaceTextureEnum_SPECULAR,
         IfcSurfaceTextureEnum_TEXTURE,
         IfcSurfaceTextureEnum_TRANSPARENCYMAP,
-        IfcSurfaceTextureEnum_NOTDEFINED,
+        IfcSurfaceTextureEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcSwitchingDeviceTypeEnum {
+    enum  IfcSwitchingDeviceTypeEnum 
+    {
         IfcSwitchingDeviceTypeEnum_UNSET,
         IfcSwitchingDeviceTypeEnum_CONTACTOR,
         IfcSwitchingDeviceTypeEnum_EMERGENCYSTOP,
@@ -2486,46 +1717,38 @@ enum IfcSwitchingDeviceTypeEnum {
         IfcSwitchingDeviceTypeEnum_SWITCHDISCONNECTOR,
         IfcSwitchingDeviceTypeEnum_TOGGLESWITCH,
         IfcSwitchingDeviceTypeEnum_USERDEFINED,
-        IfcSwitchingDeviceTypeEnum_NOTDEFINED,
+        IfcSwitchingDeviceTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcTankTypeEnum {
+    enum  IfcTankTypeEnum 
+    {
         IfcTankTypeEnum_UNSET,
         IfcTankTypeEnum_PREFORMED,
         IfcTankTypeEnum_SECTIONAL,
         IfcTankTypeEnum_EXPANSION,
         IfcTankTypeEnum_PRESSUREVESSEL,
         IfcTankTypeEnum_USERDEFINED,
-        IfcTankTypeEnum_NOTDEFINED,
+        IfcTankTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcTendonTypeEnum {
+    enum  IfcTendonTypeEnum 
+    {
         IfcTendonTypeEnum_UNSET,
         IfcTendonTypeEnum_STRAND,
         IfcTendonTypeEnum_WIRE,
         IfcTendonTypeEnum_BAR,
         IfcTendonTypeEnum_COATED,
         IfcTendonTypeEnum_USERDEFINED,
-        IfcTendonTypeEnum_NOTDEFINED,
+        IfcTendonTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcTextPath {
+    enum  IfcTextPath 
+    {
         IfcTextPath_UNSET,
         IfcTextPath_LEFT,
         IfcTextPath_RIGHT,
         IfcTextPath_UP,
-        IfcTextPath_DOWN,
+        IfcTextPath_DOWN
     };
-
-/**
- */
-enum IfcThermalLoadSourceEnum {
+    enum  IfcThermalLoadSourceEnum 
+    {
         IfcThermalLoadSourceEnum_UNSET,
         IfcThermalLoadSourceEnum_PEOPLE,
         IfcThermalLoadSourceEnum_LIGHTING,
@@ -2539,22 +1762,18 @@ enum IfcThermalLoadSourceEnum {
         IfcThermalLoadSourceEnum_RELATIVEHUMIDITY,
         IfcThermalLoadSourceEnum_INFILTRATION,
         IfcThermalLoadSourceEnum_USERDEFINED,
-        IfcThermalLoadSourceEnum_NOTDEFINED,
+        IfcThermalLoadSourceEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcThermalLoadTypeEnum {
+    enum  IfcThermalLoadTypeEnum 
+    {
         IfcThermalLoadTypeEnum_UNSET,
         IfcThermalLoadTypeEnum_SENSIBLE,
         IfcThermalLoadTypeEnum_LATENT,
         IfcThermalLoadTypeEnum_RADIANT,
-        IfcThermalLoadTypeEnum_NOTDEFINED,
+        IfcThermalLoadTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcTimeSeriesDataTypeEnum {
+    enum  IfcTimeSeriesDataTypeEnum 
+    {
         IfcTimeSeriesDataTypeEnum_UNSET,
         IfcTimeSeriesDataTypeEnum_CONTINUOUS,
         IfcTimeSeriesDataTypeEnum_DISCRETE,
@@ -2562,74 +1781,60 @@ enum IfcTimeSeriesDataTypeEnum {
         IfcTimeSeriesDataTypeEnum_PIECEWISEBINARY,
         IfcTimeSeriesDataTypeEnum_PIECEWISECONSTANT,
         IfcTimeSeriesDataTypeEnum_PIECEWISECONTINUOUS,
-        IfcTimeSeriesDataTypeEnum_NOTDEFINED,
+        IfcTimeSeriesDataTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcTimeSeriesScheduleTypeEnum {
+    enum  IfcTimeSeriesScheduleTypeEnum 
+    {
         IfcTimeSeriesScheduleTypeEnum_UNSET,
         IfcTimeSeriesScheduleTypeEnum_ANNUAL,
         IfcTimeSeriesScheduleTypeEnum_MONTHLY,
         IfcTimeSeriesScheduleTypeEnum_WEEKLY,
         IfcTimeSeriesScheduleTypeEnum_DAILY,
         IfcTimeSeriesScheduleTypeEnum_USERDEFINED,
-        IfcTimeSeriesScheduleTypeEnum_NOTDEFINED,
+        IfcTimeSeriesScheduleTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcTransformerTypeEnum {
+    enum  IfcTransformerTypeEnum 
+    {
         IfcTransformerTypeEnum_UNSET,
         IfcTransformerTypeEnum_CURRENT,
         IfcTransformerTypeEnum_FREQUENCY,
         IfcTransformerTypeEnum_VOLTAGE,
         IfcTransformerTypeEnum_USERDEFINED,
-        IfcTransformerTypeEnum_NOTDEFINED,
+        IfcTransformerTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcTransitionCode {
+    enum  IfcTransitionCode 
+    {
         IfcTransitionCode_UNSET,
         IfcTransitionCode_DISCONTINUOUS,
         IfcTransitionCode_CONTINUOUS,
         IfcTransitionCode_CONTSAMEGRADIENT,
-        IfcTransitionCode_CONTSAMEGRADIENTSAMECURVATURE,
+        IfcTransitionCode_CONTSAMEGRADIENTSAMECURVATURE
     };
-
-/**
- */
-enum IfcTransportElementTypeEnum {
+    enum  IfcTransportElementTypeEnum 
+    {
         IfcTransportElementTypeEnum_UNSET,
         IfcTransportElementTypeEnum_ELEVATOR,
         IfcTransportElementTypeEnum_ESCALATOR,
         IfcTransportElementTypeEnum_MOVINGWALKWAY,
         IfcTransportElementTypeEnum_USERDEFINED,
-        IfcTransportElementTypeEnum_NOTDEFINED,
+        IfcTransportElementTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcTrimmingPreference {
+    enum  IfcTrimmingPreference 
+    {
         IfcTrimmingPreference_UNSET,
         IfcTrimmingPreference_CARTESIAN,
         IfcTrimmingPreference_PARAMETER,
-        IfcTrimmingPreference_UNSPECIFIED,
+        IfcTrimmingPreference_UNSPECIFIED
     };
-
-/**
- */
-enum IfcTubeBundleTypeEnum {
+    enum  IfcTubeBundleTypeEnum 
+    {
         IfcTubeBundleTypeEnum_UNSET,
         IfcTubeBundleTypeEnum_FINNED,
         IfcTubeBundleTypeEnum_USERDEFINED,
-        IfcTubeBundleTypeEnum_NOTDEFINED,
+        IfcTubeBundleTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcUnitEnum {
+    enum  IfcUnitEnum 
+    {
         IfcUnitEnum_UNSET,
         IfcUnitEnum_ABSORBEDDOSEUNIT,
         IfcUnitEnum_AMOUNTOFSUBSTANCEUNIT,
@@ -2660,24 +1865,20 @@ enum IfcUnitEnum {
         IfcUnitEnum_THERMODYNAMICTEMPERATUREUNIT,
         IfcUnitEnum_TIMEUNIT,
         IfcUnitEnum_VOLUMEUNIT,
-        IfcUnitEnum_USERDEFINED,
+        IfcUnitEnum_USERDEFINED
     };
-
-/**
- */
-enum IfcUnitaryEquipmentTypeEnum {
+    enum  IfcUnitaryEquipmentTypeEnum 
+    {
         IfcUnitaryEquipmentTypeEnum_UNSET,
         IfcUnitaryEquipmentTypeEnum_AIRHANDLER,
         IfcUnitaryEquipmentTypeEnum_AIRCONDITIONINGUNIT,
         IfcUnitaryEquipmentTypeEnum_SPLITSYSTEM,
         IfcUnitaryEquipmentTypeEnum_ROOFTOPUNIT,
         IfcUnitaryEquipmentTypeEnum_USERDEFINED,
-        IfcUnitaryEquipmentTypeEnum_NOTDEFINED,
+        IfcUnitaryEquipmentTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcValveTypeEnum {
+    enum  IfcValveTypeEnum 
+    {
         IfcValveTypeEnum_UNSET,
         IfcValveTypeEnum_AIRRELEASE,
         IfcValveTypeEnum_ANTIVACUUM,
@@ -2701,22 +1902,18 @@ enum IfcValveTypeEnum {
         IfcValveTypeEnum_STEAMTRAP,
         IfcValveTypeEnum_STOPCOCK,
         IfcValveTypeEnum_USERDEFINED,
-        IfcValveTypeEnum_NOTDEFINED,
+        IfcValveTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcVibrationIsolatorTypeEnum {
+    enum  IfcVibrationIsolatorTypeEnum 
+    {
         IfcVibrationIsolatorTypeEnum_UNSET,
         IfcVibrationIsolatorTypeEnum_COMPRESSION,
         IfcVibrationIsolatorTypeEnum_SPRING,
         IfcVibrationIsolatorTypeEnum_USERDEFINED,
-        IfcVibrationIsolatorTypeEnum_NOTDEFINED,
+        IfcVibrationIsolatorTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcWallTypeEnum {
+    enum  IfcWallTypeEnum 
+    {
         IfcWallTypeEnum_UNSET,
         IfcWallTypeEnum_STANDARD,
         IfcWallTypeEnum_POLYGONAL,
@@ -2724,12 +1921,10 @@ enum IfcWallTypeEnum {
         IfcWallTypeEnum_ELEMENTEDWALL,
         IfcWallTypeEnum_PLUMBINGWALL,
         IfcWallTypeEnum_USERDEFINED,
-        IfcWallTypeEnum_NOTDEFINED,
+        IfcWallTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcWasteTerminalTypeEnum {
+    enum  IfcWasteTerminalTypeEnum 
+    {
         IfcWasteTerminalTypeEnum_UNSET,
         IfcWasteTerminalTypeEnum_FLOORTRAP,
         IfcWasteTerminalTypeEnum_FLOORWASTE,
@@ -2742,12 +1937,10 @@ enum IfcWasteTerminalTypeEnum {
         IfcWasteTerminalTypeEnum_WASTEDISPOSALUNIT,
         IfcWasteTerminalTypeEnum_WASTETRAP,
         IfcWasteTerminalTypeEnum_USERDEFINED,
-        IfcWasteTerminalTypeEnum_NOTDEFINED,
+        IfcWasteTerminalTypeEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcWindowPanelOperationEnum {
+    enum  IfcWindowPanelOperationEnum 
+    {
         IfcWindowPanelOperationEnum_UNSET,
         IfcWindowPanelOperationEnum_SIDEHUNGRIGHTHAND,
         IfcWindowPanelOperationEnum_SIDEHUNGLEFTHAND,
@@ -2762,24 +1955,20 @@ enum IfcWindowPanelOperationEnum {
         IfcWindowPanelOperationEnum_REMOVABLECASEMENT,
         IfcWindowPanelOperationEnum_FIXEDCASEMENT,
         IfcWindowPanelOperationEnum_OTHEROPERATION,
-        IfcWindowPanelOperationEnum_NOTDEFINED,
+        IfcWindowPanelOperationEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcWindowPanelPositionEnum {
+    enum  IfcWindowPanelPositionEnum 
+    {
         IfcWindowPanelPositionEnum_UNSET,
         IfcWindowPanelPositionEnum_LEFT,
         IfcWindowPanelPositionEnum_MIDDLE,
         IfcWindowPanelPositionEnum_RIGHT,
         IfcWindowPanelPositionEnum_BOTTOM,
         IfcWindowPanelPositionEnum_TOP,
-        IfcWindowPanelPositionEnum_NOTDEFINED,
+        IfcWindowPanelPositionEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcWindowStyleConstructionEnum {
+    enum  IfcWindowStyleConstructionEnum 
+    {
         IfcWindowStyleConstructionEnum_UNSET,
         IfcWindowStyleConstructionEnum_ALUMINIUM,
         IfcWindowStyleConstructionEnum_HIGH_GRADE_STEEL,
@@ -2788,12 +1977,10 @@ enum IfcWindowStyleConstructionEnum {
         IfcWindowStyleConstructionEnum_ALUMINIUM_WOOD,
         IfcWindowStyleConstructionEnum_PLASTIC,
         IfcWindowStyleConstructionEnum_OTHER_CONSTRUCTION,
-        IfcWindowStyleConstructionEnum_NOTDEFINED,
+        IfcWindowStyleConstructionEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcWindowStyleOperationEnum {
+    enum  IfcWindowStyleOperationEnum 
+    {
         IfcWindowStyleOperationEnum_UNSET,
         IfcWindowStyleOperationEnum_SINGLE_PANEL,
         IfcWindowStyleOperationEnum_DOUBLE_PANEL_VERTICAL,
@@ -2805,736 +1992,755 @@ enum IfcWindowStyleOperationEnum {
         IfcWindowStyleOperationEnum_TRIPLE_PANEL_RIGHT,
         IfcWindowStyleOperationEnum_TRIPLE_PANEL_HORIZONTAL,
         IfcWindowStyleOperationEnum_USERDEFINED,
-        IfcWindowStyleOperationEnum_NOTDEFINED,
+        IfcWindowStyleOperationEnum_NOTDEFINED
     };
-
-/**
- */
-enum IfcWorkControlTypeEnum {
+    enum  IfcWorkControlTypeEnum 
+    {
         IfcWorkControlTypeEnum_UNSET,
         IfcWorkControlTypeEnum_ACTUAL,
         IfcWorkControlTypeEnum_BASELINE,
         IfcWorkControlTypeEnum_PLANNED,
         IfcWorkControlTypeEnum_USERDEFINED,
-        IfcWorkControlTypeEnum_NOTDEFINED,
+        IfcWorkControlTypeEnum_NOTDEFINED
     };
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcClassificationNotationFacet >, 1 > Set_IfcClassificationNotationFacet_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcPresentationStyleSelect >, 1 > Set_IfcPresentationStyleSelect_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcVirtualGridIntersection > > Inverse_Set_IfcVirtualGridIntersection_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcMaterial >, 1 > List_IfcMaterial_1_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcStructuralLoad >, 1 > List_IfcStructuralLoad_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcStyledItem >, 0, 1 > Inverse_Set_IfcStyledItem_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcPhysicalComplexQuantity >, 0, 1 > Inverse_Set_IfcPhysicalComplexQuantity_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > Set_IfcPresentationStyleSelect_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcElement >, 1 > Set_IfcElement_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcOrganization > > Inverse_Set_IfcOrganization_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelConnectsPortToElement > > Inverse_Set_IfcRelConnectsPortToElement_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcStructuralLoad >, 2 > List_IfcStructuralLoad_2_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcLocalPlacement > > Inverse_Set_IfcLocalPlacement_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelConnectsElements > > Inverse_Set_IfcRelConnectsElements_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcReinforcementBarProperties >, 1 > Set_IfcReinforcementBarProperties_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcRepresentationContext >, 1 > Set_IfcRepresentationContext_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcMaterialClassificationRelationship >, 0, 1 > Inverse_Set_IfcMaterialClassificationRelationship_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcTimeSeriesReferenceRelationship >, 0, 1 > Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcVertexBasedTextureMap >, 1 > Set_IfcVertexBasedTextureMap_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcDraughtingCalloutRelationship > > Inverse_Set_IfcDraughtingCalloutRelationship_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcCurveStyleFontPattern >, 1 > List_IfcCurveStyleFontPattern_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcProduct >, 1, 1 > Inverse_Set_IfcProduct_1_1;
-
-    /**
-    */
-    typedef Step::Set< Step::ObsPtr< IfcPropertySet > > Inverse_Set_IfcPropertySet_0_n;
-
-    /**
-      */
-    typedef Step::Set< Step::ObsPtr< IfcProduct >, 1 > Inverse_Set_IfcProduct_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcPropertySetDefinition >, 1 > Set_IfcPropertySetDefinition_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralMember >, 1 > Inverse_Set_IfcRelConnectsStructuralMember_1_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcStructuralLoad >, 3 > List_IfcStructuralLoad_3_n;
-
-    /**
-     */
-    typedef Step::Array< Step::Real, 1, 2 > Array_Real_1_2;
-
-    /**
-     */
-    typedef Array_Real_1_2 IfcComplexNumber;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue >, 1 > List_IfcIrregularTimeSeriesValue_1_n;
-
-    /**
-     */
-    typedef Step::List< Step::Real, 2 > List_Real_2_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcStructuralAnalysisModel >, 0, 1 > Inverse_Set_IfcStructuralAnalysisModel_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcGrid >, 0, 1 > Inverse_Set_IfcGrid_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcDraughtingCalloutElement >, 1 > Set_IfcDraughtingCalloutElement_1_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcShapeModel >, 1 > List_IfcShapeModel_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToActor > > Inverse_Set_IfcRelAssignsToActor_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcGeometricSetSelect >, 1 > Set_IfcGeometricSetSelect_1_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcTableRow >, 1 > List_IfcTableRow_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcDocumentSelect >, 1 > Set_IfcDocumentSelect_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcActorSelect >, 1 > Set_IfcActorSelect_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToControl > > Inverse_Set_IfcRelAssignsToControl_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralMember > > Inverse_Set_IfcRelConnectsStructuralMember_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcConnectedFaceSet >, 1 > Set_IfcConnectedFaceSet_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcCovering >, 1 > Set_IfcCovering_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelDecomposes > > Inverse_Set_IfcRelDecomposes_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcProfileDef >, 2 > List_IfcProfileDef_2_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcReferencesValueDocument > > Inverse_Set_IfcReferencesValueDocument_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > Inverse_Set_IfcRelInteractionRequirements_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcMappedItem > > Inverse_Set_IfcMappedItem_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcProduct >, 1 > Set_IfcProduct_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcConstraintRelationship > > Inverse_Set_IfcConstraintRelationship_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcCartesianPoint >, 3 > List_IfcCartesianPoint_3_n;
-
-    /**
-     */
-    typedef Step::List< Step::Real, 2, 3 > List_Real_2_3;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcProductRepresentation >, 0, 1 > Inverse_Set_IfcProductRepresentation_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelServicesBuildings >, 0, 1 > Inverse_Set_IfcRelServicesBuildings_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralActivity > > Inverse_Set_IfcRelConnectsStructuralActivity_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToProcess > > Inverse_Set_IfcRelAssignsToProcess_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcLibraryInformation >, 0, 1 > Inverse_Set_IfcLibraryInformation_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcDocumentReference >, 1 > Set_IfcDocumentReference_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcOrganizationRelationship > > Inverse_Set_IfcOrganizationRelationship_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcApprovalActorRelationship > > Inverse_Set_IfcApprovalActorRelationship_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcClassificationItem >, 1 > Set_IfcClassificationItem_1_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcRepresentation >, 1 > List_IfcRepresentation_1_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcGridAxis >, 1 > List_IfcGridAxis_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcOrganization >, 1 > Set_IfcOrganization_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcRelaxation >, 1 > Set_IfcRelaxation_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelFlowControlElements >, 0, 1 > Inverse_Set_IfcRelFlowControlElements_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcAnnotationSurface >, 1, 1 > Inverse_Set_IfcAnnotationSurface_1_1;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcClassificationItem > > Inverse_Set_IfcClassificationItem_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcSectionReinforcementProperties >, 1 > List_IfcSectionReinforcementProperties_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcProfileDef >, 2 > Set_IfcProfileDef_2_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelCoversBldgElements > > Inverse_Set_IfcRelCoversBldgElements_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcLightDistributionData >, 1 > List_IfcLightDistributionData_1_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcOrientedEdge >, 1 > List_IfcOrientedEdge_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcCurve > > Set_IfcCurve_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure >, 0, 1 > Inverse_Set_IfcRelContainedInSpatialStructure_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcPresentationStyleAssignment >, 1 > Set_IfcPresentationStyleAssignment_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelConnectsPorts >, 0, 1 > Inverse_Set_IfcRelConnectsPorts_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelProjectsElement > > Inverse_Set_IfcRelProjectsElement_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::Integer, 3, 4 > List_Integer_3_4;
-
-    /**
-     */
-    typedef List_Integer_3_4 IfcCompoundPlaneAngleMeasure;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelAssociates > > Inverse_Set_IfcRelAssociates_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcFillStyleSelect >, 1 > Set_IfcFillStyleSelect_1_n;
-
-    /**
-     */
-    typedef Step::Array< Step::RefPtr< IfcCartesianPoint >, 0, 255 > Array_IfcCartesianPoint_0_255;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcClassificationItemRelationship >, 0, 1 > Inverse_Set_IfcClassificationItemRelationship_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelVoidsElement > > Inverse_Set_IfcRelVoidsElement_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcMaterialDefinitionRepresentation >, 0, 1 > Inverse_Set_IfcMaterialDefinitionRepresentation_0_1;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcAxis2Placement3D >, 2 > List_IfcAxis2Placement3D_2_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcDocumentInformation >, 0, 1 > Inverse_Set_IfcDocumentInformation_0_1;
-
-    /**
-     */
+
+
+    typedef Step::Real IfcAbsorbedDoseMeasure;
+
+    typedef Step::Real IfcAccelerationMeasure;
+
+    typedef Step::Real IfcAmountOfSubstanceMeasure;
+
+    typedef Step::Real IfcAngularVelocityMeasure;
+
+    typedef Step::Real IfcAreaMeasure;
+
+    typedef Step::Boolean IfcBoolean;
+
+    typedef Step::String IfcBoxAlignment;
+
+    typedef Step::Array<Step::Real, 1, 2> IfcComplexNumber;
+
+    typedef Step::List<Step::Integer, 3, 4> IfcCompoundPlaneAngleMeasure;
+
+    typedef Step::Real IfcContextDependentMeasure;
+
+    typedef Step::Number IfcCountMeasure;
+
+    typedef Step::Real IfcCurvatureMeasure;
+
+    typedef Step::Integer IfcDayInMonthNumber;
+
+    typedef Step::Integer IfcDaylightSavingHour;
+
+    typedef Step::String IfcDescriptiveMeasure;
+
+    typedef Step::Integer IfcDimensionCount;
+
+    typedef Step::Real IfcDoseEquivalentMeasure;
+
+    typedef Step::Real IfcDynamicViscosityMeasure;
+
+    typedef Step::Real IfcElectricCapacitanceMeasure;
+
+    typedef Step::Real IfcElectricChargeMeasure;
+
+    typedef Step::Real IfcElectricConductanceMeasure;
+
+    typedef Step::Real IfcElectricCurrentMeasure;
+
+    typedef Step::Real IfcElectricResistanceMeasure;
+
+    typedef Step::Real IfcElectricVoltageMeasure;
+
+    typedef Step::Real IfcEnergyMeasure;
+
+    typedef Step::String IfcFontStyle;
+
+    typedef Step::String IfcFontVariant;
+
+    typedef Step::String IfcFontWeight;
+
+    typedef Step::Real IfcForceMeasure;
+
+    typedef Step::Real IfcFrequencyMeasure;
+
+    typedef Step::String IfcGloballyUniqueId;
+
+    typedef Step::Real IfcHeatFluxDensityMeasure;
+
+    typedef Step::Real IfcHeatingValueMeasure;
+
+    typedef Step::Integer IfcHourInDay;
+
+    typedef Step::String IfcIdentifier;
+
+    typedef Step::Real IfcIlluminanceMeasure;
+
+    typedef Step::Real IfcInductanceMeasure;
+
+    typedef Step::Integer IfcInteger;
+
+    typedef Step::Integer IfcIntegerCountRateMeasure;
+
+    typedef Step::Real IfcIonConcentrationMeasure;
+
+    typedef Step::Real IfcIsothermalMoistureCapacityMeasure;
+
+    typedef Step::Real IfcKinematicViscosityMeasure;
+
+    typedef Step::String IfcLabel;
+
+    typedef Step::Real IfcLengthMeasure;
+
+    typedef Step::Real IfcLinearForceMeasure;
+
+    typedef Step::Real IfcLinearMomentMeasure;
+
+    typedef Step::Real IfcLinearStiffnessMeasure;
+
+    typedef Step::Real IfcLinearVelocityMeasure;
+
+    typedef Step::Logical IfcLogical;
+
+    typedef Step::Real IfcLuminousFluxMeasure;
+
+    typedef Step::Real IfcLuminousIntensityDistributionMeasure;
+
+    typedef Step::Real IfcLuminousIntensityMeasure;
+
+    typedef Step::Real IfcMagneticFluxDensityMeasure;
+
+    typedef Step::Real IfcMagneticFluxMeasure;
+
+    typedef Step::Real IfcMassDensityMeasure;
+
+    typedef Step::Real IfcMassFlowRateMeasure;
+
+    typedef Step::Real IfcMassMeasure;
+
+    typedef Step::Real IfcMassPerLengthMeasure;
+
+    typedef Step::Integer IfcMinuteInHour;
+
+    typedef Step::Real IfcModulusOfElasticityMeasure;
+
+    typedef Step::Real IfcModulusOfLinearSubgradeReactionMeasure;
+
+    typedef Step::Real IfcModulusOfRotationalSubgradeReactionMeasure;
+
+    typedef Step::Real IfcModulusOfSubgradeReactionMeasure;
+
+    typedef Step::Real IfcMoistureDiffusivityMeasure;
+
+    typedef Step::Real IfcMolecularWeightMeasure;
+
+    typedef Step::Real IfcMomentOfInertiaMeasure;
+
+    typedef Step::Real IfcMonetaryMeasure;
+
+    typedef Step::Integer IfcMonthInYearNumber;
+
+    typedef Step::Real IfcNormalisedRatioMeasure;
+
+    typedef Step::Number IfcNumericMeasure;
+
+    typedef Step::Real IfcPHMeasure;
+
+    typedef Step::Real IfcParameterValue;
+
+    typedef Step::Real IfcPlanarForceMeasure;
+
+    typedef Step::Real IfcPlaneAngleMeasure;
+
+    typedef Step::Real IfcPositiveLengthMeasure;
+
+    typedef Step::Real IfcPositivePlaneAngleMeasure;
+
+    typedef Step::Real IfcPositiveRatioMeasure;
+
+    typedef Step::Real IfcPowerMeasure;
+
+    typedef Step::String IfcPresentableText;
+
+    typedef Step::Real IfcPressureMeasure;
+
+    typedef Step::Real IfcRadioActivityMeasure;
+
+    typedef Step::Real IfcRatioMeasure;
+
+    typedef Step::Real IfcReal;
+
+    typedef Step::Real IfcRotationalFrequencyMeasure;
+
+    typedef Step::Real IfcRotationalMassMeasure;
+
+    typedef Step::Real IfcRotationalStiffnessMeasure;
+
+    typedef Step::Real IfcSecondInMinute;
+
+    typedef Step::Real IfcSectionModulusMeasure;
+
+    typedef Step::Real IfcSectionalAreaIntegralMeasure;
+
+    typedef Step::Real IfcShearModulusMeasure;
+
+    typedef Step::Real IfcSolidAngleMeasure;
+
+    typedef Step::Real IfcSoundPowerMeasure;
+
+    typedef Step::Real IfcSoundPressureMeasure;
+
+    typedef Step::Real IfcSpecificHeatCapacityMeasure;
+
+    typedef Step::Real IfcSpecularExponent;
+
+    typedef Step::Real IfcSpecularRoughness;
+
+    typedef Step::Real IfcTemperatureGradientMeasure;
+
+    typedef Step::String IfcText;
+
+    typedef Step::String IfcTextAlignment;
+
+    typedef Step::String IfcTextDecoration;
+
+    typedef Step::String IfcTextFontName;
+
+    typedef Step::String IfcTextTransformation;
+
+    typedef Step::Real IfcThermalAdmittanceMeasure;
+
+    typedef Step::Real IfcThermalConductivityMeasure;
+
+    typedef Step::Real IfcThermalExpansionCoefficientMeasure;
+
+    typedef Step::Real IfcThermalResistanceMeasure;
+
+    typedef Step::Real IfcThermalTransmittanceMeasure;
+
+    typedef Step::Real IfcThermodynamicTemperatureMeasure;
+
+    typedef Step::Real IfcTimeMeasure;
+
+    typedef Step::Integer IfcTimeStamp;
+
+    typedef Step::Real IfcTorqueMeasure;
+
+    typedef Step::Real IfcVaporPermeabilityMeasure;
+
+    typedef Step::Real IfcVolumeMeasure;
+
+    typedef Step::Real IfcVolumetricFlowRateMeasure;
+
+    typedef Step::Real IfcWarpingConstantMeasure;
+
+    typedef Step::Real IfcWarpingMomentMeasure;
+
+    typedef Step::Integer IfcYearNumber;
+
+    
+
+    typedef Step::Array<Step::Real, 1, 2> Array_Real_1_2;
+
+    typedef Step::List<Step::Integer, 3, 4> List_Integer_3_4;
+
+    typedef Step::List< Step::RefPtr< IfcActorRole > , 1> List_IfcActorRole_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcAddress > , 1> List_IfcAddress_1_n;
+
     typedef Step::Set< Step::ObsPtr< IfcPerson > > Inverse_Set_IfcPerson_0_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcPropertyConstraintRelationship > > Inverse_Set_IfcPropertyConstraintRelationship_0_n;
+    typedef Step::List<IfcLabel, 1> List_IfcLabel_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelDefinesByType >, 0, 1 > Inverse_Set_IfcRelDefinesByType_0_1;
+    typedef Step::List<IfcLabel, 1> List_IfcLabel_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelCoversBldgElements >, 0, 1 > Inverse_Set_IfcRelCoversBldgElements_0_1;
+    typedef Step::List<IfcLabel, 1> List_IfcLabel_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelConnectsWithRealizingElements > > Inverse_Set_IfcRelConnectsWithRealizingElements_0_n;
+    typedef Step::List< Step::RefPtr< IfcActorRole > , 1> List_IfcActorRole_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcStructuralResultGroup >, 1 > Set_IfcStructuralResultGroup_1_n;
+    typedef Step::List< Step::RefPtr< IfcAddress > , 1> List_IfcAddress_1_n;
 
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcConstraint >, 1 > List_IfcConstraint_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelCoversSpaces > > Inverse_Set_IfcRelCoversSpaces_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcSurfaceTexture >, 1 > List_IfcSurfaceTexture_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcConstraintAggregationRelationship > > Inverse_Set_IfcConstraintAggregationRelationship_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::Binary< 32 >, 1 > List_32_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRepresentationMap >, 0, 1 > Inverse_Set_IfcRepresentationMap_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcStructuralLoadGroup >, 1 > Set_IfcStructuralLoadGroup_1_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcValue >, 1 > List_IfcValue_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcAppliedValue >, 1 > Set_IfcAppliedValue_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcSpatialStructureElement >, 1 > Set_IfcSpatialStructureElement_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelDefinesByProperties >, 0, 1 > Inverse_Set_IfcRelDefinesByProperties_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > > Inverse_Set_IfcDocumentInformationRelationship_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelDecomposes >, 0, 1 > Inverse_Set_IfcRelDecomposes_0_1;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcSimpleValue >, 1 > List_IfcSimpleValue_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcUnit >, 1 > Set_IfcUnit_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelDefines > > Inverse_Set_IfcRelDefines_0_n;
-
-    /**
-     */
-    typedef Step::Array< Step::Real, 0, 255 > Array_Real_0_255;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcTextureVertex >, 3 > List_IfcTextureVertex_3_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcFillAreaStyleTileShapeSelect >, 1 > Set_IfcFillAreaStyleTileShapeSelect_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcSurfaceStyleElementSelect >, 1, 5 > Set_IfcSurfaceStyleElementSelect_1_5;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcTypeObject >, 0, 1 > Inverse_Set_IfcTypeObject_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelSequence > > Inverse_Set_IfcRelSequence_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::Integer > List_Integer_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcCartesianPoint >, 2 > List_IfcCartesianPoint_2_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcTimeSeriesValue >, 1 > List_IfcTimeSeriesValue_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > Inverse_Set_IfcRelContainedInSpatialStructure_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcObject >, 1 > Set_IfcObject_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcPropertyDependencyRelationship > > Inverse_Set_IfcPropertyDependencyRelationship_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcClassificationNotationSelect >, 1 > Set_IfcClassificationNotationSelect_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcPhysicalQuantity >, 1 > Set_IfcPhysicalQuantity_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcConstraint >, 1 > Set_IfcConstraint_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcProperty >, 1 > Set_IfcProperty_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelCoversSpaces >, 0, 1 > Inverse_Set_IfcRelCoversSpaces_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcLibraryReference >, 1 > Set_IfcLibraryReference_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcPresentationLayerAssignment > > Inverse_Set_IfcPresentationLayerAssignment_0_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcStructuralResultGroup >, 0, 1 > Inverse_Set_IfcStructuralResultGroup_0_1;
-
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcFaceBound >, 1 > Set_IfcFaceBound_1_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcRelAssignsToProjectOrder >, 1 > List_IfcRelAssignsToProjectOrder_1_n;
-
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelReferencedInSpatialStructure > > Inverse_Set_IfcRelReferencedInSpatialStructure_0_n;
-
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcMaterialLayer >, 1 > List_IfcMaterialLayer_1_n;
-
-    /**
-     */
     typedef Step::Set< Step::ObsPtr< IfcPersonAndOrganization > > Inverse_Set_IfcPersonAndOrganization_0_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcAppliedValueRelationship > > Inverse_Set_IfcAppliedValueRelationship_0_n;
+    typedef Step::List< Step::RefPtr< IfcActorRole > , 1> List_IfcActorRole_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcClosedShell >, 1 > Set_IfcClosedShell_1_n;
+    typedef Step::Set< Step::ObsPtr< IfcOrganization > > Inverse_Set_IfcOrganization_0_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcShapeAspect > > Inverse_Set_IfcShapeAspect_0_n;
+    typedef Step::Set< Step::ObsPtr< IfcOrganizationRelationship > > Inverse_Set_IfcOrganizationRelationship_0_n;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcDistributionControlElement >, 1 > Set_IfcDistributionControlElement_1_n;
+    typedef Step::Set< Step::RefPtr< IfcOrganization > , 1> Set_IfcOrganization_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcDerivedUnitElement >, 1 > Set_IfcDerivedUnitElement_1_n;
+    typedef Step::Set< Step::ObsPtr< IfcOrganizationRelationship > > Inverse_Set_IfcOrganizationRelationship_0_n;
 
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcSoundValue >, 1, 8 > List_IfcSoundValue_1_8;
+    typedef Step::Set< Step::ObsPtr< IfcPersonAndOrganization > > Inverse_Set_IfcPersonAndOrganization_0_n;
 
-    /**
-     */
+    typedef Step::Set< Step::RefPtr< IfcDerivedUnitElement > , 1> Set_IfcDerivedUnitElement_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcPresentationLayerAssignment > > Inverse_Set_IfcPresentationLayerAssignment_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcLayeredItem > , 1> Set_IfcLayeredItem_1_n;
+
     typedef Step::Set< Step::ObsPtr< IfcRepresentation > > Inverse_Set_IfcRepresentation_0_n;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcObjectDefinition >, 1 > Set_IfcObjectDefinition_1_n;
+    typedef Step::Set< Step::RefPtr< IfcRepresentationItem > , 1> Set_IfcRepresentationItem_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcConstraintClassificationRelationship > > Inverse_Set_IfcConstraintClassificationRelationship_0_n;
+    typedef Step::Set< Step::ObsPtr< IfcRepresentationMap > , 0, 1> Inverse_Set_IfcRepresentationMap_0_1;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralElement > > Inverse_Set_IfcRelConnectsStructuralElement_0_n;
+    typedef Step::Set< Step::ObsPtr< IfcMappedItem > > Inverse_Set_IfcMappedItem_0_n;
 
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcCompositeCurveSegment >, 1 > List_IfcCompositeCurveSegment_1_n;
+    typedef Step::List<Step::Real, 2, 3> List_Real_2_3;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > Inverse_Set_IfcRelSpaceBoundary_0_n;
+    typedef Step::List<IfcLengthMeasure, 1, 3> List_IfcLengthMeasure_1_3;
 
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcActorRole >, 1 > List_IfcActorRole_1_n;
+    typedef Step::Set< Step::ObsPtr< IfcPresentationLayerAssignment > > Inverse_Set_IfcPresentationLayerAssignment_0_n;
 
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcAddress >, 1 > List_IfcAddress_1_n;
+    typedef Step::Set< Step::ObsPtr< IfcProductRepresentation > , 0, 1> Inverse_Set_IfcProductRepresentation_0_1;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcDocumentInformation >, 1 > Set_IfcDocumentInformation_1_n;
+    typedef Step::List< Step::RefPtr< IfcRepresentation > , 1> List_IfcRepresentation_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcCompositeCurve >, 1 > Inverse_Set_IfcCompositeCurve_1_n;
+    typedef Step::Set< Step::ObsPtr< IfcStyledItem > , 0, 1> Inverse_Set_IfcStyledItem_0_1;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcFace >, 1 > Set_IfcFace_1_n;
+    typedef Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > , 1> Set_IfcPresentationStyleAssignment_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcCurve >, 1 > Set_IfcCurve_1_n;
+    typedef Step::Set< Step::RefPtr< IfcPresentationStyleSelect > , 1> Set_IfcPresentationStyleSelect_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToResource > > Inverse_Set_IfcRelAssignsToResource_0_n;
+    typedef Step::List< Step::RefPtr< IfcCurveStyleFontPattern > , 1> List_IfcCurveStyleFontPattern_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcApprovalRelationship > > Inverse_Set_IfcApprovalRelationship_0_n;
+    typedef Step::Set< Step::RefPtr< IfcFillStyleSelect > , 1> Set_IfcFillStyleSelect_1_n;
 
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcRepresentationMap >, 1 > List_IfcRepresentationMap_1_n;
+    typedef Step::Set< Step::RefPtr< IfcFillAreaStyleTileShapeSelect > , 1> Set_IfcFillAreaStyleTileShapeSelect_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcTrimmingSelect >, 1, 2 > Set_IfcTrimmingSelect_1_2;
+    typedef Step::Set< Step::RefPtr< IfcSurfaceStyleElementSelect > , 1, 5> Set_IfcSurfaceStyleElementSelect_1_5;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelFillsElement >, 0, 1 > Inverse_Set_IfcRelFillsElement_0_1;
+    typedef Step::List< Step::RefPtr< IfcSurfaceTexture > , 1> List_IfcSurfaceTexture_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship >, 0, 1 > Inverse_Set_IfcDocumentInformationRelationship_0_1;
+    typedef Step::List< Step::RefPtr< IfcDirection > , 2, 2> List_IfcDirection_2_2;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcLayeredItem >, 1 > Set_IfcLayeredItem_1_n;
+    typedef Step::List< Step::RefPtr< IfcDirection > , 2, 2> List_IfcDirection_2_2;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcStructuralAnalysisModel > > Inverse_Set_IfcStructuralAnalysisModel_0_n;
+    typedef Step::List< Step::RefPtr< IfcDirection > , 3, 3> List_IfcDirection_3_3;
 
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcDirection >, 2, 2 > List_IfcDirection_2_2;
+    typedef Step::Set< Step::RefPtr< IfcClassificationNotationFacet > , 1> Set_IfcClassificationNotationFacet_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcStructuralAction > > Inverse_Set_IfcStructuralAction_0_n;
+    typedef Step::Set< Step::ObsPtr< IfcClassificationItem > > Inverse_Set_IfcClassificationItem_0_n;
 
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcDirection >, 3, 3 > List_IfcDirection_3_3;
+    typedef Step::Set< Step::ObsPtr< IfcClassificationItemRelationship > , 0, 1> Inverse_Set_IfcClassificationItemRelationship_0_1;
 
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcGridAxis >, 2, 2 > List_IfcGridAxis_2_2;
+    typedef Step::Set< Step::RefPtr< IfcClassificationItem > , 1> Set_IfcClassificationItem_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcRepresentationItem >, 1 > Set_IfcRepresentationItem_1_n;
+    typedef Step::Set< Step::ObsPtr< IfcClassificationItemRelationship > , 0, 1> Inverse_Set_IfcClassificationItemRelationship_0_1;
 
-    /**
-     */
-    typedef Step::List< Step::RefPtr< IfcDateTimeSelect >, 1 > List_IfcDateTimeSelect_1_n;
+    typedef Step::Set< Step::ObsPtr< IfcDocumentInformation > , 0, 1> Inverse_Set_IfcDocumentInformation_0_1;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcRoot >, 1 > Set_IfcRoot_1_n;
+    typedef Step::Set< Step::RefPtr< IfcDocumentReference > , 1> Set_IfcDocumentReference_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToProduct > > Inverse_Set_IfcRelAssignsToProduct_0_n;
+    typedef Step::Set< Step::RefPtr< IfcActorSelect > , 1> Set_IfcActorSelect_1_n;
 
-    /**
-     */
+    typedef Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > > Inverse_Set_IfcDocumentInformationRelationship_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcDocumentInformation > , 1> Set_IfcDocumentInformation_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > , 0, 1> Inverse_Set_IfcDocumentInformationRelationship_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcLibraryInformation > , 0, 1> Inverse_Set_IfcLibraryInformation_0_1;
+
+    typedef Step::Set< Step::RefPtr< IfcLibraryReference > , 1> Set_IfcLibraryReference_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcLightDistributionData > , 1> List_IfcLightDistributionData_1_n;
+
+    typedef Step::List<IfcPlaneAngleMeasure, 1> List_IfcPlaneAngleMeasure_1_n;
+
+    typedef Step::List<IfcLuminousIntensityDistributionMeasure, 1> List_IfcLuminousIntensityDistributionMeasure_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcMaterialDefinitionRepresentation > , 0, 1> Inverse_Set_IfcMaterialDefinitionRepresentation_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcMaterialClassificationRelationship > , 0, 1> Inverse_Set_IfcMaterialClassificationRelationship_0_1;
+
+    typedef Step::Set< Step::RefPtr< IfcClassificationNotationSelect > , 1> Set_IfcClassificationNotationSelect_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcMaterial > , 1> List_IfcMaterial_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcMaterialLayer > , 1> List_IfcMaterialLayer_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcTableRow > , 1> List_IfcTableRow_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcValue > , 1> List_IfcValue_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcTimeSeriesReferenceRelationship > , 0, 1> Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1;
+
+    typedef Step::Set< Step::RefPtr< IfcDocumentSelect > , 1> Set_IfcDocumentSelect_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcReferencesValueDocument > > Inverse_Set_IfcReferencesValueDocument_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcAppliedValue > , 1> Set_IfcAppliedValue_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcAppliedValueRelationship > > Inverse_Set_IfcAppliedValueRelationship_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcAppliedValue > , 1> Set_IfcAppliedValue_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcAppliedValueRelationship > > Inverse_Set_IfcAppliedValueRelationship_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcFace > , 1> Set_IfcFace_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcFaceBound > , 1> Set_IfcFaceBound_1_n;
+
     typedef Step::Set< Step::ObsPtr< IfcRelAssigns > > Inverse_Set_IfcRelAssigns_0_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcTerminatorSymbol >, 0, 2 > Inverse_Set_IfcTerminatorSymbol_0_2;
+    typedef Step::Set< Step::RefPtr< IfcObjectDefinition > , 1> Set_IfcObjectDefinition_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcRelServicesBuildings > > Inverse_Set_IfcRelServicesBuildings_0_n;
+    typedef Step::Set< Step::ObsPtr< IfcRelDecomposes > > Inverse_Set_IfcRelDecomposes_0_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcComplexProperty >, 0, 1 > Inverse_Set_IfcComplexProperty_0_1;
+    typedef Step::Set< Step::RefPtr< IfcObjectDefinition > , 1> Set_IfcObjectDefinition_1_n;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcGeometricRepresentationSubContext > > Inverse_Set_IfcGeometricRepresentationSubContext_0_n;
+    typedef Step::Set< Step::ObsPtr< IfcRelDecomposes > , 0, 1> Inverse_Set_IfcRelDecomposes_0_1;
 
-    /**
-     */
-    typedef Step::Set< Step::ObsPtr< IfcShapeAspect >, 0, 1 > Inverse_Set_IfcShapeAspect_0_1;
+    typedef Step::Set< Step::ObsPtr< IfcRelAssociates > > Inverse_Set_IfcRelAssociates_0_n;
 
-    /**
-     */
+    typedef Step::Set< Step::RefPtr< IfcRoot > , 1> Set_IfcRoot_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelDefines > > Inverse_Set_IfcRelDefines_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcObject > , 1> Set_IfcObject_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcProduct > , 1, 1> Inverse_Set_IfcProduct_1_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcLocalPlacement > > Inverse_Set_IfcLocalPlacement_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToProduct > > Inverse_Set_IfcRelAssignsToProduct_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralActivity > > Inverse_Set_IfcRelConnectsStructuralActivity_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralElement > > Inverse_Set_IfcRelConnectsStructuralElement_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralElement > > Inverse_Set_IfcRelConnectsStructuralElement_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralMember > > Inverse_Set_IfcRelConnectsStructuralMember_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralMember > , 1> Inverse_Set_IfcRelConnectsStructuralMember_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelFillsElement > , 0, 1> Inverse_Set_IfcRelFillsElement_0_1;
+
     typedef Step::Set< Step::ObsPtr< IfcRelFillsElement > > Inverse_Set_IfcRelFillsElement_0_n;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcShell >, 1 > Set_IfcShell_1_n;
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsElements > > Inverse_Set_IfcRelConnectsElements_0_n;
 
-    /**
-     */
-    typedef Step::Set< Step::RefPtr< IfcPerson >, 1 > Set_IfcPerson_1_n;
+    typedef Step::Set< Step::ObsPtr< IfcRelCoversBldgElements > > Inverse_Set_IfcRelCoversBldgElements_0_n;
 
-}
+    typedef Step::Set< Step::RefPtr< IfcCovering > , 1> Set_IfcCovering_1_n;
 
-#endif // IFC2X3_DEFINEDTYPES_H
+    typedef Step::Set< Step::ObsPtr< IfcRelCoversSpaces > , 0, 1> Inverse_Set_IfcRelCoversSpaces_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelReferencedInSpatialStructure > > Inverse_Set_IfcRelReferencedInSpatialStructure_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcProduct > , 1> Set_IfcProduct_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelServicesBuildings > > Inverse_Set_IfcRelServicesBuildings_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelServicesBuildings > , 0, 1> Inverse_Set_IfcRelServicesBuildings_0_1;
+
+    typedef Step::Set< Step::RefPtr< IfcSpatialStructureElement > , 1> Set_IfcSpatialStructureElement_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > Inverse_Set_IfcRelContainedInSpatialStructure_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcProduct > , 1> Set_IfcProduct_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelCoversSpaces > > Inverse_Set_IfcRelCoversSpaces_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > Inverse_Set_IfcRelSpaceBoundary_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcCovering > , 1> Set_IfcCovering_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelCoversBldgElements > , 0, 1> Inverse_Set_IfcRelCoversBldgElements_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelProjectsElement > > Inverse_Set_IfcRelProjectsElement_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelReferencedInSpatialStructure > > Inverse_Set_IfcRelReferencedInSpatialStructure_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsPortToElement > > Inverse_Set_IfcRelConnectsPortToElement_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsPorts > , 0, 1> Inverse_Set_IfcRelConnectsPorts_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsPorts > , 0, 1> Inverse_Set_IfcRelConnectsPorts_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelVoidsElement > > Inverse_Set_IfcRelVoidsElement_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsWithRealizingElements > > Inverse_Set_IfcRelConnectsWithRealizingElements_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcElement > , 1> Set_IfcElement_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > Inverse_Set_IfcRelSpaceBoundary_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsElements > > Inverse_Set_IfcRelConnectsElements_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > , 0, 1> Inverse_Set_IfcRelContainedInSpatialStructure_0_1;
+
+    typedef Step::Set< Step::RefPtr< IfcConnectedFaceSet > , 1> Set_IfcConnectedFaceSet_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcCompositeCurveSegment > , 1> List_IfcCompositeCurveSegment_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcCompositeCurve > , 1> Inverse_Set_IfcCompositeCurve_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToControl > > Inverse_Set_IfcRelAssignsToControl_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToActor > > Inverse_Set_IfcRelAssignsToActor_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcPropertySetDefinition > , 1> Set_IfcPropertySetDefinition_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelAssociates > > Inverse_Set_IfcRelAssociates_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelDefinesByProperties > , 0, 1> Inverse_Set_IfcRelDefinesByProperties_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcTypeObject > , 0, 1> Inverse_Set_IfcTypeObject_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelDefinesByType > , 0, 1> Inverse_Set_IfcRelDefinesByType_0_1;
+
+    typedef Step::List< Step::RefPtr< IfcRepresentationMap > , 1> List_IfcRepresentationMap_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > , 1> Set_IfcDraughtingCalloutElement_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcDraughtingCalloutRelationship > > Inverse_Set_IfcDraughtingCalloutRelationship_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcDraughtingCalloutRelationship > > Inverse_Set_IfcDraughtingCalloutRelationship_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > , 0, 1> Inverse_Set_IfcRelContainedInSpatialStructure_0_1;
+
+    typedef Step::Set< Step::RefPtr< IfcCurve > , 1> Set_IfcCurve_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcAnnotationSurface > , 1, 1> Inverse_Set_IfcAnnotationSurface_1_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcApprovalActorRelationship > > Inverse_Set_IfcApprovalActorRelationship_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcApprovalRelationship > > Inverse_Set_IfcApprovalRelationship_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcApprovalRelationship > > Inverse_Set_IfcApprovalRelationship_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcProperty > , 1> Set_IfcProperty_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcPropertyDependencyRelationship > > Inverse_Set_IfcPropertyDependencyRelationship_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcPropertyDependencyRelationship > > Inverse_Set_IfcPropertyDependencyRelationship_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcComplexProperty > , 0, 1> Inverse_Set_IfcComplexProperty_0_1;
+
+    typedef Step::Set< Step::RefPtr< IfcProperty > , 1> Set_IfcProperty_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcCurve > , 1> Set_IfcCurve_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcCartesianPoint > , 2> List_IfcCartesianPoint_2_n;
+
+    typedef Step::Array< Step::RefPtr< IfcCartesianPoint > , 0, 255> Array_IfcCartesianPoint_0_255;
+
+    typedef Step::List<IfcLabel, 1> List_IfcLabel_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcDirection > , 3, 3> List_IfcDirection_3_3;
+
+    typedef Step::Set< Step::RefPtr< IfcProfileDef > , 2> Set_IfcProfileDef_2_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcConstraintClassificationRelationship > > Inverse_Set_IfcConstraintClassificationRelationship_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcClassificationNotationSelect > , 1> Set_IfcClassificationNotationSelect_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcConstraintRelationship > > Inverse_Set_IfcConstraintRelationship_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcConstraint > , 1> Set_IfcConstraint_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcConstraintRelationship > > Inverse_Set_IfcConstraintRelationship_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcPropertyConstraintRelationship > > Inverse_Set_IfcPropertyConstraintRelationship_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcProperty > , 1> Set_IfcProperty_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcConstraintAggregationRelationship > > Inverse_Set_IfcConstraintAggregationRelationship_0_n;
+
+    typedef Step::List< Step::RefPtr< IfcConstraint > , 1> List_IfcConstraint_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcConstraintAggregationRelationship > > Inverse_Set_IfcConstraintAggregationRelationship_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToResource > > Inverse_Set_IfcRelAssignsToResource_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcActorSelect > , 1> Set_IfcActorSelect_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcActorSelect > , 1> Set_IfcActorSelect_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcCurve > > Set_IfcCurve_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcTerminatorSymbol > , 0, 2> Inverse_Set_IfcTerminatorSymbol_0_2;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelFlowControlElements > , 0, 1> Inverse_Set_IfcRelFlowControlElements_0_1;
+
+    typedef Step::Set< Step::RefPtr< IfcDistributionControlElement > , 1> Set_IfcDistributionControlElement_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelFlowControlElements > , 0, 1> Inverse_Set_IfcRelFlowControlElements_0_1;
+
+    typedef Step::List< Step::RefPtr< IfcShapeModel > , 1> List_IfcShapeModel_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcShapeAspect > , 0, 1> Inverse_Set_IfcShapeAspect_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcProduct > , 1, 1> Inverse_Set_IfcProduct_1_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcShapeAspect > > Inverse_Set_IfcShapeAspect_0_n;
+
+    typedef Step::List< Step::RefPtr< IfcOrientedEdge > , 1> List_IfcOrientedEdge_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcPhysicalQuantity > , 1> Set_IfcPhysicalQuantity_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcPhysicalComplexQuantity > , 0, 1> Inverse_Set_IfcPhysicalComplexQuantity_0_1;
+
+    typedef Step::Set< Step::RefPtr< IfcPhysicalQuantity > , 1> Set_IfcPhysicalQuantity_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcProperty > , 1> Set_IfcProperty_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcClosedShell > , 1> Set_IfcClosedShell_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcGeometricSetSelect > , 1> Set_IfcGeometricSetSelect_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcGeometricRepresentationSubContext > > Inverse_Set_IfcGeometricRepresentationSubContext_0_n;
+
+    typedef Step::List< Step::RefPtr< IfcGridAxis > , 1> List_IfcGridAxis_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcGrid > , 0, 1> Inverse_Set_IfcGrid_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcGrid > , 0, 1> Inverse_Set_IfcGrid_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcGrid > , 0, 1> Inverse_Set_IfcGrid_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcVirtualGridIntersection > > Inverse_Set_IfcVirtualGridIntersection_0_n;
+
+    typedef Step::List< Step::RefPtr< IfcGridAxis > , 2, 2> List_IfcGridAxis_2_2;
+
+    typedef Step::List<IfcLengthMeasure, 2, 3> List_IfcLengthMeasure_2_3;
+
+    typedef Step::List< Step::RefPtr< IfcGridAxis > , 1> List_IfcGridAxis_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcGridAxis > , 1> List_IfcGridAxis_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > , 0, 1> Inverse_Set_IfcRelContainedInSpatialStructure_0_1;
+
+    typedef Step::Set< Step::RefPtr< IfcPerson > , 1> Set_IfcPerson_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue > , 1> List_IfcIrregularTimeSeriesValue_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcValue > , 1> List_IfcValue_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcRelaxation > , 1> Set_IfcRelaxation_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToProcess > > Inverse_Set_IfcRelAssignsToProcess_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelSequence > > Inverse_Set_IfcRelSequence_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelSequence > > Inverse_Set_IfcRelSequence_0_n;
+
+    typedef Step::List<IfcText, 1> List_IfcText_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcOrientedEdge > , 1> List_IfcOrientedEdge_1_n;
+
+    typedef Step::List<Step::Binary<32>, 1> List_Binary_32__1_n;
+
+    typedef Step::List< Step::RefPtr< IfcCartesianPoint > , 3> List_IfcCartesianPoint_3_n;
+
+    typedef Step::List< Step::RefPtr< IfcCartesianPoint > , 2> List_IfcCartesianPoint_2_n;
+
+    typedef Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > Set_IfcPresentationStyleSelect_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcRepresentationContext > , 1> Set_IfcRepresentationContext_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcUnit > , 1> Set_IfcUnit_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcRelAssignsToProjectOrder > , 1> List_IfcRelAssignsToProjectOrder_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcValue > , 1> List_IfcValue_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcValue > , 1> List_IfcValue_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcValue > , 1> List_IfcValue_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcProperty > , 1> Set_IfcProperty_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcValue > , 1> List_IfcValue_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcValue > , 1> List_IfcValue_1_n;
+
+    typedef Step::List<Step::Real, 2> List_Real_2_n;
+
+    typedef Step::Array<Step::Real, 0, 255> Array_Real_0_255;
+
+    typedef Step::List< Step::RefPtr< IfcTimeSeriesValue > , 1> List_IfcTimeSeriesValue_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcValue > , 1> List_IfcValue_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcSectionReinforcementProperties > , 1> List_IfcSectionReinforcementProperties_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcReinforcementBarProperties > , 1> Set_IfcReinforcementBarProperties_1_n;
+
+    typedef Step::List<Step::Integer> List_Integer_0_n;
+
+    typedef Step::List<Step::Integer> List_Integer_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > Inverse_Set_IfcRelInteractionRequirements_0_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > Inverse_Set_IfcRelInteractionRequirements_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcProperty > , 1> Set_IfcProperty_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcProfileDef > , 2> List_IfcProfileDef_2_n;
+
+    typedef Step::List< Step::RefPtr< IfcAxis2Placement3D > , 2> List_IfcAxis2Placement3D_2_n;
+
+    typedef Step::Set< Step::RefPtr< IfcShell > , 1> Set_IfcShell_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcSoundValue > , 1, 8> List_IfcSoundValue_1_8;
+
+    typedef Step::Set< Step::ObsPtr< IfcStructuralAction > > Inverse_Set_IfcStructuralAction_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcStructuralLoadGroup > , 1> Set_IfcStructuralLoadGroup_1_n;
+
+    typedef Step::Set< Step::ObsPtr< IfcStructuralResultGroup > , 0, 1> Inverse_Set_IfcStructuralResultGroup_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcStructuralAnalysisModel > , 0, 1> Inverse_Set_IfcStructuralAnalysisModel_0_1;
+
+    typedef Step::Set< Step::ObsPtr< IfcStructuralAnalysisModel > > Inverse_Set_IfcStructuralAnalysisModel_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcStructuralResultGroup > , 1> Set_IfcStructuralResultGroup_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcStructuralLoad > , 1> List_IfcStructuralLoad_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcStructuralLoad > , 2> List_IfcStructuralLoad_2_n;
+
+    typedef Step::List< Step::RefPtr< IfcStructuralLoad > , 2> List_IfcStructuralLoad_2_n;
+
+    typedef Step::List< Step::RefPtr< IfcStructuralLoad > , 3> List_IfcStructuralLoad_3_n;
+
+    typedef Step::List<IfcPositiveLengthMeasure, 2> List_IfcPositiveLengthMeasure_2_n;
+
+    typedef Step::List<IfcPositiveLengthMeasure, 3> List_IfcPositiveLengthMeasure_3_n;
+
+    typedef Step::List<IfcLabel, 1> List_IfcLabel_1_n;
+
+    typedef Step::List<IfcLabel, 1> List_IfcLabel_1_n;
+
+    typedef Step::List<IfcLabel, 1> List_IfcLabel_1_n;
+
+    typedef Step::List<IfcTextFontName, 1> List_IfcTextFontName_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcSimpleValue > , 1> List_IfcSimpleValue_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcVertexBasedTextureMap > , 1> Set_IfcVertexBasedTextureMap_1_n;
+
+    typedef Step::List< Step::RefPtr< IfcTextureVertex > , 3> List_IfcTextureVertex_3_n;
+
+    typedef Step::List<IfcParameterValue, 2, 2> List_IfcParameterValue_2_2;
+
+    typedef Step::List< Step::RefPtr< IfcCartesianPoint > , 3> List_IfcCartesianPoint_3_n;
+
+    typedef Step::List< Step::RefPtr< IfcDateTimeSelect > , 1> List_IfcDateTimeSelect_1_n;
+
+    typedef Step::Set< Step::RefPtr< IfcTrimmingSelect > , 1, 2> Set_IfcTrimmingSelect_1_2;
+
+    typedef Step::Set< Step::RefPtr< IfcTrimmingSelect > , 1, 2> Set_IfcTrimmingSelect_1_2;
+
+    typedef Step::Set< Step::RefPtr< IfcPerson > , 1> Set_IfcPerson_1_n;
+
+
+} // namespace ifc2x3

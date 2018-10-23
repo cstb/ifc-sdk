@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,95 +24,91 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcSurfaceStyleShading.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcColourRgb.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcSurfaceStyleShading::IfcSurfaceStyleShading(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_surfaceColour = NULL;
+IfcSurfaceStyleShading::IfcSurfaceStyleShading(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_SurfaceColour = NULL;
 }
 
-IfcSurfaceStyleShading::~IfcSurfaceStyleShading() {
+IfcSurfaceStyleShading::~IfcSurfaceStyleShading()
+{}
+
+bool IfcSurfaceStyleShading::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcSurfaceStyleShading(this);
 }
 
-bool IfcSurfaceStyleShading::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcSurfaceStyleShading(this);
-}
 
-const std::string &IfcSurfaceStyleShading::type() const {
-    return IfcSurfaceStyleShading::s_type.getName();
-}
-
-const Step::ClassType &IfcSurfaceStyleShading::getClassType() {
-    return IfcSurfaceStyleShading::s_type;
-}
-
-const Step::ClassType &IfcSurfaceStyleShading::getType() const {
-    return IfcSurfaceStyleShading::s_type;
-}
-
-bool IfcSurfaceStyleShading::isOfType(const Step::ClassType &t) const {
-    return IfcSurfaceStyleShading::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcColourRgb *IfcSurfaceStyleShading::getSurfaceColour() {
-    if (Step::BaseObject::inited()) {
-        return m_surfaceColour.get();
+IfcColourRgb *IfcSurfaceStyleShading::getSurfaceColour()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SurfaceColour.get();
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcColourRgb *IfcSurfaceStyleShading::getSurfaceColour() const {
-    IfcSurfaceStyleShading * deConstObject = const_cast< IfcSurfaceStyleShading * > (this);
-    return deConstObject->getSurfaceColour();
+const IfcColourRgb *IfcSurfaceStyleShading::getSurfaceColour() const
+{
+    return const_cast<IfcSurfaceStyleShading *>(this)->getSurfaceColour();
 }
 
-void IfcSurfaceStyleShading::setSurfaceColour(const Step::RefPtr< IfcColourRgb > &value) {
-    m_surfaceColour = value;
+void IfcSurfaceStyleShading::setSurfaceColour(const Step::RefPtr< IfcColourRgb > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SurfaceColour = value;
 }
 
-void IfcSurfaceStyleShading::unsetSurfaceColour() {
-    m_surfaceColour = Step::getUnset(getSurfaceColour());
+void IfcSurfaceStyleShading::unsetSurfaceColour()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SurfaceColour = Step::getUnset(getSurfaceColour());
 }
 
-bool IfcSurfaceStyleShading::testSurfaceColour() const {
-    return !Step::isUnset(getSurfaceColour());
+bool IfcSurfaceStyleShading::testSurfaceColour() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSurfaceColour()) == false;
 }
 
-bool IfcSurfaceStyleShading::init() {
+bool IfcSurfaceStyleShading::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_surfaceColour = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_SurfaceColour = NULL;
     }
-    else {
-        m_surfaceColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_SurfaceColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcSurfaceStyleShading::copy(const IfcSurfaceStyleShading &obj, const CopyOp &copyop) {
+void IfcSurfaceStyleShading::copy(const IfcSurfaceStyleShading &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setSurfaceColour((IfcColourRgb*)copyop(obj.m_surfaceColour.get()));
+    setSurfaceColour((IfcColourRgb*)copyop(obj.m_SurfaceColour.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleShading::s_type("IfcSurfaceStyleShading");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcSurfaceStyleShading, Step::BaseEntity)

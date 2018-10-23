@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,230 +24,273 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRelSequence.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcProcess.h>
-#include <ifc2x3/IfcRelConnects.h>
+#include <ifc2x3/IfcProcess.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRelSequence::IfcRelSequence(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingProcess = NULL;
-    m_relatedProcess = NULL;
-    m_timeLag = Step::getUnset(m_timeLag);
-    m_sequenceType = IfcSequenceEnum_UNSET;
+IfcRelSequence::IfcRelSequence(Step::Id id, Step::SPFData *args) : 
+    IfcRelConnects(id, args)
+{
+    m_TimeLag = Step::getUnset(m_TimeLag);
+    m_SequenceType = IfcSequenceEnum_UNSET;
+    m_RelatingProcess = NULL;
+    m_RelatedProcess = NULL;
 }
 
-IfcRelSequence::~IfcRelSequence() {
+IfcRelSequence::~IfcRelSequence()
+{}
+
+bool IfcRelSequence::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRelSequence(this);
 }
 
-bool IfcRelSequence::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRelSequence(this);
-}
 
-const std::string &IfcRelSequence::type() const {
-    return IfcRelSequence::s_type.getName();
-}
-
-const Step::ClassType &IfcRelSequence::getClassType() {
-    return IfcRelSequence::s_type;
-}
-
-const Step::ClassType &IfcRelSequence::getType() const {
-    return IfcRelSequence::s_type;
-}
-
-bool IfcRelSequence::isOfType(const Step::ClassType &t) const {
-    return IfcRelSequence::s_type == t ? true : IfcRelConnects::isOfType(t);
-}
-
-IfcProcess *IfcRelSequence::getRelatingProcess() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingProcess.get();
+IfcTimeMeasure IfcRelSequence::getTimeLag()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TimeLag;
     }
-    else {
-        return NULL;
+    else 
+    {
+        return Step::getUnset(m_TimeLag);
+    }    
+}
+
+IfcTimeMeasure IfcRelSequence::getTimeLag() const
+{
+    return const_cast<IfcRelSequence *>(this)->getTimeLag();
+}
+
+void IfcRelSequence::setTimeLag(IfcTimeMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TimeLag = value;
+}
+
+void IfcRelSequence::unsetTimeLag()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TimeLag = Step::getUnset(getTimeLag());
+}
+
+bool IfcRelSequence::testTimeLag() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTimeLag()) == false;
+}
+
+
+IfcSequenceEnum IfcRelSequence::getSequenceType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SequenceType;
     }
-}
-
-const IfcProcess *IfcRelSequence::getRelatingProcess() const {
-    IfcRelSequence * deConstObject = const_cast< IfcRelSequence * > (this);
-    return deConstObject->getRelatingProcess();
-}
-
-void IfcRelSequence::setRelatingProcess(const Step::RefPtr< IfcProcess > &value) {
-    if (m_relatingProcess.valid()) {
-        m_relatingProcess->m_isPredecessorTo.erase(this);
-    }
-    if (value.valid()) {
-        value->m_isPredecessorTo.insert(this);
-    }
-    m_relatingProcess = value;
-}
-
-void IfcRelSequence::unsetRelatingProcess() {
-    m_relatingProcess = Step::getUnset(getRelatingProcess());
-}
-
-bool IfcRelSequence::testRelatingProcess() const {
-    return !Step::isUnset(getRelatingProcess());
-}
-
-IfcProcess *IfcRelSequence::getRelatedProcess() {
-    if (Step::BaseObject::inited()) {
-        return m_relatedProcess.get();
-    }
-    else {
-        return NULL;
-    }
-}
-
-const IfcProcess *IfcRelSequence::getRelatedProcess() const {
-    IfcRelSequence * deConstObject = const_cast< IfcRelSequence * > (this);
-    return deConstObject->getRelatedProcess();
-}
-
-void IfcRelSequence::setRelatedProcess(const Step::RefPtr< IfcProcess > &value) {
-    if (m_relatedProcess.valid()) {
-        m_relatedProcess->m_isSuccessorFrom.erase(this);
-    }
-    if (value.valid()) {
-        value->m_isSuccessorFrom.insert(this);
-    }
-    m_relatedProcess = value;
-}
-
-void IfcRelSequence::unsetRelatedProcess() {
-    m_relatedProcess = Step::getUnset(getRelatedProcess());
-}
-
-bool IfcRelSequence::testRelatedProcess() const {
-    return !Step::isUnset(getRelatedProcess());
-}
-
-IfcTimeMeasure IfcRelSequence::getTimeLag() {
-    if (Step::BaseObject::inited()) {
-        return m_timeLag;
-    }
-    else {
-        return Step::getUnset(m_timeLag);
-    }
-}
-
-const IfcTimeMeasure IfcRelSequence::getTimeLag() const {
-    IfcRelSequence * deConstObject = const_cast< IfcRelSequence * > (this);
-    return deConstObject->getTimeLag();
-}
-
-void IfcRelSequence::setTimeLag(IfcTimeMeasure value) {
-    m_timeLag = value;
-}
-
-void IfcRelSequence::unsetTimeLag() {
-    m_timeLag = Step::getUnset(getTimeLag());
-}
-
-bool IfcRelSequence::testTimeLag() const {
-    return !Step::isUnset(getTimeLag());
-}
-
-IfcSequenceEnum IfcRelSequence::getSequenceType() {
-    if (Step::BaseObject::inited()) {
-        return m_sequenceType;
-    }
-    else {
+    else 
+    {
         return IfcSequenceEnum_UNSET;
+    }    
+}
+
+IfcSequenceEnum IfcRelSequence::getSequenceType() const
+{
+    return const_cast<IfcRelSequence *>(this)->getSequenceType();
+}
+
+void IfcRelSequence::setSequenceType(IfcSequenceEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SequenceType = value;
+}
+
+void IfcRelSequence::unsetSequenceType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SequenceType = IfcSequenceEnum_UNSET;
+}
+
+bool IfcRelSequence::testSequenceType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSequenceType()) == false;
+}
+
+IfcProcess *IfcRelSequence::getRelatingProcess()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingProcess.get();
+    }
+    else
+    {
+        return NULL;
     }
 }
 
-const IfcSequenceEnum IfcRelSequence::getSequenceType() const {
-    IfcRelSequence * deConstObject = const_cast< IfcRelSequence * > (this);
-    return deConstObject->getSequenceType();
+const IfcProcess *IfcRelSequence::getRelatingProcess() const
+{
+    return const_cast< IfcRelSequence * > (this)->getRelatingProcess();
 }
 
-void IfcRelSequence::setSequenceType(IfcSequenceEnum value) {
-    m_sequenceType = value;
+void IfcRelSequence::setRelatingProcess(const Step::RefPtr< IfcProcess > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingProcess.valid())
+    {
+        m_RelatingProcess->m_IsPredecessorTo.erase(this);
+    }
+    if (value.valid() )
+    {
+       value->m_IsPredecessorTo.insert(this);
+    }
+    m_RelatingProcess = value;
 }
 
-void IfcRelSequence::unsetSequenceType() {
-    m_sequenceType = IfcSequenceEnum_UNSET;
+void IfcRelSequence::unsetRelatingProcess()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingProcess = Step::getUnset(getRelatingProcess());
 }
 
-bool IfcRelSequence::testSequenceType() const {
-    return getSequenceType() != IfcSequenceEnum_UNSET;
+bool IfcRelSequence::testRelatingProcess() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingProcess()) == false;
 }
 
-bool IfcRelSequence::init() {
-    bool status = IfcRelConnects::init();
-    std::string arg;
-    if (!status) {
+IfcProcess *IfcRelSequence::getRelatedProcess()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedProcess.get();
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+const IfcProcess *IfcRelSequence::getRelatedProcess() const
+{
+    return const_cast< IfcRelSequence * > (this)->getRelatedProcess();
+}
+
+void IfcRelSequence::setRelatedProcess(const Step::RefPtr< IfcProcess > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatedProcess.valid())
+    {
+        m_RelatedProcess->m_IsSuccessorFrom.erase(this);
+    }
+    if (value.valid() )
+    {
+       value->m_IsSuccessorFrom.insert(this);
+    }
+    m_RelatedProcess = value;
+}
+
+void IfcRelSequence::unsetRelatedProcess()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedProcess = Step::getUnset(getRelatedProcess());
+}
+
+bool IfcRelSequence::testRelatedProcess() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatedProcess()) == false;
+}
+
+bool IfcRelSequence::init()
+{
+    if (IfcRelConnects::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingProcess = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TimeLag = Step::getUnset(m_TimeLag);
     }
-    else {
-        m_relatingProcess = static_cast< IfcProcess * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatedProcess = NULL;
-    }
-    else {
-        m_relatedProcess = static_cast< IfcProcess * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_TimeLag = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_timeLag = Step::getUnset(m_timeLag);
+    if (arg == "$" || arg == "*")
+    {
+        m_SequenceType = IfcSequenceEnum_UNSET;
     }
-    else {
-        m_timeLag = Step::spfToReal(arg);
+    else
+    {
+        if (arg == ".START_START.")
+        {
+            m_SequenceType = IfcSequenceEnum_START_START;
+        }
+        else if (arg == ".START_FINISH.")
+        {
+            m_SequenceType = IfcSequenceEnum_START_FINISH;
+        }
+        else if (arg == ".FINISH_START.")
+        {
+            m_SequenceType = IfcSequenceEnum_FINISH_START;
+        }
+        else if (arg == ".FINISH_FINISH.")
+        {
+            m_SequenceType = IfcSequenceEnum_FINISH_FINISH;
+        }
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_SequenceType = IfcSequenceEnum_NOTDEFINED;
+        }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_sequenceType = IfcSequenceEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingProcess = NULL;
     }
-    else {
-        if (arg == ".START_START.") {
-            m_sequenceType = IfcSequenceEnum_START_START;
-        }
-        else if (arg == ".START_FINISH.") {
-            m_sequenceType = IfcSequenceEnum_START_FINISH;
-        }
-        else if (arg == ".FINISH_START.") {
-            m_sequenceType = IfcSequenceEnum_FINISH_START;
-        }
-        else if (arg == ".FINISH_FINISH.") {
-            m_sequenceType = IfcSequenceEnum_FINISH_FINISH;
-        }
-        else if (arg == ".NOTDEFINED.") {
-            m_sequenceType = IfcSequenceEnum_NOTDEFINED;
-        }
+    else
+    {
+        m_RelatingProcess = static_cast< IfcProcess * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedProcess = NULL;
+    }
+    else
+    {
+        m_RelatedProcess = static_cast< IfcProcess * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcRelSequence::copy(const IfcRelSequence &obj, const CopyOp &copyop) {
+void IfcRelSequence::copy(const IfcRelSequence &obj, const CopyOp &copyop)
+{
     IfcRelConnects::copy(obj, copyop);
-    setRelatingProcess((IfcProcess*)copyop(obj.m_relatingProcess.get()));
-    setRelatedProcess((IfcProcess*)copyop(obj.m_relatedProcess.get()));
-    setTimeLag(obj.m_timeLag);
-    setSequenceType(obj.m_sequenceType);
+    setTimeLag(obj.m_TimeLag);
+    setSequenceType(obj.m_SequenceType);
+    setRelatingProcess((IfcProcess*)copyop(obj.m_RelatingProcess.get()));
+    setRelatedProcess((IfcProcess*)copyop(obj.m_RelatedProcess.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelSequence::s_type("IfcRelSequence");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRelSequence, IfcRelConnects)

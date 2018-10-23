@@ -1,3 +1,4 @@
+
 PROJECT(Step)
 
 # The CMake version number.
@@ -42,4 +43,22 @@ INSTALL(TARGETS Step
 if(WIN32)
     install_pdb(Step Debug)
     install_pdb(Step RelWithDebInfo)
+endif()
+
+configure_file(StepConfig.cmake.in StepConfig.cmake @ONLY)
+
+include(CMakePackageConfigHelpers)
+
+WRITE_BASIC_PACKAGE_VERSION_FILE( StepConfigVersion.cmake
+    VERSION ${Step_VERSION_MAJOR}.${Step_VERSION_MINOR}.${Step_VERSION_PATCH}
+    COMPATIBILITY AnyNewerVersion)
+
+if(UNIX)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/StepConfig.cmake ${CMAKE_CURRENT_BINARY_DIR}/StepConfigVersion.cmake
+            DESTINATION share/Step
+            COMPONENT SDK )
+else()
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/StepConfig.cmake ${CMAKE_CURRENT_BINARY_DIR}/StepConfigVersion.cmake
+            COMPONENT SDK
+            DESTINATION . )
 endif()

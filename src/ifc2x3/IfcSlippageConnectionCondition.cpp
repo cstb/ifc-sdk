@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,165 +24,193 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcSlippageConnectionCondition.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcStructuralConnectionCondition.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcSlippageConnectionCondition::IfcSlippageConnectionCondition(Step::Id id, Step::SPFData *args) : IfcStructuralConnectionCondition(id, args) {
-    m_slippageX = Step::getUnset(m_slippageX);
-    m_slippageY = Step::getUnset(m_slippageY);
-    m_slippageZ = Step::getUnset(m_slippageZ);
+IfcSlippageConnectionCondition::IfcSlippageConnectionCondition(Step::Id id, Step::SPFData *args) : 
+    IfcStructuralConnectionCondition(id, args)
+{
+    m_SlippageX = Step::getUnset(m_SlippageX);
+    m_SlippageY = Step::getUnset(m_SlippageY);
+    m_SlippageZ = Step::getUnset(m_SlippageZ);
 }
 
-IfcSlippageConnectionCondition::~IfcSlippageConnectionCondition() {
+IfcSlippageConnectionCondition::~IfcSlippageConnectionCondition()
+{}
+
+bool IfcSlippageConnectionCondition::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcSlippageConnectionCondition(this);
 }
 
-bool IfcSlippageConnectionCondition::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcSlippageConnectionCondition(this);
-}
 
-const std::string &IfcSlippageConnectionCondition::type() const {
-    return IfcSlippageConnectionCondition::s_type.getName();
-}
-
-const Step::ClassType &IfcSlippageConnectionCondition::getClassType() {
-    return IfcSlippageConnectionCondition::s_type;
-}
-
-const Step::ClassType &IfcSlippageConnectionCondition::getType() const {
-    return IfcSlippageConnectionCondition::s_type;
-}
-
-bool IfcSlippageConnectionCondition::isOfType(const Step::ClassType &t) const {
-    return IfcSlippageConnectionCondition::s_type == t ? true : IfcStructuralConnectionCondition::isOfType(t);
-}
-
-IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageX() {
-    if (Step::BaseObject::inited()) {
-        return m_slippageX;
+IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageX()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SlippageX;
     }
-    else {
-        return Step::getUnset(m_slippageX);
+    else 
+    {
+        return Step::getUnset(m_SlippageX);
+    }    
+}
+
+IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageX() const
+{
+    return const_cast<IfcSlippageConnectionCondition *>(this)->getSlippageX();
+}
+
+void IfcSlippageConnectionCondition::setSlippageX(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SlippageX = value;
+}
+
+void IfcSlippageConnectionCondition::unsetSlippageX()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SlippageX = Step::getUnset(getSlippageX());
+}
+
+bool IfcSlippageConnectionCondition::testSlippageX() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSlippageX()) == false;
+}
+
+
+IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SlippageY;
     }
+    else 
+    {
+        return Step::getUnset(m_SlippageY);
+    }    
 }
 
-const IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageX() const {
-    IfcSlippageConnectionCondition * deConstObject = const_cast< IfcSlippageConnectionCondition * > (this);
-    return deConstObject->getSlippageX();
+IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageY() const
+{
+    return const_cast<IfcSlippageConnectionCondition *>(this)->getSlippageY();
 }
 
-void IfcSlippageConnectionCondition::setSlippageX(IfcLengthMeasure value) {
-    m_slippageX = value;
+void IfcSlippageConnectionCondition::setSlippageY(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SlippageY = value;
 }
 
-void IfcSlippageConnectionCondition::unsetSlippageX() {
-    m_slippageX = Step::getUnset(getSlippageX());
+void IfcSlippageConnectionCondition::unsetSlippageY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SlippageY = Step::getUnset(getSlippageY());
 }
 
-bool IfcSlippageConnectionCondition::testSlippageX() const {
-    return !Step::isUnset(getSlippageX());
+bool IfcSlippageConnectionCondition::testSlippageY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSlippageY()) == false;
 }
 
-IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageY() {
-    if (Step::BaseObject::inited()) {
-        return m_slippageY;
+
+IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SlippageZ;
     }
-    else {
-        return Step::getUnset(m_slippageY);
-    }
+    else 
+    {
+        return Step::getUnset(m_SlippageZ);
+    }    
 }
 
-const IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageY() const {
-    IfcSlippageConnectionCondition * deConstObject = const_cast< IfcSlippageConnectionCondition * > (this);
-    return deConstObject->getSlippageY();
+IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageZ() const
+{
+    return const_cast<IfcSlippageConnectionCondition *>(this)->getSlippageZ();
 }
 
-void IfcSlippageConnectionCondition::setSlippageY(IfcLengthMeasure value) {
-    m_slippageY = value;
+void IfcSlippageConnectionCondition::setSlippageZ(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SlippageZ = value;
 }
 
-void IfcSlippageConnectionCondition::unsetSlippageY() {
-    m_slippageY = Step::getUnset(getSlippageY());
+void IfcSlippageConnectionCondition::unsetSlippageZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SlippageZ = Step::getUnset(getSlippageZ());
 }
 
-bool IfcSlippageConnectionCondition::testSlippageY() const {
-    return !Step::isUnset(getSlippageY());
+bool IfcSlippageConnectionCondition::testSlippageZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSlippageZ()) == false;
 }
 
-IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageZ() {
-    if (Step::BaseObject::inited()) {
-        return m_slippageZ;
-    }
-    else {
-        return Step::getUnset(m_slippageZ);
-    }
-}
-
-const IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageZ() const {
-    IfcSlippageConnectionCondition * deConstObject = const_cast< IfcSlippageConnectionCondition * > (this);
-    return deConstObject->getSlippageZ();
-}
-
-void IfcSlippageConnectionCondition::setSlippageZ(IfcLengthMeasure value) {
-    m_slippageZ = value;
-}
-
-void IfcSlippageConnectionCondition::unsetSlippageZ() {
-    m_slippageZ = Step::getUnset(getSlippageZ());
-}
-
-bool IfcSlippageConnectionCondition::testSlippageZ() const {
-    return !Step::isUnset(getSlippageZ());
-}
-
-bool IfcSlippageConnectionCondition::init() {
-    bool status = IfcStructuralConnectionCondition::init();
-    std::string arg;
-    if (!status) {
+bool IfcSlippageConnectionCondition::init()
+{
+    if (IfcStructuralConnectionCondition::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_slippageX = Step::getUnset(m_slippageX);
+    if (arg == "$" || arg == "*")
+    {
+        m_SlippageX = Step::getUnset(m_SlippageX);
     }
-    else {
-        m_slippageX = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_slippageY = Step::getUnset(m_slippageY);
-    }
-    else {
-        m_slippageY = Step::spfToReal(arg);
+    else
+    {
+        m_SlippageX = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_slippageZ = Step::getUnset(m_slippageZ);
+    if (arg == "$" || arg == "*")
+    {
+        m_SlippageY = Step::getUnset(m_SlippageY);
     }
-    else {
-        m_slippageZ = Step::spfToReal(arg);
+    else
+    {
+        m_SlippageY = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_SlippageZ = Step::getUnset(m_SlippageZ);
+    }
+    else
+    {
+        m_SlippageZ = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcSlippageConnectionCondition::copy(const IfcSlippageConnectionCondition &obj, const CopyOp &copyop) {
+void IfcSlippageConnectionCondition::copy(const IfcSlippageConnectionCondition &obj, const CopyOp &copyop)
+{
     IfcStructuralConnectionCondition::copy(obj, copyop);
-    setSlippageX(obj.m_slippageX);
-    setSlippageY(obj.m_slippageY);
-    setSlippageZ(obj.m_slippageZ);
+    setSlippageX(obj.m_SlippageX);
+    setSlippageY(obj.m_SlippageY);
+    setSlippageZ(obj.m_SlippageZ);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSlippageConnectionCondition::s_type("IfcSlippageConnectionCondition");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcSlippageConnectionCondition, IfcStructuralConnectionCondition)

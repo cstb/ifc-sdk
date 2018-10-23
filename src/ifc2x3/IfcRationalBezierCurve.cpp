@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,98 +24,98 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRationalBezierCurve.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcBezierCurve.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRationalBezierCurve::IfcRationalBezierCurve(Step::Id id, Step::SPFData *args) : IfcBezierCurve(id, args) {
+IfcRationalBezierCurve::IfcRationalBezierCurve(Step::Id id, Step::SPFData *args) : 
+    IfcBezierCurve(id, args)
+{
+    m_WeightsData.setUnset(true);
 }
 
-IfcRationalBezierCurve::~IfcRationalBezierCurve() {
+IfcRationalBezierCurve::~IfcRationalBezierCurve()
+{}
+
+bool IfcRationalBezierCurve::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRationalBezierCurve(this);
 }
 
-bool IfcRationalBezierCurve::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRationalBezierCurve(this);
-}
 
-const std::string &IfcRationalBezierCurve::type() const {
-    return IfcRationalBezierCurve::s_type.getName();
-}
-
-const Step::ClassType &IfcRationalBezierCurve::getClassType() {
-    return IfcRationalBezierCurve::s_type;
-}
-
-const Step::ClassType &IfcRationalBezierCurve::getType() const {
-    return IfcRationalBezierCurve::s_type;
-}
-
-bool IfcRationalBezierCurve::isOfType(const Step::ClassType &t) const {
-    return IfcRationalBezierCurve::s_type == t ? true : IfcBezierCurve::isOfType(t);
-}
-
-List_Real_2_n &IfcRationalBezierCurve::getWeightsData() {
-    if (Step::BaseObject::inited()) {
-        return m_weightsData;
+List_Real_2_n &IfcRationalBezierCurve::getWeightsData()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_WeightsData;
     }
-    else {
-        m_weightsData.setUnset(true);
-        return m_weightsData;
-    }
+    else 
+    {
+        m_WeightsData.setUnset(true);
+        return m_WeightsData;
+    }    
 }
 
-const List_Real_2_n &IfcRationalBezierCurve::getWeightsData() const {
-    IfcRationalBezierCurve * deConstObject = const_cast< IfcRationalBezierCurve * > (this);
-    return deConstObject->getWeightsData();
+const List_Real_2_n &IfcRationalBezierCurve::getWeightsData() const
+{
+    return const_cast<IfcRationalBezierCurve *>(this)->getWeightsData();
 }
 
-void IfcRationalBezierCurve::setWeightsData(const List_Real_2_n &value) {
-    m_weightsData = value;
+void IfcRationalBezierCurve::setWeightsData(const List_Real_2_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WeightsData = value;
 }
 
-void IfcRationalBezierCurve::unsetWeightsData() {
-    m_weightsData.clear();
-    m_weightsData.setUnset(true);
+void IfcRationalBezierCurve::unsetWeightsData()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WeightsData.clear();
+    m_WeightsData.setUnset(true);
 }
 
-bool IfcRationalBezierCurve::testWeightsData() const {
-    return !m_weightsData.isUnset();
+bool IfcRationalBezierCurve::testWeightsData() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_WeightsData.isUnset() == false;
 }
 
-bool IfcRationalBezierCurve::init() {
-    bool status = IfcBezierCurve::init();
-    std::string arg;
-    if (!status) {
+bool IfcRationalBezierCurve::init()
+{
+    if (IfcBezierCurve::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_weightsData.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_WeightsData.setUnset(true);
     }
-    else {
-        m_weightsData.setUnset(false);
-        while (true) {
+    else
+    {
+        m_WeightsData.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::Real attr2;
-                attr2 = Step::spfToReal(str1);
-                m_weightsData.push_back(attr2);
+            if (!str1.empty())
+            {
+                m_WeightsData.push_back(Step::spfToReal(str1)
+
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
@@ -114,14 +123,17 @@ bool IfcRationalBezierCurve::init() {
     return true;
 }
 
-void IfcRationalBezierCurve::copy(const IfcRationalBezierCurve &obj, const CopyOp &copyop) {
-    Step::List< Step::Real, 2 >::const_iterator it_m_weightsData;
+void IfcRationalBezierCurve::copy(const IfcRationalBezierCurve &obj, const CopyOp &copyop)
+{
     IfcBezierCurve::copy(obj, copyop);
-    for (it_m_weightsData = obj.m_weightsData.begin(); it_m_weightsData != obj.m_weightsData.end(); ++it_m_weightsData) {
-        Step::Real copyTarget = (*it_m_weightsData);
-        m_weightsData.push_back(copyTarget);
+    List_Real_2_n::const_iterator it_m_WeightsData;
+    for (it_m_WeightsData = obj.m_WeightsData.begin(); it_m_WeightsData != obj.m_WeightsData.end(); ++it_m_WeightsData)
+    {
+        Step::Real copyTarget = (*it_m_WeightsData);
+        m_WeightsData.push_back(copyTarget);
     }
+    
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRationalBezierCurve::s_type("IfcRationalBezierCurve");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRationalBezierCurve, IfcBezierCurve)

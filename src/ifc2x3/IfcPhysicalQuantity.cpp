@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,158 +24,172 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPhysicalQuantity.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcPhysicalComplexQuantity.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPhysicalQuantity::IfcPhysicalQuantity(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_name = Step::getUnset(m_name);
-    m_description = Step::getUnset(m_description);
+IfcPhysicalQuantity::IfcPhysicalQuantity(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_Name = Step::getUnset(m_Name);
+    m_Description = Step::getUnset(m_Description);
 }
 
-IfcPhysicalQuantity::~IfcPhysicalQuantity() {
+IfcPhysicalQuantity::~IfcPhysicalQuantity()
+{}
+
+bool IfcPhysicalQuantity::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPhysicalQuantity(this);
 }
 
-bool IfcPhysicalQuantity::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPhysicalQuantity(this);
-}
 
-const std::string &IfcPhysicalQuantity::type() const {
-    return IfcPhysicalQuantity::s_type.getName();
-}
-
-const Step::ClassType &IfcPhysicalQuantity::getClassType() {
-    return IfcPhysicalQuantity::s_type;
-}
-
-const Step::ClassType &IfcPhysicalQuantity::getType() const {
-    return IfcPhysicalQuantity::s_type;
-}
-
-bool IfcPhysicalQuantity::isOfType(const Step::ClassType &t) const {
-    return IfcPhysicalQuantity::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcLabel IfcPhysicalQuantity::getName() {
-    if (Step::BaseObject::inited()) {
-        return m_name;
+IfcLabel IfcPhysicalQuantity::getName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Name;
     }
-    else {
-        return Step::getUnset(m_name);
+    else 
+    {
+        return Step::getUnset(m_Name);
+    }    
+}
+
+const IfcLabel IfcPhysicalQuantity::getName() const
+{
+    return const_cast<IfcPhysicalQuantity *>(this)->getName();
+}
+
+void IfcPhysicalQuantity::setName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = value;
+}
+
+void IfcPhysicalQuantity::unsetName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = Step::getUnset(getName());
+}
+
+bool IfcPhysicalQuantity::testName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getName()) == false;
+}
+
+
+IfcText IfcPhysicalQuantity::getDescription()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Description;
     }
+    else 
+    {
+        return Step::getUnset(m_Description);
+    }    
 }
 
-const IfcLabel IfcPhysicalQuantity::getName() const {
-    IfcPhysicalQuantity * deConstObject = const_cast< IfcPhysicalQuantity * > (this);
-    return deConstObject->getName();
+const IfcText IfcPhysicalQuantity::getDescription() const
+{
+    return const_cast<IfcPhysicalQuantity *>(this)->getDescription();
 }
 
-void IfcPhysicalQuantity::setName(const IfcLabel &value) {
-    m_name = value;
+void IfcPhysicalQuantity::setDescription(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = value;
 }
 
-void IfcPhysicalQuantity::unsetName() {
-    m_name = Step::getUnset(getName());
+void IfcPhysicalQuantity::unsetDescription()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = Step::getUnset(getDescription());
 }
 
-bool IfcPhysicalQuantity::testName() const {
-    return !Step::isUnset(getName());
+bool IfcPhysicalQuantity::testDescription() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDescription()) == false;
 }
 
-IfcText IfcPhysicalQuantity::getDescription() {
-    if (Step::BaseObject::inited()) {
-        return m_description;
+Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComplex()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_PartOfComplex;
     }
-    else {
-        return Step::getUnset(m_description);
-    }
+ 
+    m_PartOfComplex.setUnset(true);
+    return m_PartOfComplex;
 }
 
-const IfcText IfcPhysicalQuantity::getDescription() const {
-    IfcPhysicalQuantity * deConstObject = const_cast< IfcPhysicalQuantity * > (this);
-    return deConstObject->getDescription();
+const Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComplex() const
+{
+    return  const_cast< IfcPhysicalQuantity * > (this)->getPartOfComplex();
 }
 
-void IfcPhysicalQuantity::setDescription(const IfcText &value) {
-    m_description = value;
+bool IfcPhysicalQuantity::testPartOfComplex() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_PartOfComplex.isUnset() == false;
 }
 
-void IfcPhysicalQuantity::unsetDescription() {
-    m_description = Step::getUnset(getDescription());
-}
-
-bool IfcPhysicalQuantity::testDescription() const {
-    return !Step::isUnset(getDescription());
-}
-
-Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComplex() {
-    if (Step::BaseObject::inited()) {
-        return m_partOfComplex;
-    }
-    else {
-        m_partOfComplex.setUnset(true);
-        return m_partOfComplex;
-    }
-}
-
-const Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComplex() const {
-    IfcPhysicalQuantity * deConstObject = const_cast< IfcPhysicalQuantity * > (this);
-    return deConstObject->getPartOfComplex();
-}
-
-bool IfcPhysicalQuantity::testPartOfComplex() const {
-    return !m_partOfComplex.isUnset();
-}
-
-bool IfcPhysicalQuantity::init() {
+bool IfcPhysicalQuantity::init()
+{
     std::string arg;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Name = Step::getUnset(m_Name);
+    }
+    else
+    {
+        m_Name = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Description = Step::getUnset(m_Description);
+    }
+    else
+    {
+        m_Description = Step::String::fromSPF(arg)
+;
+    }
     std::vector< Step::Id > *inverses;
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_name = Step::getUnset(m_name);
-    }
-    else {
-        m_name = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_description = Step::getUnset(m_description);
-    }
-    else {
-        m_description = Step::String::fromSPF(arg);
-    }
     inverses = m_args->getInverses(IfcPhysicalComplexQuantity::getClassType(), 2);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_partOfComplex.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_partOfComplex.insert(static_cast< IfcPhysicalComplexQuantity * > (m_expressDataSet->get((*inverses)[i])));
+        m_PartOfComplex.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_PartOfComplex.insert(static_cast< IfcPhysicalComplexQuantity * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcPhysicalQuantity::copy(const IfcPhysicalQuantity &obj, const CopyOp &copyop) {
+void IfcPhysicalQuantity::copy(const IfcPhysicalQuantity &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setName(obj.m_name);
-    setDescription(obj.m_description);
+    setName(obj.m_Name);
+    setDescription(obj.m_Description);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPhysicalQuantity::s_type("IfcPhysicalQuantity");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPhysicalQuantity, Step::BaseEntity)

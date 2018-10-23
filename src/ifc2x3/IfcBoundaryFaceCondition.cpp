@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,165 +24,193 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcBoundaryFaceCondition.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcBoundaryCondition.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcBoundaryFaceCondition::IfcBoundaryFaceCondition(Step::Id id, Step::SPFData *args) : IfcBoundaryCondition(id, args) {
-    m_linearStiffnessByAreaX = Step::getUnset(m_linearStiffnessByAreaX);
-    m_linearStiffnessByAreaY = Step::getUnset(m_linearStiffnessByAreaY);
-    m_linearStiffnessByAreaZ = Step::getUnset(m_linearStiffnessByAreaZ);
+IfcBoundaryFaceCondition::IfcBoundaryFaceCondition(Step::Id id, Step::SPFData *args) : 
+    IfcBoundaryCondition(id, args)
+{
+    m_LinearStiffnessByAreaX = Step::getUnset(m_LinearStiffnessByAreaX);
+    m_LinearStiffnessByAreaY = Step::getUnset(m_LinearStiffnessByAreaY);
+    m_LinearStiffnessByAreaZ = Step::getUnset(m_LinearStiffnessByAreaZ);
 }
 
-IfcBoundaryFaceCondition::~IfcBoundaryFaceCondition() {
+IfcBoundaryFaceCondition::~IfcBoundaryFaceCondition()
+{}
+
+bool IfcBoundaryFaceCondition::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcBoundaryFaceCondition(this);
 }
 
-bool IfcBoundaryFaceCondition::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcBoundaryFaceCondition(this);
-}
 
-const std::string &IfcBoundaryFaceCondition::type() const {
-    return IfcBoundaryFaceCondition::s_type.getName();
-}
-
-const Step::ClassType &IfcBoundaryFaceCondition::getClassType() {
-    return IfcBoundaryFaceCondition::s_type;
-}
-
-const Step::ClassType &IfcBoundaryFaceCondition::getType() const {
-    return IfcBoundaryFaceCondition::s_type;
-}
-
-bool IfcBoundaryFaceCondition::isOfType(const Step::ClassType &t) const {
-    return IfcBoundaryFaceCondition::s_type == t ? true : IfcBoundaryCondition::isOfType(t);
-}
-
-IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaX() {
-    if (Step::BaseObject::inited()) {
-        return m_linearStiffnessByAreaX;
+IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaX()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LinearStiffnessByAreaX;
     }
-    else {
-        return Step::getUnset(m_linearStiffnessByAreaX);
+    else 
+    {
+        return Step::getUnset(m_LinearStiffnessByAreaX);
+    }    
+}
+
+IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaX() const
+{
+    return const_cast<IfcBoundaryFaceCondition *>(this)->getLinearStiffnessByAreaX();
+}
+
+void IfcBoundaryFaceCondition::setLinearStiffnessByAreaX(IfcModulusOfSubgradeReactionMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LinearStiffnessByAreaX = value;
+}
+
+void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaX()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LinearStiffnessByAreaX = Step::getUnset(getLinearStiffnessByAreaX());
+}
+
+bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaX() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLinearStiffnessByAreaX()) == false;
+}
+
+
+IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LinearStiffnessByAreaY;
     }
+    else 
+    {
+        return Step::getUnset(m_LinearStiffnessByAreaY);
+    }    
 }
 
-const IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaX() const {
-    IfcBoundaryFaceCondition * deConstObject = const_cast< IfcBoundaryFaceCondition * > (this);
-    return deConstObject->getLinearStiffnessByAreaX();
+IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaY() const
+{
+    return const_cast<IfcBoundaryFaceCondition *>(this)->getLinearStiffnessByAreaY();
 }
 
-void IfcBoundaryFaceCondition::setLinearStiffnessByAreaX(IfcModulusOfSubgradeReactionMeasure value) {
-    m_linearStiffnessByAreaX = value;
+void IfcBoundaryFaceCondition::setLinearStiffnessByAreaY(IfcModulusOfSubgradeReactionMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LinearStiffnessByAreaY = value;
 }
 
-void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaX() {
-    m_linearStiffnessByAreaX = Step::getUnset(getLinearStiffnessByAreaX());
+void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LinearStiffnessByAreaY = Step::getUnset(getLinearStiffnessByAreaY());
 }
 
-bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaX() const {
-    return !Step::isUnset(getLinearStiffnessByAreaX());
+bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLinearStiffnessByAreaY()) == false;
 }
 
-IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaY() {
-    if (Step::BaseObject::inited()) {
-        return m_linearStiffnessByAreaY;
+
+IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LinearStiffnessByAreaZ;
     }
-    else {
-        return Step::getUnset(m_linearStiffnessByAreaY);
-    }
+    else 
+    {
+        return Step::getUnset(m_LinearStiffnessByAreaZ);
+    }    
 }
 
-const IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaY() const {
-    IfcBoundaryFaceCondition * deConstObject = const_cast< IfcBoundaryFaceCondition * > (this);
-    return deConstObject->getLinearStiffnessByAreaY();
+IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaZ() const
+{
+    return const_cast<IfcBoundaryFaceCondition *>(this)->getLinearStiffnessByAreaZ();
 }
 
-void IfcBoundaryFaceCondition::setLinearStiffnessByAreaY(IfcModulusOfSubgradeReactionMeasure value) {
-    m_linearStiffnessByAreaY = value;
+void IfcBoundaryFaceCondition::setLinearStiffnessByAreaZ(IfcModulusOfSubgradeReactionMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LinearStiffnessByAreaZ = value;
 }
 
-void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaY() {
-    m_linearStiffnessByAreaY = Step::getUnset(getLinearStiffnessByAreaY());
+void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LinearStiffnessByAreaZ = Step::getUnset(getLinearStiffnessByAreaZ());
 }
 
-bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaY() const {
-    return !Step::isUnset(getLinearStiffnessByAreaY());
+bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLinearStiffnessByAreaZ()) == false;
 }
 
-IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaZ() {
-    if (Step::BaseObject::inited()) {
-        return m_linearStiffnessByAreaZ;
-    }
-    else {
-        return Step::getUnset(m_linearStiffnessByAreaZ);
-    }
-}
-
-const IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaZ() const {
-    IfcBoundaryFaceCondition * deConstObject = const_cast< IfcBoundaryFaceCondition * > (this);
-    return deConstObject->getLinearStiffnessByAreaZ();
-}
-
-void IfcBoundaryFaceCondition::setLinearStiffnessByAreaZ(IfcModulusOfSubgradeReactionMeasure value) {
-    m_linearStiffnessByAreaZ = value;
-}
-
-void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaZ() {
-    m_linearStiffnessByAreaZ = Step::getUnset(getLinearStiffnessByAreaZ());
-}
-
-bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaZ() const {
-    return !Step::isUnset(getLinearStiffnessByAreaZ());
-}
-
-bool IfcBoundaryFaceCondition::init() {
-    bool status = IfcBoundaryCondition::init();
-    std::string arg;
-    if (!status) {
+bool IfcBoundaryFaceCondition::init()
+{
+    if (IfcBoundaryCondition::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_linearStiffnessByAreaX = Step::getUnset(m_linearStiffnessByAreaX);
+    if (arg == "$" || arg == "*")
+    {
+        m_LinearStiffnessByAreaX = Step::getUnset(m_LinearStiffnessByAreaX);
     }
-    else {
-        m_linearStiffnessByAreaX = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_linearStiffnessByAreaY = Step::getUnset(m_linearStiffnessByAreaY);
-    }
-    else {
-        m_linearStiffnessByAreaY = Step::spfToReal(arg);
+    else
+    {
+        m_LinearStiffnessByAreaX = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_linearStiffnessByAreaZ = Step::getUnset(m_linearStiffnessByAreaZ);
+    if (arg == "$" || arg == "*")
+    {
+        m_LinearStiffnessByAreaY = Step::getUnset(m_LinearStiffnessByAreaY);
     }
-    else {
-        m_linearStiffnessByAreaZ = Step::spfToReal(arg);
+    else
+    {
+        m_LinearStiffnessByAreaY = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_LinearStiffnessByAreaZ = Step::getUnset(m_LinearStiffnessByAreaZ);
+    }
+    else
+    {
+        m_LinearStiffnessByAreaZ = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcBoundaryFaceCondition::copy(const IfcBoundaryFaceCondition &obj, const CopyOp &copyop) {
+void IfcBoundaryFaceCondition::copy(const IfcBoundaryFaceCondition &obj, const CopyOp &copyop)
+{
     IfcBoundaryCondition::copy(obj, copyop);
-    setLinearStiffnessByAreaX(obj.m_linearStiffnessByAreaX);
-    setLinearStiffnessByAreaY(obj.m_linearStiffnessByAreaY);
-    setLinearStiffnessByAreaZ(obj.m_linearStiffnessByAreaZ);
+    setLinearStiffnessByAreaX(obj.m_LinearStiffnessByAreaX);
+    setLinearStiffnessByAreaY(obj.m_LinearStiffnessByAreaY);
+    setLinearStiffnessByAreaZ(obj.m_LinearStiffnessByAreaZ);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoundaryFaceCondition::s_type("IfcBoundaryFaceCondition");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcBoundaryFaceCondition, IfcBoundaryCondition)

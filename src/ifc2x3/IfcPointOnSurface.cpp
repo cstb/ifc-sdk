@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,169 +24,193 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPointOnSurface.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcPoint.h>
 #include <ifc2x3/IfcSurface.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPointOnSurface::IfcPointOnSurface(Step::Id id, Step::SPFData *args) : IfcPoint(id, args) {
-    m_basisSurface = NULL;
-    m_pointParameterU = Step::getUnset(m_pointParameterU);
-    m_pointParameterV = Step::getUnset(m_pointParameterV);
+IfcPointOnSurface::IfcPointOnSurface(Step::Id id, Step::SPFData *args) : 
+    IfcPoint(id, args)
+{
+    m_BasisSurface = NULL;
+    m_PointParameterU = Step::getUnset(m_PointParameterU);
+    m_PointParameterV = Step::getUnset(m_PointParameterV);
 }
 
-IfcPointOnSurface::~IfcPointOnSurface() {
+IfcPointOnSurface::~IfcPointOnSurface()
+{}
+
+bool IfcPointOnSurface::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPointOnSurface(this);
 }
 
-bool IfcPointOnSurface::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPointOnSurface(this);
-}
 
-const std::string &IfcPointOnSurface::type() const {
-    return IfcPointOnSurface::s_type.getName();
-}
-
-const Step::ClassType &IfcPointOnSurface::getClassType() {
-    return IfcPointOnSurface::s_type;
-}
-
-const Step::ClassType &IfcPointOnSurface::getType() const {
-    return IfcPointOnSurface::s_type;
-}
-
-bool IfcPointOnSurface::isOfType(const Step::ClassType &t) const {
-    return IfcPointOnSurface::s_type == t ? true : IfcPoint::isOfType(t);
-}
-
-IfcSurface *IfcPointOnSurface::getBasisSurface() {
-    if (Step::BaseObject::inited()) {
-        return m_basisSurface.get();
+IfcSurface *IfcPointOnSurface::getBasisSurface()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BasisSurface.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcSurface *IfcPointOnSurface::getBasisSurface() const
+{
+    return const_cast<IfcPointOnSurface *>(this)->getBasisSurface();
+}
+
+void IfcPointOnSurface::setBasisSurface(const Step::RefPtr< IfcSurface > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BasisSurface = value;
+}
+
+void IfcPointOnSurface::unsetBasisSurface()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BasisSurface = Step::getUnset(getBasisSurface());
+}
+
+bool IfcPointOnSurface::testBasisSurface() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBasisSurface()) == false;
+}
+
+
+IfcParameterValue IfcPointOnSurface::getPointParameterU()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PointParameterU;
     }
+    else 
+    {
+        return Step::getUnset(m_PointParameterU);
+    }    
 }
 
-const IfcSurface *IfcPointOnSurface::getBasisSurface() const {
-    IfcPointOnSurface * deConstObject = const_cast< IfcPointOnSurface * > (this);
-    return deConstObject->getBasisSurface();
+IfcParameterValue IfcPointOnSurface::getPointParameterU() const
+{
+    return const_cast<IfcPointOnSurface *>(this)->getPointParameterU();
 }
 
-void IfcPointOnSurface::setBasisSurface(const Step::RefPtr< IfcSurface > &value) {
-    m_basisSurface = value;
+void IfcPointOnSurface::setPointParameterU(IfcParameterValue value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PointParameterU = value;
 }
 
-void IfcPointOnSurface::unsetBasisSurface() {
-    m_basisSurface = Step::getUnset(getBasisSurface());
+void IfcPointOnSurface::unsetPointParameterU()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PointParameterU = Step::getUnset(getPointParameterU());
 }
 
-bool IfcPointOnSurface::testBasisSurface() const {
-    return !Step::isUnset(getBasisSurface());
+bool IfcPointOnSurface::testPointParameterU() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPointParameterU()) == false;
 }
 
-IfcParameterValue IfcPointOnSurface::getPointParameterU() {
-    if (Step::BaseObject::inited()) {
-        return m_pointParameterU;
+
+IfcParameterValue IfcPointOnSurface::getPointParameterV()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PointParameterV;
     }
-    else {
-        return Step::getUnset(m_pointParameterU);
-    }
+    else 
+    {
+        return Step::getUnset(m_PointParameterV);
+    }    
 }
 
-const IfcParameterValue IfcPointOnSurface::getPointParameterU() const {
-    IfcPointOnSurface * deConstObject = const_cast< IfcPointOnSurface * > (this);
-    return deConstObject->getPointParameterU();
+IfcParameterValue IfcPointOnSurface::getPointParameterV() const
+{
+    return const_cast<IfcPointOnSurface *>(this)->getPointParameterV();
 }
 
-void IfcPointOnSurface::setPointParameterU(IfcParameterValue value) {
-    m_pointParameterU = value;
+void IfcPointOnSurface::setPointParameterV(IfcParameterValue value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PointParameterV = value;
 }
 
-void IfcPointOnSurface::unsetPointParameterU() {
-    m_pointParameterU = Step::getUnset(getPointParameterU());
+void IfcPointOnSurface::unsetPointParameterV()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PointParameterV = Step::getUnset(getPointParameterV());
 }
 
-bool IfcPointOnSurface::testPointParameterU() const {
-    return !Step::isUnset(getPointParameterU());
+bool IfcPointOnSurface::testPointParameterV() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPointParameterV()) == false;
 }
 
-IfcParameterValue IfcPointOnSurface::getPointParameterV() {
-    if (Step::BaseObject::inited()) {
-        return m_pointParameterV;
-    }
-    else {
-        return Step::getUnset(m_pointParameterV);
-    }
-}
-
-const IfcParameterValue IfcPointOnSurface::getPointParameterV() const {
-    IfcPointOnSurface * deConstObject = const_cast< IfcPointOnSurface * > (this);
-    return deConstObject->getPointParameterV();
-}
-
-void IfcPointOnSurface::setPointParameterV(IfcParameterValue value) {
-    m_pointParameterV = value;
-}
-
-void IfcPointOnSurface::unsetPointParameterV() {
-    m_pointParameterV = Step::getUnset(getPointParameterV());
-}
-
-bool IfcPointOnSurface::testPointParameterV() const {
-    return !Step::isUnset(getPointParameterV());
-}
-
-bool IfcPointOnSurface::init() {
-    bool status = IfcPoint::init();
-    std::string arg;
-    if (!status) {
+bool IfcPointOnSurface::init()
+{
+    if (IfcPoint::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_basisSurface = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_BasisSurface = NULL;
     }
-    else {
-        m_basisSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_pointParameterU = Step::getUnset(m_pointParameterU);
-    }
-    else {
-        m_pointParameterU = Step::spfToReal(arg);
+    else
+    {
+        m_BasisSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_pointParameterV = Step::getUnset(m_pointParameterV);
+    if (arg == "$" || arg == "*")
+    {
+        m_PointParameterU = Step::getUnset(m_PointParameterU);
     }
-    else {
-        m_pointParameterV = Step::spfToReal(arg);
+    else
+    {
+        m_PointParameterU = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_PointParameterV = Step::getUnset(m_PointParameterV);
+    }
+    else
+    {
+        m_PointParameterV = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcPointOnSurface::copy(const IfcPointOnSurface &obj, const CopyOp &copyop) {
+void IfcPointOnSurface::copy(const IfcPointOnSurface &obj, const CopyOp &copyop)
+{
     IfcPoint::copy(obj, copyop);
-    setBasisSurface((IfcSurface*)copyop(obj.m_basisSurface.get()));
-    setPointParameterU(obj.m_pointParameterU);
-    setPointParameterV(obj.m_pointParameterV);
+    setBasisSurface((IfcSurface*)copyop(obj.m_BasisSurface.get()));
+    setPointParameterU(obj.m_PointParameterU);
+    setPointParameterV(obj.m_PointParameterV);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPointOnSurface::s_type("IfcPointOnSurface");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPointOnSurface, IfcPoint)

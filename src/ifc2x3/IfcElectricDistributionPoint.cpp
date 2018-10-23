@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,163 +24,184 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcElectricDistributionPoint.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcFlowController.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcElectricDistributionPoint::IfcElectricDistributionPoint(Step::Id id, Step::SPFData *args) : IfcFlowController(id, args) {
-    m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_UNSET;
-    m_userDefinedFunction = Step::getUnset(m_userDefinedFunction);
+IfcElectricDistributionPoint::IfcElectricDistributionPoint(Step::Id id, Step::SPFData *args) : 
+    IfcFlowController(id, args)
+{
+    m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_UNSET;
+    m_UserDefinedFunction = Step::getUnset(m_UserDefinedFunction);
 }
 
-IfcElectricDistributionPoint::~IfcElectricDistributionPoint() {
+IfcElectricDistributionPoint::~IfcElectricDistributionPoint()
+{}
+
+bool IfcElectricDistributionPoint::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcElectricDistributionPoint(this);
 }
 
-bool IfcElectricDistributionPoint::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcElectricDistributionPoint(this);
-}
 
-const std::string &IfcElectricDistributionPoint::type() const {
-    return IfcElectricDistributionPoint::s_type.getName();
-}
-
-const Step::ClassType &IfcElectricDistributionPoint::getClassType() {
-    return IfcElectricDistributionPoint::s_type;
-}
-
-const Step::ClassType &IfcElectricDistributionPoint::getType() const {
-    return IfcElectricDistributionPoint::s_type;
-}
-
-bool IfcElectricDistributionPoint::isOfType(const Step::ClassType &t) const {
-    return IfcElectricDistributionPoint::s_type == t ? true : IfcFlowController::isOfType(t);
-}
-
-IfcElectricDistributionPointFunctionEnum IfcElectricDistributionPoint::getDistributionPointFunction() {
-    if (Step::BaseObject::inited()) {
-        return m_distributionPointFunction;
+IfcElectricDistributionPointFunctionEnum IfcElectricDistributionPoint::getDistributionPointFunction()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_DistributionPointFunction;
     }
-    else {
+    else 
+    {
         return IfcElectricDistributionPointFunctionEnum_UNSET;
+    }    
+}
+
+IfcElectricDistributionPointFunctionEnum IfcElectricDistributionPoint::getDistributionPointFunction() const
+{
+    return const_cast<IfcElectricDistributionPoint *>(this)->getDistributionPointFunction();
+}
+
+void IfcElectricDistributionPoint::setDistributionPointFunction(IfcElectricDistributionPointFunctionEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DistributionPointFunction = value;
+}
+
+void IfcElectricDistributionPoint::unsetDistributionPointFunction()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_UNSET;
+}
+
+bool IfcElectricDistributionPoint::testDistributionPointFunction() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDistributionPointFunction()) == false;
+}
+
+
+IfcLabel IfcElectricDistributionPoint::getUserDefinedFunction()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UserDefinedFunction;
     }
+    else 
+    {
+        return Step::getUnset(m_UserDefinedFunction);
+    }    
 }
 
-const IfcElectricDistributionPointFunctionEnum IfcElectricDistributionPoint::getDistributionPointFunction() const {
-    IfcElectricDistributionPoint * deConstObject = const_cast< IfcElectricDistributionPoint * > (this);
-    return deConstObject->getDistributionPointFunction();
+const IfcLabel IfcElectricDistributionPoint::getUserDefinedFunction() const
+{
+    return const_cast<IfcElectricDistributionPoint *>(this)->getUserDefinedFunction();
 }
 
-void IfcElectricDistributionPoint::setDistributionPointFunction(IfcElectricDistributionPointFunctionEnum value) {
-    m_distributionPointFunction = value;
+void IfcElectricDistributionPoint::setUserDefinedFunction(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedFunction = value;
 }
 
-void IfcElectricDistributionPoint::unsetDistributionPointFunction() {
-    m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_UNSET;
+void IfcElectricDistributionPoint::unsetUserDefinedFunction()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedFunction = Step::getUnset(getUserDefinedFunction());
 }
 
-bool IfcElectricDistributionPoint::testDistributionPointFunction() const {
-    return getDistributionPointFunction() != IfcElectricDistributionPointFunctionEnum_UNSET;
+bool IfcElectricDistributionPoint::testUserDefinedFunction() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUserDefinedFunction()) == false;
 }
 
-IfcLabel IfcElectricDistributionPoint::getUserDefinedFunction() {
-    if (Step::BaseObject::inited()) {
-        return m_userDefinedFunction;
-    }
-    else {
-        return Step::getUnset(m_userDefinedFunction);
-    }
-}
-
-const IfcLabel IfcElectricDistributionPoint::getUserDefinedFunction() const {
-    IfcElectricDistributionPoint * deConstObject = const_cast< IfcElectricDistributionPoint * > (this);
-    return deConstObject->getUserDefinedFunction();
-}
-
-void IfcElectricDistributionPoint::setUserDefinedFunction(const IfcLabel &value) {
-    m_userDefinedFunction = value;
-}
-
-void IfcElectricDistributionPoint::unsetUserDefinedFunction() {
-    m_userDefinedFunction = Step::getUnset(getUserDefinedFunction());
-}
-
-bool IfcElectricDistributionPoint::testUserDefinedFunction() const {
-    return !Step::isUnset(getUserDefinedFunction());
-}
-
-bool IfcElectricDistributionPoint::init() {
-    bool status = IfcFlowController::init();
-    std::string arg;
-    if (!status) {
+bool IfcElectricDistributionPoint::init()
+{
+    if (IfcFlowController::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_UNSET;
     }
-    else {
-        if (arg == ".ALARMPANEL.") {
-            m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_ALARMPANEL;
+    else
+    {
+        if (arg == ".ALARMPANEL.")
+        {
+            m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_ALARMPANEL;
         }
-        else if (arg == ".CONSUMERUNIT.") {
-            m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_CONSUMERUNIT;
+        else if (arg == ".CONSUMERUNIT.")
+        {
+            m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_CONSUMERUNIT;
         }
-        else if (arg == ".CONTROLPANEL.") {
-            m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_CONTROLPANEL;
+        else if (arg == ".CONTROLPANEL.")
+        {
+            m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_CONTROLPANEL;
         }
-        else if (arg == ".DISTRIBUTIONBOARD.") {
-            m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_DISTRIBUTIONBOARD;
+        else if (arg == ".DISTRIBUTIONBOARD.")
+        {
+            m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_DISTRIBUTIONBOARD;
         }
-        else if (arg == ".GASDETECTORPANEL.") {
-            m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_GASDETECTORPANEL;
+        else if (arg == ".GASDETECTORPANEL.")
+        {
+            m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_GASDETECTORPANEL;
         }
-        else if (arg == ".INDICATORPANEL.") {
-            m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_INDICATORPANEL;
+        else if (arg == ".INDICATORPANEL.")
+        {
+            m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_INDICATORPANEL;
         }
-        else if (arg == ".MIMICPANEL.") {
-            m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_MIMICPANEL;
+        else if (arg == ".MIMICPANEL.")
+        {
+            m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_MIMICPANEL;
         }
-        else if (arg == ".MOTORCONTROLCENTRE.") {
-            m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_MOTORCONTROLCENTRE;
+        else if (arg == ".MOTORCONTROLCENTRE.")
+        {
+            m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_MOTORCONTROLCENTRE;
         }
-        else if (arg == ".SWITCHBOARD.") {
-            m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_SWITCHBOARD;
+        else if (arg == ".SWITCHBOARD.")
+        {
+            m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_SWITCHBOARD;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_DistributionPointFunction = IfcElectricDistributionPointFunctionEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_userDefinedFunction = Step::getUnset(m_userDefinedFunction);
+    if (arg == "$" || arg == "*")
+    {
+        m_UserDefinedFunction = Step::getUnset(m_UserDefinedFunction);
     }
-    else {
-        m_userDefinedFunction = Step::String::fromSPF(arg);
+    else
+    {
+        m_UserDefinedFunction = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcElectricDistributionPoint::copy(const IfcElectricDistributionPoint &obj, const CopyOp &copyop) {
+void IfcElectricDistributionPoint::copy(const IfcElectricDistributionPoint &obj, const CopyOp &copyop)
+{
     IfcFlowController::copy(obj, copyop);
-    setDistributionPointFunction(obj.m_distributionPointFunction);
-    setUserDefinedFunction(obj.m_userDefinedFunction);
+    setDistributionPointFunction(obj.m_DistributionPointFunction);
+    setUserDefinedFunction(obj.m_UserDefinedFunction);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricDistributionPoint::s_type("IfcElectricDistributionPoint");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcElectricDistributionPoint, IfcFlowController)

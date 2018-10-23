@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,59 +24,45 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcFlowMovingDevice.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcDistributionFlowElement.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcFlowMovingDevice::IfcFlowMovingDevice(Step::Id id, Step::SPFData *args) : IfcDistributionFlowElement(id, args) {
+IfcFlowMovingDevice::IfcFlowMovingDevice(Step::Id id, Step::SPFData *args) : 
+    IfcDistributionFlowElement(id, args)
+{
 }
 
-IfcFlowMovingDevice::~IfcFlowMovingDevice() {
+IfcFlowMovingDevice::~IfcFlowMovingDevice()
+{}
+
+bool IfcFlowMovingDevice::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcFlowMovingDevice(this);
 }
 
-bool IfcFlowMovingDevice::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcFlowMovingDevice(this);
-}
-
-const std::string &IfcFlowMovingDevice::type() const {
-    return IfcFlowMovingDevice::s_type.getName();
-}
-
-const Step::ClassType &IfcFlowMovingDevice::getClassType() {
-    return IfcFlowMovingDevice::s_type;
-}
-
-const Step::ClassType &IfcFlowMovingDevice::getType() const {
-    return IfcFlowMovingDevice::s_type;
-}
-
-bool IfcFlowMovingDevice::isOfType(const Step::ClassType &t) const {
-    return IfcFlowMovingDevice::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
-}
-
-bool IfcFlowMovingDevice::init() {
-    bool status = IfcDistributionFlowElement::init();
-    std::string arg;
-    if (!status) {
+bool IfcFlowMovingDevice::init()
+{
+    if (IfcDistributionFlowElement::init() == false)
+    {
         return false;
     }
     return true;
 }
 
-void IfcFlowMovingDevice::copy(const IfcFlowMovingDevice &obj, const CopyOp &copyop) {
+void IfcFlowMovingDevice::copy(const IfcFlowMovingDevice &obj, const CopyOp &copyop)
+{
     IfcDistributionFlowElement::copy(obj, copyop);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFlowMovingDevice::s_type("IfcFlowMovingDevice");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcFlowMovingDevice, IfcDistributionFlowElement)

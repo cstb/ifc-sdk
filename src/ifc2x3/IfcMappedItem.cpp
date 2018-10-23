@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,141 +24,151 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcMappedItem.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcCartesianTransformationOperator.h>
-#include <ifc2x3/IfcRepresentationItem.h>
 #include <ifc2x3/IfcRepresentationMap.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcMappedItem::IfcMappedItem(Step::Id id, Step::SPFData *args) : IfcRepresentationItem(id, args) {
-    m_mappingSource = NULL;
-    m_mappingTarget = NULL;
+IfcMappedItem::IfcMappedItem(Step::Id id, Step::SPFData *args) : 
+    IfcRepresentationItem(id, args)
+{
+    m_MappingTarget = NULL;
+    m_MappingSource = NULL;
 }
 
-IfcMappedItem::~IfcMappedItem() {
+IfcMappedItem::~IfcMappedItem()
+{}
+
+bool IfcMappedItem::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcMappedItem(this);
 }
 
-bool IfcMappedItem::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcMappedItem(this);
-}
 
-const std::string &IfcMappedItem::type() const {
-    return IfcMappedItem::s_type.getName();
-}
-
-const Step::ClassType &IfcMappedItem::getClassType() {
-    return IfcMappedItem::s_type;
-}
-
-const Step::ClassType &IfcMappedItem::getType() const {
-    return IfcMappedItem::s_type;
-}
-
-bool IfcMappedItem::isOfType(const Step::ClassType &t) const {
-    return IfcMappedItem::s_type == t ? true : IfcRepresentationItem::isOfType(t);
-}
-
-IfcRepresentationMap *IfcMappedItem::getMappingSource() {
-    if (Step::BaseObject::inited()) {
-        return m_mappingSource.get();
+IfcCartesianTransformationOperator *IfcMappedItem::getMappingTarget()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MappingTarget.get();
     }
-    else {
+    else 
+    {
+        return NULL;
+    }    
+}
+
+const IfcCartesianTransformationOperator *IfcMappedItem::getMappingTarget() const
+{
+    return const_cast<IfcMappedItem *>(this)->getMappingTarget();
+}
+
+void IfcMappedItem::setMappingTarget(const Step::RefPtr< IfcCartesianTransformationOperator > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MappingTarget = value;
+}
+
+void IfcMappedItem::unsetMappingTarget()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MappingTarget = Step::getUnset(getMappingTarget());
+}
+
+bool IfcMappedItem::testMappingTarget() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMappingTarget()) == false;
+}
+
+IfcRepresentationMap *IfcMappedItem::getMappingSource()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_MappingSource.get();
+    }
+    else
+    {
         return NULL;
     }
 }
 
-const IfcRepresentationMap *IfcMappedItem::getMappingSource() const {
-    IfcMappedItem * deConstObject = const_cast< IfcMappedItem * > (this);
-    return deConstObject->getMappingSource();
+const IfcRepresentationMap *IfcMappedItem::getMappingSource() const
+{
+    return const_cast< IfcMappedItem * > (this)->getMappingSource();
 }
 
-void IfcMappedItem::setMappingSource(const Step::RefPtr< IfcRepresentationMap > &value) {
-    if (m_mappingSource.valid()) {
-        m_mappingSource->m_mapUsage.erase(this);
+void IfcMappedItem::setMappingSource(const Step::RefPtr< IfcRepresentationMap > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_MappingSource.valid())
+    {
+        m_MappingSource->m_MapUsage.erase(this);
     }
-    if (value.valid()) {
-        value->m_mapUsage.insert(this);
+    if (value.valid() )
+    {
+       value->m_MapUsage.insert(this);
     }
-    m_mappingSource = value;
+    m_MappingSource = value;
 }
 
-void IfcMappedItem::unsetMappingSource() {
-    m_mappingSource = Step::getUnset(getMappingSource());
+void IfcMappedItem::unsetMappingSource()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MappingSource = Step::getUnset(getMappingSource());
 }
 
-bool IfcMappedItem::testMappingSource() const {
-    return !Step::isUnset(getMappingSource());
+bool IfcMappedItem::testMappingSource() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMappingSource()) == false;
 }
 
-IfcCartesianTransformationOperator *IfcMappedItem::getMappingTarget() {
-    if (Step::BaseObject::inited()) {
-        return m_mappingTarget.get();
-    }
-    else {
-        return NULL;
-    }
-}
-
-const IfcCartesianTransformationOperator *IfcMappedItem::getMappingTarget() const {
-    IfcMappedItem * deConstObject = const_cast< IfcMappedItem * > (this);
-    return deConstObject->getMappingTarget();
-}
-
-void IfcMappedItem::setMappingTarget(const Step::RefPtr< IfcCartesianTransformationOperator > &value) {
-    m_mappingTarget = value;
-}
-
-void IfcMappedItem::unsetMappingTarget() {
-    m_mappingTarget = Step::getUnset(getMappingTarget());
-}
-
-bool IfcMappedItem::testMappingTarget() const {
-    return !Step::isUnset(getMappingTarget());
-}
-
-bool IfcMappedItem::init() {
-    bool status = IfcRepresentationItem::init();
-    std::string arg;
-    if (!status) {
+bool IfcMappedItem::init()
+{
+    if (IfcRepresentationItem::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_mappingSource = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_MappingTarget = NULL;
     }
-    else {
-        m_mappingSource = static_cast< IfcRepresentationMap * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_MappingTarget = static_cast< IfcCartesianTransformationOperator * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_mappingTarget = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_MappingSource = NULL;
     }
-    else {
-        m_mappingTarget = static_cast< IfcCartesianTransformationOperator * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_MappingSource = static_cast< IfcRepresentationMap * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcMappedItem::copy(const IfcMappedItem &obj, const CopyOp &copyop) {
+void IfcMappedItem::copy(const IfcMappedItem &obj, const CopyOp &copyop)
+{
     IfcRepresentationItem::copy(obj, copyop);
-    setMappingSource((IfcRepresentationMap*)copyop(obj.m_mappingSource.get()));
-    setMappingTarget((IfcCartesianTransformationOperator*)copyop(obj.m_mappingTarget.get()));
+    setMappingTarget((IfcCartesianTransformationOperator*)copyop(obj.m_MappingTarget.get()));
+    setMappingSource((IfcRepresentationMap*)copyop(obj.m_MappingSource.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMappedItem::s_type("IfcMappedItem");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcMappedItem, IfcRepresentationItem)

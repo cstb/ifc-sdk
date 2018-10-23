@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,212 +24,243 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcGeometricRepresentationContext.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcAxis2Placement.h>
 #include <ifc2x3/IfcDirection.h>
 #include <ifc2x3/IfcGeometricRepresentationSubContext.h>
-#include <ifc2x3/IfcRepresentationContext.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcGeometricRepresentationContext::IfcGeometricRepresentationContext(Step::Id id, Step::SPFData *args) : IfcRepresentationContext(id, args) {
-    m_coordinateSpaceDimension = Step::getUnset(m_coordinateSpaceDimension);
-    m_precision = Step::getUnset(m_precision);
-    m_worldCoordinateSystem = new IfcAxis2Placement;
-    m_trueNorth = NULL;
+IfcGeometricRepresentationContext::IfcGeometricRepresentationContext(Step::Id id, Step::SPFData *args) : 
+    IfcRepresentationContext(id, args)
+{
+    m_CoordinateSpaceDimension = Step::getUnset(m_CoordinateSpaceDimension);
+    m_Precision = Step::getUnset(m_Precision);
+    m_WorldCoordinateSystem = NULL;
+    m_TrueNorth = NULL;
 }
 
-IfcGeometricRepresentationContext::~IfcGeometricRepresentationContext() {
+IfcGeometricRepresentationContext::~IfcGeometricRepresentationContext()
+{}
+
+bool IfcGeometricRepresentationContext::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcGeometricRepresentationContext(this);
 }
 
-bool IfcGeometricRepresentationContext::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcGeometricRepresentationContext(this);
-}
 
-const std::string &IfcGeometricRepresentationContext::type() const {
-    return IfcGeometricRepresentationContext::s_type.getName();
-}
-
-const Step::ClassType &IfcGeometricRepresentationContext::getClassType() {
-    return IfcGeometricRepresentationContext::s_type;
-}
-
-const Step::ClassType &IfcGeometricRepresentationContext::getType() const {
-    return IfcGeometricRepresentationContext::s_type;
-}
-
-bool IfcGeometricRepresentationContext::isOfType(const Step::ClassType &t) const {
-    return IfcGeometricRepresentationContext::s_type == t ? true : IfcRepresentationContext::isOfType(t);
-}
-
-IfcDimensionCount IfcGeometricRepresentationContext::getCoordinateSpaceDimension() {
-    if (Step::BaseObject::inited()) {
-        return m_coordinateSpaceDimension;
+IfcDimensionCount IfcGeometricRepresentationContext::getCoordinateSpaceDimension()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CoordinateSpaceDimension;
     }
-    else {
-        return Step::getUnset(m_coordinateSpaceDimension);
+    else 
+    {
+        return Step::getUnset(m_CoordinateSpaceDimension);
+    }    
+}
+
+IfcDimensionCount IfcGeometricRepresentationContext::getCoordinateSpaceDimension() const
+{
+    return const_cast<IfcGeometricRepresentationContext *>(this)->getCoordinateSpaceDimension();
+}
+
+void IfcGeometricRepresentationContext::setCoordinateSpaceDimension(IfcDimensionCount value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CoordinateSpaceDimension = value;
+}
+
+void IfcGeometricRepresentationContext::unsetCoordinateSpaceDimension()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CoordinateSpaceDimension = Step::getUnset(getCoordinateSpaceDimension());
+}
+
+bool IfcGeometricRepresentationContext::testCoordinateSpaceDimension() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCoordinateSpaceDimension()) == false;
+}
+
+
+Step::Real IfcGeometricRepresentationContext::getPrecision()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Precision;
     }
+    else 
+    {
+        return Step::getUnset(m_Precision);
+    }    
 }
 
-const IfcDimensionCount IfcGeometricRepresentationContext::getCoordinateSpaceDimension() const {
-    IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
-    return deConstObject->getCoordinateSpaceDimension();
+Step::Real IfcGeometricRepresentationContext::getPrecision() const
+{
+    return const_cast<IfcGeometricRepresentationContext *>(this)->getPrecision();
 }
 
-void IfcGeometricRepresentationContext::setCoordinateSpaceDimension(IfcDimensionCount value) {
-    m_coordinateSpaceDimension = value;
+void IfcGeometricRepresentationContext::setPrecision(Step::Real value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Precision = value;
 }
 
-void IfcGeometricRepresentationContext::unsetCoordinateSpaceDimension() {
-    m_coordinateSpaceDimension = Step::getUnset(getCoordinateSpaceDimension());
+void IfcGeometricRepresentationContext::unsetPrecision()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Precision = Step::getUnset(getPrecision());
 }
 
-bool IfcGeometricRepresentationContext::testCoordinateSpaceDimension() const {
-    return !Step::isUnset(getCoordinateSpaceDimension());
+bool IfcGeometricRepresentationContext::testPrecision() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPrecision()) == false;
 }
 
-Step::Real IfcGeometricRepresentationContext::getPrecision() {
-    if (Step::BaseObject::inited()) {
-        return m_precision;
+
+IfcAxis2Placement *IfcGeometricRepresentationContext::getWorldCoordinateSystem()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_WorldCoordinateSystem.get();
     }
-    else {
-        return Step::getUnset(m_precision);
-    }
-}
-
-const Step::Real IfcGeometricRepresentationContext::getPrecision() const {
-    IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
-    return deConstObject->getPrecision();
-}
-
-void IfcGeometricRepresentationContext::setPrecision(Step::Real value) {
-    m_precision = value;
-}
-
-void IfcGeometricRepresentationContext::unsetPrecision() {
-    m_precision = Step::getUnset(getPrecision());
-}
-
-bool IfcGeometricRepresentationContext::testPrecision() const {
-    return !Step::isUnset(getPrecision());
-}
-
-IfcAxis2Placement *IfcGeometricRepresentationContext::getWorldCoordinateSystem() {
-    if (Step::BaseObject::inited()) {
-        return m_worldCoordinateSystem.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcAxis2Placement *IfcGeometricRepresentationContext::getWorldCoordinateSystem() const
+{
+    return const_cast<IfcGeometricRepresentationContext *>(this)->getWorldCoordinateSystem();
+}
+
+void IfcGeometricRepresentationContext::setWorldCoordinateSystem(const Step::RefPtr< IfcAxis2Placement > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WorldCoordinateSystem = value;
+}
+
+void IfcGeometricRepresentationContext::unsetWorldCoordinateSystem()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WorldCoordinateSystem = Step::getUnset(getWorldCoordinateSystem());
+}
+
+bool IfcGeometricRepresentationContext::testWorldCoordinateSystem() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getWorldCoordinateSystem()) == false;
+}
+
+
+IfcDirection *IfcGeometricRepresentationContext::getTrueNorth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TrueNorth.get();
     }
-}
-
-const IfcAxis2Placement *IfcGeometricRepresentationContext::getWorldCoordinateSystem() const {
-    IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
-    return deConstObject->getWorldCoordinateSystem();
-}
-
-void IfcGeometricRepresentationContext::setWorldCoordinateSystem(const Step::RefPtr< IfcAxis2Placement > &value) {
-    m_worldCoordinateSystem = value;
-}
-
-void IfcGeometricRepresentationContext::unsetWorldCoordinateSystem() {
-    m_worldCoordinateSystem = Step::getUnset(getWorldCoordinateSystem());
-}
-
-bool IfcGeometricRepresentationContext::testWorldCoordinateSystem() const {
-    return !Step::isUnset(getWorldCoordinateSystem());
-}
-
-IfcDirection *IfcGeometricRepresentationContext::getTrueNorth() {
-    if (Step::BaseObject::inited()) {
-        return m_trueNorth.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDirection *IfcGeometricRepresentationContext::getTrueNorth() const
+{
+    return const_cast<IfcGeometricRepresentationContext *>(this)->getTrueNorth();
+}
+
+void IfcGeometricRepresentationContext::setTrueNorth(const Step::RefPtr< IfcDirection > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TrueNorth = value;
+}
+
+void IfcGeometricRepresentationContext::unsetTrueNorth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TrueNorth = Step::getUnset(getTrueNorth());
+}
+
+bool IfcGeometricRepresentationContext::testTrueNorth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTrueNorth()) == false;
+}
+
+Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentationContext::getHasSubContexts()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_HasSubContexts;
     }
+ 
+    m_HasSubContexts.setUnset(true);
+    return m_HasSubContexts;
 }
 
-const IfcDirection *IfcGeometricRepresentationContext::getTrueNorth() const {
-    IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
-    return deConstObject->getTrueNorth();
+const Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentationContext::getHasSubContexts() const
+{
+    return  const_cast< IfcGeometricRepresentationContext * > (this)->getHasSubContexts();
 }
 
-void IfcGeometricRepresentationContext::setTrueNorth(const Step::RefPtr< IfcDirection > &value) {
-    m_trueNorth = value;
+bool IfcGeometricRepresentationContext::testHasSubContexts() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_HasSubContexts.isUnset() == false;
 }
 
-void IfcGeometricRepresentationContext::unsetTrueNorth() {
-    m_trueNorth = Step::getUnset(getTrueNorth());
-}
-
-bool IfcGeometricRepresentationContext::testTrueNorth() const {
-    return !Step::isUnset(getTrueNorth());
-}
-
-Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentationContext::getHasSubContexts() {
-    if (Step::BaseObject::inited()) {
-        return m_hasSubContexts;
-    }
-    else {
-        m_hasSubContexts.setUnset(true);
-        return m_hasSubContexts;
-    }
-}
-
-const Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentationContext::getHasSubContexts() const {
-    IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
-    return deConstObject->getHasSubContexts();
-}
-
-bool IfcGeometricRepresentationContext::testHasSubContexts() const {
-    return !m_hasSubContexts.isUnset();
-}
-
-bool IfcGeometricRepresentationContext::init() {
-    bool status = IfcRepresentationContext::init();
-    std::string arg;
-    std::vector< Step::Id > *inverses;
-    if (!status) {
+bool IfcGeometricRepresentationContext::init()
+{
+    if (IfcRepresentationContext::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_coordinateSpaceDimension = Step::getUnset(m_coordinateSpaceDimension);
+    if (arg == "$" || arg == "*")
+    {
+        m_CoordinateSpaceDimension = Step::getUnset(m_CoordinateSpaceDimension);
     }
-    else {
-        m_coordinateSpaceDimension = Step::spfToInteger(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_precision = Step::getUnset(m_precision);
-    }
-    else {
-        m_precision = Step::spfToReal(arg);
+    else
+    {
+        m_CoordinateSpaceDimension = Step::spfToInteger(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_worldCoordinateSystem = new IfcAxis2Placement;
+    if (arg == "$" || arg == "*")
+    {
+        m_Precision = Step::getUnset(m_Precision);
     }
-    else {
-        m_worldCoordinateSystem = new IfcAxis2Placement;
+    else
+    {
+        m_Precision = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_WorldCoordinateSystem = NULL;
+    }
+    else
+    {
+        m_WorldCoordinateSystem = new IfcAxis2Placement;
         if (arg[0] == '#') {
-            m_worldCoordinateSystem->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_WorldCoordinateSystem->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -233,31 +273,37 @@ bool IfcGeometricRepresentationContext::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_trueNorth = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TrueNorth = NULL;
     }
-    else {
-        m_trueNorth = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_TrueNorth = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
+    std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcGeometricRepresentationSubContext::getClassType(), 6);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_hasSubContexts.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_hasSubContexts.insert(static_cast< IfcGeometricRepresentationSubContext * > (m_expressDataSet->get((*inverses)[i])));
+        m_HasSubContexts.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_HasSubContexts.insert(static_cast< IfcGeometricRepresentationSubContext * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcGeometricRepresentationContext::copy(const IfcGeometricRepresentationContext &obj, const CopyOp &copyop) {
+void IfcGeometricRepresentationContext::copy(const IfcGeometricRepresentationContext &obj, const CopyOp &copyop)
+{
     IfcRepresentationContext::copy(obj, copyop);
-    setCoordinateSpaceDimension(obj.m_coordinateSpaceDimension);
-    setPrecision(obj.m_precision);
-    m_worldCoordinateSystem = new IfcAxis2Placement;
-    m_worldCoordinateSystem->copy(*(obj.m_worldCoordinateSystem.get()), copyop);
-    setTrueNorth((IfcDirection*)copyop(obj.m_trueNorth.get()));
+    setCoordinateSpaceDimension(obj.m_CoordinateSpaceDimension);
+    setPrecision(obj.m_Precision);
+    setWorldCoordinateSystem((IfcAxis2Placement*)copyop(obj.m_WorldCoordinateSystem.get()));
+    setTrueNorth((IfcDirection*)copyop(obj.m_TrueNorth.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGeometricRepresentationContext::s_type("IfcGeometricRepresentationContext");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcGeometricRepresentationContext, IfcRepresentationContext)

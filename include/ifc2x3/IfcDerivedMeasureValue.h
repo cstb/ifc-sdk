@@ -1,11 +1,22 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+#pragma once
+
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -14,30 +25,27 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifndef IFC2X3_IFCDERIVEDMEASUREVALUE_H
-#define IFC2X3_IFCDERIVEDMEASUREVALUE_H
-#include <ifc2x3/DefinedTypes.h>
+
 #include <ifc2x3/Export.h>
 
+#include <ifc2x3/DefinedTypes.h>
+
 #include <Step/BaseObject.h>
-#include <Step/BaseVisitor.h>
-#include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <string>
 
-namespace ifc2x3 {
-
-    class CopyOp;
-
+namespace ifc2x3
+{
     /**
-     * .
-     * 
+     * Generated class for the IfcDerivedMeasureValue Select type.
+     *
      */
-    class IFC2X3_EXPORT IfcDerivedMeasureValue : public Step::BaseObject {
+    class IFC2X3_EXPORT IfcDerivedMeasureValue : public Step::BaseObject
+
+    {
+        ClassType_definitions()
+
     public:
-        /**
- */
-enum IfcDerivedMeasureValue_select {
+        enum IfcDerivedMeasureValue_select 
+        {
             IFCVOLUMETRICFLOWRATEMEASURE,
             IFCTIMESTAMP,
             IFCTHERMALTRANSMITTANCEMEASURE,
@@ -106,10 +114,11 @@ enum IfcDerivedMeasureValue_select {
             IFCHEATINGVALUEMEASURE,
             IFCPHMEASURE,
             IFCIONCONCENTRATIONMEASURE,
-            UNSET,
+            UNSET
         };
 
-        union IfcDerivedMeasureValue_union {
+        union IfcDerivedMeasureValue_union
+        {
             IfcVolumetricFlowRateMeasure m_IfcVolumetricFlowRateMeasure;
             IfcTimeStamp m_IfcTimeStamp;
             IfcThermalTransmittanceMeasure m_IfcThermalTransmittanceMeasure;
@@ -179,554 +188,235 @@ enum IfcDerivedMeasureValue_select {
             IfcPHMeasure m_IfcPHMeasure;
             IfcIonConcentrationMeasure m_IfcIonConcentrationMeasure;
         };
-        /**
-         */
+
         IfcDerivedMeasureValue();
         virtual ~IfcDerivedMeasureValue();
-        /**
-         * Accepts a read/write Step::BaseVisitor.
-         * 
-         * @param visitor the read/write Step::BaseVisitor to accept
-         */
-        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
-        /**
-         * Returns the class type as a human readable std::string.
-         * 
-         */
-        virtual const std::string &type() const;
-        /**
-         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
-         * 
-         */
-        static const Step::ClassType &getClassType();
-        /**
-         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
-         * 
-         */
-        virtual const Step::ClassType &getType() const;
-        /**
-         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
-         * 
-         * @param t
-         */
-        virtual bool isOfType(const Step::ClassType &t) const;
-        /**
-         * @param obj
-         * @param copyop
-         */
+
         virtual void copy(const IfcDerivedMeasureValue &obj, const CopyOp &copyop);
-        /**
-         */
+
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
+
         std::string currentTypeName() const;
-        /**
-         */
+
         IfcDerivedMeasureValue_select currentType() const;
-        /**
-         */
+
         void deleteUnion();
-        /**
-         */
-        IfcVolumetricFlowRateMeasure getIfcVolumetricFlowRateMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcVolumetricFlowRateMeasure(IfcVolumetricFlowRateMeasure value);
-        /**
-         */
-        IfcTimeStamp getIfcTimeStamp() const;
-        /**
-         * @param value
-         */
-        void setIfcTimeStamp(IfcTimeStamp value);
-        /**
-         */
-        IfcThermalTransmittanceMeasure getIfcThermalTransmittanceMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcThermalTransmittanceMeasure(IfcThermalTransmittanceMeasure value);
-        /**
-         */
-        IfcThermalResistanceMeasure getIfcThermalResistanceMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcThermalResistanceMeasure(IfcThermalResistanceMeasure value);
-        /**
-         */
-        IfcThermalAdmittanceMeasure getIfcThermalAdmittanceMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcThermalAdmittanceMeasure(IfcThermalAdmittanceMeasure value);
-        /**
-         */
-        IfcPressureMeasure getIfcPressureMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcPressureMeasure(IfcPressureMeasure value);
-        /**
-         */
-        IfcPowerMeasure getIfcPowerMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcPowerMeasure(IfcPowerMeasure value);
-        /**
-         */
-        IfcMassFlowRateMeasure getIfcMassFlowRateMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcMassFlowRateMeasure(IfcMassFlowRateMeasure value);
-        /**
-         */
-        IfcMassDensityMeasure getIfcMassDensityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcMassDensityMeasure(IfcMassDensityMeasure value);
-        /**
-         */
-        IfcLinearVelocityMeasure getIfcLinearVelocityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcLinearVelocityMeasure(IfcLinearVelocityMeasure value);
-        /**
-         */
-        IfcKinematicViscosityMeasure getIfcKinematicViscosityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcKinematicViscosityMeasure(IfcKinematicViscosityMeasure value);
-        /**
-         */
-        IfcIntegerCountRateMeasure getIfcIntegerCountRateMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcIntegerCountRateMeasure(IfcIntegerCountRateMeasure value);
-        /**
-         */
-        IfcHeatFluxDensityMeasure getIfcHeatFluxDensityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcHeatFluxDensityMeasure(IfcHeatFluxDensityMeasure value);
-        /**
-         */
-        IfcFrequencyMeasure getIfcFrequencyMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcFrequencyMeasure(IfcFrequencyMeasure value);
-        /**
-         */
-        IfcEnergyMeasure getIfcEnergyMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcEnergyMeasure(IfcEnergyMeasure value);
-        /**
-         */
-        IfcElectricVoltageMeasure getIfcElectricVoltageMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcElectricVoltageMeasure(IfcElectricVoltageMeasure value);
-        /**
-         */
-        IfcDynamicViscosityMeasure getIfcDynamicViscosityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcDynamicViscosityMeasure(IfcDynamicViscosityMeasure value);
-        /**
-         */
-        IfcCompoundPlaneAngleMeasure getIfcCompoundPlaneAngleMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcCompoundPlaneAngleMeasure(const IfcCompoundPlaneAngleMeasure &value);
-        /**
-         */
-        IfcAngularVelocityMeasure getIfcAngularVelocityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcAngularVelocityMeasure(IfcAngularVelocityMeasure value);
-        /**
-         */
-        IfcThermalConductivityMeasure getIfcThermalConductivityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcThermalConductivityMeasure(IfcThermalConductivityMeasure value);
-        /**
-         */
-        IfcMolecularWeightMeasure getIfcMolecularWeightMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcMolecularWeightMeasure(IfcMolecularWeightMeasure value);
-        /**
-         */
-        IfcVaporPermeabilityMeasure getIfcVaporPermeabilityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcVaporPermeabilityMeasure(IfcVaporPermeabilityMeasure value);
-        /**
-         */
-        IfcMoistureDiffusivityMeasure getIfcMoistureDiffusivityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcMoistureDiffusivityMeasure(IfcMoistureDiffusivityMeasure value);
-        /**
-         */
-        IfcIsothermalMoistureCapacityMeasure getIfcIsothermalMoistureCapacityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcIsothermalMoistureCapacityMeasure(IfcIsothermalMoistureCapacityMeasure value);
-        /**
-         */
-        IfcSpecificHeatCapacityMeasure getIfcSpecificHeatCapacityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcSpecificHeatCapacityMeasure(IfcSpecificHeatCapacityMeasure value);
-        /**
-         */
-        IfcMonetaryMeasure getIfcMonetaryMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcMonetaryMeasure(IfcMonetaryMeasure value);
-        /**
-         */
-        IfcMagneticFluxDensityMeasure getIfcMagneticFluxDensityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcMagneticFluxDensityMeasure(IfcMagneticFluxDensityMeasure value);
-        /**
-         */
-        IfcMagneticFluxMeasure getIfcMagneticFluxMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcMagneticFluxMeasure(IfcMagneticFluxMeasure value);
-        /**
-         */
-        IfcLuminousFluxMeasure getIfcLuminousFluxMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcLuminousFluxMeasure(IfcLuminousFluxMeasure value);
-        /**
-         */
-        IfcForceMeasure getIfcForceMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcForceMeasure(IfcForceMeasure value);
-        /**
-         */
-        IfcInductanceMeasure getIfcInductanceMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcInductanceMeasure(IfcInductanceMeasure value);
-        /**
-         */
-        IfcIlluminanceMeasure getIfcIlluminanceMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcIlluminanceMeasure(IfcIlluminanceMeasure value);
-        /**
-         */
-        IfcElectricResistanceMeasure getIfcElectricResistanceMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcElectricResistanceMeasure(IfcElectricResistanceMeasure value);
-        /**
-         */
-        IfcElectricConductanceMeasure getIfcElectricConductanceMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcElectricConductanceMeasure(IfcElectricConductanceMeasure value);
-        /**
-         */
-        IfcElectricChargeMeasure getIfcElectricChargeMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcElectricChargeMeasure(IfcElectricChargeMeasure value);
-        /**
-         */
-        IfcDoseEquivalentMeasure getIfcDoseEquivalentMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcDoseEquivalentMeasure(IfcDoseEquivalentMeasure value);
-        /**
-         */
-        IfcElectricCapacitanceMeasure getIfcElectricCapacitanceMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcElectricCapacitanceMeasure(IfcElectricCapacitanceMeasure value);
-        /**
-         */
-        IfcAbsorbedDoseMeasure getIfcAbsorbedDoseMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcAbsorbedDoseMeasure(IfcAbsorbedDoseMeasure value);
-        /**
-         */
-        IfcRadioActivityMeasure getIfcRadioActivityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcRadioActivityMeasure(IfcRadioActivityMeasure value);
-        /**
-         */
-        IfcRotationalFrequencyMeasure getIfcRotationalFrequencyMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcRotationalFrequencyMeasure(IfcRotationalFrequencyMeasure value);
-        /**
-         */
-        IfcTorqueMeasure getIfcTorqueMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcTorqueMeasure(IfcTorqueMeasure value);
-        /**
-         */
-        IfcAccelerationMeasure getIfcAccelerationMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcAccelerationMeasure(IfcAccelerationMeasure value);
-        /**
-         */
-        IfcLinearForceMeasure getIfcLinearForceMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcLinearForceMeasure(IfcLinearForceMeasure value);
-        /**
-         */
-        IfcLinearStiffnessMeasure getIfcLinearStiffnessMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcLinearStiffnessMeasure(IfcLinearStiffnessMeasure value);
-        /**
-         */
-        IfcModulusOfSubgradeReactionMeasure getIfcModulusOfSubgradeReactionMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcModulusOfSubgradeReactionMeasure(IfcModulusOfSubgradeReactionMeasure value);
-        /**
-         */
-        IfcModulusOfElasticityMeasure getIfcModulusOfElasticityMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcModulusOfElasticityMeasure(IfcModulusOfElasticityMeasure value);
-        /**
-         */
-        IfcMomentOfInertiaMeasure getIfcMomentOfInertiaMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcMomentOfInertiaMeasure(IfcMomentOfInertiaMeasure value);
-        /**
-         */
-        IfcPlanarForceMeasure getIfcPlanarForceMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcPlanarForceMeasure(IfcPlanarForceMeasure value);
-        /**
-         */
-        IfcRotationalStiffnessMeasure getIfcRotationalStiffnessMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcRotationalStiffnessMeasure(IfcRotationalStiffnessMeasure value);
-        /**
-         */
-        IfcShearModulusMeasure getIfcShearModulusMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcShearModulusMeasure(IfcShearModulusMeasure value);
-        /**
-         */
-        IfcLinearMomentMeasure getIfcLinearMomentMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcLinearMomentMeasure(IfcLinearMomentMeasure value);
-        /**
-         */
-        IfcLuminousIntensityDistributionMeasure getIfcLuminousIntensityDistributionMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcLuminousIntensityDistributionMeasure(IfcLuminousIntensityDistributionMeasure value);
-        /**
-         */
-        IfcCurvatureMeasure getIfcCurvatureMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcCurvatureMeasure(IfcCurvatureMeasure value);
-        /**
-         */
-        IfcMassPerLengthMeasure getIfcMassPerLengthMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcMassPerLengthMeasure(IfcMassPerLengthMeasure value);
-        /**
-         */
-        IfcModulusOfLinearSubgradeReactionMeasure getIfcModulusOfLinearSubgradeReactionMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcModulusOfLinearSubgradeReactionMeasure(IfcModulusOfLinearSubgradeReactionMeasure value);
-        /**
-         */
-        IfcModulusOfRotationalSubgradeReactionMeasure getIfcModulusOfRotationalSubgradeReactionMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcModulusOfRotationalSubgradeReactionMeasure(IfcModulusOfRotationalSubgradeReactionMeasure value);
-        /**
-         */
-        IfcRotationalMassMeasure getIfcRotationalMassMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcRotationalMassMeasure(IfcRotationalMassMeasure value);
-        /**
-         */
-        IfcSectionalAreaIntegralMeasure getIfcSectionalAreaIntegralMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcSectionalAreaIntegralMeasure(IfcSectionalAreaIntegralMeasure value);
-        /**
-         */
-        IfcSectionModulusMeasure getIfcSectionModulusMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcSectionModulusMeasure(IfcSectionModulusMeasure value);
-        /**
-         */
-        IfcTemperatureGradientMeasure getIfcTemperatureGradientMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcTemperatureGradientMeasure(IfcTemperatureGradientMeasure value);
-        /**
-         */
-        IfcThermalExpansionCoefficientMeasure getIfcThermalExpansionCoefficientMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcThermalExpansionCoefficientMeasure(IfcThermalExpansionCoefficientMeasure value);
-        /**
-         */
-        IfcWarpingConstantMeasure getIfcWarpingConstantMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcWarpingConstantMeasure(IfcWarpingConstantMeasure value);
-        /**
-         */
-        IfcWarpingMomentMeasure getIfcWarpingMomentMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcWarpingMomentMeasure(IfcWarpingMomentMeasure value);
-        /**
-         */
-        IfcSoundPowerMeasure getIfcSoundPowerMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcSoundPowerMeasure(IfcSoundPowerMeasure value);
-        /**
-         */
-        IfcSoundPressureMeasure getIfcSoundPressureMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcSoundPressureMeasure(IfcSoundPressureMeasure value);
-        /**
-         */
-        IfcHeatingValueMeasure getIfcHeatingValueMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcHeatingValueMeasure(IfcHeatingValueMeasure value);
-        /**
-         */
-        IfcPHMeasure getIfcPHMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcPHMeasure(IfcPHMeasure value);
-        /**
-         */
-        IfcIonConcentrationMeasure getIfcIonConcentrationMeasure() const;
-        /**
-         * @param value
-         */
-        void setIfcIonConcentrationMeasure(IfcIonConcentrationMeasure value);
-        /**
-         * @param v
-         */
+
         void set(Step::BaseObject *v);
 
+        IfcVolumetricFlowRateMeasure getIfcVolumetricFlowRateMeasure() const;
+        void setIfcVolumetricFlowRateMeasure(IfcVolumetricFlowRateMeasure value);    
+
+        IfcTimeStamp getIfcTimeStamp() const;
+        void setIfcTimeStamp(IfcTimeStamp value);    
+
+        IfcThermalTransmittanceMeasure getIfcThermalTransmittanceMeasure() const;
+        void setIfcThermalTransmittanceMeasure(IfcThermalTransmittanceMeasure value);    
+
+        IfcThermalResistanceMeasure getIfcThermalResistanceMeasure() const;
+        void setIfcThermalResistanceMeasure(IfcThermalResistanceMeasure value);    
+
+        IfcThermalAdmittanceMeasure getIfcThermalAdmittanceMeasure() const;
+        void setIfcThermalAdmittanceMeasure(IfcThermalAdmittanceMeasure value);    
+
+        IfcPressureMeasure getIfcPressureMeasure() const;
+        void setIfcPressureMeasure(IfcPressureMeasure value);    
+
+        IfcPowerMeasure getIfcPowerMeasure() const;
+        void setIfcPowerMeasure(IfcPowerMeasure value);    
+
+        IfcMassFlowRateMeasure getIfcMassFlowRateMeasure() const;
+        void setIfcMassFlowRateMeasure(IfcMassFlowRateMeasure value);    
+
+        IfcMassDensityMeasure getIfcMassDensityMeasure() const;
+        void setIfcMassDensityMeasure(IfcMassDensityMeasure value);    
+
+        IfcLinearVelocityMeasure getIfcLinearVelocityMeasure() const;
+        void setIfcLinearVelocityMeasure(IfcLinearVelocityMeasure value);    
+
+        IfcKinematicViscosityMeasure getIfcKinematicViscosityMeasure() const;
+        void setIfcKinematicViscosityMeasure(IfcKinematicViscosityMeasure value);    
+
+        IfcIntegerCountRateMeasure getIfcIntegerCountRateMeasure() const;
+        void setIfcIntegerCountRateMeasure(IfcIntegerCountRateMeasure value);    
+
+        IfcHeatFluxDensityMeasure getIfcHeatFluxDensityMeasure() const;
+        void setIfcHeatFluxDensityMeasure(IfcHeatFluxDensityMeasure value);    
+
+        IfcFrequencyMeasure getIfcFrequencyMeasure() const;
+        void setIfcFrequencyMeasure(IfcFrequencyMeasure value);    
+
+        IfcEnergyMeasure getIfcEnergyMeasure() const;
+        void setIfcEnergyMeasure(IfcEnergyMeasure value);    
+
+        IfcElectricVoltageMeasure getIfcElectricVoltageMeasure() const;
+        void setIfcElectricVoltageMeasure(IfcElectricVoltageMeasure value);    
+
+        IfcDynamicViscosityMeasure getIfcDynamicViscosityMeasure() const;
+        void setIfcDynamicViscosityMeasure(IfcDynamicViscosityMeasure value);    
+
+        IfcCompoundPlaneAngleMeasure &getIfcCompoundPlaneAngleMeasure() const;
+        void setIfcCompoundPlaneAngleMeasure(const IfcCompoundPlaneAngleMeasure &value);   
+
+        IfcAngularVelocityMeasure getIfcAngularVelocityMeasure() const;
+        void setIfcAngularVelocityMeasure(IfcAngularVelocityMeasure value);    
+
+        IfcThermalConductivityMeasure getIfcThermalConductivityMeasure() const;
+        void setIfcThermalConductivityMeasure(IfcThermalConductivityMeasure value);    
+
+        IfcMolecularWeightMeasure getIfcMolecularWeightMeasure() const;
+        void setIfcMolecularWeightMeasure(IfcMolecularWeightMeasure value);    
+
+        IfcVaporPermeabilityMeasure getIfcVaporPermeabilityMeasure() const;
+        void setIfcVaporPermeabilityMeasure(IfcVaporPermeabilityMeasure value);    
+
+        IfcMoistureDiffusivityMeasure getIfcMoistureDiffusivityMeasure() const;
+        void setIfcMoistureDiffusivityMeasure(IfcMoistureDiffusivityMeasure value);    
+
+        IfcIsothermalMoistureCapacityMeasure getIfcIsothermalMoistureCapacityMeasure() const;
+        void setIfcIsothermalMoistureCapacityMeasure(IfcIsothermalMoistureCapacityMeasure value);    
+
+        IfcSpecificHeatCapacityMeasure getIfcSpecificHeatCapacityMeasure() const;
+        void setIfcSpecificHeatCapacityMeasure(IfcSpecificHeatCapacityMeasure value);    
+
+        IfcMonetaryMeasure getIfcMonetaryMeasure() const;
+        void setIfcMonetaryMeasure(IfcMonetaryMeasure value);    
+
+        IfcMagneticFluxDensityMeasure getIfcMagneticFluxDensityMeasure() const;
+        void setIfcMagneticFluxDensityMeasure(IfcMagneticFluxDensityMeasure value);    
+
+        IfcMagneticFluxMeasure getIfcMagneticFluxMeasure() const;
+        void setIfcMagneticFluxMeasure(IfcMagneticFluxMeasure value);    
+
+        IfcLuminousFluxMeasure getIfcLuminousFluxMeasure() const;
+        void setIfcLuminousFluxMeasure(IfcLuminousFluxMeasure value);    
+
+        IfcForceMeasure getIfcForceMeasure() const;
+        void setIfcForceMeasure(IfcForceMeasure value);    
+
+        IfcInductanceMeasure getIfcInductanceMeasure() const;
+        void setIfcInductanceMeasure(IfcInductanceMeasure value);    
+
+        IfcIlluminanceMeasure getIfcIlluminanceMeasure() const;
+        void setIfcIlluminanceMeasure(IfcIlluminanceMeasure value);    
+
+        IfcElectricResistanceMeasure getIfcElectricResistanceMeasure() const;
+        void setIfcElectricResistanceMeasure(IfcElectricResistanceMeasure value);    
+
+        IfcElectricConductanceMeasure getIfcElectricConductanceMeasure() const;
+        void setIfcElectricConductanceMeasure(IfcElectricConductanceMeasure value);    
+
+        IfcElectricChargeMeasure getIfcElectricChargeMeasure() const;
+        void setIfcElectricChargeMeasure(IfcElectricChargeMeasure value);    
+
+        IfcDoseEquivalentMeasure getIfcDoseEquivalentMeasure() const;
+        void setIfcDoseEquivalentMeasure(IfcDoseEquivalentMeasure value);    
+
+        IfcElectricCapacitanceMeasure getIfcElectricCapacitanceMeasure() const;
+        void setIfcElectricCapacitanceMeasure(IfcElectricCapacitanceMeasure value);    
+
+        IfcAbsorbedDoseMeasure getIfcAbsorbedDoseMeasure() const;
+        void setIfcAbsorbedDoseMeasure(IfcAbsorbedDoseMeasure value);    
+
+        IfcRadioActivityMeasure getIfcRadioActivityMeasure() const;
+        void setIfcRadioActivityMeasure(IfcRadioActivityMeasure value);    
+
+        IfcRotationalFrequencyMeasure getIfcRotationalFrequencyMeasure() const;
+        void setIfcRotationalFrequencyMeasure(IfcRotationalFrequencyMeasure value);    
+
+        IfcTorqueMeasure getIfcTorqueMeasure() const;
+        void setIfcTorqueMeasure(IfcTorqueMeasure value);    
+
+        IfcAccelerationMeasure getIfcAccelerationMeasure() const;
+        void setIfcAccelerationMeasure(IfcAccelerationMeasure value);    
+
+        IfcLinearForceMeasure getIfcLinearForceMeasure() const;
+        void setIfcLinearForceMeasure(IfcLinearForceMeasure value);    
+
+        IfcLinearStiffnessMeasure getIfcLinearStiffnessMeasure() const;
+        void setIfcLinearStiffnessMeasure(IfcLinearStiffnessMeasure value);    
+
+        IfcModulusOfSubgradeReactionMeasure getIfcModulusOfSubgradeReactionMeasure() const;
+        void setIfcModulusOfSubgradeReactionMeasure(IfcModulusOfSubgradeReactionMeasure value);    
+
+        IfcModulusOfElasticityMeasure getIfcModulusOfElasticityMeasure() const;
+        void setIfcModulusOfElasticityMeasure(IfcModulusOfElasticityMeasure value);    
+
+        IfcMomentOfInertiaMeasure getIfcMomentOfInertiaMeasure() const;
+        void setIfcMomentOfInertiaMeasure(IfcMomentOfInertiaMeasure value);    
+
+        IfcPlanarForceMeasure getIfcPlanarForceMeasure() const;
+        void setIfcPlanarForceMeasure(IfcPlanarForceMeasure value);    
+
+        IfcRotationalStiffnessMeasure getIfcRotationalStiffnessMeasure() const;
+        void setIfcRotationalStiffnessMeasure(IfcRotationalStiffnessMeasure value);    
+
+        IfcShearModulusMeasure getIfcShearModulusMeasure() const;
+        void setIfcShearModulusMeasure(IfcShearModulusMeasure value);    
+
+        IfcLinearMomentMeasure getIfcLinearMomentMeasure() const;
+        void setIfcLinearMomentMeasure(IfcLinearMomentMeasure value);    
+
+        IfcLuminousIntensityDistributionMeasure getIfcLuminousIntensityDistributionMeasure() const;
+        void setIfcLuminousIntensityDistributionMeasure(IfcLuminousIntensityDistributionMeasure value);    
+
+        IfcCurvatureMeasure getIfcCurvatureMeasure() const;
+        void setIfcCurvatureMeasure(IfcCurvatureMeasure value);    
+
+        IfcMassPerLengthMeasure getIfcMassPerLengthMeasure() const;
+        void setIfcMassPerLengthMeasure(IfcMassPerLengthMeasure value);    
+
+        IfcModulusOfLinearSubgradeReactionMeasure getIfcModulusOfLinearSubgradeReactionMeasure() const;
+        void setIfcModulusOfLinearSubgradeReactionMeasure(IfcModulusOfLinearSubgradeReactionMeasure value);    
+
+        IfcModulusOfRotationalSubgradeReactionMeasure getIfcModulusOfRotationalSubgradeReactionMeasure() const;
+        void setIfcModulusOfRotationalSubgradeReactionMeasure(IfcModulusOfRotationalSubgradeReactionMeasure value);    
+
+        IfcRotationalMassMeasure getIfcRotationalMassMeasure() const;
+        void setIfcRotationalMassMeasure(IfcRotationalMassMeasure value);    
+
+        IfcSectionalAreaIntegralMeasure getIfcSectionalAreaIntegralMeasure() const;
+        void setIfcSectionalAreaIntegralMeasure(IfcSectionalAreaIntegralMeasure value);    
+
+        IfcSectionModulusMeasure getIfcSectionModulusMeasure() const;
+        void setIfcSectionModulusMeasure(IfcSectionModulusMeasure value);    
+
+        IfcTemperatureGradientMeasure getIfcTemperatureGradientMeasure() const;
+        void setIfcTemperatureGradientMeasure(IfcTemperatureGradientMeasure value);    
+
+        IfcThermalExpansionCoefficientMeasure getIfcThermalExpansionCoefficientMeasure() const;
+        void setIfcThermalExpansionCoefficientMeasure(IfcThermalExpansionCoefficientMeasure value);    
+
+        IfcWarpingConstantMeasure getIfcWarpingConstantMeasure() const;
+        void setIfcWarpingConstantMeasure(IfcWarpingConstantMeasure value);    
+
+        IfcWarpingMomentMeasure getIfcWarpingMomentMeasure() const;
+        void setIfcWarpingMomentMeasure(IfcWarpingMomentMeasure value);    
+
+        IfcSoundPowerMeasure getIfcSoundPowerMeasure() const;
+        void setIfcSoundPowerMeasure(IfcSoundPowerMeasure value);    
+
+        IfcSoundPressureMeasure getIfcSoundPressureMeasure() const;
+        void setIfcSoundPressureMeasure(IfcSoundPressureMeasure value);    
+
+        IfcHeatingValueMeasure getIfcHeatingValueMeasure() const;
+        void setIfcHeatingValueMeasure(IfcHeatingValueMeasure value);    
+
+        IfcPHMeasure getIfcPHMeasure() const;
+        void setIfcPHMeasure(IfcPHMeasure value);    
+
+        IfcIonConcentrationMeasure getIfcIonConcentrationMeasure() const;
+        void setIfcIonConcentrationMeasure(IfcIonConcentrationMeasure value);    
+
+
     protected:
-        /**
-         * @param args
-         */
         IfcDerivedMeasureValue(Step::SPFData *args);
-        /**
-         */
+
         virtual bool init();
 
     private:
-        /**
-         */
-        static Step::ClassType s_type;
-        /**
-         */
         IfcDerivedMeasureValue_select m_type;
-        /**
-         */
-        IfcDerivedMeasureValue_union m_IfcDerivedMeasureValue_union;
-
+  
+        IfcDerivedMeasureValue_union m_union;
     };
-
-}
-
-#endif // IFC2X3_IFCDERIVEDMEASUREVALUE_H
+} // namespace ifc2x3

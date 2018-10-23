@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,201 +24,235 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRoot.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcOwnerHistory.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRoot::IfcRoot(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_globalId = Step::getUnset(m_globalId);
-    m_ownerHistory = NULL;
-    m_name = Step::getUnset(m_name);
-    m_description = Step::getUnset(m_description);
+IfcRoot::IfcRoot(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_GlobalId = Step::getUnset(m_GlobalId);
+    m_OwnerHistory = NULL;
+    m_Name = Step::getUnset(m_Name);
+    m_Description = Step::getUnset(m_Description);
 }
 
-IfcRoot::~IfcRoot() {
+IfcRoot::~IfcRoot()
+{}
+
+bool IfcRoot::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRoot(this);
 }
 
-bool IfcRoot::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRoot(this);
-}
 
-const std::string &IfcRoot::type() const {
-    return IfcRoot::s_type.getName();
-}
-
-const Step::ClassType &IfcRoot::getClassType() {
-    return IfcRoot::s_type;
-}
-
-const Step::ClassType &IfcRoot::getType() const {
-    return IfcRoot::s_type;
-}
-
-bool IfcRoot::isOfType(const Step::ClassType &t) const {
-    return IfcRoot::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcGloballyUniqueId IfcRoot::getGlobalId() {
-    if (Step::BaseObject::inited()) {
-        return m_globalId;
+IfcGloballyUniqueId IfcRoot::getGlobalId()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_GlobalId;
     }
-    else {
-        return Step::getUnset(m_globalId);
+    else 
+    {
+        return Step::getUnset(m_GlobalId);
+    }    
+}
+
+const IfcGloballyUniqueId IfcRoot::getGlobalId() const
+{
+    return const_cast<IfcRoot *>(this)->getGlobalId();
+}
+
+void IfcRoot::setGlobalId(const IfcGloballyUniqueId &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_GlobalId = value;
+}
+
+void IfcRoot::unsetGlobalId()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_GlobalId = Step::getUnset(getGlobalId());
+}
+
+bool IfcRoot::testGlobalId() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getGlobalId()) == false;
+}
+
+
+IfcOwnerHistory *IfcRoot::getOwnerHistory()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_OwnerHistory.get();
     }
-}
-
-const IfcGloballyUniqueId IfcRoot::getGlobalId() const {
-    IfcRoot * deConstObject = const_cast< IfcRoot * > (this);
-    return deConstObject->getGlobalId();
-}
-
-void IfcRoot::setGlobalId(const IfcGloballyUniqueId &value) {
-    m_globalId = value;
-}
-
-void IfcRoot::unsetGlobalId() {
-    m_globalId = Step::getUnset(getGlobalId());
-}
-
-bool IfcRoot::testGlobalId() const {
-    return !Step::isUnset(getGlobalId());
-}
-
-IfcOwnerHistory *IfcRoot::getOwnerHistory() {
-    if (Step::BaseObject::inited()) {
-        return m_ownerHistory.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcOwnerHistory *IfcRoot::getOwnerHistory() const
+{
+    return const_cast<IfcRoot *>(this)->getOwnerHistory();
+}
+
+void IfcRoot::setOwnerHistory(const Step::RefPtr< IfcOwnerHistory > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OwnerHistory = value;
+}
+
+void IfcRoot::unsetOwnerHistory()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OwnerHistory = Step::getUnset(getOwnerHistory());
+}
+
+bool IfcRoot::testOwnerHistory() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getOwnerHistory()) == false;
+}
+
+
+IfcLabel IfcRoot::getName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Name;
     }
+    else 
+    {
+        return Step::getUnset(m_Name);
+    }    
 }
 
-const IfcOwnerHistory *IfcRoot::getOwnerHistory() const {
-    IfcRoot * deConstObject = const_cast< IfcRoot * > (this);
-    return deConstObject->getOwnerHistory();
+const IfcLabel IfcRoot::getName() const
+{
+    return const_cast<IfcRoot *>(this)->getName();
 }
 
-void IfcRoot::setOwnerHistory(const Step::RefPtr< IfcOwnerHistory > &value) {
-    m_ownerHistory = value;
+void IfcRoot::setName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = value;
 }
 
-void IfcRoot::unsetOwnerHistory() {
-    m_ownerHistory = Step::getUnset(getOwnerHistory());
+void IfcRoot::unsetName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = Step::getUnset(getName());
 }
 
-bool IfcRoot::testOwnerHistory() const {
-    return !Step::isUnset(getOwnerHistory());
+bool IfcRoot::testName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getName()) == false;
 }
 
-IfcLabel IfcRoot::getName() {
-    if (Step::BaseObject::inited()) {
-        return m_name;
+
+IfcText IfcRoot::getDescription()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Description;
     }
-    else {
-        return Step::getUnset(m_name);
-    }
+    else 
+    {
+        return Step::getUnset(m_Description);
+    }    
 }
 
-const IfcLabel IfcRoot::getName() const {
-    IfcRoot * deConstObject = const_cast< IfcRoot * > (this);
-    return deConstObject->getName();
+const IfcText IfcRoot::getDescription() const
+{
+    return const_cast<IfcRoot *>(this)->getDescription();
 }
 
-void IfcRoot::setName(const IfcLabel &value) {
-    m_name = value;
+void IfcRoot::setDescription(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = value;
 }
 
-void IfcRoot::unsetName() {
-    m_name = Step::getUnset(getName());
+void IfcRoot::unsetDescription()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = Step::getUnset(getDescription());
 }
 
-bool IfcRoot::testName() const {
-    return !Step::isUnset(getName());
+bool IfcRoot::testDescription() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDescription()) == false;
 }
 
-IfcText IfcRoot::getDescription() {
-    if (Step::BaseObject::inited()) {
-        return m_description;
-    }
-    else {
-        return Step::getUnset(m_description);
-    }
-}
-
-const IfcText IfcRoot::getDescription() const {
-    IfcRoot * deConstObject = const_cast< IfcRoot * > (this);
-    return deConstObject->getDescription();
-}
-
-void IfcRoot::setDescription(const IfcText &value) {
-    m_description = value;
-}
-
-void IfcRoot::unsetDescription() {
-    m_description = Step::getUnset(getDescription());
-}
-
-bool IfcRoot::testDescription() const {
-    return !Step::isUnset(getDescription());
-}
-
-bool IfcRoot::init() {
+bool IfcRoot::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_globalId = Step::getUnset(m_globalId);
+    if (arg == "$" || arg == "*")
+    {
+        m_GlobalId = Step::getUnset(m_GlobalId);
     }
-    else {
-        m_globalId = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_ownerHistory = NULL;
-    }
-    else {
-        m_ownerHistory = static_cast< IfcOwnerHistory * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_GlobalId = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_name = Step::getUnset(m_name);
+    if (arg == "$" || arg == "*")
+    {
+        m_OwnerHistory = NULL;
     }
-    else {
-        m_name = Step::String::fromSPF(arg);
+    else
+    {
+        m_OwnerHistory = static_cast< IfcOwnerHistory * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_description = Step::getUnset(m_description);
+    if (arg == "$" || arg == "*")
+    {
+        m_Name = Step::getUnset(m_Name);
     }
-    else {
-        m_description = Step::String::fromSPF(arg);
+    else
+    {
+        m_Name = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Description = Step::getUnset(m_Description);
+    }
+    else
+    {
+        m_Description = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcRoot::copy(const IfcRoot &obj, const CopyOp &copyop) {
+void IfcRoot::copy(const IfcRoot &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setGlobalId(obj.m_globalId);
-    setOwnerHistory((IfcOwnerHistory*)copyop(obj.m_ownerHistory.get()));
-    setName(obj.m_name);
-    setDescription(obj.m_description);
+    setGlobalId(obj.m_GlobalId);
+    setOwnerHistory((IfcOwnerHistory*)copyop(obj.m_OwnerHistory.get()));
+    setName(obj.m_Name);
+    setDescription(obj.m_Description);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRoot::s_type("IfcRoot");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRoot, Step::BaseEntity)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,213 +24,250 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcDraughtingCalloutRelationship.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcDraughtingCallout.h>
+#include <ifc2x3/IfcDraughtingCallout.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcDraughtingCalloutRelationship::IfcDraughtingCalloutRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_name = Step::getUnset(m_name);
-    m_description = Step::getUnset(m_description);
-    m_relatingDraughtingCallout = NULL;
-    m_relatedDraughtingCallout = NULL;
+IfcDraughtingCalloutRelationship::IfcDraughtingCalloutRelationship(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_Name = Step::getUnset(m_Name);
+    m_Description = Step::getUnset(m_Description);
+    m_RelatingDraughtingCallout = NULL;
+    m_RelatedDraughtingCallout = NULL;
 }
 
-IfcDraughtingCalloutRelationship::~IfcDraughtingCalloutRelationship() {
+IfcDraughtingCalloutRelationship::~IfcDraughtingCalloutRelationship()
+{}
+
+bool IfcDraughtingCalloutRelationship::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcDraughtingCalloutRelationship(this);
 }
 
-bool IfcDraughtingCalloutRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcDraughtingCalloutRelationship(this);
-}
 
-const std::string &IfcDraughtingCalloutRelationship::type() const {
-    return IfcDraughtingCalloutRelationship::s_type.getName();
-}
-
-const Step::ClassType &IfcDraughtingCalloutRelationship::getClassType() {
-    return IfcDraughtingCalloutRelationship::s_type;
-}
-
-const Step::ClassType &IfcDraughtingCalloutRelationship::getType() const {
-    return IfcDraughtingCalloutRelationship::s_type;
-}
-
-bool IfcDraughtingCalloutRelationship::isOfType(const Step::ClassType &t) const {
-    return IfcDraughtingCalloutRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcLabel IfcDraughtingCalloutRelationship::getName() {
-    if (Step::BaseObject::inited()) {
-        return m_name;
+IfcLabel IfcDraughtingCalloutRelationship::getName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Name;
     }
-    else {
-        return Step::getUnset(m_name);
+    else 
+    {
+        return Step::getUnset(m_Name);
+    }    
+}
+
+const IfcLabel IfcDraughtingCalloutRelationship::getName() const
+{
+    return const_cast<IfcDraughtingCalloutRelationship *>(this)->getName();
+}
+
+void IfcDraughtingCalloutRelationship::setName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = value;
+}
+
+void IfcDraughtingCalloutRelationship::unsetName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = Step::getUnset(getName());
+}
+
+bool IfcDraughtingCalloutRelationship::testName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getName()) == false;
+}
+
+
+IfcText IfcDraughtingCalloutRelationship::getDescription()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Description;
     }
+    else 
+    {
+        return Step::getUnset(m_Description);
+    }    
 }
 
-const IfcLabel IfcDraughtingCalloutRelationship::getName() const {
-    IfcDraughtingCalloutRelationship * deConstObject = const_cast< IfcDraughtingCalloutRelationship * > (this);
-    return deConstObject->getName();
+const IfcText IfcDraughtingCalloutRelationship::getDescription() const
+{
+    return const_cast<IfcDraughtingCalloutRelationship *>(this)->getDescription();
 }
 
-void IfcDraughtingCalloutRelationship::setName(const IfcLabel &value) {
-    m_name = value;
+void IfcDraughtingCalloutRelationship::setDescription(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = value;
 }
 
-void IfcDraughtingCalloutRelationship::unsetName() {
-    m_name = Step::getUnset(getName());
+void IfcDraughtingCalloutRelationship::unsetDescription()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = Step::getUnset(getDescription());
 }
 
-bool IfcDraughtingCalloutRelationship::testName() const {
-    return !Step::isUnset(getName());
+bool IfcDraughtingCalloutRelationship::testDescription() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDescription()) == false;
 }
 
-IfcText IfcDraughtingCalloutRelationship::getDescription() {
-    if (Step::BaseObject::inited()) {
-        return m_description;
+IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatingDraughtingCallout()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingDraughtingCallout.get();
     }
-    else {
-        return Step::getUnset(m_description);
-    }
-}
-
-const IfcText IfcDraughtingCalloutRelationship::getDescription() const {
-    IfcDraughtingCalloutRelationship * deConstObject = const_cast< IfcDraughtingCalloutRelationship * > (this);
-    return deConstObject->getDescription();
-}
-
-void IfcDraughtingCalloutRelationship::setDescription(const IfcText &value) {
-    m_description = value;
-}
-
-void IfcDraughtingCalloutRelationship::unsetDescription() {
-    m_description = Step::getUnset(getDescription());
-}
-
-bool IfcDraughtingCalloutRelationship::testDescription() const {
-    return !Step::isUnset(getDescription());
-}
-
-IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatingDraughtingCallout() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingDraughtingCallout.get();
-    }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatingDraughtingCallout() const {
-    IfcDraughtingCalloutRelationship * deConstObject = const_cast< IfcDraughtingCalloutRelationship * > (this);
-    return deConstObject->getRelatingDraughtingCallout();
+const IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatingDraughtingCallout() const
+{
+    return const_cast< IfcDraughtingCalloutRelationship * > (this)->getRelatingDraughtingCallout();
 }
 
-void IfcDraughtingCalloutRelationship::setRelatingDraughtingCallout(const Step::RefPtr< IfcDraughtingCallout > &value) {
-    if (m_relatingDraughtingCallout.valid()) {
-        m_relatingDraughtingCallout->m_isRelatedToCallout.erase(this);
+void IfcDraughtingCalloutRelationship::setRelatingDraughtingCallout(const Step::RefPtr< IfcDraughtingCallout > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingDraughtingCallout.valid())
+    {
+        m_RelatingDraughtingCallout->m_IsRelatedToCallout.erase(this);
     }
-    if (value.valid()) {
-        value->m_isRelatedToCallout.insert(this);
+    if (value.valid() )
+    {
+       value->m_IsRelatedToCallout.insert(this);
     }
-    m_relatingDraughtingCallout = value;
+    m_RelatingDraughtingCallout = value;
 }
 
-void IfcDraughtingCalloutRelationship::unsetRelatingDraughtingCallout() {
-    m_relatingDraughtingCallout = Step::getUnset(getRelatingDraughtingCallout());
+void IfcDraughtingCalloutRelationship::unsetRelatingDraughtingCallout()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingDraughtingCallout = Step::getUnset(getRelatingDraughtingCallout());
 }
 
-bool IfcDraughtingCalloutRelationship::testRelatingDraughtingCallout() const {
-    return !Step::isUnset(getRelatingDraughtingCallout());
+bool IfcDraughtingCalloutRelationship::testRelatingDraughtingCallout() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingDraughtingCallout()) == false;
 }
 
-IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatedDraughtingCallout() {
-    if (Step::BaseObject::inited()) {
-        return m_relatedDraughtingCallout.get();
+IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatedDraughtingCallout()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedDraughtingCallout.get();
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatedDraughtingCallout() const {
-    IfcDraughtingCalloutRelationship * deConstObject = const_cast< IfcDraughtingCalloutRelationship * > (this);
-    return deConstObject->getRelatedDraughtingCallout();
+const IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatedDraughtingCallout() const
+{
+    return const_cast< IfcDraughtingCalloutRelationship * > (this)->getRelatedDraughtingCallout();
 }
 
-void IfcDraughtingCalloutRelationship::setRelatedDraughtingCallout(const Step::RefPtr< IfcDraughtingCallout > &value) {
-    if (m_relatedDraughtingCallout.valid()) {
-        m_relatedDraughtingCallout->m_isRelatedFromCallout.erase(this);
+void IfcDraughtingCalloutRelationship::setRelatedDraughtingCallout(const Step::RefPtr< IfcDraughtingCallout > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatedDraughtingCallout.valid())
+    {
+        m_RelatedDraughtingCallout->m_IsRelatedFromCallout.erase(this);
     }
-    if (value.valid()) {
-        value->m_isRelatedFromCallout.insert(this);
+    if (value.valid() )
+    {
+       value->m_IsRelatedFromCallout.insert(this);
     }
-    m_relatedDraughtingCallout = value;
+    m_RelatedDraughtingCallout = value;
 }
 
-void IfcDraughtingCalloutRelationship::unsetRelatedDraughtingCallout() {
-    m_relatedDraughtingCallout = Step::getUnset(getRelatedDraughtingCallout());
+void IfcDraughtingCalloutRelationship::unsetRelatedDraughtingCallout()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedDraughtingCallout = Step::getUnset(getRelatedDraughtingCallout());
 }
 
-bool IfcDraughtingCalloutRelationship::testRelatedDraughtingCallout() const {
-    return !Step::isUnset(getRelatedDraughtingCallout());
+bool IfcDraughtingCalloutRelationship::testRelatedDraughtingCallout() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatedDraughtingCallout()) == false;
 }
 
-bool IfcDraughtingCalloutRelationship::init() {
+bool IfcDraughtingCalloutRelationship::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_name = Step::getUnset(m_name);
+    if (arg == "$" || arg == "*")
+    {
+        m_Name = Step::getUnset(m_Name);
     }
-    else {
-        m_name = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_description = Step::getUnset(m_description);
-    }
-    else {
-        m_description = Step::String::fromSPF(arg);
+    else
+    {
+        m_Name = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingDraughtingCallout = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Description = Step::getUnset(m_Description);
     }
-    else {
-        m_relatingDraughtingCallout = static_cast< IfcDraughtingCallout * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Description = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatedDraughtingCallout = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingDraughtingCallout = NULL;
     }
-    else {
-        m_relatedDraughtingCallout = static_cast< IfcDraughtingCallout * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_RelatingDraughtingCallout = static_cast< IfcDraughtingCallout * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedDraughtingCallout = NULL;
+    }
+    else
+    {
+        m_RelatedDraughtingCallout = static_cast< IfcDraughtingCallout * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcDraughtingCalloutRelationship::copy(const IfcDraughtingCalloutRelationship &obj, const CopyOp &copyop) {
+void IfcDraughtingCalloutRelationship::copy(const IfcDraughtingCalloutRelationship &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setName(obj.m_name);
-    setDescription(obj.m_description);
-    setRelatingDraughtingCallout((IfcDraughtingCallout*)copyop(obj.m_relatingDraughtingCallout.get()));
-    setRelatedDraughtingCallout((IfcDraughtingCallout*)copyop(obj.m_relatedDraughtingCallout.get()));
+    setName(obj.m_Name);
+    setDescription(obj.m_Description);
+    setRelatingDraughtingCallout((IfcDraughtingCallout*)copyop(obj.m_RelatingDraughtingCallout.get()));
+    setRelatedDraughtingCallout((IfcDraughtingCallout*)copyop(obj.m_RelatedDraughtingCallout.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDraughtingCalloutRelationship::s_type("IfcDraughtingCalloutRelationship");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcDraughtingCalloutRelationship, Step::BaseEntity)

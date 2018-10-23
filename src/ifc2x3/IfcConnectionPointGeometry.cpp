@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,119 +24,125 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcConnectionPointGeometry.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcConnectionGeometry.h>
 #include <ifc2x3/IfcPointOrVertexPoint.h>
+#include <ifc2x3/IfcPointOrVertexPoint.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcConnectionPointGeometry::IfcConnectionPointGeometry(Step::Id id, Step::SPFData *args) : IfcConnectionGeometry(id, args) {
-    m_pointOnRelatingElement = NULL;
-    m_pointOnRelatedElement = NULL;
+IfcConnectionPointGeometry::IfcConnectionPointGeometry(Step::Id id, Step::SPFData *args) : 
+    IfcConnectionGeometry(id, args)
+{
+    m_PointOnRelatingElement = NULL;
+    m_PointOnRelatedElement = NULL;
 }
 
-IfcConnectionPointGeometry::~IfcConnectionPointGeometry() {
+IfcConnectionPointGeometry::~IfcConnectionPointGeometry()
+{}
+
+bool IfcConnectionPointGeometry::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcConnectionPointGeometry(this);
 }
 
-bool IfcConnectionPointGeometry::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcConnectionPointGeometry(this);
-}
 
-const std::string &IfcConnectionPointGeometry::type() const {
-    return IfcConnectionPointGeometry::s_type.getName();
-}
-
-const Step::ClassType &IfcConnectionPointGeometry::getClassType() {
-    return IfcConnectionPointGeometry::s_type;
-}
-
-const Step::ClassType &IfcConnectionPointGeometry::getType() const {
-    return IfcConnectionPointGeometry::s_type;
-}
-
-bool IfcConnectionPointGeometry::isOfType(const Step::ClassType &t) const {
-    return IfcConnectionPointGeometry::s_type == t ? true : IfcConnectionGeometry::isOfType(t);
-}
-
-IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatingElement() {
-    if (Step::BaseObject::inited()) {
-        return m_pointOnRelatingElement.get();
+IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatingElement()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PointOnRelatingElement.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatingElement() const
+{
+    return const_cast<IfcConnectionPointGeometry *>(this)->getPointOnRelatingElement();
+}
+
+void IfcConnectionPointGeometry::setPointOnRelatingElement(const Step::RefPtr< IfcPointOrVertexPoint > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PointOnRelatingElement = value;
+}
+
+void IfcConnectionPointGeometry::unsetPointOnRelatingElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PointOnRelatingElement = Step::getUnset(getPointOnRelatingElement());
+}
+
+bool IfcConnectionPointGeometry::testPointOnRelatingElement() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPointOnRelatingElement()) == false;
+}
+
+
+IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatedElement()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PointOnRelatedElement.get();
     }
-}
-
-const IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatingElement() const {
-    IfcConnectionPointGeometry * deConstObject = const_cast< IfcConnectionPointGeometry * > (this);
-    return deConstObject->getPointOnRelatingElement();
-}
-
-void IfcConnectionPointGeometry::setPointOnRelatingElement(const Step::RefPtr< IfcPointOrVertexPoint > &value) {
-    m_pointOnRelatingElement = value;
-}
-
-void IfcConnectionPointGeometry::unsetPointOnRelatingElement() {
-    m_pointOnRelatingElement = Step::getUnset(getPointOnRelatingElement());
-}
-
-bool IfcConnectionPointGeometry::testPointOnRelatingElement() const {
-    return !Step::isUnset(getPointOnRelatingElement());
-}
-
-IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatedElement() {
-    if (Step::BaseObject::inited()) {
-        return m_pointOnRelatedElement.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatedElement() const {
-    IfcConnectionPointGeometry * deConstObject = const_cast< IfcConnectionPointGeometry * > (this);
-    return deConstObject->getPointOnRelatedElement();
+const IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatedElement() const
+{
+    return const_cast<IfcConnectionPointGeometry *>(this)->getPointOnRelatedElement();
 }
 
-void IfcConnectionPointGeometry::setPointOnRelatedElement(const Step::RefPtr< IfcPointOrVertexPoint > &value) {
-    m_pointOnRelatedElement = value;
+void IfcConnectionPointGeometry::setPointOnRelatedElement(const Step::RefPtr< IfcPointOrVertexPoint > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PointOnRelatedElement = value;
 }
 
-void IfcConnectionPointGeometry::unsetPointOnRelatedElement() {
-    m_pointOnRelatedElement = Step::getUnset(getPointOnRelatedElement());
+void IfcConnectionPointGeometry::unsetPointOnRelatedElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PointOnRelatedElement = Step::getUnset(getPointOnRelatedElement());
 }
 
-bool IfcConnectionPointGeometry::testPointOnRelatedElement() const {
-    return !Step::isUnset(getPointOnRelatedElement());
+bool IfcConnectionPointGeometry::testPointOnRelatedElement() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPointOnRelatedElement()) == false;
 }
 
-bool IfcConnectionPointGeometry::init() {
-    bool status = IfcConnectionGeometry::init();
-    std::string arg;
-    if (!status) {
+bool IfcConnectionPointGeometry::init()
+{
+    if (IfcConnectionGeometry::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_pointOnRelatingElement = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_PointOnRelatingElement = NULL;
     }
-    else {
-        m_pointOnRelatingElement = new IfcPointOrVertexPoint;
+    else
+    {
+        m_PointOnRelatingElement = new IfcPointOrVertexPoint;
         if (arg[0] == '#') {
-            m_pointOnRelatingElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_PointOnRelatingElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -140,13 +155,15 @@ bool IfcConnectionPointGeometry::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_pointOnRelatedElement = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_PointOnRelatedElement = NULL;
     }
-    else {
-        m_pointOnRelatedElement = new IfcPointOrVertexPoint;
+    else
+    {
+        m_PointOnRelatedElement = new IfcPointOrVertexPoint;
         if (arg[0] == '#') {
-            m_pointOnRelatedElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_PointOnRelatedElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -161,13 +178,12 @@ bool IfcConnectionPointGeometry::init() {
     return true;
 }
 
-void IfcConnectionPointGeometry::copy(const IfcConnectionPointGeometry &obj, const CopyOp &copyop) {
+void IfcConnectionPointGeometry::copy(const IfcConnectionPointGeometry &obj, const CopyOp &copyop)
+{
     IfcConnectionGeometry::copy(obj, copyop);
-    m_pointOnRelatingElement = new IfcPointOrVertexPoint;
-    m_pointOnRelatingElement->copy(*(obj.m_pointOnRelatingElement.get()), copyop);
-    m_pointOnRelatedElement = new IfcPointOrVertexPoint;
-    m_pointOnRelatedElement->copy(*(obj.m_pointOnRelatedElement.get()), copyop);
+    setPointOnRelatingElement((IfcPointOrVertexPoint*)copyop(obj.m_PointOnRelatingElement.get()));
+    setPointOnRelatedElement((IfcPointOrVertexPoint*)copyop(obj.m_PointOnRelatedElement.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConnectionPointGeometry::s_type("IfcConnectionPointGeometry");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcConnectionPointGeometry, IfcConnectionGeometry)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,289 +24,350 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcConstraintAggregationRelationship.h>
 
+#include <ifc2x3/IfcConstraint.h>
+#include <ifc2x3/IfcConstraint.h>
+#include <ifc2x3/IfcConstraint.h>
 
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcConstraint.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type():
-    mOwner(0)
+Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type()
 {
+
 }
 
-void Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::setOwner(IfcConstraintAggregationRelationship *owner) {
+void Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::setOwner(IfcConstraintAggregationRelationship *owner)
+{
     mOwner = owner;
 }
 
-void Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::push_back(const Step::RefPtr< IfcConstraint > &value) throw(std::out_of_range) {
+void Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::push_back(const Step::RefPtr< IfcConstraint > &value)
+#ifdef STEP_CHECK_RANGE
+    throw(std::out_of_range)
+#endif
+{
     IfcConstraint *inverse = const_cast< IfcConstraint * > (value.get());
     List_IfcConstraint_1_n::push_back(value);
-    inverse->m_isAggregatedIn.insert(mOwner);
+    inverse->m_IsAggregatedIn.insert(mOwner);
 }
 
-Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::iterator Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::erase(const Step::RefPtr< IfcConstraint > &value) {
+
+Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::iterator Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::erase(const Step::RefPtr< IfcConstraint > &value)
+{
     IfcConstraint *inverse = const_cast< IfcConstraint * > (value.get());
-    inverse->m_isAggregatedIn.erase(mOwner);
+    inverse->m_IsAggregatedIn.erase(mOwner);
     return List_IfcConstraint_1_n::erase(value);
 }
 
-void Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::clear() {
-    while (size()) {
+void Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::clear()
+{
+    while (size())
+    {
         erase(*begin());
     }
 }
 
-IfcConstraintAggregationRelationship::IfcConstraintAggregationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_name = Step::getUnset(m_name);
-    m_description = Step::getUnset(m_description);
-    m_relatingConstraint = NULL;
-    m_relatedConstraints.setOwner(this);
-    m_logicalAggregator = IfcLogicalOperatorEnum_UNSET;
+
+IfcConstraintAggregationRelationship::IfcConstraintAggregationRelationship(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_Name = Step::getUnset(m_Name);
+    m_Description = Step::getUnset(m_Description);
+    m_LogicalAggregator = IfcLogicalOperatorEnum_UNSET;
+    m_RelatedConstraints.setUnset(true);
+    m_RelatedConstraints.setOwner(this);
+    m_RelatingConstraint = NULL;
 }
 
-IfcConstraintAggregationRelationship::~IfcConstraintAggregationRelationship() {
+IfcConstraintAggregationRelationship::~IfcConstraintAggregationRelationship()
+{}
+
+bool IfcConstraintAggregationRelationship::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcConstraintAggregationRelationship(this);
 }
 
-bool IfcConstraintAggregationRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcConstraintAggregationRelationship(this);
-}
 
-const std::string &IfcConstraintAggregationRelationship::type() const {
-    return IfcConstraintAggregationRelationship::s_type.getName();
-}
-
-const Step::ClassType &IfcConstraintAggregationRelationship::getClassType() {
-    return IfcConstraintAggregationRelationship::s_type;
-}
-
-const Step::ClassType &IfcConstraintAggregationRelationship::getType() const {
-    return IfcConstraintAggregationRelationship::s_type;
-}
-
-bool IfcConstraintAggregationRelationship::isOfType(const Step::ClassType &t) const {
-    return IfcConstraintAggregationRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcLabel IfcConstraintAggregationRelationship::getName() {
-    if (Step::BaseObject::inited()) {
-        return m_name;
+IfcLabel IfcConstraintAggregationRelationship::getName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Name;
     }
-    else {
-        return Step::getUnset(m_name);
+    else 
+    {
+        return Step::getUnset(m_Name);
+    }    
+}
+
+const IfcLabel IfcConstraintAggregationRelationship::getName() const
+{
+    return const_cast<IfcConstraintAggregationRelationship *>(this)->getName();
+}
+
+void IfcConstraintAggregationRelationship::setName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = value;
+}
+
+void IfcConstraintAggregationRelationship::unsetName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = Step::getUnset(getName());
+}
+
+bool IfcConstraintAggregationRelationship::testName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getName()) == false;
+}
+
+
+IfcText IfcConstraintAggregationRelationship::getDescription()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Description;
+    }
+    else 
+    {
+        return Step::getUnset(m_Description);
+    }    
+}
+
+const IfcText IfcConstraintAggregationRelationship::getDescription() const
+{
+    return const_cast<IfcConstraintAggregationRelationship *>(this)->getDescription();
+}
+
+void IfcConstraintAggregationRelationship::setDescription(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = value;
+}
+
+void IfcConstraintAggregationRelationship::unsetDescription()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = Step::getUnset(getDescription());
+}
+
+bool IfcConstraintAggregationRelationship::testDescription() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDescription()) == false;
+}
+
+
+IfcLogicalOperatorEnum IfcConstraintAggregationRelationship::getLogicalAggregator()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LogicalAggregator;
+    }
+    else 
+    {
+        return IfcLogicalOperatorEnum_UNSET;
+    }    
+}
+
+IfcLogicalOperatorEnum IfcConstraintAggregationRelationship::getLogicalAggregator() const
+{
+    return const_cast<IfcConstraintAggregationRelationship *>(this)->getLogicalAggregator();
+}
+
+void IfcConstraintAggregationRelationship::setLogicalAggregator(IfcLogicalOperatorEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LogicalAggregator = value;
+}
+
+void IfcConstraintAggregationRelationship::unsetLogicalAggregator()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LogicalAggregator = IfcLogicalOperatorEnum_UNSET;
+}
+
+bool IfcConstraintAggregationRelationship::testLogicalAggregator() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLogicalAggregator()) == false;
+}
+
+List_IfcConstraint_1_n &IfcConstraintAggregationRelationship::getRelatedConstraints()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedConstraints;
+    }
+    else
+    {
+        m_RelatedConstraints.setUnset(true);
+        return m_RelatedConstraints;
     }
 }
 
-const IfcLabel IfcConstraintAggregationRelationship::getName() const {
-    IfcConstraintAggregationRelationship * deConstObject = const_cast< IfcConstraintAggregationRelationship * > (this);
-    return deConstObject->getName();
+const List_IfcConstraint_1_n &IfcConstraintAggregationRelationship::getRelatedConstraints() const
+{
+    return const_cast< IfcConstraintAggregationRelationship * > (this)->getRelatedConstraints();
 }
 
-void IfcConstraintAggregationRelationship::setName(const IfcLabel &value) {
-    m_name = value;
+void IfcConstraintAggregationRelationship::unsetRelatedConstraints()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedConstraints.clear();
+    m_RelatedConstraints.setUnset(true);
 }
 
-void IfcConstraintAggregationRelationship::unsetName() {
-    m_name = Step::getUnset(getName());
+bool IfcConstraintAggregationRelationship::testRelatedConstraints() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_RelatedConstraints.isUnset() == false;
 }
 
-bool IfcConstraintAggregationRelationship::testName() const {
-    return !Step::isUnset(getName());
-}
-
-IfcText IfcConstraintAggregationRelationship::getDescription() {
-    if (Step::BaseObject::inited()) {
-        return m_description;
+IfcConstraint *IfcConstraintAggregationRelationship::getRelatingConstraint()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingConstraint.get();
     }
-    else {
-        return Step::getUnset(m_description);
-    }
-}
-
-const IfcText IfcConstraintAggregationRelationship::getDescription() const {
-    IfcConstraintAggregationRelationship * deConstObject = const_cast< IfcConstraintAggregationRelationship * > (this);
-    return deConstObject->getDescription();
-}
-
-void IfcConstraintAggregationRelationship::setDescription(const IfcText &value) {
-    m_description = value;
-}
-
-void IfcConstraintAggregationRelationship::unsetDescription() {
-    m_description = Step::getUnset(getDescription());
-}
-
-bool IfcConstraintAggregationRelationship::testDescription() const {
-    return !Step::isUnset(getDescription());
-}
-
-IfcConstraint *IfcConstraintAggregationRelationship::getRelatingConstraint() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingConstraint.get();
-    }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcConstraint *IfcConstraintAggregationRelationship::getRelatingConstraint() const {
-    IfcConstraintAggregationRelationship * deConstObject = const_cast< IfcConstraintAggregationRelationship * > (this);
-    return deConstObject->getRelatingConstraint();
+const IfcConstraint *IfcConstraintAggregationRelationship::getRelatingConstraint() const
+{
+    return const_cast< IfcConstraintAggregationRelationship * > (this)->getRelatingConstraint();
 }
 
-void IfcConstraintAggregationRelationship::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value) {
-    if (m_relatingConstraint.valid()) {
-        m_relatingConstraint->m_aggregates.erase(this);
+void IfcConstraintAggregationRelationship::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingConstraint.valid())
+    {
+        m_RelatingConstraint->m_Aggregates.erase(this);
     }
-    if (value.valid()) {
-        value->m_aggregates.insert(this);
+    if (value.valid() )
+    {
+       value->m_Aggregates.insert(this);
     }
-    m_relatingConstraint = value;
+    m_RelatingConstraint = value;
 }
 
-void IfcConstraintAggregationRelationship::unsetRelatingConstraint() {
-    m_relatingConstraint = Step::getUnset(getRelatingConstraint());
+void IfcConstraintAggregationRelationship::unsetRelatingConstraint()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingConstraint = Step::getUnset(getRelatingConstraint());
 }
 
-bool IfcConstraintAggregationRelationship::testRelatingConstraint() const {
-    return !Step::isUnset(getRelatingConstraint());
+bool IfcConstraintAggregationRelationship::testRelatingConstraint() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingConstraint()) == false;
 }
 
-List_IfcConstraint_1_n &IfcConstraintAggregationRelationship::getRelatedConstraints() {
-    if (Step::BaseObject::inited()) {
-        return m_relatedConstraints;
-    }
-    else {
-        m_relatedConstraints.setUnset(true);
-        return m_relatedConstraints;
-    }
-}
-
-const List_IfcConstraint_1_n &IfcConstraintAggregationRelationship::getRelatedConstraints() const {
-    IfcConstraintAggregationRelationship * deConstObject = const_cast< IfcConstraintAggregationRelationship * > (this);
-    return deConstObject->getRelatedConstraints();
-}
-
-void IfcConstraintAggregationRelationship::unsetRelatedConstraints() {
-    m_relatedConstraints.clear();
-    m_relatedConstraints.setUnset(true);
-}
-
-bool IfcConstraintAggregationRelationship::testRelatedConstraints() const {
-    return !m_relatedConstraints.isUnset();
-}
-
-IfcLogicalOperatorEnum IfcConstraintAggregationRelationship::getLogicalAggregator() {
-    if (Step::BaseObject::inited()) {
-        return m_logicalAggregator;
-    }
-    else {
-        return IfcLogicalOperatorEnum_UNSET;
-    }
-}
-
-const IfcLogicalOperatorEnum IfcConstraintAggregationRelationship::getLogicalAggregator() const {
-    IfcConstraintAggregationRelationship * deConstObject = const_cast< IfcConstraintAggregationRelationship * > (this);
-    return deConstObject->getLogicalAggregator();
-}
-
-void IfcConstraintAggregationRelationship::setLogicalAggregator(IfcLogicalOperatorEnum value) {
-    m_logicalAggregator = value;
-}
-
-void IfcConstraintAggregationRelationship::unsetLogicalAggregator() {
-    m_logicalAggregator = IfcLogicalOperatorEnum_UNSET;
-}
-
-bool IfcConstraintAggregationRelationship::testLogicalAggregator() const {
-    return getLogicalAggregator() != IfcLogicalOperatorEnum_UNSET;
-}
-
-bool IfcConstraintAggregationRelationship::init() {
+bool IfcConstraintAggregationRelationship::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_name = Step::getUnset(m_name);
+    if (arg == "$" || arg == "*")
+    {
+        m_Name = Step::getUnset(m_Name);
     }
-    else {
-        m_name = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_description = Step::getUnset(m_description);
-    }
-    else {
-        m_description = Step::String::fromSPF(arg);
+    else
+    {
+        m_Name = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingConstraint = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Description = Step::getUnset(m_Description);
     }
-    else {
-        m_relatingConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Description = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatedConstraints.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_LogicalAggregator = IfcLogicalOperatorEnum_UNSET;
     }
-    else {
-        m_relatedConstraints.setUnset(false);
-        while (true) {
+    else
+    {
+        if (arg == ".LOGICALAND.")
+        {
+            m_LogicalAggregator = IfcLogicalOperatorEnum_LOGICALAND;
+        }
+        else if (arg == ".LOGICALOR.")
+        {
+            m_LogicalAggregator = IfcLogicalOperatorEnum_LOGICALOR;
+        }
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedConstraints.setUnset(true);
+    }
+    else
+    {
+        m_RelatedConstraints.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcConstraint > attr2;
-                attr2 = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_relatedConstraints.push_back(attr2);
+            if (!str1.empty())
+            {
+                m_RelatedConstraints.push_back(static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_logicalAggregator = IfcLogicalOperatorEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingConstraint = NULL;
     }
-    else {
-        if (arg == ".LOGICALAND.") {
-            m_logicalAggregator = IfcLogicalOperatorEnum_LOGICALAND;
-        }
-        else if (arg == ".LOGICALOR.") {
-            m_logicalAggregator = IfcLogicalOperatorEnum_LOGICALOR;
-        }
+    else
+    {
+        m_RelatingConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcConstraintAggregationRelationship::copy(const IfcConstraintAggregationRelationship &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcConstraint >, 1 >::const_iterator it_m_relatedConstraints;
+void IfcConstraintAggregationRelationship::copy(const IfcConstraintAggregationRelationship &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setName(obj.m_name);
-    setDescription(obj.m_description);
-    setRelatingConstraint((IfcConstraint*)copyop(obj.m_relatingConstraint.get()));
-    for (it_m_relatedConstraints = obj.m_relatedConstraints.begin(); it_m_relatedConstraints != obj.m_relatedConstraints.end(); ++it_m_relatedConstraints) {
-        Step::RefPtr< IfcConstraint > copyTarget = (IfcConstraint *) (copyop((*it_m_relatedConstraints).get()));
-        m_relatedConstraints.push_back(copyTarget.get());
+    setName(obj.m_Name);
+    setDescription(obj.m_Description);
+    setLogicalAggregator(obj.m_LogicalAggregator);
+    List_IfcConstraint_1_n::const_iterator it_m_RelatedConstraints;
+    for (it_m_RelatedConstraints = obj.m_RelatedConstraints.begin(); it_m_RelatedConstraints != obj.m_RelatedConstraints.end(); ++it_m_RelatedConstraints)
+    {
+        Step::RefPtr< IfcConstraint > copyTarget = (IfcConstraint *) (copyop((*it_m_RelatedConstraints).get()));
+        m_RelatedConstraints.push_back(copyTarget);
     }
-    setLogicalAggregator(obj.m_logicalAggregator);
+    
+    setRelatingConstraint((IfcConstraint*)copyop(obj.m_RelatingConstraint.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConstraintAggregationRelationship::s_type("IfcConstraintAggregationRelationship");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcConstraintAggregationRelationship, Step::BaseEntity)

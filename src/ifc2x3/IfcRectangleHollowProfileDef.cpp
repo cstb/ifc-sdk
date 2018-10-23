@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,165 +24,193 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRectangleHollowProfileDef.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcRectangleProfileDef.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRectangleHollowProfileDef::IfcRectangleHollowProfileDef(Step::Id id, Step::SPFData *args) : IfcRectangleProfileDef(id, args) {
-    m_wallThickness = Step::getUnset(m_wallThickness);
-    m_innerFilletRadius = Step::getUnset(m_innerFilletRadius);
-    m_outerFilletRadius = Step::getUnset(m_outerFilletRadius);
+IfcRectangleHollowProfileDef::IfcRectangleHollowProfileDef(Step::Id id, Step::SPFData *args) : 
+    IfcRectangleProfileDef(id, args)
+{
+    m_WallThickness = Step::getUnset(m_WallThickness);
+    m_InnerFilletRadius = Step::getUnset(m_InnerFilletRadius);
+    m_OuterFilletRadius = Step::getUnset(m_OuterFilletRadius);
 }
 
-IfcRectangleHollowProfileDef::~IfcRectangleHollowProfileDef() {
+IfcRectangleHollowProfileDef::~IfcRectangleHollowProfileDef()
+{}
+
+bool IfcRectangleHollowProfileDef::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRectangleHollowProfileDef(this);
 }
 
-bool IfcRectangleHollowProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRectangleHollowProfileDef(this);
-}
 
-const std::string &IfcRectangleHollowProfileDef::type() const {
-    return IfcRectangleHollowProfileDef::s_type.getName();
-}
-
-const Step::ClassType &IfcRectangleHollowProfileDef::getClassType() {
-    return IfcRectangleHollowProfileDef::s_type;
-}
-
-const Step::ClassType &IfcRectangleHollowProfileDef::getType() const {
-    return IfcRectangleHollowProfileDef::s_type;
-}
-
-bool IfcRectangleHollowProfileDef::isOfType(const Step::ClassType &t) const {
-    return IfcRectangleHollowProfileDef::s_type == t ? true : IfcRectangleProfileDef::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getWallThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_wallThickness;
+IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getWallThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_WallThickness;
     }
-    else {
-        return Step::getUnset(m_wallThickness);
+    else 
+    {
+        return Step::getUnset(m_WallThickness);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getWallThickness() const
+{
+    return const_cast<IfcRectangleHollowProfileDef *>(this)->getWallThickness();
+}
+
+void IfcRectangleHollowProfileDef::setWallThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WallThickness = value;
+}
+
+void IfcRectangleHollowProfileDef::unsetWallThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WallThickness = Step::getUnset(getWallThickness());
+}
+
+bool IfcRectangleHollowProfileDef::testWallThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getWallThickness()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getInnerFilletRadius()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_InnerFilletRadius;
     }
+    else 
+    {
+        return Step::getUnset(m_InnerFilletRadius);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getWallThickness() const {
-    IfcRectangleHollowProfileDef * deConstObject = const_cast< IfcRectangleHollowProfileDef * > (this);
-    return deConstObject->getWallThickness();
+IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getInnerFilletRadius() const
+{
+    return const_cast<IfcRectangleHollowProfileDef *>(this)->getInnerFilletRadius();
 }
 
-void IfcRectangleHollowProfileDef::setWallThickness(IfcPositiveLengthMeasure value) {
-    m_wallThickness = value;
+void IfcRectangleHollowProfileDef::setInnerFilletRadius(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InnerFilletRadius = value;
 }
 
-void IfcRectangleHollowProfileDef::unsetWallThickness() {
-    m_wallThickness = Step::getUnset(getWallThickness());
+void IfcRectangleHollowProfileDef::unsetInnerFilletRadius()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InnerFilletRadius = Step::getUnset(getInnerFilletRadius());
 }
 
-bool IfcRectangleHollowProfileDef::testWallThickness() const {
-    return !Step::isUnset(getWallThickness());
+bool IfcRectangleHollowProfileDef::testInnerFilletRadius() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getInnerFilletRadius()) == false;
 }
 
-IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getInnerFilletRadius() {
-    if (Step::BaseObject::inited()) {
-        return m_innerFilletRadius;
+
+IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getOuterFilletRadius()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_OuterFilletRadius;
     }
-    else {
-        return Step::getUnset(m_innerFilletRadius);
-    }
+    else 
+    {
+        return Step::getUnset(m_OuterFilletRadius);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getInnerFilletRadius() const {
-    IfcRectangleHollowProfileDef * deConstObject = const_cast< IfcRectangleHollowProfileDef * > (this);
-    return deConstObject->getInnerFilletRadius();
+IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getOuterFilletRadius() const
+{
+    return const_cast<IfcRectangleHollowProfileDef *>(this)->getOuterFilletRadius();
 }
 
-void IfcRectangleHollowProfileDef::setInnerFilletRadius(IfcPositiveLengthMeasure value) {
-    m_innerFilletRadius = value;
+void IfcRectangleHollowProfileDef::setOuterFilletRadius(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OuterFilletRadius = value;
 }
 
-void IfcRectangleHollowProfileDef::unsetInnerFilletRadius() {
-    m_innerFilletRadius = Step::getUnset(getInnerFilletRadius());
+void IfcRectangleHollowProfileDef::unsetOuterFilletRadius()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OuterFilletRadius = Step::getUnset(getOuterFilletRadius());
 }
 
-bool IfcRectangleHollowProfileDef::testInnerFilletRadius() const {
-    return !Step::isUnset(getInnerFilletRadius());
+bool IfcRectangleHollowProfileDef::testOuterFilletRadius() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getOuterFilletRadius()) == false;
 }
 
-IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getOuterFilletRadius() {
-    if (Step::BaseObject::inited()) {
-        return m_outerFilletRadius;
-    }
-    else {
-        return Step::getUnset(m_outerFilletRadius);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getOuterFilletRadius() const {
-    IfcRectangleHollowProfileDef * deConstObject = const_cast< IfcRectangleHollowProfileDef * > (this);
-    return deConstObject->getOuterFilletRadius();
-}
-
-void IfcRectangleHollowProfileDef::setOuterFilletRadius(IfcPositiveLengthMeasure value) {
-    m_outerFilletRadius = value;
-}
-
-void IfcRectangleHollowProfileDef::unsetOuterFilletRadius() {
-    m_outerFilletRadius = Step::getUnset(getOuterFilletRadius());
-}
-
-bool IfcRectangleHollowProfileDef::testOuterFilletRadius() const {
-    return !Step::isUnset(getOuterFilletRadius());
-}
-
-bool IfcRectangleHollowProfileDef::init() {
-    bool status = IfcRectangleProfileDef::init();
-    std::string arg;
-    if (!status) {
+bool IfcRectangleHollowProfileDef::init()
+{
+    if (IfcRectangleProfileDef::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_wallThickness = Step::getUnset(m_wallThickness);
+    if (arg == "$" || arg == "*")
+    {
+        m_WallThickness = Step::getUnset(m_WallThickness);
     }
-    else {
-        m_wallThickness = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_innerFilletRadius = Step::getUnset(m_innerFilletRadius);
-    }
-    else {
-        m_innerFilletRadius = Step::spfToReal(arg);
+    else
+    {
+        m_WallThickness = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_outerFilletRadius = Step::getUnset(m_outerFilletRadius);
+    if (arg == "$" || arg == "*")
+    {
+        m_InnerFilletRadius = Step::getUnset(m_InnerFilletRadius);
     }
-    else {
-        m_outerFilletRadius = Step::spfToReal(arg);
+    else
+    {
+        m_InnerFilletRadius = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_OuterFilletRadius = Step::getUnset(m_OuterFilletRadius);
+    }
+    else
+    {
+        m_OuterFilletRadius = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcRectangleHollowProfileDef::copy(const IfcRectangleHollowProfileDef &obj, const CopyOp &copyop) {
+void IfcRectangleHollowProfileDef::copy(const IfcRectangleHollowProfileDef &obj, const CopyOp &copyop)
+{
     IfcRectangleProfileDef::copy(obj, copyop);
-    setWallThickness(obj.m_wallThickness);
-    setInnerFilletRadius(obj.m_innerFilletRadius);
-    setOuterFilletRadius(obj.m_outerFilletRadius);
+    setWallThickness(obj.m_WallThickness);
+    setInnerFilletRadius(obj.m_InnerFilletRadius);
+    setOuterFilletRadius(obj.m_OuterFilletRadius);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRectangleHollowProfileDef::s_type("IfcRectangleHollowProfileDef");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRectangleHollowProfileDef, IfcRectangleProfileDef)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,92 +24,90 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcClassificationNotationFacet.h>
+
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseObject.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcClassificationNotationFacet::IfcClassificationNotationFacet(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_notationValue = Step::getUnset(m_notationValue);
+IfcClassificationNotationFacet::IfcClassificationNotationFacet(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_NotationValue = Step::getUnset(m_NotationValue);
 }
 
-IfcClassificationNotationFacet::~IfcClassificationNotationFacet() {
+IfcClassificationNotationFacet::~IfcClassificationNotationFacet()
+{}
+
+bool IfcClassificationNotationFacet::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcClassificationNotationFacet(this);
 }
 
-bool IfcClassificationNotationFacet::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcClassificationNotationFacet(this);
-}
 
-const std::string &IfcClassificationNotationFacet::type() const {
-    return IfcClassificationNotationFacet::s_type.getName();
-}
-
-const Step::ClassType &IfcClassificationNotationFacet::getClassType() {
-    return IfcClassificationNotationFacet::s_type;
-}
-
-const Step::ClassType &IfcClassificationNotationFacet::getType() const {
-    return IfcClassificationNotationFacet::s_type;
-}
-
-bool IfcClassificationNotationFacet::isOfType(const Step::ClassType &t) const {
-    return IfcClassificationNotationFacet::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcLabel IfcClassificationNotationFacet::getNotationValue() {
-    if (Step::BaseObject::inited()) {
-        return m_notationValue;
+IfcLabel IfcClassificationNotationFacet::getNotationValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_NotationValue;
     }
-    else {
-        return Step::getUnset(m_notationValue);
-    }
+    else 
+    {
+        return Step::getUnset(m_NotationValue);
+    }    
 }
 
-const IfcLabel IfcClassificationNotationFacet::getNotationValue() const {
-    IfcClassificationNotationFacet * deConstObject = const_cast< IfcClassificationNotationFacet * > (this);
-    return deConstObject->getNotationValue();
+const IfcLabel IfcClassificationNotationFacet::getNotationValue() const
+{
+    return const_cast<IfcClassificationNotationFacet *>(this)->getNotationValue();
 }
 
-void IfcClassificationNotationFacet::setNotationValue(const IfcLabel &value) {
-    m_notationValue = value;
+void IfcClassificationNotationFacet::setNotationValue(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NotationValue = value;
 }
 
-void IfcClassificationNotationFacet::unsetNotationValue() {
-    m_notationValue = Step::getUnset(getNotationValue());
+void IfcClassificationNotationFacet::unsetNotationValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NotationValue = Step::getUnset(getNotationValue());
 }
 
-bool IfcClassificationNotationFacet::testNotationValue() const {
-    return !Step::isUnset(getNotationValue());
+bool IfcClassificationNotationFacet::testNotationValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getNotationValue()) == false;
 }
 
-bool IfcClassificationNotationFacet::init() {
+bool IfcClassificationNotationFacet::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_notationValue = Step::getUnset(m_notationValue);
+    if (arg == "$" || arg == "*")
+    {
+        m_NotationValue = Step::getUnset(m_NotationValue);
     }
-    else {
-        m_notationValue = Step::String::fromSPF(arg);
+    else
+    {
+        m_NotationValue = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcClassificationNotationFacet::copy(const IfcClassificationNotationFacet &obj, const CopyOp &copyop) {
+void IfcClassificationNotationFacet::copy(const IfcClassificationNotationFacet &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setNotationValue(obj.m_notationValue);
+    setNotationValue(obj.m_NotationValue);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcClassificationNotationFacet::s_type("IfcClassificationNotationFacet");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcClassificationNotationFacet, Step::BaseEntity)

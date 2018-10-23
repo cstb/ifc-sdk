@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,99 +24,95 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcSurfaceOfRevolution.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcAxis1Placement.h>
-#include <ifc2x3/IfcSweptSurface.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcSurfaceOfRevolution::IfcSurfaceOfRevolution(Step::Id id, Step::SPFData *args) : IfcSweptSurface(id, args) {
-    m_axisPosition = NULL;
+IfcSurfaceOfRevolution::IfcSurfaceOfRevolution(Step::Id id, Step::SPFData *args) : 
+    IfcSweptSurface(id, args)
+{
+    m_AxisPosition = NULL;
 }
 
-IfcSurfaceOfRevolution::~IfcSurfaceOfRevolution() {
+IfcSurfaceOfRevolution::~IfcSurfaceOfRevolution()
+{}
+
+bool IfcSurfaceOfRevolution::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcSurfaceOfRevolution(this);
 }
 
-bool IfcSurfaceOfRevolution::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcSurfaceOfRevolution(this);
-}
 
-const std::string &IfcSurfaceOfRevolution::type() const {
-    return IfcSurfaceOfRevolution::s_type.getName();
-}
-
-const Step::ClassType &IfcSurfaceOfRevolution::getClassType() {
-    return IfcSurfaceOfRevolution::s_type;
-}
-
-const Step::ClassType &IfcSurfaceOfRevolution::getType() const {
-    return IfcSurfaceOfRevolution::s_type;
-}
-
-bool IfcSurfaceOfRevolution::isOfType(const Step::ClassType &t) const {
-    return IfcSurfaceOfRevolution::s_type == t ? true : IfcSweptSurface::isOfType(t);
-}
-
-IfcAxis1Placement *IfcSurfaceOfRevolution::getAxisPosition() {
-    if (Step::BaseObject::inited()) {
-        return m_axisPosition.get();
+IfcAxis1Placement *IfcSurfaceOfRevolution::getAxisPosition()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_AxisPosition.get();
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcAxis1Placement *IfcSurfaceOfRevolution::getAxisPosition() const {
-    IfcSurfaceOfRevolution * deConstObject = const_cast< IfcSurfaceOfRevolution * > (this);
-    return deConstObject->getAxisPosition();
+const IfcAxis1Placement *IfcSurfaceOfRevolution::getAxisPosition() const
+{
+    return const_cast<IfcSurfaceOfRevolution *>(this)->getAxisPosition();
 }
 
-void IfcSurfaceOfRevolution::setAxisPosition(const Step::RefPtr< IfcAxis1Placement > &value) {
-    m_axisPosition = value;
+void IfcSurfaceOfRevolution::setAxisPosition(const Step::RefPtr< IfcAxis1Placement > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_AxisPosition = value;
 }
 
-void IfcSurfaceOfRevolution::unsetAxisPosition() {
-    m_axisPosition = Step::getUnset(getAxisPosition());
+void IfcSurfaceOfRevolution::unsetAxisPosition()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_AxisPosition = Step::getUnset(getAxisPosition());
 }
 
-bool IfcSurfaceOfRevolution::testAxisPosition() const {
-    return !Step::isUnset(getAxisPosition());
+bool IfcSurfaceOfRevolution::testAxisPosition() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getAxisPosition()) == false;
 }
 
-bool IfcSurfaceOfRevolution::init() {
-    bool status = IfcSweptSurface::init();
-    std::string arg;
-    if (!status) {
+bool IfcSurfaceOfRevolution::init()
+{
+    if (IfcSweptSurface::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_axisPosition = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_AxisPosition = NULL;
     }
-    else {
-        m_axisPosition = static_cast< IfcAxis1Placement * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_AxisPosition = static_cast< IfcAxis1Placement * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcSurfaceOfRevolution::copy(const IfcSurfaceOfRevolution &obj, const CopyOp &copyop) {
+void IfcSurfaceOfRevolution::copy(const IfcSurfaceOfRevolution &obj, const CopyOp &copyop)
+{
     IfcSweptSurface::copy(obj, copyop);
-    setAxisPosition((IfcAxis1Placement*)copyop(obj.m_axisPosition.get()));
+    setAxisPosition((IfcAxis1Placement*)copyop(obj.m_AxisPosition.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceOfRevolution::s_type("IfcSurfaceOfRevolution");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcSurfaceOfRevolution, IfcSweptSurface)

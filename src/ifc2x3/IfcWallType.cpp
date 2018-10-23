@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,115 +24,120 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcWallType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcBuildingElementType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcWallType::IfcWallType(Step::Id id, Step::SPFData *args) : IfcBuildingElementType(id, args) {
-    m_predefinedType = IfcWallTypeEnum_UNSET;
+IfcWallType::IfcWallType(Step::Id id, Step::SPFData *args) : 
+    IfcBuildingElementType(id, args)
+{
+    m_PredefinedType = IfcWallTypeEnum_UNSET;
 }
 
-IfcWallType::~IfcWallType() {
+IfcWallType::~IfcWallType()
+{}
+
+bool IfcWallType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcWallType(this);
 }
 
-bool IfcWallType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcWallType(this);
-}
 
-const std::string &IfcWallType::type() const {
-    return IfcWallType::s_type.getName();
-}
-
-const Step::ClassType &IfcWallType::getClassType() {
-    return IfcWallType::s_type;
-}
-
-const Step::ClassType &IfcWallType::getType() const {
-    return IfcWallType::s_type;
-}
-
-bool IfcWallType::isOfType(const Step::ClassType &t) const {
-    return IfcWallType::s_type == t ? true : IfcBuildingElementType::isOfType(t);
-}
-
-IfcWallTypeEnum IfcWallType::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcWallTypeEnum IfcWallType::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcWallTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcWallTypeEnum IfcWallType::getPredefinedType() const {
-    IfcWallType * deConstObject = const_cast< IfcWallType * > (this);
-    return deConstObject->getPredefinedType();
+IfcWallTypeEnum IfcWallType::getPredefinedType() const
+{
+    return const_cast<IfcWallType *>(this)->getPredefinedType();
 }
 
-void IfcWallType::setPredefinedType(IfcWallTypeEnum value) {
-    m_predefinedType = value;
+void IfcWallType::setPredefinedType(IfcWallTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcWallType::unsetPredefinedType() {
-    m_predefinedType = IfcWallTypeEnum_UNSET;
+void IfcWallType::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcWallTypeEnum_UNSET;
 }
 
-bool IfcWallType::testPredefinedType() const {
-    return getPredefinedType() != IfcWallTypeEnum_UNSET;
+bool IfcWallType::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcWallType::init() {
-    bool status = IfcBuildingElementType::init();
-    std::string arg;
-    if (!status) {
+bool IfcWallType::init()
+{
+    if (IfcBuildingElementType::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcWallTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcWallTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".STANDARD.") {
-            m_predefinedType = IfcWallTypeEnum_STANDARD;
+    else
+    {
+        if (arg == ".STANDARD.")
+        {
+            m_PredefinedType = IfcWallTypeEnum_STANDARD;
         }
-        else if (arg == ".POLYGONAL.") {
-            m_predefinedType = IfcWallTypeEnum_POLYGONAL;
+        else if (arg == ".POLYGONAL.")
+        {
+            m_PredefinedType = IfcWallTypeEnum_POLYGONAL;
         }
-        else if (arg == ".SHEAR.") {
-            m_predefinedType = IfcWallTypeEnum_SHEAR;
+        else if (arg == ".SHEAR.")
+        {
+            m_PredefinedType = IfcWallTypeEnum_SHEAR;
         }
-        else if (arg == ".ELEMENTEDWALL.") {
-            m_predefinedType = IfcWallTypeEnum_ELEMENTEDWALL;
+        else if (arg == ".ELEMENTEDWALL.")
+        {
+            m_PredefinedType = IfcWallTypeEnum_ELEMENTEDWALL;
         }
-        else if (arg == ".PLUMBINGWALL.") {
-            m_predefinedType = IfcWallTypeEnum_PLUMBINGWALL;
+        else if (arg == ".PLUMBINGWALL.")
+        {
+            m_PredefinedType = IfcWallTypeEnum_PLUMBINGWALL;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcWallTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcWallTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcWallTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcWallTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcWallType::copy(const IfcWallType &obj, const CopyOp &copyop) {
+void IfcWallType::copy(const IfcWallType &obj, const CopyOp &copyop)
+{
     IfcBuildingElementType::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWallType::s_type("IfcWallType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcWallType, IfcBuildingElementType)

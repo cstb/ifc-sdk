@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,115 +24,108 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcObjectPlacement.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcLocalPlacement.h>
 #include <ifc2x3/IfcProduct.h>
+#include <ifc2x3/IfcLocalPlacement.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcObjectPlacement::IfcObjectPlacement(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
+IfcObjectPlacement::IfcObjectPlacement(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
 }
 
-IfcObjectPlacement::~IfcObjectPlacement() {
+IfcObjectPlacement::~IfcObjectPlacement()
+{}
+
+bool IfcObjectPlacement::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcObjectPlacement(this);
 }
 
-bool IfcObjectPlacement::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcObjectPlacement(this);
-}
-
-const std::string &IfcObjectPlacement::type() const {
-    return IfcObjectPlacement::s_type.getName();
-}
-
-const Step::ClassType &IfcObjectPlacement::getClassType() {
-    return IfcObjectPlacement::s_type;
-}
-
-const Step::ClassType &IfcObjectPlacement::getType() const {
-    return IfcObjectPlacement::s_type;
-}
-
-bool IfcObjectPlacement::isOfType(const Step::ClassType &t) const {
-    return IfcObjectPlacement::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-Inverse_Set_IfcProduct_1_n &IfcObjectPlacement::getPlacesObject() {
-    if (Step::BaseObject::inited()) {
-        return m_placesObject;
+Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_PlacesObject;
     }
-    else {
-        m_placesObject.setUnset(true);
-        return m_placesObject;
+ 
+    m_PlacesObject.setUnset(true);
+    return m_PlacesObject;
+}
+
+const Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject() const
+{
+    return  const_cast< IfcObjectPlacement * > (this)->getPlacesObject();
+}
+
+bool IfcObjectPlacement::testPlacesObject() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_PlacesObject.isUnset() == false;
+}
+
+Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ReferencedByPlacements;
     }
+ 
+    m_ReferencedByPlacements.setUnset(true);
+    return m_ReferencedByPlacements;
 }
 
-const Inverse_Set_IfcProduct_1_n &IfcObjectPlacement::getPlacesObject() const {
-    IfcObjectPlacement * deConstObject = const_cast< IfcObjectPlacement * > (this);
-    return deConstObject->getPlacesObject();
+const Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements() const
+{
+    return  const_cast< IfcObjectPlacement * > (this)->getReferencedByPlacements();
 }
 
-bool IfcObjectPlacement::testPlacesObject() const {
-    return !m_placesObject.isUnset();
+bool IfcObjectPlacement::testReferencedByPlacements() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_ReferencedByPlacements.isUnset() == false;
 }
 
-Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements() {
-    if (Step::BaseObject::inited()) {
-        return m_referencedByPlacements;
-    }
-    else {
-        m_referencedByPlacements.setUnset(true);
-        return m_referencedByPlacements;
-    }
-}
-
-const Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements() const {
-    IfcObjectPlacement * deConstObject = const_cast< IfcObjectPlacement * > (this);
-    return deConstObject->getReferencedByPlacements();
-}
-
-bool IfcObjectPlacement::testReferencedByPlacements() const {
-    return !m_referencedByPlacements.isUnset();
-}
-
-bool IfcObjectPlacement::init() {
-    std::string arg;
+bool IfcObjectPlacement::init()
+{
     std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcProduct::getClassType(), 5);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_placesObject.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_placesObject.insert(static_cast< IfcProduct * > (m_expressDataSet->get((*inverses)[i])));
+        m_PlacesObject.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_PlacesObject.insert(static_cast< IfcProduct * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcLocalPlacement::getClassType(), 0);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_referencedByPlacements.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_referencedByPlacements.insert(static_cast< IfcLocalPlacement * > (m_expressDataSet->get((*inverses)[i])));
+        m_ReferencedByPlacements.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_ReferencedByPlacements.insert(static_cast< IfcLocalPlacement * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcObjectPlacement::copy(const IfcObjectPlacement &obj, const CopyOp &copyop) {
+void IfcObjectPlacement::copy(const IfcObjectPlacement &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcObjectPlacement::s_type("IfcObjectPlacement");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcObjectPlacement, Step::BaseEntity)

@@ -1,5 +1,14 @@
 // IFC SDK : IFC2X3 C++ Early Classes
-// Copyright (C) 2009 CSTB
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -15,287 +24,352 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcCostSchedule.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcActorSelect.h>
-#include <ifc2x3/IfcControl.h>
+#include <ifc2x3/IfcActorSelect.h>
 #include <ifc2x3/IfcDateTimeSelect.h>
+#include <ifc2x3/IfcActorSelect.h>
+#include <ifc2x3/IfcDateTimeSelect.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcCostSchedule::IfcCostSchedule(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
-    m_submittedBy = NULL;
-    m_preparedBy = NULL;
-    m_submittedOn = NULL;
-    m_status = Step::getUnset(m_status);
-    m_targetUsers.setUnset(true);
-    m_updateDate = NULL;
-    m_iD = Step::getUnset(m_iD);
-    m_predefinedType = IfcCostScheduleTypeEnum_UNSET;
+IfcCostSchedule::IfcCostSchedule(Step::Id id, Step::SPFData *args) : 
+    IfcControl(id, args)
+{
+    m_SubmittedBy = NULL;
+    m_PreparedBy = NULL;
+    m_SubmittedOn = NULL;
+    m_Status = Step::getUnset(m_Status);
+    m_TargetUsers.setUnset(true);
+    m_UpdateDate = NULL;
+    m_ID = Step::getUnset(m_ID);
+    m_PredefinedType = IfcCostScheduleTypeEnum_UNSET;
 }
 
-IfcCostSchedule::~IfcCostSchedule() {
+IfcCostSchedule::~IfcCostSchedule()
+{}
+
+bool IfcCostSchedule::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcCostSchedule(this);
 }
 
-bool IfcCostSchedule::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcCostSchedule(this);
-}
 
-const std::string &IfcCostSchedule::type() const {
-    return IfcCostSchedule::s_type.getName();
-}
-
-const Step::ClassType &IfcCostSchedule::getClassType() {
-    return IfcCostSchedule::s_type;
-}
-
-const Step::ClassType &IfcCostSchedule::getType() const {
-    return IfcCostSchedule::s_type;
-}
-
-bool IfcCostSchedule::isOfType(const Step::ClassType &t) const {
-    return IfcCostSchedule::s_type == t ? true : IfcControl::isOfType(t);
-}
-
-IfcActorSelect *IfcCostSchedule::getSubmittedBy() {
-    if (Step::BaseObject::inited()) {
-        return m_submittedBy.get();
+IfcActorSelect *IfcCostSchedule::getSubmittedBy()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SubmittedBy.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcActorSelect *IfcCostSchedule::getSubmittedBy() const
+{
+    return const_cast<IfcCostSchedule *>(this)->getSubmittedBy();
+}
+
+void IfcCostSchedule::setSubmittedBy(const Step::RefPtr< IfcActorSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SubmittedBy = value;
+}
+
+void IfcCostSchedule::unsetSubmittedBy()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SubmittedBy = Step::getUnset(getSubmittedBy());
+}
+
+bool IfcCostSchedule::testSubmittedBy() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSubmittedBy()) == false;
+}
+
+
+IfcActorSelect *IfcCostSchedule::getPreparedBy()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PreparedBy.get();
     }
-}
-
-const IfcActorSelect *IfcCostSchedule::getSubmittedBy() const {
-    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
-    return deConstObject->getSubmittedBy();
-}
-
-void IfcCostSchedule::setSubmittedBy(const Step::RefPtr< IfcActorSelect > &value) {
-    m_submittedBy = value;
-}
-
-void IfcCostSchedule::unsetSubmittedBy() {
-    m_submittedBy = Step::getUnset(getSubmittedBy());
-}
-
-bool IfcCostSchedule::testSubmittedBy() const {
-    return !Step::isUnset(getSubmittedBy());
-}
-
-IfcActorSelect *IfcCostSchedule::getPreparedBy() {
-    if (Step::BaseObject::inited()) {
-        return m_preparedBy.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcActorSelect *IfcCostSchedule::getPreparedBy() const
+{
+    return const_cast<IfcCostSchedule *>(this)->getPreparedBy();
+}
+
+void IfcCostSchedule::setPreparedBy(const Step::RefPtr< IfcActorSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PreparedBy = value;
+}
+
+void IfcCostSchedule::unsetPreparedBy()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PreparedBy = Step::getUnset(getPreparedBy());
+}
+
+bool IfcCostSchedule::testPreparedBy() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPreparedBy()) == false;
+}
+
+
+IfcDateTimeSelect *IfcCostSchedule::getSubmittedOn()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SubmittedOn.get();
     }
-}
-
-const IfcActorSelect *IfcCostSchedule::getPreparedBy() const {
-    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
-    return deConstObject->getPreparedBy();
-}
-
-void IfcCostSchedule::setPreparedBy(const Step::RefPtr< IfcActorSelect > &value) {
-    m_preparedBy = value;
-}
-
-void IfcCostSchedule::unsetPreparedBy() {
-    m_preparedBy = Step::getUnset(getPreparedBy());
-}
-
-bool IfcCostSchedule::testPreparedBy() const {
-    return !Step::isUnset(getPreparedBy());
-}
-
-IfcDateTimeSelect *IfcCostSchedule::getSubmittedOn() {
-    if (Step::BaseObject::inited()) {
-        return m_submittedOn.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDateTimeSelect *IfcCostSchedule::getSubmittedOn() const
+{
+    return const_cast<IfcCostSchedule *>(this)->getSubmittedOn();
+}
+
+void IfcCostSchedule::setSubmittedOn(const Step::RefPtr< IfcDateTimeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SubmittedOn = value;
+}
+
+void IfcCostSchedule::unsetSubmittedOn()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SubmittedOn = Step::getUnset(getSubmittedOn());
+}
+
+bool IfcCostSchedule::testSubmittedOn() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSubmittedOn()) == false;
+}
+
+
+IfcLabel IfcCostSchedule::getStatus()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Status;
     }
+    else 
+    {
+        return Step::getUnset(m_Status);
+    }    
 }
 
-const IfcDateTimeSelect *IfcCostSchedule::getSubmittedOn() const {
-    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
-    return deConstObject->getSubmittedOn();
+const IfcLabel IfcCostSchedule::getStatus() const
+{
+    return const_cast<IfcCostSchedule *>(this)->getStatus();
 }
 
-void IfcCostSchedule::setSubmittedOn(const Step::RefPtr< IfcDateTimeSelect > &value) {
-    m_submittedOn = value;
+void IfcCostSchedule::setStatus(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Status = value;
 }
 
-void IfcCostSchedule::unsetSubmittedOn() {
-    m_submittedOn = Step::getUnset(getSubmittedOn());
+void IfcCostSchedule::unsetStatus()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Status = Step::getUnset(getStatus());
 }
 
-bool IfcCostSchedule::testSubmittedOn() const {
-    return !Step::isUnset(getSubmittedOn());
+bool IfcCostSchedule::testStatus() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getStatus()) == false;
 }
 
-IfcLabel IfcCostSchedule::getStatus() {
-    if (Step::BaseObject::inited()) {
-        return m_status;
+
+Set_IfcActorSelect_1_n &IfcCostSchedule::getTargetUsers()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TargetUsers;
     }
-    else {
-        return Step::getUnset(m_status);
+    else 
+    {
+        m_TargetUsers.setUnset(true);
+        return m_TargetUsers;
+    }    
+}
+
+const Set_IfcActorSelect_1_n &IfcCostSchedule::getTargetUsers() const
+{
+    return const_cast<IfcCostSchedule *>(this)->getTargetUsers();
+}
+
+void IfcCostSchedule::setTargetUsers(const Set_IfcActorSelect_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TargetUsers = value;
+}
+
+void IfcCostSchedule::unsetTargetUsers()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TargetUsers.clear();
+    m_TargetUsers.setUnset(true);
+}
+
+bool IfcCostSchedule::testTargetUsers() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_TargetUsers.isUnset() == false;
+}
+
+
+IfcDateTimeSelect *IfcCostSchedule::getUpdateDate()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UpdateDate.get();
     }
-}
-
-const IfcLabel IfcCostSchedule::getStatus() const {
-    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
-    return deConstObject->getStatus();
-}
-
-void IfcCostSchedule::setStatus(const IfcLabel &value) {
-    m_status = value;
-}
-
-void IfcCostSchedule::unsetStatus() {
-    m_status = Step::getUnset(getStatus());
-}
-
-bool IfcCostSchedule::testStatus() const {
-    return !Step::isUnset(getStatus());
-}
-
-Set_IfcActorSelect_1_n &IfcCostSchedule::getTargetUsers() {
-    if (Step::BaseObject::inited()) {
-        return m_targetUsers;
-    }
-    else {
-        m_targetUsers.setUnset(true);
-        return m_targetUsers;
-    }
-}
-
-const Set_IfcActorSelect_1_n &IfcCostSchedule::getTargetUsers() const {
-    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
-    return deConstObject->getTargetUsers();
-}
-
-void IfcCostSchedule::setTargetUsers(const Set_IfcActorSelect_1_n &value) {
-    m_targetUsers = value;
-}
-
-void IfcCostSchedule::unsetTargetUsers() {
-    m_targetUsers.clear();
-    m_targetUsers.setUnset(true);
-}
-
-bool IfcCostSchedule::testTargetUsers() const {
-    return !m_targetUsers.isUnset();
-}
-
-IfcDateTimeSelect *IfcCostSchedule::getUpdateDate() {
-    if (Step::BaseObject::inited()) {
-        return m_updateDate.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDateTimeSelect *IfcCostSchedule::getUpdateDate() const
+{
+    return const_cast<IfcCostSchedule *>(this)->getUpdateDate();
+}
+
+void IfcCostSchedule::setUpdateDate(const Step::RefPtr< IfcDateTimeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UpdateDate = value;
+}
+
+void IfcCostSchedule::unsetUpdateDate()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UpdateDate = Step::getUnset(getUpdateDate());
+}
+
+bool IfcCostSchedule::testUpdateDate() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUpdateDate()) == false;
+}
+
+
+IfcIdentifier IfcCostSchedule::getID()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ID;
     }
+    else 
+    {
+        return Step::getUnset(m_ID);
+    }    
 }
 
-const IfcDateTimeSelect *IfcCostSchedule::getUpdateDate() const {
-    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
-    return deConstObject->getUpdateDate();
+const IfcIdentifier IfcCostSchedule::getID() const
+{
+    return const_cast<IfcCostSchedule *>(this)->getID();
 }
 
-void IfcCostSchedule::setUpdateDate(const Step::RefPtr< IfcDateTimeSelect > &value) {
-    m_updateDate = value;
+void IfcCostSchedule::setID(const IfcIdentifier &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ID = value;
 }
 
-void IfcCostSchedule::unsetUpdateDate() {
-    m_updateDate = Step::getUnset(getUpdateDate());
+void IfcCostSchedule::unsetID()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ID = Step::getUnset(getID());
 }
 
-bool IfcCostSchedule::testUpdateDate() const {
-    return !Step::isUnset(getUpdateDate());
+bool IfcCostSchedule::testID() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getID()) == false;
 }
 
-IfcIdentifier IfcCostSchedule::getID() {
-    if (Step::BaseObject::inited()) {
-        return m_iD;
+
+IfcCostScheduleTypeEnum IfcCostSchedule::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
-        return Step::getUnset(m_iD);
-    }
-}
-
-const IfcIdentifier IfcCostSchedule::getID() const {
-    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
-    return deConstObject->getID();
-}
-
-void IfcCostSchedule::setID(const IfcIdentifier &value) {
-    m_iD = value;
-}
-
-void IfcCostSchedule::unsetID() {
-    m_iD = Step::getUnset(getID());
-}
-
-bool IfcCostSchedule::testID() const {
-    return !Step::isUnset(getID());
-}
-
-IfcCostScheduleTypeEnum IfcCostSchedule::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
-    }
-    else {
+    else 
+    {
         return IfcCostScheduleTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcCostScheduleTypeEnum IfcCostSchedule::getPredefinedType() const {
-    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
-    return deConstObject->getPredefinedType();
+IfcCostScheduleTypeEnum IfcCostSchedule::getPredefinedType() const
+{
+    return const_cast<IfcCostSchedule *>(this)->getPredefinedType();
 }
 
-void IfcCostSchedule::setPredefinedType(IfcCostScheduleTypeEnum value) {
-    m_predefinedType = value;
+void IfcCostSchedule::setPredefinedType(IfcCostScheduleTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcCostSchedule::unsetPredefinedType() {
-    m_predefinedType = IfcCostScheduleTypeEnum_UNSET;
+void IfcCostSchedule::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcCostScheduleTypeEnum_UNSET;
 }
 
-bool IfcCostSchedule::testPredefinedType() const {
-    return getPredefinedType() != IfcCostScheduleTypeEnum_UNSET;
+bool IfcCostSchedule::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcCostSchedule::init() {
-    bool status = IfcControl::init();
-    std::string arg;
-    if (!status) {
+bool IfcCostSchedule::init()
+{
+    if (IfcControl::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_submittedBy = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_SubmittedBy = NULL;
     }
-    else {
-        m_submittedBy = new IfcActorSelect;
+    else
+    {
+        m_SubmittedBy = new IfcActorSelect;
         if (arg[0] == '#') {
-            m_submittedBy->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_SubmittedBy->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -308,13 +382,15 @@ bool IfcCostSchedule::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_preparedBy = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_PreparedBy = NULL;
     }
-    else {
-        m_preparedBy = new IfcActorSelect;
+    else
+    {
+        m_PreparedBy = new IfcActorSelect;
         if (arg[0] == '#') {
-            m_preparedBy->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_PreparedBy->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -327,13 +403,15 @@ bool IfcCostSchedule::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_submittedOn = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_SubmittedOn = NULL;
     }
-    else {
-        m_submittedOn = new IfcDateTimeSelect;
+    else
+    {
+        m_SubmittedOn = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_submittedOn->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_SubmittedOn->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -346,51 +424,64 @@ bool IfcCostSchedule::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_status = Step::getUnset(m_status);
+    if (arg == "$" || arg == "*")
+    {
+        m_Status = Step::getUnset(m_Status);
     }
-    else {
-        m_status = Step::String::fromSPF(arg);
+    else
+    {
+        m_Status = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_targetUsers.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_TargetUsers.setUnset(true);
     }
-    else {
-        m_targetUsers.setUnset(false);
-        while (true) {
+    else
+    {
+        m_TargetUsers.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcActorSelect > attr2;
-                attr2 = new IfcActorSelect;
-                if (str1[0] == '#') {
+            if (!str1.empty())
+            {
+                Step::RefPtr< IfcActorSelect > attr2 = new IfcActorSelect();
+                if (str1[0] == '#') 
+                {
                     attr2->set(m_expressDataSet->get((Step::Id)atol(str1.c_str() + 1)));
                 }
-                else if (str1[str1.length() - 1] == ')') {
-                    std::string type2;
-                    std::string::size_type i2;
-                    i2 = str1.find('(');
-                    if (i2 != std::string::npos) {
-                        type2 = str1.substr(0, i2);
+                else if (str1[str1.length() - 1] == ')') 
+                {
+                    std::string::size_type i2 = str1.find('(');
+                    if (i2 != std::string::npos) 
+                    {
+                        std::string type2 = str1.substr(0, i2);
                         str1 = str1.substr(i2 + 1, str1.length() - i2 - 2);
                     }
                 }
-                if (attr2.valid()) m_targetUsers.insert(attr2);
+                if (attr2.valid()) 
+                {
+                    m_TargetUsers.insert(attr2);
+                }
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_updateDate = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_UpdateDate = NULL;
     }
-    else {
-        m_updateDate = new IfcDateTimeSelect;
+    else
+    {
+        m_UpdateDate = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_updateDate->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_UpdateDate->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -403,68 +494,81 @@ bool IfcCostSchedule::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_iD = Step::getUnset(m_iD);
+    if (arg == "$" || arg == "*")
+    {
+        m_ID = Step::getUnset(m_ID);
     }
-    else {
-        m_iD = Step::String::fromSPF(arg);
+    else
+    {
+        m_ID = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcCostScheduleTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcCostScheduleTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".BUDGET.") {
-            m_predefinedType = IfcCostScheduleTypeEnum_BUDGET;
+    else
+    {
+        if (arg == ".BUDGET.")
+        {
+            m_PredefinedType = IfcCostScheduleTypeEnum_BUDGET;
         }
-        else if (arg == ".COSTPLAN.") {
-            m_predefinedType = IfcCostScheduleTypeEnum_COSTPLAN;
+        else if (arg == ".COSTPLAN.")
+        {
+            m_PredefinedType = IfcCostScheduleTypeEnum_COSTPLAN;
         }
-        else if (arg == ".ESTIMATE.") {
-            m_predefinedType = IfcCostScheduleTypeEnum_ESTIMATE;
+        else if (arg == ".ESTIMATE.")
+        {
+            m_PredefinedType = IfcCostScheduleTypeEnum_ESTIMATE;
         }
-        else if (arg == ".TENDER.") {
-            m_predefinedType = IfcCostScheduleTypeEnum_TENDER;
+        else if (arg == ".TENDER.")
+        {
+            m_PredefinedType = IfcCostScheduleTypeEnum_TENDER;
         }
-        else if (arg == ".PRICEDBILLOFQUANTITIES.") {
-            m_predefinedType = IfcCostScheduleTypeEnum_PRICEDBILLOFQUANTITIES;
+        else if (arg == ".PRICEDBILLOFQUANTITIES.")
+        {
+            m_PredefinedType = IfcCostScheduleTypeEnum_PRICEDBILLOFQUANTITIES;
         }
-        else if (arg == ".UNPRICEDBILLOFQUANTITIES.") {
-            m_predefinedType = IfcCostScheduleTypeEnum_UNPRICEDBILLOFQUANTITIES;
+        else if (arg == ".UNPRICEDBILLOFQUANTITIES.")
+        {
+            m_PredefinedType = IfcCostScheduleTypeEnum_UNPRICEDBILLOFQUANTITIES;
         }
-        else if (arg == ".SCHEDULEOFRATES.") {
-            m_predefinedType = IfcCostScheduleTypeEnum_SCHEDULEOFRATES;
+        else if (arg == ".SCHEDULEOFRATES.")
+        {
+            m_PredefinedType = IfcCostScheduleTypeEnum_SCHEDULEOFRATES;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcCostScheduleTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcCostScheduleTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcCostScheduleTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcCostScheduleTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcCostSchedule::copy(const IfcCostSchedule &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcActorSelect >, 1 >::const_iterator it_m_targetUsers;
+void IfcCostSchedule::copy(const IfcCostSchedule &obj, const CopyOp &copyop)
+{
     IfcControl::copy(obj, copyop);
-    m_submittedBy = new IfcActorSelect;
-    m_submittedBy->copy(*(obj.m_submittedBy.get()), copyop);
-    m_preparedBy = new IfcActorSelect;
-    m_preparedBy->copy(*(obj.m_preparedBy.get()), copyop);
-    m_submittedOn = new IfcDateTimeSelect;
-    m_submittedOn->copy(*(obj.m_submittedOn.get()), copyop);
-    setStatus(obj.m_status);
-    for (it_m_targetUsers = obj.m_targetUsers.begin(); it_m_targetUsers != obj.m_targetUsers.end(); ++it_m_targetUsers) {
+    setSubmittedBy((IfcActorSelect*)copyop(obj.m_SubmittedBy.get()));
+    setPreparedBy((IfcActorSelect*)copyop(obj.m_PreparedBy.get()));
+    setSubmittedOn((IfcDateTimeSelect*)copyop(obj.m_SubmittedOn.get()));
+    setStatus(obj.m_Status);
+    Set_IfcActorSelect_1_n::const_iterator it_m_TargetUsers;
+    for (it_m_TargetUsers = obj.m_TargetUsers.begin(); it_m_TargetUsers != obj.m_TargetUsers.end(); ++it_m_TargetUsers)
+    {
         Step::RefPtr< IfcActorSelect > copyTarget = new IfcActorSelect;
-        copyTarget->copy(*((*it_m_targetUsers).get()), copyop);
-        m_targetUsers.insert(copyTarget.get());
+        copyTarget->copy(*((*it_m_TargetUsers).get()), copyop);
+        m_TargetUsers.insert(copyTarget.get());
     }
-    m_updateDate = new IfcDateTimeSelect;
-    m_updateDate->copy(*(obj.m_updateDate.get()), copyop);
-    setID(obj.m_iD);
-    setPredefinedType(obj.m_predefinedType);
+    
+    setUpdateDate((IfcDateTimeSelect*)copyop(obj.m_UpdateDate.get()));
+    setID(obj.m_ID);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCostSchedule::s_type("IfcCostSchedule");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcCostSchedule, IfcControl)

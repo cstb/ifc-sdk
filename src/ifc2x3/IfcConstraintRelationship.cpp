@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,249 +24,296 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcConstraintRelationship.h>
 
+#include <ifc2x3/IfcConstraint.h>
+#include <ifc2x3/IfcConstraint.h>
+#include <ifc2x3/IfcConstraint.h>
 
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcConstraint.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-Inverted_IfcConstraintRelationship_RelatedConstraints_type::Inverted_IfcConstraintRelationship_RelatedConstraints_type():
-    mOwner(0)
+Inverted_IfcConstraintRelationship_RelatedConstraints_type::Inverted_IfcConstraintRelationship_RelatedConstraints_type()
 {
+
 }
 
-void Inverted_IfcConstraintRelationship_RelatedConstraints_type::setOwner(IfcConstraintRelationship *owner) {
+void Inverted_IfcConstraintRelationship_RelatedConstraints_type::setOwner(IfcConstraintRelationship *owner)
+{
     mOwner = owner;
 }
 
-void Inverted_IfcConstraintRelationship_RelatedConstraints_type::insert(const Step::RefPtr< IfcConstraint > &value) throw(std::out_of_range) {
+void Inverted_IfcConstraintRelationship_RelatedConstraints_type::insert(const Step::RefPtr< IfcConstraint > &value)
+#ifdef STEP_CHECK_RANGE
+    throw(std::out_of_range)
+#endif
+{
     IfcConstraint *inverse = const_cast< IfcConstraint * > (value.get());
     Set_IfcConstraint_1_n::insert(value);
-    inverse->m_isRelatedWith.insert(mOwner);
+    inverse->m_IsRelatedWith.insert(mOwner);
 }
 
-Inverted_IfcConstraintRelationship_RelatedConstraints_type::size_type Inverted_IfcConstraintRelationship_RelatedConstraints_type::erase(const Step::RefPtr< IfcConstraint > &value) {
+
+Inverted_IfcConstraintRelationship_RelatedConstraints_type::size_type Inverted_IfcConstraintRelationship_RelatedConstraints_type::erase(const Step::RefPtr< IfcConstraint > &value)
+{
     IfcConstraint *inverse = const_cast< IfcConstraint * > (value.get());
-    inverse->m_isRelatedWith.erase(mOwner);
+    inverse->m_IsRelatedWith.erase(mOwner);
     return Set_IfcConstraint_1_n::erase(value);
 }
 
-void Inverted_IfcConstraintRelationship_RelatedConstraints_type::clear() {
-    while (size()) {
+void Inverted_IfcConstraintRelationship_RelatedConstraints_type::clear()
+{
+    while (size())
+    {
         erase(*begin());
     }
 }
 
-IfcConstraintRelationship::IfcConstraintRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_name = Step::getUnset(m_name);
-    m_description = Step::getUnset(m_description);
-    m_relatingConstraint = NULL;
-    m_relatedConstraints.setOwner(this);
+
+IfcConstraintRelationship::IfcConstraintRelationship(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_Name = Step::getUnset(m_Name);
+    m_Description = Step::getUnset(m_Description);
+    m_RelatedConstraints.setUnset(true);
+    m_RelatedConstraints.setOwner(this);
+    m_RelatingConstraint = NULL;
 }
 
-IfcConstraintRelationship::~IfcConstraintRelationship() {
+IfcConstraintRelationship::~IfcConstraintRelationship()
+{}
+
+bool IfcConstraintRelationship::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcConstraintRelationship(this);
 }
 
-bool IfcConstraintRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcConstraintRelationship(this);
-}
 
-const std::string &IfcConstraintRelationship::type() const {
-    return IfcConstraintRelationship::s_type.getName();
-}
-
-const Step::ClassType &IfcConstraintRelationship::getClassType() {
-    return IfcConstraintRelationship::s_type;
-}
-
-const Step::ClassType &IfcConstraintRelationship::getType() const {
-    return IfcConstraintRelationship::s_type;
-}
-
-bool IfcConstraintRelationship::isOfType(const Step::ClassType &t) const {
-    return IfcConstraintRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcLabel IfcConstraintRelationship::getName() {
-    if (Step::BaseObject::inited()) {
-        return m_name;
+IfcLabel IfcConstraintRelationship::getName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Name;
     }
-    else {
-        return Step::getUnset(m_name);
+    else 
+    {
+        return Step::getUnset(m_Name);
+    }    
+}
+
+const IfcLabel IfcConstraintRelationship::getName() const
+{
+    return const_cast<IfcConstraintRelationship *>(this)->getName();
+}
+
+void IfcConstraintRelationship::setName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = value;
+}
+
+void IfcConstraintRelationship::unsetName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = Step::getUnset(getName());
+}
+
+bool IfcConstraintRelationship::testName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getName()) == false;
+}
+
+
+IfcText IfcConstraintRelationship::getDescription()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Description;
+    }
+    else 
+    {
+        return Step::getUnset(m_Description);
+    }    
+}
+
+const IfcText IfcConstraintRelationship::getDescription() const
+{
+    return const_cast<IfcConstraintRelationship *>(this)->getDescription();
+}
+
+void IfcConstraintRelationship::setDescription(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = value;
+}
+
+void IfcConstraintRelationship::unsetDescription()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = Step::getUnset(getDescription());
+}
+
+bool IfcConstraintRelationship::testDescription() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDescription()) == false;
+}
+
+Set_IfcConstraint_1_n &IfcConstraintRelationship::getRelatedConstraints()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedConstraints;
+    }
+    else
+    {
+        m_RelatedConstraints.setUnset(true);
+        return m_RelatedConstraints;
     }
 }
 
-const IfcLabel IfcConstraintRelationship::getName() const {
-    IfcConstraintRelationship * deConstObject = const_cast< IfcConstraintRelationship * > (this);
-    return deConstObject->getName();
+const Set_IfcConstraint_1_n &IfcConstraintRelationship::getRelatedConstraints() const
+{
+    return const_cast< IfcConstraintRelationship * > (this)->getRelatedConstraints();
 }
 
-void IfcConstraintRelationship::setName(const IfcLabel &value) {
-    m_name = value;
+void IfcConstraintRelationship::unsetRelatedConstraints()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedConstraints.clear();
+    m_RelatedConstraints.setUnset(true);
 }
 
-void IfcConstraintRelationship::unsetName() {
-    m_name = Step::getUnset(getName());
+bool IfcConstraintRelationship::testRelatedConstraints() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_RelatedConstraints.isUnset() == false;
 }
 
-bool IfcConstraintRelationship::testName() const {
-    return !Step::isUnset(getName());
-}
-
-IfcText IfcConstraintRelationship::getDescription() {
-    if (Step::BaseObject::inited()) {
-        return m_description;
+IfcConstraint *IfcConstraintRelationship::getRelatingConstraint()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingConstraint.get();
     }
-    else {
-        return Step::getUnset(m_description);
-    }
-}
-
-const IfcText IfcConstraintRelationship::getDescription() const {
-    IfcConstraintRelationship * deConstObject = const_cast< IfcConstraintRelationship * > (this);
-    return deConstObject->getDescription();
-}
-
-void IfcConstraintRelationship::setDescription(const IfcText &value) {
-    m_description = value;
-}
-
-void IfcConstraintRelationship::unsetDescription() {
-    m_description = Step::getUnset(getDescription());
-}
-
-bool IfcConstraintRelationship::testDescription() const {
-    return !Step::isUnset(getDescription());
-}
-
-IfcConstraint *IfcConstraintRelationship::getRelatingConstraint() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingConstraint.get();
-    }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcConstraint *IfcConstraintRelationship::getRelatingConstraint() const {
-    IfcConstraintRelationship * deConstObject = const_cast< IfcConstraintRelationship * > (this);
-    return deConstObject->getRelatingConstraint();
+const IfcConstraint *IfcConstraintRelationship::getRelatingConstraint() const
+{
+    return const_cast< IfcConstraintRelationship * > (this)->getRelatingConstraint();
 }
 
-void IfcConstraintRelationship::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value) {
-    if (m_relatingConstraint.valid()) {
-        m_relatingConstraint->m_relatesConstraints.erase(this);
+void IfcConstraintRelationship::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingConstraint.valid())
+    {
+        m_RelatingConstraint->m_RelatesConstraints.erase(this);
     }
-    if (value.valid()) {
-        value->m_relatesConstraints.insert(this);
+    if (value.valid() )
+    {
+       value->m_RelatesConstraints.insert(this);
     }
-    m_relatingConstraint = value;
+    m_RelatingConstraint = value;
 }
 
-void IfcConstraintRelationship::unsetRelatingConstraint() {
-    m_relatingConstraint = Step::getUnset(getRelatingConstraint());
+void IfcConstraintRelationship::unsetRelatingConstraint()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingConstraint = Step::getUnset(getRelatingConstraint());
 }
 
-bool IfcConstraintRelationship::testRelatingConstraint() const {
-    return !Step::isUnset(getRelatingConstraint());
+bool IfcConstraintRelationship::testRelatingConstraint() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingConstraint()) == false;
 }
 
-Set_IfcConstraint_1_n &IfcConstraintRelationship::getRelatedConstraints() {
-    if (Step::BaseObject::inited()) {
-        return m_relatedConstraints;
-    }
-    else {
-        m_relatedConstraints.setUnset(true);
-        return m_relatedConstraints;
-    }
-}
-
-const Set_IfcConstraint_1_n &IfcConstraintRelationship::getRelatedConstraints() const {
-    IfcConstraintRelationship * deConstObject = const_cast< IfcConstraintRelationship * > (this);
-    return deConstObject->getRelatedConstraints();
-}
-
-void IfcConstraintRelationship::unsetRelatedConstraints() {
-    m_relatedConstraints.clear();
-    m_relatedConstraints.setUnset(true);
-}
-
-bool IfcConstraintRelationship::testRelatedConstraints() const {
-    return !m_relatedConstraints.isUnset();
-}
-
-bool IfcConstraintRelationship::init() {
+bool IfcConstraintRelationship::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_name = Step::getUnset(m_name);
+    if (arg == "$" || arg == "*")
+    {
+        m_Name = Step::getUnset(m_Name);
     }
-    else {
-        m_name = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_description = Step::getUnset(m_description);
-    }
-    else {
-        m_description = Step::String::fromSPF(arg);
+    else
+    {
+        m_Name = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingConstraint = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Description = Step::getUnset(m_Description);
     }
-    else {
-        m_relatingConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Description = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatedConstraints.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedConstraints.setUnset(true);
     }
-    else {
-        m_relatedConstraints.setUnset(false);
-        while (true) {
+    else
+    {
+        m_RelatedConstraints.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcConstraint > attr2;
-                attr2 = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                if (attr2.valid()) m_relatedConstraints.insert(attr2);
+            if (!str1.empty())
+            {
+                m_RelatedConstraints.insert(static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingConstraint = NULL;
+    }
+    else
+    {
+        m_RelatingConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
     return true;
 }
 
-void IfcConstraintRelationship::copy(const IfcConstraintRelationship &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcConstraint >, 1 >::const_iterator it_m_relatedConstraints;
+void IfcConstraintRelationship::copy(const IfcConstraintRelationship &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setName(obj.m_name);
-    setDescription(obj.m_description);
-    setRelatingConstraint((IfcConstraint*)copyop(obj.m_relatingConstraint.get()));
-    for (it_m_relatedConstraints = obj.m_relatedConstraints.begin(); it_m_relatedConstraints != obj.m_relatedConstraints.end(); ++it_m_relatedConstraints) {
-        Step::RefPtr< IfcConstraint > copyTarget = (IfcConstraint *) (copyop((*it_m_relatedConstraints).get()));
-        m_relatedConstraints.insert(copyTarget.get());
+    setName(obj.m_Name);
+    setDescription(obj.m_Description);
+    Set_IfcConstraint_1_n::const_iterator it_m_RelatedConstraints;
+    for (it_m_RelatedConstraints = obj.m_RelatedConstraints.begin(); it_m_RelatedConstraints != obj.m_RelatedConstraints.end(); ++it_m_RelatedConstraints)
+    {
+        Step::RefPtr< IfcConstraint > copyTarget = (IfcConstraint *) (copyop((*it_m_RelatedConstraints).get()));
+        m_RelatedConstraints.insert(copyTarget);
     }
+    
+    setRelatingConstraint((IfcConstraint*)copyop(obj.m_RelatingConstraint.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConstraintRelationship::s_type("IfcConstraintRelationship");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcConstraintRelationship, Step::BaseEntity)

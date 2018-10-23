@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,99 +24,95 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRelAssociatesApproval.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcApproval.h>
-#include <ifc2x3/IfcRelAssociates.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRelAssociatesApproval::IfcRelAssociatesApproval(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
-    m_relatingApproval = NULL;
+IfcRelAssociatesApproval::IfcRelAssociatesApproval(Step::Id id, Step::SPFData *args) : 
+    IfcRelAssociates(id, args)
+{
+    m_RelatingApproval = NULL;
 }
 
-IfcRelAssociatesApproval::~IfcRelAssociatesApproval() {
+IfcRelAssociatesApproval::~IfcRelAssociatesApproval()
+{}
+
+bool IfcRelAssociatesApproval::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRelAssociatesApproval(this);
 }
 
-bool IfcRelAssociatesApproval::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRelAssociatesApproval(this);
-}
 
-const std::string &IfcRelAssociatesApproval::type() const {
-    return IfcRelAssociatesApproval::s_type.getName();
-}
-
-const Step::ClassType &IfcRelAssociatesApproval::getClassType() {
-    return IfcRelAssociatesApproval::s_type;
-}
-
-const Step::ClassType &IfcRelAssociatesApproval::getType() const {
-    return IfcRelAssociatesApproval::s_type;
-}
-
-bool IfcRelAssociatesApproval::isOfType(const Step::ClassType &t) const {
-    return IfcRelAssociatesApproval::s_type == t ? true : IfcRelAssociates::isOfType(t);
-}
-
-IfcApproval *IfcRelAssociatesApproval::getRelatingApproval() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingApproval.get();
+IfcApproval *IfcRelAssociatesApproval::getRelatingApproval()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RelatingApproval.get();
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcApproval *IfcRelAssociatesApproval::getRelatingApproval() const {
-    IfcRelAssociatesApproval * deConstObject = const_cast< IfcRelAssociatesApproval * > (this);
-    return deConstObject->getRelatingApproval();
+const IfcApproval *IfcRelAssociatesApproval::getRelatingApproval() const
+{
+    return const_cast<IfcRelAssociatesApproval *>(this)->getRelatingApproval();
 }
 
-void IfcRelAssociatesApproval::setRelatingApproval(const Step::RefPtr< IfcApproval > &value) {
-    m_relatingApproval = value;
+void IfcRelAssociatesApproval::setRelatingApproval(const Step::RefPtr< IfcApproval > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingApproval = value;
 }
 
-void IfcRelAssociatesApproval::unsetRelatingApproval() {
-    m_relatingApproval = Step::getUnset(getRelatingApproval());
+void IfcRelAssociatesApproval::unsetRelatingApproval()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingApproval = Step::getUnset(getRelatingApproval());
 }
 
-bool IfcRelAssociatesApproval::testRelatingApproval() const {
-    return !Step::isUnset(getRelatingApproval());
+bool IfcRelAssociatesApproval::testRelatingApproval() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingApproval()) == false;
 }
 
-bool IfcRelAssociatesApproval::init() {
-    bool status = IfcRelAssociates::init();
-    std::string arg;
-    if (!status) {
+bool IfcRelAssociatesApproval::init()
+{
+    if (IfcRelAssociates::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingApproval = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingApproval = NULL;
     }
-    else {
-        m_relatingApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_RelatingApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcRelAssociatesApproval::copy(const IfcRelAssociatesApproval &obj, const CopyOp &copyop) {
+void IfcRelAssociatesApproval::copy(const IfcRelAssociatesApproval &obj, const CopyOp &copyop)
+{
     IfcRelAssociates::copy(obj, copyop);
-    setRelatingApproval((IfcApproval*)copyop(obj.m_relatingApproval.get()));
+    setRelatingApproval((IfcApproval*)copyop(obj.m_RelatingApproval.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssociatesApproval::s_type("IfcRelAssociatesApproval");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRelAssociatesApproval, IfcRelAssociates)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,134 +24,143 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcFaceSurface.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcFace.h>
 #include <ifc2x3/IfcSurface.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcFaceSurface::IfcFaceSurface(Step::Id id, Step::SPFData *args) : IfcFace(id, args) {
-    m_faceSurface = NULL;
-    m_sameSense = Step::getUnset(m_sameSense);
+IfcFaceSurface::IfcFaceSurface(Step::Id id, Step::SPFData *args) : 
+    IfcFace(id, args)
+{
+    m_FaceSurface = NULL;
+    m_SameSense = Step::getUnset(m_SameSense);
 }
 
-IfcFaceSurface::~IfcFaceSurface() {
+IfcFaceSurface::~IfcFaceSurface()
+{}
+
+bool IfcFaceSurface::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcFaceSurface(this);
 }
 
-bool IfcFaceSurface::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcFaceSurface(this);
-}
 
-const std::string &IfcFaceSurface::type() const {
-    return IfcFaceSurface::s_type.getName();
-}
-
-const Step::ClassType &IfcFaceSurface::getClassType() {
-    return IfcFaceSurface::s_type;
-}
-
-const Step::ClassType &IfcFaceSurface::getType() const {
-    return IfcFaceSurface::s_type;
-}
-
-bool IfcFaceSurface::isOfType(const Step::ClassType &t) const {
-    return IfcFaceSurface::s_type == t ? true : IfcFace::isOfType(t);
-}
-
-IfcSurface *IfcFaceSurface::getFaceSurface() {
-    if (Step::BaseObject::inited()) {
-        return m_faceSurface.get();
+IfcSurface *IfcFaceSurface::getFaceSurface()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FaceSurface.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcSurface *IfcFaceSurface::getFaceSurface() const
+{
+    return const_cast<IfcFaceSurface *>(this)->getFaceSurface();
+}
+
+void IfcFaceSurface::setFaceSurface(const Step::RefPtr< IfcSurface > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FaceSurface = value;
+}
+
+void IfcFaceSurface::unsetFaceSurface()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FaceSurface = Step::getUnset(getFaceSurface());
+}
+
+bool IfcFaceSurface::testFaceSurface() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFaceSurface()) == false;
+}
+
+
+Step::Boolean IfcFaceSurface::getSameSense()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SameSense;
     }
+    else 
+    {
+        return Step::getUnset(m_SameSense);
+    }    
 }
 
-const IfcSurface *IfcFaceSurface::getFaceSurface() const {
-    IfcFaceSurface * deConstObject = const_cast< IfcFaceSurface * > (this);
-    return deConstObject->getFaceSurface();
+Step::Boolean IfcFaceSurface::getSameSense() const
+{
+    return const_cast<IfcFaceSurface *>(this)->getSameSense();
 }
 
-void IfcFaceSurface::setFaceSurface(const Step::RefPtr< IfcSurface > &value) {
-    m_faceSurface = value;
+void IfcFaceSurface::setSameSense(Step::Boolean value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SameSense = value;
 }
 
-void IfcFaceSurface::unsetFaceSurface() {
-    m_faceSurface = Step::getUnset(getFaceSurface());
+void IfcFaceSurface::unsetSameSense()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SameSense = Step::getUnset(getSameSense());
 }
 
-bool IfcFaceSurface::testFaceSurface() const {
-    return !Step::isUnset(getFaceSurface());
+bool IfcFaceSurface::testSameSense() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSameSense()) == false;
 }
 
-Step::Boolean IfcFaceSurface::getSameSense() {
-    if (Step::BaseObject::inited()) {
-        return m_sameSense;
-    }
-    else {
-        return Step::getUnset(m_sameSense);
-    }
-}
-
-const Step::Boolean IfcFaceSurface::getSameSense() const {
-    IfcFaceSurface * deConstObject = const_cast< IfcFaceSurface * > (this);
-    return deConstObject->getSameSense();
-}
-
-void IfcFaceSurface::setSameSense(Step::Boolean value) {
-    m_sameSense = value;
-}
-
-void IfcFaceSurface::unsetSameSense() {
-    m_sameSense = Step::getUnset(getSameSense());
-}
-
-bool IfcFaceSurface::testSameSense() const {
-    return !Step::isUnset(getSameSense());
-}
-
-bool IfcFaceSurface::init() {
-    bool status = IfcFace::init();
-    std::string arg;
-    if (!status) {
+bool IfcFaceSurface::init()
+{
+    if (IfcFace::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_faceSurface = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_FaceSurface = NULL;
     }
-    else {
-        m_faceSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_FaceSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_sameSense = Step::getUnset(m_sameSense);
+    if (arg == "$" || arg == "*")
+    {
+        m_SameSense = Step::getUnset(m_SameSense);
     }
-    else {
-        m_sameSense = Step::spfToBoolean(arg);
+    else
+    {
+        m_SameSense = Step::spfToBoolean(arg)
+;
     }
     return true;
 }
 
-void IfcFaceSurface::copy(const IfcFaceSurface &obj, const CopyOp &copyop) {
+void IfcFaceSurface::copy(const IfcFaceSurface &obj, const CopyOp &copyop)
+{
     IfcFace::copy(obj, copyop);
-    setFaceSurface((IfcSurface*)copyop(obj.m_faceSurface.get()));
-    setSameSense(obj.m_sameSense);
+    setFaceSurface((IfcSurface*)copyop(obj.m_FaceSurface.get()));
+    setSameSense(obj.m_SameSense);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFaceSurface::s_type("IfcFaceSurface");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcFaceSurface, IfcFace)

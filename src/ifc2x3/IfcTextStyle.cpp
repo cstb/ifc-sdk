@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,148 +24,163 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcTextStyle.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcCharacterStyleSelect.h>
-#include <ifc2x3/IfcPresentationStyle.h>
-#include <ifc2x3/IfcTextFontSelect.h>
 #include <ifc2x3/IfcTextStyleSelect.h>
+#include <ifc2x3/IfcTextFontSelect.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcTextStyle::IfcTextStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
-    m_textCharacterAppearance = NULL;
-    m_textStyle = NULL;
-    m_textFontStyle = NULL;
+IfcTextStyle::IfcTextStyle(Step::Id id, Step::SPFData *args) : 
+    IfcPresentationStyle(id, args)
+{
+    m_TextCharacterAppearance = NULL;
+    m_TextStyle = NULL;
+    m_TextFontStyle = NULL;
 }
 
-IfcTextStyle::~IfcTextStyle() {
+IfcTextStyle::~IfcTextStyle()
+{}
+
+bool IfcTextStyle::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcTextStyle(this);
 }
 
-bool IfcTextStyle::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcTextStyle(this);
-}
 
-const std::string &IfcTextStyle::type() const {
-    return IfcTextStyle::s_type.getName();
-}
-
-const Step::ClassType &IfcTextStyle::getClassType() {
-    return IfcTextStyle::s_type;
-}
-
-const Step::ClassType &IfcTextStyle::getType() const {
-    return IfcTextStyle::s_type;
-}
-
-bool IfcTextStyle::isOfType(const Step::ClassType &t) const {
-    return IfcTextStyle::s_type == t ? true : IfcPresentationStyle::isOfType(t);
-}
-
-IfcCharacterStyleSelect *IfcTextStyle::getTextCharacterAppearance() {
-    if (Step::BaseObject::inited()) {
-        return m_textCharacterAppearance.get();
+IfcCharacterStyleSelect *IfcTextStyle::getTextCharacterAppearance()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TextCharacterAppearance.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcCharacterStyleSelect *IfcTextStyle::getTextCharacterAppearance() const
+{
+    return const_cast<IfcTextStyle *>(this)->getTextCharacterAppearance();
+}
+
+void IfcTextStyle::setTextCharacterAppearance(const Step::RefPtr< IfcCharacterStyleSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextCharacterAppearance = value;
+}
+
+void IfcTextStyle::unsetTextCharacterAppearance()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextCharacterAppearance = Step::getUnset(getTextCharacterAppearance());
+}
+
+bool IfcTextStyle::testTextCharacterAppearance() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTextCharacterAppearance()) == false;
+}
+
+
+IfcTextStyleSelect *IfcTextStyle::getTextStyle()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TextStyle.get();
     }
-}
-
-const IfcCharacterStyleSelect *IfcTextStyle::getTextCharacterAppearance() const {
-    IfcTextStyle * deConstObject = const_cast< IfcTextStyle * > (this);
-    return deConstObject->getTextCharacterAppearance();
-}
-
-void IfcTextStyle::setTextCharacterAppearance(const Step::RefPtr< IfcCharacterStyleSelect > &value) {
-    m_textCharacterAppearance = value;
-}
-
-void IfcTextStyle::unsetTextCharacterAppearance() {
-    m_textCharacterAppearance = Step::getUnset(getTextCharacterAppearance());
-}
-
-bool IfcTextStyle::testTextCharacterAppearance() const {
-    return !Step::isUnset(getTextCharacterAppearance());
-}
-
-IfcTextStyleSelect *IfcTextStyle::getTextStyle() {
-    if (Step::BaseObject::inited()) {
-        return m_textStyle.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcTextStyleSelect *IfcTextStyle::getTextStyle() const
+{
+    return const_cast<IfcTextStyle *>(this)->getTextStyle();
+}
+
+void IfcTextStyle::setTextStyle(const Step::RefPtr< IfcTextStyleSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextStyle = value;
+}
+
+void IfcTextStyle::unsetTextStyle()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextStyle = Step::getUnset(getTextStyle());
+}
+
+bool IfcTextStyle::testTextStyle() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTextStyle()) == false;
+}
+
+
+IfcTextFontSelect *IfcTextStyle::getTextFontStyle()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TextFontStyle.get();
     }
-}
-
-const IfcTextStyleSelect *IfcTextStyle::getTextStyle() const {
-    IfcTextStyle * deConstObject = const_cast< IfcTextStyle * > (this);
-    return deConstObject->getTextStyle();
-}
-
-void IfcTextStyle::setTextStyle(const Step::RefPtr< IfcTextStyleSelect > &value) {
-    m_textStyle = value;
-}
-
-void IfcTextStyle::unsetTextStyle() {
-    m_textStyle = Step::getUnset(getTextStyle());
-}
-
-bool IfcTextStyle::testTextStyle() const {
-    return !Step::isUnset(getTextStyle());
-}
-
-IfcTextFontSelect *IfcTextStyle::getTextFontStyle() {
-    if (Step::BaseObject::inited()) {
-        return m_textFontStyle.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcTextFontSelect *IfcTextStyle::getTextFontStyle() const {
-    IfcTextStyle * deConstObject = const_cast< IfcTextStyle * > (this);
-    return deConstObject->getTextFontStyle();
+const IfcTextFontSelect *IfcTextStyle::getTextFontStyle() const
+{
+    return const_cast<IfcTextStyle *>(this)->getTextFontStyle();
 }
 
-void IfcTextStyle::setTextFontStyle(const Step::RefPtr< IfcTextFontSelect > &value) {
-    m_textFontStyle = value;
+void IfcTextStyle::setTextFontStyle(const Step::RefPtr< IfcTextFontSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextFontStyle = value;
 }
 
-void IfcTextStyle::unsetTextFontStyle() {
-    m_textFontStyle = Step::getUnset(getTextFontStyle());
+void IfcTextStyle::unsetTextFontStyle()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextFontStyle = Step::getUnset(getTextFontStyle());
 }
 
-bool IfcTextStyle::testTextFontStyle() const {
-    return !Step::isUnset(getTextFontStyle());
+bool IfcTextStyle::testTextFontStyle() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTextFontStyle()) == false;
 }
 
-bool IfcTextStyle::init() {
-    bool status = IfcPresentationStyle::init();
-    std::string arg;
-    if (!status) {
+bool IfcTextStyle::init()
+{
+    if (IfcPresentationStyle::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_textCharacterAppearance = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TextCharacterAppearance = NULL;
     }
-    else {
-        m_textCharacterAppearance = new IfcCharacterStyleSelect;
+    else
+    {
+        m_TextCharacterAppearance = new IfcCharacterStyleSelect;
         if (arg[0] == '#') {
-            m_textCharacterAppearance->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_TextCharacterAppearance->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -169,13 +193,15 @@ bool IfcTextStyle::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_textStyle = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TextStyle = NULL;
     }
-    else {
-        m_textStyle = new IfcTextStyleSelect;
+    else
+    {
+        m_TextStyle = new IfcTextStyleSelect;
         if (arg[0] == '#') {
-            m_textStyle->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_TextStyle->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -188,13 +214,15 @@ bool IfcTextStyle::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_textFontStyle = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TextFontStyle = NULL;
     }
-    else {
-        m_textFontStyle = new IfcTextFontSelect;
+    else
+    {
+        m_TextFontStyle = new IfcTextFontSelect;
         if (arg[0] == '#') {
-            m_textFontStyle->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_TextFontStyle->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -209,15 +237,13 @@ bool IfcTextStyle::init() {
     return true;
 }
 
-void IfcTextStyle::copy(const IfcTextStyle &obj, const CopyOp &copyop) {
+void IfcTextStyle::copy(const IfcTextStyle &obj, const CopyOp &copyop)
+{
     IfcPresentationStyle::copy(obj, copyop);
-    m_textCharacterAppearance = new IfcCharacterStyleSelect;
-    m_textCharacterAppearance->copy(*(obj.m_textCharacterAppearance.get()), copyop);
-    m_textStyle = new IfcTextStyleSelect;
-    m_textStyle->copy(*(obj.m_textStyle.get()), copyop);
-    m_textFontStyle = new IfcTextFontSelect;
-    m_textFontStyle->copy(*(obj.m_textFontStyle.get()), copyop);
+    setTextCharacterAppearance((IfcCharacterStyleSelect*)copyop(obj.m_TextCharacterAppearance.get()));
+    setTextStyle((IfcTextStyleSelect*)copyop(obj.m_TextStyle.get()));
+    setTextFontStyle((IfcTextFontSelect*)copyop(obj.m_TextFontStyle.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextStyle::s_type("IfcTextStyle");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcTextStyle, IfcPresentationStyle)

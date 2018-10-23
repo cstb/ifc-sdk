@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,101 +24,98 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcFaceBasedSurfaceModel.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcConnectedFaceSet.h>
-#include <ifc2x3/IfcGeometricRepresentationItem.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcFaceBasedSurfaceModel::IfcFaceBasedSurfaceModel(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
+IfcFaceBasedSurfaceModel::IfcFaceBasedSurfaceModel(Step::Id id, Step::SPFData *args) : 
+    IfcGeometricRepresentationItem(id, args)
+{
+    m_FbsmFaces.setUnset(true);
 }
 
-IfcFaceBasedSurfaceModel::~IfcFaceBasedSurfaceModel() {
+IfcFaceBasedSurfaceModel::~IfcFaceBasedSurfaceModel()
+{}
+
+bool IfcFaceBasedSurfaceModel::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcFaceBasedSurfaceModel(this);
 }
 
-bool IfcFaceBasedSurfaceModel::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcFaceBasedSurfaceModel(this);
-}
 
-const std::string &IfcFaceBasedSurfaceModel::type() const {
-    return IfcFaceBasedSurfaceModel::s_type.getName();
-}
-
-const Step::ClassType &IfcFaceBasedSurfaceModel::getClassType() {
-    return IfcFaceBasedSurfaceModel::s_type;
-}
-
-const Step::ClassType &IfcFaceBasedSurfaceModel::getType() const {
-    return IfcFaceBasedSurfaceModel::s_type;
-}
-
-bool IfcFaceBasedSurfaceModel::isOfType(const Step::ClassType &t) const {
-    return IfcFaceBasedSurfaceModel::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-Set_IfcConnectedFaceSet_1_n &IfcFaceBasedSurfaceModel::getFbsmFaces() {
-    if (Step::BaseObject::inited()) {
-        return m_fbsmFaces;
+Set_IfcConnectedFaceSet_1_n &IfcFaceBasedSurfaceModel::getFbsmFaces()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FbsmFaces;
     }
-    else {
-        m_fbsmFaces.setUnset(true);
-        return m_fbsmFaces;
-    }
+    else 
+    {
+        m_FbsmFaces.setUnset(true);
+        return m_FbsmFaces;
+    }    
 }
 
-const Set_IfcConnectedFaceSet_1_n &IfcFaceBasedSurfaceModel::getFbsmFaces() const {
-    IfcFaceBasedSurfaceModel * deConstObject = const_cast< IfcFaceBasedSurfaceModel * > (this);
-    return deConstObject->getFbsmFaces();
+const Set_IfcConnectedFaceSet_1_n &IfcFaceBasedSurfaceModel::getFbsmFaces() const
+{
+    return const_cast<IfcFaceBasedSurfaceModel *>(this)->getFbsmFaces();
 }
 
-void IfcFaceBasedSurfaceModel::setFbsmFaces(const Set_IfcConnectedFaceSet_1_n &value) {
-    m_fbsmFaces = value;
+void IfcFaceBasedSurfaceModel::setFbsmFaces(const Set_IfcConnectedFaceSet_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FbsmFaces = value;
 }
 
-void IfcFaceBasedSurfaceModel::unsetFbsmFaces() {
-    m_fbsmFaces.clear();
-    m_fbsmFaces.setUnset(true);
+void IfcFaceBasedSurfaceModel::unsetFbsmFaces()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FbsmFaces.clear();
+    m_FbsmFaces.setUnset(true);
 }
 
-bool IfcFaceBasedSurfaceModel::testFbsmFaces() const {
-    return !m_fbsmFaces.isUnset();
+bool IfcFaceBasedSurfaceModel::testFbsmFaces() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_FbsmFaces.isUnset() == false;
 }
 
-bool IfcFaceBasedSurfaceModel::init() {
-    bool status = IfcGeometricRepresentationItem::init();
-    std::string arg;
-    if (!status) {
+bool IfcFaceBasedSurfaceModel::init()
+{
+    if (IfcGeometricRepresentationItem::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_fbsmFaces.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_FbsmFaces.setUnset(true);
     }
-    else {
-        m_fbsmFaces.setUnset(false);
-        while (true) {
+    else
+    {
+        m_FbsmFaces.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcConnectedFaceSet > attr2;
-                attr2 = static_cast< IfcConnectedFaceSet * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                if (attr2.valid()) m_fbsmFaces.insert(attr2);
+            if (!str1.empty())
+            {
+                m_FbsmFaces.insert(static_cast< IfcConnectedFaceSet * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
@@ -117,14 +123,17 @@ bool IfcFaceBasedSurfaceModel::init() {
     return true;
 }
 
-void IfcFaceBasedSurfaceModel::copy(const IfcFaceBasedSurfaceModel &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcConnectedFaceSet >, 1 >::const_iterator it_m_fbsmFaces;
+void IfcFaceBasedSurfaceModel::copy(const IfcFaceBasedSurfaceModel &obj, const CopyOp &copyop)
+{
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    for (it_m_fbsmFaces = obj.m_fbsmFaces.begin(); it_m_fbsmFaces != obj.m_fbsmFaces.end(); ++it_m_fbsmFaces) {
-        Step::RefPtr< IfcConnectedFaceSet > copyTarget = (IfcConnectedFaceSet *) (copyop((*it_m_fbsmFaces).get()));
-        m_fbsmFaces.insert(copyTarget.get());
+    Set_IfcConnectedFaceSet_1_n::const_iterator it_m_FbsmFaces;
+    for (it_m_FbsmFaces = obj.m_FbsmFaces.begin(); it_m_FbsmFaces != obj.m_FbsmFaces.end(); ++it_m_FbsmFaces)
+    {
+        Step::RefPtr< IfcConnectedFaceSet > copyTarget = (IfcConnectedFaceSet *) (copyop((*it_m_FbsmFaces).get()));
+        m_FbsmFaces.insert(copyTarget);
     }
+    
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFaceBasedSurfaceModel::s_type("IfcFaceBasedSurfaceModel");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcFaceBasedSurfaceModel, IfcGeometricRepresentationItem)

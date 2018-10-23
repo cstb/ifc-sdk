@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,201 +24,235 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcApplication.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcOrganization.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcApplication::IfcApplication(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_applicationDeveloper = NULL;
-    m_version = Step::getUnset(m_version);
-    m_applicationFullName = Step::getUnset(m_applicationFullName);
-    m_applicationIdentifier = Step::getUnset(m_applicationIdentifier);
+IfcApplication::IfcApplication(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_ApplicationDeveloper = NULL;
+    m_Version = Step::getUnset(m_Version);
+    m_ApplicationFullName = Step::getUnset(m_ApplicationFullName);
+    m_ApplicationIdentifier = Step::getUnset(m_ApplicationIdentifier);
 }
 
-IfcApplication::~IfcApplication() {
+IfcApplication::~IfcApplication()
+{}
+
+bool IfcApplication::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcApplication(this);
 }
 
-bool IfcApplication::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcApplication(this);
-}
 
-const std::string &IfcApplication::type() const {
-    return IfcApplication::s_type.getName();
-}
-
-const Step::ClassType &IfcApplication::getClassType() {
-    return IfcApplication::s_type;
-}
-
-const Step::ClassType &IfcApplication::getType() const {
-    return IfcApplication::s_type;
-}
-
-bool IfcApplication::isOfType(const Step::ClassType &t) const {
-    return IfcApplication::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcOrganization *IfcApplication::getApplicationDeveloper() {
-    if (Step::BaseObject::inited()) {
-        return m_applicationDeveloper.get();
+IfcOrganization *IfcApplication::getApplicationDeveloper()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ApplicationDeveloper.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcOrganization *IfcApplication::getApplicationDeveloper() const
+{
+    return const_cast<IfcApplication *>(this)->getApplicationDeveloper();
+}
+
+void IfcApplication::setApplicationDeveloper(const Step::RefPtr< IfcOrganization > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ApplicationDeveloper = value;
+}
+
+void IfcApplication::unsetApplicationDeveloper()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ApplicationDeveloper = Step::getUnset(getApplicationDeveloper());
+}
+
+bool IfcApplication::testApplicationDeveloper() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getApplicationDeveloper()) == false;
+}
+
+
+IfcLabel IfcApplication::getVersion()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Version;
     }
+    else 
+    {
+        return Step::getUnset(m_Version);
+    }    
 }
 
-const IfcOrganization *IfcApplication::getApplicationDeveloper() const {
-    IfcApplication * deConstObject = const_cast< IfcApplication * > (this);
-    return deConstObject->getApplicationDeveloper();
+const IfcLabel IfcApplication::getVersion() const
+{
+    return const_cast<IfcApplication *>(this)->getVersion();
 }
 
-void IfcApplication::setApplicationDeveloper(const Step::RefPtr< IfcOrganization > &value) {
-    m_applicationDeveloper = value;
+void IfcApplication::setVersion(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Version = value;
 }
 
-void IfcApplication::unsetApplicationDeveloper() {
-    m_applicationDeveloper = Step::getUnset(getApplicationDeveloper());
+void IfcApplication::unsetVersion()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Version = Step::getUnset(getVersion());
 }
 
-bool IfcApplication::testApplicationDeveloper() const {
-    return !Step::isUnset(getApplicationDeveloper());
+bool IfcApplication::testVersion() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getVersion()) == false;
 }
 
-IfcLabel IfcApplication::getVersion() {
-    if (Step::BaseObject::inited()) {
-        return m_version;
+
+IfcLabel IfcApplication::getApplicationFullName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ApplicationFullName;
     }
-    else {
-        return Step::getUnset(m_version);
+    else 
+    {
+        return Step::getUnset(m_ApplicationFullName);
+    }    
+}
+
+const IfcLabel IfcApplication::getApplicationFullName() const
+{
+    return const_cast<IfcApplication *>(this)->getApplicationFullName();
+}
+
+void IfcApplication::setApplicationFullName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ApplicationFullName = value;
+}
+
+void IfcApplication::unsetApplicationFullName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ApplicationFullName = Step::getUnset(getApplicationFullName());
+}
+
+bool IfcApplication::testApplicationFullName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getApplicationFullName()) == false;
+}
+
+
+IfcIdentifier IfcApplication::getApplicationIdentifier()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ApplicationIdentifier;
     }
+    else 
+    {
+        return Step::getUnset(m_ApplicationIdentifier);
+    }    
 }
 
-const IfcLabel IfcApplication::getVersion() const {
-    IfcApplication * deConstObject = const_cast< IfcApplication * > (this);
-    return deConstObject->getVersion();
+const IfcIdentifier IfcApplication::getApplicationIdentifier() const
+{
+    return const_cast<IfcApplication *>(this)->getApplicationIdentifier();
 }
 
-void IfcApplication::setVersion(const IfcLabel &value) {
-    m_version = value;
+void IfcApplication::setApplicationIdentifier(const IfcIdentifier &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ApplicationIdentifier = value;
 }
 
-void IfcApplication::unsetVersion() {
-    m_version = Step::getUnset(getVersion());
+void IfcApplication::unsetApplicationIdentifier()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ApplicationIdentifier = Step::getUnset(getApplicationIdentifier());
 }
 
-bool IfcApplication::testVersion() const {
-    return !Step::isUnset(getVersion());
+bool IfcApplication::testApplicationIdentifier() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getApplicationIdentifier()) == false;
 }
 
-IfcLabel IfcApplication::getApplicationFullName() {
-    if (Step::BaseObject::inited()) {
-        return m_applicationFullName;
-    }
-    else {
-        return Step::getUnset(m_applicationFullName);
-    }
-}
-
-const IfcLabel IfcApplication::getApplicationFullName() const {
-    IfcApplication * deConstObject = const_cast< IfcApplication * > (this);
-    return deConstObject->getApplicationFullName();
-}
-
-void IfcApplication::setApplicationFullName(const IfcLabel &value) {
-    m_applicationFullName = value;
-}
-
-void IfcApplication::unsetApplicationFullName() {
-    m_applicationFullName = Step::getUnset(getApplicationFullName());
-}
-
-bool IfcApplication::testApplicationFullName() const {
-    return !Step::isUnset(getApplicationFullName());
-}
-
-IfcIdentifier IfcApplication::getApplicationIdentifier() {
-    if (Step::BaseObject::inited()) {
-        return m_applicationIdentifier;
-    }
-    else {
-        return Step::getUnset(m_applicationIdentifier);
-    }
-}
-
-const IfcIdentifier IfcApplication::getApplicationIdentifier() const {
-    IfcApplication * deConstObject = const_cast< IfcApplication * > (this);
-    return deConstObject->getApplicationIdentifier();
-}
-
-void IfcApplication::setApplicationIdentifier(const IfcIdentifier &value) {
-    m_applicationIdentifier = value;
-}
-
-void IfcApplication::unsetApplicationIdentifier() {
-    m_applicationIdentifier = Step::getUnset(getApplicationIdentifier());
-}
-
-bool IfcApplication::testApplicationIdentifier() const {
-    return !Step::isUnset(getApplicationIdentifier());
-}
-
-bool IfcApplication::init() {
+bool IfcApplication::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_applicationDeveloper = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_ApplicationDeveloper = NULL;
     }
-    else {
-        m_applicationDeveloper = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_version = Step::getUnset(m_version);
-    }
-    else {
-        m_version = Step::String::fromSPF(arg);
+    else
+    {
+        m_ApplicationDeveloper = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_applicationFullName = Step::getUnset(m_applicationFullName);
+    if (arg == "$" || arg == "*")
+    {
+        m_Version = Step::getUnset(m_Version);
     }
-    else {
-        m_applicationFullName = Step::String::fromSPF(arg);
+    else
+    {
+        m_Version = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_applicationIdentifier = Step::getUnset(m_applicationIdentifier);
+    if (arg == "$" || arg == "*")
+    {
+        m_ApplicationFullName = Step::getUnset(m_ApplicationFullName);
     }
-    else {
-        m_applicationIdentifier = Step::String::fromSPF(arg);
+    else
+    {
+        m_ApplicationFullName = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ApplicationIdentifier = Step::getUnset(m_ApplicationIdentifier);
+    }
+    else
+    {
+        m_ApplicationIdentifier = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcApplication::copy(const IfcApplication &obj, const CopyOp &copyop) {
+void IfcApplication::copy(const IfcApplication &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setApplicationDeveloper((IfcOrganization*)copyop(obj.m_applicationDeveloper.get()));
-    setVersion(obj.m_version);
-    setApplicationFullName(obj.m_applicationFullName);
-    setApplicationIdentifier(obj.m_applicationIdentifier);
+    setApplicationDeveloper((IfcOrganization*)copyop(obj.m_ApplicationDeveloper.get()));
+    setVersion(obj.m_Version);
+    setApplicationFullName(obj.m_ApplicationFullName);
+    setApplicationIdentifier(obj.m_ApplicationIdentifier);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcApplication::s_type("IfcApplication");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcApplication, Step::BaseEntity)

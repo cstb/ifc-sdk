@@ -1,11 +1,22 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+#pragma once
+
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -14,9 +25,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifndef IFC2X3_COPYOP_H
-#define IFC2X3_COPYOP_H
-#include <map>
+
 #include <ifc2x3/Export.h>
 
 #include <ifc2x3/FalseVisitor.h>
@@ -24,49 +33,246 @@
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 
-namespace ifc2x3 {
+#include <map>
+
+namespace ifc2x3
+{
 
     class ExpressDataSet;
-    class Ifc2DCompositeCurve;
-    class IfcActionRequest;
-    class IfcActor;
+    class IfcOrganization;
     class IfcActorRole;
+    class IfcAddress;
+    class IfcPerson;
+    class IfcPersonAndOrganization;
+    class IfcOrganizationRelationship;
+    class IfcMeasureWithUnit;
+    class IfcDerivedUnit;
+    class IfcDerivedUnitElement;
+    class IfcNamedUnit;
+    class IfcDimensionalExponents;
+    class IfcMonetaryUnit;
+    class IfcAxis2Placement2D;
+    class IfcPlacement;
+    class IfcGeometricRepresentationItem;
+    class IfcRepresentationItem;
+    class IfcPresentationLayerAssignment;
+    class IfcRepresentation;
+    class IfcRepresentationContext;
+    class IfcRepresentationMap;
+    class IfcMappedItem;
+    class IfcCartesianTransformationOperator;
+    class IfcDirection;
+    class IfcCartesianPoint;
+    class IfcPoint;
+    class IfcProductRepresentation;
+    class IfcStyledItem;
+    class IfcPresentationStyleAssignment;
+    class IfcCurveStyle;
+    class IfcPresentationStyle;
+    class IfcPreDefinedCurveFont;
+    class IfcPreDefinedItem;
+    class IfcCurveStyleFont;
+    class IfcCurveStyleFontPattern;
+    class IfcCurveStyleFontAndScaling;
+    class IfcColourSpecification;
+    class IfcPreDefinedColour;
+    class IfcSymbolStyle;
+    class IfcFillAreaStyle;
+    class IfcFillAreaStyleHatching;
+    class IfcOneDirectionRepeatFactor;
+    class IfcVector;
+    class IfcFillAreaStyleTiles;
+    class IfcFillAreaStyleTileSymbolWithStyle;
+    class IfcAnnotationSymbolOccurrence;
+    class IfcAnnotationOccurrence;
+    class IfcExternallyDefinedHatchStyle;
+    class IfcExternalReference;
+    class IfcTextStyle;
+    class IfcTextStyleForDefinedFont;
+    class IfcTextStyleWithBoxCharacteristics;
+    class IfcTextStyleTextModel;
+    class IfcPreDefinedTextFont;
+    class IfcExternallyDefinedTextFont;
+    class IfcSurfaceStyle;
+    class IfcSurfaceStyleShading;
+    class IfcColourRgb;
+    class IfcSurfaceStyleLighting;
+    class IfcSurfaceStyleWithTextures;
+    class IfcSurfaceTexture;
+    class IfcCartesianTransformationOperator2D;
+    class IfcExternallyDefinedSurfaceStyle;
+    class IfcSurfaceStyleRefraction;
+    class IfcAxis2Placement3D;
+    class IfcSolidModel;
+    class IfcHalfSpaceSolid;
+    class IfcSurface;
+    class IfcBooleanResult;
+    class IfcCsgPrimitive3D;
+    class IfcClassificationNotation;
+    class IfcClassificationNotationFacet;
+    class IfcClassificationReference;
+    class IfcClassification;
+    class IfcCalendarDate;
+    class IfcClassificationItem;
+    class IfcClassificationItemRelationship;
+    class IfcBoundedCurve;
+    class IfcCurve;
+    class IfcEdgeCurve;
+    class IfcEdge;
+    class IfcTopologicalRepresentationItem;
+    class IfcVertex;
+    class IfcLocalTime;
+    class IfcCoordinatedUniversalTimeOffset;
+    class IfcDateAndTime;
+    class IfcPreDefinedSymbol;
+    class IfcExternallyDefinedSymbol;
+    class IfcDocumentReference;
+    class IfcDocumentInformation;
+    class IfcDocumentElectronicFormat;
+    class IfcDocumentInformationRelationship;
+    class IfcAnnotationCurveOccurrence;
+    class IfcAnnotationTextOccurrence;
+    class IfcLibraryReference;
+    class IfcLibraryInformation;
+    class IfcLightIntensityDistribution;
+    class IfcLightDistributionData;
+    class IfcMaterial;
+    class IfcMaterialDefinitionRepresentation;
+    class IfcMaterialClassificationRelationship;
+    class IfcMaterialList;
+    class IfcMaterialLayerSetUsage;
+    class IfcMaterialLayerSet;
+    class IfcMaterialLayer;
+    class IfcTable;
+    class IfcTableRow;
+    class IfcTimeSeries;
+    class IfcTimeSeriesReferenceRelationship;
+    class IfcCostValue;
+    class IfcAppliedValue;
+    class IfcReferencesValueDocument;
+    class IfcAppliedValueRelationship;
+    class IfcVertexPoint;
+    class IfcClosedShell;
+    class IfcConnectedFaceSet;
+    class IfcFace;
+    class IfcFaceBound;
+    class IfcLoop;
+    class IfcOpenShell;
+    class IfcStructuralItem;
+    class IfcProduct;
+    class IfcObject;
+    class IfcObjectDefinition;
+    class IfcRoot;
+    class IfcOwnerHistory;
+    class IfcApplication;
+    class IfcRelAssigns;
+    class IfcRelationship;
+    class IfcRelDecomposes;
+    class IfcRelAssociates;
+    class IfcRelDefines;
+    class IfcObjectPlacement;
+    class IfcLocalPlacement;
+    class IfcRelAssignsToProduct;
+    class IfcRelConnectsStructuralActivity;
+    class IfcRelConnects;
+    class IfcStructuralActivity;
+    class IfcStructuralLoad;
+    class IfcElement;
+    class IfcRelConnectsStructuralElement;
+    class IfcStructuralMember;
+    class IfcRelConnectsStructuralMember;
+    class IfcStructuralConnection;
+    class IfcBoundaryCondition;
+    class IfcStructuralConnectionCondition;
+    class IfcRelFillsElement;
+    class IfcOpeningElement;
+    class IfcFeatureElementSubtraction;
+    class IfcFeatureElement;
+    class IfcRelVoidsElement;
+    class IfcRelConnectsElements;
+    class IfcConnectionGeometry;
+    class IfcRelCoversBldgElements;
+    class IfcCovering;
+    class IfcBuildingElement;
+    class IfcRelCoversSpaces;
+    class IfcSpace;
+    class IfcSpatialStructureElement;
+    class IfcRelReferencedInSpatialStructure;
+    class IfcRelServicesBuildings;
+    class IfcSystem;
+    class IfcGroup;
+    class IfcRelAssignsToGroup;
+    class IfcRelContainedInSpatialStructure;
+    class IfcRelSpaceBoundary;
+    class IfcRelProjectsElement;
+    class IfcFeatureElementAddition;
+    class IfcRelConnectsPortToElement;
+    class IfcPort;
+    class IfcRelConnectsPorts;
+    class IfcRelConnectsWithRealizingElements;
+    class IfcFaceSurface;
+    class IfcFaceBasedSurfaceModel;
+    class Ifc2DCompositeCurve;
+    class IfcCompositeCurve;
+    class IfcCompositeCurveSegment;
+    class IfcActionRequest;
+    class IfcControl;
+    class IfcRelAssignsToControl;
+    class IfcActor;
+    class IfcRelAssignsToActor;
     class IfcActuatorType;
+    class IfcDistributionControlElementType;
+    class IfcDistributionElementType;
+    class IfcElementType;
+    class IfcTypeProduct;
+    class IfcTypeObject;
+    class IfcPropertySetDefinition;
+    class IfcPropertyDefinition;
+    class IfcRelDefinesByProperties;
+    class IfcRelDefinesByType;
     class IfcAirTerminalBoxType;
+    class IfcFlowControllerType;
+    class IfcDistributionFlowElementType;
     class IfcAirTerminalType;
+    class IfcFlowTerminalType;
     class IfcAirToAirHeatRecoveryType;
+    class IfcEnergyConversionDeviceType;
     class IfcAlarmType;
     class IfcAngularDimension;
+    class IfcDimensionCurveDirectedCallout;
+    class IfcDraughtingCallout;
+    class IfcDraughtingCalloutRelationship;
     class IfcAnnotation;
-    class IfcAnnotationCurveOccurrence;
     class IfcAnnotationFillArea;
     class IfcAnnotationFillAreaOccurrence;
     class IfcAnnotationSurface;
+    class IfcTextureCoordinate;
     class IfcAnnotationSurfaceOccurrence;
-    class IfcAnnotationSymbolOccurrence;
-    class IfcAnnotationTextOccurrence;
-    class IfcApplication;
-    class IfcAppliedValueRelationship;
     class IfcApproval;
     class IfcApprovalActorRelationship;
-    class IfcApprovalPropertyRelationship;
     class IfcApprovalRelationship;
+    class IfcApprovalPropertyRelationship;
+    class IfcProperty;
+    class IfcPropertyDependencyRelationship;
+    class IfcComplexProperty;
     class IfcArbitraryClosedProfileDef;
+    class IfcProfileDef;
     class IfcArbitraryOpenProfileDef;
     class IfcArbitraryProfileDefWithVoids;
     class IfcAsset;
     class IfcAsymmetricIShapeProfileDef;
+    class IfcIShapeProfileDef;
+    class IfcParameterizedProfileDef;
     class IfcAxis1Placement;
-    class IfcAxis2Placement2D;
-    class IfcAxis2Placement3D;
+    class IfcBSplineCurve;
     class IfcBeam;
     class IfcBeamType;
+    class IfcBuildingElementType;
     class IfcBezierCurve;
     class IfcBlobTexture;
     class IfcBlock;
     class IfcBoilerType;
     class IfcBooleanClippingResult;
-    class IfcBooleanResult;
     class IfcBoundaryEdgeCondition;
     class IfcBoundaryFaceCondition;
     class IfcBoundaryNodeCondition;
@@ -75,55 +281,52 @@ namespace ifc2x3 {
     class IfcBoundingBox;
     class IfcBoxedHalfSpace;
     class IfcBuilding;
+    class IfcPostalAddress;
+    class IfcBuildingElementComponent;
     class IfcBuildingElementPart;
     class IfcBuildingElementProxy;
     class IfcBuildingElementProxyType;
     class IfcBuildingStorey;
     class IfcCShapeProfileDef;
     class IfcCableCarrierFittingType;
+    class IfcFlowFittingType;
     class IfcCableCarrierSegmentType;
+    class IfcFlowSegmentType;
     class IfcCableSegmentType;
-    class IfcCalendarDate;
-    class IfcCartesianPoint;
-    class IfcCartesianTransformationOperator2D;
     class IfcCartesianTransformationOperator2DnonUniform;
     class IfcCartesianTransformationOperator3D;
     class IfcCartesianTransformationOperator3DnonUniform;
     class IfcCenterLineProfileDef;
     class IfcChamferEdgeFeature;
+    class IfcEdgeFeature;
     class IfcChillerType;
     class IfcCircle;
+    class IfcConic;
     class IfcCircleHollowProfileDef;
     class IfcCircleProfileDef;
-    class IfcClassification;
-    class IfcClassificationItem;
-    class IfcClassificationItemRelationship;
-    class IfcClassificationNotation;
-    class IfcClassificationNotationFacet;
-    class IfcClassificationReference;
-    class IfcClosedShell;
     class IfcCoilType;
-    class IfcColourRgb;
     class IfcColumn;
     class IfcColumnType;
-    class IfcComplexProperty;
-    class IfcCompositeCurve;
-    class IfcCompositeCurveSegment;
     class IfcCompositeProfileDef;
     class IfcCompressorType;
+    class IfcFlowMovingDeviceType;
     class IfcCondenserType;
     class IfcCondition;
     class IfcConditionCriterion;
-    class IfcConnectedFaceSet;
     class IfcConnectionCurveGeometry;
     class IfcConnectionPointEccentricity;
     class IfcConnectionPointGeometry;
     class IfcConnectionPortGeometry;
     class IfcConnectionSurfaceGeometry;
-    class IfcConstraintAggregationRelationship;
+    class IfcConstraint;
     class IfcConstraintClassificationRelationship;
     class IfcConstraintRelationship;
+    class IfcPropertyConstraintRelationship;
+    class IfcConstraintAggregationRelationship;
     class IfcConstructionEquipmentResource;
+    class IfcConstructionResource;
+    class IfcResource;
+    class IfcRelAssignsToResource;
     class IfcConstructionMaterialResource;
     class IfcConstructionProductResource;
     class IfcContextDependentUnit;
@@ -131,11 +334,8 @@ namespace ifc2x3 {
     class IfcConversionBasedUnit;
     class IfcCooledBeamType;
     class IfcCoolingTowerType;
-    class IfcCoordinatedUniversalTimeOffset;
     class IfcCostItem;
     class IfcCostSchedule;
-    class IfcCostValue;
-    class IfcCovering;
     class IfcCoveringType;
     class IfcCraneRailAShapeProfileDef;
     class IfcCraneRailFShapeProfileDef;
@@ -145,97 +345,83 @@ namespace ifc2x3 {
     class IfcCurtainWall;
     class IfcCurtainWallType;
     class IfcCurveBoundedPlane;
-    class IfcCurveStyle;
-    class IfcCurveStyleFont;
-    class IfcCurveStyleFontAndScaling;
-    class IfcCurveStyleFontPattern;
+    class IfcPlane;
+    class IfcElementarySurface;
     class IfcDamperType;
-    class IfcDateAndTime;
     class IfcDefinedSymbol;
     class IfcDerivedProfileDef;
-    class IfcDerivedUnit;
-    class IfcDerivedUnitElement;
     class IfcDiameterDimension;
     class IfcDimensionCalloutRelationship;
     class IfcDimensionCurve;
-    class IfcDimensionCurveDirectedCallout;
+    class IfcTerminatorSymbol;
     class IfcDimensionCurveTerminator;
     class IfcDimensionPair;
-    class IfcDimensionalExponents;
-    class IfcDirection;
     class IfcDiscreteAccessory;
+    class IfcElementComponent;
     class IfcDiscreteAccessoryType;
+    class IfcElementComponentType;
     class IfcDistributionChamberElement;
-    class IfcDistributionChamberElementType;
-    class IfcDistributionControlElement;
-    class IfcDistributionElement;
-    class IfcDistributionElementType;
     class IfcDistributionFlowElement;
+    class IfcDistributionElement;
+    class IfcRelFlowControlElements;
+    class IfcDistributionControlElement;
+    class IfcDistributionChamberElementType;
     class IfcDistributionPort;
-    class IfcDocumentElectronicFormat;
-    class IfcDocumentInformation;
-    class IfcDocumentInformationRelationship;
-    class IfcDocumentReference;
     class IfcDoor;
     class IfcDoorLiningProperties;
+    class IfcShapeAspect;
+    class IfcShapeModel;
+    class IfcProductDefinitionShape;
     class IfcDoorPanelProperties;
     class IfcDoorStyle;
-    class IfcDraughtingCallout;
-    class IfcDraughtingCalloutRelationship;
     class IfcDraughtingPreDefinedColour;
     class IfcDraughtingPreDefinedCurveFont;
     class IfcDraughtingPreDefinedTextFont;
     class IfcDuctFittingType;
     class IfcDuctSegmentType;
     class IfcDuctSilencerType;
-    class IfcEdge;
-    class IfcEdgeCurve;
+    class IfcFlowTreatmentDeviceType;
     class IfcEdgeLoop;
+    class IfcOrientedEdge;
     class IfcElectricApplianceType;
     class IfcElectricDistributionPoint;
+    class IfcFlowController;
     class IfcElectricFlowStorageDeviceType;
+    class IfcFlowStorageDeviceType;
     class IfcElectricGeneratorType;
     class IfcElectricHeaterType;
     class IfcElectricMotorType;
     class IfcElectricTimeControlType;
     class IfcElectricalBaseProperties;
+    class IfcEnergyProperties;
     class IfcElectricalCircuit;
     class IfcElectricalElement;
     class IfcElementAssembly;
     class IfcElementQuantity;
+    class IfcPhysicalQuantity;
+    class IfcPhysicalComplexQuantity;
     class IfcEllipse;
     class IfcEllipseProfileDef;
     class IfcEnergyConversionDevice;
-    class IfcEnergyProperties;
     class IfcEnvironmentalImpactValue;
     class IfcEquipmentElement;
     class IfcEquipmentStandard;
     class IfcEvaporativeCoolerType;
     class IfcEvaporatorType;
     class IfcExtendedMaterialProperties;
-    class IfcExternallyDefinedHatchStyle;
-    class IfcExternallyDefinedSurfaceStyle;
-    class IfcExternallyDefinedSymbol;
-    class IfcExternallyDefinedTextFont;
+    class IfcMaterialProperties;
     class IfcExtrudedAreaSolid;
-    class IfcFace;
-    class IfcFaceBasedSurfaceModel;
-    class IfcFaceBound;
+    class IfcSweptAreaSolid;
     class IfcFaceOuterBound;
-    class IfcFaceSurface;
     class IfcFacetedBrep;
+    class IfcManifoldSolidBrep;
     class IfcFacetedBrepWithVoids;
     class IfcFailureConnectionCondition;
     class IfcFanType;
     class IfcFastener;
     class IfcFastenerType;
-    class IfcFillAreaStyle;
-    class IfcFillAreaStyleHatching;
-    class IfcFillAreaStyleTileSymbolWithStyle;
-    class IfcFillAreaStyleTiles;
     class IfcFilterType;
     class IfcFireSuppressionTerminalType;
-    class IfcFlowController;
     class IfcFlowFitting;
     class IfcFlowInstrumentType;
     class IfcFlowMeterType;
@@ -254,19 +440,18 @@ namespace ifc2x3 {
     class IfcGasTerminalType;
     class IfcGeneralMaterialProperties;
     class IfcGeneralProfileProperties;
+    class IfcProfileProperties;
     class IfcGeometricCurveSet;
+    class IfcGeometricSet;
     class IfcGeometricRepresentationContext;
     class IfcGeometricRepresentationSubContext;
-    class IfcGeometricSet;
     class IfcGrid;
     class IfcGridAxis;
+    class IfcVirtualGridIntersection;
     class IfcGridPlacement;
-    class IfcGroup;
-    class IfcHalfSpaceSolid;
     class IfcHeatExchangerType;
     class IfcHumidifierType;
     class IfcHygroscopicMaterialProperties;
-    class IfcIShapeProfileDef;
     class IfcImageTexture;
     class IfcInventory;
     class IfcIrregularTimeSeries;
@@ -275,11 +460,8 @@ namespace ifc2x3 {
     class IfcLShapeProfileDef;
     class IfcLaborResource;
     class IfcLampType;
-    class IfcLibraryInformation;
-    class IfcLibraryReference;
-    class IfcLightDistributionData;
     class IfcLightFixtureType;
-    class IfcLightIntensityDistribution;
+    class IfcLightSource;
     class IfcLightSourceAmbient;
     class IfcLightSourceDirectional;
     class IfcLightSourceGoniometric;
@@ -287,57 +469,39 @@ namespace ifc2x3 {
     class IfcLightSourceSpot;
     class IfcLine;
     class IfcLinearDimension;
-    class IfcLocalPlacement;
-    class IfcLocalTime;
-    class IfcLoop;
-    class IfcMappedItem;
-    class IfcMaterial;
-    class IfcMaterialClassificationRelationship;
-    class IfcMaterialDefinitionRepresentation;
-    class IfcMaterialLayer;
-    class IfcMaterialLayerSet;
-    class IfcMaterialLayerSetUsage;
-    class IfcMaterialList;
-    class IfcMeasureWithUnit;
     class IfcMechanicalConcreteMaterialProperties;
+    class IfcMechanicalMaterialProperties;
     class IfcMechanicalFastener;
     class IfcMechanicalFastenerType;
-    class IfcMechanicalMaterialProperties;
     class IfcMechanicalSteelMaterialProperties;
+    class IfcRelaxation;
     class IfcMember;
     class IfcMemberType;
     class IfcMetric;
-    class IfcMonetaryUnit;
     class IfcMotorConnectionType;
     class IfcMove;
+    class IfcTask;
+    class IfcProcess;
+    class IfcRelAssignsToProcess;
+    class IfcRelSequence;
     class IfcObjective;
     class IfcOccupant;
     class IfcOffsetCurve2D;
     class IfcOffsetCurve3D;
-    class IfcOneDirectionRepeatFactor;
-    class IfcOpenShell;
-    class IfcOpeningElement;
     class IfcOpticalMaterialProperties;
     class IfcOrderAction;
-    class IfcOrganization;
-    class IfcOrganizationRelationship;
-    class IfcOrientedEdge;
     class IfcOutletType;
-    class IfcOwnerHistory;
     class IfcPath;
     class IfcPerformanceHistory;
     class IfcPermeableCoveringProperties;
     class IfcPermit;
-    class IfcPerson;
-    class IfcPersonAndOrganization;
-    class IfcPhysicalComplexQuantity;
+    class IfcPhysicalSimpleQuantity;
     class IfcPile;
     class IfcPipeFittingType;
     class IfcPipeSegmentType;
     class IfcPixelTexture;
     class IfcPlanarBox;
     class IfcPlanarExtent;
-    class IfcPlane;
     class IfcPlate;
     class IfcPlateType;
     class IfcPointOnCurve;
@@ -345,25 +509,21 @@ namespace ifc2x3 {
     class IfcPolyLoop;
     class IfcPolygonalBoundedHalfSpace;
     class IfcPolyline;
-    class IfcPostalAddress;
     class IfcPreDefinedDimensionSymbol;
     class IfcPreDefinedPointMarkerSymbol;
     class IfcPreDefinedTerminatorSymbol;
-    class IfcPresentationLayerAssignment;
     class IfcPresentationLayerWithStyle;
-    class IfcPresentationStyleAssignment;
     class IfcProcedure;
-    class IfcProductDefinitionShape;
-    class IfcProductRepresentation;
     class IfcProductsOfCombustionProperties;
     class IfcProject;
+    class IfcUnitAssignment;
     class IfcProjectOrder;
     class IfcProjectOrderRecord;
+    class IfcRelAssignsToProjectOrder;
     class IfcProjectionCurve;
     class IfcProjectionElement;
     class IfcPropertyBoundedValue;
-    class IfcPropertyConstraintRelationship;
-    class IfcPropertyDependencyRelationship;
+    class IfcSimpleProperty;
     class IfcPropertyEnumeratedValue;
     class IfcPropertyEnumeration;
     class IfcPropertyListValue;
@@ -391,22 +551,18 @@ namespace ifc2x3 {
     class IfcRectangleProfileDef;
     class IfcRectangularPyramid;
     class IfcRectangularTrimmedSurface;
-    class IfcReferencesValueDocument;
     class IfcRegularTimeSeries;
+    class IfcTimeSeriesValue;
     class IfcReinforcementBarProperties;
     class IfcReinforcementDefinitionProperties;
+    class IfcSectionReinforcementProperties;
+    class IfcSectionProperties;
     class IfcReinforcingBar;
+    class IfcReinforcingElement;
     class IfcReinforcingMesh;
     class IfcRelAggregates;
     class IfcRelAssignsTasks;
-    class IfcRelAssignsToActor;
-    class IfcRelAssignsToControl;
-    class IfcRelAssignsToGroup;
-    class IfcRelAssignsToProcess;
-    class IfcRelAssignsToProduct;
-    class IfcRelAssignsToProjectOrder;
-    class IfcRelAssignsToResource;
-    class IfcRelAssociates;
+    class IfcScheduleTimeControl;
     class IfcRelAssociatesAppliedValue;
     class IfcRelAssociatesApproval;
     class IfcRelAssociatesClassification;
@@ -415,37 +571,14 @@ namespace ifc2x3 {
     class IfcRelAssociatesLibrary;
     class IfcRelAssociatesMaterial;
     class IfcRelAssociatesProfileProperties;
-    class IfcRelConnectsElements;
     class IfcRelConnectsPathElements;
-    class IfcRelConnectsPortToElement;
-    class IfcRelConnectsPorts;
-    class IfcRelConnectsStructuralActivity;
-    class IfcRelConnectsStructuralElement;
-    class IfcRelConnectsStructuralMember;
     class IfcRelConnectsWithEccentricity;
-    class IfcRelConnectsWithRealizingElements;
-    class IfcRelContainedInSpatialStructure;
-    class IfcRelCoversBldgElements;
-    class IfcRelCoversSpaces;
-    class IfcRelDefinesByProperties;
-    class IfcRelDefinesByType;
-    class IfcRelFillsElement;
-    class IfcRelFlowControlElements;
     class IfcRelInteractionRequirements;
+    class IfcSpaceProgram;
     class IfcRelNests;
     class IfcRelOccupiesSpaces;
     class IfcRelOverridesProperties;
-    class IfcRelProjectsElement;
-    class IfcRelReferencedInSpatialStructure;
     class IfcRelSchedulesCostItems;
-    class IfcRelSequence;
-    class IfcRelServicesBuildings;
-    class IfcRelSpaceBoundary;
-    class IfcRelVoidsElement;
-    class IfcRelaxation;
-    class IfcRepresentation;
-    class IfcRepresentationContext;
-    class IfcRepresentationMap;
     class IfcRevolvedAreaSolid;
     class IfcRibPlateProfileProperties;
     class IfcRightCircularCone;
@@ -455,14 +588,10 @@ namespace ifc2x3 {
     class IfcRoundedRectangleProfileDef;
     class IfcSIUnit;
     class IfcSanitaryTerminalType;
-    class IfcScheduleTimeControl;
-    class IfcSectionProperties;
-    class IfcSectionReinforcementProperties;
     class IfcSectionedSpine;
     class IfcSensorType;
     class IfcServiceLife;
     class IfcServiceLifeFactor;
-    class IfcShapeAspect;
     class IfcShapeRepresentation;
     class IfcShellBasedSurfaceModel;
     class IfcSite;
@@ -471,24 +600,27 @@ namespace ifc2x3 {
     class IfcSlippageConnectionCondition;
     class IfcSoundProperties;
     class IfcSoundValue;
-    class IfcSpace;
     class IfcSpaceHeaterType;
-    class IfcSpaceProgram;
     class IfcSpaceThermalLoadProperties;
     class IfcSpaceType;
+    class IfcSpatialStructureElementType;
     class IfcSphere;
     class IfcStackTerminalType;
     class IfcStair;
     class IfcStairFlight;
     class IfcStairFlightType;
+    class IfcStructuralAction;
+    class IfcStructuralReaction;
     class IfcStructuralAnalysisModel;
+    class IfcStructuralLoadGroup;
+    class IfcStructuralResultGroup;
     class IfcStructuralCurveConnection;
     class IfcStructuralCurveMember;
     class IfcStructuralCurveMemberVarying;
     class IfcStructuralLinearAction;
     class IfcStructuralLinearActionVarying;
-    class IfcStructuralLoadGroup;
     class IfcStructuralLoadLinearForce;
+    class IfcStructuralLoadStatic;
     class IfcStructuralLoadPlanarForce;
     class IfcStructuralLoadSingleDisplacement;
     class IfcStructuralLoadSingleDisplacementDistortion;
@@ -501,53 +633,37 @@ namespace ifc2x3 {
     class IfcStructuralPointConnection;
     class IfcStructuralPointReaction;
     class IfcStructuralProfileProperties;
-    class IfcStructuralResultGroup;
     class IfcStructuralSteelProfileProperties;
     class IfcStructuralSurfaceConnection;
     class IfcStructuralSurfaceMember;
     class IfcStructuralSurfaceMemberVarying;
     class IfcStructuredDimensionCallout;
-    class IfcStyledItem;
+    class IfcStyleModel;
     class IfcStyledRepresentation;
     class IfcSubContractResource;
     class IfcSubedge;
     class IfcSurfaceCurveSweptAreaSolid;
     class IfcSurfaceOfLinearExtrusion;
+    class IfcSweptSurface;
     class IfcSurfaceOfRevolution;
-    class IfcSurfaceStyle;
-    class IfcSurfaceStyleLighting;
-    class IfcSurfaceStyleRefraction;
     class IfcSurfaceStyleRendering;
-    class IfcSurfaceStyleShading;
-    class IfcSurfaceStyleWithTextures;
     class IfcSweptDiskSolid;
     class IfcSwitchingDeviceType;
-    class IfcSymbolStyle;
-    class IfcSystem;
     class IfcSystemFurnitureElementType;
     class IfcTShapeProfileDef;
-    class IfcTable;
-    class IfcTableRow;
     class IfcTankType;
-    class IfcTask;
     class IfcTelecomAddress;
     class IfcTendon;
     class IfcTendonAnchor;
-    class IfcTerminatorSymbol;
     class IfcTextLiteral;
     class IfcTextLiteralWithExtent;
-    class IfcTextStyle;
     class IfcTextStyleFontModel;
-    class IfcTextStyleForDefinedFont;
-    class IfcTextStyleTextModel;
-    class IfcTextStyleWithBoxCharacteristics;
     class IfcTextureCoordinateGenerator;
     class IfcTextureMap;
+    class IfcVertexBasedTextureMap;
     class IfcTextureVertex;
     class IfcThermalMaterialProperties;
-    class IfcTimeSeriesReferenceRelationship;
     class IfcTimeSeriesSchedule;
-    class IfcTimeSeriesValue;
     class IfcTopologyRepresentation;
     class IfcTransformerType;
     class IfcTransportElement;
@@ -556,20 +672,12 @@ namespace ifc2x3 {
     class IfcTrimmedCurve;
     class IfcTubeBundleType;
     class IfcTwoDirectionRepeatFactor;
-    class IfcTypeObject;
-    class IfcTypeProduct;
     class IfcUShapeProfileDef;
-    class IfcUnitAssignment;
     class IfcUnitaryEquipmentType;
     class IfcValveType;
-    class IfcVector;
-    class IfcVertex;
-    class IfcVertexBasedTextureMap;
     class IfcVertexLoop;
-    class IfcVertexPoint;
     class IfcVibrationIsolatorType;
     class IfcVirtualElement;
-    class IfcVirtualGridIntersection;
     class IfcWall;
     class IfcWallStandardCase;
     class IfcWallType;
@@ -579,6 +687,7 @@ namespace ifc2x3 {
     class IfcWindowLiningProperties;
     class IfcWindowPanelProperties;
     class IfcWindowStyle;
+    class IfcWorkControl;
     class IfcWorkPlan;
     class IfcWorkSchedule;
     class IfcZShapeProfileDef;
@@ -586,32 +695,26 @@ namespace ifc2x3 {
 
     /**
      * The pure virtual base Copy operator class.
-     * 
+     *
      */
-    class IFC2X3_EXPORT CopyOp : public Step::BaseCopyOp, public FalseVisitor {
+
+    class IFC2X3_EXPORT CopyOp : public Step::BaseCopyOp, public FalseVisitor
+    {
     public:
-        /**
-         */
         CopyOp();
         virtual ~CopyOp();
+
         /**
          * Operator called by entities in their copy methods.
-         * 
+         *
          * @param obj
          */
         Step::BaseObject *operator()(const Step::BaseObject *obj) const;
+
         /**
          * @param obj
          */
-        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcActionRequest(IfcActionRequest *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcActor(IfcActor *obj) = 0;
+        virtual bool visitIfcOrganization(IfcOrganization *obj) = 0;
         /**
          * @param obj
          */
@@ -619,7 +722,759 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcAddress(IfcAddress *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPerson(IfcPerson *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcNamedUnit(IfcNamedUnit *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPlacement(IfcPlacement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGeometricRepresentationItem(IfcGeometricRepresentationItem *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationItem(IfcRepresentationItem *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentation(IfcRepresentation *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMappedItem(IfcMappedItem *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianTransformationOperator(IfcCartesianTransformationOperator *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDirection(IfcDirection *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPoint(IfcPoint *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStyledItem(IfcStyledItem *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationStyle(IfcPresentationStyle *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedItem(IfcPreDefinedItem *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcColourSpecification(IfcColourSpecification *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedColour(IfcPreDefinedColour *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVector(IfcVector *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationOccurrence(IfcAnnotationOccurrence *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternalReference(IfcExternalReference *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyle(IfcTextStyle *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedTextFont(IfcPreDefinedTextFont *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcColourRgb(IfcColourRgb *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceTexture(IfcSurfaceTexture *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSolidModel(IfcSolidModel *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurface(IfcSurface *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCsgPrimitive3D(IfcCsgPrimitive3D *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassification(IfcClassification *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBoundedCurve(IfcBoundedCurve *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurve(IfcCurve *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEdge(IfcEdge *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTopologicalRepresentationItem(IfcTopologicalRepresentationItem *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVertex(IfcVertex *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLocalTime(IfcLocalTime *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedSymbol(IfcPreDefinedSymbol *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterial(IfcMaterial *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialList(IfcMaterialList *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTable(IfcTable *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTableRow(IfcTableRow *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTimeSeries(IfcTimeSeries *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCostValue(IfcCostValue *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAppliedValue(IfcAppliedValue *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClosedShell(IfcClosedShell *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFace(IfcFace *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceBound(IfcFaceBound *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLoop(IfcLoop *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOpenShell(IfcOpenShell *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralItem(IfcStructuralItem *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProduct(IfcProduct *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObject(IfcObject *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObjectDefinition(IfcObjectDefinition *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRoot(IfcRoot *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcApplication(IfcApplication *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssigns(IfcRelAssigns *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelationship(IfcRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDecomposes(IfcRelDecomposes *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefines(IfcRelDefines *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObjectPlacement(IfcObjectPlacement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnects(IfcRelConnects *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralActivity(IfcStructuralActivity *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralLoad(IfcStructuralLoad *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElement(IfcElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralMember(IfcStructuralMember *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralConnection(IfcStructuralConnection *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBoundaryCondition(IfcBoundaryCondition *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralConnectionCondition(IfcStructuralConnectionCondition *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElementSubtraction(IfcFeatureElementSubtraction *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElement(IfcFeatureElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConnectionGeometry(IfcConnectionGeometry *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCovering(IfcCovering *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElement(IfcBuildingElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpace(IfcSpace *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpatialStructureElement(IfcSpatialStructureElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSystem(IfcSystem *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGroup(IfcGroup *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElementAddition(IfcFeatureElementAddition *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPort(IfcPort *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcActionRequest(IfcActionRequest *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcControl(IfcControl *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcActor(IfcActor *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcActuatorType(IfcActuatorType *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionControlElementType(IfcDistributionControlElementType *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElementType(IfcElementType *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTypeObject(IfcTypeObject *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertySetDefinition(IfcPropertySetDefinition *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertyDefinition(IfcPropertyDefinition *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj) = 0;
         /**
          * @param obj
          */
@@ -627,11 +1482,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowControllerType(IfcFlowControllerType *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionFlowElementType(IfcDistributionFlowElementType *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAirTerminalType(IfcAirTerminalType *obj) = 0;
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowTerminalType(IfcFlowTerminalType *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType *obj) = 0;
         /**
          * @param obj
          */
@@ -643,11 +1514,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotation(IfcAnnotation *obj) = 0;
+        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj) = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj) = 0;
+        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotation(IfcAnnotation *obj) = 0;
         /**
          * @param obj
          */
@@ -663,23 +1542,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcTextureCoordinate(IfcTextureCoordinate *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcApplication(IfcApplication *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj) = 0;
         /**
          * @param obj
          */
@@ -691,15 +1558,31 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj) = 0;
         /**
          * @param obj
          */
+        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProperty(IfcProperty *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProfileDef(IfcProfileDef *obj) = 0;
         /**
          * @param obj
          */
@@ -719,15 +1602,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcParameterizedProfileDef(IfcParameterizedProfileDef *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAxis1Placement(IfcAxis1Placement *obj) = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj) = 0;
+        virtual bool visitIfcBSplineCurve(IfcBSplineCurve *obj) = 0;
         /**
          * @param obj
          */
@@ -736,6 +1623,10 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcBeamType(IfcBeamType *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElementType(IfcBuildingElementType *obj) = 0;
         /**
          * @param obj
          */
@@ -756,10 +1647,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj) = 0;
         /**
          * @param obj
          */
@@ -795,6 +1682,14 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElementComponent(IfcBuildingElementComponent *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj) = 0;
         /**
          * @param obj
@@ -819,23 +1714,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowFittingType(IfcFlowFittingType *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj) = 0;
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowSegmentType(IfcFlowSegmentType *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcCableSegmentType(IfcCableSegmentType *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj) = 0;
         /**
          * @param obj
          */
@@ -859,11 +1750,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcEdgeFeature(IfcEdgeFeature *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcChillerType(IfcChillerType *obj) = 0;
         /**
          * @param obj
          */
         virtual bool visitIfcCircle(IfcCircle *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConic(IfcConic *obj) = 0;
         /**
          * @param obj
          */
@@ -875,39 +1774,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcClassification(IfcClassification *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClosedShell(IfcClosedShell *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCoilType(IfcCoilType *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcColourRgb(IfcColourRgb *obj) = 0;
         /**
          * @param obj
          */
@@ -919,23 +1786,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj) = 0;
         /**
          * @param obj
          */
         virtual bool visitIfcCompressorType(IfcCompressorType *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *obj) = 0;
         /**
          * @param obj
          */
@@ -948,10 +1807,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcConditionCriterion(IfcConditionCriterion *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj) = 0;
         /**
          * @param obj
          */
@@ -975,7 +1830,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj) = 0;
+        virtual bool visitIfcConstraint(IfcConstraint *obj) = 0;
         /**
          * @param obj
          */
@@ -987,7 +1842,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConstructionResource(IfcConstructionResource *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcResource(IfcResource *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj) = 0;
         /**
          * @param obj
          */
@@ -1019,23 +1894,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCostItem(IfcCostItem *obj) = 0;
         /**
          * @param obj
          */
         virtual bool visitIfcCostSchedule(IfcCostSchedule *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCostValue(IfcCostValue *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCovering(IfcCovering *obj) = 0;
         /**
          * @param obj
          */
@@ -1075,27 +1938,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj) = 0;
+        virtual bool visitIfcPlane(IfcPlane *obj) = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj) = 0;
+        virtual bool visitIfcElementarySurface(IfcElementarySurface *obj) = 0;
         /**
          * @param obj
          */
         virtual bool visitIfcDamperType(IfcDamperType *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj) = 0;
         /**
          * @param obj
          */
@@ -1104,14 +1955,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj) = 0;
         /**
          * @param obj
          */
@@ -1127,7 +1970,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj) = 0;
+        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj) = 0;
         /**
          * @param obj
          */
@@ -1139,15 +1982,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDirection(IfcDirection *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElementComponent(IfcElementComponent *obj) = 0;
         /**
          * @param obj
          */
@@ -1155,23 +1994,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcElementComponentType(IfcElementComponentType *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj) = 0;
         /**
          * @param obj
          */
@@ -1179,23 +2006,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDistributionPort(IfcDistributionPort *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj) = 0;
         /**
          * @param obj
          */
@@ -1207,19 +2034,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcShapeModel(IfcShapeModel *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj) = 0;
         /**
          * @param obj
          */
         virtual bool visitIfcDoorStyle(IfcDoorStyle *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj) = 0;
         /**
          * @param obj
          */
@@ -1247,15 +2078,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcEdge(IfcEdge *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj) = 0;
+        virtual bool visitIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *obj) = 0;
         /**
          * @param obj
          */
         virtual bool visitIfcEdgeLoop(IfcEdgeLoop *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj) = 0;
         /**
          * @param obj
          */
@@ -1267,7 +2098,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowController(IfcFlowController *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *obj) = 0;
         /**
          * @param obj
          */
@@ -1291,6 +2130,10 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj) = 0;
         /**
          * @param obj
@@ -1307,6 +2150,14 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPhysicalQuantity(IfcPhysicalQuantity *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcEllipse(IfcEllipse *obj) = 0;
         /**
          * @param obj
@@ -1316,10 +2167,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj) = 0;
         /**
          * @param obj
          */
@@ -1347,19 +2194,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj) = 0;
+        virtual bool visitIfcMaterialProperties(IfcMaterialProperties *obj) = 0;
         /**
          * @param obj
          */
@@ -1367,15 +2202,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFace(IfcFace *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFaceBound(IfcFaceBound *obj) = 0;
+        virtual bool visitIfcSweptAreaSolid(IfcSweptAreaSolid *obj) = 0;
         /**
          * @param obj
          */
@@ -1383,11 +2210,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj) = 0;
+        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj) = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj) = 0;
+        virtual bool visitIfcManifoldSolidBrep(IfcManifoldSolidBrep *obj) = 0;
         /**
          * @param obj
          */
@@ -1411,31 +2238,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcFilterType(IfcFilterType *obj) = 0;
         /**
          * @param obj
          */
         virtual bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFlowController(IfcFlowController *obj) = 0;
         /**
          * @param obj
          */
@@ -1511,7 +2318,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcProfileProperties(IfcProfileProperties *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj) = 0;
         /**
          * @param obj
          */
@@ -1523,10 +2338,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcGrid(IfcGrid *obj) = 0;
         /**
          * @param obj
@@ -1535,15 +2346,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcGridPlacement(IfcGridPlacement *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcGroup(IfcGroup *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj) = 0;
         /**
          * @param obj
          */
@@ -1556,10 +2363,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj) = 0;
         /**
          * @param obj
          */
@@ -1595,23 +2398,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcLightFixtureType(IfcLightFixtureType *obj) = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj) = 0;
+        virtual bool visitIfcLightSource(IfcLightSource *obj) = 0;
         /**
          * @param obj
          */
@@ -1643,55 +2434,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLocalTime(IfcLocalTime *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLoop(IfcLoop *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMappedItem(IfcMappedItem *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterial(IfcMaterial *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialList(IfcMaterialList *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj) = 0;
         /**
          * @param obj
          */
@@ -1703,11 +2450,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj) = 0;
+        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj) = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj) = 0;
+        virtual bool visitIfcRelaxation(IfcRelaxation *obj) = 0;
         /**
          * @param obj
          */
@@ -1723,15 +2470,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj) = 0;
         /**
          * @param obj
          */
         virtual bool visitIfcMove(IfcMove *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTask(IfcTask *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProcess(IfcProcess *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelSequence(IfcRelSequence *obj) = 0;
         /**
          * @param obj
          */
@@ -1751,18 +2510,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOpenShell(IfcOpenShell *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj) = 0;
         /**
          * @param obj
@@ -1771,23 +2518,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganization(IfcOrganization *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcOutletType(IfcOutletType *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj) = 0;
         /**
          * @param obj
          */
@@ -1807,15 +2538,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPerson(IfcPerson *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj) = 0;
+        virtual bool visitIfcPhysicalSimpleQuantity(IfcPhysicalSimpleQuantity *obj) = 0;
         /**
          * @param obj
          */
@@ -1840,10 +2563,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcPlanarExtent(IfcPlanarExtent *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPlane(IfcPlane *obj) = 0;
         /**
          * @param obj
          */
@@ -1875,10 +2594,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj) = 0;
         /**
          * @param obj
@@ -1891,27 +2606,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj) = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcProcedure(IfcProcedure *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj) = 0;
         /**
          * @param obj
          */
@@ -1923,11 +2622,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcProjectOrder(IfcProjectOrder *obj) = 0;
         /**
          * @param obj
          */
         virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj) = 0;
         /**
          * @param obj
          */
@@ -1943,11 +2650,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj) = 0;
+        virtual bool visitIfcSimpleProperty(IfcSimpleProperty *obj) = 0;
         /**
          * @param obj
          */
@@ -2059,11 +2762,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj) = 0;
+        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj) = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj) = 0;
+        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj) = 0;
         /**
          * @param obj
          */
@@ -2075,7 +2778,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcReinforcingBar(IfcReinforcingBar *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcReinforcingElement(IfcReinforcingElement *obj) = 0;
         /**
          * @param obj
          */
@@ -2091,35 +2806,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj) = 0;
+        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj) = 0;
         /**
          * @param obj
          */
@@ -2155,31 +2842,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj) = 0;
         /**
          * @param obj
          */
@@ -2187,39 +2850,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj) = 0;
         /**
          * @param obj
          */
@@ -2235,47 +2870,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelSequence(IfcRelSequence *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelaxation(IfcRelaxation *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentation(IfcRepresentation *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj) = 0;
         /**
          * @param obj
          */
@@ -2315,18 +2910,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSectionedSpine(IfcSectionedSpine *obj) = 0;
         /**
          * @param obj
@@ -2340,10 +2923,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj) = 0;
         /**
          * @param obj
          */
@@ -2379,15 +2958,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcSpace(IfcSpace *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj) = 0;
         /**
          * @param obj
          */
@@ -2396,6 +2967,10 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcSpaceType(IfcSpaceType *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpatialStructureElementType(IfcSpatialStructureElementType *obj) = 0;
         /**
          * @param obj
          */
@@ -2419,7 +2994,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcStructuralAction(IfcStructuralAction *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralReaction(IfcStructuralReaction *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj) = 0;
         /**
          * @param obj
          */
@@ -2443,11 +3034,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj) = 0;
+        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj) = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj) = 0;
+        virtual bool visitIfcStructuralLoadStatic(IfcStructuralLoadStatic *obj) = 0;
         /**
          * @param obj
          */
@@ -2499,10 +3090,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj) = 0;
         /**
          * @param obj
@@ -2523,7 +3110,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledItem(IfcStyledItem *obj) = 0;
+        virtual bool visitIfcStyleModel(IfcStyleModel *obj) = 0;
         /**
          * @param obj
          */
@@ -2547,31 +3134,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcSweptSurface(IfcSweptSurface *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj) = 0;
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj) = 0;
         /**
          * @param obj
          */
@@ -2583,14 +3154,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSystem(IfcSystem *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj) = 0;
         /**
          * @param obj
@@ -2599,19 +3162,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTable(IfcTable *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTableRow(IfcTableRow *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTankType(IfcTankType *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTask(IfcTask *obj) = 0;
         /**
          * @param obj
          */
@@ -2627,10 +3178,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTextLiteral(IfcTextLiteral *obj) = 0;
         /**
          * @param obj
@@ -2639,23 +3186,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyle(IfcTextStyle *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj) = 0;
         /**
          * @param obj
          */
@@ -2667,6 +3198,10 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcTextureVertex(IfcTextureVertex *obj) = 0;
         /**
          * @param obj
@@ -2675,15 +3210,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj) = 0;
         /**
          * @param obj
          */
@@ -2719,19 +3246,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeObject(IfcTypeObject *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj) = 0;
         /**
          * @param obj
          */
@@ -2743,23 +3258,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcVector(IfcVector *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertex(IfcVertex *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj) = 0;
-        /**
-         * @param obj
-         */
         virtual bool visitIfcVertexLoop(IfcVertexLoop *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj) = 0;
         /**
          * @param obj
          */
@@ -2768,10 +3267,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcVirtualElement(IfcVirtualElement *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj) = 0;
         /**
          * @param obj
          */
@@ -2811,6 +3306,10 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcWorkControl(IfcWorkControl *obj) = 0;
+        /**
+         * @param obj
+         */
         virtual bool visitIfcWorkPlan(IfcWorkPlan *obj) = 0;
         /**
          * @param obj
@@ -2824,17 +3323,18 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcZone(IfcZone *obj) = 0;
+
         friend class ExpressDataSet;
 
         /**
          * @param original
          */
         virtual Step::BaseObject *find(const Step::BaseObject *original) const;
-        
+
     protected:
         /**
          * The reference to the base object to return.
-         * 
+         *
          */
         Step::RefPtr< Step::BaseObject > _bo;
         /**
@@ -2845,15 +3345,14 @@ namespace ifc2x3 {
 
         /**
          * Returns 0.
-         * 
+         *
          */
         virtual ExpressDataSet *getExpressDataSet() const;
-
     };
 
     /**
      * The deep copy clones recursively the entities and its attributes.
-     * 
+     *
      * The clone can be used independently of the original object. In other words, a deep copy contains copies not only of instance variables but, also, of any objects pointed to by reference variables.
      * Here is an example of code performing a deep copy of the Nrf_network_model:
      * @code
@@ -2864,7 +3363,7 @@ namespace ifc2x3 {
      * theDisc->setp1(p1);
      * //Deep copy of the Mgm_disc
      * Step::RefPtr<tas_arm::Mgm_disc> clone_deep_obj = dataset.cloneMgm_disc(*theDisc.get(),tas_arm::DeepCopyOp());
-     * 
+     *
      * @endcode
      * The output is :
      * @code
@@ -2876,26 +3375,18 @@ namespace ifc2x3 {
      *  ...
      * @endcode
      * The entities #3 and #4 where added with the deep copy. #3's second attribute was also duplicated.
-     * 
+     *
      */
-    class IFC2X3_EXPORT DeepCopyOp : public CopyOp {
+    class IFC2X3_EXPORT DeepCopyOp : public CopyOp
+    {
     public:
-        /**
-         */
         DeepCopyOp();
         virtual ~DeepCopyOp();
+
         /**
          * @param obj
          */
-        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcActionRequest(IfcActionRequest *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcActor(IfcActor *obj);
+        virtual bool visitIfcOrganization(IfcOrganization *obj);
         /**
          * @param obj
          */
@@ -2903,7 +3394,759 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcAddress(IfcAddress *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPerson(IfcPerson *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcNamedUnit(IfcNamedUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPlacement(IfcPlacement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGeometricRepresentationItem(IfcGeometricRepresentationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationItem(IfcRepresentationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentation(IfcRepresentation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMappedItem(IfcMappedItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianTransformationOperator(IfcCartesianTransformationOperator *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDirection(IfcDirection *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPoint(IfcPoint *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStyledItem(IfcStyledItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationStyle(IfcPresentationStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedItem(IfcPreDefinedItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcColourSpecification(IfcColourSpecification *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedColour(IfcPreDefinedColour *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVector(IfcVector *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationOccurrence(IfcAnnotationOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternalReference(IfcExternalReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyle(IfcTextStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedTextFont(IfcPreDefinedTextFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcColourRgb(IfcColourRgb *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceTexture(IfcSurfaceTexture *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSolidModel(IfcSolidModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurface(IfcSurface *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCsgPrimitive3D(IfcCsgPrimitive3D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassification(IfcClassification *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBoundedCurve(IfcBoundedCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurve(IfcCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEdge(IfcEdge *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTopologicalRepresentationItem(IfcTopologicalRepresentationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVertex(IfcVertex *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLocalTime(IfcLocalTime *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedSymbol(IfcPreDefinedSymbol *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterial(IfcMaterial *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialList(IfcMaterialList *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTable(IfcTable *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTableRow(IfcTableRow *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTimeSeries(IfcTimeSeries *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCostValue(IfcCostValue *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAppliedValue(IfcAppliedValue *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClosedShell(IfcClosedShell *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFace(IfcFace *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceBound(IfcFaceBound *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLoop(IfcLoop *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOpenShell(IfcOpenShell *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralItem(IfcStructuralItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProduct(IfcProduct *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObject(IfcObject *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObjectDefinition(IfcObjectDefinition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRoot(IfcRoot *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcApplication(IfcApplication *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssigns(IfcRelAssigns *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelationship(IfcRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDecomposes(IfcRelDecomposes *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefines(IfcRelDefines *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObjectPlacement(IfcObjectPlacement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnects(IfcRelConnects *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralActivity(IfcStructuralActivity *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralLoad(IfcStructuralLoad *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElement(IfcElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralMember(IfcStructuralMember *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralConnection(IfcStructuralConnection *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBoundaryCondition(IfcBoundaryCondition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralConnectionCondition(IfcStructuralConnectionCondition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElementSubtraction(IfcFeatureElementSubtraction *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElement(IfcFeatureElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConnectionGeometry(IfcConnectionGeometry *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCovering(IfcCovering *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElement(IfcBuildingElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpace(IfcSpace *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpatialStructureElement(IfcSpatialStructureElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSystem(IfcSystem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGroup(IfcGroup *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElementAddition(IfcFeatureElementAddition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPort(IfcPort *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcActionRequest(IfcActionRequest *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcControl(IfcControl *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcActor(IfcActor *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcActuatorType(IfcActuatorType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionControlElementType(IfcDistributionControlElementType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElementType(IfcElementType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTypeObject(IfcTypeObject *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertySetDefinition(IfcPropertySetDefinition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertyDefinition(IfcPropertyDefinition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj);
         /**
          * @param obj
          */
@@ -2911,11 +4154,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowControllerType(IfcFlowControllerType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionFlowElementType(IfcDistributionFlowElementType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAirTerminalType(IfcAirTerminalType *obj);
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowTerminalType(IfcFlowTerminalType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType *obj);
         /**
          * @param obj
          */
@@ -2927,11 +4186,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotation(IfcAnnotation *obj);
+        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj);
+        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotation(IfcAnnotation *obj);
         /**
          * @param obj
          */
@@ -2947,23 +4214,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcTextureCoordinate(IfcTextureCoordinate *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcApplication(IfcApplication *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj);
         /**
          * @param obj
          */
@@ -2975,15 +4230,31 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj);
         /**
          * @param obj
          */
+        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProperty(IfcProperty *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProfileDef(IfcProfileDef *obj);
         /**
          * @param obj
          */
@@ -3003,15 +4274,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcParameterizedProfileDef(IfcParameterizedProfileDef *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAxis1Placement(IfcAxis1Placement *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj);
+        virtual bool visitIfcBSplineCurve(IfcBSplineCurve *obj);
         /**
          * @param obj
          */
@@ -3020,6 +4295,10 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcBeamType(IfcBeamType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElementType(IfcBuildingElementType *obj);
         /**
          * @param obj
          */
@@ -3040,10 +4319,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj);
         /**
          * @param obj
          */
@@ -3079,6 +4354,14 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElementComponent(IfcBuildingElementComponent *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj);
         /**
          * @param obj
@@ -3103,23 +4386,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowFittingType(IfcFlowFittingType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj);
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowSegmentType(IfcFlowSegmentType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcCableSegmentType(IfcCableSegmentType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj);
         /**
          * @param obj
          */
@@ -3143,11 +4422,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcEdgeFeature(IfcEdgeFeature *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcChillerType(IfcChillerType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcCircle(IfcCircle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConic(IfcConic *obj);
         /**
          * @param obj
          */
@@ -3159,39 +4446,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcClassification(IfcClassification *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClosedShell(IfcClosedShell *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCoilType(IfcCoilType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcColourRgb(IfcColourRgb *obj);
         /**
          * @param obj
          */
@@ -3203,23 +4458,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcCompressorType(IfcCompressorType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *obj);
         /**
          * @param obj
          */
@@ -3232,10 +4479,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcConditionCriterion(IfcConditionCriterion *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj);
         /**
          * @param obj
          */
@@ -3259,7 +4502,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj);
+        virtual bool visitIfcConstraint(IfcConstraint *obj);
         /**
          * @param obj
          */
@@ -3271,7 +4514,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConstructionResource(IfcConstructionResource *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcResource(IfcResource *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj);
         /**
          * @param obj
          */
@@ -3303,23 +4566,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCostItem(IfcCostItem *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcCostSchedule(IfcCostSchedule *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCostValue(IfcCostValue *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCovering(IfcCovering *obj);
         /**
          * @param obj
          */
@@ -3359,27 +4610,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj);
+        virtual bool visitIfcPlane(IfcPlane *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj);
+        virtual bool visitIfcElementarySurface(IfcElementarySurface *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcDamperType(IfcDamperType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj);
         /**
          * @param obj
          */
@@ -3388,14 +4627,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj);
         /**
          * @param obj
          */
@@ -3411,7 +4642,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj);
+        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj);
         /**
          * @param obj
          */
@@ -3423,15 +4654,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDirection(IfcDirection *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElementComponent(IfcElementComponent *obj);
         /**
          * @param obj
          */
@@ -3439,23 +4666,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcElementComponentType(IfcElementComponentType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj);
         /**
          * @param obj
          */
@@ -3463,23 +4678,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDistributionPort(IfcDistributionPort *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj);
         /**
          * @param obj
          */
@@ -3491,19 +4706,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcShapeModel(IfcShapeModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcDoorStyle(IfcDoorStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj);
         /**
          * @param obj
          */
@@ -3531,15 +4750,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcEdge(IfcEdge *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj);
+        virtual bool visitIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcEdgeLoop(IfcEdgeLoop *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj);
         /**
          * @param obj
          */
@@ -3551,7 +4770,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowController(IfcFlowController *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *obj);
         /**
          * @param obj
          */
@@ -3575,6 +4802,10 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj);
         /**
          * @param obj
@@ -3591,6 +4822,14 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPhysicalQuantity(IfcPhysicalQuantity *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcEllipse(IfcEllipse *obj);
         /**
          * @param obj
@@ -3600,10 +4839,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj);
         /**
          * @param obj
          */
@@ -3631,19 +4866,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj);
+        virtual bool visitIfcMaterialProperties(IfcMaterialProperties *obj);
         /**
          * @param obj
          */
@@ -3651,15 +4874,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFace(IfcFace *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFaceBound(IfcFaceBound *obj);
+        virtual bool visitIfcSweptAreaSolid(IfcSweptAreaSolid *obj);
         /**
          * @param obj
          */
@@ -3667,11 +4882,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj);
+        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj);
+        virtual bool visitIfcManifoldSolidBrep(IfcManifoldSolidBrep *obj);
         /**
          * @param obj
          */
@@ -3695,31 +4910,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcFilterType(IfcFilterType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFlowController(IfcFlowController *obj);
         /**
          * @param obj
          */
@@ -3795,7 +4990,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcProfileProperties(IfcProfileProperties *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj);
         /**
          * @param obj
          */
@@ -3807,10 +5010,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcGrid(IfcGrid *obj);
         /**
          * @param obj
@@ -3819,15 +5018,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcGridPlacement(IfcGridPlacement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcGroup(IfcGroup *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj);
         /**
          * @param obj
          */
@@ -3840,10 +5035,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj);
         /**
          * @param obj
          */
@@ -3879,23 +5070,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcLightFixtureType(IfcLightFixtureType *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj);
+        virtual bool visitIfcLightSource(IfcLightSource *obj);
         /**
          * @param obj
          */
@@ -3927,55 +5106,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLocalTime(IfcLocalTime *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLoop(IfcLoop *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMappedItem(IfcMappedItem *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterial(IfcMaterial *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialList(IfcMaterialList *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj);
         /**
          * @param obj
          */
@@ -3987,11 +5122,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj);
+        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj);
+        virtual bool visitIfcRelaxation(IfcRelaxation *obj);
         /**
          * @param obj
          */
@@ -4007,15 +5142,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcMove(IfcMove *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTask(IfcTask *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProcess(IfcProcess *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelSequence(IfcRelSequence *obj);
         /**
          * @param obj
          */
@@ -4035,18 +5182,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOpenShell(IfcOpenShell *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj);
         /**
          * @param obj
@@ -4055,23 +5190,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganization(IfcOrganization *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcOutletType(IfcOutletType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj);
         /**
          * @param obj
          */
@@ -4091,15 +5210,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPerson(IfcPerson *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj);
+        virtual bool visitIfcPhysicalSimpleQuantity(IfcPhysicalSimpleQuantity *obj);
         /**
          * @param obj
          */
@@ -4124,10 +5235,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcPlanarExtent(IfcPlanarExtent *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPlane(IfcPlane *obj);
         /**
          * @param obj
          */
@@ -4159,10 +5266,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj);
         /**
          * @param obj
@@ -4175,27 +5278,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcProcedure(IfcProcedure *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj);
         /**
          * @param obj
          */
@@ -4207,11 +5294,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcProjectOrder(IfcProjectOrder *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj);
         /**
          * @param obj
          */
@@ -4227,11 +5322,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
+        virtual bool visitIfcSimpleProperty(IfcSimpleProperty *obj);
         /**
          * @param obj
          */
@@ -4343,11 +5434,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj);
+        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj);
+        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj);
         /**
          * @param obj
          */
@@ -4359,7 +5450,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcReinforcingBar(IfcReinforcingBar *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcReinforcingElement(IfcReinforcingElement *obj);
         /**
          * @param obj
          */
@@ -4375,35 +5478,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj);
+        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj);
         /**
          * @param obj
          */
@@ -4439,31 +5514,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj);
         /**
          * @param obj
          */
@@ -4471,39 +5522,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj);
         /**
          * @param obj
          */
@@ -4519,47 +5542,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelSequence(IfcRelSequence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelaxation(IfcRelaxation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentation(IfcRepresentation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj);
         /**
          * @param obj
          */
@@ -4599,18 +5582,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSectionedSpine(IfcSectionedSpine *obj);
         /**
          * @param obj
@@ -4624,10 +5595,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj);
         /**
          * @param obj
          */
@@ -4663,15 +5630,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcSpace(IfcSpace *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj);
         /**
          * @param obj
          */
@@ -4680,6 +5639,10 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcSpaceType(IfcSpaceType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpatialStructureElementType(IfcSpatialStructureElementType *obj);
         /**
          * @param obj
          */
@@ -4703,7 +5666,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcStructuralAction(IfcStructuralAction *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralReaction(IfcStructuralReaction *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj);
         /**
          * @param obj
          */
@@ -4727,11 +5706,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj);
+        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj);
+        virtual bool visitIfcStructuralLoadStatic(IfcStructuralLoadStatic *obj);
         /**
          * @param obj
          */
@@ -4783,10 +5762,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj);
         /**
          * @param obj
@@ -4807,7 +5782,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledItem(IfcStyledItem *obj);
+        virtual bool visitIfcStyleModel(IfcStyleModel *obj);
         /**
          * @param obj
          */
@@ -4831,31 +5806,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcSweptSurface(IfcSweptSurface *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj);
         /**
          * @param obj
          */
@@ -4867,14 +5826,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSystem(IfcSystem *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj);
         /**
          * @param obj
@@ -4883,19 +5834,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTable(IfcTable *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTableRow(IfcTableRow *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTankType(IfcTankType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTask(IfcTask *obj);
         /**
          * @param obj
          */
@@ -4911,10 +5850,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTextLiteral(IfcTextLiteral *obj);
         /**
          * @param obj
@@ -4923,23 +5858,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyle(IfcTextStyle *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj);
         /**
          * @param obj
          */
@@ -4951,6 +5870,10 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcTextureVertex(IfcTextureVertex *obj);
         /**
          * @param obj
@@ -4959,15 +5882,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj);
         /**
          * @param obj
          */
@@ -5003,19 +5918,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeObject(IfcTypeObject *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj);
         /**
          * @param obj
          */
@@ -5027,23 +5930,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcVector(IfcVector *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertex(IfcVertex *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcVertexLoop(IfcVertexLoop *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj);
         /**
          * @param obj
          */
@@ -5052,10 +5939,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcVirtualElement(IfcVirtualElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj);
         /**
          * @param obj
          */
@@ -5095,6 +5978,10 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcWorkControl(IfcWorkControl *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcWorkPlan(IfcWorkPlan *obj);
         /**
          * @param obj
@@ -5113,11 +6000,11 @@ namespace ifc2x3 {
          * @param original
          */
         virtual Step::BaseObject *find(const Step::BaseObject *original) const;
-        
+
     protected:
         /**
          * Map storing Original to clones to break circle relationships loops.
-         * 
+         *
          */
         mutable std::map<const Step::BaseObject*,Step::BaseObject*> _mapOriginalToClone;
         /**
@@ -5125,13 +6012,11 @@ namespace ifc2x3 {
          * @param clone
          */
         virtual void associate(const Step::BaseObject *original, Step::BaseObject *clone) const;
-
-
     };
 
     /**
      * The shallow copy clones only the top entity, keeping references to other entities attributes (not duplicating them).
-     * 
+     *
      * The clone may be associated to data shared by both the original and the copy.
      * Example of usage :
      * @code
@@ -5151,26 +6036,18 @@ namespace ifc2x3 {
      *  ...
      * @endcode
      * Tne entity #3 is the added element with the shallow copy. It's second atttribute is not duplicated.
-     * 
+     *
      */
-    class IFC2X3_EXPORT ShallowCopyOp : public CopyOp {
+    class IFC2X3_EXPORT ShallowCopyOp : public CopyOp
+    {
     public:
-        /**
-         */
         ShallowCopyOp();
         virtual ~ShallowCopyOp();
+
         /**
          * @param obj
          */
-        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcActionRequest(IfcActionRequest *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcActor(IfcActor *obj);
+        virtual bool visitIfcOrganization(IfcOrganization *obj);
         /**
          * @param obj
          */
@@ -5178,7 +6055,759 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcAddress(IfcAddress *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPerson(IfcPerson *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcNamedUnit(IfcNamedUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPlacement(IfcPlacement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGeometricRepresentationItem(IfcGeometricRepresentationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationItem(IfcRepresentationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentation(IfcRepresentation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMappedItem(IfcMappedItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianTransformationOperator(IfcCartesianTransformationOperator *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDirection(IfcDirection *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPoint(IfcPoint *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStyledItem(IfcStyledItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationStyle(IfcPresentationStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedItem(IfcPreDefinedItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcColourSpecification(IfcColourSpecification *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedColour(IfcPreDefinedColour *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVector(IfcVector *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationOccurrence(IfcAnnotationOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternalReference(IfcExternalReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyle(IfcTextStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedTextFont(IfcPreDefinedTextFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcColourRgb(IfcColourRgb *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceTexture(IfcSurfaceTexture *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSolidModel(IfcSolidModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurface(IfcSurface *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCsgPrimitive3D(IfcCsgPrimitive3D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassification(IfcClassification *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBoundedCurve(IfcBoundedCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurve(IfcCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEdge(IfcEdge *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTopologicalRepresentationItem(IfcTopologicalRepresentationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVertex(IfcVertex *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLocalTime(IfcLocalTime *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedSymbol(IfcPreDefinedSymbol *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterial(IfcMaterial *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialList(IfcMaterialList *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTable(IfcTable *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTableRow(IfcTableRow *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTimeSeries(IfcTimeSeries *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCostValue(IfcCostValue *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAppliedValue(IfcAppliedValue *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClosedShell(IfcClosedShell *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFace(IfcFace *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceBound(IfcFaceBound *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLoop(IfcLoop *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOpenShell(IfcOpenShell *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralItem(IfcStructuralItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProduct(IfcProduct *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObject(IfcObject *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObjectDefinition(IfcObjectDefinition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRoot(IfcRoot *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcApplication(IfcApplication *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssigns(IfcRelAssigns *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelationship(IfcRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDecomposes(IfcRelDecomposes *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefines(IfcRelDefines *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObjectPlacement(IfcObjectPlacement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnects(IfcRelConnects *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralActivity(IfcStructuralActivity *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralLoad(IfcStructuralLoad *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElement(IfcElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralMember(IfcStructuralMember *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralConnection(IfcStructuralConnection *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBoundaryCondition(IfcBoundaryCondition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralConnectionCondition(IfcStructuralConnectionCondition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElementSubtraction(IfcFeatureElementSubtraction *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElement(IfcFeatureElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConnectionGeometry(IfcConnectionGeometry *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCovering(IfcCovering *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElement(IfcBuildingElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpace(IfcSpace *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpatialStructureElement(IfcSpatialStructureElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSystem(IfcSystem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGroup(IfcGroup *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElementAddition(IfcFeatureElementAddition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPort(IfcPort *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcActionRequest(IfcActionRequest *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcControl(IfcControl *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcActor(IfcActor *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcActuatorType(IfcActuatorType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionControlElementType(IfcDistributionControlElementType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElementType(IfcElementType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTypeObject(IfcTypeObject *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertySetDefinition(IfcPropertySetDefinition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertyDefinition(IfcPropertyDefinition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj);
         /**
          * @param obj
          */
@@ -5186,11 +6815,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowControllerType(IfcFlowControllerType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionFlowElementType(IfcDistributionFlowElementType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAirTerminalType(IfcAirTerminalType *obj);
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowTerminalType(IfcFlowTerminalType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType *obj);
         /**
          * @param obj
          */
@@ -5202,11 +6847,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotation(IfcAnnotation *obj);
+        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj);
+        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotation(IfcAnnotation *obj);
         /**
          * @param obj
          */
@@ -5222,23 +6875,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcTextureCoordinate(IfcTextureCoordinate *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcApplication(IfcApplication *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj);
         /**
          * @param obj
          */
@@ -5250,15 +6891,31 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj);
         /**
          * @param obj
          */
+        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProperty(IfcProperty *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProfileDef(IfcProfileDef *obj);
         /**
          * @param obj
          */
@@ -5278,15 +6935,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcParameterizedProfileDef(IfcParameterizedProfileDef *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAxis1Placement(IfcAxis1Placement *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj);
+        virtual bool visitIfcBSplineCurve(IfcBSplineCurve *obj);
         /**
          * @param obj
          */
@@ -5295,6 +6956,10 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcBeamType(IfcBeamType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElementType(IfcBuildingElementType *obj);
         /**
          * @param obj
          */
@@ -5315,10 +6980,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj);
         /**
          * @param obj
          */
@@ -5354,6 +7015,14 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElementComponent(IfcBuildingElementComponent *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj);
         /**
          * @param obj
@@ -5378,23 +7047,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowFittingType(IfcFlowFittingType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj);
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowSegmentType(IfcFlowSegmentType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcCableSegmentType(IfcCableSegmentType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj);
         /**
          * @param obj
          */
@@ -5418,11 +7083,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcEdgeFeature(IfcEdgeFeature *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcChillerType(IfcChillerType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcCircle(IfcCircle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConic(IfcConic *obj);
         /**
          * @param obj
          */
@@ -5434,39 +7107,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcClassification(IfcClassification *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClosedShell(IfcClosedShell *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCoilType(IfcCoilType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcColourRgb(IfcColourRgb *obj);
         /**
          * @param obj
          */
@@ -5478,23 +7119,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcCompressorType(IfcCompressorType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *obj);
         /**
          * @param obj
          */
@@ -5507,10 +7140,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcConditionCriterion(IfcConditionCriterion *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj);
         /**
          * @param obj
          */
@@ -5534,7 +7163,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj);
+        virtual bool visitIfcConstraint(IfcConstraint *obj);
         /**
          * @param obj
          */
@@ -5546,7 +7175,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConstructionResource(IfcConstructionResource *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcResource(IfcResource *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj);
         /**
          * @param obj
          */
@@ -5578,23 +7227,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCostItem(IfcCostItem *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcCostSchedule(IfcCostSchedule *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCostValue(IfcCostValue *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCovering(IfcCovering *obj);
         /**
          * @param obj
          */
@@ -5634,27 +7271,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj);
+        virtual bool visitIfcPlane(IfcPlane *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj);
+        virtual bool visitIfcElementarySurface(IfcElementarySurface *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcDamperType(IfcDamperType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj);
         /**
          * @param obj
          */
@@ -5663,14 +7288,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj);
         /**
          * @param obj
          */
@@ -5686,7 +7303,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj);
+        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj);
         /**
          * @param obj
          */
@@ -5698,15 +7315,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDirection(IfcDirection *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElementComponent(IfcElementComponent *obj);
         /**
          * @param obj
          */
@@ -5714,23 +7327,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcElementComponentType(IfcElementComponentType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj);
         /**
          * @param obj
          */
@@ -5738,23 +7339,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDistributionPort(IfcDistributionPort *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj);
         /**
          * @param obj
          */
@@ -5766,19 +7367,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcShapeModel(IfcShapeModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcDoorStyle(IfcDoorStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj);
         /**
          * @param obj
          */
@@ -5806,15 +7411,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcEdge(IfcEdge *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj);
+        virtual bool visitIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcEdgeLoop(IfcEdgeLoop *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj);
         /**
          * @param obj
          */
@@ -5826,7 +7431,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowController(IfcFlowController *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *obj);
         /**
          * @param obj
          */
@@ -5850,6 +7463,10 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj);
         /**
          * @param obj
@@ -5866,6 +7483,14 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPhysicalQuantity(IfcPhysicalQuantity *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcEllipse(IfcEllipse *obj);
         /**
          * @param obj
@@ -5875,10 +7500,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj);
         /**
          * @param obj
          */
@@ -5906,19 +7527,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj);
+        virtual bool visitIfcMaterialProperties(IfcMaterialProperties *obj);
         /**
          * @param obj
          */
@@ -5926,15 +7535,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFace(IfcFace *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFaceBound(IfcFaceBound *obj);
+        virtual bool visitIfcSweptAreaSolid(IfcSweptAreaSolid *obj);
         /**
          * @param obj
          */
@@ -5942,11 +7543,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj);
+        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj);
+        virtual bool visitIfcManifoldSolidBrep(IfcManifoldSolidBrep *obj);
         /**
          * @param obj
          */
@@ -5970,31 +7571,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcFilterType(IfcFilterType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFlowController(IfcFlowController *obj);
         /**
          * @param obj
          */
@@ -6070,7 +7651,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcProfileProperties(IfcProfileProperties *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj);
         /**
          * @param obj
          */
@@ -6082,10 +7671,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcGrid(IfcGrid *obj);
         /**
          * @param obj
@@ -6094,15 +7679,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcGridPlacement(IfcGridPlacement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcGroup(IfcGroup *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj);
         /**
          * @param obj
          */
@@ -6115,10 +7696,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj);
         /**
          * @param obj
          */
@@ -6154,23 +7731,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcLightFixtureType(IfcLightFixtureType *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj);
+        virtual bool visitIfcLightSource(IfcLightSource *obj);
         /**
          * @param obj
          */
@@ -6202,55 +7767,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLocalTime(IfcLocalTime *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLoop(IfcLoop *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMappedItem(IfcMappedItem *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterial(IfcMaterial *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialList(IfcMaterialList *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj);
         /**
          * @param obj
          */
@@ -6262,11 +7783,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj);
+        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj);
+        virtual bool visitIfcRelaxation(IfcRelaxation *obj);
         /**
          * @param obj
          */
@@ -6282,15 +7803,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcMove(IfcMove *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTask(IfcTask *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProcess(IfcProcess *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelSequence(IfcRelSequence *obj);
         /**
          * @param obj
          */
@@ -6310,18 +7843,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOpenShell(IfcOpenShell *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj);
         /**
          * @param obj
@@ -6330,23 +7851,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganization(IfcOrganization *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcOutletType(IfcOutletType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj);
         /**
          * @param obj
          */
@@ -6366,15 +7871,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPerson(IfcPerson *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj);
+        virtual bool visitIfcPhysicalSimpleQuantity(IfcPhysicalSimpleQuantity *obj);
         /**
          * @param obj
          */
@@ -6399,10 +7896,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcPlanarExtent(IfcPlanarExtent *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPlane(IfcPlane *obj);
         /**
          * @param obj
          */
@@ -6434,10 +7927,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj);
         /**
          * @param obj
@@ -6450,27 +7939,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcProcedure(IfcProcedure *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj);
         /**
          * @param obj
          */
@@ -6482,11 +7955,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcProjectOrder(IfcProjectOrder *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj);
         /**
          * @param obj
          */
@@ -6502,11 +7983,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
+        virtual bool visitIfcSimpleProperty(IfcSimpleProperty *obj);
         /**
          * @param obj
          */
@@ -6618,11 +8095,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj);
+        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj);
+        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj);
         /**
          * @param obj
          */
@@ -6634,7 +8111,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcReinforcingBar(IfcReinforcingBar *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcReinforcingElement(IfcReinforcingElement *obj);
         /**
          * @param obj
          */
@@ -6650,35 +8139,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj);
+        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj);
         /**
          * @param obj
          */
@@ -6714,31 +8175,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj);
         /**
          * @param obj
          */
@@ -6746,39 +8183,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj);
         /**
          * @param obj
          */
@@ -6794,47 +8203,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelSequence(IfcRelSequence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelaxation(IfcRelaxation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentation(IfcRepresentation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj);
         /**
          * @param obj
          */
@@ -6874,18 +8243,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSectionedSpine(IfcSectionedSpine *obj);
         /**
          * @param obj
@@ -6899,10 +8256,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj);
         /**
          * @param obj
          */
@@ -6938,15 +8291,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcSpace(IfcSpace *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj);
         /**
          * @param obj
          */
@@ -6955,6 +8300,10 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcSpaceType(IfcSpaceType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpatialStructureElementType(IfcSpatialStructureElementType *obj);
         /**
          * @param obj
          */
@@ -6978,7 +8327,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcStructuralAction(IfcStructuralAction *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralReaction(IfcStructuralReaction *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj);
         /**
          * @param obj
          */
@@ -7002,11 +8367,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj);
+        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj);
+        virtual bool visitIfcStructuralLoadStatic(IfcStructuralLoadStatic *obj);
         /**
          * @param obj
          */
@@ -7058,10 +8423,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj);
         /**
          * @param obj
@@ -7082,7 +8443,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledItem(IfcStyledItem *obj);
+        virtual bool visitIfcStyleModel(IfcStyleModel *obj);
         /**
          * @param obj
          */
@@ -7106,31 +8467,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcSweptSurface(IfcSweptSurface *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj);
         /**
          * @param obj
          */
@@ -7142,14 +8487,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSystem(IfcSystem *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj);
         /**
          * @param obj
@@ -7158,19 +8495,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTable(IfcTable *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTableRow(IfcTableRow *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTankType(IfcTankType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTask(IfcTask *obj);
         /**
          * @param obj
          */
@@ -7186,10 +8511,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTextLiteral(IfcTextLiteral *obj);
         /**
          * @param obj
@@ -7198,23 +8519,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyle(IfcTextStyle *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj);
         /**
          * @param obj
          */
@@ -7226,6 +8531,10 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcTextureVertex(IfcTextureVertex *obj);
         /**
          * @param obj
@@ -7234,15 +8543,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj);
         /**
          * @param obj
          */
@@ -7278,19 +8579,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeObject(IfcTypeObject *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj);
         /**
          * @param obj
          */
@@ -7302,23 +8591,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcVector(IfcVector *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertex(IfcVertex *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcVertexLoop(IfcVertexLoop *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj);
         /**
          * @param obj
          */
@@ -7327,10 +8600,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcVirtualElement(IfcVirtualElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj);
         /**
          * @param obj
          */
@@ -7367,6 +8636,10 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcWindowStyle(IfcWindowStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcWorkControl(IfcWorkControl *obj);
         /**
          * @param obj
          */
@@ -7383,12 +8656,11 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcZone(IfcZone *obj);
-
     };
 
     /**
      * Returns the reparent to ExpressDataSet.
-     * 
+     *
      * The clone can be used independently of the original object. In other words, a deep copy contains copies not only of instance variables but, also, of any objects pointed to by reference variables.
      * Here is an example of code performing a deep copy of the Nrf_network_model:
      * @code
@@ -7401,27 +8673,18 @@ namespace ifc2x3 {
      * Step::RefPtr< tas_arm::Mgm_disc > reparent_obj = dataset.cloneMgm_disc(*theDisc.get(),ReparentCopyOp(&copy_dataset));
      * @endcode
      * In this example, with the reparent copy the disc will be attached to the copy_dataset and not anymore to the entity dataset.
-     * 
+     *
      */
-    class IFC2X3_EXPORT ReparentCopyOp : public DeepCopyOp {
+    class IFC2X3_EXPORT ReparentCopyOp : public DeepCopyOp
+    {
     public:
-        /**
-         * @param dataset
-         */
         ReparentCopyOp(ExpressDataSet *dataset);
         virtual ~ReparentCopyOp();
+
         /**
          * @param obj
          */
-        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcActionRequest(IfcActionRequest *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcActor(IfcActor *obj);
+        virtual bool visitIfcOrganization(IfcOrganization *obj);
         /**
          * @param obj
          */
@@ -7429,7 +8692,759 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcAddress(IfcAddress *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPerson(IfcPerson *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcNamedUnit(IfcNamedUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPlacement(IfcPlacement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGeometricRepresentationItem(IfcGeometricRepresentationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationItem(IfcRepresentationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentation(IfcRepresentation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMappedItem(IfcMappedItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianTransformationOperator(IfcCartesianTransformationOperator *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDirection(IfcDirection *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPoint(IfcPoint *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStyledItem(IfcStyledItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPresentationStyle(IfcPresentationStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedItem(IfcPreDefinedItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcColourSpecification(IfcColourSpecification *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedColour(IfcPreDefinedColour *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVector(IfcVector *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationOccurrence(IfcAnnotationOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternalReference(IfcExternalReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyle(IfcTextStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedTextFont(IfcPreDefinedTextFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcColourRgb(IfcColourRgb *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceTexture(IfcSurfaceTexture *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSolidModel(IfcSolidModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSurface(IfcSurface *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCsgPrimitive3D(IfcCsgPrimitive3D *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassification(IfcClassification *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBoundedCurve(IfcBoundedCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCurve(IfcCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEdge(IfcEdge *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTopologicalRepresentationItem(IfcTopologicalRepresentationItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVertex(IfcVertex *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLocalTime(IfcLocalTime *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPreDefinedSymbol(IfcPreDefinedSymbol *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterial(IfcMaterial *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialList(IfcMaterialList *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTable(IfcTable *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTableRow(IfcTableRow *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTimeSeries(IfcTimeSeries *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCostValue(IfcCostValue *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAppliedValue(IfcAppliedValue *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcClosedShell(IfcClosedShell *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFace(IfcFace *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceBound(IfcFaceBound *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLoop(IfcLoop *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOpenShell(IfcOpenShell *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralItem(IfcStructuralItem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProduct(IfcProduct *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObject(IfcObject *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObjectDefinition(IfcObjectDefinition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRoot(IfcRoot *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcApplication(IfcApplication *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssigns(IfcRelAssigns *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelationship(IfcRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDecomposes(IfcRelDecomposes *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefines(IfcRelDefines *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcObjectPlacement(IfcObjectPlacement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnects(IfcRelConnects *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralActivity(IfcStructuralActivity *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralLoad(IfcStructuralLoad *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElement(IfcElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralMember(IfcStructuralMember *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralConnection(IfcStructuralConnection *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBoundaryCondition(IfcBoundaryCondition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralConnectionCondition(IfcStructuralConnectionCondition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElementSubtraction(IfcFeatureElementSubtraction *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElement(IfcFeatureElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConnectionGeometry(IfcConnectionGeometry *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCovering(IfcCovering *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElement(IfcBuildingElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpace(IfcSpace *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpatialStructureElement(IfcSpatialStructureElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSystem(IfcSystem *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGroup(IfcGroup *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFeatureElementAddition(IfcFeatureElementAddition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPort(IfcPort *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfc2DCompositeCurve(Ifc2DCompositeCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcActionRequest(IfcActionRequest *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcControl(IfcControl *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcActor(IfcActor *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcActuatorType(IfcActuatorType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionControlElementType(IfcDistributionControlElementType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElementType(IfcElementType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTypeObject(IfcTypeObject *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertySetDefinition(IfcPropertySetDefinition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertyDefinition(IfcPropertyDefinition *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj);
         /**
          * @param obj
          */
@@ -7437,11 +9452,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowControllerType(IfcFlowControllerType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionFlowElementType(IfcDistributionFlowElementType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAirTerminalType(IfcAirTerminalType *obj);
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowTerminalType(IfcFlowTerminalType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType *obj);
         /**
          * @param obj
          */
@@ -7453,11 +9484,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotation(IfcAnnotation *obj);
+        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *obj);
+        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcAnnotation(IfcAnnotation *obj);
         /**
          * @param obj
          */
@@ -7473,23 +9512,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcTextureCoordinate(IfcTextureCoordinate *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcApplication(IfcApplication *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *obj);
         /**
          * @param obj
          */
@@ -7501,15 +9528,31 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcApprovalRelationship(IfcApprovalRelationship *obj);
         /**
          * @param obj
          */
+        virtual bool visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProperty(IfcProperty *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProfileDef(IfcProfileDef *obj);
         /**
          * @param obj
          */
@@ -7529,15 +9572,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcParameterizedProfileDef(IfcParameterizedProfileDef *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcAxis1Placement(IfcAxis1Placement *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcAxis2Placement2D(IfcAxis2Placement2D *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *obj);
+        virtual bool visitIfcBSplineCurve(IfcBSplineCurve *obj);
         /**
          * @param obj
          */
@@ -7546,6 +9593,10 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcBeamType(IfcBeamType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElementType(IfcBuildingElementType *obj);
         /**
          * @param obj
          */
@@ -7566,10 +9617,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcBooleanClippingResult(IfcBooleanClippingResult *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcBooleanResult(IfcBooleanResult *obj);
         /**
          * @param obj
          */
@@ -7605,6 +9652,14 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcBuildingElementComponent(IfcBuildingElementComponent *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcBuildingElementPart(IfcBuildingElementPart *obj);
         /**
          * @param obj
@@ -7629,23 +9684,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowFittingType(IfcFlowFittingType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *obj);
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowSegmentType(IfcFlowSegmentType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcCableSegmentType(IfcCableSegmentType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCalendarDate(IfcCalendarDate *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCartesianPoint(IfcCartesianPoint *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *obj);
         /**
          * @param obj
          */
@@ -7669,11 +9720,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcEdgeFeature(IfcEdgeFeature *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcChillerType(IfcChillerType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcCircle(IfcCircle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConic(IfcConic *obj);
         /**
          * @param obj
          */
@@ -7685,39 +9744,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcClassification(IfcClassification *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationItem(IfcClassificationItem *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationNotation(IfcClassificationNotation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClassificationReference(IfcClassificationReference *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcClosedShell(IfcClosedShell *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCoilType(IfcCoilType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcColourRgb(IfcColourRgb *obj);
         /**
          * @param obj
          */
@@ -7729,23 +9756,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcComplexProperty(IfcComplexProperty *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCompositeCurve(IfcCompositeCurve *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcCompressorType(IfcCompressorType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *obj);
         /**
          * @param obj
          */
@@ -7758,10 +9777,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcConditionCriterion(IfcConditionCriterion *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *obj);
         /**
          * @param obj
          */
@@ -7785,7 +9800,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj);
+        virtual bool visitIfcConstraint(IfcConstraint *obj);
         /**
          * @param obj
          */
@@ -7797,7 +9812,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcConstructionResource(IfcConstructionResource *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcResource(IfcResource *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj);
         /**
          * @param obj
          */
@@ -7829,23 +9864,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcCostItem(IfcCostItem *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcCostSchedule(IfcCostSchedule *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCostValue(IfcCostValue *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCovering(IfcCovering *obj);
         /**
          * @param obj
          */
@@ -7885,27 +9908,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyle(IfcCurveStyle *obj);
+        virtual bool visitIfcPlane(IfcPlane *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *obj);
+        virtual bool visitIfcElementarySurface(IfcElementarySurface *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcDamperType(IfcDamperType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDateAndTime(IfcDateAndTime *obj);
         /**
          * @param obj
          */
@@ -7914,14 +9925,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDerivedUnit(IfcDerivedUnit *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDerivedUnitElement(IfcDerivedUnitElement *obj);
         /**
          * @param obj
          */
@@ -7937,7 +9940,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *obj);
+        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj);
         /**
          * @param obj
          */
@@ -7949,15 +9952,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDirection(IfcDirection *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcDiscreteAccessory(IfcDiscreteAccessory *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcElementComponent(IfcElementComponent *obj);
         /**
          * @param obj
          */
@@ -7965,23 +9964,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcElementComponentType(IfcElementComponentType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDistributionElementType(IfcDistributionElementType *obj);
         /**
          * @param obj
          */
@@ -7989,23 +9976,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcDistributionElement(IfcDistributionElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionControlElement(IfcDistributionControlElement *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDistributionPort(IfcDistributionPort *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentInformation(IfcDocumentInformation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDocumentReference(IfcDocumentReference *obj);
         /**
          * @param obj
          */
@@ -8017,19 +10004,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcShapeModel(IfcShapeModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcDoorStyle(IfcDoorStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDraughtingCallout(IfcDraughtingCallout *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *obj);
         /**
          * @param obj
          */
@@ -8057,15 +10048,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcEdge(IfcEdge *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcEdgeCurve(IfcEdgeCurve *obj);
+        virtual bool visitIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcEdgeLoop(IfcEdgeLoop *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj);
         /**
          * @param obj
          */
@@ -8077,7 +10068,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcFlowController(IfcFlowController *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *obj);
         /**
          * @param obj
          */
@@ -8101,6 +10100,10 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcElectricalCircuit(IfcElectricalCircuit *obj);
         /**
          * @param obj
@@ -8117,6 +10120,14 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcPhysicalQuantity(IfcPhysicalQuantity *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcEllipse(IfcEllipse *obj);
         /**
          * @param obj
@@ -8126,10 +10137,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcEnergyConversionDevice(IfcEnergyConversionDevice *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcEnergyProperties(IfcEnergyProperties *obj);
         /**
          * @param obj
          */
@@ -8157,19 +10164,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *obj);
+        virtual bool visitIfcMaterialProperties(IfcMaterialProperties *obj);
         /**
          * @param obj
          */
@@ -8177,15 +10172,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFace(IfcFace *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFaceBound(IfcFaceBound *obj);
+        virtual bool visitIfcSweptAreaSolid(IfcSweptAreaSolid *obj);
         /**
          * @param obj
          */
@@ -8193,11 +10180,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFaceSurface(IfcFaceSurface *obj);
+        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcFacetedBrep(IfcFacetedBrep *obj);
+        virtual bool visitIfcManifoldSolidBrep(IfcManifoldSolidBrep *obj);
         /**
          * @param obj
          */
@@ -8221,31 +10208,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcFilterType(IfcFilterType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcFlowController(IfcFlowController *obj);
         /**
          * @param obj
          */
@@ -8321,7 +10288,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcProfileProperties(IfcProfileProperties *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcGeometricCurveSet(IfcGeometricCurveSet *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj);
         /**
          * @param obj
          */
@@ -8333,10 +10308,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcGeometricSet(IfcGeometricSet *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcGrid(IfcGrid *obj);
         /**
          * @param obj
@@ -8345,15 +10316,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcGridPlacement(IfcGridPlacement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcGroup(IfcGroup *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *obj);
         /**
          * @param obj
          */
@@ -8366,10 +10333,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *obj);
         /**
          * @param obj
          */
@@ -8405,23 +10368,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcLibraryInformation(IfcLibraryInformation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLibraryReference(IfcLibraryReference *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLightDistributionData(IfcLightDistributionData *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcLightFixtureType(IfcLightFixtureType *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *obj);
+        virtual bool visitIfcLightSource(IfcLightSource *obj);
         /**
          * @param obj
          */
@@ -8453,55 +10404,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcLocalPlacement(IfcLocalPlacement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLocalTime(IfcLocalTime *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcLoop(IfcLoop *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMappedItem(IfcMappedItem *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterial(IfcMaterial *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayer(IfcMaterialLayer *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMaterialList(IfcMaterialList *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcMeasureWithUnit(IfcMeasureWithUnit *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj);
         /**
          * @param obj
          */
@@ -8513,11 +10420,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *obj);
+        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *obj);
+        virtual bool visitIfcRelaxation(IfcRelaxation *obj);
         /**
          * @param obj
          */
@@ -8533,15 +10440,27 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcMotorConnectionType(IfcMotorConnectionType *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcMove(IfcMove *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcTask(IfcTask *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcProcess(IfcProcess *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelSequence(IfcRelSequence *obj);
         /**
          * @param obj
          */
@@ -8561,18 +10480,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOpenShell(IfcOpenShell *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOpeningElement(IfcOpeningElement *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *obj);
         /**
          * @param obj
@@ -8581,23 +10488,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcOrganization(IfcOrganization *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOrganizationRelationship(IfcOrganizationRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOrientedEdge(IfcOrientedEdge *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcOutletType(IfcOutletType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcOwnerHistory(IfcOwnerHistory *obj);
         /**
          * @param obj
          */
@@ -8617,15 +10508,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPerson(IfcPerson *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPersonAndOrganization(IfcPersonAndOrganization *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *obj);
+        virtual bool visitIfcPhysicalSimpleQuantity(IfcPhysicalSimpleQuantity *obj);
         /**
          * @param obj
          */
@@ -8650,10 +10533,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcPlanarExtent(IfcPlanarExtent *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPlane(IfcPlane *obj);
         /**
          * @param obj
          */
@@ -8685,10 +10564,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPostalAddress(IfcPostalAddress *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *obj);
         /**
          * @param obj
@@ -8701,27 +10576,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcProcedure(IfcProcedure *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcProductDefinitionShape(IfcProductDefinitionShape *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcProductRepresentation(IfcProductRepresentation *obj);
         /**
          * @param obj
          */
@@ -8733,11 +10592,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcProjectOrder(IfcProjectOrder *obj);
         /**
          * @param obj
          */
         virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj);
         /**
          * @param obj
          */
@@ -8753,11 +10620,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
+        virtual bool visitIfcSimpleProperty(IfcSimpleProperty *obj);
         /**
          * @param obj
          */
@@ -8869,11 +10732,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcReferencesValueDocument(IfcReferencesValueDocument *obj);
+        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *obj);
+        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj);
         /**
          * @param obj
          */
@@ -8885,7 +10748,19 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcReinforcingBar(IfcReinforcingBar *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcReinforcingElement(IfcReinforcingElement *obj);
         /**
          * @param obj
          */
@@ -8901,35 +10776,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelAssignsToActor(IfcRelAssignsToActor *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToControl(IfcRelAssignsToControl *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssignsToResource(IfcRelAssignsToResource *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelAssociates(IfcRelAssociates *obj);
+        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj);
         /**
          * @param obj
          */
@@ -8965,31 +10812,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *obj);
         /**
          * @param obj
          */
@@ -8997,39 +10820,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelCoversSpaces(IfcRelCoversSpaces *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelDefinesByType(IfcRelDefinesByType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelFillsElement(IfcRelFillsElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelFlowControlElements(IfcRelFlowControlElements *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelInteractionRequirements(IfcRelInteractionRequirements *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj);
         /**
          * @param obj
          */
@@ -9045,47 +10840,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcRelProjectsElement(IfcRelProjectsElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelSequence(IfcRelSequence *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRelaxation(IfcRelaxation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentation(IfcRepresentation *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentationContext(IfcRepresentationContext *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcRepresentationMap(IfcRepresentationMap *obj);
         /**
          * @param obj
          */
@@ -9125,18 +10880,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSectionProperties(IfcSectionProperties *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSectionedSpine(IfcSectionedSpine *obj);
         /**
          * @param obj
@@ -9150,10 +10893,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcServiceLifeFactor(IfcServiceLifeFactor *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcShapeAspect(IfcShapeAspect *obj);
         /**
          * @param obj
          */
@@ -9189,15 +10928,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcSpace(IfcSpace *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSpaceHeaterType(IfcSpaceHeaterType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSpaceProgram(IfcSpaceProgram *obj);
         /**
          * @param obj
          */
@@ -9206,6 +10937,10 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcSpaceType(IfcSpaceType *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcSpatialStructureElementType(IfcSpatialStructureElementType *obj);
         /**
          * @param obj
          */
@@ -9229,7 +10964,23 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcStructuralAction(IfcStructuralAction *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralReaction(IfcStructuralReaction *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj);
         /**
          * @param obj
          */
@@ -9253,11 +11004,11 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *obj);
+        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *obj);
+        virtual bool visitIfcStructuralLoadStatic(IfcStructuralLoadStatic *obj);
         /**
          * @param obj
          */
@@ -9309,10 +11060,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStructuralResultGroup(IfcStructuralResultGroup *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *obj);
         /**
          * @param obj
@@ -9333,7 +11080,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcStyledItem(IfcStyledItem *obj);
+        virtual bool visitIfcStyleModel(IfcStyleModel *obj);
         /**
          * @param obj
          */
@@ -9357,31 +11104,15 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcSweptSurface(IfcSweptSurface *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *obj);
         /**
          * @param obj
          */
-        virtual bool visitIfcSurfaceStyle(IfcSurfaceStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *obj);
         /**
          * @param obj
          */
@@ -9393,14 +11124,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcSymbolStyle(IfcSymbolStyle *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcSystem(IfcSystem *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *obj);
         /**
          * @param obj
@@ -9409,19 +11132,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTable(IfcTable *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTableRow(IfcTableRow *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTankType(IfcTankType *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTask(IfcTask *obj);
         /**
          * @param obj
          */
@@ -9437,10 +11148,6 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTextLiteral(IfcTextLiteral *obj);
         /**
          * @param obj
@@ -9449,23 +11156,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTextStyle(IfcTextStyle *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTextStyleFontModel(IfcTextStyleFontModel *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleTextModel(IfcTextStyleTextModel *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *obj);
         /**
          * @param obj
          */
@@ -9477,6 +11168,10 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
+        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcTextureVertex(IfcTextureVertex *obj);
         /**
          * @param obj
@@ -9485,15 +11180,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTimeSeriesValue(IfcTimeSeriesValue *obj);
         /**
          * @param obj
          */
@@ -9529,19 +11216,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcTypeObject(IfcTypeObject *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcTypeProduct(IfcTypeProduct *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcUnitAssignment(IfcUnitAssignment *obj);
         /**
          * @param obj
          */
@@ -9553,23 +11228,7 @@ namespace ifc2x3 {
         /**
          * @param obj
          */
-        virtual bool visitIfcVector(IfcVector *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertex(IfcVertex *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *obj);
-        /**
-         * @param obj
-         */
         virtual bool visitIfcVertexLoop(IfcVertexLoop *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVertexPoint(IfcVertexPoint *obj);
         /**
          * @param obj
          */
@@ -9578,10 +11237,6 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcVirtualElement(IfcVirtualElement *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *obj);
         /**
          * @param obj
          */
@@ -9618,6 +11273,10 @@ namespace ifc2x3 {
          * @param obj
          */
         virtual bool visitIfcWindowStyle(IfcWindowStyle *obj);
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcWorkControl(IfcWorkControl *obj);
         /**
          * @param obj
          */
@@ -9638,15 +11297,11 @@ namespace ifc2x3 {
     protected:
         /**
          * A pointer to the ExpressDataSet to reparetn to.
-         * 
+         *
          */
         ExpressDataSet *_dataset;
         /**
          */
         virtual ExpressDataSet *getExpressDataSet() const;
-
     };
-
 }
-
-#endif // IFC2X3_COPYOP_H

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,121 +24,128 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcAirTerminalType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcFlowTerminalType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcAirTerminalType::IfcAirTerminalType(Step::Id id, Step::SPFData *args) : IfcFlowTerminalType(id, args) {
-    m_predefinedType = IfcAirTerminalTypeEnum_UNSET;
+IfcAirTerminalType::IfcAirTerminalType(Step::Id id, Step::SPFData *args) : 
+    IfcFlowTerminalType(id, args)
+{
+    m_PredefinedType = IfcAirTerminalTypeEnum_UNSET;
 }
 
-IfcAirTerminalType::~IfcAirTerminalType() {
+IfcAirTerminalType::~IfcAirTerminalType()
+{}
+
+bool IfcAirTerminalType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcAirTerminalType(this);
 }
 
-bool IfcAirTerminalType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcAirTerminalType(this);
-}
 
-const std::string &IfcAirTerminalType::type() const {
-    return IfcAirTerminalType::s_type.getName();
-}
-
-const Step::ClassType &IfcAirTerminalType::getClassType() {
-    return IfcAirTerminalType::s_type;
-}
-
-const Step::ClassType &IfcAirTerminalType::getType() const {
-    return IfcAirTerminalType::s_type;
-}
-
-bool IfcAirTerminalType::isOfType(const Step::ClassType &t) const {
-    return IfcAirTerminalType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
-}
-
-IfcAirTerminalTypeEnum IfcAirTerminalType::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcAirTerminalTypeEnum IfcAirTerminalType::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcAirTerminalTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcAirTerminalTypeEnum IfcAirTerminalType::getPredefinedType() const {
-    IfcAirTerminalType * deConstObject = const_cast< IfcAirTerminalType * > (this);
-    return deConstObject->getPredefinedType();
+IfcAirTerminalTypeEnum IfcAirTerminalType::getPredefinedType() const
+{
+    return const_cast<IfcAirTerminalType *>(this)->getPredefinedType();
 }
 
-void IfcAirTerminalType::setPredefinedType(IfcAirTerminalTypeEnum value) {
-    m_predefinedType = value;
+void IfcAirTerminalType::setPredefinedType(IfcAirTerminalTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcAirTerminalType::unsetPredefinedType() {
-    m_predefinedType = IfcAirTerminalTypeEnum_UNSET;
+void IfcAirTerminalType::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcAirTerminalTypeEnum_UNSET;
 }
 
-bool IfcAirTerminalType::testPredefinedType() const {
-    return getPredefinedType() != IfcAirTerminalTypeEnum_UNSET;
+bool IfcAirTerminalType::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcAirTerminalType::init() {
-    bool status = IfcFlowTerminalType::init();
-    std::string arg;
-    if (!status) {
+bool IfcAirTerminalType::init()
+{
+    if (IfcFlowTerminalType::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcAirTerminalTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcAirTerminalTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".GRILLE.") {
-            m_predefinedType = IfcAirTerminalTypeEnum_GRILLE;
+    else
+    {
+        if (arg == ".GRILLE.")
+        {
+            m_PredefinedType = IfcAirTerminalTypeEnum_GRILLE;
         }
-        else if (arg == ".REGISTER.") {
-            m_predefinedType = IfcAirTerminalTypeEnum_REGISTER;
+        else if (arg == ".REGISTER.")
+        {
+            m_PredefinedType = IfcAirTerminalTypeEnum_REGISTER;
         }
-        else if (arg == ".DIFFUSER.") {
-            m_predefinedType = IfcAirTerminalTypeEnum_DIFFUSER;
+        else if (arg == ".DIFFUSER.")
+        {
+            m_PredefinedType = IfcAirTerminalTypeEnum_DIFFUSER;
         }
-        else if (arg == ".EYEBALL.") {
-            m_predefinedType = IfcAirTerminalTypeEnum_EYEBALL;
+        else if (arg == ".EYEBALL.")
+        {
+            m_PredefinedType = IfcAirTerminalTypeEnum_EYEBALL;
         }
-        else if (arg == ".IRIS.") {
-            m_predefinedType = IfcAirTerminalTypeEnum_IRIS;
+        else if (arg == ".IRIS.")
+        {
+            m_PredefinedType = IfcAirTerminalTypeEnum_IRIS;
         }
-        else if (arg == ".LINEARGRILLE.") {
-            m_predefinedType = IfcAirTerminalTypeEnum_LINEARGRILLE;
+        else if (arg == ".LINEARGRILLE.")
+        {
+            m_PredefinedType = IfcAirTerminalTypeEnum_LINEARGRILLE;
         }
-        else if (arg == ".LINEARDIFFUSER.") {
-            m_predefinedType = IfcAirTerminalTypeEnum_LINEARDIFFUSER;
+        else if (arg == ".LINEARDIFFUSER.")
+        {
+            m_PredefinedType = IfcAirTerminalTypeEnum_LINEARDIFFUSER;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcAirTerminalTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcAirTerminalTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcAirTerminalTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcAirTerminalTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcAirTerminalType::copy(const IfcAirTerminalType &obj, const CopyOp &copyop) {
+void IfcAirTerminalType::copy(const IfcAirTerminalType &obj, const CopyOp &copyop)
+{
     IfcFlowTerminalType::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAirTerminalType::s_type("IfcAirTerminalType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcAirTerminalType, IfcFlowTerminalType)

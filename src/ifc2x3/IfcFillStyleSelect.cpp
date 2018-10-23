@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,97 +24,87 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcFillStyleSelect.h>
 
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcColourSpecification.h>
-#include <ifc2x3/IfcExternallyDefinedHatchStyle.h>
+#include <ifc2x3/Visitor.h>
+
 #include <ifc2x3/IfcFillAreaStyleHatching.h>
 #include <ifc2x3/IfcFillAreaStyleTiles.h>
+#include <ifc2x3/IfcColourSpecification.h>
 #include <ifc2x3/IfcPreDefinedColour.h>
-#include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
+#include <ifc2x3/IfcExternallyDefinedHatchStyle.h>
 
 
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcFillStyleSelect::IfcFillStyleSelect() : Step::BaseObject(0) {
+IfcFillStyleSelect::IfcFillStyleSelect() : Step::BaseObject(0)
+{
     m_type = UNSET;
 }
 
-IfcFillStyleSelect::IfcFillStyleSelect(Step::SPFData *args) : Step::BaseObject(args) {
+IfcFillStyleSelect::IfcFillStyleSelect(Step::SPFData *args) : Step::BaseObject(args)
+{
     m_type = UNSET;
 }
 
-IfcFillStyleSelect::~IfcFillStyleSelect() {
+IfcFillStyleSelect::~IfcFillStyleSelect()
+{
     deleteUnion();
 }
 
-bool IfcFillStyleSelect::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcFillStyleSelect(this);
+bool IfcFillStyleSelect::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcFillStyleSelect(this);
 }
 
-bool IfcFillStyleSelect::init() {
+bool IfcFillStyleSelect::init()
+{
     return false;
 }
 
-const std::string &IfcFillStyleSelect::type() const {
-    return IfcFillStyleSelect::s_type.getName();
-}
-
-const Step::ClassType &IfcFillStyleSelect::getClassType() {
-    return IfcFillStyleSelect::s_type;
-}
-
-const Step::ClassType &IfcFillStyleSelect::getType() const {
-    return IfcFillStyleSelect::s_type;
-}
-
-bool IfcFillStyleSelect::isOfType(const Step::ClassType &t) const {
-    return IfcFillStyleSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-void IfcFillStyleSelect::copy(const IfcFillStyleSelect &obj, const CopyOp &copyop) {
-    switch(obj.m_type) {
-    case IFCFILLAREASTYLEHATCHING:
-        setIfcFillAreaStyleHatching((IfcFillAreaStyleHatching *) (copyop(obj.m_IfcFillStyleSelect_union.m_IfcFillAreaStyleHatching)));
+void IfcFillStyleSelect::copy(const IfcFillStyleSelect &obj, const CopyOp &copyop)
+{
+    switch(obj.m_type)
+    {
+    case IFCFILLAREASTYLEHATCHING :
+        setIfcFillAreaStyleHatching((IfcFillAreaStyleHatching*)(copyop(obj.m_union.m_IfcFillAreaStyleHatching)));
         break;
-    case IFCFILLAREASTYLETILES:
-        setIfcFillAreaStyleTiles((IfcFillAreaStyleTiles *) (copyop(obj.m_IfcFillStyleSelect_union.m_IfcFillAreaStyleTiles)));
+    case IFCFILLAREASTYLETILES :
+        setIfcFillAreaStyleTiles((IfcFillAreaStyleTiles*)(copyop(obj.m_union.m_IfcFillAreaStyleTiles)));
         break;
-    case IFCCOLOURSPECIFICATION:
-        setIfcColourSpecification((IfcColourSpecification *) (copyop(obj.m_IfcFillStyleSelect_union.m_IfcColourSpecification)));
+    case IFCCOLOURSPECIFICATION :
+        setIfcColourSpecification((IfcColourSpecification*)(copyop(obj.m_union.m_IfcColourSpecification)));
         break;
-    case IFCPREDEFINEDCOLOUR:
-        setIfcPreDefinedColour((IfcPreDefinedColour *) (copyop(obj.m_IfcFillStyleSelect_union.m_IfcPreDefinedColour)));
+    case IFCPREDEFINEDCOLOUR :
+        setIfcPreDefinedColour((IfcPreDefinedColour*)(copyop(obj.m_union.m_IfcPreDefinedColour)));
         break;
-    case IFCEXTERNALLYDEFINEDHATCHSTYLE:
-        setIfcExternallyDefinedHatchStyle((IfcExternallyDefinedHatchStyle *) (copyop(obj.m_IfcFillStyleSelect_union.m_IfcExternallyDefinedHatchStyle)));
+    case IFCEXTERNALLYDEFINEDHATCHSTYLE :
+        setIfcExternallyDefinedHatchStyle((IfcExternallyDefinedHatchStyle*)(copyop(obj.m_union.m_IfcExternallyDefinedHatchStyle)));
         break;
     default:
         break;
     }
 }
 
-std::string IfcFillStyleSelect::currentTypeName() const {
-    switch(m_type) {
-    case IFCFILLAREASTYLEHATCHING:
+std::string IfcFillStyleSelect::currentTypeName() const
+{
+    switch(m_type)
+    {
+    case IFCFILLAREASTYLEHATCHING :
         return "IfcFillAreaStyleHatching";
         break;
-    case IFCFILLAREASTYLETILES:
+    case IFCFILLAREASTYLETILES :
         return "IfcFillAreaStyleTiles";
         break;
-    case IFCCOLOURSPECIFICATION:
+    case IFCCOLOURSPECIFICATION :
         return "IfcColourSpecification";
         break;
-    case IFCPREDEFINEDCOLOUR:
+    case IFCPREDEFINEDCOLOUR :
         return "IfcPreDefinedColour";
         break;
-    case IFCEXTERNALLYDEFINEDHATCHSTYLE:
+    case IFCEXTERNALLYDEFINEDHATCHSTYLE :
         return "IfcExternallyDefinedHatchStyle";
         break;
     default:
@@ -113,26 +112,29 @@ std::string IfcFillStyleSelect::currentTypeName() const {
     }
 }
 
-IfcFillStyleSelect::IfcFillStyleSelect_select IfcFillStyleSelect::currentType() const {
+IfcFillStyleSelect::IfcFillStyleSelect_select IfcFillStyleSelect::currentType() const 
+{
     return m_type;
 }
 
-void IfcFillStyleSelect::deleteUnion() {
-    switch(m_type) {
-    case IFCFILLAREASTYLEHATCHING:
-        m_IfcFillStyleSelect_union.m_IfcFillAreaStyleHatching->unref();
+void IfcFillStyleSelect::deleteUnion() 
+{ 
+    switch(m_type)
+    {
+    case IFCFILLAREASTYLEHATCHING :
+        m_union.m_IfcFillAreaStyleHatching->unref();
         break;
-    case IFCFILLAREASTYLETILES:
-        m_IfcFillStyleSelect_union.m_IfcFillAreaStyleTiles->unref();
+    case IFCFILLAREASTYLETILES :
+        m_union.m_IfcFillAreaStyleTiles->unref();
         break;
-    case IFCCOLOURSPECIFICATION:
-        m_IfcFillStyleSelect_union.m_IfcColourSpecification->unref();
+    case IFCCOLOURSPECIFICATION :
+        m_union.m_IfcColourSpecification->unref();
         break;
-    case IFCPREDEFINEDCOLOUR:
-        m_IfcFillStyleSelect_union.m_IfcPreDefinedColour->unref();
+    case IFCPREDEFINEDCOLOUR :
+        m_union.m_IfcPreDefinedColour->unref();
         break;
-    case IFCEXTERNALLYDEFINEDHATCHSTYLE:
-        m_IfcFillStyleSelect_union.m_IfcExternallyDefinedHatchStyle->unref();
+    case IFCEXTERNALLYDEFINEDHATCHSTYLE :
+        m_union.m_IfcExternallyDefinedHatchStyle->unref();
         break;
     default:
         break;
@@ -140,142 +142,178 @@ void IfcFillStyleSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcFillAreaStyleHatching *IfcFillStyleSelect::getIfcFillAreaStyleHatching() const {
-    if (m_type == IFCFILLAREASTYLEHATCHING) {
-        return m_IfcFillStyleSelect_union.m_IfcFillAreaStyleHatching;
+
+IfcFillAreaStyleHatching *IfcFillStyleSelect::getIfcFillAreaStyleHatching() const
+{
+    if (m_type == IFCFILLAREASTYLEHATCHING ) 
+    {
+        return m_union.m_IfcFillAreaStyleHatching;
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-void IfcFillStyleSelect::setIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *value) {
-    if (m_type != UNSET) {
+void IfcFillStyleSelect::setIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *value)
+{
+    if (m_type != UNSET)
+    {
         deleteUnion();
     }
-    m_IfcFillStyleSelect_union.m_IfcFillAreaStyleHatching = value;
-    if (value) {
+
+    m_union.m_IfcFillAreaStyleHatching = value;
+
+    if (value != 0)
+    {
         value->ref();
-        m_type = IFCFILLAREASTYLEHATCHING;
     }
-    else {
-        m_type = UNSET;
-    }
-    m_type = IFCFILLAREASTYLEHATCHING;
+    m_type = IFCFILLAREASTYLEHATCHING ;
 }
 
-IfcFillAreaStyleTiles *IfcFillStyleSelect::getIfcFillAreaStyleTiles() const {
-    if (m_type == IFCFILLAREASTYLETILES) {
-        return m_IfcFillStyleSelect_union.m_IfcFillAreaStyleTiles;
+IfcFillAreaStyleTiles *IfcFillStyleSelect::getIfcFillAreaStyleTiles() const
+{
+    if (m_type == IFCFILLAREASTYLETILES ) 
+    {
+        return m_union.m_IfcFillAreaStyleTiles;
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-void IfcFillStyleSelect::setIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *value) {
-    if (m_type != UNSET) {
+void IfcFillStyleSelect::setIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *value)
+{
+    if (m_type != UNSET)
+    {
         deleteUnion();
     }
-    m_IfcFillStyleSelect_union.m_IfcFillAreaStyleTiles = value;
-    if (value) {
+
+    m_union.m_IfcFillAreaStyleTiles = value;
+
+    if (value != 0)
+    {
         value->ref();
-        m_type = IFCFILLAREASTYLETILES;
     }
-    else {
-        m_type = UNSET;
-    }
-    m_type = IFCFILLAREASTYLETILES;
+    m_type = IFCFILLAREASTYLETILES ;
 }
 
-IfcColourSpecification *IfcFillStyleSelect::getIfcColourSpecification() const {
-    if (m_type == IFCCOLOURSPECIFICATION) {
-        return m_IfcFillStyleSelect_union.m_IfcColourSpecification;
+IfcColourSpecification *IfcFillStyleSelect::getIfcColourSpecification() const
+{
+    if (m_type == IFCCOLOURSPECIFICATION ) 
+    {
+        return m_union.m_IfcColourSpecification;
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-void IfcFillStyleSelect::setIfcColourSpecification(IfcColourSpecification *value) {
-    if (m_type != UNSET) {
+void IfcFillStyleSelect::setIfcColourSpecification(IfcColourSpecification *value)
+{
+    if (m_type != UNSET)
+    {
         deleteUnion();
     }
-    m_IfcFillStyleSelect_union.m_IfcColourSpecification = value;
-    if (value) {
+
+    m_union.m_IfcColourSpecification = value;
+
+    if (value != 0)
+    {
         value->ref();
-        m_type = IFCCOLOURSPECIFICATION;
     }
-    else {
-        m_type = UNSET;
-    }
-    m_type = IFCCOLOURSPECIFICATION;
+    m_type = IFCCOLOURSPECIFICATION ;
 }
 
-IfcPreDefinedColour *IfcFillStyleSelect::getIfcPreDefinedColour() const {
-    if (m_type == IFCPREDEFINEDCOLOUR) {
-        return m_IfcFillStyleSelect_union.m_IfcPreDefinedColour;
+IfcPreDefinedColour *IfcFillStyleSelect::getIfcPreDefinedColour() const
+{
+    if (m_type == IFCPREDEFINEDCOLOUR ) 
+    {
+        return m_union.m_IfcPreDefinedColour;
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-void IfcFillStyleSelect::setIfcPreDefinedColour(IfcPreDefinedColour *value) {
-    if (m_type != UNSET) {
+void IfcFillStyleSelect::setIfcPreDefinedColour(IfcPreDefinedColour *value)
+{
+    if (m_type != UNSET)
+    {
         deleteUnion();
     }
-    m_IfcFillStyleSelect_union.m_IfcPreDefinedColour = value;
-    if (value) {
+
+    m_union.m_IfcPreDefinedColour = value;
+
+    if (value != 0)
+    {
         value->ref();
-        m_type = IFCPREDEFINEDCOLOUR;
     }
-    else {
-        m_type = UNSET;
-    }
-    m_type = IFCPREDEFINEDCOLOUR;
+    m_type = IFCPREDEFINEDCOLOUR ;
 }
 
-IfcExternallyDefinedHatchStyle *IfcFillStyleSelect::getIfcExternallyDefinedHatchStyle() const {
-    if (m_type == IFCEXTERNALLYDEFINEDHATCHSTYLE) {
-        return m_IfcFillStyleSelect_union.m_IfcExternallyDefinedHatchStyle;
+IfcExternallyDefinedHatchStyle *IfcFillStyleSelect::getIfcExternallyDefinedHatchStyle() const
+{
+    if (m_type == IFCEXTERNALLYDEFINEDHATCHSTYLE ) 
+    {
+        return m_union.m_IfcExternallyDefinedHatchStyle;
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-void IfcFillStyleSelect::setIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *value) {
-    if (m_type != UNSET) {
+void IfcFillStyleSelect::setIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *value)
+{
+    if (m_type != UNSET)
+    {
         deleteUnion();
     }
-    m_IfcFillStyleSelect_union.m_IfcExternallyDefinedHatchStyle = value;
-    if (value) {
+
+    m_union.m_IfcExternallyDefinedHatchStyle = value;
+
+    if (value != 0)
+    {
         value->ref();
-        m_type = IFCEXTERNALLYDEFINEDHATCHSTYLE;
     }
-    else {
-        m_type = UNSET;
-    }
-    m_type = IFCEXTERNALLYDEFINEDHATCHSTYLE;
+    m_type = IFCEXTERNALLYDEFINEDHATCHSTYLE ;
 }
 
-void IfcFillStyleSelect::set(Step::BaseObject *v) {
-    if (v && v->isOfType(IfcFillAreaStyleHatching::getClassType())) {
-        setIfcFillAreaStyleHatching(static_cast< IfcFillAreaStyleHatching* > (v));
-    }
-    else if (v && v->isOfType(IfcFillAreaStyleTiles::getClassType())) {
-        setIfcFillAreaStyleTiles(static_cast< IfcFillAreaStyleTiles* > (v));
-    }
-    else if (v && v->isOfType(IfcColourSpecification::getClassType())) {
-        setIfcColourSpecification(static_cast< IfcColourSpecification* > (v));
-    }
-    else if (v && v->isOfType(IfcPreDefinedColour::getClassType())) {
-        setIfcPreDefinedColour(static_cast< IfcPreDefinedColour* > (v));
-    }
-    else if (v && v->isOfType(IfcExternallyDefinedHatchStyle::getClassType())) {
-        setIfcExternallyDefinedHatchStyle(static_cast< IfcExternallyDefinedHatchStyle* > (v));
+void IfcFillStyleSelect::set(Step::BaseObject *v) 
+{
+    if (v) 
+    {
+        if (v->isOfType(IfcFillAreaStyleHatching::getClassType())) 
+        {
+            setIfcFillAreaStyleHatching(static_cast< IfcFillAreaStyleHatching* > (v));
+            return;
+        }
+        if (v->isOfType(IfcFillAreaStyleTiles::getClassType())) 
+        {
+            setIfcFillAreaStyleTiles(static_cast< IfcFillAreaStyleTiles* > (v));
+            return;
+        }
+        if (v->isOfType(IfcColourSpecification::getClassType())) 
+        {
+            setIfcColourSpecification(static_cast< IfcColourSpecification* > (v));
+            return;
+        }
+        if (v->isOfType(IfcPreDefinedColour::getClassType())) 
+        {
+            setIfcPreDefinedColour(static_cast< IfcPreDefinedColour* > (v));
+            return;
+        }
+        if (v->isOfType(IfcExternallyDefinedHatchStyle::getClassType())) 
+        {
+            setIfcExternallyDefinedHatchStyle(static_cast< IfcExternallyDefinedHatchStyle* > (v));
+            return;
+        }
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFillStyleSelect::s_type("IfcFillStyleSelect");
+
+ClassType_child_implementations(IFC2X3_EXPORT, IfcFillStyleSelect, Step::BaseObject)

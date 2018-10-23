@@ -1,14 +1,14 @@
+
 if( (NOT STEP_FOUND) OR (NOT Step_VERSION VERSION_EQUAL @Step_VERSION@) )
 
 if(NOT Step_ROOT)
-    if(Step_DIR)
-        if(UNIX)
-            set(Step_ROOT ${Step_DIR}/../..)
-        else()
-            set(Step_ROOT ${Step_DIR})
-        endif()
+    if(NOT Step_DIR)
+        set(Step_DIR ${CMAKE_CURRENT_LIST_DIR})
+    endif()
+    if(UNIX)
+        set(Step_ROOT ${Step_DIR}/../..)
     else()
-        set(Step_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
+        set(Step_ROOT ${Step_DIR})
     endif()
 endif()
 
@@ -39,7 +39,7 @@ find_library(STEP_LIBRARY_DEBUG
 
 
 find_library(STEP_LIBRARY
-             NAMES Step 
+             NAMES Step
              PATHS ${Step_ROOT}/lib@LIB_POSTFIX@
              NO_DEFAULT_PATH)
 find_library(STEP_LIBRARY

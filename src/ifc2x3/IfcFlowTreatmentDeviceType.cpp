@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,59 +24,45 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcFlowTreatmentDeviceType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcDistributionFlowElementType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcFlowTreatmentDeviceType::IfcFlowTreatmentDeviceType(Step::Id id, Step::SPFData *args) : IfcDistributionFlowElementType(id, args) {
+IfcFlowTreatmentDeviceType::IfcFlowTreatmentDeviceType(Step::Id id, Step::SPFData *args) : 
+    IfcDistributionFlowElementType(id, args)
+{
 }
 
-IfcFlowTreatmentDeviceType::~IfcFlowTreatmentDeviceType() {
+IfcFlowTreatmentDeviceType::~IfcFlowTreatmentDeviceType()
+{}
+
+bool IfcFlowTreatmentDeviceType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcFlowTreatmentDeviceType(this);
 }
 
-bool IfcFlowTreatmentDeviceType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcFlowTreatmentDeviceType(this);
-}
-
-const std::string &IfcFlowTreatmentDeviceType::type() const {
-    return IfcFlowTreatmentDeviceType::s_type.getName();
-}
-
-const Step::ClassType &IfcFlowTreatmentDeviceType::getClassType() {
-    return IfcFlowTreatmentDeviceType::s_type;
-}
-
-const Step::ClassType &IfcFlowTreatmentDeviceType::getType() const {
-    return IfcFlowTreatmentDeviceType::s_type;
-}
-
-bool IfcFlowTreatmentDeviceType::isOfType(const Step::ClassType &t) const {
-    return IfcFlowTreatmentDeviceType::s_type == t ? true : IfcDistributionFlowElementType::isOfType(t);
-}
-
-bool IfcFlowTreatmentDeviceType::init() {
-    bool status = IfcDistributionFlowElementType::init();
-    std::string arg;
-    if (!status) {
+bool IfcFlowTreatmentDeviceType::init()
+{
+    if (IfcDistributionFlowElementType::init() == false)
+    {
         return false;
     }
     return true;
 }
 
-void IfcFlowTreatmentDeviceType::copy(const IfcFlowTreatmentDeviceType &obj, const CopyOp &copyop) {
+void IfcFlowTreatmentDeviceType::copy(const IfcFlowTreatmentDeviceType &obj, const CopyOp &copyop)
+{
     IfcDistributionFlowElementType::copy(obj, copyop);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFlowTreatmentDeviceType::s_type("IfcFlowTreatmentDeviceType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcFlowTreatmentDeviceType, IfcDistributionFlowElementType)

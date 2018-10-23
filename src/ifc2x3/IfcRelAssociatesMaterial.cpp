@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,92 +24,87 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRelAssociatesMaterial.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcMaterialSelect.h>
-#include <ifc2x3/IfcRelAssociates.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRelAssociatesMaterial::IfcRelAssociatesMaterial(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
-    m_relatingMaterial = NULL;
+IfcRelAssociatesMaterial::IfcRelAssociatesMaterial(Step::Id id, Step::SPFData *args) : 
+    IfcRelAssociates(id, args)
+{
+    m_RelatingMaterial = NULL;
 }
 
-IfcRelAssociatesMaterial::~IfcRelAssociatesMaterial() {
+IfcRelAssociatesMaterial::~IfcRelAssociatesMaterial()
+{}
+
+bool IfcRelAssociatesMaterial::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRelAssociatesMaterial(this);
 }
 
-bool IfcRelAssociatesMaterial::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRelAssociatesMaterial(this);
-}
 
-const std::string &IfcRelAssociatesMaterial::type() const {
-    return IfcRelAssociatesMaterial::s_type.getName();
-}
-
-const Step::ClassType &IfcRelAssociatesMaterial::getClassType() {
-    return IfcRelAssociatesMaterial::s_type;
-}
-
-const Step::ClassType &IfcRelAssociatesMaterial::getType() const {
-    return IfcRelAssociatesMaterial::s_type;
-}
-
-bool IfcRelAssociatesMaterial::isOfType(const Step::ClassType &t) const {
-    return IfcRelAssociatesMaterial::s_type == t ? true : IfcRelAssociates::isOfType(t);
-}
-
-IfcMaterialSelect *IfcRelAssociatesMaterial::getRelatingMaterial() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingMaterial.get();
+IfcMaterialSelect *IfcRelAssociatesMaterial::getRelatingMaterial()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RelatingMaterial.get();
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcMaterialSelect *IfcRelAssociatesMaterial::getRelatingMaterial() const {
-    IfcRelAssociatesMaterial * deConstObject = const_cast< IfcRelAssociatesMaterial * > (this);
-    return deConstObject->getRelatingMaterial();
+const IfcMaterialSelect *IfcRelAssociatesMaterial::getRelatingMaterial() const
+{
+    return const_cast<IfcRelAssociatesMaterial *>(this)->getRelatingMaterial();
 }
 
-void IfcRelAssociatesMaterial::setRelatingMaterial(const Step::RefPtr< IfcMaterialSelect > &value) {
-    m_relatingMaterial = value;
+void IfcRelAssociatesMaterial::setRelatingMaterial(const Step::RefPtr< IfcMaterialSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingMaterial = value;
 }
 
-void IfcRelAssociatesMaterial::unsetRelatingMaterial() {
-    m_relatingMaterial = Step::getUnset(getRelatingMaterial());
+void IfcRelAssociatesMaterial::unsetRelatingMaterial()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingMaterial = Step::getUnset(getRelatingMaterial());
 }
 
-bool IfcRelAssociatesMaterial::testRelatingMaterial() const {
-    return !Step::isUnset(getRelatingMaterial());
+bool IfcRelAssociatesMaterial::testRelatingMaterial() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingMaterial()) == false;
 }
 
-bool IfcRelAssociatesMaterial::init() {
-    bool status = IfcRelAssociates::init();
-    std::string arg;
-    if (!status) {
+bool IfcRelAssociatesMaterial::init()
+{
+    if (IfcRelAssociates::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingMaterial = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingMaterial = NULL;
     }
-    else {
-        m_relatingMaterial = new IfcMaterialSelect;
+    else
+    {
+        m_RelatingMaterial = new IfcMaterialSelect;
         if (arg[0] == '#') {
-            m_relatingMaterial->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_RelatingMaterial->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -115,11 +119,11 @@ bool IfcRelAssociatesMaterial::init() {
     return true;
 }
 
-void IfcRelAssociatesMaterial::copy(const IfcRelAssociatesMaterial &obj, const CopyOp &copyop) {
+void IfcRelAssociatesMaterial::copy(const IfcRelAssociatesMaterial &obj, const CopyOp &copyop)
+{
     IfcRelAssociates::copy(obj, copyop);
-    m_relatingMaterial = new IfcMaterialSelect;
-    m_relatingMaterial->copy(*(obj.m_relatingMaterial.get()), copyop);
+    setRelatingMaterial((IfcMaterialSelect*)copyop(obj.m_RelatingMaterial.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssociatesMaterial::s_type("IfcRelAssociatesMaterial");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRelAssociatesMaterial, IfcRelAssociates)

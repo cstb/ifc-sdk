@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,270 +24,340 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcFailureConnectionCondition.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcStructuralConnectionCondition.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcFailureConnectionCondition::IfcFailureConnectionCondition(Step::Id id, Step::SPFData *args) : IfcStructuralConnectionCondition(id, args) {
-    m_tensionFailureX = Step::getUnset(m_tensionFailureX);
-    m_tensionFailureY = Step::getUnset(m_tensionFailureY);
-    m_tensionFailureZ = Step::getUnset(m_tensionFailureZ);
-    m_compressionFailureX = Step::getUnset(m_compressionFailureX);
-    m_compressionFailureY = Step::getUnset(m_compressionFailureY);
-    m_compressionFailureZ = Step::getUnset(m_compressionFailureZ);
+IfcFailureConnectionCondition::IfcFailureConnectionCondition(Step::Id id, Step::SPFData *args) : 
+    IfcStructuralConnectionCondition(id, args)
+{
+    m_TensionFailureX = Step::getUnset(m_TensionFailureX);
+    m_TensionFailureY = Step::getUnset(m_TensionFailureY);
+    m_TensionFailureZ = Step::getUnset(m_TensionFailureZ);
+    m_CompressionFailureX = Step::getUnset(m_CompressionFailureX);
+    m_CompressionFailureY = Step::getUnset(m_CompressionFailureY);
+    m_CompressionFailureZ = Step::getUnset(m_CompressionFailureZ);
 }
 
-IfcFailureConnectionCondition::~IfcFailureConnectionCondition() {
+IfcFailureConnectionCondition::~IfcFailureConnectionCondition()
+{}
+
+bool IfcFailureConnectionCondition::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcFailureConnectionCondition(this);
 }
 
-bool IfcFailureConnectionCondition::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcFailureConnectionCondition(this);
-}
 
-const std::string &IfcFailureConnectionCondition::type() const {
-    return IfcFailureConnectionCondition::s_type.getName();
-}
-
-const Step::ClassType &IfcFailureConnectionCondition::getClassType() {
-    return IfcFailureConnectionCondition::s_type;
-}
-
-const Step::ClassType &IfcFailureConnectionCondition::getType() const {
-    return IfcFailureConnectionCondition::s_type;
-}
-
-bool IfcFailureConnectionCondition::isOfType(const Step::ClassType &t) const {
-    return IfcFailureConnectionCondition::s_type == t ? true : IfcStructuralConnectionCondition::isOfType(t);
-}
-
-IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureX() {
-    if (Step::BaseObject::inited()) {
-        return m_tensionFailureX;
+IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureX()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TensionFailureX;
     }
-    else {
-        return Step::getUnset(m_tensionFailureX);
+    else 
+    {
+        return Step::getUnset(m_TensionFailureX);
+    }    
+}
+
+IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureX() const
+{
+    return const_cast<IfcFailureConnectionCondition *>(this)->getTensionFailureX();
+}
+
+void IfcFailureConnectionCondition::setTensionFailureX(IfcForceMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TensionFailureX = value;
+}
+
+void IfcFailureConnectionCondition::unsetTensionFailureX()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TensionFailureX = Step::getUnset(getTensionFailureX());
+}
+
+bool IfcFailureConnectionCondition::testTensionFailureX() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTensionFailureX()) == false;
+}
+
+
+IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TensionFailureY;
     }
+    else 
+    {
+        return Step::getUnset(m_TensionFailureY);
+    }    
 }
 
-const IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureX() const {
-    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
-    return deConstObject->getTensionFailureX();
+IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureY() const
+{
+    return const_cast<IfcFailureConnectionCondition *>(this)->getTensionFailureY();
 }
 
-void IfcFailureConnectionCondition::setTensionFailureX(IfcForceMeasure value) {
-    m_tensionFailureX = value;
+void IfcFailureConnectionCondition::setTensionFailureY(IfcForceMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TensionFailureY = value;
 }
 
-void IfcFailureConnectionCondition::unsetTensionFailureX() {
-    m_tensionFailureX = Step::getUnset(getTensionFailureX());
+void IfcFailureConnectionCondition::unsetTensionFailureY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TensionFailureY = Step::getUnset(getTensionFailureY());
 }
 
-bool IfcFailureConnectionCondition::testTensionFailureX() const {
-    return !Step::isUnset(getTensionFailureX());
+bool IfcFailureConnectionCondition::testTensionFailureY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTensionFailureY()) == false;
 }
 
-IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureY() {
-    if (Step::BaseObject::inited()) {
-        return m_tensionFailureY;
+
+IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TensionFailureZ;
     }
-    else {
-        return Step::getUnset(m_tensionFailureY);
+    else 
+    {
+        return Step::getUnset(m_TensionFailureZ);
+    }    
+}
+
+IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureZ() const
+{
+    return const_cast<IfcFailureConnectionCondition *>(this)->getTensionFailureZ();
+}
+
+void IfcFailureConnectionCondition::setTensionFailureZ(IfcForceMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TensionFailureZ = value;
+}
+
+void IfcFailureConnectionCondition::unsetTensionFailureZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TensionFailureZ = Step::getUnset(getTensionFailureZ());
+}
+
+bool IfcFailureConnectionCondition::testTensionFailureZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTensionFailureZ()) == false;
+}
+
+
+IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureX()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CompressionFailureX;
     }
+    else 
+    {
+        return Step::getUnset(m_CompressionFailureX);
+    }    
 }
 
-const IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureY() const {
-    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
-    return deConstObject->getTensionFailureY();
+IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureX() const
+{
+    return const_cast<IfcFailureConnectionCondition *>(this)->getCompressionFailureX();
 }
 
-void IfcFailureConnectionCondition::setTensionFailureY(IfcForceMeasure value) {
-    m_tensionFailureY = value;
+void IfcFailureConnectionCondition::setCompressionFailureX(IfcForceMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CompressionFailureX = value;
 }
 
-void IfcFailureConnectionCondition::unsetTensionFailureY() {
-    m_tensionFailureY = Step::getUnset(getTensionFailureY());
+void IfcFailureConnectionCondition::unsetCompressionFailureX()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CompressionFailureX = Step::getUnset(getCompressionFailureX());
 }
 
-bool IfcFailureConnectionCondition::testTensionFailureY() const {
-    return !Step::isUnset(getTensionFailureY());
+bool IfcFailureConnectionCondition::testCompressionFailureX() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCompressionFailureX()) == false;
 }
 
-IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureZ() {
-    if (Step::BaseObject::inited()) {
-        return m_tensionFailureZ;
+
+IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CompressionFailureY;
     }
-    else {
-        return Step::getUnset(m_tensionFailureZ);
+    else 
+    {
+        return Step::getUnset(m_CompressionFailureY);
+    }    
+}
+
+IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureY() const
+{
+    return const_cast<IfcFailureConnectionCondition *>(this)->getCompressionFailureY();
+}
+
+void IfcFailureConnectionCondition::setCompressionFailureY(IfcForceMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CompressionFailureY = value;
+}
+
+void IfcFailureConnectionCondition::unsetCompressionFailureY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CompressionFailureY = Step::getUnset(getCompressionFailureY());
+}
+
+bool IfcFailureConnectionCondition::testCompressionFailureY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCompressionFailureY()) == false;
+}
+
+
+IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CompressionFailureZ;
     }
+    else 
+    {
+        return Step::getUnset(m_CompressionFailureZ);
+    }    
 }
 
-const IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureZ() const {
-    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
-    return deConstObject->getTensionFailureZ();
+IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureZ() const
+{
+    return const_cast<IfcFailureConnectionCondition *>(this)->getCompressionFailureZ();
 }
 
-void IfcFailureConnectionCondition::setTensionFailureZ(IfcForceMeasure value) {
-    m_tensionFailureZ = value;
+void IfcFailureConnectionCondition::setCompressionFailureZ(IfcForceMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CompressionFailureZ = value;
 }
 
-void IfcFailureConnectionCondition::unsetTensionFailureZ() {
-    m_tensionFailureZ = Step::getUnset(getTensionFailureZ());
+void IfcFailureConnectionCondition::unsetCompressionFailureZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CompressionFailureZ = Step::getUnset(getCompressionFailureZ());
 }
 
-bool IfcFailureConnectionCondition::testTensionFailureZ() const {
-    return !Step::isUnset(getTensionFailureZ());
+bool IfcFailureConnectionCondition::testCompressionFailureZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCompressionFailureZ()) == false;
 }
 
-IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureX() {
-    if (Step::BaseObject::inited()) {
-        return m_compressionFailureX;
-    }
-    else {
-        return Step::getUnset(m_compressionFailureX);
-    }
-}
-
-const IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureX() const {
-    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
-    return deConstObject->getCompressionFailureX();
-}
-
-void IfcFailureConnectionCondition::setCompressionFailureX(IfcForceMeasure value) {
-    m_compressionFailureX = value;
-}
-
-void IfcFailureConnectionCondition::unsetCompressionFailureX() {
-    m_compressionFailureX = Step::getUnset(getCompressionFailureX());
-}
-
-bool IfcFailureConnectionCondition::testCompressionFailureX() const {
-    return !Step::isUnset(getCompressionFailureX());
-}
-
-IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureY() {
-    if (Step::BaseObject::inited()) {
-        return m_compressionFailureY;
-    }
-    else {
-        return Step::getUnset(m_compressionFailureY);
-    }
-}
-
-const IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureY() const {
-    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
-    return deConstObject->getCompressionFailureY();
-}
-
-void IfcFailureConnectionCondition::setCompressionFailureY(IfcForceMeasure value) {
-    m_compressionFailureY = value;
-}
-
-void IfcFailureConnectionCondition::unsetCompressionFailureY() {
-    m_compressionFailureY = Step::getUnset(getCompressionFailureY());
-}
-
-bool IfcFailureConnectionCondition::testCompressionFailureY() const {
-    return !Step::isUnset(getCompressionFailureY());
-}
-
-IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureZ() {
-    if (Step::BaseObject::inited()) {
-        return m_compressionFailureZ;
-    }
-    else {
-        return Step::getUnset(m_compressionFailureZ);
-    }
-}
-
-const IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureZ() const {
-    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
-    return deConstObject->getCompressionFailureZ();
-}
-
-void IfcFailureConnectionCondition::setCompressionFailureZ(IfcForceMeasure value) {
-    m_compressionFailureZ = value;
-}
-
-void IfcFailureConnectionCondition::unsetCompressionFailureZ() {
-    m_compressionFailureZ = Step::getUnset(getCompressionFailureZ());
-}
-
-bool IfcFailureConnectionCondition::testCompressionFailureZ() const {
-    return !Step::isUnset(getCompressionFailureZ());
-}
-
-bool IfcFailureConnectionCondition::init() {
-    bool status = IfcStructuralConnectionCondition::init();
-    std::string arg;
-    if (!status) {
+bool IfcFailureConnectionCondition::init()
+{
+    if (IfcStructuralConnectionCondition::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_tensionFailureX = Step::getUnset(m_tensionFailureX);
+    if (arg == "$" || arg == "*")
+    {
+        m_TensionFailureX = Step::getUnset(m_TensionFailureX);
     }
-    else {
-        m_tensionFailureX = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_tensionFailureY = Step::getUnset(m_tensionFailureY);
-    }
-    else {
-        m_tensionFailureY = Step::spfToReal(arg);
+    else
+    {
+        m_TensionFailureX = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_tensionFailureZ = Step::getUnset(m_tensionFailureZ);
+    if (arg == "$" || arg == "*")
+    {
+        m_TensionFailureY = Step::getUnset(m_TensionFailureY);
     }
-    else {
-        m_tensionFailureZ = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_compressionFailureX = Step::getUnset(m_compressionFailureX);
-    }
-    else {
-        m_compressionFailureX = Step::spfToReal(arg);
+    else
+    {
+        m_TensionFailureY = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_compressionFailureY = Step::getUnset(m_compressionFailureY);
+    if (arg == "$" || arg == "*")
+    {
+        m_TensionFailureZ = Step::getUnset(m_TensionFailureZ);
     }
-    else {
-        m_compressionFailureY = Step::spfToReal(arg);
+    else
+    {
+        m_TensionFailureZ = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_compressionFailureZ = Step::getUnset(m_compressionFailureZ);
+    if (arg == "$" || arg == "*")
+    {
+        m_CompressionFailureX = Step::getUnset(m_CompressionFailureX);
     }
-    else {
-        m_compressionFailureZ = Step::spfToReal(arg);
+    else
+    {
+        m_CompressionFailureX = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CompressionFailureY = Step::getUnset(m_CompressionFailureY);
+    }
+    else
+    {
+        m_CompressionFailureY = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CompressionFailureZ = Step::getUnset(m_CompressionFailureZ);
+    }
+    else
+    {
+        m_CompressionFailureZ = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcFailureConnectionCondition::copy(const IfcFailureConnectionCondition &obj, const CopyOp &copyop) {
+void IfcFailureConnectionCondition::copy(const IfcFailureConnectionCondition &obj, const CopyOp &copyop)
+{
     IfcStructuralConnectionCondition::copy(obj, copyop);
-    setTensionFailureX(obj.m_tensionFailureX);
-    setTensionFailureY(obj.m_tensionFailureY);
-    setTensionFailureZ(obj.m_tensionFailureZ);
-    setCompressionFailureX(obj.m_compressionFailureX);
-    setCompressionFailureY(obj.m_compressionFailureY);
-    setCompressionFailureZ(obj.m_compressionFailureZ);
+    setTensionFailureX(obj.m_TensionFailureX);
+    setTensionFailureY(obj.m_TensionFailureY);
+    setTensionFailureZ(obj.m_TensionFailureZ);
+    setCompressionFailureX(obj.m_CompressionFailureX);
+    setCompressionFailureY(obj.m_CompressionFailureY);
+    setCompressionFailureZ(obj.m_CompressionFailureZ);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFailureConnectionCondition::s_type("IfcFailureConnectionCondition");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcFailureConnectionCondition, IfcStructuralConnectionCondition)

@@ -1,5 +1,14 @@
 // IFC SDK : IFC2X3 C++ Early Classes
-// Copyright (C) 2009 CSTB
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -15,168 +24,185 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcConstraintClassificationRelationship.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcClassificationNotationSelect.h>
 #include <ifc2x3/IfcConstraint.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcConstraintClassificationRelationship::IfcConstraintClassificationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_classifiedConstraint = NULL;
+IfcConstraintClassificationRelationship::IfcConstraintClassificationRelationship(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_RelatedClassifications.setUnset(true);
+    m_ClassifiedConstraint = NULL;
 }
 
-IfcConstraintClassificationRelationship::~IfcConstraintClassificationRelationship() {
+IfcConstraintClassificationRelationship::~IfcConstraintClassificationRelationship()
+{}
+
+bool IfcConstraintClassificationRelationship::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcConstraintClassificationRelationship(this);
 }
 
-bool IfcConstraintClassificationRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcConstraintClassificationRelationship(this);
-}
 
-const std::string &IfcConstraintClassificationRelationship::type() const {
-    return IfcConstraintClassificationRelationship::s_type.getName();
-}
-
-const Step::ClassType &IfcConstraintClassificationRelationship::getClassType() {
-    return IfcConstraintClassificationRelationship::s_type;
-}
-
-const Step::ClassType &IfcConstraintClassificationRelationship::getType() const {
-    return IfcConstraintClassificationRelationship::s_type;
-}
-
-bool IfcConstraintClassificationRelationship::isOfType(const Step::ClassType &t) const {
-    return IfcConstraintClassificationRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcConstraint *IfcConstraintClassificationRelationship::getClassifiedConstraint() {
-    if (Step::BaseObject::inited()) {
-        return m_classifiedConstraint.get();
+Set_IfcClassificationNotationSelect_1_n &IfcConstraintClassificationRelationship::getRelatedClassifications()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RelatedClassifications;
     }
-    else {
+    else 
+    {
+        m_RelatedClassifications.setUnset(true);
+        return m_RelatedClassifications;
+    }    
+}
+
+const Set_IfcClassificationNotationSelect_1_n &IfcConstraintClassificationRelationship::getRelatedClassifications() const
+{
+    return const_cast<IfcConstraintClassificationRelationship *>(this)->getRelatedClassifications();
+}
+
+void IfcConstraintClassificationRelationship::setRelatedClassifications(const Set_IfcClassificationNotationSelect_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedClassifications = value;
+}
+
+void IfcConstraintClassificationRelationship::unsetRelatedClassifications()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedClassifications.clear();
+    m_RelatedClassifications.setUnset(true);
+}
+
+bool IfcConstraintClassificationRelationship::testRelatedClassifications() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_RelatedClassifications.isUnset() == false;
+}
+
+IfcConstraint *IfcConstraintClassificationRelationship::getClassifiedConstraint()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ClassifiedConstraint.get();
+    }
+    else
+    {
         return NULL;
     }
 }
 
-const IfcConstraint *IfcConstraintClassificationRelationship::getClassifiedConstraint() const {
-    IfcConstraintClassificationRelationship * deConstObject = const_cast< IfcConstraintClassificationRelationship * > (this);
-    return deConstObject->getClassifiedConstraint();
+const IfcConstraint *IfcConstraintClassificationRelationship::getClassifiedConstraint() const
+{
+    return const_cast< IfcConstraintClassificationRelationship * > (this)->getClassifiedConstraint();
 }
 
-void IfcConstraintClassificationRelationship::setClassifiedConstraint(const Step::RefPtr< IfcConstraint > &value) {
-    if (m_classifiedConstraint.valid()) {
-        m_classifiedConstraint->m_classifiedAs.erase(this);
+void IfcConstraintClassificationRelationship::setClassifiedConstraint(const Step::RefPtr< IfcConstraint > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_ClassifiedConstraint.valid())
+    {
+        m_ClassifiedConstraint->m_ClassifiedAs.erase(this);
     }
-    if (value.valid()) {
-        value->m_classifiedAs.insert(this);
+    if (value.valid() )
+    {
+       value->m_ClassifiedAs.insert(this);
     }
-    m_classifiedConstraint = value;
+    m_ClassifiedConstraint = value;
 }
 
-void IfcConstraintClassificationRelationship::unsetClassifiedConstraint() {
-    m_classifiedConstraint = Step::getUnset(getClassifiedConstraint());
+void IfcConstraintClassificationRelationship::unsetClassifiedConstraint()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ClassifiedConstraint = Step::getUnset(getClassifiedConstraint());
 }
 
-bool IfcConstraintClassificationRelationship::testClassifiedConstraint() const {
-    return !Step::isUnset(getClassifiedConstraint());
+bool IfcConstraintClassificationRelationship::testClassifiedConstraint() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getClassifiedConstraint()) == false;
 }
 
-Set_IfcClassificationNotationSelect_1_n &IfcConstraintClassificationRelationship::getRelatedClassifications() {
-    if (Step::BaseObject::inited()) {
-        return m_relatedClassifications;
-    }
-    else {
-        m_relatedClassifications.setUnset(true);
-        return m_relatedClassifications;
-    }
-}
-
-const Set_IfcClassificationNotationSelect_1_n &IfcConstraintClassificationRelationship::getRelatedClassifications() const {
-    IfcConstraintClassificationRelationship * deConstObject = const_cast< IfcConstraintClassificationRelationship * > (this);
-    return deConstObject->getRelatedClassifications();
-}
-
-void IfcConstraintClassificationRelationship::setRelatedClassifications(const Set_IfcClassificationNotationSelect_1_n &value) {
-    m_relatedClassifications = value;
-}
-
-void IfcConstraintClassificationRelationship::unsetRelatedClassifications() {
-    m_relatedClassifications.clear();
-    m_relatedClassifications.setUnset(true);
-}
-
-bool IfcConstraintClassificationRelationship::testRelatedClassifications() const {
-    return !m_relatedClassifications.isUnset();
-}
-
-bool IfcConstraintClassificationRelationship::init() {
+bool IfcConstraintClassificationRelationship::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_classifiedConstraint = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedClassifications.setUnset(true);
     }
-    else {
-        m_classifiedConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatedClassifications.setUnset(true);
-    }
-    else {
-        m_relatedClassifications.setUnset(false);
-        while (true) {
+    else
+    {
+        m_RelatedClassifications.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcClassificationNotationSelect > attr2;
-                attr2 = new IfcClassificationNotationSelect;
-                if (str1[0] == '#') {
+            if (!str1.empty())
+            {
+                Step::RefPtr< IfcClassificationNotationSelect > attr2 = new IfcClassificationNotationSelect();
+                if (str1[0] == '#') 
+                {
                     attr2->set(m_expressDataSet->get((Step::Id)atol(str1.c_str() + 1)));
                 }
-                else if (str1[str1.length() - 1] == ')') {
-                    std::string type2;
-                    std::string::size_type i2;
-                    i2 = str1.find('(');
-                    if (i2 != std::string::npos) {
-                        type2 = str1.substr(0, i2);
+                else if (str1[str1.length() - 1] == ')') 
+                {
+                    std::string::size_type i2 = str1.find('(');
+                    if (i2 != std::string::npos) 
+                    {
+                        std::string type2 = str1.substr(0, i2);
                         str1 = str1.substr(i2 + 1, str1.length() - i2 - 2);
                     }
                 }
-                if (attr2.valid()) m_relatedClassifications.insert(attr2);
+                if (attr2.valid()) 
+                {
+                    m_RelatedClassifications.insert(attr2);
+                }
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ClassifiedConstraint = NULL;
+    }
+    else
+    {
+        m_ClassifiedConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
     return true;
 }
 
-void IfcConstraintClassificationRelationship::copy(const IfcConstraintClassificationRelationship &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcClassificationNotationSelect >, 1 >::const_iterator it_m_relatedClassifications;
+void IfcConstraintClassificationRelationship::copy(const IfcConstraintClassificationRelationship &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setClassifiedConstraint((IfcConstraint*)copyop(obj.m_classifiedConstraint.get()));
-    for (it_m_relatedClassifications = obj.m_relatedClassifications.begin(); it_m_relatedClassifications != obj.m_relatedClassifications.end(); ++it_m_relatedClassifications) {
+    Set_IfcClassificationNotationSelect_1_n::const_iterator it_m_RelatedClassifications;
+    for (it_m_RelatedClassifications = obj.m_RelatedClassifications.begin(); it_m_RelatedClassifications != obj.m_RelatedClassifications.end(); ++it_m_RelatedClassifications)
+    {
         Step::RefPtr< IfcClassificationNotationSelect > copyTarget = new IfcClassificationNotationSelect;
-        copyTarget->copy(*((*it_m_relatedClassifications).get()), copyop);
-        m_relatedClassifications.insert(copyTarget.get());
+        copyTarget->copy(*((*it_m_RelatedClassifications).get()), copyop);
+        m_RelatedClassifications.insert(copyTarget.get());
     }
+    
+    setClassifiedConstraint((IfcConstraint*)copyop(obj.m_ClassifiedConstraint.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConstraintClassificationRelationship::s_type("IfcConstraintClassificationRelationship");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcConstraintClassificationRelationship, Step::BaseEntity)

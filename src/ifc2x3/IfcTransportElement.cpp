@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,179 +24,210 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcTransportElement.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcElement.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcTransportElement::IfcTransportElement(Step::Id id, Step::SPFData *args) : IfcElement(id, args) {
-    m_operationType = IfcTransportElementTypeEnum_UNSET;
-    m_capacityByWeight = Step::getUnset(m_capacityByWeight);
-    m_capacityByNumber = Step::getUnset(m_capacityByNumber);
+IfcTransportElement::IfcTransportElement(Step::Id id, Step::SPFData *args) : 
+    IfcElement(id, args)
+{
+    m_OperationType = IfcTransportElementTypeEnum_UNSET;
+    m_CapacityByWeight = Step::getUnset(m_CapacityByWeight);
+    m_CapacityByNumber = Step::getUnset(m_CapacityByNumber);
 }
 
-IfcTransportElement::~IfcTransportElement() {
+IfcTransportElement::~IfcTransportElement()
+{}
+
+bool IfcTransportElement::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcTransportElement(this);
 }
 
-bool IfcTransportElement::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcTransportElement(this);
-}
 
-const std::string &IfcTransportElement::type() const {
-    return IfcTransportElement::s_type.getName();
-}
-
-const Step::ClassType &IfcTransportElement::getClassType() {
-    return IfcTransportElement::s_type;
-}
-
-const Step::ClassType &IfcTransportElement::getType() const {
-    return IfcTransportElement::s_type;
-}
-
-bool IfcTransportElement::isOfType(const Step::ClassType &t) const {
-    return IfcTransportElement::s_type == t ? true : IfcElement::isOfType(t);
-}
-
-IfcTransportElementTypeEnum IfcTransportElement::getOperationType() {
-    if (Step::BaseObject::inited()) {
-        return m_operationType;
+IfcTransportElementTypeEnum IfcTransportElement::getOperationType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_OperationType;
     }
-    else {
+    else 
+    {
         return IfcTransportElementTypeEnum_UNSET;
+    }    
+}
+
+IfcTransportElementTypeEnum IfcTransportElement::getOperationType() const
+{
+    return const_cast<IfcTransportElement *>(this)->getOperationType();
+}
+
+void IfcTransportElement::setOperationType(IfcTransportElementTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OperationType = value;
+}
+
+void IfcTransportElement::unsetOperationType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OperationType = IfcTransportElementTypeEnum_UNSET;
+}
+
+bool IfcTransportElement::testOperationType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getOperationType()) == false;
+}
+
+
+IfcMassMeasure IfcTransportElement::getCapacityByWeight()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CapacityByWeight;
     }
+    else 
+    {
+        return Step::getUnset(m_CapacityByWeight);
+    }    
 }
 
-const IfcTransportElementTypeEnum IfcTransportElement::getOperationType() const {
-    IfcTransportElement * deConstObject = const_cast< IfcTransportElement * > (this);
-    return deConstObject->getOperationType();
+IfcMassMeasure IfcTransportElement::getCapacityByWeight() const
+{
+    return const_cast<IfcTransportElement *>(this)->getCapacityByWeight();
 }
 
-void IfcTransportElement::setOperationType(IfcTransportElementTypeEnum value) {
-    m_operationType = value;
+void IfcTransportElement::setCapacityByWeight(IfcMassMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CapacityByWeight = value;
 }
 
-void IfcTransportElement::unsetOperationType() {
-    m_operationType = IfcTransportElementTypeEnum_UNSET;
+void IfcTransportElement::unsetCapacityByWeight()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CapacityByWeight = Step::getUnset(getCapacityByWeight());
 }
 
-bool IfcTransportElement::testOperationType() const {
-    return getOperationType() != IfcTransportElementTypeEnum_UNSET;
+bool IfcTransportElement::testCapacityByWeight() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCapacityByWeight()) == false;
 }
 
-IfcMassMeasure IfcTransportElement::getCapacityByWeight() {
-    if (Step::BaseObject::inited()) {
-        return m_capacityByWeight;
+
+IfcCountMeasure IfcTransportElement::getCapacityByNumber()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CapacityByNumber;
     }
-    else {
-        return Step::getUnset(m_capacityByWeight);
-    }
+    else 
+    {
+        return Step::getUnset(m_CapacityByNumber);
+    }    
 }
 
-const IfcMassMeasure IfcTransportElement::getCapacityByWeight() const {
-    IfcTransportElement * deConstObject = const_cast< IfcTransportElement * > (this);
-    return deConstObject->getCapacityByWeight();
+IfcCountMeasure IfcTransportElement::getCapacityByNumber() const
+{
+    return const_cast<IfcTransportElement *>(this)->getCapacityByNumber();
 }
 
-void IfcTransportElement::setCapacityByWeight(IfcMassMeasure value) {
-    m_capacityByWeight = value;
+void IfcTransportElement::setCapacityByNumber(IfcCountMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CapacityByNumber = value;
 }
 
-void IfcTransportElement::unsetCapacityByWeight() {
-    m_capacityByWeight = Step::getUnset(getCapacityByWeight());
+void IfcTransportElement::unsetCapacityByNumber()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CapacityByNumber = Step::getUnset(getCapacityByNumber());
 }
 
-bool IfcTransportElement::testCapacityByWeight() const {
-    return !Step::isUnset(getCapacityByWeight());
+bool IfcTransportElement::testCapacityByNumber() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCapacityByNumber()) == false;
 }
 
-IfcCountMeasure IfcTransportElement::getCapacityByNumber() {
-    if (Step::BaseObject::inited()) {
-        return m_capacityByNumber;
-    }
-    else {
-        return Step::getUnset(m_capacityByNumber);
-    }
-}
-
-const IfcCountMeasure IfcTransportElement::getCapacityByNumber() const {
-    IfcTransportElement * deConstObject = const_cast< IfcTransportElement * > (this);
-    return deConstObject->getCapacityByNumber();
-}
-
-void IfcTransportElement::setCapacityByNumber(IfcCountMeasure value) {
-    m_capacityByNumber = value;
-}
-
-void IfcTransportElement::unsetCapacityByNumber() {
-    m_capacityByNumber = Step::getUnset(getCapacityByNumber());
-}
-
-bool IfcTransportElement::testCapacityByNumber() const {
-    return !Step::isUnset(getCapacityByNumber());
-}
-
-bool IfcTransportElement::init() {
-    bool status = IfcElement::init();
-    std::string arg;
-    if (!status) {
+bool IfcTransportElement::init()
+{
+    if (IfcElement::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_operationType = IfcTransportElementTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_OperationType = IfcTransportElementTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".ELEVATOR.") {
-            m_operationType = IfcTransportElementTypeEnum_ELEVATOR;
+    else
+    {
+        if (arg == ".ELEVATOR.")
+        {
+            m_OperationType = IfcTransportElementTypeEnum_ELEVATOR;
         }
-        else if (arg == ".ESCALATOR.") {
-            m_operationType = IfcTransportElementTypeEnum_ESCALATOR;
+        else if (arg == ".ESCALATOR.")
+        {
+            m_OperationType = IfcTransportElementTypeEnum_ESCALATOR;
         }
-        else if (arg == ".MOVINGWALKWAY.") {
-            m_operationType = IfcTransportElementTypeEnum_MOVINGWALKWAY;
+        else if (arg == ".MOVINGWALKWAY.")
+        {
+            m_OperationType = IfcTransportElementTypeEnum_MOVINGWALKWAY;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_operationType = IfcTransportElementTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_OperationType = IfcTransportElementTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_operationType = IfcTransportElementTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_OperationType = IfcTransportElementTypeEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_capacityByWeight = Step::getUnset(m_capacityByWeight);
+    if (arg == "$" || arg == "*")
+    {
+        m_CapacityByWeight = Step::getUnset(m_CapacityByWeight);
     }
-    else {
-        m_capacityByWeight = Step::spfToReal(arg);
+    else
+    {
+        m_CapacityByWeight = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_capacityByNumber = Step::getUnset(m_capacityByNumber);
+    if (arg == "$" || arg == "*")
+    {
+        m_CapacityByNumber = Step::getUnset(m_CapacityByNumber);
     }
-    else {
-        m_capacityByNumber = Step::spfToInteger(arg);
+    else
+    {
+        m_CapacityByNumber = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcTransportElement::copy(const IfcTransportElement &obj, const CopyOp &copyop) {
+void IfcTransportElement::copy(const IfcTransportElement &obj, const CopyOp &copyop)
+{
     IfcElement::copy(obj, copyop);
-    setOperationType(obj.m_operationType);
-    setCapacityByWeight(obj.m_capacityByWeight);
-    setCapacityByNumber(obj.m_capacityByNumber);
+    setOperationType(obj.m_OperationType);
+    setCapacityByWeight(obj.m_CapacityByWeight);
+    setCapacityByNumber(obj.m_CapacityByNumber);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTransportElement::s_type("IfcTransportElement");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcTransportElement, IfcElement)

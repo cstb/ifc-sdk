@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,226 +24,269 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcSurfaceTexture.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcCartesianTransformationOperator2D.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcSurfaceTexture::IfcSurfaceTexture(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_repeatS = Step::getUnset(m_repeatS);
-    m_repeatT = Step::getUnset(m_repeatT);
-    m_textureType = IfcSurfaceTextureEnum_UNSET;
-    m_textureTransform = NULL;
+IfcSurfaceTexture::IfcSurfaceTexture(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_RepeatS = Step::getUnset(m_RepeatS);
+    m_RepeatT = Step::getUnset(m_RepeatT);
+    m_TextureType = IfcSurfaceTextureEnum_UNSET;
+    m_TextureTransform = NULL;
 }
 
-IfcSurfaceTexture::~IfcSurfaceTexture() {
+IfcSurfaceTexture::~IfcSurfaceTexture()
+{}
+
+bool IfcSurfaceTexture::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcSurfaceTexture(this);
 }
 
-bool IfcSurfaceTexture::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcSurfaceTexture(this);
-}
 
-const std::string &IfcSurfaceTexture::type() const {
-    return IfcSurfaceTexture::s_type.getName();
-}
-
-const Step::ClassType &IfcSurfaceTexture::getClassType() {
-    return IfcSurfaceTexture::s_type;
-}
-
-const Step::ClassType &IfcSurfaceTexture::getType() const {
-    return IfcSurfaceTexture::s_type;
-}
-
-bool IfcSurfaceTexture::isOfType(const Step::ClassType &t) const {
-    return IfcSurfaceTexture::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-Step::Boolean IfcSurfaceTexture::getRepeatS() {
-    if (Step::BaseObject::inited()) {
-        return m_repeatS;
+Step::Boolean IfcSurfaceTexture::getRepeatS()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RepeatS;
     }
-    else {
-        return Step::getUnset(m_repeatS);
+    else 
+    {
+        return Step::getUnset(m_RepeatS);
+    }    
+}
+
+Step::Boolean IfcSurfaceTexture::getRepeatS() const
+{
+    return const_cast<IfcSurfaceTexture *>(this)->getRepeatS();
+}
+
+void IfcSurfaceTexture::setRepeatS(Step::Boolean value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RepeatS = value;
+}
+
+void IfcSurfaceTexture::unsetRepeatS()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RepeatS = Step::getUnset(getRepeatS());
+}
+
+bool IfcSurfaceTexture::testRepeatS() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRepeatS()) == false;
+}
+
+
+Step::Boolean IfcSurfaceTexture::getRepeatT()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RepeatT;
     }
+    else 
+    {
+        return Step::getUnset(m_RepeatT);
+    }    
 }
 
-const Step::Boolean IfcSurfaceTexture::getRepeatS() const {
-    IfcSurfaceTexture * deConstObject = const_cast< IfcSurfaceTexture * > (this);
-    return deConstObject->getRepeatS();
+Step::Boolean IfcSurfaceTexture::getRepeatT() const
+{
+    return const_cast<IfcSurfaceTexture *>(this)->getRepeatT();
 }
 
-void IfcSurfaceTexture::setRepeatS(Step::Boolean value) {
-    m_repeatS = value;
+void IfcSurfaceTexture::setRepeatT(Step::Boolean value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RepeatT = value;
 }
 
-void IfcSurfaceTexture::unsetRepeatS() {
-    m_repeatS = Step::getUnset(getRepeatS());
+void IfcSurfaceTexture::unsetRepeatT()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RepeatT = Step::getUnset(getRepeatT());
 }
 
-bool IfcSurfaceTexture::testRepeatS() const {
-    return !Step::isUnset(getRepeatS());
+bool IfcSurfaceTexture::testRepeatT() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRepeatT()) == false;
 }
 
-Step::Boolean IfcSurfaceTexture::getRepeatT() {
-    if (Step::BaseObject::inited()) {
-        return m_repeatT;
+
+IfcSurfaceTextureEnum IfcSurfaceTexture::getTextureType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TextureType;
     }
-    else {
-        return Step::getUnset(m_repeatT);
-    }
-}
-
-const Step::Boolean IfcSurfaceTexture::getRepeatT() const {
-    IfcSurfaceTexture * deConstObject = const_cast< IfcSurfaceTexture * > (this);
-    return deConstObject->getRepeatT();
-}
-
-void IfcSurfaceTexture::setRepeatT(Step::Boolean value) {
-    m_repeatT = value;
-}
-
-void IfcSurfaceTexture::unsetRepeatT() {
-    m_repeatT = Step::getUnset(getRepeatT());
-}
-
-bool IfcSurfaceTexture::testRepeatT() const {
-    return !Step::isUnset(getRepeatT());
-}
-
-IfcSurfaceTextureEnum IfcSurfaceTexture::getTextureType() {
-    if (Step::BaseObject::inited()) {
-        return m_textureType;
-    }
-    else {
+    else 
+    {
         return IfcSurfaceTextureEnum_UNSET;
+    }    
+}
+
+IfcSurfaceTextureEnum IfcSurfaceTexture::getTextureType() const
+{
+    return const_cast<IfcSurfaceTexture *>(this)->getTextureType();
+}
+
+void IfcSurfaceTexture::setTextureType(IfcSurfaceTextureEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextureType = value;
+}
+
+void IfcSurfaceTexture::unsetTextureType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextureType = IfcSurfaceTextureEnum_UNSET;
+}
+
+bool IfcSurfaceTexture::testTextureType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTextureType()) == false;
+}
+
+
+IfcCartesianTransformationOperator2D *IfcSurfaceTexture::getTextureTransform()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TextureTransform.get();
     }
-}
-
-const IfcSurfaceTextureEnum IfcSurfaceTexture::getTextureType() const {
-    IfcSurfaceTexture * deConstObject = const_cast< IfcSurfaceTexture * > (this);
-    return deConstObject->getTextureType();
-}
-
-void IfcSurfaceTexture::setTextureType(IfcSurfaceTextureEnum value) {
-    m_textureType = value;
-}
-
-void IfcSurfaceTexture::unsetTextureType() {
-    m_textureType = IfcSurfaceTextureEnum_UNSET;
-}
-
-bool IfcSurfaceTexture::testTextureType() const {
-    return getTextureType() != IfcSurfaceTextureEnum_UNSET;
-}
-
-IfcCartesianTransformationOperator2D *IfcSurfaceTexture::getTextureTransform() {
-    if (Step::BaseObject::inited()) {
-        return m_textureTransform.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcCartesianTransformationOperator2D *IfcSurfaceTexture::getTextureTransform() const {
-    IfcSurfaceTexture * deConstObject = const_cast< IfcSurfaceTexture * > (this);
-    return deConstObject->getTextureTransform();
+const IfcCartesianTransformationOperator2D *IfcSurfaceTexture::getTextureTransform() const
+{
+    return const_cast<IfcSurfaceTexture *>(this)->getTextureTransform();
 }
 
-void IfcSurfaceTexture::setTextureTransform(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value) {
-    m_textureTransform = value;
+void IfcSurfaceTexture::setTextureTransform(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextureTransform = value;
 }
 
-void IfcSurfaceTexture::unsetTextureTransform() {
-    m_textureTransform = Step::getUnset(getTextureTransform());
+void IfcSurfaceTexture::unsetTextureTransform()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextureTransform = Step::getUnset(getTextureTransform());
 }
 
-bool IfcSurfaceTexture::testTextureTransform() const {
-    return !Step::isUnset(getTextureTransform());
+bool IfcSurfaceTexture::testTextureTransform() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTextureTransform()) == false;
 }
 
-bool IfcSurfaceTexture::init() {
+bool IfcSurfaceTexture::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_repeatS = Step::getUnset(m_repeatS);
+    if (arg == "$" || arg == "*")
+    {
+        m_RepeatS = Step::getUnset(m_RepeatS);
     }
-    else {
-        m_repeatS = Step::spfToBoolean(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_repeatT = Step::getUnset(m_repeatT);
-    }
-    else {
-        m_repeatT = Step::spfToBoolean(arg);
+    else
+    {
+        m_RepeatS = Step::spfToBoolean(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_textureType = IfcSurfaceTextureEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_RepeatT = Step::getUnset(m_RepeatT);
     }
-    else {
-        if (arg == ".BUMP.") {
-            m_textureType = IfcSurfaceTextureEnum_BUMP;
+    else
+    {
+        m_RepeatT = Step::spfToBoolean(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_TextureType = IfcSurfaceTextureEnum_UNSET;
+    }
+    else
+    {
+        if (arg == ".BUMP.")
+        {
+            m_TextureType = IfcSurfaceTextureEnum_BUMP;
         }
-        else if (arg == ".OPACITY.") {
-            m_textureType = IfcSurfaceTextureEnum_OPACITY;
+        else if (arg == ".OPACITY.")
+        {
+            m_TextureType = IfcSurfaceTextureEnum_OPACITY;
         }
-        else if (arg == ".REFLECTION.") {
-            m_textureType = IfcSurfaceTextureEnum_REFLECTION;
+        else if (arg == ".REFLECTION.")
+        {
+            m_TextureType = IfcSurfaceTextureEnum_REFLECTION;
         }
-        else if (arg == ".SELFILLUMINATION.") {
-            m_textureType = IfcSurfaceTextureEnum_SELFILLUMINATION;
+        else if (arg == ".SELFILLUMINATION.")
+        {
+            m_TextureType = IfcSurfaceTextureEnum_SELFILLUMINATION;
         }
-        else if (arg == ".SHININESS.") {
-            m_textureType = IfcSurfaceTextureEnum_SHININESS;
+        else if (arg == ".SHININESS.")
+        {
+            m_TextureType = IfcSurfaceTextureEnum_SHININESS;
         }
-        else if (arg == ".SPECULAR.") {
-            m_textureType = IfcSurfaceTextureEnum_SPECULAR;
+        else if (arg == ".SPECULAR.")
+        {
+            m_TextureType = IfcSurfaceTextureEnum_SPECULAR;
         }
-        else if (arg == ".TEXTURE.") {
-            m_textureType = IfcSurfaceTextureEnum_TEXTURE;
+        else if (arg == ".TEXTURE.")
+        {
+            m_TextureType = IfcSurfaceTextureEnum_TEXTURE;
         }
-        else if (arg == ".TRANSPARENCYMAP.") {
-            m_textureType = IfcSurfaceTextureEnum_TRANSPARENCYMAP;
+        else if (arg == ".TRANSPARENCYMAP.")
+        {
+            m_TextureType = IfcSurfaceTextureEnum_TRANSPARENCYMAP;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_textureType = IfcSurfaceTextureEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_TextureType = IfcSurfaceTextureEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_textureTransform = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TextureTransform = NULL;
     }
-    else {
-        m_textureTransform = static_cast< IfcCartesianTransformationOperator2D * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_TextureTransform = static_cast< IfcCartesianTransformationOperator2D * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcSurfaceTexture::copy(const IfcSurfaceTexture &obj, const CopyOp &copyop) {
+void IfcSurfaceTexture::copy(const IfcSurfaceTexture &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setRepeatS(obj.m_repeatS);
-    setRepeatT(obj.m_repeatT);
-    setTextureType(obj.m_textureType);
-    setTextureTransform((IfcCartesianTransformationOperator2D*)copyop(obj.m_textureTransform.get()));
+    setRepeatS(obj.m_RepeatS);
+    setRepeatT(obj.m_RepeatT);
+    setTextureType(obj.m_TextureType);
+    setTextureTransform((IfcCartesianTransformationOperator2D*)copyop(obj.m_TextureTransform.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceTexture::s_type("IfcSurfaceTexture");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcSurfaceTexture, Step::BaseEntity)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,200 +24,242 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcTrapeziumProfileDef.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcParameterizedProfileDef.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcTrapeziumProfileDef::IfcTrapeziumProfileDef(Step::Id id, Step::SPFData *args) : IfcParameterizedProfileDef(id, args) {
-    m_bottomXDim = Step::getUnset(m_bottomXDim);
-    m_topXDim = Step::getUnset(m_topXDim);
-    m_yDim = Step::getUnset(m_yDim);
-    m_topXOffset = Step::getUnset(m_topXOffset);
+IfcTrapeziumProfileDef::IfcTrapeziumProfileDef(Step::Id id, Step::SPFData *args) : 
+    IfcParameterizedProfileDef(id, args)
+{
+    m_BottomXDim = Step::getUnset(m_BottomXDim);
+    m_TopXDim = Step::getUnset(m_TopXDim);
+    m_YDim = Step::getUnset(m_YDim);
+    m_TopXOffset = Step::getUnset(m_TopXOffset);
 }
 
-IfcTrapeziumProfileDef::~IfcTrapeziumProfileDef() {
+IfcTrapeziumProfileDef::~IfcTrapeziumProfileDef()
+{}
+
+bool IfcTrapeziumProfileDef::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcTrapeziumProfileDef(this);
 }
 
-bool IfcTrapeziumProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcTrapeziumProfileDef(this);
-}
 
-const std::string &IfcTrapeziumProfileDef::type() const {
-    return IfcTrapeziumProfileDef::s_type.getName();
-}
-
-const Step::ClassType &IfcTrapeziumProfileDef::getClassType() {
-    return IfcTrapeziumProfileDef::s_type;
-}
-
-const Step::ClassType &IfcTrapeziumProfileDef::getType() const {
-    return IfcTrapeziumProfileDef::s_type;
-}
-
-bool IfcTrapeziumProfileDef::isOfType(const Step::ClassType &t) const {
-    return IfcTrapeziumProfileDef::s_type == t ? true : IfcParameterizedProfileDef::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getBottomXDim() {
-    if (Step::BaseObject::inited()) {
-        return m_bottomXDim;
+IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getBottomXDim()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BottomXDim;
     }
-    else {
-        return Step::getUnset(m_bottomXDim);
+    else 
+    {
+        return Step::getUnset(m_BottomXDim);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getBottomXDim() const
+{
+    return const_cast<IfcTrapeziumProfileDef *>(this)->getBottomXDim();
+}
+
+void IfcTrapeziumProfileDef::setBottomXDim(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BottomXDim = value;
+}
+
+void IfcTrapeziumProfileDef::unsetBottomXDim()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BottomXDim = Step::getUnset(getBottomXDim());
+}
+
+bool IfcTrapeziumProfileDef::testBottomXDim() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBottomXDim()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getTopXDim()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TopXDim;
     }
+    else 
+    {
+        return Step::getUnset(m_TopXDim);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getBottomXDim() const {
-    IfcTrapeziumProfileDef * deConstObject = const_cast< IfcTrapeziumProfileDef * > (this);
-    return deConstObject->getBottomXDim();
+IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getTopXDim() const
+{
+    return const_cast<IfcTrapeziumProfileDef *>(this)->getTopXDim();
 }
 
-void IfcTrapeziumProfileDef::setBottomXDim(IfcPositiveLengthMeasure value) {
-    m_bottomXDim = value;
+void IfcTrapeziumProfileDef::setTopXDim(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TopXDim = value;
 }
 
-void IfcTrapeziumProfileDef::unsetBottomXDim() {
-    m_bottomXDim = Step::getUnset(getBottomXDim());
+void IfcTrapeziumProfileDef::unsetTopXDim()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TopXDim = Step::getUnset(getTopXDim());
 }
 
-bool IfcTrapeziumProfileDef::testBottomXDim() const {
-    return !Step::isUnset(getBottomXDim());
+bool IfcTrapeziumProfileDef::testTopXDim() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTopXDim()) == false;
 }
 
-IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getTopXDim() {
-    if (Step::BaseObject::inited()) {
-        return m_topXDim;
+
+IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getYDim()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_YDim;
     }
-    else {
-        return Step::getUnset(m_topXDim);
+    else 
+    {
+        return Step::getUnset(m_YDim);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getYDim() const
+{
+    return const_cast<IfcTrapeziumProfileDef *>(this)->getYDim();
+}
+
+void IfcTrapeziumProfileDef::setYDim(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_YDim = value;
+}
+
+void IfcTrapeziumProfileDef::unsetYDim()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_YDim = Step::getUnset(getYDim());
+}
+
+bool IfcTrapeziumProfileDef::testYDim() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getYDim()) == false;
+}
+
+
+IfcLengthMeasure IfcTrapeziumProfileDef::getTopXOffset()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TopXOffset;
     }
+    else 
+    {
+        return Step::getUnset(m_TopXOffset);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getTopXDim() const {
-    IfcTrapeziumProfileDef * deConstObject = const_cast< IfcTrapeziumProfileDef * > (this);
-    return deConstObject->getTopXDim();
+IfcLengthMeasure IfcTrapeziumProfileDef::getTopXOffset() const
+{
+    return const_cast<IfcTrapeziumProfileDef *>(this)->getTopXOffset();
 }
 
-void IfcTrapeziumProfileDef::setTopXDim(IfcPositiveLengthMeasure value) {
-    m_topXDim = value;
+void IfcTrapeziumProfileDef::setTopXOffset(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TopXOffset = value;
 }
 
-void IfcTrapeziumProfileDef::unsetTopXDim() {
-    m_topXDim = Step::getUnset(getTopXDim());
+void IfcTrapeziumProfileDef::unsetTopXOffset()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TopXOffset = Step::getUnset(getTopXOffset());
 }
 
-bool IfcTrapeziumProfileDef::testTopXDim() const {
-    return !Step::isUnset(getTopXDim());
+bool IfcTrapeziumProfileDef::testTopXOffset() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTopXOffset()) == false;
 }
 
-IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getYDim() {
-    if (Step::BaseObject::inited()) {
-        return m_yDim;
-    }
-    else {
-        return Step::getUnset(m_yDim);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getYDim() const {
-    IfcTrapeziumProfileDef * deConstObject = const_cast< IfcTrapeziumProfileDef * > (this);
-    return deConstObject->getYDim();
-}
-
-void IfcTrapeziumProfileDef::setYDim(IfcPositiveLengthMeasure value) {
-    m_yDim = value;
-}
-
-void IfcTrapeziumProfileDef::unsetYDim() {
-    m_yDim = Step::getUnset(getYDim());
-}
-
-bool IfcTrapeziumProfileDef::testYDim() const {
-    return !Step::isUnset(getYDim());
-}
-
-IfcLengthMeasure IfcTrapeziumProfileDef::getTopXOffset() {
-    if (Step::BaseObject::inited()) {
-        return m_topXOffset;
-    }
-    else {
-        return Step::getUnset(m_topXOffset);
-    }
-}
-
-const IfcLengthMeasure IfcTrapeziumProfileDef::getTopXOffset() const {
-    IfcTrapeziumProfileDef * deConstObject = const_cast< IfcTrapeziumProfileDef * > (this);
-    return deConstObject->getTopXOffset();
-}
-
-void IfcTrapeziumProfileDef::setTopXOffset(IfcLengthMeasure value) {
-    m_topXOffset = value;
-}
-
-void IfcTrapeziumProfileDef::unsetTopXOffset() {
-    m_topXOffset = Step::getUnset(getTopXOffset());
-}
-
-bool IfcTrapeziumProfileDef::testTopXOffset() const {
-    return !Step::isUnset(getTopXOffset());
-}
-
-bool IfcTrapeziumProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
-    std::string arg;
-    if (!status) {
+bool IfcTrapeziumProfileDef::init()
+{
+    if (IfcParameterizedProfileDef::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_bottomXDim = Step::getUnset(m_bottomXDim);
+    if (arg == "$" || arg == "*")
+    {
+        m_BottomXDim = Step::getUnset(m_BottomXDim);
     }
-    else {
-        m_bottomXDim = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_topXDim = Step::getUnset(m_topXDim);
-    }
-    else {
-        m_topXDim = Step::spfToReal(arg);
+    else
+    {
+        m_BottomXDim = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_yDim = Step::getUnset(m_yDim);
+    if (arg == "$" || arg == "*")
+    {
+        m_TopXDim = Step::getUnset(m_TopXDim);
     }
-    else {
-        m_yDim = Step::spfToReal(arg);
+    else
+    {
+        m_TopXDim = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_topXOffset = Step::getUnset(m_topXOffset);
+    if (arg == "$" || arg == "*")
+    {
+        m_YDim = Step::getUnset(m_YDim);
     }
-    else {
-        m_topXOffset = Step::spfToReal(arg);
+    else
+    {
+        m_YDim = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_TopXOffset = Step::getUnset(m_TopXOffset);
+    }
+    else
+    {
+        m_TopXOffset = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcTrapeziumProfileDef::copy(const IfcTrapeziumProfileDef &obj, const CopyOp &copyop) {
+void IfcTrapeziumProfileDef::copy(const IfcTrapeziumProfileDef &obj, const CopyOp &copyop)
+{
     IfcParameterizedProfileDef::copy(obj, copyop);
-    setBottomXDim(obj.m_bottomXDim);
-    setTopXDim(obj.m_topXDim);
-    setYDim(obj.m_yDim);
-    setTopXOffset(obj.m_topXOffset);
+    setBottomXDim(obj.m_BottomXDim);
+    setTopXDim(obj.m_TopXDim);
+    setYDim(obj.m_YDim);
+    setTopXOffset(obj.m_TopXOffset);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTrapeziumProfileDef::s_type("IfcTrapeziumProfileDef");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcTrapeziumProfileDef, IfcParameterizedProfileDef)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,379 +24,487 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcWindowLiningProperties.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcPropertySetDefinition.h>
 #include <ifc2x3/IfcShapeAspect.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcWindowLiningProperties::IfcWindowLiningProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
-    m_liningDepth = Step::getUnset(m_liningDepth);
-    m_liningThickness = Step::getUnset(m_liningThickness);
-    m_transomThickness = Step::getUnset(m_transomThickness);
-    m_mullionThickness = Step::getUnset(m_mullionThickness);
-    m_firstTransomOffset = Step::getUnset(m_firstTransomOffset);
-    m_secondTransomOffset = Step::getUnset(m_secondTransomOffset);
-    m_firstMullionOffset = Step::getUnset(m_firstMullionOffset);
-    m_secondMullionOffset = Step::getUnset(m_secondMullionOffset);
-    m_shapeAspectStyle = NULL;
+IfcWindowLiningProperties::IfcWindowLiningProperties(Step::Id id, Step::SPFData *args) : 
+    IfcPropertySetDefinition(id, args)
+{
+    m_LiningDepth = Step::getUnset(m_LiningDepth);
+    m_LiningThickness = Step::getUnset(m_LiningThickness);
+    m_TransomThickness = Step::getUnset(m_TransomThickness);
+    m_MullionThickness = Step::getUnset(m_MullionThickness);
+    m_FirstTransomOffset = Step::getUnset(m_FirstTransomOffset);
+    m_SecondTransomOffset = Step::getUnset(m_SecondTransomOffset);
+    m_FirstMullionOffset = Step::getUnset(m_FirstMullionOffset);
+    m_SecondMullionOffset = Step::getUnset(m_SecondMullionOffset);
+    m_ShapeAspectStyle = NULL;
 }
 
-IfcWindowLiningProperties::~IfcWindowLiningProperties() {
+IfcWindowLiningProperties::~IfcWindowLiningProperties()
+{}
+
+bool IfcWindowLiningProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcWindowLiningProperties(this);
 }
 
-bool IfcWindowLiningProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcWindowLiningProperties(this);
-}
 
-const std::string &IfcWindowLiningProperties::type() const {
-    return IfcWindowLiningProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcWindowLiningProperties::getClassType() {
-    return IfcWindowLiningProperties::s_type;
-}
-
-const Step::ClassType &IfcWindowLiningProperties::getType() const {
-    return IfcWindowLiningProperties::s_type;
-}
-
-bool IfcWindowLiningProperties::isOfType(const Step::ClassType &t) const {
-    return IfcWindowLiningProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningDepth() {
-    if (Step::BaseObject::inited()) {
-        return m_liningDepth;
+IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningDepth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LiningDepth;
     }
-    else {
-        return Step::getUnset(m_liningDepth);
+    else 
+    {
+        return Step::getUnset(m_LiningDepth);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningDepth() const
+{
+    return const_cast<IfcWindowLiningProperties *>(this)->getLiningDepth();
+}
+
+void IfcWindowLiningProperties::setLiningDepth(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LiningDepth = value;
+}
+
+void IfcWindowLiningProperties::unsetLiningDepth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LiningDepth = Step::getUnset(getLiningDepth());
+}
+
+bool IfcWindowLiningProperties::testLiningDepth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLiningDepth()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LiningThickness;
     }
+    else 
+    {
+        return Step::getUnset(m_LiningThickness);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningDepth() const {
-    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
-    return deConstObject->getLiningDepth();
+IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningThickness() const
+{
+    return const_cast<IfcWindowLiningProperties *>(this)->getLiningThickness();
 }
 
-void IfcWindowLiningProperties::setLiningDepth(IfcPositiveLengthMeasure value) {
-    m_liningDepth = value;
+void IfcWindowLiningProperties::setLiningThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LiningThickness = value;
 }
 
-void IfcWindowLiningProperties::unsetLiningDepth() {
-    m_liningDepth = Step::getUnset(getLiningDepth());
+void IfcWindowLiningProperties::unsetLiningThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LiningThickness = Step::getUnset(getLiningThickness());
 }
 
-bool IfcWindowLiningProperties::testLiningDepth() const {
-    return !Step::isUnset(getLiningDepth());
+bool IfcWindowLiningProperties::testLiningThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLiningThickness()) == false;
 }
 
-IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_liningThickness;
+
+IfcPositiveLengthMeasure IfcWindowLiningProperties::getTransomThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TransomThickness;
     }
-    else {
-        return Step::getUnset(m_liningThickness);
+    else 
+    {
+        return Step::getUnset(m_TransomThickness);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcWindowLiningProperties::getTransomThickness() const
+{
+    return const_cast<IfcWindowLiningProperties *>(this)->getTransomThickness();
+}
+
+void IfcWindowLiningProperties::setTransomThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransomThickness = value;
+}
+
+void IfcWindowLiningProperties::unsetTransomThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransomThickness = Step::getUnset(getTransomThickness());
+}
+
+bool IfcWindowLiningProperties::testTransomThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTransomThickness()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcWindowLiningProperties::getMullionThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MullionThickness;
     }
+    else 
+    {
+        return Step::getUnset(m_MullionThickness);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningThickness() const {
-    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
-    return deConstObject->getLiningThickness();
+IfcPositiveLengthMeasure IfcWindowLiningProperties::getMullionThickness() const
+{
+    return const_cast<IfcWindowLiningProperties *>(this)->getMullionThickness();
 }
 
-void IfcWindowLiningProperties::setLiningThickness(IfcPositiveLengthMeasure value) {
-    m_liningThickness = value;
+void IfcWindowLiningProperties::setMullionThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MullionThickness = value;
 }
 
-void IfcWindowLiningProperties::unsetLiningThickness() {
-    m_liningThickness = Step::getUnset(getLiningThickness());
+void IfcWindowLiningProperties::unsetMullionThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MullionThickness = Step::getUnset(getMullionThickness());
 }
 
-bool IfcWindowLiningProperties::testLiningThickness() const {
-    return !Step::isUnset(getLiningThickness());
+bool IfcWindowLiningProperties::testMullionThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMullionThickness()) == false;
 }
 
-IfcPositiveLengthMeasure IfcWindowLiningProperties::getTransomThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_transomThickness;
+
+IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstTransomOffset()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FirstTransomOffset;
     }
-    else {
-        return Step::getUnset(m_transomThickness);
+    else 
+    {
+        return Step::getUnset(m_FirstTransomOffset);
+    }    
+}
+
+IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstTransomOffset() const
+{
+    return const_cast<IfcWindowLiningProperties *>(this)->getFirstTransomOffset();
+}
+
+void IfcWindowLiningProperties::setFirstTransomOffset(IfcNormalisedRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FirstTransomOffset = value;
+}
+
+void IfcWindowLiningProperties::unsetFirstTransomOffset()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FirstTransomOffset = Step::getUnset(getFirstTransomOffset());
+}
+
+bool IfcWindowLiningProperties::testFirstTransomOffset() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFirstTransomOffset()) == false;
+}
+
+
+IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondTransomOffset()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SecondTransomOffset;
     }
+    else 
+    {
+        return Step::getUnset(m_SecondTransomOffset);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcWindowLiningProperties::getTransomThickness() const {
-    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
-    return deConstObject->getTransomThickness();
+IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondTransomOffset() const
+{
+    return const_cast<IfcWindowLiningProperties *>(this)->getSecondTransomOffset();
 }
 
-void IfcWindowLiningProperties::setTransomThickness(IfcPositiveLengthMeasure value) {
-    m_transomThickness = value;
+void IfcWindowLiningProperties::setSecondTransomOffset(IfcNormalisedRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SecondTransomOffset = value;
 }
 
-void IfcWindowLiningProperties::unsetTransomThickness() {
-    m_transomThickness = Step::getUnset(getTransomThickness());
+void IfcWindowLiningProperties::unsetSecondTransomOffset()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SecondTransomOffset = Step::getUnset(getSecondTransomOffset());
 }
 
-bool IfcWindowLiningProperties::testTransomThickness() const {
-    return !Step::isUnset(getTransomThickness());
+bool IfcWindowLiningProperties::testSecondTransomOffset() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSecondTransomOffset()) == false;
 }
 
-IfcPositiveLengthMeasure IfcWindowLiningProperties::getMullionThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_mullionThickness;
+
+IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstMullionOffset()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FirstMullionOffset;
     }
-    else {
-        return Step::getUnset(m_mullionThickness);
+    else 
+    {
+        return Step::getUnset(m_FirstMullionOffset);
+    }    
+}
+
+IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstMullionOffset() const
+{
+    return const_cast<IfcWindowLiningProperties *>(this)->getFirstMullionOffset();
+}
+
+void IfcWindowLiningProperties::setFirstMullionOffset(IfcNormalisedRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FirstMullionOffset = value;
+}
+
+void IfcWindowLiningProperties::unsetFirstMullionOffset()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FirstMullionOffset = Step::getUnset(getFirstMullionOffset());
+}
+
+bool IfcWindowLiningProperties::testFirstMullionOffset() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFirstMullionOffset()) == false;
+}
+
+
+IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondMullionOffset()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SecondMullionOffset;
     }
+    else 
+    {
+        return Step::getUnset(m_SecondMullionOffset);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcWindowLiningProperties::getMullionThickness() const {
-    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
-    return deConstObject->getMullionThickness();
+IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondMullionOffset() const
+{
+    return const_cast<IfcWindowLiningProperties *>(this)->getSecondMullionOffset();
 }
 
-void IfcWindowLiningProperties::setMullionThickness(IfcPositiveLengthMeasure value) {
-    m_mullionThickness = value;
+void IfcWindowLiningProperties::setSecondMullionOffset(IfcNormalisedRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SecondMullionOffset = value;
 }
 
-void IfcWindowLiningProperties::unsetMullionThickness() {
-    m_mullionThickness = Step::getUnset(getMullionThickness());
+void IfcWindowLiningProperties::unsetSecondMullionOffset()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SecondMullionOffset = Step::getUnset(getSecondMullionOffset());
 }
 
-bool IfcWindowLiningProperties::testMullionThickness() const {
-    return !Step::isUnset(getMullionThickness());
+bool IfcWindowLiningProperties::testSecondMullionOffset() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSecondMullionOffset()) == false;
 }
 
-IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstTransomOffset() {
-    if (Step::BaseObject::inited()) {
-        return m_firstTransomOffset;
+
+IfcShapeAspect *IfcWindowLiningProperties::getShapeAspectStyle()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ShapeAspectStyle.get();
     }
-    else {
-        return Step::getUnset(m_firstTransomOffset);
-    }
-}
-
-const IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstTransomOffset() const {
-    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
-    return deConstObject->getFirstTransomOffset();
-}
-
-void IfcWindowLiningProperties::setFirstTransomOffset(IfcNormalisedRatioMeasure value) {
-    m_firstTransomOffset = value;
-}
-
-void IfcWindowLiningProperties::unsetFirstTransomOffset() {
-    m_firstTransomOffset = Step::getUnset(getFirstTransomOffset());
-}
-
-bool IfcWindowLiningProperties::testFirstTransomOffset() const {
-    return !Step::isUnset(getFirstTransomOffset());
-}
-
-IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondTransomOffset() {
-    if (Step::BaseObject::inited()) {
-        return m_secondTransomOffset;
-    }
-    else {
-        return Step::getUnset(m_secondTransomOffset);
-    }
-}
-
-const IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondTransomOffset() const {
-    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
-    return deConstObject->getSecondTransomOffset();
-}
-
-void IfcWindowLiningProperties::setSecondTransomOffset(IfcNormalisedRatioMeasure value) {
-    m_secondTransomOffset = value;
-}
-
-void IfcWindowLiningProperties::unsetSecondTransomOffset() {
-    m_secondTransomOffset = Step::getUnset(getSecondTransomOffset());
-}
-
-bool IfcWindowLiningProperties::testSecondTransomOffset() const {
-    return !Step::isUnset(getSecondTransomOffset());
-}
-
-IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstMullionOffset() {
-    if (Step::BaseObject::inited()) {
-        return m_firstMullionOffset;
-    }
-    else {
-        return Step::getUnset(m_firstMullionOffset);
-    }
-}
-
-const IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstMullionOffset() const {
-    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
-    return deConstObject->getFirstMullionOffset();
-}
-
-void IfcWindowLiningProperties::setFirstMullionOffset(IfcNormalisedRatioMeasure value) {
-    m_firstMullionOffset = value;
-}
-
-void IfcWindowLiningProperties::unsetFirstMullionOffset() {
-    m_firstMullionOffset = Step::getUnset(getFirstMullionOffset());
-}
-
-bool IfcWindowLiningProperties::testFirstMullionOffset() const {
-    return !Step::isUnset(getFirstMullionOffset());
-}
-
-IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondMullionOffset() {
-    if (Step::BaseObject::inited()) {
-        return m_secondMullionOffset;
-    }
-    else {
-        return Step::getUnset(m_secondMullionOffset);
-    }
-}
-
-const IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondMullionOffset() const {
-    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
-    return deConstObject->getSecondMullionOffset();
-}
-
-void IfcWindowLiningProperties::setSecondMullionOffset(IfcNormalisedRatioMeasure value) {
-    m_secondMullionOffset = value;
-}
-
-void IfcWindowLiningProperties::unsetSecondMullionOffset() {
-    m_secondMullionOffset = Step::getUnset(getSecondMullionOffset());
-}
-
-bool IfcWindowLiningProperties::testSecondMullionOffset() const {
-    return !Step::isUnset(getSecondMullionOffset());
-}
-
-IfcShapeAspect *IfcWindowLiningProperties::getShapeAspectStyle() {
-    if (Step::BaseObject::inited()) {
-        return m_shapeAspectStyle.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcShapeAspect *IfcWindowLiningProperties::getShapeAspectStyle() const {
-    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
-    return deConstObject->getShapeAspectStyle();
+const IfcShapeAspect *IfcWindowLiningProperties::getShapeAspectStyle() const
+{
+    return const_cast<IfcWindowLiningProperties *>(this)->getShapeAspectStyle();
 }
 
-void IfcWindowLiningProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
-    m_shapeAspectStyle = value;
+void IfcWindowLiningProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShapeAspectStyle = value;
 }
 
-void IfcWindowLiningProperties::unsetShapeAspectStyle() {
-    m_shapeAspectStyle = Step::getUnset(getShapeAspectStyle());
+void IfcWindowLiningProperties::unsetShapeAspectStyle()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShapeAspectStyle = Step::getUnset(getShapeAspectStyle());
 }
 
-bool IfcWindowLiningProperties::testShapeAspectStyle() const {
-    return !Step::isUnset(getShapeAspectStyle());
+bool IfcWindowLiningProperties::testShapeAspectStyle() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getShapeAspectStyle()) == false;
 }
 
-bool IfcWindowLiningProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
-    std::string arg;
-    if (!status) {
+bool IfcWindowLiningProperties::init()
+{
+    if (IfcPropertySetDefinition::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_liningDepth = Step::getUnset(m_liningDepth);
+    if (arg == "$" || arg == "*")
+    {
+        m_LiningDepth = Step::getUnset(m_LiningDepth);
     }
-    else {
-        m_liningDepth = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_liningThickness = Step::getUnset(m_liningThickness);
-    }
-    else {
-        m_liningThickness = Step::spfToReal(arg);
+    else
+    {
+        m_LiningDepth = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_transomThickness = Step::getUnset(m_transomThickness);
+    if (arg == "$" || arg == "*")
+    {
+        m_LiningThickness = Step::getUnset(m_LiningThickness);
     }
-    else {
-        m_transomThickness = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_mullionThickness = Step::getUnset(m_mullionThickness);
-    }
-    else {
-        m_mullionThickness = Step::spfToReal(arg);
+    else
+    {
+        m_LiningThickness = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_firstTransomOffset = Step::getUnset(m_firstTransomOffset);
+    if (arg == "$" || arg == "*")
+    {
+        m_TransomThickness = Step::getUnset(m_TransomThickness);
     }
-    else {
-        m_firstTransomOffset = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_secondTransomOffset = Step::getUnset(m_secondTransomOffset);
-    }
-    else {
-        m_secondTransomOffset = Step::spfToReal(arg);
+    else
+    {
+        m_TransomThickness = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_firstMullionOffset = Step::getUnset(m_firstMullionOffset);
+    if (arg == "$" || arg == "*")
+    {
+        m_MullionThickness = Step::getUnset(m_MullionThickness);
     }
-    else {
-        m_firstMullionOffset = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_secondMullionOffset = Step::getUnset(m_secondMullionOffset);
-    }
-    else {
-        m_secondMullionOffset = Step::spfToReal(arg);
+    else
+    {
+        m_MullionThickness = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_shapeAspectStyle = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_FirstTransomOffset = Step::getUnset(m_FirstTransomOffset);
     }
-    else {
-        m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_FirstTransomOffset = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_SecondTransomOffset = Step::getUnset(m_SecondTransomOffset);
+    }
+    else
+    {
+        m_SecondTransomOffset = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_FirstMullionOffset = Step::getUnset(m_FirstMullionOffset);
+    }
+    else
+    {
+        m_FirstMullionOffset = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_SecondMullionOffset = Step::getUnset(m_SecondMullionOffset);
+    }
+    else
+    {
+        m_SecondMullionOffset = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ShapeAspectStyle = NULL;
+    }
+    else
+    {
+        m_ShapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcWindowLiningProperties::copy(const IfcWindowLiningProperties &obj, const CopyOp &copyop) {
+void IfcWindowLiningProperties::copy(const IfcWindowLiningProperties &obj, const CopyOp &copyop)
+{
     IfcPropertySetDefinition::copy(obj, copyop);
-    setLiningDepth(obj.m_liningDepth);
-    setLiningThickness(obj.m_liningThickness);
-    setTransomThickness(obj.m_transomThickness);
-    setMullionThickness(obj.m_mullionThickness);
-    setFirstTransomOffset(obj.m_firstTransomOffset);
-    setSecondTransomOffset(obj.m_secondTransomOffset);
-    setFirstMullionOffset(obj.m_firstMullionOffset);
-    setSecondMullionOffset(obj.m_secondMullionOffset);
-    setShapeAspectStyle((IfcShapeAspect*)copyop(obj.m_shapeAspectStyle.get()));
+    setLiningDepth(obj.m_LiningDepth);
+    setLiningThickness(obj.m_LiningThickness);
+    setTransomThickness(obj.m_TransomThickness);
+    setMullionThickness(obj.m_MullionThickness);
+    setFirstTransomOffset(obj.m_FirstTransomOffset);
+    setSecondTransomOffset(obj.m_SecondTransomOffset);
+    setFirstMullionOffset(obj.m_FirstMullionOffset);
+    setSecondMullionOffset(obj.m_SecondMullionOffset);
+    setShapeAspectStyle((IfcShapeAspect*)copyop(obj.m_ShapeAspectStyle.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWindowLiningProperties::s_type("IfcWindowLiningProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcWindowLiningProperties, IfcPropertySetDefinition)

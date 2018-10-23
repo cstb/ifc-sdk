@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,95 +24,95 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRoundedEdgeFeature.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcEdgeFeature.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRoundedEdgeFeature::IfcRoundedEdgeFeature(Step::Id id, Step::SPFData *args) : IfcEdgeFeature(id, args) {
-    m_radius = Step::getUnset(m_radius);
+IfcRoundedEdgeFeature::IfcRoundedEdgeFeature(Step::Id id, Step::SPFData *args) : 
+    IfcEdgeFeature(id, args)
+{
+    m_Radius = Step::getUnset(m_Radius);
 }
 
-IfcRoundedEdgeFeature::~IfcRoundedEdgeFeature() {
+IfcRoundedEdgeFeature::~IfcRoundedEdgeFeature()
+{}
+
+bool IfcRoundedEdgeFeature::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRoundedEdgeFeature(this);
 }
 
-bool IfcRoundedEdgeFeature::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRoundedEdgeFeature(this);
-}
 
-const std::string &IfcRoundedEdgeFeature::type() const {
-    return IfcRoundedEdgeFeature::s_type.getName();
-}
-
-const Step::ClassType &IfcRoundedEdgeFeature::getClassType() {
-    return IfcRoundedEdgeFeature::s_type;
-}
-
-const Step::ClassType &IfcRoundedEdgeFeature::getType() const {
-    return IfcRoundedEdgeFeature::s_type;
-}
-
-bool IfcRoundedEdgeFeature::isOfType(const Step::ClassType &t) const {
-    return IfcRoundedEdgeFeature::s_type == t ? true : IfcEdgeFeature::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcRoundedEdgeFeature::getRadius() {
-    if (Step::BaseObject::inited()) {
-        return m_radius;
+IfcPositiveLengthMeasure IfcRoundedEdgeFeature::getRadius()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Radius;
     }
-    else {
-        return Step::getUnset(m_radius);
-    }
+    else 
+    {
+        return Step::getUnset(m_Radius);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcRoundedEdgeFeature::getRadius() const {
-    IfcRoundedEdgeFeature * deConstObject = const_cast< IfcRoundedEdgeFeature * > (this);
-    return deConstObject->getRadius();
+IfcPositiveLengthMeasure IfcRoundedEdgeFeature::getRadius() const
+{
+    return const_cast<IfcRoundedEdgeFeature *>(this)->getRadius();
 }
 
-void IfcRoundedEdgeFeature::setRadius(IfcPositiveLengthMeasure value) {
-    m_radius = value;
+void IfcRoundedEdgeFeature::setRadius(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Radius = value;
 }
 
-void IfcRoundedEdgeFeature::unsetRadius() {
-    m_radius = Step::getUnset(getRadius());
+void IfcRoundedEdgeFeature::unsetRadius()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Radius = Step::getUnset(getRadius());
 }
 
-bool IfcRoundedEdgeFeature::testRadius() const {
-    return !Step::isUnset(getRadius());
+bool IfcRoundedEdgeFeature::testRadius() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRadius()) == false;
 }
 
-bool IfcRoundedEdgeFeature::init() {
-    bool status = IfcEdgeFeature::init();
-    std::string arg;
-    if (!status) {
+bool IfcRoundedEdgeFeature::init()
+{
+    if (IfcEdgeFeature::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_radius = Step::getUnset(m_radius);
+    if (arg == "$" || arg == "*")
+    {
+        m_Radius = Step::getUnset(m_Radius);
     }
-    else {
-        m_radius = Step::spfToReal(arg);
+    else
+    {
+        m_Radius = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcRoundedEdgeFeature::copy(const IfcRoundedEdgeFeature &obj, const CopyOp &copyop) {
+void IfcRoundedEdgeFeature::copy(const IfcRoundedEdgeFeature &obj, const CopyOp &copyop)
+{
     IfcEdgeFeature::copy(obj, copyop);
-    setRadius(obj.m_radius);
+    setRadius(obj.m_Radius);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRoundedEdgeFeature::s_type("IfcRoundedEdgeFeature");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRoundedEdgeFeature, IfcEdgeFeature)

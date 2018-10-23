@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,213 +24,250 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcApprovalRelationship.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcApproval.h>
+#include <ifc2x3/IfcApproval.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcApprovalRelationship::IfcApprovalRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_relatedApproval = NULL;
-    m_relatingApproval = NULL;
-    m_description = Step::getUnset(m_description);
-    m_name = Step::getUnset(m_name);
+IfcApprovalRelationship::IfcApprovalRelationship(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_Description = Step::getUnset(m_Description);
+    m_Name = Step::getUnset(m_Name);
+    m_RelatedApproval = NULL;
+    m_RelatingApproval = NULL;
 }
 
-IfcApprovalRelationship::~IfcApprovalRelationship() {
+IfcApprovalRelationship::~IfcApprovalRelationship()
+{}
+
+bool IfcApprovalRelationship::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcApprovalRelationship(this);
 }
 
-bool IfcApprovalRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcApprovalRelationship(this);
-}
 
-const std::string &IfcApprovalRelationship::type() const {
-    return IfcApprovalRelationship::s_type.getName();
-}
-
-const Step::ClassType &IfcApprovalRelationship::getClassType() {
-    return IfcApprovalRelationship::s_type;
-}
-
-const Step::ClassType &IfcApprovalRelationship::getType() const {
-    return IfcApprovalRelationship::s_type;
-}
-
-bool IfcApprovalRelationship::isOfType(const Step::ClassType &t) const {
-    return IfcApprovalRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcApproval *IfcApprovalRelationship::getRelatedApproval() {
-    if (Step::BaseObject::inited()) {
-        return m_relatedApproval.get();
+IfcText IfcApprovalRelationship::getDescription()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Description;
     }
-    else {
+    else 
+    {
+        return Step::getUnset(m_Description);
+    }    
+}
+
+const IfcText IfcApprovalRelationship::getDescription() const
+{
+    return const_cast<IfcApprovalRelationship *>(this)->getDescription();
+}
+
+void IfcApprovalRelationship::setDescription(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = value;
+}
+
+void IfcApprovalRelationship::unsetDescription()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = Step::getUnset(getDescription());
+}
+
+bool IfcApprovalRelationship::testDescription() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDescription()) == false;
+}
+
+
+IfcLabel IfcApprovalRelationship::getName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Name;
+    }
+    else 
+    {
+        return Step::getUnset(m_Name);
+    }    
+}
+
+const IfcLabel IfcApprovalRelationship::getName() const
+{
+    return const_cast<IfcApprovalRelationship *>(this)->getName();
+}
+
+void IfcApprovalRelationship::setName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = value;
+}
+
+void IfcApprovalRelationship::unsetName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = Step::getUnset(getName());
+}
+
+bool IfcApprovalRelationship::testName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getName()) == false;
+}
+
+IfcApproval *IfcApprovalRelationship::getRelatedApproval()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedApproval.get();
+    }
+    else
+    {
         return NULL;
     }
 }
 
-const IfcApproval *IfcApprovalRelationship::getRelatedApproval() const {
-    IfcApprovalRelationship * deConstObject = const_cast< IfcApprovalRelationship * > (this);
-    return deConstObject->getRelatedApproval();
+const IfcApproval *IfcApprovalRelationship::getRelatedApproval() const
+{
+    return const_cast< IfcApprovalRelationship * > (this)->getRelatedApproval();
 }
 
-void IfcApprovalRelationship::setRelatedApproval(const Step::RefPtr< IfcApproval > &value) {
-    if (m_relatedApproval.valid()) {
-        m_relatedApproval->m_isRelatedWith.erase(this);
+void IfcApprovalRelationship::setRelatedApproval(const Step::RefPtr< IfcApproval > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatedApproval.valid())
+    {
+        m_RelatedApproval->m_IsRelatedWith.erase(this);
     }
-    if (value.valid()) {
-        value->m_isRelatedWith.insert(this);
+    if (value.valid() )
+    {
+       value->m_IsRelatedWith.insert(this);
     }
-    m_relatedApproval = value;
+    m_RelatedApproval = value;
 }
 
-void IfcApprovalRelationship::unsetRelatedApproval() {
-    m_relatedApproval = Step::getUnset(getRelatedApproval());
+void IfcApprovalRelationship::unsetRelatedApproval()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedApproval = Step::getUnset(getRelatedApproval());
 }
 
-bool IfcApprovalRelationship::testRelatedApproval() const {
-    return !Step::isUnset(getRelatedApproval());
+bool IfcApprovalRelationship::testRelatedApproval() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatedApproval()) == false;
 }
 
-IfcApproval *IfcApprovalRelationship::getRelatingApproval() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingApproval.get();
+IfcApproval *IfcApprovalRelationship::getRelatingApproval()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingApproval.get();
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcApproval *IfcApprovalRelationship::getRelatingApproval() const {
-    IfcApprovalRelationship * deConstObject = const_cast< IfcApprovalRelationship * > (this);
-    return deConstObject->getRelatingApproval();
+const IfcApproval *IfcApprovalRelationship::getRelatingApproval() const
+{
+    return const_cast< IfcApprovalRelationship * > (this)->getRelatingApproval();
 }
 
-void IfcApprovalRelationship::setRelatingApproval(const Step::RefPtr< IfcApproval > &value) {
-    if (m_relatingApproval.valid()) {
-        m_relatingApproval->m_relates.erase(this);
+void IfcApprovalRelationship::setRelatingApproval(const Step::RefPtr< IfcApproval > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingApproval.valid())
+    {
+        m_RelatingApproval->m_Relates.erase(this);
     }
-    if (value.valid()) {
-        value->m_relates.insert(this);
+    if (value.valid() )
+    {
+       value->m_Relates.insert(this);
     }
-    m_relatingApproval = value;
+    m_RelatingApproval = value;
 }
 
-void IfcApprovalRelationship::unsetRelatingApproval() {
-    m_relatingApproval = Step::getUnset(getRelatingApproval());
+void IfcApprovalRelationship::unsetRelatingApproval()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingApproval = Step::getUnset(getRelatingApproval());
 }
 
-bool IfcApprovalRelationship::testRelatingApproval() const {
-    return !Step::isUnset(getRelatingApproval());
+bool IfcApprovalRelationship::testRelatingApproval() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingApproval()) == false;
 }
 
-IfcText IfcApprovalRelationship::getDescription() {
-    if (Step::BaseObject::inited()) {
-        return m_description;
-    }
-    else {
-        return Step::getUnset(m_description);
-    }
-}
-
-const IfcText IfcApprovalRelationship::getDescription() const {
-    IfcApprovalRelationship * deConstObject = const_cast< IfcApprovalRelationship * > (this);
-    return deConstObject->getDescription();
-}
-
-void IfcApprovalRelationship::setDescription(const IfcText &value) {
-    m_description = value;
-}
-
-void IfcApprovalRelationship::unsetDescription() {
-    m_description = Step::getUnset(getDescription());
-}
-
-bool IfcApprovalRelationship::testDescription() const {
-    return !Step::isUnset(getDescription());
-}
-
-IfcLabel IfcApprovalRelationship::getName() {
-    if (Step::BaseObject::inited()) {
-        return m_name;
-    }
-    else {
-        return Step::getUnset(m_name);
-    }
-}
-
-const IfcLabel IfcApprovalRelationship::getName() const {
-    IfcApprovalRelationship * deConstObject = const_cast< IfcApprovalRelationship * > (this);
-    return deConstObject->getName();
-}
-
-void IfcApprovalRelationship::setName(const IfcLabel &value) {
-    m_name = value;
-}
-
-void IfcApprovalRelationship::unsetName() {
-    m_name = Step::getUnset(getName());
-}
-
-bool IfcApprovalRelationship::testName() const {
-    return !Step::isUnset(getName());
-}
-
-bool IfcApprovalRelationship::init() {
+bool IfcApprovalRelationship::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatedApproval = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Description = Step::getUnset(m_Description);
     }
-    else {
-        m_relatedApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingApproval = NULL;
-    }
-    else {
-        m_relatingApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Description = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_description = Step::getUnset(m_description);
+    if (arg == "$" || arg == "*")
+    {
+        m_Name = Step::getUnset(m_Name);
     }
-    else {
-        m_description = Step::String::fromSPF(arg);
+    else
+    {
+        m_Name = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_name = Step::getUnset(m_name);
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedApproval = NULL;
     }
-    else {
-        m_name = Step::String::fromSPF(arg);
+    else
+    {
+        m_RelatedApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingApproval = NULL;
+    }
+    else
+    {
+        m_RelatingApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcApprovalRelationship::copy(const IfcApprovalRelationship &obj, const CopyOp &copyop) {
+void IfcApprovalRelationship::copy(const IfcApprovalRelationship &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setRelatedApproval((IfcApproval*)copyop(obj.m_relatedApproval.get()));
-    setRelatingApproval((IfcApproval*)copyop(obj.m_relatingApproval.get()));
-    setDescription(obj.m_description);
-    setName(obj.m_name);
+    setDescription(obj.m_Description);
+    setName(obj.m_Name);
+    setRelatedApproval((IfcApproval*)copyop(obj.m_RelatedApproval.get()));
+    setRelatingApproval((IfcApproval*)copyop(obj.m_RelatingApproval.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcApprovalRelationship::s_type("IfcApprovalRelationship");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcApprovalRelationship, Step::BaseEntity)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,348 +24,435 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcWorkControl.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcControl.h>
 #include <ifc2x3/IfcDateTimeSelect.h>
 #include <ifc2x3/IfcPerson.h>
+#include <ifc2x3/IfcDateTimeSelect.h>
+#include <ifc2x3/IfcDateTimeSelect.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcWorkControl::IfcWorkControl(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
-    m_identifier = Step::getUnset(m_identifier);
-    m_creationDate = NULL;
-    m_creators.setUnset(true);
-    m_purpose = Step::getUnset(m_purpose);
-    m_duration = Step::getUnset(m_duration);
-    m_totalFloat = Step::getUnset(m_totalFloat);
-    m_startTime = NULL;
-    m_finishTime = NULL;
-    m_workControlType = IfcWorkControlTypeEnum_UNSET;
-    m_userDefinedControlType = Step::getUnset(m_userDefinedControlType);
+IfcWorkControl::IfcWorkControl(Step::Id id, Step::SPFData *args) : 
+    IfcControl(id, args)
+{
+    m_Identifier = Step::getUnset(m_Identifier);
+    m_CreationDate = NULL;
+    m_Creators.setUnset(true);
+    m_Purpose = Step::getUnset(m_Purpose);
+    m_Duration = Step::getUnset(m_Duration);
+    m_TotalFloat = Step::getUnset(m_TotalFloat);
+    m_StartTime = NULL;
+    m_FinishTime = NULL;
+    m_WorkControlType = IfcWorkControlTypeEnum_UNSET;
+    m_UserDefinedControlType = Step::getUnset(m_UserDefinedControlType);
 }
 
-IfcWorkControl::~IfcWorkControl() {
+IfcWorkControl::~IfcWorkControl()
+{}
+
+bool IfcWorkControl::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcWorkControl(this);
 }
 
-bool IfcWorkControl::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcWorkControl(this);
-}
 
-const std::string &IfcWorkControl::type() const {
-    return IfcWorkControl::s_type.getName();
-}
-
-const Step::ClassType &IfcWorkControl::getClassType() {
-    return IfcWorkControl::s_type;
-}
-
-const Step::ClassType &IfcWorkControl::getType() const {
-    return IfcWorkControl::s_type;
-}
-
-bool IfcWorkControl::isOfType(const Step::ClassType &t) const {
-    return IfcWorkControl::s_type == t ? true : IfcControl::isOfType(t);
-}
-
-IfcIdentifier IfcWorkControl::getIdentifier() {
-    if (Step::BaseObject::inited()) {
-        return m_identifier;
+IfcIdentifier IfcWorkControl::getIdentifier()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Identifier;
     }
-    else {
-        return Step::getUnset(m_identifier);
+    else 
+    {
+        return Step::getUnset(m_Identifier);
+    }    
+}
+
+const IfcIdentifier IfcWorkControl::getIdentifier() const
+{
+    return const_cast<IfcWorkControl *>(this)->getIdentifier();
+}
+
+void IfcWorkControl::setIdentifier(const IfcIdentifier &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Identifier = value;
+}
+
+void IfcWorkControl::unsetIdentifier()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Identifier = Step::getUnset(getIdentifier());
+}
+
+bool IfcWorkControl::testIdentifier() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getIdentifier()) == false;
+}
+
+
+IfcDateTimeSelect *IfcWorkControl::getCreationDate()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CreationDate.get();
     }
-}
-
-const IfcIdentifier IfcWorkControl::getIdentifier() const {
-    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
-    return deConstObject->getIdentifier();
-}
-
-void IfcWorkControl::setIdentifier(const IfcIdentifier &value) {
-    m_identifier = value;
-}
-
-void IfcWorkControl::unsetIdentifier() {
-    m_identifier = Step::getUnset(getIdentifier());
-}
-
-bool IfcWorkControl::testIdentifier() const {
-    return !Step::isUnset(getIdentifier());
-}
-
-IfcDateTimeSelect *IfcWorkControl::getCreationDate() {
-    if (Step::BaseObject::inited()) {
-        return m_creationDate.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDateTimeSelect *IfcWorkControl::getCreationDate() const
+{
+    return const_cast<IfcWorkControl *>(this)->getCreationDate();
+}
+
+void IfcWorkControl::setCreationDate(const Step::RefPtr< IfcDateTimeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CreationDate = value;
+}
+
+void IfcWorkControl::unsetCreationDate()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CreationDate = Step::getUnset(getCreationDate());
+}
+
+bool IfcWorkControl::testCreationDate() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCreationDate()) == false;
+}
+
+
+Set_IfcPerson_1_n &IfcWorkControl::getCreators()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Creators;
     }
+    else 
+    {
+        m_Creators.setUnset(true);
+        return m_Creators;
+    }    
 }
 
-const IfcDateTimeSelect *IfcWorkControl::getCreationDate() const {
-    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
-    return deConstObject->getCreationDate();
+const Set_IfcPerson_1_n &IfcWorkControl::getCreators() const
+{
+    return const_cast<IfcWorkControl *>(this)->getCreators();
 }
 
-void IfcWorkControl::setCreationDate(const Step::RefPtr< IfcDateTimeSelect > &value) {
-    m_creationDate = value;
+void IfcWorkControl::setCreators(const Set_IfcPerson_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Creators = value;
 }
 
-void IfcWorkControl::unsetCreationDate() {
-    m_creationDate = Step::getUnset(getCreationDate());
+void IfcWorkControl::unsetCreators()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Creators.clear();
+    m_Creators.setUnset(true);
 }
 
-bool IfcWorkControl::testCreationDate() const {
-    return !Step::isUnset(getCreationDate());
+bool IfcWorkControl::testCreators() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_Creators.isUnset() == false;
 }
 
-Set_IfcPerson_1_n &IfcWorkControl::getCreators() {
-    if (Step::BaseObject::inited()) {
-        return m_creators;
+
+IfcLabel IfcWorkControl::getPurpose()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Purpose;
     }
-    else {
-        m_creators.setUnset(true);
-        return m_creators;
+    else 
+    {
+        return Step::getUnset(m_Purpose);
+    }    
+}
+
+const IfcLabel IfcWorkControl::getPurpose() const
+{
+    return const_cast<IfcWorkControl *>(this)->getPurpose();
+}
+
+void IfcWorkControl::setPurpose(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Purpose = value;
+}
+
+void IfcWorkControl::unsetPurpose()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Purpose = Step::getUnset(getPurpose());
+}
+
+bool IfcWorkControl::testPurpose() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPurpose()) == false;
+}
+
+
+IfcTimeMeasure IfcWorkControl::getDuration()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Duration;
     }
+    else 
+    {
+        return Step::getUnset(m_Duration);
+    }    
 }
 
-const Set_IfcPerson_1_n &IfcWorkControl::getCreators() const {
-    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
-    return deConstObject->getCreators();
+IfcTimeMeasure IfcWorkControl::getDuration() const
+{
+    return const_cast<IfcWorkControl *>(this)->getDuration();
 }
 
-void IfcWorkControl::setCreators(const Set_IfcPerson_1_n &value) {
-    m_creators = value;
+void IfcWorkControl::setDuration(IfcTimeMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Duration = value;
 }
 
-void IfcWorkControl::unsetCreators() {
-    m_creators.clear();
-    m_creators.setUnset(true);
+void IfcWorkControl::unsetDuration()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Duration = Step::getUnset(getDuration());
 }
 
-bool IfcWorkControl::testCreators() const {
-    return !m_creators.isUnset();
+bool IfcWorkControl::testDuration() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDuration()) == false;
 }
 
-IfcLabel IfcWorkControl::getPurpose() {
-    if (Step::BaseObject::inited()) {
-        return m_purpose;
+
+IfcTimeMeasure IfcWorkControl::getTotalFloat()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TotalFloat;
     }
-    else {
-        return Step::getUnset(m_purpose);
+    else 
+    {
+        return Step::getUnset(m_TotalFloat);
+    }    
+}
+
+IfcTimeMeasure IfcWorkControl::getTotalFloat() const
+{
+    return const_cast<IfcWorkControl *>(this)->getTotalFloat();
+}
+
+void IfcWorkControl::setTotalFloat(IfcTimeMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TotalFloat = value;
+}
+
+void IfcWorkControl::unsetTotalFloat()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TotalFloat = Step::getUnset(getTotalFloat());
+}
+
+bool IfcWorkControl::testTotalFloat() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTotalFloat()) == false;
+}
+
+
+IfcDateTimeSelect *IfcWorkControl::getStartTime()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_StartTime.get();
     }
-}
-
-const IfcLabel IfcWorkControl::getPurpose() const {
-    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
-    return deConstObject->getPurpose();
-}
-
-void IfcWorkControl::setPurpose(const IfcLabel &value) {
-    m_purpose = value;
-}
-
-void IfcWorkControl::unsetPurpose() {
-    m_purpose = Step::getUnset(getPurpose());
-}
-
-bool IfcWorkControl::testPurpose() const {
-    return !Step::isUnset(getPurpose());
-}
-
-IfcTimeMeasure IfcWorkControl::getDuration() {
-    if (Step::BaseObject::inited()) {
-        return m_duration;
-    }
-    else {
-        return Step::getUnset(m_duration);
-    }
-}
-
-const IfcTimeMeasure IfcWorkControl::getDuration() const {
-    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
-    return deConstObject->getDuration();
-}
-
-void IfcWorkControl::setDuration(IfcTimeMeasure value) {
-    m_duration = value;
-}
-
-void IfcWorkControl::unsetDuration() {
-    m_duration = Step::getUnset(getDuration());
-}
-
-bool IfcWorkControl::testDuration() const {
-    return !Step::isUnset(getDuration());
-}
-
-IfcTimeMeasure IfcWorkControl::getTotalFloat() {
-    if (Step::BaseObject::inited()) {
-        return m_totalFloat;
-    }
-    else {
-        return Step::getUnset(m_totalFloat);
-    }
-}
-
-const IfcTimeMeasure IfcWorkControl::getTotalFloat() const {
-    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
-    return deConstObject->getTotalFloat();
-}
-
-void IfcWorkControl::setTotalFloat(IfcTimeMeasure value) {
-    m_totalFloat = value;
-}
-
-void IfcWorkControl::unsetTotalFloat() {
-    m_totalFloat = Step::getUnset(getTotalFloat());
-}
-
-bool IfcWorkControl::testTotalFloat() const {
-    return !Step::isUnset(getTotalFloat());
-}
-
-IfcDateTimeSelect *IfcWorkControl::getStartTime() {
-    if (Step::BaseObject::inited()) {
-        return m_startTime.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDateTimeSelect *IfcWorkControl::getStartTime() const
+{
+    return const_cast<IfcWorkControl *>(this)->getStartTime();
+}
+
+void IfcWorkControl::setStartTime(const Step::RefPtr< IfcDateTimeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_StartTime = value;
+}
+
+void IfcWorkControl::unsetStartTime()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_StartTime = Step::getUnset(getStartTime());
+}
+
+bool IfcWorkControl::testStartTime() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getStartTime()) == false;
+}
+
+
+IfcDateTimeSelect *IfcWorkControl::getFinishTime()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FinishTime.get();
     }
-}
-
-const IfcDateTimeSelect *IfcWorkControl::getStartTime() const {
-    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
-    return deConstObject->getStartTime();
-}
-
-void IfcWorkControl::setStartTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
-    m_startTime = value;
-}
-
-void IfcWorkControl::unsetStartTime() {
-    m_startTime = Step::getUnset(getStartTime());
-}
-
-bool IfcWorkControl::testStartTime() const {
-    return !Step::isUnset(getStartTime());
-}
-
-IfcDateTimeSelect *IfcWorkControl::getFinishTime() {
-    if (Step::BaseObject::inited()) {
-        return m_finishTime.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDateTimeSelect *IfcWorkControl::getFinishTime() const
+{
+    return const_cast<IfcWorkControl *>(this)->getFinishTime();
+}
+
+void IfcWorkControl::setFinishTime(const Step::RefPtr< IfcDateTimeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FinishTime = value;
+}
+
+void IfcWorkControl::unsetFinishTime()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FinishTime = Step::getUnset(getFinishTime());
+}
+
+bool IfcWorkControl::testFinishTime() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFinishTime()) == false;
+}
+
+
+IfcWorkControlTypeEnum IfcWorkControl::getWorkControlType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_WorkControlType;
     }
-}
-
-const IfcDateTimeSelect *IfcWorkControl::getFinishTime() const {
-    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
-    return deConstObject->getFinishTime();
-}
-
-void IfcWorkControl::setFinishTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
-    m_finishTime = value;
-}
-
-void IfcWorkControl::unsetFinishTime() {
-    m_finishTime = Step::getUnset(getFinishTime());
-}
-
-bool IfcWorkControl::testFinishTime() const {
-    return !Step::isUnset(getFinishTime());
-}
-
-IfcWorkControlTypeEnum IfcWorkControl::getWorkControlType() {
-    if (Step::BaseObject::inited()) {
-        return m_workControlType;
-    }
-    else {
+    else 
+    {
         return IfcWorkControlTypeEnum_UNSET;
+    }    
+}
+
+IfcWorkControlTypeEnum IfcWorkControl::getWorkControlType() const
+{
+    return const_cast<IfcWorkControl *>(this)->getWorkControlType();
+}
+
+void IfcWorkControl::setWorkControlType(IfcWorkControlTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WorkControlType = value;
+}
+
+void IfcWorkControl::unsetWorkControlType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WorkControlType = IfcWorkControlTypeEnum_UNSET;
+}
+
+bool IfcWorkControl::testWorkControlType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getWorkControlType()) == false;
+}
+
+
+IfcLabel IfcWorkControl::getUserDefinedControlType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UserDefinedControlType;
     }
+    else 
+    {
+        return Step::getUnset(m_UserDefinedControlType);
+    }    
 }
 
-const IfcWorkControlTypeEnum IfcWorkControl::getWorkControlType() const {
-    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
-    return deConstObject->getWorkControlType();
+const IfcLabel IfcWorkControl::getUserDefinedControlType() const
+{
+    return const_cast<IfcWorkControl *>(this)->getUserDefinedControlType();
 }
 
-void IfcWorkControl::setWorkControlType(IfcWorkControlTypeEnum value) {
-    m_workControlType = value;
+void IfcWorkControl::setUserDefinedControlType(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedControlType = value;
 }
 
-void IfcWorkControl::unsetWorkControlType() {
-    m_workControlType = IfcWorkControlTypeEnum_UNSET;
+void IfcWorkControl::unsetUserDefinedControlType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedControlType = Step::getUnset(getUserDefinedControlType());
 }
 
-bool IfcWorkControl::testWorkControlType() const {
-    return getWorkControlType() != IfcWorkControlTypeEnum_UNSET;
+bool IfcWorkControl::testUserDefinedControlType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUserDefinedControlType()) == false;
 }
 
-IfcLabel IfcWorkControl::getUserDefinedControlType() {
-    if (Step::BaseObject::inited()) {
-        return m_userDefinedControlType;
-    }
-    else {
-        return Step::getUnset(m_userDefinedControlType);
-    }
-}
-
-const IfcLabel IfcWorkControl::getUserDefinedControlType() const {
-    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
-    return deConstObject->getUserDefinedControlType();
-}
-
-void IfcWorkControl::setUserDefinedControlType(const IfcLabel &value) {
-    m_userDefinedControlType = value;
-}
-
-void IfcWorkControl::unsetUserDefinedControlType() {
-    m_userDefinedControlType = Step::getUnset(getUserDefinedControlType());
-}
-
-bool IfcWorkControl::testUserDefinedControlType() const {
-    return !Step::isUnset(getUserDefinedControlType());
-}
-
-bool IfcWorkControl::init() {
-    bool status = IfcControl::init();
-    std::string arg;
-    if (!status) {
+bool IfcWorkControl::init()
+{
+    if (IfcControl::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_identifier = Step::getUnset(m_identifier);
+    if (arg == "$" || arg == "*")
+    {
+        m_Identifier = Step::getUnset(m_Identifier);
     }
-    else {
-        m_identifier = Step::String::fromSPF(arg);
+    else
+    {
+        m_Identifier = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_creationDate = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_CreationDate = NULL;
     }
-    else {
-        m_creationDate = new IfcDateTimeSelect;
+    else
+    {
+        m_CreationDate = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_creationDate->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_CreationDate->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -369,53 +465,70 @@ bool IfcWorkControl::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_creators.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_Creators.setUnset(true);
     }
-    else {
-        m_creators.setUnset(false);
-        while (true) {
+    else
+    {
+        m_Creators.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcPerson > attr2;
-                attr2 = static_cast< IfcPerson * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                if (attr2.valid()) m_creators.insert(attr2);
+            if (!str1.empty())
+            {
+                m_Creators.insert(static_cast< IfcPerson * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_purpose = Step::getUnset(m_purpose);
+    if (arg == "$" || arg == "*")
+    {
+        m_Purpose = Step::getUnset(m_Purpose);
     }
-    else {
-        m_purpose = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_duration = Step::getUnset(m_duration);
-    }
-    else {
-        m_duration = Step::spfToReal(arg);
+    else
+    {
+        m_Purpose = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_totalFloat = Step::getUnset(m_totalFloat);
+    if (arg == "$" || arg == "*")
+    {
+        m_Duration = Step::getUnset(m_Duration);
     }
-    else {
-        m_totalFloat = Step::spfToReal(arg);
+    else
+    {
+        m_Duration = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_startTime = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TotalFloat = Step::getUnset(m_TotalFloat);
     }
-    else {
-        m_startTime = new IfcDateTimeSelect;
+    else
+    {
+        m_TotalFloat = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_StartTime = NULL;
+    }
+    else
+    {
+        m_StartTime = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_startTime->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_StartTime->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -428,13 +541,15 @@ bool IfcWorkControl::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_finishTime = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_FinishTime = NULL;
     }
-    else {
-        m_finishTime = new IfcDateTimeSelect;
+    else
+    {
+        m_FinishTime = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_finishTime->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_FinishTime->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -447,56 +562,66 @@ bool IfcWorkControl::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_workControlType = IfcWorkControlTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_WorkControlType = IfcWorkControlTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".ACTUAL.") {
-            m_workControlType = IfcWorkControlTypeEnum_ACTUAL;
+    else
+    {
+        if (arg == ".ACTUAL.")
+        {
+            m_WorkControlType = IfcWorkControlTypeEnum_ACTUAL;
         }
-        else if (arg == ".BASELINE.") {
-            m_workControlType = IfcWorkControlTypeEnum_BASELINE;
+        else if (arg == ".BASELINE.")
+        {
+            m_WorkControlType = IfcWorkControlTypeEnum_BASELINE;
         }
-        else if (arg == ".PLANNED.") {
-            m_workControlType = IfcWorkControlTypeEnum_PLANNED;
+        else if (arg == ".PLANNED.")
+        {
+            m_WorkControlType = IfcWorkControlTypeEnum_PLANNED;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_workControlType = IfcWorkControlTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_WorkControlType = IfcWorkControlTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_workControlType = IfcWorkControlTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_WorkControlType = IfcWorkControlTypeEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_userDefinedControlType = Step::getUnset(m_userDefinedControlType);
+    if (arg == "$" || arg == "*")
+    {
+        m_UserDefinedControlType = Step::getUnset(m_UserDefinedControlType);
     }
-    else {
-        m_userDefinedControlType = Step::String::fromSPF(arg);
+    else
+    {
+        m_UserDefinedControlType = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcWorkControl::copy(const IfcWorkControl &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcPerson >, 1 >::const_iterator it_m_creators;
+void IfcWorkControl::copy(const IfcWorkControl &obj, const CopyOp &copyop)
+{
     IfcControl::copy(obj, copyop);
-    setIdentifier(obj.m_identifier);
-    m_creationDate = new IfcDateTimeSelect;
-    m_creationDate->copy(*(obj.m_creationDate.get()), copyop);
-    for (it_m_creators = obj.m_creators.begin(); it_m_creators != obj.m_creators.end(); ++it_m_creators) {
-        Step::RefPtr< IfcPerson > copyTarget = (IfcPerson *) (copyop((*it_m_creators).get()));
-        m_creators.insert(copyTarget.get());
+    setIdentifier(obj.m_Identifier);
+    setCreationDate((IfcDateTimeSelect*)copyop(obj.m_CreationDate.get()));
+    Set_IfcPerson_1_n::const_iterator it_m_Creators;
+    for (it_m_Creators = obj.m_Creators.begin(); it_m_Creators != obj.m_Creators.end(); ++it_m_Creators)
+    {
+        Step::RefPtr< IfcPerson > copyTarget = (IfcPerson *) (copyop((*it_m_Creators).get()));
+        m_Creators.insert(copyTarget);
     }
-    setPurpose(obj.m_purpose);
-    setDuration(obj.m_duration);
-    setTotalFloat(obj.m_totalFloat);
-    m_startTime = new IfcDateTimeSelect;
-    m_startTime->copy(*(obj.m_startTime.get()), copyop);
-    m_finishTime = new IfcDateTimeSelect;
-    m_finishTime->copy(*(obj.m_finishTime.get()), copyop);
-    setWorkControlType(obj.m_workControlType);
-    setUserDefinedControlType(obj.m_userDefinedControlType);
+    
+    setPurpose(obj.m_Purpose);
+    setDuration(obj.m_Duration);
+    setTotalFloat(obj.m_TotalFloat);
+    setStartTime((IfcDateTimeSelect*)copyop(obj.m_StartTime.get()));
+    setFinishTime((IfcDateTimeSelect*)copyop(obj.m_FinishTime.get()));
+    setWorkControlType(obj.m_WorkControlType);
+    setUserDefinedControlType(obj.m_UserDefinedControlType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWorkControl::s_type("IfcWorkControl");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcWorkControl, IfcControl)

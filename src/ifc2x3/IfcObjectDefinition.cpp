@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,174 +24,178 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcObjectDefinition.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcRelAssigns.h>
+#include <ifc2x3/IfcRelDecomposes.h>
 #include <ifc2x3/IfcRelAssociates.h>
 #include <ifc2x3/IfcRelDecomposes.h>
-#include <ifc2x3/IfcRoot.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcObjectDefinition::IfcObjectDefinition(Step::Id id, Step::SPFData *args) : IfcRoot(id, args) {
+IfcObjectDefinition::IfcObjectDefinition(Step::Id id, Step::SPFData *args) : 
+    IfcRoot(id, args)
+{
 }
 
-IfcObjectDefinition::~IfcObjectDefinition() {
+IfcObjectDefinition::~IfcObjectDefinition()
+{}
+
+bool IfcObjectDefinition::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcObjectDefinition(this);
 }
 
-bool IfcObjectDefinition::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcObjectDefinition(this);
-}
-
-const std::string &IfcObjectDefinition::type() const {
-    return IfcObjectDefinition::s_type.getName();
-}
-
-const Step::ClassType &IfcObjectDefinition::getClassType() {
-    return IfcObjectDefinition::s_type;
-}
-
-const Step::ClassType &IfcObjectDefinition::getType() const {
-    return IfcObjectDefinition::s_type;
-}
-
-bool IfcObjectDefinition::isOfType(const Step::ClassType &t) const {
-    return IfcObjectDefinition::s_type == t ? true : IfcRoot::isOfType(t);
-}
-
-Inverse_Set_IfcRelAssigns_0_n &IfcObjectDefinition::getHasAssignments() {
-    if (Step::BaseObject::inited()) {
-        return m_hasAssignments;
+Inverse_Set_IfcRelAssigns_0_n &IfcObjectDefinition::getHasAssignments()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_HasAssignments;
     }
-    else {
-        m_hasAssignments.setUnset(true);
-        return m_hasAssignments;
+ 
+    m_HasAssignments.setUnset(true);
+    return m_HasAssignments;
+}
+
+const Inverse_Set_IfcRelAssigns_0_n &IfcObjectDefinition::getHasAssignments() const
+{
+    return  const_cast< IfcObjectDefinition * > (this)->getHasAssignments();
+}
+
+bool IfcObjectDefinition::testHasAssignments() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_HasAssignments.isUnset() == false;
+}
+
+Inverse_Set_IfcRelDecomposes_0_1 &IfcObjectDefinition::getDecomposes()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_Decomposes;
     }
+ 
+    m_Decomposes.setUnset(true);
+    return m_Decomposes;
 }
 
-const Inverse_Set_IfcRelAssigns_0_n &IfcObjectDefinition::getHasAssignments() const {
-    IfcObjectDefinition * deConstObject = const_cast< IfcObjectDefinition * > (this);
-    return deConstObject->getHasAssignments();
+const Inverse_Set_IfcRelDecomposes_0_1 &IfcObjectDefinition::getDecomposes() const
+{
+    return  const_cast< IfcObjectDefinition * > (this)->getDecomposes();
 }
 
-bool IfcObjectDefinition::testHasAssignments() const {
-    return !m_hasAssignments.isUnset();
+bool IfcObjectDefinition::testDecomposes() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_Decomposes.isUnset() == false;
 }
 
-Inverse_Set_IfcRelDecomposes_0_n &IfcObjectDefinition::getIsDecomposedBy() {
-    if (Step::BaseObject::inited()) {
-        return m_isDecomposedBy;
+Inverse_Set_IfcRelAssociates_0_n &IfcObjectDefinition::getHasAssociations()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_HasAssociations;
     }
-    else {
-        m_isDecomposedBy.setUnset(true);
-        return m_isDecomposedBy;
+ 
+    m_HasAssociations.setUnset(true);
+    return m_HasAssociations;
+}
+
+const Inverse_Set_IfcRelAssociates_0_n &IfcObjectDefinition::getHasAssociations() const
+{
+    return  const_cast< IfcObjectDefinition * > (this)->getHasAssociations();
+}
+
+bool IfcObjectDefinition::testHasAssociations() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_HasAssociations.isUnset() == false;
+}
+
+Inverse_Set_IfcRelDecomposes_0_n &IfcObjectDefinition::getIsDecomposedBy()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_IsDecomposedBy;
     }
+ 
+    m_IsDecomposedBy.setUnset(true);
+    return m_IsDecomposedBy;
 }
 
-const Inverse_Set_IfcRelDecomposes_0_n &IfcObjectDefinition::getIsDecomposedBy() const {
-    IfcObjectDefinition * deConstObject = const_cast< IfcObjectDefinition * > (this);
-    return deConstObject->getIsDecomposedBy();
+const Inverse_Set_IfcRelDecomposes_0_n &IfcObjectDefinition::getIsDecomposedBy() const
+{
+    return  const_cast< IfcObjectDefinition * > (this)->getIsDecomposedBy();
 }
 
-bool IfcObjectDefinition::testIsDecomposedBy() const {
-    return !m_isDecomposedBy.isUnset();
+bool IfcObjectDefinition::testIsDecomposedBy() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_IsDecomposedBy.isUnset() == false;
 }
 
-Inverse_Set_IfcRelDecomposes_0_1 &IfcObjectDefinition::getDecomposes() {
-    if (Step::BaseObject::inited()) {
-        return m_decomposes;
-    }
-    else {
-        m_decomposes.setUnset(true);
-        return m_decomposes;
-    }
-}
-
-const Inverse_Set_IfcRelDecomposes_0_1 &IfcObjectDefinition::getDecomposes() const {
-    IfcObjectDefinition * deConstObject = const_cast< IfcObjectDefinition * > (this);
-    return deConstObject->getDecomposes();
-}
-
-bool IfcObjectDefinition::testDecomposes() const {
-    return !m_decomposes.isUnset();
-}
-
-Inverse_Set_IfcRelAssociates_0_n &IfcObjectDefinition::getHasAssociations() {
-    if (Step::BaseObject::inited()) {
-        return m_hasAssociations;
-    }
-    else {
-        m_hasAssociations.setUnset(true);
-        return m_hasAssociations;
-    }
-}
-
-const Inverse_Set_IfcRelAssociates_0_n &IfcObjectDefinition::getHasAssociations() const {
-    IfcObjectDefinition * deConstObject = const_cast< IfcObjectDefinition * > (this);
-    return deConstObject->getHasAssociations();
-}
-
-bool IfcObjectDefinition::testHasAssociations() const {
-    return !m_hasAssociations.isUnset();
-}
-
-bool IfcObjectDefinition::init() {
-    bool status = IfcRoot::init();
-    std::string arg;
-    std::vector< Step::Id > *inverses;
-    if (!status) {
+bool IfcObjectDefinition::init()
+{
+    if (IfcRoot::init() == false)
+    {
         return false;
     }
+    std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcRelAssigns::getClassType(), 4);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_hasAssignments.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_hasAssignments.insert(static_cast< IfcRelAssigns * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
-    inverses = m_args->getInverses(IfcRelDecomposes::getClassType(), 4);
-    if (inverses) {
-        unsigned int i;
-        m_isDecomposedBy.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_isDecomposedBy.insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
+        m_HasAssignments.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_HasAssignments.insert(static_cast< IfcRelAssigns * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelDecomposes::getClassType(), 5);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_decomposes.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_decomposes.insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
+        m_Decomposes.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_Decomposes.insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelAssociates::getClassType(), 4);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_hasAssociations.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_hasAssociations.insert(static_cast< IfcRelAssociates * > (m_expressDataSet->get((*inverses)[i])));
+        m_HasAssociations.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_HasAssociations.insert(static_cast< IfcRelAssociates * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcRelDecomposes::getClassType(), 4);
+    if (inverses)
+    {
+        unsigned int i;
+        m_IsDecomposedBy.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_IsDecomposedBy.insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcObjectDefinition::copy(const IfcObjectDefinition &obj, const CopyOp &copyop) {
+void IfcObjectDefinition::copy(const IfcObjectDefinition &obj, const CopyOp &copyop)
+{
     IfcRoot::copy(obj, copyop);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcObjectDefinition::s_type("IfcObjectDefinition");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcObjectDefinition, IfcRoot)

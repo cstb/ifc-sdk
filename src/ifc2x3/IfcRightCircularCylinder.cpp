@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,130 +24,144 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRightCircularCylinder.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcCsgPrimitive3D.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRightCircularCylinder::IfcRightCircularCylinder(Step::Id id, Step::SPFData *args) : IfcCsgPrimitive3D(id, args) {
-    m_height = Step::getUnset(m_height);
-    m_radius = Step::getUnset(m_radius);
+IfcRightCircularCylinder::IfcRightCircularCylinder(Step::Id id, Step::SPFData *args) : 
+    IfcCsgPrimitive3D(id, args)
+{
+    m_Height = Step::getUnset(m_Height);
+    m_Radius = Step::getUnset(m_Radius);
 }
 
-IfcRightCircularCylinder::~IfcRightCircularCylinder() {
+IfcRightCircularCylinder::~IfcRightCircularCylinder()
+{}
+
+bool IfcRightCircularCylinder::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRightCircularCylinder(this);
 }
 
-bool IfcRightCircularCylinder::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRightCircularCylinder(this);
-}
 
-const std::string &IfcRightCircularCylinder::type() const {
-    return IfcRightCircularCylinder::s_type.getName();
-}
-
-const Step::ClassType &IfcRightCircularCylinder::getClassType() {
-    return IfcRightCircularCylinder::s_type;
-}
-
-const Step::ClassType &IfcRightCircularCylinder::getType() const {
-    return IfcRightCircularCylinder::s_type;
-}
-
-bool IfcRightCircularCylinder::isOfType(const Step::ClassType &t) const {
-    return IfcRightCircularCylinder::s_type == t ? true : IfcCsgPrimitive3D::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcRightCircularCylinder::getHeight() {
-    if (Step::BaseObject::inited()) {
-        return m_height;
+IfcPositiveLengthMeasure IfcRightCircularCylinder::getHeight()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Height;
     }
-    else {
-        return Step::getUnset(m_height);
+    else 
+    {
+        return Step::getUnset(m_Height);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcRightCircularCylinder::getHeight() const
+{
+    return const_cast<IfcRightCircularCylinder *>(this)->getHeight();
+}
+
+void IfcRightCircularCylinder::setHeight(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Height = value;
+}
+
+void IfcRightCircularCylinder::unsetHeight()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Height = Step::getUnset(getHeight());
+}
+
+bool IfcRightCircularCylinder::testHeight() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getHeight()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcRightCircularCylinder::getRadius()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Radius;
     }
+    else 
+    {
+        return Step::getUnset(m_Radius);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcRightCircularCylinder::getHeight() const {
-    IfcRightCircularCylinder * deConstObject = const_cast< IfcRightCircularCylinder * > (this);
-    return deConstObject->getHeight();
+IfcPositiveLengthMeasure IfcRightCircularCylinder::getRadius() const
+{
+    return const_cast<IfcRightCircularCylinder *>(this)->getRadius();
 }
 
-void IfcRightCircularCylinder::setHeight(IfcPositiveLengthMeasure value) {
-    m_height = value;
+void IfcRightCircularCylinder::setRadius(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Radius = value;
 }
 
-void IfcRightCircularCylinder::unsetHeight() {
-    m_height = Step::getUnset(getHeight());
+void IfcRightCircularCylinder::unsetRadius()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Radius = Step::getUnset(getRadius());
 }
 
-bool IfcRightCircularCylinder::testHeight() const {
-    return !Step::isUnset(getHeight());
+bool IfcRightCircularCylinder::testRadius() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRadius()) == false;
 }
 
-IfcPositiveLengthMeasure IfcRightCircularCylinder::getRadius() {
-    if (Step::BaseObject::inited()) {
-        return m_radius;
-    }
-    else {
-        return Step::getUnset(m_radius);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcRightCircularCylinder::getRadius() const {
-    IfcRightCircularCylinder * deConstObject = const_cast< IfcRightCircularCylinder * > (this);
-    return deConstObject->getRadius();
-}
-
-void IfcRightCircularCylinder::setRadius(IfcPositiveLengthMeasure value) {
-    m_radius = value;
-}
-
-void IfcRightCircularCylinder::unsetRadius() {
-    m_radius = Step::getUnset(getRadius());
-}
-
-bool IfcRightCircularCylinder::testRadius() const {
-    return !Step::isUnset(getRadius());
-}
-
-bool IfcRightCircularCylinder::init() {
-    bool status = IfcCsgPrimitive3D::init();
-    std::string arg;
-    if (!status) {
+bool IfcRightCircularCylinder::init()
+{
+    if (IfcCsgPrimitive3D::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_height = Step::getUnset(m_height);
+    if (arg == "$" || arg == "*")
+    {
+        m_Height = Step::getUnset(m_Height);
     }
-    else {
-        m_height = Step::spfToReal(arg);
+    else
+    {
+        m_Height = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_radius = Step::getUnset(m_radius);
+    if (arg == "$" || arg == "*")
+    {
+        m_Radius = Step::getUnset(m_Radius);
     }
-    else {
-        m_radius = Step::spfToReal(arg);
+    else
+    {
+        m_Radius = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcRightCircularCylinder::copy(const IfcRightCircularCylinder &obj, const CopyOp &copyop) {
+void IfcRightCircularCylinder::copy(const IfcRightCircularCylinder &obj, const CopyOp &copyop)
+{
     IfcCsgPrimitive3D::copy(obj, copyop);
-    setHeight(obj.m_height);
-    setRadius(obj.m_radius);
+    setHeight(obj.m_Height);
+    setRadius(obj.m_Radius);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRightCircularCylinder::s_type("IfcRightCircularCylinder");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRightCircularCylinder, IfcCsgPrimitive3D)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,340 +24,438 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcLShapeProfileDef.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcParameterizedProfileDef.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcLShapeProfileDef::IfcLShapeProfileDef(Step::Id id, Step::SPFData *args) : IfcParameterizedProfileDef(id, args) {
-    m_depth = Step::getUnset(m_depth);
-    m_width = Step::getUnset(m_width);
-    m_thickness = Step::getUnset(m_thickness);
-    m_filletRadius = Step::getUnset(m_filletRadius);
-    m_edgeRadius = Step::getUnset(m_edgeRadius);
-    m_legSlope = Step::getUnset(m_legSlope);
-    m_centreOfGravityInX = Step::getUnset(m_centreOfGravityInX);
-    m_centreOfGravityInY = Step::getUnset(m_centreOfGravityInY);
+IfcLShapeProfileDef::IfcLShapeProfileDef(Step::Id id, Step::SPFData *args) : 
+    IfcParameterizedProfileDef(id, args)
+{
+    m_Depth = Step::getUnset(m_Depth);
+    m_Width = Step::getUnset(m_Width);
+    m_Thickness = Step::getUnset(m_Thickness);
+    m_FilletRadius = Step::getUnset(m_FilletRadius);
+    m_EdgeRadius = Step::getUnset(m_EdgeRadius);
+    m_LegSlope = Step::getUnset(m_LegSlope);
+    m_CentreOfGravityInX = Step::getUnset(m_CentreOfGravityInX);
+    m_CentreOfGravityInY = Step::getUnset(m_CentreOfGravityInY);
 }
 
-IfcLShapeProfileDef::~IfcLShapeProfileDef() {
+IfcLShapeProfileDef::~IfcLShapeProfileDef()
+{}
+
+bool IfcLShapeProfileDef::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcLShapeProfileDef(this);
 }
 
-bool IfcLShapeProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcLShapeProfileDef(this);
-}
 
-const std::string &IfcLShapeProfileDef::type() const {
-    return IfcLShapeProfileDef::s_type.getName();
-}
-
-const Step::ClassType &IfcLShapeProfileDef::getClassType() {
-    return IfcLShapeProfileDef::s_type;
-}
-
-const Step::ClassType &IfcLShapeProfileDef::getType() const {
-    return IfcLShapeProfileDef::s_type;
-}
-
-bool IfcLShapeProfileDef::isOfType(const Step::ClassType &t) const {
-    return IfcLShapeProfileDef::s_type == t ? true : IfcParameterizedProfileDef::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcLShapeProfileDef::getDepth() {
-    if (Step::BaseObject::inited()) {
-        return m_depth;
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getDepth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Depth;
     }
-    else {
-        return Step::getUnset(m_depth);
+    else 
+    {
+        return Step::getUnset(m_Depth);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getDepth() const
+{
+    return const_cast<IfcLShapeProfileDef *>(this)->getDepth();
+}
+
+void IfcLShapeProfileDef::setDepth(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Depth = value;
+}
+
+void IfcLShapeProfileDef::unsetDepth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Depth = Step::getUnset(getDepth());
+}
+
+bool IfcLShapeProfileDef::testDepth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDepth()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getWidth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Width;
     }
+    else 
+    {
+        return Step::getUnset(m_Width);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcLShapeProfileDef::getDepth() const {
-    IfcLShapeProfileDef * deConstObject = const_cast< IfcLShapeProfileDef * > (this);
-    return deConstObject->getDepth();
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getWidth() const
+{
+    return const_cast<IfcLShapeProfileDef *>(this)->getWidth();
 }
 
-void IfcLShapeProfileDef::setDepth(IfcPositiveLengthMeasure value) {
-    m_depth = value;
+void IfcLShapeProfileDef::setWidth(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Width = value;
 }
 
-void IfcLShapeProfileDef::unsetDepth() {
-    m_depth = Step::getUnset(getDepth());
+void IfcLShapeProfileDef::unsetWidth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Width = Step::getUnset(getWidth());
 }
 
-bool IfcLShapeProfileDef::testDepth() const {
-    return !Step::isUnset(getDepth());
+bool IfcLShapeProfileDef::testWidth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getWidth()) == false;
 }
 
-IfcPositiveLengthMeasure IfcLShapeProfileDef::getWidth() {
-    if (Step::BaseObject::inited()) {
-        return m_width;
+
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Thickness;
     }
-    else {
-        return Step::getUnset(m_width);
+    else 
+    {
+        return Step::getUnset(m_Thickness);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getThickness() const
+{
+    return const_cast<IfcLShapeProfileDef *>(this)->getThickness();
+}
+
+void IfcLShapeProfileDef::setThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Thickness = value;
+}
+
+void IfcLShapeProfileDef::unsetThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Thickness = Step::getUnset(getThickness());
+}
+
+bool IfcLShapeProfileDef::testThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getThickness()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getFilletRadius()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FilletRadius;
     }
+    else 
+    {
+        return Step::getUnset(m_FilletRadius);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcLShapeProfileDef::getWidth() const {
-    IfcLShapeProfileDef * deConstObject = const_cast< IfcLShapeProfileDef * > (this);
-    return deConstObject->getWidth();
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getFilletRadius() const
+{
+    return const_cast<IfcLShapeProfileDef *>(this)->getFilletRadius();
 }
 
-void IfcLShapeProfileDef::setWidth(IfcPositiveLengthMeasure value) {
-    m_width = value;
+void IfcLShapeProfileDef::setFilletRadius(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FilletRadius = value;
 }
 
-void IfcLShapeProfileDef::unsetWidth() {
-    m_width = Step::getUnset(getWidth());
+void IfcLShapeProfileDef::unsetFilletRadius()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FilletRadius = Step::getUnset(getFilletRadius());
 }
 
-bool IfcLShapeProfileDef::testWidth() const {
-    return !Step::isUnset(getWidth());
+bool IfcLShapeProfileDef::testFilletRadius() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFilletRadius()) == false;
 }
 
-IfcPositiveLengthMeasure IfcLShapeProfileDef::getThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_thickness;
+
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getEdgeRadius()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_EdgeRadius;
     }
-    else {
-        return Step::getUnset(m_thickness);
+    else 
+    {
+        return Step::getUnset(m_EdgeRadius);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getEdgeRadius() const
+{
+    return const_cast<IfcLShapeProfileDef *>(this)->getEdgeRadius();
+}
+
+void IfcLShapeProfileDef::setEdgeRadius(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EdgeRadius = value;
+}
+
+void IfcLShapeProfileDef::unsetEdgeRadius()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EdgeRadius = Step::getUnset(getEdgeRadius());
+}
+
+bool IfcLShapeProfileDef::testEdgeRadius() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getEdgeRadius()) == false;
+}
+
+
+IfcPlaneAngleMeasure IfcLShapeProfileDef::getLegSlope()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LegSlope;
     }
+    else 
+    {
+        return Step::getUnset(m_LegSlope);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcLShapeProfileDef::getThickness() const {
-    IfcLShapeProfileDef * deConstObject = const_cast< IfcLShapeProfileDef * > (this);
-    return deConstObject->getThickness();
+IfcPlaneAngleMeasure IfcLShapeProfileDef::getLegSlope() const
+{
+    return const_cast<IfcLShapeProfileDef *>(this)->getLegSlope();
 }
 
-void IfcLShapeProfileDef::setThickness(IfcPositiveLengthMeasure value) {
-    m_thickness = value;
+void IfcLShapeProfileDef::setLegSlope(IfcPlaneAngleMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LegSlope = value;
 }
 
-void IfcLShapeProfileDef::unsetThickness() {
-    m_thickness = Step::getUnset(getThickness());
+void IfcLShapeProfileDef::unsetLegSlope()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LegSlope = Step::getUnset(getLegSlope());
 }
 
-bool IfcLShapeProfileDef::testThickness() const {
-    return !Step::isUnset(getThickness());
+bool IfcLShapeProfileDef::testLegSlope() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLegSlope()) == false;
 }
 
-IfcPositiveLengthMeasure IfcLShapeProfileDef::getFilletRadius() {
-    if (Step::BaseObject::inited()) {
-        return m_filletRadius;
+
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getCentreOfGravityInX()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CentreOfGravityInX;
     }
-    else {
-        return Step::getUnset(m_filletRadius);
+    else 
+    {
+        return Step::getUnset(m_CentreOfGravityInX);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getCentreOfGravityInX() const
+{
+    return const_cast<IfcLShapeProfileDef *>(this)->getCentreOfGravityInX();
+}
+
+void IfcLShapeProfileDef::setCentreOfGravityInX(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CentreOfGravityInX = value;
+}
+
+void IfcLShapeProfileDef::unsetCentreOfGravityInX()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CentreOfGravityInX = Step::getUnset(getCentreOfGravityInX());
+}
+
+bool IfcLShapeProfileDef::testCentreOfGravityInX() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCentreOfGravityInX()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getCentreOfGravityInY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CentreOfGravityInY;
     }
+    else 
+    {
+        return Step::getUnset(m_CentreOfGravityInY);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcLShapeProfileDef::getFilletRadius() const {
-    IfcLShapeProfileDef * deConstObject = const_cast< IfcLShapeProfileDef * > (this);
-    return deConstObject->getFilletRadius();
+IfcPositiveLengthMeasure IfcLShapeProfileDef::getCentreOfGravityInY() const
+{
+    return const_cast<IfcLShapeProfileDef *>(this)->getCentreOfGravityInY();
 }
 
-void IfcLShapeProfileDef::setFilletRadius(IfcPositiveLengthMeasure value) {
-    m_filletRadius = value;
+void IfcLShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CentreOfGravityInY = value;
 }
 
-void IfcLShapeProfileDef::unsetFilletRadius() {
-    m_filletRadius = Step::getUnset(getFilletRadius());
+void IfcLShapeProfileDef::unsetCentreOfGravityInY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CentreOfGravityInY = Step::getUnset(getCentreOfGravityInY());
 }
 
-bool IfcLShapeProfileDef::testFilletRadius() const {
-    return !Step::isUnset(getFilletRadius());
+bool IfcLShapeProfileDef::testCentreOfGravityInY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCentreOfGravityInY()) == false;
 }
 
-IfcPositiveLengthMeasure IfcLShapeProfileDef::getEdgeRadius() {
-    if (Step::BaseObject::inited()) {
-        return m_edgeRadius;
-    }
-    else {
-        return Step::getUnset(m_edgeRadius);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcLShapeProfileDef::getEdgeRadius() const {
-    IfcLShapeProfileDef * deConstObject = const_cast< IfcLShapeProfileDef * > (this);
-    return deConstObject->getEdgeRadius();
-}
-
-void IfcLShapeProfileDef::setEdgeRadius(IfcPositiveLengthMeasure value) {
-    m_edgeRadius = value;
-}
-
-void IfcLShapeProfileDef::unsetEdgeRadius() {
-    m_edgeRadius = Step::getUnset(getEdgeRadius());
-}
-
-bool IfcLShapeProfileDef::testEdgeRadius() const {
-    return !Step::isUnset(getEdgeRadius());
-}
-
-IfcPlaneAngleMeasure IfcLShapeProfileDef::getLegSlope() {
-    if (Step::BaseObject::inited()) {
-        return m_legSlope;
-    }
-    else {
-        return Step::getUnset(m_legSlope);
-    }
-}
-
-const IfcPlaneAngleMeasure IfcLShapeProfileDef::getLegSlope() const {
-    IfcLShapeProfileDef * deConstObject = const_cast< IfcLShapeProfileDef * > (this);
-    return deConstObject->getLegSlope();
-}
-
-void IfcLShapeProfileDef::setLegSlope(IfcPlaneAngleMeasure value) {
-    m_legSlope = value;
-}
-
-void IfcLShapeProfileDef::unsetLegSlope() {
-    m_legSlope = Step::getUnset(getLegSlope());
-}
-
-bool IfcLShapeProfileDef::testLegSlope() const {
-    return !Step::isUnset(getLegSlope());
-}
-
-IfcPositiveLengthMeasure IfcLShapeProfileDef::getCentreOfGravityInX() {
-    if (Step::BaseObject::inited()) {
-        return m_centreOfGravityInX;
-    }
-    else {
-        return Step::getUnset(m_centreOfGravityInX);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcLShapeProfileDef::getCentreOfGravityInX() const {
-    IfcLShapeProfileDef * deConstObject = const_cast< IfcLShapeProfileDef * > (this);
-    return deConstObject->getCentreOfGravityInX();
-}
-
-void IfcLShapeProfileDef::setCentreOfGravityInX(IfcPositiveLengthMeasure value) {
-    m_centreOfGravityInX = value;
-}
-
-void IfcLShapeProfileDef::unsetCentreOfGravityInX() {
-    m_centreOfGravityInX = Step::getUnset(getCentreOfGravityInX());
-}
-
-bool IfcLShapeProfileDef::testCentreOfGravityInX() const {
-    return !Step::isUnset(getCentreOfGravityInX());
-}
-
-IfcPositiveLengthMeasure IfcLShapeProfileDef::getCentreOfGravityInY() {
-    if (Step::BaseObject::inited()) {
-        return m_centreOfGravityInY;
-    }
-    else {
-        return Step::getUnset(m_centreOfGravityInY);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcLShapeProfileDef::getCentreOfGravityInY() const {
-    IfcLShapeProfileDef * deConstObject = const_cast< IfcLShapeProfileDef * > (this);
-    return deConstObject->getCentreOfGravityInY();
-}
-
-void IfcLShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value) {
-    m_centreOfGravityInY = value;
-}
-
-void IfcLShapeProfileDef::unsetCentreOfGravityInY() {
-    m_centreOfGravityInY = Step::getUnset(getCentreOfGravityInY());
-}
-
-bool IfcLShapeProfileDef::testCentreOfGravityInY() const {
-    return !Step::isUnset(getCentreOfGravityInY());
-}
-
-bool IfcLShapeProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
-    std::string arg;
-    if (!status) {
+bool IfcLShapeProfileDef::init()
+{
+    if (IfcParameterizedProfileDef::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_depth = Step::getUnset(m_depth);
+    if (arg == "$" || arg == "*")
+    {
+        m_Depth = Step::getUnset(m_Depth);
     }
-    else {
-        m_depth = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_width = Step::getUnset(m_width);
-    }
-    else {
-        m_width = Step::spfToReal(arg);
+    else
+    {
+        m_Depth = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_thickness = Step::getUnset(m_thickness);
+    if (arg == "$" || arg == "*")
+    {
+        m_Width = Step::getUnset(m_Width);
     }
-    else {
-        m_thickness = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_filletRadius = Step::getUnset(m_filletRadius);
-    }
-    else {
-        m_filletRadius = Step::spfToReal(arg);
+    else
+    {
+        m_Width = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_edgeRadius = Step::getUnset(m_edgeRadius);
+    if (arg == "$" || arg == "*")
+    {
+        m_Thickness = Step::getUnset(m_Thickness);
     }
-    else {
-        m_edgeRadius = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_legSlope = Step::getUnset(m_legSlope);
-    }
-    else {
-        m_legSlope = Step::spfToReal(arg);
+    else
+    {
+        m_Thickness = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_centreOfGravityInX = Step::getUnset(m_centreOfGravityInX);
+    if (arg == "$" || arg == "*")
+    {
+        m_FilletRadius = Step::getUnset(m_FilletRadius);
     }
-    else {
-        m_centreOfGravityInX = Step::spfToReal(arg);
+    else
+    {
+        m_FilletRadius = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_centreOfGravityInY = Step::getUnset(m_centreOfGravityInY);
+    if (arg == "$" || arg == "*")
+    {
+        m_EdgeRadius = Step::getUnset(m_EdgeRadius);
     }
-    else {
-        m_centreOfGravityInY = Step::spfToReal(arg);
+    else
+    {
+        m_EdgeRadius = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_LegSlope = Step::getUnset(m_LegSlope);
+    }
+    else
+    {
+        m_LegSlope = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CentreOfGravityInX = Step::getUnset(m_CentreOfGravityInX);
+    }
+    else
+    {
+        m_CentreOfGravityInX = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CentreOfGravityInY = Step::getUnset(m_CentreOfGravityInY);
+    }
+    else
+    {
+        m_CentreOfGravityInY = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcLShapeProfileDef::copy(const IfcLShapeProfileDef &obj, const CopyOp &copyop) {
+void IfcLShapeProfileDef::copy(const IfcLShapeProfileDef &obj, const CopyOp &copyop)
+{
     IfcParameterizedProfileDef::copy(obj, copyop);
-    setDepth(obj.m_depth);
-    setWidth(obj.m_width);
-    setThickness(obj.m_thickness);
-    setFilletRadius(obj.m_filletRadius);
-    setEdgeRadius(obj.m_edgeRadius);
-    setLegSlope(obj.m_legSlope);
-    setCentreOfGravityInX(obj.m_centreOfGravityInX);
-    setCentreOfGravityInY(obj.m_centreOfGravityInY);
+    setDepth(obj.m_Depth);
+    setWidth(obj.m_Width);
+    setThickness(obj.m_Thickness);
+    setFilletRadius(obj.m_FilletRadius);
+    setEdgeRadius(obj.m_EdgeRadius);
+    setLegSlope(obj.m_LegSlope);
+    setCentreOfGravityInX(obj.m_CentreOfGravityInX);
+    setCentreOfGravityInY(obj.m_CentreOfGravityInY);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLShapeProfileDef::s_type("IfcLShapeProfileDef");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcLShapeProfileDef, IfcParameterizedProfileDef)

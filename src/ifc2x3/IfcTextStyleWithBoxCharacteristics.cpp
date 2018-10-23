@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,225 +24,275 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcTextStyleWithBoxCharacteristics.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcSizeSelect.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcTextStyleWithBoxCharacteristics::IfcTextStyleWithBoxCharacteristics(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_boxHeight = Step::getUnset(m_boxHeight);
-    m_boxWidth = Step::getUnset(m_boxWidth);
-    m_boxSlantAngle = Step::getUnset(m_boxSlantAngle);
-    m_boxRotateAngle = Step::getUnset(m_boxRotateAngle);
-    m_characterSpacing = NULL;
+IfcTextStyleWithBoxCharacteristics::IfcTextStyleWithBoxCharacteristics(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_BoxHeight = Step::getUnset(m_BoxHeight);
+    m_BoxWidth = Step::getUnset(m_BoxWidth);
+    m_BoxSlantAngle = Step::getUnset(m_BoxSlantAngle);
+    m_BoxRotateAngle = Step::getUnset(m_BoxRotateAngle);
+    m_CharacterSpacing = NULL;
 }
 
-IfcTextStyleWithBoxCharacteristics::~IfcTextStyleWithBoxCharacteristics() {
+IfcTextStyleWithBoxCharacteristics::~IfcTextStyleWithBoxCharacteristics()
+{}
+
+bool IfcTextStyleWithBoxCharacteristics::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcTextStyleWithBoxCharacteristics(this);
 }
 
-bool IfcTextStyleWithBoxCharacteristics::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcTextStyleWithBoxCharacteristics(this);
-}
 
-const std::string &IfcTextStyleWithBoxCharacteristics::type() const {
-    return IfcTextStyleWithBoxCharacteristics::s_type.getName();
-}
-
-const Step::ClassType &IfcTextStyleWithBoxCharacteristics::getClassType() {
-    return IfcTextStyleWithBoxCharacteristics::s_type;
-}
-
-const Step::ClassType &IfcTextStyleWithBoxCharacteristics::getType() const {
-    return IfcTextStyleWithBoxCharacteristics::s_type;
-}
-
-bool IfcTextStyleWithBoxCharacteristics::isOfType(const Step::ClassType &t) const {
-    return IfcTextStyleWithBoxCharacteristics::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxHeight() {
-    if (Step::BaseObject::inited()) {
-        return m_boxHeight;
+IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxHeight()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BoxHeight;
     }
-    else {
-        return Step::getUnset(m_boxHeight);
+    else 
+    {
+        return Step::getUnset(m_BoxHeight);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxHeight() const
+{
+    return const_cast<IfcTextStyleWithBoxCharacteristics *>(this)->getBoxHeight();
+}
+
+void IfcTextStyleWithBoxCharacteristics::setBoxHeight(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BoxHeight = value;
+}
+
+void IfcTextStyleWithBoxCharacteristics::unsetBoxHeight()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BoxHeight = Step::getUnset(getBoxHeight());
+}
+
+bool IfcTextStyleWithBoxCharacteristics::testBoxHeight() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBoxHeight()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxWidth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BoxWidth;
     }
+    else 
+    {
+        return Step::getUnset(m_BoxWidth);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxHeight() const {
-    IfcTextStyleWithBoxCharacteristics * deConstObject = const_cast< IfcTextStyleWithBoxCharacteristics * > (this);
-    return deConstObject->getBoxHeight();
+IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxWidth() const
+{
+    return const_cast<IfcTextStyleWithBoxCharacteristics *>(this)->getBoxWidth();
 }
 
-void IfcTextStyleWithBoxCharacteristics::setBoxHeight(IfcPositiveLengthMeasure value) {
-    m_boxHeight = value;
+void IfcTextStyleWithBoxCharacteristics::setBoxWidth(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BoxWidth = value;
 }
 
-void IfcTextStyleWithBoxCharacteristics::unsetBoxHeight() {
-    m_boxHeight = Step::getUnset(getBoxHeight());
+void IfcTextStyleWithBoxCharacteristics::unsetBoxWidth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BoxWidth = Step::getUnset(getBoxWidth());
 }
 
-bool IfcTextStyleWithBoxCharacteristics::testBoxHeight() const {
-    return !Step::isUnset(getBoxHeight());
+bool IfcTextStyleWithBoxCharacteristics::testBoxWidth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBoxWidth()) == false;
 }
 
-IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxWidth() {
-    if (Step::BaseObject::inited()) {
-        return m_boxWidth;
+
+IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxSlantAngle()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BoxSlantAngle;
     }
-    else {
-        return Step::getUnset(m_boxWidth);
+    else 
+    {
+        return Step::getUnset(m_BoxSlantAngle);
+    }    
+}
+
+IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxSlantAngle() const
+{
+    return const_cast<IfcTextStyleWithBoxCharacteristics *>(this)->getBoxSlantAngle();
+}
+
+void IfcTextStyleWithBoxCharacteristics::setBoxSlantAngle(IfcPlaneAngleMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BoxSlantAngle = value;
+}
+
+void IfcTextStyleWithBoxCharacteristics::unsetBoxSlantAngle()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BoxSlantAngle = Step::getUnset(getBoxSlantAngle());
+}
+
+bool IfcTextStyleWithBoxCharacteristics::testBoxSlantAngle() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBoxSlantAngle()) == false;
+}
+
+
+IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxRotateAngle()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BoxRotateAngle;
     }
+    else 
+    {
+        return Step::getUnset(m_BoxRotateAngle);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxWidth() const {
-    IfcTextStyleWithBoxCharacteristics * deConstObject = const_cast< IfcTextStyleWithBoxCharacteristics * > (this);
-    return deConstObject->getBoxWidth();
+IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxRotateAngle() const
+{
+    return const_cast<IfcTextStyleWithBoxCharacteristics *>(this)->getBoxRotateAngle();
 }
 
-void IfcTextStyleWithBoxCharacteristics::setBoxWidth(IfcPositiveLengthMeasure value) {
-    m_boxWidth = value;
+void IfcTextStyleWithBoxCharacteristics::setBoxRotateAngle(IfcPlaneAngleMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BoxRotateAngle = value;
 }
 
-void IfcTextStyleWithBoxCharacteristics::unsetBoxWidth() {
-    m_boxWidth = Step::getUnset(getBoxWidth());
+void IfcTextStyleWithBoxCharacteristics::unsetBoxRotateAngle()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BoxRotateAngle = Step::getUnset(getBoxRotateAngle());
 }
 
-bool IfcTextStyleWithBoxCharacteristics::testBoxWidth() const {
-    return !Step::isUnset(getBoxWidth());
+bool IfcTextStyleWithBoxCharacteristics::testBoxRotateAngle() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBoxRotateAngle()) == false;
 }
 
-IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxSlantAngle() {
-    if (Step::BaseObject::inited()) {
-        return m_boxSlantAngle;
+
+IfcSizeSelect *IfcTextStyleWithBoxCharacteristics::getCharacterSpacing()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CharacterSpacing.get();
     }
-    else {
-        return Step::getUnset(m_boxSlantAngle);
-    }
-}
-
-const IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxSlantAngle() const {
-    IfcTextStyleWithBoxCharacteristics * deConstObject = const_cast< IfcTextStyleWithBoxCharacteristics * > (this);
-    return deConstObject->getBoxSlantAngle();
-}
-
-void IfcTextStyleWithBoxCharacteristics::setBoxSlantAngle(IfcPlaneAngleMeasure value) {
-    m_boxSlantAngle = value;
-}
-
-void IfcTextStyleWithBoxCharacteristics::unsetBoxSlantAngle() {
-    m_boxSlantAngle = Step::getUnset(getBoxSlantAngle());
-}
-
-bool IfcTextStyleWithBoxCharacteristics::testBoxSlantAngle() const {
-    return !Step::isUnset(getBoxSlantAngle());
-}
-
-IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxRotateAngle() {
-    if (Step::BaseObject::inited()) {
-        return m_boxRotateAngle;
-    }
-    else {
-        return Step::getUnset(m_boxRotateAngle);
-    }
-}
-
-const IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxRotateAngle() const {
-    IfcTextStyleWithBoxCharacteristics * deConstObject = const_cast< IfcTextStyleWithBoxCharacteristics * > (this);
-    return deConstObject->getBoxRotateAngle();
-}
-
-void IfcTextStyleWithBoxCharacteristics::setBoxRotateAngle(IfcPlaneAngleMeasure value) {
-    m_boxRotateAngle = value;
-}
-
-void IfcTextStyleWithBoxCharacteristics::unsetBoxRotateAngle() {
-    m_boxRotateAngle = Step::getUnset(getBoxRotateAngle());
-}
-
-bool IfcTextStyleWithBoxCharacteristics::testBoxRotateAngle() const {
-    return !Step::isUnset(getBoxRotateAngle());
-}
-
-IfcSizeSelect *IfcTextStyleWithBoxCharacteristics::getCharacterSpacing() {
-    if (Step::BaseObject::inited()) {
-        return m_characterSpacing.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcSizeSelect *IfcTextStyleWithBoxCharacteristics::getCharacterSpacing() const {
-    IfcTextStyleWithBoxCharacteristics * deConstObject = const_cast< IfcTextStyleWithBoxCharacteristics * > (this);
-    return deConstObject->getCharacterSpacing();
+const IfcSizeSelect *IfcTextStyleWithBoxCharacteristics::getCharacterSpacing() const
+{
+    return const_cast<IfcTextStyleWithBoxCharacteristics *>(this)->getCharacterSpacing();
 }
 
-void IfcTextStyleWithBoxCharacteristics::setCharacterSpacing(const Step::RefPtr< IfcSizeSelect > &value) {
-    m_characterSpacing = value;
+void IfcTextStyleWithBoxCharacteristics::setCharacterSpacing(const Step::RefPtr< IfcSizeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CharacterSpacing = value;
 }
 
-void IfcTextStyleWithBoxCharacteristics::unsetCharacterSpacing() {
-    m_characterSpacing = Step::getUnset(getCharacterSpacing());
+void IfcTextStyleWithBoxCharacteristics::unsetCharacterSpacing()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CharacterSpacing = Step::getUnset(getCharacterSpacing());
 }
 
-bool IfcTextStyleWithBoxCharacteristics::testCharacterSpacing() const {
-    return !Step::isUnset(getCharacterSpacing());
+bool IfcTextStyleWithBoxCharacteristics::testCharacterSpacing() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCharacterSpacing()) == false;
 }
 
-bool IfcTextStyleWithBoxCharacteristics::init() {
+bool IfcTextStyleWithBoxCharacteristics::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_boxHeight = Step::getUnset(m_boxHeight);
+    if (arg == "$" || arg == "*")
+    {
+        m_BoxHeight = Step::getUnset(m_BoxHeight);
     }
-    else {
-        m_boxHeight = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_boxWidth = Step::getUnset(m_boxWidth);
-    }
-    else {
-        m_boxWidth = Step::spfToReal(arg);
+    else
+    {
+        m_BoxHeight = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_boxSlantAngle = Step::getUnset(m_boxSlantAngle);
+    if (arg == "$" || arg == "*")
+    {
+        m_BoxWidth = Step::getUnset(m_BoxWidth);
     }
-    else {
-        m_boxSlantAngle = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_boxRotateAngle = Step::getUnset(m_boxRotateAngle);
-    }
-    else {
-        m_boxRotateAngle = Step::spfToReal(arg);
+    else
+    {
+        m_BoxWidth = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_characterSpacing = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_BoxSlantAngle = Step::getUnset(m_BoxSlantAngle);
     }
-    else {
-        m_characterSpacing = new IfcSizeSelect;
+    else
+    {
+        m_BoxSlantAngle = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_BoxRotateAngle = Step::getUnset(m_BoxRotateAngle);
+    }
+    else
+    {
+        m_BoxRotateAngle = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CharacterSpacing = NULL;
+    }
+    else
+    {
+        m_CharacterSpacing = new IfcSizeSelect;
         if (arg[0] == '#') {
-            m_characterSpacing->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_CharacterSpacing->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -242,35 +301,46 @@ bool IfcTextStyleWithBoxCharacteristics::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_characterSpacing->setIfcRatioMeasure(tmp_attr1);
+                if (type1 == "IFCRATIOMEASURE")
+                {
+                    IfcRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_CharacterSpacing->setIfcRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_characterSpacing->setIfcLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCLENGTHMEASURE")
+                {
+                    IfcLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_CharacterSpacing->setIfcLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    Step::String tmp_attr1;
-                    tmp_attr1 = Step::String::fromSPF(arg);
-                    m_characterSpacing->setIfcDescriptiveMeasure(tmp_attr1);
+                else if (type1 == "IFCDESCRIPTIVEMEASURE")
+                {
+                    IfcDescriptiveMeasure tmp_attr1 = Step::String::fromSPF(arg)
+;
+                    m_CharacterSpacing->setIfcDescriptiveMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVELENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_characterSpacing->setIfcPositiveLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVELENGTHMEASURE")
+                {
+                    IfcPositiveLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_CharacterSpacing->setIfcPositiveLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_characterSpacing->setIfcNormalisedRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_CharacterSpacing->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVERATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_characterSpacing->setIfcPositiveRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVERATIOMEASURE")
+                {
+                    IfcPositiveRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_CharacterSpacing->setIfcPositiveRatioMeasure(tmp_attr1);
                 }
             }
         }
@@ -278,15 +348,15 @@ bool IfcTextStyleWithBoxCharacteristics::init() {
     return true;
 }
 
-void IfcTextStyleWithBoxCharacteristics::copy(const IfcTextStyleWithBoxCharacteristics &obj, const CopyOp &copyop) {
+void IfcTextStyleWithBoxCharacteristics::copy(const IfcTextStyleWithBoxCharacteristics &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setBoxHeight(obj.m_boxHeight);
-    setBoxWidth(obj.m_boxWidth);
-    setBoxSlantAngle(obj.m_boxSlantAngle);
-    setBoxRotateAngle(obj.m_boxRotateAngle);
-    m_characterSpacing = new IfcSizeSelect;
-    m_characterSpacing->copy(*(obj.m_characterSpacing.get()), copyop);
+    setBoxHeight(obj.m_BoxHeight);
+    setBoxWidth(obj.m_BoxWidth);
+    setBoxSlantAngle(obj.m_BoxSlantAngle);
+    setBoxRotateAngle(obj.m_BoxRotateAngle);
+    setCharacterSpacing((IfcSizeSelect*)copyop(obj.m_CharacterSpacing.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextStyleWithBoxCharacteristics::s_type("IfcTextStyleWithBoxCharacteristics");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcTextStyleWithBoxCharacteristics, Step::BaseEntity)

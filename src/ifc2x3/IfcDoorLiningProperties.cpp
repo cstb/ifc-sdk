@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,449 +24,585 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcDoorLiningProperties.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcPropertySetDefinition.h>
 #include <ifc2x3/IfcShapeAspect.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcDoorLiningProperties::IfcDoorLiningProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
-    m_liningDepth = Step::getUnset(m_liningDepth);
-    m_liningThickness = Step::getUnset(m_liningThickness);
-    m_thresholdDepth = Step::getUnset(m_thresholdDepth);
-    m_thresholdThickness = Step::getUnset(m_thresholdThickness);
-    m_transomThickness = Step::getUnset(m_transomThickness);
-    m_transomOffset = Step::getUnset(m_transomOffset);
-    m_liningOffset = Step::getUnset(m_liningOffset);
-    m_thresholdOffset = Step::getUnset(m_thresholdOffset);
-    m_casingThickness = Step::getUnset(m_casingThickness);
-    m_casingDepth = Step::getUnset(m_casingDepth);
-    m_shapeAspectStyle = NULL;
+IfcDoorLiningProperties::IfcDoorLiningProperties(Step::Id id, Step::SPFData *args) : 
+    IfcPropertySetDefinition(id, args)
+{
+    m_LiningDepth = Step::getUnset(m_LiningDepth);
+    m_LiningThickness = Step::getUnset(m_LiningThickness);
+    m_ThresholdDepth = Step::getUnset(m_ThresholdDepth);
+    m_ThresholdThickness = Step::getUnset(m_ThresholdThickness);
+    m_TransomThickness = Step::getUnset(m_TransomThickness);
+    m_TransomOffset = Step::getUnset(m_TransomOffset);
+    m_LiningOffset = Step::getUnset(m_LiningOffset);
+    m_ThresholdOffset = Step::getUnset(m_ThresholdOffset);
+    m_CasingThickness = Step::getUnset(m_CasingThickness);
+    m_CasingDepth = Step::getUnset(m_CasingDepth);
+    m_ShapeAspectStyle = NULL;
 }
 
-IfcDoorLiningProperties::~IfcDoorLiningProperties() {
+IfcDoorLiningProperties::~IfcDoorLiningProperties()
+{}
+
+bool IfcDoorLiningProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcDoorLiningProperties(this);
 }
 
-bool IfcDoorLiningProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcDoorLiningProperties(this);
-}
 
-const std::string &IfcDoorLiningProperties::type() const {
-    return IfcDoorLiningProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcDoorLiningProperties::getClassType() {
-    return IfcDoorLiningProperties::s_type;
-}
-
-const Step::ClassType &IfcDoorLiningProperties::getType() const {
-    return IfcDoorLiningProperties::s_type;
-}
-
-bool IfcDoorLiningProperties::isOfType(const Step::ClassType &t) const {
-    return IfcDoorLiningProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcDoorLiningProperties::getLiningDepth() {
-    if (Step::BaseObject::inited()) {
-        return m_liningDepth;
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getLiningDepth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LiningDepth;
     }
-    else {
-        return Step::getUnset(m_liningDepth);
+    else 
+    {
+        return Step::getUnset(m_LiningDepth);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getLiningDepth() const
+{
+    return const_cast<IfcDoorLiningProperties *>(this)->getLiningDepth();
+}
+
+void IfcDoorLiningProperties::setLiningDepth(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LiningDepth = value;
+}
+
+void IfcDoorLiningProperties::unsetLiningDepth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LiningDepth = Step::getUnset(getLiningDepth());
+}
+
+bool IfcDoorLiningProperties::testLiningDepth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLiningDepth()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getLiningThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LiningThickness;
     }
+    else 
+    {
+        return Step::getUnset(m_LiningThickness);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcDoorLiningProperties::getLiningDepth() const {
-    IfcDoorLiningProperties * deConstObject = const_cast< IfcDoorLiningProperties * > (this);
-    return deConstObject->getLiningDepth();
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getLiningThickness() const
+{
+    return const_cast<IfcDoorLiningProperties *>(this)->getLiningThickness();
 }
 
-void IfcDoorLiningProperties::setLiningDepth(IfcPositiveLengthMeasure value) {
-    m_liningDepth = value;
+void IfcDoorLiningProperties::setLiningThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LiningThickness = value;
 }
 
-void IfcDoorLiningProperties::unsetLiningDepth() {
-    m_liningDepth = Step::getUnset(getLiningDepth());
+void IfcDoorLiningProperties::unsetLiningThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LiningThickness = Step::getUnset(getLiningThickness());
 }
 
-bool IfcDoorLiningProperties::testLiningDepth() const {
-    return !Step::isUnset(getLiningDepth());
+bool IfcDoorLiningProperties::testLiningThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLiningThickness()) == false;
 }
 
-IfcPositiveLengthMeasure IfcDoorLiningProperties::getLiningThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_liningThickness;
+
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getThresholdDepth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ThresholdDepth;
     }
-    else {
-        return Step::getUnset(m_liningThickness);
+    else 
+    {
+        return Step::getUnset(m_ThresholdDepth);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getThresholdDepth() const
+{
+    return const_cast<IfcDoorLiningProperties *>(this)->getThresholdDepth();
+}
+
+void IfcDoorLiningProperties::setThresholdDepth(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThresholdDepth = value;
+}
+
+void IfcDoorLiningProperties::unsetThresholdDepth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThresholdDepth = Step::getUnset(getThresholdDepth());
+}
+
+bool IfcDoorLiningProperties::testThresholdDepth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getThresholdDepth()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getThresholdThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ThresholdThickness;
     }
+    else 
+    {
+        return Step::getUnset(m_ThresholdThickness);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcDoorLiningProperties::getLiningThickness() const {
-    IfcDoorLiningProperties * deConstObject = const_cast< IfcDoorLiningProperties * > (this);
-    return deConstObject->getLiningThickness();
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getThresholdThickness() const
+{
+    return const_cast<IfcDoorLiningProperties *>(this)->getThresholdThickness();
 }
 
-void IfcDoorLiningProperties::setLiningThickness(IfcPositiveLengthMeasure value) {
-    m_liningThickness = value;
+void IfcDoorLiningProperties::setThresholdThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThresholdThickness = value;
 }
 
-void IfcDoorLiningProperties::unsetLiningThickness() {
-    m_liningThickness = Step::getUnset(getLiningThickness());
+void IfcDoorLiningProperties::unsetThresholdThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThresholdThickness = Step::getUnset(getThresholdThickness());
 }
 
-bool IfcDoorLiningProperties::testLiningThickness() const {
-    return !Step::isUnset(getLiningThickness());
+bool IfcDoorLiningProperties::testThresholdThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getThresholdThickness()) == false;
 }
 
-IfcPositiveLengthMeasure IfcDoorLiningProperties::getThresholdDepth() {
-    if (Step::BaseObject::inited()) {
-        return m_thresholdDepth;
+
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getTransomThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TransomThickness;
     }
-    else {
-        return Step::getUnset(m_thresholdDepth);
+    else 
+    {
+        return Step::getUnset(m_TransomThickness);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getTransomThickness() const
+{
+    return const_cast<IfcDoorLiningProperties *>(this)->getTransomThickness();
+}
+
+void IfcDoorLiningProperties::setTransomThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransomThickness = value;
+}
+
+void IfcDoorLiningProperties::unsetTransomThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransomThickness = Step::getUnset(getTransomThickness());
+}
+
+bool IfcDoorLiningProperties::testTransomThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTransomThickness()) == false;
+}
+
+
+IfcLengthMeasure IfcDoorLiningProperties::getTransomOffset()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TransomOffset;
     }
+    else 
+    {
+        return Step::getUnset(m_TransomOffset);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcDoorLiningProperties::getThresholdDepth() const {
-    IfcDoorLiningProperties * deConstObject = const_cast< IfcDoorLiningProperties * > (this);
-    return deConstObject->getThresholdDepth();
+IfcLengthMeasure IfcDoorLiningProperties::getTransomOffset() const
+{
+    return const_cast<IfcDoorLiningProperties *>(this)->getTransomOffset();
 }
 
-void IfcDoorLiningProperties::setThresholdDepth(IfcPositiveLengthMeasure value) {
-    m_thresholdDepth = value;
+void IfcDoorLiningProperties::setTransomOffset(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransomOffset = value;
 }
 
-void IfcDoorLiningProperties::unsetThresholdDepth() {
-    m_thresholdDepth = Step::getUnset(getThresholdDepth());
+void IfcDoorLiningProperties::unsetTransomOffset()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransomOffset = Step::getUnset(getTransomOffset());
 }
 
-bool IfcDoorLiningProperties::testThresholdDepth() const {
-    return !Step::isUnset(getThresholdDepth());
+bool IfcDoorLiningProperties::testTransomOffset() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTransomOffset()) == false;
 }
 
-IfcPositiveLengthMeasure IfcDoorLiningProperties::getThresholdThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_thresholdThickness;
+
+IfcLengthMeasure IfcDoorLiningProperties::getLiningOffset()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LiningOffset;
     }
-    else {
-        return Step::getUnset(m_thresholdThickness);
+    else 
+    {
+        return Step::getUnset(m_LiningOffset);
+    }    
+}
+
+IfcLengthMeasure IfcDoorLiningProperties::getLiningOffset() const
+{
+    return const_cast<IfcDoorLiningProperties *>(this)->getLiningOffset();
+}
+
+void IfcDoorLiningProperties::setLiningOffset(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LiningOffset = value;
+}
+
+void IfcDoorLiningProperties::unsetLiningOffset()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LiningOffset = Step::getUnset(getLiningOffset());
+}
+
+bool IfcDoorLiningProperties::testLiningOffset() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLiningOffset()) == false;
+}
+
+
+IfcLengthMeasure IfcDoorLiningProperties::getThresholdOffset()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ThresholdOffset;
     }
+    else 
+    {
+        return Step::getUnset(m_ThresholdOffset);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcDoorLiningProperties::getThresholdThickness() const {
-    IfcDoorLiningProperties * deConstObject = const_cast< IfcDoorLiningProperties * > (this);
-    return deConstObject->getThresholdThickness();
+IfcLengthMeasure IfcDoorLiningProperties::getThresholdOffset() const
+{
+    return const_cast<IfcDoorLiningProperties *>(this)->getThresholdOffset();
 }
 
-void IfcDoorLiningProperties::setThresholdThickness(IfcPositiveLengthMeasure value) {
-    m_thresholdThickness = value;
+void IfcDoorLiningProperties::setThresholdOffset(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThresholdOffset = value;
 }
 
-void IfcDoorLiningProperties::unsetThresholdThickness() {
-    m_thresholdThickness = Step::getUnset(getThresholdThickness());
+void IfcDoorLiningProperties::unsetThresholdOffset()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThresholdOffset = Step::getUnset(getThresholdOffset());
 }
 
-bool IfcDoorLiningProperties::testThresholdThickness() const {
-    return !Step::isUnset(getThresholdThickness());
+bool IfcDoorLiningProperties::testThresholdOffset() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getThresholdOffset()) == false;
 }
 
-IfcPositiveLengthMeasure IfcDoorLiningProperties::getTransomThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_transomThickness;
+
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getCasingThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CasingThickness;
     }
-    else {
-        return Step::getUnset(m_transomThickness);
+    else 
+    {
+        return Step::getUnset(m_CasingThickness);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getCasingThickness() const
+{
+    return const_cast<IfcDoorLiningProperties *>(this)->getCasingThickness();
+}
+
+void IfcDoorLiningProperties::setCasingThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CasingThickness = value;
+}
+
+void IfcDoorLiningProperties::unsetCasingThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CasingThickness = Step::getUnset(getCasingThickness());
+}
+
+bool IfcDoorLiningProperties::testCasingThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCasingThickness()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getCasingDepth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CasingDepth;
     }
+    else 
+    {
+        return Step::getUnset(m_CasingDepth);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcDoorLiningProperties::getTransomThickness() const {
-    IfcDoorLiningProperties * deConstObject = const_cast< IfcDoorLiningProperties * > (this);
-    return deConstObject->getTransomThickness();
+IfcPositiveLengthMeasure IfcDoorLiningProperties::getCasingDepth() const
+{
+    return const_cast<IfcDoorLiningProperties *>(this)->getCasingDepth();
 }
 
-void IfcDoorLiningProperties::setTransomThickness(IfcPositiveLengthMeasure value) {
-    m_transomThickness = value;
+void IfcDoorLiningProperties::setCasingDepth(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CasingDepth = value;
 }
 
-void IfcDoorLiningProperties::unsetTransomThickness() {
-    m_transomThickness = Step::getUnset(getTransomThickness());
+void IfcDoorLiningProperties::unsetCasingDepth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CasingDepth = Step::getUnset(getCasingDepth());
 }
 
-bool IfcDoorLiningProperties::testTransomThickness() const {
-    return !Step::isUnset(getTransomThickness());
+bool IfcDoorLiningProperties::testCasingDepth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCasingDepth()) == false;
 }
 
-IfcLengthMeasure IfcDoorLiningProperties::getTransomOffset() {
-    if (Step::BaseObject::inited()) {
-        return m_transomOffset;
+
+IfcShapeAspect *IfcDoorLiningProperties::getShapeAspectStyle()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ShapeAspectStyle.get();
     }
-    else {
-        return Step::getUnset(m_transomOffset);
-    }
-}
-
-const IfcLengthMeasure IfcDoorLiningProperties::getTransomOffset() const {
-    IfcDoorLiningProperties * deConstObject = const_cast< IfcDoorLiningProperties * > (this);
-    return deConstObject->getTransomOffset();
-}
-
-void IfcDoorLiningProperties::setTransomOffset(IfcLengthMeasure value) {
-    m_transomOffset = value;
-}
-
-void IfcDoorLiningProperties::unsetTransomOffset() {
-    m_transomOffset = Step::getUnset(getTransomOffset());
-}
-
-bool IfcDoorLiningProperties::testTransomOffset() const {
-    return !Step::isUnset(getTransomOffset());
-}
-
-IfcLengthMeasure IfcDoorLiningProperties::getLiningOffset() {
-    if (Step::BaseObject::inited()) {
-        return m_liningOffset;
-    }
-    else {
-        return Step::getUnset(m_liningOffset);
-    }
-}
-
-const IfcLengthMeasure IfcDoorLiningProperties::getLiningOffset() const {
-    IfcDoorLiningProperties * deConstObject = const_cast< IfcDoorLiningProperties * > (this);
-    return deConstObject->getLiningOffset();
-}
-
-void IfcDoorLiningProperties::setLiningOffset(IfcLengthMeasure value) {
-    m_liningOffset = value;
-}
-
-void IfcDoorLiningProperties::unsetLiningOffset() {
-    m_liningOffset = Step::getUnset(getLiningOffset());
-}
-
-bool IfcDoorLiningProperties::testLiningOffset() const {
-    return !Step::isUnset(getLiningOffset());
-}
-
-IfcLengthMeasure IfcDoorLiningProperties::getThresholdOffset() {
-    if (Step::BaseObject::inited()) {
-        return m_thresholdOffset;
-    }
-    else {
-        return Step::getUnset(m_thresholdOffset);
-    }
-}
-
-const IfcLengthMeasure IfcDoorLiningProperties::getThresholdOffset() const {
-    IfcDoorLiningProperties * deConstObject = const_cast< IfcDoorLiningProperties * > (this);
-    return deConstObject->getThresholdOffset();
-}
-
-void IfcDoorLiningProperties::setThresholdOffset(IfcLengthMeasure value) {
-    m_thresholdOffset = value;
-}
-
-void IfcDoorLiningProperties::unsetThresholdOffset() {
-    m_thresholdOffset = Step::getUnset(getThresholdOffset());
-}
-
-bool IfcDoorLiningProperties::testThresholdOffset() const {
-    return !Step::isUnset(getThresholdOffset());
-}
-
-IfcPositiveLengthMeasure IfcDoorLiningProperties::getCasingThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_casingThickness;
-    }
-    else {
-        return Step::getUnset(m_casingThickness);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcDoorLiningProperties::getCasingThickness() const {
-    IfcDoorLiningProperties * deConstObject = const_cast< IfcDoorLiningProperties * > (this);
-    return deConstObject->getCasingThickness();
-}
-
-void IfcDoorLiningProperties::setCasingThickness(IfcPositiveLengthMeasure value) {
-    m_casingThickness = value;
-}
-
-void IfcDoorLiningProperties::unsetCasingThickness() {
-    m_casingThickness = Step::getUnset(getCasingThickness());
-}
-
-bool IfcDoorLiningProperties::testCasingThickness() const {
-    return !Step::isUnset(getCasingThickness());
-}
-
-IfcPositiveLengthMeasure IfcDoorLiningProperties::getCasingDepth() {
-    if (Step::BaseObject::inited()) {
-        return m_casingDepth;
-    }
-    else {
-        return Step::getUnset(m_casingDepth);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcDoorLiningProperties::getCasingDepth() const {
-    IfcDoorLiningProperties * deConstObject = const_cast< IfcDoorLiningProperties * > (this);
-    return deConstObject->getCasingDepth();
-}
-
-void IfcDoorLiningProperties::setCasingDepth(IfcPositiveLengthMeasure value) {
-    m_casingDepth = value;
-}
-
-void IfcDoorLiningProperties::unsetCasingDepth() {
-    m_casingDepth = Step::getUnset(getCasingDepth());
-}
-
-bool IfcDoorLiningProperties::testCasingDepth() const {
-    return !Step::isUnset(getCasingDepth());
-}
-
-IfcShapeAspect *IfcDoorLiningProperties::getShapeAspectStyle() {
-    if (Step::BaseObject::inited()) {
-        return m_shapeAspectStyle.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcShapeAspect *IfcDoorLiningProperties::getShapeAspectStyle() const {
-    IfcDoorLiningProperties * deConstObject = const_cast< IfcDoorLiningProperties * > (this);
-    return deConstObject->getShapeAspectStyle();
+const IfcShapeAspect *IfcDoorLiningProperties::getShapeAspectStyle() const
+{
+    return const_cast<IfcDoorLiningProperties *>(this)->getShapeAspectStyle();
 }
 
-void IfcDoorLiningProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
-    m_shapeAspectStyle = value;
+void IfcDoorLiningProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShapeAspectStyle = value;
 }
 
-void IfcDoorLiningProperties::unsetShapeAspectStyle() {
-    m_shapeAspectStyle = Step::getUnset(getShapeAspectStyle());
+void IfcDoorLiningProperties::unsetShapeAspectStyle()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShapeAspectStyle = Step::getUnset(getShapeAspectStyle());
 }
 
-bool IfcDoorLiningProperties::testShapeAspectStyle() const {
-    return !Step::isUnset(getShapeAspectStyle());
+bool IfcDoorLiningProperties::testShapeAspectStyle() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getShapeAspectStyle()) == false;
 }
 
-bool IfcDoorLiningProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
-    std::string arg;
-    if (!status) {
+bool IfcDoorLiningProperties::init()
+{
+    if (IfcPropertySetDefinition::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_liningDepth = Step::getUnset(m_liningDepth);
+    if (arg == "$" || arg == "*")
+    {
+        m_LiningDepth = Step::getUnset(m_LiningDepth);
     }
-    else {
-        m_liningDepth = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_liningThickness = Step::getUnset(m_liningThickness);
-    }
-    else {
-        m_liningThickness = Step::spfToReal(arg);
+    else
+    {
+        m_LiningDepth = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_thresholdDepth = Step::getUnset(m_thresholdDepth);
+    if (arg == "$" || arg == "*")
+    {
+        m_LiningThickness = Step::getUnset(m_LiningThickness);
     }
-    else {
-        m_thresholdDepth = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_thresholdThickness = Step::getUnset(m_thresholdThickness);
-    }
-    else {
-        m_thresholdThickness = Step::spfToReal(arg);
+    else
+    {
+        m_LiningThickness = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_transomThickness = Step::getUnset(m_transomThickness);
+    if (arg == "$" || arg == "*")
+    {
+        m_ThresholdDepth = Step::getUnset(m_ThresholdDepth);
     }
-    else {
-        m_transomThickness = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_transomOffset = Step::getUnset(m_transomOffset);
-    }
-    else {
-        m_transomOffset = Step::spfToReal(arg);
+    else
+    {
+        m_ThresholdDepth = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_liningOffset = Step::getUnset(m_liningOffset);
+    if (arg == "$" || arg == "*")
+    {
+        m_ThresholdThickness = Step::getUnset(m_ThresholdThickness);
     }
-    else {
-        m_liningOffset = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_thresholdOffset = Step::getUnset(m_thresholdOffset);
-    }
-    else {
-        m_thresholdOffset = Step::spfToReal(arg);
+    else
+    {
+        m_ThresholdThickness = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_casingThickness = Step::getUnset(m_casingThickness);
+    if (arg == "$" || arg == "*")
+    {
+        m_TransomThickness = Step::getUnset(m_TransomThickness);
     }
-    else {
-        m_casingThickness = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_casingDepth = Step::getUnset(m_casingDepth);
-    }
-    else {
-        m_casingDepth = Step::spfToReal(arg);
+    else
+    {
+        m_TransomThickness = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_shapeAspectStyle = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TransomOffset = Step::getUnset(m_TransomOffset);
     }
-    else {
-        m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_TransomOffset = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_LiningOffset = Step::getUnset(m_LiningOffset);
+    }
+    else
+    {
+        m_LiningOffset = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ThresholdOffset = Step::getUnset(m_ThresholdOffset);
+    }
+    else
+    {
+        m_ThresholdOffset = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CasingThickness = Step::getUnset(m_CasingThickness);
+    }
+    else
+    {
+        m_CasingThickness = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CasingDepth = Step::getUnset(m_CasingDepth);
+    }
+    else
+    {
+        m_CasingDepth = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ShapeAspectStyle = NULL;
+    }
+    else
+    {
+        m_ShapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcDoorLiningProperties::copy(const IfcDoorLiningProperties &obj, const CopyOp &copyop) {
+void IfcDoorLiningProperties::copy(const IfcDoorLiningProperties &obj, const CopyOp &copyop)
+{
     IfcPropertySetDefinition::copy(obj, copyop);
-    setLiningDepth(obj.m_liningDepth);
-    setLiningThickness(obj.m_liningThickness);
-    setThresholdDepth(obj.m_thresholdDepth);
-    setThresholdThickness(obj.m_thresholdThickness);
-    setTransomThickness(obj.m_transomThickness);
-    setTransomOffset(obj.m_transomOffset);
-    setLiningOffset(obj.m_liningOffset);
-    setThresholdOffset(obj.m_thresholdOffset);
-    setCasingThickness(obj.m_casingThickness);
-    setCasingDepth(obj.m_casingDepth);
-    setShapeAspectStyle((IfcShapeAspect*)copyop(obj.m_shapeAspectStyle.get()));
+    setLiningDepth(obj.m_LiningDepth);
+    setLiningThickness(obj.m_LiningThickness);
+    setThresholdDepth(obj.m_ThresholdDepth);
+    setThresholdThickness(obj.m_ThresholdThickness);
+    setTransomThickness(obj.m_TransomThickness);
+    setTransomOffset(obj.m_TransomOffset);
+    setLiningOffset(obj.m_LiningOffset);
+    setThresholdOffset(obj.m_ThresholdOffset);
+    setCasingThickness(obj.m_CasingThickness);
+    setCasingDepth(obj.m_CasingDepth);
+    setShapeAspectStyle((IfcShapeAspect*)copyop(obj.m_ShapeAspectStyle.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDoorLiningProperties::s_type("IfcDoorLiningProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcDoorLiningProperties, IfcPropertySetDefinition)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,204 +24,241 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcOffsetCurve3D.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcCurve.h>
 #include <ifc2x3/IfcDirection.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcOffsetCurve3D::IfcOffsetCurve3D(Step::Id id, Step::SPFData *args) : IfcCurve(id, args) {
-    m_basisCurve = NULL;
-    m_distance = Step::getUnset(m_distance);
-    m_selfIntersect = Step::getUnset(m_selfIntersect);
-    m_refDirection = NULL;
+IfcOffsetCurve3D::IfcOffsetCurve3D(Step::Id id, Step::SPFData *args) : 
+    IfcCurve(id, args)
+{
+    m_BasisCurve = NULL;
+    m_Distance = Step::getUnset(m_Distance);
+    m_SelfIntersect = Step::getUnset(m_SelfIntersect);
+    m_RefDirection = NULL;
 }
 
-IfcOffsetCurve3D::~IfcOffsetCurve3D() {
+IfcOffsetCurve3D::~IfcOffsetCurve3D()
+{}
+
+bool IfcOffsetCurve3D::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcOffsetCurve3D(this);
 }
 
-bool IfcOffsetCurve3D::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcOffsetCurve3D(this);
-}
 
-const std::string &IfcOffsetCurve3D::type() const {
-    return IfcOffsetCurve3D::s_type.getName();
-}
-
-const Step::ClassType &IfcOffsetCurve3D::getClassType() {
-    return IfcOffsetCurve3D::s_type;
-}
-
-const Step::ClassType &IfcOffsetCurve3D::getType() const {
-    return IfcOffsetCurve3D::s_type;
-}
-
-bool IfcOffsetCurve3D::isOfType(const Step::ClassType &t) const {
-    return IfcOffsetCurve3D::s_type == t ? true : IfcCurve::isOfType(t);
-}
-
-IfcCurve *IfcOffsetCurve3D::getBasisCurve() {
-    if (Step::BaseObject::inited()) {
-        return m_basisCurve.get();
+IfcCurve *IfcOffsetCurve3D::getBasisCurve()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BasisCurve.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcCurve *IfcOffsetCurve3D::getBasisCurve() const
+{
+    return const_cast<IfcOffsetCurve3D *>(this)->getBasisCurve();
+}
+
+void IfcOffsetCurve3D::setBasisCurve(const Step::RefPtr< IfcCurve > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BasisCurve = value;
+}
+
+void IfcOffsetCurve3D::unsetBasisCurve()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BasisCurve = Step::getUnset(getBasisCurve());
+}
+
+bool IfcOffsetCurve3D::testBasisCurve() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBasisCurve()) == false;
+}
+
+
+IfcLengthMeasure IfcOffsetCurve3D::getDistance()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Distance;
     }
+    else 
+    {
+        return Step::getUnset(m_Distance);
+    }    
 }
 
-const IfcCurve *IfcOffsetCurve3D::getBasisCurve() const {
-    IfcOffsetCurve3D * deConstObject = const_cast< IfcOffsetCurve3D * > (this);
-    return deConstObject->getBasisCurve();
+IfcLengthMeasure IfcOffsetCurve3D::getDistance() const
+{
+    return const_cast<IfcOffsetCurve3D *>(this)->getDistance();
 }
 
-void IfcOffsetCurve3D::setBasisCurve(const Step::RefPtr< IfcCurve > &value) {
-    m_basisCurve = value;
+void IfcOffsetCurve3D::setDistance(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Distance = value;
 }
 
-void IfcOffsetCurve3D::unsetBasisCurve() {
-    m_basisCurve = Step::getUnset(getBasisCurve());
+void IfcOffsetCurve3D::unsetDistance()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Distance = Step::getUnset(getDistance());
 }
 
-bool IfcOffsetCurve3D::testBasisCurve() const {
-    return !Step::isUnset(getBasisCurve());
+bool IfcOffsetCurve3D::testDistance() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDistance()) == false;
 }
 
-IfcLengthMeasure IfcOffsetCurve3D::getDistance() {
-    if (Step::BaseObject::inited()) {
-        return m_distance;
+
+Step::Logical IfcOffsetCurve3D::getSelfIntersect()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SelfIntersect;
     }
-    else {
-        return Step::getUnset(m_distance);
+    else 
+    {
+        return Step::getUnset(m_SelfIntersect);
+    }    
+}
+
+Step::Logical IfcOffsetCurve3D::getSelfIntersect() const
+{
+    return const_cast<IfcOffsetCurve3D *>(this)->getSelfIntersect();
+}
+
+void IfcOffsetCurve3D::setSelfIntersect(Step::Logical value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SelfIntersect = value;
+}
+
+void IfcOffsetCurve3D::unsetSelfIntersect()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SelfIntersect = Step::getUnset(getSelfIntersect());
+}
+
+bool IfcOffsetCurve3D::testSelfIntersect() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSelfIntersect()) == false;
+}
+
+
+IfcDirection *IfcOffsetCurve3D::getRefDirection()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RefDirection.get();
     }
-}
-
-const IfcLengthMeasure IfcOffsetCurve3D::getDistance() const {
-    IfcOffsetCurve3D * deConstObject = const_cast< IfcOffsetCurve3D * > (this);
-    return deConstObject->getDistance();
-}
-
-void IfcOffsetCurve3D::setDistance(IfcLengthMeasure value) {
-    m_distance = value;
-}
-
-void IfcOffsetCurve3D::unsetDistance() {
-    m_distance = Step::getUnset(getDistance());
-}
-
-bool IfcOffsetCurve3D::testDistance() const {
-    return !Step::isUnset(getDistance());
-}
-
-Step::Logical IfcOffsetCurve3D::getSelfIntersect() {
-    if (Step::BaseObject::inited()) {
-        return m_selfIntersect;
-    }
-    else {
-        return Step::getUnset(m_selfIntersect);
-    }
-}
-
-const Step::Logical IfcOffsetCurve3D::getSelfIntersect() const {
-    IfcOffsetCurve3D * deConstObject = const_cast< IfcOffsetCurve3D * > (this);
-    return deConstObject->getSelfIntersect();
-}
-
-void IfcOffsetCurve3D::setSelfIntersect(Step::Logical value) {
-    m_selfIntersect = value;
-}
-
-void IfcOffsetCurve3D::unsetSelfIntersect() {
-    m_selfIntersect = Step::getUnset(getSelfIntersect());
-}
-
-bool IfcOffsetCurve3D::testSelfIntersect() const {
-    return !Step::isUnset(getSelfIntersect());
-}
-
-IfcDirection *IfcOffsetCurve3D::getRefDirection() {
-    if (Step::BaseObject::inited()) {
-        return m_refDirection.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcDirection *IfcOffsetCurve3D::getRefDirection() const {
-    IfcOffsetCurve3D * deConstObject = const_cast< IfcOffsetCurve3D * > (this);
-    return deConstObject->getRefDirection();
+const IfcDirection *IfcOffsetCurve3D::getRefDirection() const
+{
+    return const_cast<IfcOffsetCurve3D *>(this)->getRefDirection();
 }
 
-void IfcOffsetCurve3D::setRefDirection(const Step::RefPtr< IfcDirection > &value) {
-    m_refDirection = value;
+void IfcOffsetCurve3D::setRefDirection(const Step::RefPtr< IfcDirection > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RefDirection = value;
 }
 
-void IfcOffsetCurve3D::unsetRefDirection() {
-    m_refDirection = Step::getUnset(getRefDirection());
+void IfcOffsetCurve3D::unsetRefDirection()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RefDirection = Step::getUnset(getRefDirection());
 }
 
-bool IfcOffsetCurve3D::testRefDirection() const {
-    return !Step::isUnset(getRefDirection());
+bool IfcOffsetCurve3D::testRefDirection() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRefDirection()) == false;
 }
 
-bool IfcOffsetCurve3D::init() {
-    bool status = IfcCurve::init();
-    std::string arg;
-    if (!status) {
+bool IfcOffsetCurve3D::init()
+{
+    if (IfcCurve::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_basisCurve = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_BasisCurve = NULL;
     }
-    else {
-        m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_distance = Step::getUnset(m_distance);
-    }
-    else {
-        m_distance = Step::spfToReal(arg);
+    else
+    {
+        m_BasisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_selfIntersect = Step::getUnset(m_selfIntersect);
+    if (arg == "$" || arg == "*")
+    {
+        m_Distance = Step::getUnset(m_Distance);
     }
-    else {
-        m_selfIntersect = Step::spfToLogical(arg);
+    else
+    {
+        m_Distance = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_refDirection = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_SelfIntersect = Step::getUnset(m_SelfIntersect);
     }
-    else {
-        m_refDirection = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_SelfIntersect = Step::spfToLogical(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RefDirection = NULL;
+    }
+    else
+    {
+        m_RefDirection = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcOffsetCurve3D::copy(const IfcOffsetCurve3D &obj, const CopyOp &copyop) {
+void IfcOffsetCurve3D::copy(const IfcOffsetCurve3D &obj, const CopyOp &copyop)
+{
     IfcCurve::copy(obj, copyop);
-    setBasisCurve((IfcCurve*)copyop(obj.m_basisCurve.get()));
-    setDistance(obj.m_distance);
-    setSelfIntersect(obj.m_selfIntersect);
-    setRefDirection((IfcDirection*)copyop(obj.m_refDirection.get()));
+    setBasisCurve((IfcCurve*)copyop(obj.m_BasisCurve.get()));
+    setDistance(obj.m_Distance);
+    setSelfIntersect(obj.m_SelfIntersect);
+    setRefDirection((IfcDirection*)copyop(obj.m_RefDirection.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOffsetCurve3D::s_type("IfcOffsetCurve3D");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcOffsetCurve3D, IfcCurve)

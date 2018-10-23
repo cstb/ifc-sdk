@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,222 +24,254 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcStructuralResultGroup.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcGroup.h>
-#include <ifc2x3/IfcStructuralAnalysisModel.h>
 #include <ifc2x3/IfcStructuralLoadGroup.h>
+#include <ifc2x3/IfcStructuralAnalysisModel.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcStructuralResultGroup::IfcStructuralResultGroup(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
-    m_theoryType = IfcAnalysisTheoryTypeEnum_UNSET;
-    m_resultForLoadGroup = NULL;
-    m_isLinear = Step::getUnset(m_isLinear);
+IfcStructuralResultGroup::IfcStructuralResultGroup(Step::Id id, Step::SPFData *args) : 
+    IfcGroup(id, args)
+{
+    m_TheoryType = IfcAnalysisTheoryTypeEnum_UNSET;
+    m_IsLinear = Step::getUnset(m_IsLinear);
+    m_ResultForLoadGroup = NULL;
 }
 
-IfcStructuralResultGroup::~IfcStructuralResultGroup() {
+IfcStructuralResultGroup::~IfcStructuralResultGroup()
+{}
+
+bool IfcStructuralResultGroup::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcStructuralResultGroup(this);
 }
 
-bool IfcStructuralResultGroup::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcStructuralResultGroup(this);
-}
 
-const std::string &IfcStructuralResultGroup::type() const {
-    return IfcStructuralResultGroup::s_type.getName();
-}
-
-const Step::ClassType &IfcStructuralResultGroup::getClassType() {
-    return IfcStructuralResultGroup::s_type;
-}
-
-const Step::ClassType &IfcStructuralResultGroup::getType() const {
-    return IfcStructuralResultGroup::s_type;
-}
-
-bool IfcStructuralResultGroup::isOfType(const Step::ClassType &t) const {
-    return IfcStructuralResultGroup::s_type == t ? true : IfcGroup::isOfType(t);
-}
-
-IfcAnalysisTheoryTypeEnum IfcStructuralResultGroup::getTheoryType() {
-    if (Step::BaseObject::inited()) {
-        return m_theoryType;
+IfcAnalysisTheoryTypeEnum IfcStructuralResultGroup::getTheoryType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TheoryType;
     }
-    else {
+    else 
+    {
         return IfcAnalysisTheoryTypeEnum_UNSET;
+    }    
+}
+
+IfcAnalysisTheoryTypeEnum IfcStructuralResultGroup::getTheoryType() const
+{
+    return const_cast<IfcStructuralResultGroup *>(this)->getTheoryType();
+}
+
+void IfcStructuralResultGroup::setTheoryType(IfcAnalysisTheoryTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TheoryType = value;
+}
+
+void IfcStructuralResultGroup::unsetTheoryType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TheoryType = IfcAnalysisTheoryTypeEnum_UNSET;
+}
+
+bool IfcStructuralResultGroup::testTheoryType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTheoryType()) == false;
+}
+
+
+Step::Boolean IfcStructuralResultGroup::getIsLinear()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_IsLinear;
     }
+    else 
+    {
+        return Step::getUnset(m_IsLinear);
+    }    
 }
 
-const IfcAnalysisTheoryTypeEnum IfcStructuralResultGroup::getTheoryType() const {
-    IfcStructuralResultGroup * deConstObject = const_cast< IfcStructuralResultGroup * > (this);
-    return deConstObject->getTheoryType();
+Step::Boolean IfcStructuralResultGroup::getIsLinear() const
+{
+    return const_cast<IfcStructuralResultGroup *>(this)->getIsLinear();
 }
 
-void IfcStructuralResultGroup::setTheoryType(IfcAnalysisTheoryTypeEnum value) {
-    m_theoryType = value;
+void IfcStructuralResultGroup::setIsLinear(Step::Boolean value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_IsLinear = value;
 }
 
-void IfcStructuralResultGroup::unsetTheoryType() {
-    m_theoryType = IfcAnalysisTheoryTypeEnum_UNSET;
+void IfcStructuralResultGroup::unsetIsLinear()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_IsLinear = Step::getUnset(getIsLinear());
 }
 
-bool IfcStructuralResultGroup::testTheoryType() const {
-    return getTheoryType() != IfcAnalysisTheoryTypeEnum_UNSET;
+bool IfcStructuralResultGroup::testIsLinear() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getIsLinear()) == false;
 }
 
-IfcStructuralLoadGroup *IfcStructuralResultGroup::getResultForLoadGroup() {
-    if (Step::BaseObject::inited()) {
-        return m_resultForLoadGroup.get();
+IfcStructuralLoadGroup *IfcStructuralResultGroup::getResultForLoadGroup()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ResultForLoadGroup.get();
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcStructuralLoadGroup *IfcStructuralResultGroup::getResultForLoadGroup() const {
-    IfcStructuralResultGroup * deConstObject = const_cast< IfcStructuralResultGroup * > (this);
-    return deConstObject->getResultForLoadGroup();
+const IfcStructuralLoadGroup *IfcStructuralResultGroup::getResultForLoadGroup() const
+{
+    return const_cast< IfcStructuralResultGroup * > (this)->getResultForLoadGroup();
 }
 
-void IfcStructuralResultGroup::setResultForLoadGroup(const Step::RefPtr< IfcStructuralLoadGroup > &value) {
-    if (m_resultForLoadGroup.valid()) {
-        m_resultForLoadGroup->m_sourceOfResultGroup.erase(this);
+void IfcStructuralResultGroup::setResultForLoadGroup(const Step::RefPtr< IfcStructuralLoadGroup > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_ResultForLoadGroup.valid())
+    {
+        m_ResultForLoadGroup->m_SourceOfResultGroup.erase(this);
     }
-    if (value.valid()) {
-        value->m_sourceOfResultGroup.insert(this);
+    if (value.valid() )
+    {
+       value->m_SourceOfResultGroup.insert(this);
     }
-    m_resultForLoadGroup = value;
+    m_ResultForLoadGroup = value;
 }
 
-void IfcStructuralResultGroup::unsetResultForLoadGroup() {
-    m_resultForLoadGroup = Step::getUnset(getResultForLoadGroup());
+void IfcStructuralResultGroup::unsetResultForLoadGroup()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ResultForLoadGroup = Step::getUnset(getResultForLoadGroup());
 }
 
-bool IfcStructuralResultGroup::testResultForLoadGroup() const {
-    return !Step::isUnset(getResultForLoadGroup());
+bool IfcStructuralResultGroup::testResultForLoadGroup() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getResultForLoadGroup()) == false;
 }
 
-Step::Boolean IfcStructuralResultGroup::getIsLinear() {
-    if (Step::BaseObject::inited()) {
-        return m_isLinear;
+Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultGroupFor()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ResultGroupFor;
     }
-    else {
-        return Step::getUnset(m_isLinear);
-    }
+ 
+    m_ResultGroupFor.setUnset(true);
+    return m_ResultGroupFor;
 }
 
-const Step::Boolean IfcStructuralResultGroup::getIsLinear() const {
-    IfcStructuralResultGroup * deConstObject = const_cast< IfcStructuralResultGroup * > (this);
-    return deConstObject->getIsLinear();
+const Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultGroupFor() const
+{
+    return  const_cast< IfcStructuralResultGroup * > (this)->getResultGroupFor();
 }
 
-void IfcStructuralResultGroup::setIsLinear(Step::Boolean value) {
-    m_isLinear = value;
+bool IfcStructuralResultGroup::testResultGroupFor() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_ResultGroupFor.isUnset() == false;
 }
 
-void IfcStructuralResultGroup::unsetIsLinear() {
-    m_isLinear = Step::getUnset(getIsLinear());
-}
-
-bool IfcStructuralResultGroup::testIsLinear() const {
-    return !Step::isUnset(getIsLinear());
-}
-
-Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultGroupFor() {
-    if (Step::BaseObject::inited()) {
-        return m_resultGroupFor;
-    }
-    else {
-        m_resultGroupFor.setUnset(true);
-        return m_resultGroupFor;
-    }
-}
-
-const Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultGroupFor() const {
-    IfcStructuralResultGroup * deConstObject = const_cast< IfcStructuralResultGroup * > (this);
-    return deConstObject->getResultGroupFor();
-}
-
-bool IfcStructuralResultGroup::testResultGroupFor() const {
-    return !m_resultGroupFor.isUnset();
-}
-
-bool IfcStructuralResultGroup::init() {
-    bool status = IfcGroup::init();
-    std::string arg;
-    std::vector< Step::Id > *inverses;
-    if (!status) {
+bool IfcStructuralResultGroup::init()
+{
+    if (IfcGroup::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_theoryType = IfcAnalysisTheoryTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_TheoryType = IfcAnalysisTheoryTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".FIRST_ORDER_THEORY.") {
-            m_theoryType = IfcAnalysisTheoryTypeEnum_FIRST_ORDER_THEORY;
+    else
+    {
+        if (arg == ".FIRST_ORDER_THEORY.")
+        {
+            m_TheoryType = IfcAnalysisTheoryTypeEnum_FIRST_ORDER_THEORY;
         }
-        else if (arg == ".SECOND_ORDER_THEORY.") {
-            m_theoryType = IfcAnalysisTheoryTypeEnum_SECOND_ORDER_THEORY;
+        else if (arg == ".SECOND_ORDER_THEORY.")
+        {
+            m_TheoryType = IfcAnalysisTheoryTypeEnum_SECOND_ORDER_THEORY;
         }
-        else if (arg == ".THIRD_ORDER_THEORY.") {
-            m_theoryType = IfcAnalysisTheoryTypeEnum_THIRD_ORDER_THEORY;
+        else if (arg == ".THIRD_ORDER_THEORY.")
+        {
+            m_TheoryType = IfcAnalysisTheoryTypeEnum_THIRD_ORDER_THEORY;
         }
-        else if (arg == ".FULL_NONLINEAR_THEORY.") {
-            m_theoryType = IfcAnalysisTheoryTypeEnum_FULL_NONLINEAR_THEORY;
+        else if (arg == ".FULL_NONLINEAR_THEORY.")
+        {
+            m_TheoryType = IfcAnalysisTheoryTypeEnum_FULL_NONLINEAR_THEORY;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_theoryType = IfcAnalysisTheoryTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_TheoryType = IfcAnalysisTheoryTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_theoryType = IfcAnalysisTheoryTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_TheoryType = IfcAnalysisTheoryTypeEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_resultForLoadGroup = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_IsLinear = Step::getUnset(m_IsLinear);
     }
-    else {
-        m_resultForLoadGroup = static_cast< IfcStructuralLoadGroup * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_IsLinear = Step::spfToBoolean(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_isLinear = Step::getUnset(m_isLinear);
+    if (arg == "$" || arg == "*")
+    {
+        m_ResultForLoadGroup = NULL;
     }
-    else {
-        m_isLinear = Step::spfToBoolean(arg);
+    else
+    {
+        m_ResultForLoadGroup = static_cast< IfcStructuralLoadGroup * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
+    std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcStructuralAnalysisModel::getClassType(), 8);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_resultGroupFor.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_resultGroupFor.insert(static_cast< IfcStructuralAnalysisModel * > (m_expressDataSet->get((*inverses)[i])));
+        m_ResultGroupFor.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_ResultGroupFor.insert(static_cast< IfcStructuralAnalysisModel * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcStructuralResultGroup::copy(const IfcStructuralResultGroup &obj, const CopyOp &copyop) {
+void IfcStructuralResultGroup::copy(const IfcStructuralResultGroup &obj, const CopyOp &copyop)
+{
     IfcGroup::copy(obj, copyop);
-    setTheoryType(obj.m_theoryType);
-    setResultForLoadGroup((IfcStructuralLoadGroup*)copyop(obj.m_resultForLoadGroup.get()));
-    setIsLinear(obj.m_isLinear);
+    setTheoryType(obj.m_TheoryType);
+    setIsLinear(obj.m_IsLinear);
+    setResultForLoadGroup((IfcStructuralLoadGroup*)copyop(obj.m_ResultForLoadGroup.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralResultGroup::s_type("IfcStructuralResultGroup");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcStructuralResultGroup, IfcGroup)

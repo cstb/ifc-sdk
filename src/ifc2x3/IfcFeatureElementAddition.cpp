@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,86 +24,73 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcFeatureElementAddition.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcFeatureElement.h>
 #include <ifc2x3/IfcRelProjectsElement.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcFeatureElementAddition::IfcFeatureElementAddition(Step::Id id, Step::SPFData *args) : IfcFeatureElement(id, args) {
+IfcFeatureElementAddition::IfcFeatureElementAddition(Step::Id id, Step::SPFData *args) : 
+    IfcFeatureElement(id, args)
+{
 }
 
-IfcFeatureElementAddition::~IfcFeatureElementAddition() {
+IfcFeatureElementAddition::~IfcFeatureElementAddition()
+{}
+
+bool IfcFeatureElementAddition::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcFeatureElementAddition(this);
 }
 
-bool IfcFeatureElementAddition::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcFeatureElementAddition(this);
-}
-
-const std::string &IfcFeatureElementAddition::type() const {
-    return IfcFeatureElementAddition::s_type.getName();
-}
-
-const Step::ClassType &IfcFeatureElementAddition::getClassType() {
-    return IfcFeatureElementAddition::s_type;
-}
-
-const Step::ClassType &IfcFeatureElementAddition::getType() const {
-    return IfcFeatureElementAddition::s_type;
-}
-
-bool IfcFeatureElementAddition::isOfType(const Step::ClassType &t) const {
-    return IfcFeatureElementAddition::s_type == t ? true : IfcFeatureElement::isOfType(t);
-}
-
-IfcRelProjectsElement *IfcFeatureElementAddition::getProjectsElements() {
-    if (Step::BaseObject::inited()) {
-        return m_projectsElements.get();
+IfcRelProjectsElement *IfcFeatureElementAddition::getProjectsElements()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ProjectsElements.get();
     }
-    else {
-        return NULL;
-    }
+ 
+    return NULL;
 }
 
-const IfcRelProjectsElement *IfcFeatureElementAddition::getProjectsElements() const {
-    IfcFeatureElementAddition * deConstObject = const_cast< IfcFeatureElementAddition * > (this);
-    return deConstObject->getProjectsElements();
+const IfcRelProjectsElement *IfcFeatureElementAddition::getProjectsElements() const
+{
+    return  const_cast< IfcFeatureElementAddition * > (this)->getProjectsElements();
 }
 
-bool IfcFeatureElementAddition::testProjectsElements() const {
-    return !Step::isUnset(getProjectsElements());
+bool IfcFeatureElementAddition::testProjectsElements() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getProjectsElements()) == false;
 }
 
-bool IfcFeatureElementAddition::init() {
-    bool status = IfcFeatureElement::init();
-    std::string arg;
-    std::vector< Step::Id > *inverses;
-    if (!status) {
+bool IfcFeatureElementAddition::init()
+{
+    if (IfcFeatureElement::init() == false)
+    {
         return false;
     }
+    std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcRelProjectsElement::getClassType(), 5);
-    if (inverses) {
-        m_projectsElements = static_cast< IfcRelProjectsElement * > (m_expressDataSet->get((*inverses)[0]));
+    if (inverses)
+    {
+        m_ProjectsElements = static_cast< IfcRelProjectsElement * > (m_expressDataSet->get((*inverses)[0]));
     }
     return true;
 }
 
-void IfcFeatureElementAddition::copy(const IfcFeatureElementAddition &obj, const CopyOp &copyop) {
+void IfcFeatureElementAddition::copy(const IfcFeatureElementAddition &obj, const CopyOp &copyop)
+{
     IfcFeatureElement::copy(obj, copyop);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFeatureElementAddition::s_type("IfcFeatureElementAddition");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcFeatureElementAddition, IfcFeatureElement)

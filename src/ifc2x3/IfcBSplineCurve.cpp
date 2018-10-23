@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,273 +24,330 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcBSplineCurve.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcBoundedCurve.h>
 #include <ifc2x3/IfcCartesianPoint.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcBSplineCurve::IfcBSplineCurve(Step::Id id, Step::SPFData *args) : IfcBoundedCurve(id, args) {
-    m_degree = Step::getUnset(m_degree);
-    m_curveForm = IfcBSplineCurveForm_UNSET;
-    m_closedCurve = Step::getUnset(m_closedCurve);
-    m_selfIntersect = Step::getUnset(m_selfIntersect);
+IfcBSplineCurve::IfcBSplineCurve(Step::Id id, Step::SPFData *args) : 
+    IfcBoundedCurve(id, args)
+{
+    m_Degree = Step::getUnset(m_Degree);
+    m_ControlPointsList.setUnset(true);
+    m_CurveForm = IfcBSplineCurveForm_UNSET;
+    m_ClosedCurve = Step::getUnset(m_ClosedCurve);
+    m_SelfIntersect = Step::getUnset(m_SelfIntersect);
 }
 
-IfcBSplineCurve::~IfcBSplineCurve() {
+IfcBSplineCurve::~IfcBSplineCurve()
+{}
+
+bool IfcBSplineCurve::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcBSplineCurve(this);
 }
 
-bool IfcBSplineCurve::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcBSplineCurve(this);
-}
 
-const std::string &IfcBSplineCurve::type() const {
-    return IfcBSplineCurve::s_type.getName();
-}
-
-const Step::ClassType &IfcBSplineCurve::getClassType() {
-    return IfcBSplineCurve::s_type;
-}
-
-const Step::ClassType &IfcBSplineCurve::getType() const {
-    return IfcBSplineCurve::s_type;
-}
-
-bool IfcBSplineCurve::isOfType(const Step::ClassType &t) const {
-    return IfcBSplineCurve::s_type == t ? true : IfcBoundedCurve::isOfType(t);
-}
-
-Step::Integer IfcBSplineCurve::getDegree() {
-    if (Step::BaseObject::inited()) {
-        return m_degree;
+Step::Integer IfcBSplineCurve::getDegree()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Degree;
     }
-    else {
-        return Step::getUnset(m_degree);
+    else 
+    {
+        return Step::getUnset(m_Degree);
+    }    
+}
+
+Step::Integer IfcBSplineCurve::getDegree() const
+{
+    return const_cast<IfcBSplineCurve *>(this)->getDegree();
+}
+
+void IfcBSplineCurve::setDegree(Step::Integer value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Degree = value;
+}
+
+void IfcBSplineCurve::unsetDegree()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Degree = Step::getUnset(getDegree());
+}
+
+bool IfcBSplineCurve::testDegree() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDegree()) == false;
+}
+
+
+List_IfcCartesianPoint_2_n &IfcBSplineCurve::getControlPointsList()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ControlPointsList;
     }
+    else 
+    {
+        m_ControlPointsList.setUnset(true);
+        return m_ControlPointsList;
+    }    
 }
 
-const Step::Integer IfcBSplineCurve::getDegree() const {
-    IfcBSplineCurve * deConstObject = const_cast< IfcBSplineCurve * > (this);
-    return deConstObject->getDegree();
+const List_IfcCartesianPoint_2_n &IfcBSplineCurve::getControlPointsList() const
+{
+    return const_cast<IfcBSplineCurve *>(this)->getControlPointsList();
 }
 
-void IfcBSplineCurve::setDegree(Step::Integer value) {
-    m_degree = value;
+void IfcBSplineCurve::setControlPointsList(const List_IfcCartesianPoint_2_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ControlPointsList = value;
 }
 
-void IfcBSplineCurve::unsetDegree() {
-    m_degree = Step::getUnset(getDegree());
+void IfcBSplineCurve::unsetControlPointsList()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ControlPointsList.clear();
+    m_ControlPointsList.setUnset(true);
 }
 
-bool IfcBSplineCurve::testDegree() const {
-    return !Step::isUnset(getDegree());
+bool IfcBSplineCurve::testControlPointsList() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_ControlPointsList.isUnset() == false;
 }
 
-List_IfcCartesianPoint_2_n &IfcBSplineCurve::getControlPointsList() {
-    if (Step::BaseObject::inited()) {
-        return m_controlPointsList;
+
+IfcBSplineCurveForm IfcBSplineCurve::getCurveForm()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CurveForm;
     }
-    else {
-        m_controlPointsList.setUnset(true);
-        return m_controlPointsList;
-    }
-}
-
-const List_IfcCartesianPoint_2_n &IfcBSplineCurve::getControlPointsList() const {
-    IfcBSplineCurve * deConstObject = const_cast< IfcBSplineCurve * > (this);
-    return deConstObject->getControlPointsList();
-}
-
-void IfcBSplineCurve::setControlPointsList(const List_IfcCartesianPoint_2_n &value) {
-    m_controlPointsList = value;
-}
-
-void IfcBSplineCurve::unsetControlPointsList() {
-    m_controlPointsList.clear();
-    m_controlPointsList.setUnset(true);
-}
-
-bool IfcBSplineCurve::testControlPointsList() const {
-    return !m_controlPointsList.isUnset();
-}
-
-IfcBSplineCurveForm IfcBSplineCurve::getCurveForm() {
-    if (Step::BaseObject::inited()) {
-        return m_curveForm;
-    }
-    else {
+    else 
+    {
         return IfcBSplineCurveForm_UNSET;
+    }    
+}
+
+IfcBSplineCurveForm IfcBSplineCurve::getCurveForm() const
+{
+    return const_cast<IfcBSplineCurve *>(this)->getCurveForm();
+}
+
+void IfcBSplineCurve::setCurveForm(IfcBSplineCurveForm value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveForm = value;
+}
+
+void IfcBSplineCurve::unsetCurveForm()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveForm = IfcBSplineCurveForm_UNSET;
+}
+
+bool IfcBSplineCurve::testCurveForm() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCurveForm()) == false;
+}
+
+
+Step::Logical IfcBSplineCurve::getClosedCurve()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ClosedCurve;
     }
+    else 
+    {
+        return Step::getUnset(m_ClosedCurve);
+    }    
 }
 
-const IfcBSplineCurveForm IfcBSplineCurve::getCurveForm() const {
-    IfcBSplineCurve * deConstObject = const_cast< IfcBSplineCurve * > (this);
-    return deConstObject->getCurveForm();
+Step::Logical IfcBSplineCurve::getClosedCurve() const
+{
+    return const_cast<IfcBSplineCurve *>(this)->getClosedCurve();
 }
 
-void IfcBSplineCurve::setCurveForm(IfcBSplineCurveForm value) {
-    m_curveForm = value;
+void IfcBSplineCurve::setClosedCurve(Step::Logical value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ClosedCurve = value;
 }
 
-void IfcBSplineCurve::unsetCurveForm() {
-    m_curveForm = IfcBSplineCurveForm_UNSET;
+void IfcBSplineCurve::unsetClosedCurve()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ClosedCurve = Step::getUnset(getClosedCurve());
 }
 
-bool IfcBSplineCurve::testCurveForm() const {
-    return getCurveForm() != IfcBSplineCurveForm_UNSET;
+bool IfcBSplineCurve::testClosedCurve() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getClosedCurve()) == false;
 }
 
-Step::Logical IfcBSplineCurve::getClosedCurve() {
-    if (Step::BaseObject::inited()) {
-        return m_closedCurve;
+
+Step::Logical IfcBSplineCurve::getSelfIntersect()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SelfIntersect;
     }
-    else {
-        return Step::getUnset(m_closedCurve);
-    }
+    else 
+    {
+        return Step::getUnset(m_SelfIntersect);
+    }    
 }
 
-const Step::Logical IfcBSplineCurve::getClosedCurve() const {
-    IfcBSplineCurve * deConstObject = const_cast< IfcBSplineCurve * > (this);
-    return deConstObject->getClosedCurve();
+Step::Logical IfcBSplineCurve::getSelfIntersect() const
+{
+    return const_cast<IfcBSplineCurve *>(this)->getSelfIntersect();
 }
 
-void IfcBSplineCurve::setClosedCurve(Step::Logical value) {
-    m_closedCurve = value;
+void IfcBSplineCurve::setSelfIntersect(Step::Logical value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SelfIntersect = value;
 }
 
-void IfcBSplineCurve::unsetClosedCurve() {
-    m_closedCurve = Step::getUnset(getClosedCurve());
+void IfcBSplineCurve::unsetSelfIntersect()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SelfIntersect = Step::getUnset(getSelfIntersect());
 }
 
-bool IfcBSplineCurve::testClosedCurve() const {
-    return !Step::isUnset(getClosedCurve());
+bool IfcBSplineCurve::testSelfIntersect() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSelfIntersect()) == false;
 }
 
-Step::Logical IfcBSplineCurve::getSelfIntersect() {
-    if (Step::BaseObject::inited()) {
-        return m_selfIntersect;
-    }
-    else {
-        return Step::getUnset(m_selfIntersect);
-    }
-}
-
-const Step::Logical IfcBSplineCurve::getSelfIntersect() const {
-    IfcBSplineCurve * deConstObject = const_cast< IfcBSplineCurve * > (this);
-    return deConstObject->getSelfIntersect();
-}
-
-void IfcBSplineCurve::setSelfIntersect(Step::Logical value) {
-    m_selfIntersect = value;
-}
-
-void IfcBSplineCurve::unsetSelfIntersect() {
-    m_selfIntersect = Step::getUnset(getSelfIntersect());
-}
-
-bool IfcBSplineCurve::testSelfIntersect() const {
-    return !Step::isUnset(getSelfIntersect());
-}
-
-bool IfcBSplineCurve::init() {
-    bool status = IfcBoundedCurve::init();
-    std::string arg;
-    if (!status) {
+bool IfcBSplineCurve::init()
+{
+    if (IfcBoundedCurve::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_degree = Step::getUnset(m_degree);
+    if (arg == "$" || arg == "*")
+    {
+        m_Degree = Step::getUnset(m_Degree);
     }
-    else {
-        m_degree = Step::spfToInteger(arg);
+    else
+    {
+        m_Degree = Step::spfToInteger(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_controlPointsList.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_ControlPointsList.setUnset(true);
     }
-    else {
-        m_controlPointsList.setUnset(false);
-        while (true) {
+    else
+    {
+        m_ControlPointsList.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcCartesianPoint > attr2;
-                attr2 = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_controlPointsList.push_back(attr2);
+            if (!str1.empty())
+            {
+                m_ControlPointsList.push_back(static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_curveForm = IfcBSplineCurveForm_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_CurveForm = IfcBSplineCurveForm_UNSET;
     }
-    else {
-        if (arg == ".POLYLINE_FORM.") {
-            m_curveForm = IfcBSplineCurveForm_POLYLINE_FORM;
+    else
+    {
+        if (arg == ".POLYLINE_FORM.")
+        {
+            m_CurveForm = IfcBSplineCurveForm_POLYLINE_FORM;
         }
-        else if (arg == ".CIRCULAR_ARC.") {
-            m_curveForm = IfcBSplineCurveForm_CIRCULAR_ARC;
+        else if (arg == ".CIRCULAR_ARC.")
+        {
+            m_CurveForm = IfcBSplineCurveForm_CIRCULAR_ARC;
         }
-        else if (arg == ".ELLIPTIC_ARC.") {
-            m_curveForm = IfcBSplineCurveForm_ELLIPTIC_ARC;
+        else if (arg == ".ELLIPTIC_ARC.")
+        {
+            m_CurveForm = IfcBSplineCurveForm_ELLIPTIC_ARC;
         }
-        else if (arg == ".PARABOLIC_ARC.") {
-            m_curveForm = IfcBSplineCurveForm_PARABOLIC_ARC;
+        else if (arg == ".PARABOLIC_ARC.")
+        {
+            m_CurveForm = IfcBSplineCurveForm_PARABOLIC_ARC;
         }
-        else if (arg == ".HYPERBOLIC_ARC.") {
-            m_curveForm = IfcBSplineCurveForm_HYPERBOLIC_ARC;
+        else if (arg == ".HYPERBOLIC_ARC.")
+        {
+            m_CurveForm = IfcBSplineCurveForm_HYPERBOLIC_ARC;
         }
-        else if (arg == ".UNSPECIFIED.") {
-            m_curveForm = IfcBSplineCurveForm_UNSPECIFIED;
+        else if (arg == ".UNSPECIFIED.")
+        {
+            m_CurveForm = IfcBSplineCurveForm_UNSPECIFIED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_closedCurve = Step::getUnset(m_closedCurve);
+    if (arg == "$" || arg == "*")
+    {
+        m_ClosedCurve = Step::getUnset(m_ClosedCurve);
     }
-    else {
-        m_closedCurve = Step::spfToLogical(arg);
+    else
+    {
+        m_ClosedCurve = Step::spfToLogical(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_selfIntersect = Step::getUnset(m_selfIntersect);
+    if (arg == "$" || arg == "*")
+    {
+        m_SelfIntersect = Step::getUnset(m_SelfIntersect);
     }
-    else {
-        m_selfIntersect = Step::spfToLogical(arg);
+    else
+    {
+        m_SelfIntersect = Step::spfToLogical(arg)
+;
     }
     return true;
 }
 
-void IfcBSplineCurve::copy(const IfcBSplineCurve &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcCartesianPoint >, 2 >::const_iterator it_m_controlPointsList;
+void IfcBSplineCurve::copy(const IfcBSplineCurve &obj, const CopyOp &copyop)
+{
     IfcBoundedCurve::copy(obj, copyop);
-    setDegree(obj.m_degree);
-    for (it_m_controlPointsList = obj.m_controlPointsList.begin(); it_m_controlPointsList != obj.m_controlPointsList.end(); ++it_m_controlPointsList) {
-        Step::RefPtr< IfcCartesianPoint > copyTarget = (IfcCartesianPoint *) (copyop((*it_m_controlPointsList).get()));
-        m_controlPointsList.push_back(copyTarget.get());
+    setDegree(obj.m_Degree);
+    List_IfcCartesianPoint_2_n::const_iterator it_m_ControlPointsList;
+    for (it_m_ControlPointsList = obj.m_ControlPointsList.begin(); it_m_ControlPointsList != obj.m_ControlPointsList.end(); ++it_m_ControlPointsList)
+    {
+        Step::RefPtr< IfcCartesianPoint > copyTarget = (IfcCartesianPoint *) (copyop((*it_m_ControlPointsList).get()));
+        m_ControlPointsList.push_back(copyTarget);
     }
-    setCurveForm(obj.m_curveForm);
-    setClosedCurve(obj.m_closedCurve);
-    setSelfIntersect(obj.m_selfIntersect);
+    
+    setCurveForm(obj.m_CurveForm);
+    setClosedCurve(obj.m_ClosedCurve);
+    setSelfIntersect(obj.m_SelfIntersect);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBSplineCurve::s_type("IfcBSplineCurve");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcBSplineCurve, IfcBoundedCurve)

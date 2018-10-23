@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,270 +24,340 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcStructuralLoadSingleDisplacement.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcStructuralLoadStatic.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcStructuralLoadSingleDisplacement::IfcStructuralLoadSingleDisplacement(Step::Id id, Step::SPFData *args) : IfcStructuralLoadStatic(id, args) {
-    m_displacementX = Step::getUnset(m_displacementX);
-    m_displacementY = Step::getUnset(m_displacementY);
-    m_displacementZ = Step::getUnset(m_displacementZ);
-    m_rotationalDisplacementRX = Step::getUnset(m_rotationalDisplacementRX);
-    m_rotationalDisplacementRY = Step::getUnset(m_rotationalDisplacementRY);
-    m_rotationalDisplacementRZ = Step::getUnset(m_rotationalDisplacementRZ);
+IfcStructuralLoadSingleDisplacement::IfcStructuralLoadSingleDisplacement(Step::Id id, Step::SPFData *args) : 
+    IfcStructuralLoadStatic(id, args)
+{
+    m_DisplacementX = Step::getUnset(m_DisplacementX);
+    m_DisplacementY = Step::getUnset(m_DisplacementY);
+    m_DisplacementZ = Step::getUnset(m_DisplacementZ);
+    m_RotationalDisplacementRX = Step::getUnset(m_RotationalDisplacementRX);
+    m_RotationalDisplacementRY = Step::getUnset(m_RotationalDisplacementRY);
+    m_RotationalDisplacementRZ = Step::getUnset(m_RotationalDisplacementRZ);
 }
 
-IfcStructuralLoadSingleDisplacement::~IfcStructuralLoadSingleDisplacement() {
+IfcStructuralLoadSingleDisplacement::~IfcStructuralLoadSingleDisplacement()
+{}
+
+bool IfcStructuralLoadSingleDisplacement::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcStructuralLoadSingleDisplacement(this);
 }
 
-bool IfcStructuralLoadSingleDisplacement::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcStructuralLoadSingleDisplacement(this);
-}
 
-const std::string &IfcStructuralLoadSingleDisplacement::type() const {
-    return IfcStructuralLoadSingleDisplacement::s_type.getName();
-}
-
-const Step::ClassType &IfcStructuralLoadSingleDisplacement::getClassType() {
-    return IfcStructuralLoadSingleDisplacement::s_type;
-}
-
-const Step::ClassType &IfcStructuralLoadSingleDisplacement::getType() const {
-    return IfcStructuralLoadSingleDisplacement::s_type;
-}
-
-bool IfcStructuralLoadSingleDisplacement::isOfType(const Step::ClassType &t) const {
-    return IfcStructuralLoadSingleDisplacement::s_type == t ? true : IfcStructuralLoadStatic::isOfType(t);
-}
-
-IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementX() {
-    if (Step::BaseObject::inited()) {
-        return m_displacementX;
+IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementX()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_DisplacementX;
     }
-    else {
-        return Step::getUnset(m_displacementX);
+    else 
+    {
+        return Step::getUnset(m_DisplacementX);
+    }    
+}
+
+IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementX() const
+{
+    return const_cast<IfcStructuralLoadSingleDisplacement *>(this)->getDisplacementX();
+}
+
+void IfcStructuralLoadSingleDisplacement::setDisplacementX(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DisplacementX = value;
+}
+
+void IfcStructuralLoadSingleDisplacement::unsetDisplacementX()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DisplacementX = Step::getUnset(getDisplacementX());
+}
+
+bool IfcStructuralLoadSingleDisplacement::testDisplacementX() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDisplacementX()) == false;
+}
+
+
+IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_DisplacementY;
     }
+    else 
+    {
+        return Step::getUnset(m_DisplacementY);
+    }    
 }
 
-const IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementX() const {
-    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
-    return deConstObject->getDisplacementX();
+IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementY() const
+{
+    return const_cast<IfcStructuralLoadSingleDisplacement *>(this)->getDisplacementY();
 }
 
-void IfcStructuralLoadSingleDisplacement::setDisplacementX(IfcLengthMeasure value) {
-    m_displacementX = value;
+void IfcStructuralLoadSingleDisplacement::setDisplacementY(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DisplacementY = value;
 }
 
-void IfcStructuralLoadSingleDisplacement::unsetDisplacementX() {
-    m_displacementX = Step::getUnset(getDisplacementX());
+void IfcStructuralLoadSingleDisplacement::unsetDisplacementY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DisplacementY = Step::getUnset(getDisplacementY());
 }
 
-bool IfcStructuralLoadSingleDisplacement::testDisplacementX() const {
-    return !Step::isUnset(getDisplacementX());
+bool IfcStructuralLoadSingleDisplacement::testDisplacementY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDisplacementY()) == false;
 }
 
-IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementY() {
-    if (Step::BaseObject::inited()) {
-        return m_displacementY;
+
+IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_DisplacementZ;
     }
-    else {
-        return Step::getUnset(m_displacementY);
+    else 
+    {
+        return Step::getUnset(m_DisplacementZ);
+    }    
+}
+
+IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementZ() const
+{
+    return const_cast<IfcStructuralLoadSingleDisplacement *>(this)->getDisplacementZ();
+}
+
+void IfcStructuralLoadSingleDisplacement::setDisplacementZ(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DisplacementZ = value;
+}
+
+void IfcStructuralLoadSingleDisplacement::unsetDisplacementZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DisplacementZ = Step::getUnset(getDisplacementZ());
+}
+
+bool IfcStructuralLoadSingleDisplacement::testDisplacementZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDisplacementZ()) == false;
+}
+
+
+IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRX()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RotationalDisplacementRX;
     }
+    else 
+    {
+        return Step::getUnset(m_RotationalDisplacementRX);
+    }    
 }
 
-const IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementY() const {
-    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
-    return deConstObject->getDisplacementY();
+IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRX() const
+{
+    return const_cast<IfcStructuralLoadSingleDisplacement *>(this)->getRotationalDisplacementRX();
 }
 
-void IfcStructuralLoadSingleDisplacement::setDisplacementY(IfcLengthMeasure value) {
-    m_displacementY = value;
+void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRX(IfcPlaneAngleMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RotationalDisplacementRX = value;
 }
 
-void IfcStructuralLoadSingleDisplacement::unsetDisplacementY() {
-    m_displacementY = Step::getUnset(getDisplacementY());
+void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRX()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RotationalDisplacementRX = Step::getUnset(getRotationalDisplacementRX());
 }
 
-bool IfcStructuralLoadSingleDisplacement::testDisplacementY() const {
-    return !Step::isUnset(getDisplacementY());
+bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRX() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRotationalDisplacementRX()) == false;
 }
 
-IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementZ() {
-    if (Step::BaseObject::inited()) {
-        return m_displacementZ;
+
+IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RotationalDisplacementRY;
     }
-    else {
-        return Step::getUnset(m_displacementZ);
+    else 
+    {
+        return Step::getUnset(m_RotationalDisplacementRY);
+    }    
+}
+
+IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRY() const
+{
+    return const_cast<IfcStructuralLoadSingleDisplacement *>(this)->getRotationalDisplacementRY();
+}
+
+void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRY(IfcPlaneAngleMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RotationalDisplacementRY = value;
+}
+
+void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RotationalDisplacementRY = Step::getUnset(getRotationalDisplacementRY());
+}
+
+bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRotationalDisplacementRY()) == false;
+}
+
+
+IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RotationalDisplacementRZ;
     }
+    else 
+    {
+        return Step::getUnset(m_RotationalDisplacementRZ);
+    }    
 }
 
-const IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementZ() const {
-    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
-    return deConstObject->getDisplacementZ();
+IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRZ() const
+{
+    return const_cast<IfcStructuralLoadSingleDisplacement *>(this)->getRotationalDisplacementRZ();
 }
 
-void IfcStructuralLoadSingleDisplacement::setDisplacementZ(IfcLengthMeasure value) {
-    m_displacementZ = value;
+void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRZ(IfcPlaneAngleMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RotationalDisplacementRZ = value;
 }
 
-void IfcStructuralLoadSingleDisplacement::unsetDisplacementZ() {
-    m_displacementZ = Step::getUnset(getDisplacementZ());
+void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RotationalDisplacementRZ = Step::getUnset(getRotationalDisplacementRZ());
 }
 
-bool IfcStructuralLoadSingleDisplacement::testDisplacementZ() const {
-    return !Step::isUnset(getDisplacementZ());
+bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRotationalDisplacementRZ()) == false;
 }
 
-IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRX() {
-    if (Step::BaseObject::inited()) {
-        return m_rotationalDisplacementRX;
-    }
-    else {
-        return Step::getUnset(m_rotationalDisplacementRX);
-    }
-}
-
-const IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRX() const {
-    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
-    return deConstObject->getRotationalDisplacementRX();
-}
-
-void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRX(IfcPlaneAngleMeasure value) {
-    m_rotationalDisplacementRX = value;
-}
-
-void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRX() {
-    m_rotationalDisplacementRX = Step::getUnset(getRotationalDisplacementRX());
-}
-
-bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRX() const {
-    return !Step::isUnset(getRotationalDisplacementRX());
-}
-
-IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRY() {
-    if (Step::BaseObject::inited()) {
-        return m_rotationalDisplacementRY;
-    }
-    else {
-        return Step::getUnset(m_rotationalDisplacementRY);
-    }
-}
-
-const IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRY() const {
-    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
-    return deConstObject->getRotationalDisplacementRY();
-}
-
-void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRY(IfcPlaneAngleMeasure value) {
-    m_rotationalDisplacementRY = value;
-}
-
-void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRY() {
-    m_rotationalDisplacementRY = Step::getUnset(getRotationalDisplacementRY());
-}
-
-bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRY() const {
-    return !Step::isUnset(getRotationalDisplacementRY());
-}
-
-IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRZ() {
-    if (Step::BaseObject::inited()) {
-        return m_rotationalDisplacementRZ;
-    }
-    else {
-        return Step::getUnset(m_rotationalDisplacementRZ);
-    }
-}
-
-const IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRZ() const {
-    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
-    return deConstObject->getRotationalDisplacementRZ();
-}
-
-void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRZ(IfcPlaneAngleMeasure value) {
-    m_rotationalDisplacementRZ = value;
-}
-
-void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRZ() {
-    m_rotationalDisplacementRZ = Step::getUnset(getRotationalDisplacementRZ());
-}
-
-bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRZ() const {
-    return !Step::isUnset(getRotationalDisplacementRZ());
-}
-
-bool IfcStructuralLoadSingleDisplacement::init() {
-    bool status = IfcStructuralLoadStatic::init();
-    std::string arg;
-    if (!status) {
+bool IfcStructuralLoadSingleDisplacement::init()
+{
+    if (IfcStructuralLoadStatic::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_displacementX = Step::getUnset(m_displacementX);
+    if (arg == "$" || arg == "*")
+    {
+        m_DisplacementX = Step::getUnset(m_DisplacementX);
     }
-    else {
-        m_displacementX = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_displacementY = Step::getUnset(m_displacementY);
-    }
-    else {
-        m_displacementY = Step::spfToReal(arg);
+    else
+    {
+        m_DisplacementX = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_displacementZ = Step::getUnset(m_displacementZ);
+    if (arg == "$" || arg == "*")
+    {
+        m_DisplacementY = Step::getUnset(m_DisplacementY);
     }
-    else {
-        m_displacementZ = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_rotationalDisplacementRX = Step::getUnset(m_rotationalDisplacementRX);
-    }
-    else {
-        m_rotationalDisplacementRX = Step::spfToReal(arg);
+    else
+    {
+        m_DisplacementY = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_rotationalDisplacementRY = Step::getUnset(m_rotationalDisplacementRY);
+    if (arg == "$" || arg == "*")
+    {
+        m_DisplacementZ = Step::getUnset(m_DisplacementZ);
     }
-    else {
-        m_rotationalDisplacementRY = Step::spfToReal(arg);
+    else
+    {
+        m_DisplacementZ = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_rotationalDisplacementRZ = Step::getUnset(m_rotationalDisplacementRZ);
+    if (arg == "$" || arg == "*")
+    {
+        m_RotationalDisplacementRX = Step::getUnset(m_RotationalDisplacementRX);
     }
-    else {
-        m_rotationalDisplacementRZ = Step::spfToReal(arg);
+    else
+    {
+        m_RotationalDisplacementRX = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RotationalDisplacementRY = Step::getUnset(m_RotationalDisplacementRY);
+    }
+    else
+    {
+        m_RotationalDisplacementRY = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RotationalDisplacementRZ = Step::getUnset(m_RotationalDisplacementRZ);
+    }
+    else
+    {
+        m_RotationalDisplacementRZ = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcStructuralLoadSingleDisplacement::copy(const IfcStructuralLoadSingleDisplacement &obj, const CopyOp &copyop) {
+void IfcStructuralLoadSingleDisplacement::copy(const IfcStructuralLoadSingleDisplacement &obj, const CopyOp &copyop)
+{
     IfcStructuralLoadStatic::copy(obj, copyop);
-    setDisplacementX(obj.m_displacementX);
-    setDisplacementY(obj.m_displacementY);
-    setDisplacementZ(obj.m_displacementZ);
-    setRotationalDisplacementRX(obj.m_rotationalDisplacementRX);
-    setRotationalDisplacementRY(obj.m_rotationalDisplacementRY);
-    setRotationalDisplacementRZ(obj.m_rotationalDisplacementRZ);
+    setDisplacementX(obj.m_DisplacementX);
+    setDisplacementY(obj.m_DisplacementY);
+    setDisplacementZ(obj.m_DisplacementZ);
+    setRotationalDisplacementRX(obj.m_RotationalDisplacementRX);
+    setRotationalDisplacementRY(obj.m_RotationalDisplacementRY);
+    setRotationalDisplacementRZ(obj.m_RotationalDisplacementRZ);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralLoadSingleDisplacement::s_type("IfcStructuralLoadSingleDisplacement");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcStructuralLoadSingleDisplacement, IfcStructuralLoadStatic)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,166 +24,192 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcCoordinatedUniversalTimeOffset.h>
+
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseObject.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcCoordinatedUniversalTimeOffset::IfcCoordinatedUniversalTimeOffset(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_hourOffset = Step::getUnset(m_hourOffset);
-    m_minuteOffset = Step::getUnset(m_minuteOffset);
-    m_sense = IfcAheadOrBehind_UNSET;
+IfcCoordinatedUniversalTimeOffset::IfcCoordinatedUniversalTimeOffset(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_HourOffset = Step::getUnset(m_HourOffset);
+    m_MinuteOffset = Step::getUnset(m_MinuteOffset);
+    m_Sense = IfcAheadOrBehind_UNSET;
 }
 
-IfcCoordinatedUniversalTimeOffset::~IfcCoordinatedUniversalTimeOffset() {
+IfcCoordinatedUniversalTimeOffset::~IfcCoordinatedUniversalTimeOffset()
+{}
+
+bool IfcCoordinatedUniversalTimeOffset::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcCoordinatedUniversalTimeOffset(this);
 }
 
-bool IfcCoordinatedUniversalTimeOffset::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcCoordinatedUniversalTimeOffset(this);
-}
 
-const std::string &IfcCoordinatedUniversalTimeOffset::type() const {
-    return IfcCoordinatedUniversalTimeOffset::s_type.getName();
-}
-
-const Step::ClassType &IfcCoordinatedUniversalTimeOffset::getClassType() {
-    return IfcCoordinatedUniversalTimeOffset::s_type;
-}
-
-const Step::ClassType &IfcCoordinatedUniversalTimeOffset::getType() const {
-    return IfcCoordinatedUniversalTimeOffset::s_type;
-}
-
-bool IfcCoordinatedUniversalTimeOffset::isOfType(const Step::ClassType &t) const {
-    return IfcCoordinatedUniversalTimeOffset::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcHourInDay IfcCoordinatedUniversalTimeOffset::getHourOffset() {
-    if (Step::BaseObject::inited()) {
-        return m_hourOffset;
+IfcHourInDay IfcCoordinatedUniversalTimeOffset::getHourOffset()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_HourOffset;
     }
-    else {
-        return Step::getUnset(m_hourOffset);
+    else 
+    {
+        return Step::getUnset(m_HourOffset);
+    }    
+}
+
+IfcHourInDay IfcCoordinatedUniversalTimeOffset::getHourOffset() const
+{
+    return const_cast<IfcCoordinatedUniversalTimeOffset *>(this)->getHourOffset();
+}
+
+void IfcCoordinatedUniversalTimeOffset::setHourOffset(IfcHourInDay value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_HourOffset = value;
+}
+
+void IfcCoordinatedUniversalTimeOffset::unsetHourOffset()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_HourOffset = Step::getUnset(getHourOffset());
+}
+
+bool IfcCoordinatedUniversalTimeOffset::testHourOffset() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getHourOffset()) == false;
+}
+
+
+IfcMinuteInHour IfcCoordinatedUniversalTimeOffset::getMinuteOffset()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MinuteOffset;
     }
+    else 
+    {
+        return Step::getUnset(m_MinuteOffset);
+    }    
 }
 
-const IfcHourInDay IfcCoordinatedUniversalTimeOffset::getHourOffset() const {
-    IfcCoordinatedUniversalTimeOffset * deConstObject = const_cast< IfcCoordinatedUniversalTimeOffset * > (this);
-    return deConstObject->getHourOffset();
+IfcMinuteInHour IfcCoordinatedUniversalTimeOffset::getMinuteOffset() const
+{
+    return const_cast<IfcCoordinatedUniversalTimeOffset *>(this)->getMinuteOffset();
 }
 
-void IfcCoordinatedUniversalTimeOffset::setHourOffset(IfcHourInDay value) {
-    m_hourOffset = value;
+void IfcCoordinatedUniversalTimeOffset::setMinuteOffset(IfcMinuteInHour value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinuteOffset = value;
 }
 
-void IfcCoordinatedUniversalTimeOffset::unsetHourOffset() {
-    m_hourOffset = Step::getUnset(getHourOffset());
+void IfcCoordinatedUniversalTimeOffset::unsetMinuteOffset()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinuteOffset = Step::getUnset(getMinuteOffset());
 }
 
-bool IfcCoordinatedUniversalTimeOffset::testHourOffset() const {
-    return !Step::isUnset(getHourOffset());
+bool IfcCoordinatedUniversalTimeOffset::testMinuteOffset() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMinuteOffset()) == false;
 }
 
-IfcMinuteInHour IfcCoordinatedUniversalTimeOffset::getMinuteOffset() {
-    if (Step::BaseObject::inited()) {
-        return m_minuteOffset;
+
+IfcAheadOrBehind IfcCoordinatedUniversalTimeOffset::getSense()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Sense;
     }
-    else {
-        return Step::getUnset(m_minuteOffset);
-    }
-}
-
-const IfcMinuteInHour IfcCoordinatedUniversalTimeOffset::getMinuteOffset() const {
-    IfcCoordinatedUniversalTimeOffset * deConstObject = const_cast< IfcCoordinatedUniversalTimeOffset * > (this);
-    return deConstObject->getMinuteOffset();
-}
-
-void IfcCoordinatedUniversalTimeOffset::setMinuteOffset(IfcMinuteInHour value) {
-    m_minuteOffset = value;
-}
-
-void IfcCoordinatedUniversalTimeOffset::unsetMinuteOffset() {
-    m_minuteOffset = Step::getUnset(getMinuteOffset());
-}
-
-bool IfcCoordinatedUniversalTimeOffset::testMinuteOffset() const {
-    return !Step::isUnset(getMinuteOffset());
-}
-
-IfcAheadOrBehind IfcCoordinatedUniversalTimeOffset::getSense() {
-    if (Step::BaseObject::inited()) {
-        return m_sense;
-    }
-    else {
+    else 
+    {
         return IfcAheadOrBehind_UNSET;
-    }
+    }    
 }
 
-const IfcAheadOrBehind IfcCoordinatedUniversalTimeOffset::getSense() const {
-    IfcCoordinatedUniversalTimeOffset * deConstObject = const_cast< IfcCoordinatedUniversalTimeOffset * > (this);
-    return deConstObject->getSense();
+IfcAheadOrBehind IfcCoordinatedUniversalTimeOffset::getSense() const
+{
+    return const_cast<IfcCoordinatedUniversalTimeOffset *>(this)->getSense();
 }
 
-void IfcCoordinatedUniversalTimeOffset::setSense(IfcAheadOrBehind value) {
-    m_sense = value;
+void IfcCoordinatedUniversalTimeOffset::setSense(IfcAheadOrBehind value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Sense = value;
 }
 
-void IfcCoordinatedUniversalTimeOffset::unsetSense() {
-    m_sense = IfcAheadOrBehind_UNSET;
+void IfcCoordinatedUniversalTimeOffset::unsetSense()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Sense = IfcAheadOrBehind_UNSET;
 }
 
-bool IfcCoordinatedUniversalTimeOffset::testSense() const {
-    return getSense() != IfcAheadOrBehind_UNSET;
+bool IfcCoordinatedUniversalTimeOffset::testSense() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSense()) == false;
 }
 
-bool IfcCoordinatedUniversalTimeOffset::init() {
+bool IfcCoordinatedUniversalTimeOffset::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_hourOffset = Step::getUnset(m_hourOffset);
+    if (arg == "$" || arg == "*")
+    {
+        m_HourOffset = Step::getUnset(m_HourOffset);
     }
-    else {
-        m_hourOffset = Step::spfToInteger(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_minuteOffset = Step::getUnset(m_minuteOffset);
-    }
-    else {
-        m_minuteOffset = Step::spfToInteger(arg);
+    else
+    {
+        m_HourOffset = Step::spfToInteger(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_sense = IfcAheadOrBehind_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_MinuteOffset = Step::getUnset(m_MinuteOffset);
     }
-    else {
-        if (arg == ".AHEAD.") {
-            m_sense = IfcAheadOrBehind_AHEAD;
+    else
+    {
+        m_MinuteOffset = Step::spfToInteger(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Sense = IfcAheadOrBehind_UNSET;
+    }
+    else
+    {
+        if (arg == ".AHEAD.")
+        {
+            m_Sense = IfcAheadOrBehind_AHEAD;
         }
-        else if (arg == ".BEHIND.") {
-            m_sense = IfcAheadOrBehind_BEHIND;
+        else if (arg == ".BEHIND.")
+        {
+            m_Sense = IfcAheadOrBehind_BEHIND;
         }
     }
     return true;
 }
 
-void IfcCoordinatedUniversalTimeOffset::copy(const IfcCoordinatedUniversalTimeOffset &obj, const CopyOp &copyop) {
+void IfcCoordinatedUniversalTimeOffset::copy(const IfcCoordinatedUniversalTimeOffset &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setHourOffset(obj.m_hourOffset);
-    setMinuteOffset(obj.m_minuteOffset);
-    setSense(obj.m_sense);
+    setHourOffset(obj.m_HourOffset);
+    setMinuteOffset(obj.m_MinuteOffset);
+    setSense(obj.m_Sense);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCoordinatedUniversalTimeOffset::s_type("IfcCoordinatedUniversalTimeOffset");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcCoordinatedUniversalTimeOffset, Step::BaseEntity)

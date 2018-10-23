@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,236 +24,286 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcTask.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcProcess.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcTask::IfcTask(Step::Id id, Step::SPFData *args) : IfcProcess(id, args) {
-    m_taskId = Step::getUnset(m_taskId);
-    m_status = Step::getUnset(m_status);
-    m_workMethod = Step::getUnset(m_workMethod);
-    m_isMilestone = Step::getUnset(m_isMilestone);
-    m_priority = Step::getUnset(m_priority);
+IfcTask::IfcTask(Step::Id id, Step::SPFData *args) : 
+    IfcProcess(id, args)
+{
+    m_TaskId = Step::getUnset(m_TaskId);
+    m_Status = Step::getUnset(m_Status);
+    m_WorkMethod = Step::getUnset(m_WorkMethod);
+    m_IsMilestone = Step::getUnset(m_IsMilestone);
+    m_Priority = Step::getUnset(m_Priority);
 }
 
-IfcTask::~IfcTask() {
+IfcTask::~IfcTask()
+{}
+
+bool IfcTask::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcTask(this);
 }
 
-bool IfcTask::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcTask(this);
-}
 
-const std::string &IfcTask::type() const {
-    return IfcTask::s_type.getName();
-}
-
-const Step::ClassType &IfcTask::getClassType() {
-    return IfcTask::s_type;
-}
-
-const Step::ClassType &IfcTask::getType() const {
-    return IfcTask::s_type;
-}
-
-bool IfcTask::isOfType(const Step::ClassType &t) const {
-    return IfcTask::s_type == t ? true : IfcProcess::isOfType(t);
-}
-
-IfcIdentifier IfcTask::getTaskId() {
-    if (Step::BaseObject::inited()) {
-        return m_taskId;
+IfcIdentifier IfcTask::getTaskId()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TaskId;
     }
-    else {
-        return Step::getUnset(m_taskId);
+    else 
+    {
+        return Step::getUnset(m_TaskId);
+    }    
+}
+
+const IfcIdentifier IfcTask::getTaskId() const
+{
+    return const_cast<IfcTask *>(this)->getTaskId();
+}
+
+void IfcTask::setTaskId(const IfcIdentifier &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TaskId = value;
+}
+
+void IfcTask::unsetTaskId()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TaskId = Step::getUnset(getTaskId());
+}
+
+bool IfcTask::testTaskId() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTaskId()) == false;
+}
+
+
+IfcLabel IfcTask::getStatus()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Status;
     }
+    else 
+    {
+        return Step::getUnset(m_Status);
+    }    
 }
 
-const IfcIdentifier IfcTask::getTaskId() const {
-    IfcTask * deConstObject = const_cast< IfcTask * > (this);
-    return deConstObject->getTaskId();
+const IfcLabel IfcTask::getStatus() const
+{
+    return const_cast<IfcTask *>(this)->getStatus();
 }
 
-void IfcTask::setTaskId(const IfcIdentifier &value) {
-    m_taskId = value;
+void IfcTask::setStatus(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Status = value;
 }
 
-void IfcTask::unsetTaskId() {
-    m_taskId = Step::getUnset(getTaskId());
+void IfcTask::unsetStatus()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Status = Step::getUnset(getStatus());
 }
 
-bool IfcTask::testTaskId() const {
-    return !Step::isUnset(getTaskId());
+bool IfcTask::testStatus() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getStatus()) == false;
 }
 
-IfcLabel IfcTask::getStatus() {
-    if (Step::BaseObject::inited()) {
-        return m_status;
+
+IfcLabel IfcTask::getWorkMethod()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_WorkMethod;
     }
-    else {
-        return Step::getUnset(m_status);
+    else 
+    {
+        return Step::getUnset(m_WorkMethod);
+    }    
+}
+
+const IfcLabel IfcTask::getWorkMethod() const
+{
+    return const_cast<IfcTask *>(this)->getWorkMethod();
+}
+
+void IfcTask::setWorkMethod(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WorkMethod = value;
+}
+
+void IfcTask::unsetWorkMethod()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WorkMethod = Step::getUnset(getWorkMethod());
+}
+
+bool IfcTask::testWorkMethod() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getWorkMethod()) == false;
+}
+
+
+Step::Boolean IfcTask::getIsMilestone()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_IsMilestone;
     }
+    else 
+    {
+        return Step::getUnset(m_IsMilestone);
+    }    
 }
 
-const IfcLabel IfcTask::getStatus() const {
-    IfcTask * deConstObject = const_cast< IfcTask * > (this);
-    return deConstObject->getStatus();
+Step::Boolean IfcTask::getIsMilestone() const
+{
+    return const_cast<IfcTask *>(this)->getIsMilestone();
 }
 
-void IfcTask::setStatus(const IfcLabel &value) {
-    m_status = value;
+void IfcTask::setIsMilestone(Step::Boolean value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_IsMilestone = value;
 }
 
-void IfcTask::unsetStatus() {
-    m_status = Step::getUnset(getStatus());
+void IfcTask::unsetIsMilestone()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_IsMilestone = Step::getUnset(getIsMilestone());
 }
 
-bool IfcTask::testStatus() const {
-    return !Step::isUnset(getStatus());
+bool IfcTask::testIsMilestone() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getIsMilestone()) == false;
 }
 
-IfcLabel IfcTask::getWorkMethod() {
-    if (Step::BaseObject::inited()) {
-        return m_workMethod;
+
+Step::Integer IfcTask::getPriority()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Priority;
     }
-    else {
-        return Step::getUnset(m_workMethod);
-    }
+    else 
+    {
+        return Step::getUnset(m_Priority);
+    }    
 }
 
-const IfcLabel IfcTask::getWorkMethod() const {
-    IfcTask * deConstObject = const_cast< IfcTask * > (this);
-    return deConstObject->getWorkMethod();
+Step::Integer IfcTask::getPriority() const
+{
+    return const_cast<IfcTask *>(this)->getPriority();
 }
 
-void IfcTask::setWorkMethod(const IfcLabel &value) {
-    m_workMethod = value;
+void IfcTask::setPriority(Step::Integer value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Priority = value;
 }
 
-void IfcTask::unsetWorkMethod() {
-    m_workMethod = Step::getUnset(getWorkMethod());
+void IfcTask::unsetPriority()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Priority = Step::getUnset(getPriority());
 }
 
-bool IfcTask::testWorkMethod() const {
-    return !Step::isUnset(getWorkMethod());
+bool IfcTask::testPriority() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPriority()) == false;
 }
 
-Step::Boolean IfcTask::getIsMilestone() {
-    if (Step::BaseObject::inited()) {
-        return m_isMilestone;
-    }
-    else {
-        return Step::getUnset(m_isMilestone);
-    }
-}
-
-const Step::Boolean IfcTask::getIsMilestone() const {
-    IfcTask * deConstObject = const_cast< IfcTask * > (this);
-    return deConstObject->getIsMilestone();
-}
-
-void IfcTask::setIsMilestone(Step::Boolean value) {
-    m_isMilestone = value;
-}
-
-void IfcTask::unsetIsMilestone() {
-    m_isMilestone = Step::getUnset(getIsMilestone());
-}
-
-bool IfcTask::testIsMilestone() const {
-    return !Step::isUnset(getIsMilestone());
-}
-
-Step::Integer IfcTask::getPriority() {
-    if (Step::BaseObject::inited()) {
-        return m_priority;
-    }
-    else {
-        return Step::getUnset(m_priority);
-    }
-}
-
-const Step::Integer IfcTask::getPriority() const {
-    IfcTask * deConstObject = const_cast< IfcTask * > (this);
-    return deConstObject->getPriority();
-}
-
-void IfcTask::setPriority(Step::Integer value) {
-    m_priority = value;
-}
-
-void IfcTask::unsetPriority() {
-    m_priority = Step::getUnset(getPriority());
-}
-
-bool IfcTask::testPriority() const {
-    return !Step::isUnset(getPriority());
-}
-
-bool IfcTask::init() {
-    bool status = IfcProcess::init();
-    std::string arg;
-    if (!status) {
+bool IfcTask::init()
+{
+    if (IfcProcess::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_taskId = Step::getUnset(m_taskId);
+    if (arg == "$" || arg == "*")
+    {
+        m_TaskId = Step::getUnset(m_TaskId);
     }
-    else {
-        m_taskId = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_status = Step::getUnset(m_status);
-    }
-    else {
-        m_status = Step::String::fromSPF(arg);
+    else
+    {
+        m_TaskId = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_workMethod = Step::getUnset(m_workMethod);
+    if (arg == "$" || arg == "*")
+    {
+        m_Status = Step::getUnset(m_Status);
     }
-    else {
-        m_workMethod = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_isMilestone = Step::getUnset(m_isMilestone);
-    }
-    else {
-        m_isMilestone = Step::spfToBoolean(arg);
+    else
+    {
+        m_Status = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_priority = Step::getUnset(m_priority);
+    if (arg == "$" || arg == "*")
+    {
+        m_WorkMethod = Step::getUnset(m_WorkMethod);
     }
-    else {
-        m_priority = Step::spfToInteger(arg);
+    else
+    {
+        m_WorkMethod = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_IsMilestone = Step::getUnset(m_IsMilestone);
+    }
+    else
+    {
+        m_IsMilestone = Step::spfToBoolean(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Priority = Step::getUnset(m_Priority);
+    }
+    else
+    {
+        m_Priority = Step::spfToInteger(arg)
+;
     }
     return true;
 }
 
-void IfcTask::copy(const IfcTask &obj, const CopyOp &copyop) {
+void IfcTask::copy(const IfcTask &obj, const CopyOp &copyop)
+{
     IfcProcess::copy(obj, copyop);
-    setTaskId(obj.m_taskId);
-    setStatus(obj.m_status);
-    setWorkMethod(obj.m_workMethod);
-    setIsMilestone(obj.m_isMilestone);
-    setPriority(obj.m_priority);
+    setTaskId(obj.m_TaskId);
+    setStatus(obj.m_Status);
+    setWorkMethod(obj.m_WorkMethod);
+    setIsMilestone(obj.m_IsMilestone);
+    setPriority(obj.m_Priority);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTask::s_type("IfcTask");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcTask, IfcProcess)

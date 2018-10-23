@@ -1,3 +1,9 @@
+1.3.0
+=====
+- Added new generated classes from templated engine
+- Used cotire for PCH and unity build support
+- Added initialisation of objects on set/test/unset methods
+
 1.1.3
 =======
 - Corrected some issues with undefined behavior

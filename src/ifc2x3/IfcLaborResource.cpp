@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,96 +24,94 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcLaborResource.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcConstructionResource.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcLaborResource::IfcLaborResource(Step::Id id, Step::SPFData *args) : IfcConstructionResource(id, args) {
-    m_skillSet = Step::getUnset(m_skillSet);
+IfcLaborResource::IfcLaborResource(Step::Id id, Step::SPFData *args) : 
+    IfcConstructionResource(id, args)
+{
+    m_SkillSet = Step::getUnset(m_SkillSet);
 }
 
-IfcLaborResource::~IfcLaborResource() {
+IfcLaborResource::~IfcLaborResource()
+{}
+
+bool IfcLaborResource::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcLaborResource(this);
 }
 
-bool IfcLaborResource::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcLaborResource(this);
-}
 
-const std::string &IfcLaborResource::type() const {
-    return IfcLaborResource::s_type.getName();
-}
-
-const Step::ClassType &IfcLaborResource::getClassType() {
-    return IfcLaborResource::s_type;
-}
-
-const Step::ClassType &IfcLaborResource::getType() const {
-    return IfcLaborResource::s_type;
-}
-
-bool IfcLaborResource::isOfType(const Step::ClassType &t) const {
-    return IfcLaborResource::s_type == t ? true : IfcConstructionResource::isOfType(t);
-}
-
-IfcText IfcLaborResource::getSkillSet() {
-    if (Step::BaseObject::inited()) {
-        return m_skillSet;
+IfcText IfcLaborResource::getSkillSet()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SkillSet;
     }
-    else {
-        return Step::getUnset(m_skillSet);
-    }
+    else 
+    {
+        return Step::getUnset(m_SkillSet);
+    }    
 }
 
-const IfcText IfcLaborResource::getSkillSet() const {
-    IfcLaborResource * deConstObject = const_cast< IfcLaborResource * > (this);
-    return deConstObject->getSkillSet();
+const IfcText IfcLaborResource::getSkillSet() const
+{
+    return const_cast<IfcLaborResource *>(this)->getSkillSet();
 }
 
-void IfcLaborResource::setSkillSet(const IfcText &value) {
-    m_skillSet = value;
+void IfcLaborResource::setSkillSet(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SkillSet = value;
 }
 
-void IfcLaborResource::unsetSkillSet() {
-    m_skillSet = Step::getUnset(getSkillSet());
+void IfcLaborResource::unsetSkillSet()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SkillSet = Step::getUnset(getSkillSet());
 }
 
-bool IfcLaborResource::testSkillSet() const {
-    return !Step::isUnset(getSkillSet());
+bool IfcLaborResource::testSkillSet() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSkillSet()) == false;
 }
 
-bool IfcLaborResource::init() {
-    bool status = IfcConstructionResource::init();
-    std::string arg;
-    if (!status) {
+bool IfcLaborResource::init()
+{
+    if (IfcConstructionResource::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_skillSet = Step::getUnset(m_skillSet);
+    if (arg == "$" || arg == "*")
+    {
+        m_SkillSet = Step::getUnset(m_SkillSet);
     }
-    else {
-        m_skillSet = Step::String::fromSPF(arg);
+    else
+    {
+        m_SkillSet = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcLaborResource::copy(const IfcLaborResource &obj, const CopyOp &copyop) {
+void IfcLaborResource::copy(const IfcLaborResource &obj, const CopyOp &copyop)
+{
     IfcConstructionResource::copy(obj, copyop);
-    setSkillSet(obj.m_skillSet);
+    setSkillSet(obj.m_SkillSet);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLaborResource::s_type("IfcLaborResource");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcLaborResource, IfcConstructionResource)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,270 +24,329 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPermeableCoveringProperties.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcPropertySetDefinition.h>
 #include <ifc2x3/IfcShapeAspect.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPermeableCoveringProperties::IfcPermeableCoveringProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
-    m_operationType = IfcPermeableCoveringOperationEnum_UNSET;
-    m_panelPosition = IfcWindowPanelPositionEnum_UNSET;
-    m_frameDepth = Step::getUnset(m_frameDepth);
-    m_frameThickness = Step::getUnset(m_frameThickness);
-    m_shapeAspectStyle = NULL;
+IfcPermeableCoveringProperties::IfcPermeableCoveringProperties(Step::Id id, Step::SPFData *args) : 
+    IfcPropertySetDefinition(id, args)
+{
+    m_OperationType = IfcPermeableCoveringOperationEnum_UNSET;
+    m_PanelPosition = IfcWindowPanelPositionEnum_UNSET;
+    m_FrameDepth = Step::getUnset(m_FrameDepth);
+    m_FrameThickness = Step::getUnset(m_FrameThickness);
+    m_ShapeAspectStyle = NULL;
 }
 
-IfcPermeableCoveringProperties::~IfcPermeableCoveringProperties() {
+IfcPermeableCoveringProperties::~IfcPermeableCoveringProperties()
+{}
+
+bool IfcPermeableCoveringProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPermeableCoveringProperties(this);
 }
 
-bool IfcPermeableCoveringProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPermeableCoveringProperties(this);
-}
 
-const std::string &IfcPermeableCoveringProperties::type() const {
-    return IfcPermeableCoveringProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcPermeableCoveringProperties::getClassType() {
-    return IfcPermeableCoveringProperties::s_type;
-}
-
-const Step::ClassType &IfcPermeableCoveringProperties::getType() const {
-    return IfcPermeableCoveringProperties::s_type;
-}
-
-bool IfcPermeableCoveringProperties::isOfType(const Step::ClassType &t) const {
-    return IfcPermeableCoveringProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
-}
-
-IfcPermeableCoveringOperationEnum IfcPermeableCoveringProperties::getOperationType() {
-    if (Step::BaseObject::inited()) {
-        return m_operationType;
+IfcPermeableCoveringOperationEnum IfcPermeableCoveringProperties::getOperationType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_OperationType;
     }
-    else {
+    else 
+    {
         return IfcPermeableCoveringOperationEnum_UNSET;
+    }    
+}
+
+IfcPermeableCoveringOperationEnum IfcPermeableCoveringProperties::getOperationType() const
+{
+    return const_cast<IfcPermeableCoveringProperties *>(this)->getOperationType();
+}
+
+void IfcPermeableCoveringProperties::setOperationType(IfcPermeableCoveringOperationEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OperationType = value;
+}
+
+void IfcPermeableCoveringProperties::unsetOperationType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OperationType = IfcPermeableCoveringOperationEnum_UNSET;
+}
+
+bool IfcPermeableCoveringProperties::testOperationType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getOperationType()) == false;
+}
+
+
+IfcWindowPanelPositionEnum IfcPermeableCoveringProperties::getPanelPosition()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PanelPosition;
     }
-}
-
-const IfcPermeableCoveringOperationEnum IfcPermeableCoveringProperties::getOperationType() const {
-    IfcPermeableCoveringProperties * deConstObject = const_cast< IfcPermeableCoveringProperties * > (this);
-    return deConstObject->getOperationType();
-}
-
-void IfcPermeableCoveringProperties::setOperationType(IfcPermeableCoveringOperationEnum value) {
-    m_operationType = value;
-}
-
-void IfcPermeableCoveringProperties::unsetOperationType() {
-    m_operationType = IfcPermeableCoveringOperationEnum_UNSET;
-}
-
-bool IfcPermeableCoveringProperties::testOperationType() const {
-    return getOperationType() != IfcPermeableCoveringOperationEnum_UNSET;
-}
-
-IfcWindowPanelPositionEnum IfcPermeableCoveringProperties::getPanelPosition() {
-    if (Step::BaseObject::inited()) {
-        return m_panelPosition;
-    }
-    else {
+    else 
+    {
         return IfcWindowPanelPositionEnum_UNSET;
+    }    
+}
+
+IfcWindowPanelPositionEnum IfcPermeableCoveringProperties::getPanelPosition() const
+{
+    return const_cast<IfcPermeableCoveringProperties *>(this)->getPanelPosition();
+}
+
+void IfcPermeableCoveringProperties::setPanelPosition(IfcWindowPanelPositionEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PanelPosition = value;
+}
+
+void IfcPermeableCoveringProperties::unsetPanelPosition()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PanelPosition = IfcWindowPanelPositionEnum_UNSET;
+}
+
+bool IfcPermeableCoveringProperties::testPanelPosition() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPanelPosition()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameDepth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FrameDepth;
     }
+    else 
+    {
+        return Step::getUnset(m_FrameDepth);
+    }    
 }
 
-const IfcWindowPanelPositionEnum IfcPermeableCoveringProperties::getPanelPosition() const {
-    IfcPermeableCoveringProperties * deConstObject = const_cast< IfcPermeableCoveringProperties * > (this);
-    return deConstObject->getPanelPosition();
+IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameDepth() const
+{
+    return const_cast<IfcPermeableCoveringProperties *>(this)->getFrameDepth();
 }
 
-void IfcPermeableCoveringProperties::setPanelPosition(IfcWindowPanelPositionEnum value) {
-    m_panelPosition = value;
+void IfcPermeableCoveringProperties::setFrameDepth(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FrameDepth = value;
 }
 
-void IfcPermeableCoveringProperties::unsetPanelPosition() {
-    m_panelPosition = IfcWindowPanelPositionEnum_UNSET;
+void IfcPermeableCoveringProperties::unsetFrameDepth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FrameDepth = Step::getUnset(getFrameDepth());
 }
 
-bool IfcPermeableCoveringProperties::testPanelPosition() const {
-    return getPanelPosition() != IfcWindowPanelPositionEnum_UNSET;
+bool IfcPermeableCoveringProperties::testFrameDepth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFrameDepth()) == false;
 }
 
-IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameDepth() {
-    if (Step::BaseObject::inited()) {
-        return m_frameDepth;
+
+IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FrameThickness;
     }
-    else {
-        return Step::getUnset(m_frameDepth);
+    else 
+    {
+        return Step::getUnset(m_FrameThickness);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameThickness() const
+{
+    return const_cast<IfcPermeableCoveringProperties *>(this)->getFrameThickness();
+}
+
+void IfcPermeableCoveringProperties::setFrameThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FrameThickness = value;
+}
+
+void IfcPermeableCoveringProperties::unsetFrameThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FrameThickness = Step::getUnset(getFrameThickness());
+}
+
+bool IfcPermeableCoveringProperties::testFrameThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFrameThickness()) == false;
+}
+
+
+IfcShapeAspect *IfcPermeableCoveringProperties::getShapeAspectStyle()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ShapeAspectStyle.get();
     }
-}
-
-const IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameDepth() const {
-    IfcPermeableCoveringProperties * deConstObject = const_cast< IfcPermeableCoveringProperties * > (this);
-    return deConstObject->getFrameDepth();
-}
-
-void IfcPermeableCoveringProperties::setFrameDepth(IfcPositiveLengthMeasure value) {
-    m_frameDepth = value;
-}
-
-void IfcPermeableCoveringProperties::unsetFrameDepth() {
-    m_frameDepth = Step::getUnset(getFrameDepth());
-}
-
-bool IfcPermeableCoveringProperties::testFrameDepth() const {
-    return !Step::isUnset(getFrameDepth());
-}
-
-IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_frameThickness;
-    }
-    else {
-        return Step::getUnset(m_frameThickness);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameThickness() const {
-    IfcPermeableCoveringProperties * deConstObject = const_cast< IfcPermeableCoveringProperties * > (this);
-    return deConstObject->getFrameThickness();
-}
-
-void IfcPermeableCoveringProperties::setFrameThickness(IfcPositiveLengthMeasure value) {
-    m_frameThickness = value;
-}
-
-void IfcPermeableCoveringProperties::unsetFrameThickness() {
-    m_frameThickness = Step::getUnset(getFrameThickness());
-}
-
-bool IfcPermeableCoveringProperties::testFrameThickness() const {
-    return !Step::isUnset(getFrameThickness());
-}
-
-IfcShapeAspect *IfcPermeableCoveringProperties::getShapeAspectStyle() {
-    if (Step::BaseObject::inited()) {
-        return m_shapeAspectStyle.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcShapeAspect *IfcPermeableCoveringProperties::getShapeAspectStyle() const {
-    IfcPermeableCoveringProperties * deConstObject = const_cast< IfcPermeableCoveringProperties * > (this);
-    return deConstObject->getShapeAspectStyle();
+const IfcShapeAspect *IfcPermeableCoveringProperties::getShapeAspectStyle() const
+{
+    return const_cast<IfcPermeableCoveringProperties *>(this)->getShapeAspectStyle();
 }
 
-void IfcPermeableCoveringProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
-    m_shapeAspectStyle = value;
+void IfcPermeableCoveringProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShapeAspectStyle = value;
 }
 
-void IfcPermeableCoveringProperties::unsetShapeAspectStyle() {
-    m_shapeAspectStyle = Step::getUnset(getShapeAspectStyle());
+void IfcPermeableCoveringProperties::unsetShapeAspectStyle()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShapeAspectStyle = Step::getUnset(getShapeAspectStyle());
 }
 
-bool IfcPermeableCoveringProperties::testShapeAspectStyle() const {
-    return !Step::isUnset(getShapeAspectStyle());
+bool IfcPermeableCoveringProperties::testShapeAspectStyle() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getShapeAspectStyle()) == false;
 }
 
-bool IfcPermeableCoveringProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
-    std::string arg;
-    if (!status) {
+bool IfcPermeableCoveringProperties::init()
+{
+    if (IfcPropertySetDefinition::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_operationType = IfcPermeableCoveringOperationEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_OperationType = IfcPermeableCoveringOperationEnum_UNSET;
     }
-    else {
-        if (arg == ".GRILL.") {
-            m_operationType = IfcPermeableCoveringOperationEnum_GRILL;
+    else
+    {
+        if (arg == ".GRILL.")
+        {
+            m_OperationType = IfcPermeableCoveringOperationEnum_GRILL;
         }
-        else if (arg == ".LOUVER.") {
-            m_operationType = IfcPermeableCoveringOperationEnum_LOUVER;
+        else if (arg == ".LOUVER.")
+        {
+            m_OperationType = IfcPermeableCoveringOperationEnum_LOUVER;
         }
-        else if (arg == ".SCREEN.") {
-            m_operationType = IfcPermeableCoveringOperationEnum_SCREEN;
+        else if (arg == ".SCREEN.")
+        {
+            m_OperationType = IfcPermeableCoveringOperationEnum_SCREEN;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_operationType = IfcPermeableCoveringOperationEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_OperationType = IfcPermeableCoveringOperationEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_operationType = IfcPermeableCoveringOperationEnum_NOTDEFINED;
-        }
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_panelPosition = IfcWindowPanelPositionEnum_UNSET;
-    }
-    else {
-        if (arg == ".LEFT.") {
-            m_panelPosition = IfcWindowPanelPositionEnum_LEFT;
-        }
-        else if (arg == ".MIDDLE.") {
-            m_panelPosition = IfcWindowPanelPositionEnum_MIDDLE;
-        }
-        else if (arg == ".RIGHT.") {
-            m_panelPosition = IfcWindowPanelPositionEnum_RIGHT;
-        }
-        else if (arg == ".BOTTOM.") {
-            m_panelPosition = IfcWindowPanelPositionEnum_BOTTOM;
-        }
-        else if (arg == ".TOP.") {
-            m_panelPosition = IfcWindowPanelPositionEnum_TOP;
-        }
-        else if (arg == ".NOTDEFINED.") {
-            m_panelPosition = IfcWindowPanelPositionEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_OperationType = IfcPermeableCoveringOperationEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_frameDepth = Step::getUnset(m_frameDepth);
+    if (arg == "$" || arg == "*")
+    {
+        m_PanelPosition = IfcWindowPanelPositionEnum_UNSET;
     }
-    else {
-        m_frameDepth = Step::spfToReal(arg);
+    else
+    {
+        if (arg == ".LEFT.")
+        {
+            m_PanelPosition = IfcWindowPanelPositionEnum_LEFT;
+        }
+        else if (arg == ".MIDDLE.")
+        {
+            m_PanelPosition = IfcWindowPanelPositionEnum_MIDDLE;
+        }
+        else if (arg == ".RIGHT.")
+        {
+            m_PanelPosition = IfcWindowPanelPositionEnum_RIGHT;
+        }
+        else if (arg == ".BOTTOM.")
+        {
+            m_PanelPosition = IfcWindowPanelPositionEnum_BOTTOM;
+        }
+        else if (arg == ".TOP.")
+        {
+            m_PanelPosition = IfcWindowPanelPositionEnum_TOP;
+        }
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PanelPosition = IfcWindowPanelPositionEnum_NOTDEFINED;
+        }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_frameThickness = Step::getUnset(m_frameThickness);
+    if (arg == "$" || arg == "*")
+    {
+        m_FrameDepth = Step::getUnset(m_FrameDepth);
     }
-    else {
-        m_frameThickness = Step::spfToReal(arg);
+    else
+    {
+        m_FrameDepth = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_shapeAspectStyle = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_FrameThickness = Step::getUnset(m_FrameThickness);
     }
-    else {
-        m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_FrameThickness = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ShapeAspectStyle = NULL;
+    }
+    else
+    {
+        m_ShapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcPermeableCoveringProperties::copy(const IfcPermeableCoveringProperties &obj, const CopyOp &copyop) {
+void IfcPermeableCoveringProperties::copy(const IfcPermeableCoveringProperties &obj, const CopyOp &copyop)
+{
     IfcPropertySetDefinition::copy(obj, copyop);
-    setOperationType(obj.m_operationType);
-    setPanelPosition(obj.m_panelPosition);
-    setFrameDepth(obj.m_frameDepth);
-    setFrameThickness(obj.m_frameThickness);
-    setShapeAspectStyle((IfcShapeAspect*)copyop(obj.m_shapeAspectStyle.get()));
+    setOperationType(obj.m_OperationType);
+    setPanelPosition(obj.m_PanelPosition);
+    setFrameDepth(obj.m_FrameDepth);
+    setFrameThickness(obj.m_FrameThickness);
+    setShapeAspectStyle((IfcShapeAspect*)copyop(obj.m_ShapeAspectStyle.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPermeableCoveringProperties::s_type("IfcPermeableCoveringProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPermeableCoveringProperties, IfcPropertySetDefinition)

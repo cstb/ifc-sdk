@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,200 +24,240 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcStairFlight.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcBuildingElement.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcStairFlight::IfcStairFlight(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args) {
-    m_numberOfRiser = Step::getUnset(m_numberOfRiser);
-    m_numberOfTreads = Step::getUnset(m_numberOfTreads);
-    m_riserHeight = Step::getUnset(m_riserHeight);
-    m_treadLength = Step::getUnset(m_treadLength);
+IfcStairFlight::IfcStairFlight(Step::Id id, Step::SPFData *args) : 
+    IfcBuildingElement(id, args)
+{
+    m_NumberOfRiser = Step::getUnset(m_NumberOfRiser);
+    m_NumberOfTreads = Step::getUnset(m_NumberOfTreads);
+    m_RiserHeight = Step::getUnset(m_RiserHeight);
+    m_TreadLength = Step::getUnset(m_TreadLength);
 }
 
-IfcStairFlight::~IfcStairFlight() {
+IfcStairFlight::~IfcStairFlight()
+{}
+
+bool IfcStairFlight::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcStairFlight(this);
 }
 
-bool IfcStairFlight::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcStairFlight(this);
-}
 
-const std::string &IfcStairFlight::type() const {
-    return IfcStairFlight::s_type.getName();
-}
-
-const Step::ClassType &IfcStairFlight::getClassType() {
-    return IfcStairFlight::s_type;
-}
-
-const Step::ClassType &IfcStairFlight::getType() const {
-    return IfcStairFlight::s_type;
-}
-
-bool IfcStairFlight::isOfType(const Step::ClassType &t) const {
-    return IfcStairFlight::s_type == t ? true : IfcBuildingElement::isOfType(t);
-}
-
-Step::Integer IfcStairFlight::getNumberOfRiser() {
-    if (Step::BaseObject::inited()) {
-        return m_numberOfRiser;
+Step::Integer IfcStairFlight::getNumberOfRiser()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_NumberOfRiser;
     }
-    else {
-        return Step::getUnset(m_numberOfRiser);
+    else 
+    {
+        return Step::getUnset(m_NumberOfRiser);
+    }    
+}
+
+Step::Integer IfcStairFlight::getNumberOfRiser() const
+{
+    return const_cast<IfcStairFlight *>(this)->getNumberOfRiser();
+}
+
+void IfcStairFlight::setNumberOfRiser(Step::Integer value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NumberOfRiser = value;
+}
+
+void IfcStairFlight::unsetNumberOfRiser()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NumberOfRiser = Step::getUnset(getNumberOfRiser());
+}
+
+bool IfcStairFlight::testNumberOfRiser() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getNumberOfRiser()) == false;
+}
+
+
+Step::Integer IfcStairFlight::getNumberOfTreads()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_NumberOfTreads;
     }
+    else 
+    {
+        return Step::getUnset(m_NumberOfTreads);
+    }    
 }
 
-const Step::Integer IfcStairFlight::getNumberOfRiser() const {
-    IfcStairFlight * deConstObject = const_cast< IfcStairFlight * > (this);
-    return deConstObject->getNumberOfRiser();
+Step::Integer IfcStairFlight::getNumberOfTreads() const
+{
+    return const_cast<IfcStairFlight *>(this)->getNumberOfTreads();
 }
 
-void IfcStairFlight::setNumberOfRiser(Step::Integer value) {
-    m_numberOfRiser = value;
+void IfcStairFlight::setNumberOfTreads(Step::Integer value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NumberOfTreads = value;
 }
 
-void IfcStairFlight::unsetNumberOfRiser() {
-    m_numberOfRiser = Step::getUnset(getNumberOfRiser());
+void IfcStairFlight::unsetNumberOfTreads()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NumberOfTreads = Step::getUnset(getNumberOfTreads());
 }
 
-bool IfcStairFlight::testNumberOfRiser() const {
-    return !Step::isUnset(getNumberOfRiser());
+bool IfcStairFlight::testNumberOfTreads() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getNumberOfTreads()) == false;
 }
 
-Step::Integer IfcStairFlight::getNumberOfTreads() {
-    if (Step::BaseObject::inited()) {
-        return m_numberOfTreads;
+
+IfcPositiveLengthMeasure IfcStairFlight::getRiserHeight()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RiserHeight;
     }
-    else {
-        return Step::getUnset(m_numberOfTreads);
+    else 
+    {
+        return Step::getUnset(m_RiserHeight);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcStairFlight::getRiserHeight() const
+{
+    return const_cast<IfcStairFlight *>(this)->getRiserHeight();
+}
+
+void IfcStairFlight::setRiserHeight(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RiserHeight = value;
+}
+
+void IfcStairFlight::unsetRiserHeight()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RiserHeight = Step::getUnset(getRiserHeight());
+}
+
+bool IfcStairFlight::testRiserHeight() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRiserHeight()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcStairFlight::getTreadLength()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TreadLength;
     }
+    else 
+    {
+        return Step::getUnset(m_TreadLength);
+    }    
 }
 
-const Step::Integer IfcStairFlight::getNumberOfTreads() const {
-    IfcStairFlight * deConstObject = const_cast< IfcStairFlight * > (this);
-    return deConstObject->getNumberOfTreads();
+IfcPositiveLengthMeasure IfcStairFlight::getTreadLength() const
+{
+    return const_cast<IfcStairFlight *>(this)->getTreadLength();
 }
 
-void IfcStairFlight::setNumberOfTreads(Step::Integer value) {
-    m_numberOfTreads = value;
+void IfcStairFlight::setTreadLength(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TreadLength = value;
 }
 
-void IfcStairFlight::unsetNumberOfTreads() {
-    m_numberOfTreads = Step::getUnset(getNumberOfTreads());
+void IfcStairFlight::unsetTreadLength()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TreadLength = Step::getUnset(getTreadLength());
 }
 
-bool IfcStairFlight::testNumberOfTreads() const {
-    return !Step::isUnset(getNumberOfTreads());
+bool IfcStairFlight::testTreadLength() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTreadLength()) == false;
 }
 
-IfcPositiveLengthMeasure IfcStairFlight::getRiserHeight() {
-    if (Step::BaseObject::inited()) {
-        return m_riserHeight;
-    }
-    else {
-        return Step::getUnset(m_riserHeight);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcStairFlight::getRiserHeight() const {
-    IfcStairFlight * deConstObject = const_cast< IfcStairFlight * > (this);
-    return deConstObject->getRiserHeight();
-}
-
-void IfcStairFlight::setRiserHeight(IfcPositiveLengthMeasure value) {
-    m_riserHeight = value;
-}
-
-void IfcStairFlight::unsetRiserHeight() {
-    m_riserHeight = Step::getUnset(getRiserHeight());
-}
-
-bool IfcStairFlight::testRiserHeight() const {
-    return !Step::isUnset(getRiserHeight());
-}
-
-IfcPositiveLengthMeasure IfcStairFlight::getTreadLength() {
-    if (Step::BaseObject::inited()) {
-        return m_treadLength;
-    }
-    else {
-        return Step::getUnset(m_treadLength);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcStairFlight::getTreadLength() const {
-    IfcStairFlight * deConstObject = const_cast< IfcStairFlight * > (this);
-    return deConstObject->getTreadLength();
-}
-
-void IfcStairFlight::setTreadLength(IfcPositiveLengthMeasure value) {
-    m_treadLength = value;
-}
-
-void IfcStairFlight::unsetTreadLength() {
-    m_treadLength = Step::getUnset(getTreadLength());
-}
-
-bool IfcStairFlight::testTreadLength() const {
-    return !Step::isUnset(getTreadLength());
-}
-
-bool IfcStairFlight::init() {
-    bool status = IfcBuildingElement::init();
-    std::string arg;
-    if (!status) {
+bool IfcStairFlight::init()
+{
+    if (IfcBuildingElement::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_numberOfRiser = Step::getUnset(m_numberOfRiser);
+    if (arg == "$" || arg == "*")
+    {
+        m_NumberOfRiser = Step::getUnset(m_NumberOfRiser);
     }
-    else {
-        m_numberOfRiser = Step::spfToInteger(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_numberOfTreads = Step::getUnset(m_numberOfTreads);
-    }
-    else {
-        m_numberOfTreads = Step::spfToInteger(arg);
+    else
+    {
+        m_NumberOfRiser = Step::spfToInteger(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_riserHeight = Step::getUnset(m_riserHeight);
+    if (arg == "$" || arg == "*")
+    {
+        m_NumberOfTreads = Step::getUnset(m_NumberOfTreads);
     }
-    else {
-        m_riserHeight = Step::spfToReal(arg);
+    else
+    {
+        m_NumberOfTreads = Step::spfToInteger(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_treadLength = Step::getUnset(m_treadLength);
+    if (arg == "$" || arg == "*")
+    {
+        m_RiserHeight = Step::getUnset(m_RiserHeight);
     }
-    else {
-        m_treadLength = Step::spfToReal(arg);
+    else
+    {
+        m_RiserHeight = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_TreadLength = Step::getUnset(m_TreadLength);
+    }
+    else
+    {
+        m_TreadLength = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcStairFlight::copy(const IfcStairFlight &obj, const CopyOp &copyop) {
+void IfcStairFlight::copy(const IfcStairFlight &obj, const CopyOp &copyop)
+{
     IfcBuildingElement::copy(obj, copyop);
-    setNumberOfRiser(obj.m_numberOfRiser);
-    setNumberOfTreads(obj.m_numberOfTreads);
-    setRiserHeight(obj.m_riserHeight);
-    setTreadLength(obj.m_treadLength);
+    setNumberOfRiser(obj.m_NumberOfRiser);
+    setNumberOfTreads(obj.m_NumberOfTreads);
+    setRiserHeight(obj.m_RiserHeight);
+    setTreadLength(obj.m_TreadLength);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStairFlight::s_type("IfcStairFlight");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcStairFlight, IfcBuildingElement)

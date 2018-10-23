@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,248 +24,298 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPropertyDependencyRelationship.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcProperty.h>
+#include <ifc2x3/IfcProperty.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPropertyDependencyRelationship::IfcPropertyDependencyRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_dependingProperty = NULL;
-    m_dependantProperty = NULL;
-    m_name = Step::getUnset(m_name);
-    m_description = Step::getUnset(m_description);
-    m_expression = Step::getUnset(m_expression);
+IfcPropertyDependencyRelationship::IfcPropertyDependencyRelationship(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_Name = Step::getUnset(m_Name);
+    m_Description = Step::getUnset(m_Description);
+    m_Expression = Step::getUnset(m_Expression);
+    m_DependantProperty = NULL;
+    m_DependingProperty = NULL;
 }
 
-IfcPropertyDependencyRelationship::~IfcPropertyDependencyRelationship() {
+IfcPropertyDependencyRelationship::~IfcPropertyDependencyRelationship()
+{}
+
+bool IfcPropertyDependencyRelationship::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPropertyDependencyRelationship(this);
 }
 
-bool IfcPropertyDependencyRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPropertyDependencyRelationship(this);
-}
 
-const std::string &IfcPropertyDependencyRelationship::type() const {
-    return IfcPropertyDependencyRelationship::s_type.getName();
-}
-
-const Step::ClassType &IfcPropertyDependencyRelationship::getClassType() {
-    return IfcPropertyDependencyRelationship::s_type;
-}
-
-const Step::ClassType &IfcPropertyDependencyRelationship::getType() const {
-    return IfcPropertyDependencyRelationship::s_type;
-}
-
-bool IfcPropertyDependencyRelationship::isOfType(const Step::ClassType &t) const {
-    return IfcPropertyDependencyRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcProperty *IfcPropertyDependencyRelationship::getDependingProperty() {
-    if (Step::BaseObject::inited()) {
-        return m_dependingProperty.get();
+IfcLabel IfcPropertyDependencyRelationship::getName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Name;
     }
-    else {
+    else 
+    {
+        return Step::getUnset(m_Name);
+    }    
+}
+
+const IfcLabel IfcPropertyDependencyRelationship::getName() const
+{
+    return const_cast<IfcPropertyDependencyRelationship *>(this)->getName();
+}
+
+void IfcPropertyDependencyRelationship::setName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = value;
+}
+
+void IfcPropertyDependencyRelationship::unsetName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = Step::getUnset(getName());
+}
+
+bool IfcPropertyDependencyRelationship::testName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getName()) == false;
+}
+
+
+IfcText IfcPropertyDependencyRelationship::getDescription()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Description;
+    }
+    else 
+    {
+        return Step::getUnset(m_Description);
+    }    
+}
+
+const IfcText IfcPropertyDependencyRelationship::getDescription() const
+{
+    return const_cast<IfcPropertyDependencyRelationship *>(this)->getDescription();
+}
+
+void IfcPropertyDependencyRelationship::setDescription(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = value;
+}
+
+void IfcPropertyDependencyRelationship::unsetDescription()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = Step::getUnset(getDescription());
+}
+
+bool IfcPropertyDependencyRelationship::testDescription() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDescription()) == false;
+}
+
+
+IfcText IfcPropertyDependencyRelationship::getExpression()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Expression;
+    }
+    else 
+    {
+        return Step::getUnset(m_Expression);
+    }    
+}
+
+const IfcText IfcPropertyDependencyRelationship::getExpression() const
+{
+    return const_cast<IfcPropertyDependencyRelationship *>(this)->getExpression();
+}
+
+void IfcPropertyDependencyRelationship::setExpression(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Expression = value;
+}
+
+void IfcPropertyDependencyRelationship::unsetExpression()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Expression = Step::getUnset(getExpression());
+}
+
+bool IfcPropertyDependencyRelationship::testExpression() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getExpression()) == false;
+}
+
+IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_DependantProperty.get();
+    }
+    else
+    {
         return NULL;
     }
 }
 
-const IfcProperty *IfcPropertyDependencyRelationship::getDependingProperty() const {
-    IfcPropertyDependencyRelationship * deConstObject = const_cast< IfcPropertyDependencyRelationship * > (this);
-    return deConstObject->getDependingProperty();
+const IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty() const
+{
+    return const_cast< IfcPropertyDependencyRelationship * > (this)->getDependantProperty();
 }
 
-void IfcPropertyDependencyRelationship::setDependingProperty(const Step::RefPtr< IfcProperty > &value) {
-    if (m_dependingProperty.valid()) {
-        m_dependingProperty->getPropertyForDependance().erase(this);
+void IfcPropertyDependencyRelationship::setDependantProperty(const Step::RefPtr< IfcProperty > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_DependantProperty.valid())
+    {
+        m_DependantProperty->m_PropertyDependsOn.erase(this);
     }
-    if (value.valid()) {
-        value->getPropertyForDependance().insert(this);
+    if (value.valid() )
+    {
+       value->m_PropertyDependsOn.insert(this);
     }
-    m_dependingProperty = value;
+    m_DependantProperty = value;
 }
 
-void IfcPropertyDependencyRelationship::unsetDependingProperty() {
-    m_dependingProperty = Step::getUnset(getDependingProperty());
+void IfcPropertyDependencyRelationship::unsetDependantProperty()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DependantProperty = Step::getUnset(getDependantProperty());
 }
 
-bool IfcPropertyDependencyRelationship::testDependingProperty() const {
-    return !Step::isUnset(getDependingProperty());
+bool IfcPropertyDependencyRelationship::testDependantProperty() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDependantProperty()) == false;
 }
 
-IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty() {
-    if (Step::BaseObject::inited()) {
-        return m_dependantProperty.get();
+IfcProperty *IfcPropertyDependencyRelationship::getDependingProperty()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_DependingProperty.get();
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty() const {
-    IfcPropertyDependencyRelationship * deConstObject = const_cast< IfcPropertyDependencyRelationship * > (this);
-    return deConstObject->getDependantProperty();
+const IfcProperty *IfcPropertyDependencyRelationship::getDependingProperty() const
+{
+    return const_cast< IfcPropertyDependencyRelationship * > (this)->getDependingProperty();
 }
 
-void IfcPropertyDependencyRelationship::setDependantProperty(const Step::RefPtr< IfcProperty > &value) {
-    if (m_dependantProperty.valid()) {
-        m_dependantProperty->getPropertyDependsOn().erase(this);
+void IfcPropertyDependencyRelationship::setDependingProperty(const Step::RefPtr< IfcProperty > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_DependingProperty.valid())
+    {
+        m_DependingProperty->m_PropertyForDependance.erase(this);
     }
-    if (value.valid()) {
-        value->getPropertyDependsOn().insert(this);
+    if (value.valid() )
+    {
+       value->m_PropertyForDependance.insert(this);
     }
-    m_dependantProperty = value;
+    m_DependingProperty = value;
 }
 
-void IfcPropertyDependencyRelationship::unsetDependantProperty() {
-    m_dependantProperty = Step::getUnset(getDependantProperty());
+void IfcPropertyDependencyRelationship::unsetDependingProperty()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DependingProperty = Step::getUnset(getDependingProperty());
 }
 
-bool IfcPropertyDependencyRelationship::testDependantProperty() const {
-    return !Step::isUnset(getDependantProperty());
+bool IfcPropertyDependencyRelationship::testDependingProperty() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDependingProperty()) == false;
 }
 
-IfcLabel IfcPropertyDependencyRelationship::getName() {
-    if (Step::BaseObject::inited()) {
-        return m_name;
-    }
-    else {
-        return Step::getUnset(m_name);
-    }
-}
-
-const IfcLabel IfcPropertyDependencyRelationship::getName() const {
-    IfcPropertyDependencyRelationship * deConstObject = const_cast< IfcPropertyDependencyRelationship * > (this);
-    return deConstObject->getName();
-}
-
-void IfcPropertyDependencyRelationship::setName(const IfcLabel &value) {
-    m_name = value;
-}
-
-void IfcPropertyDependencyRelationship::unsetName() {
-    m_name = Step::getUnset(getName());
-}
-
-bool IfcPropertyDependencyRelationship::testName() const {
-    return !Step::isUnset(getName());
-}
-
-IfcText IfcPropertyDependencyRelationship::getDescription() {
-    if (Step::BaseObject::inited()) {
-        return m_description;
-    }
-    else {
-        return Step::getUnset(m_description);
-    }
-}
-
-const IfcText IfcPropertyDependencyRelationship::getDescription() const {
-    IfcPropertyDependencyRelationship * deConstObject = const_cast< IfcPropertyDependencyRelationship * > (this);
-    return deConstObject->getDescription();
-}
-
-void IfcPropertyDependencyRelationship::setDescription(const IfcText &value) {
-    m_description = value;
-}
-
-void IfcPropertyDependencyRelationship::unsetDescription() {
-    m_description = Step::getUnset(getDescription());
-}
-
-bool IfcPropertyDependencyRelationship::testDescription() const {
-    return !Step::isUnset(getDescription());
-}
-
-IfcText IfcPropertyDependencyRelationship::getExpression() {
-    if (Step::BaseObject::inited()) {
-        return m_expression;
-    }
-    else {
-        return Step::getUnset(m_expression);
-    }
-}
-
-const IfcText IfcPropertyDependencyRelationship::getExpression() const {
-    IfcPropertyDependencyRelationship * deConstObject = const_cast< IfcPropertyDependencyRelationship * > (this);
-    return deConstObject->getExpression();
-}
-
-void IfcPropertyDependencyRelationship::setExpression(const IfcText &value) {
-    m_expression = value;
-}
-
-void IfcPropertyDependencyRelationship::unsetExpression() {
-    m_expression = Step::getUnset(getExpression());
-}
-
-bool IfcPropertyDependencyRelationship::testExpression() const {
-    return !Step::isUnset(getExpression());
-}
-
-bool IfcPropertyDependencyRelationship::init() {
+bool IfcPropertyDependencyRelationship::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_dependingProperty = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Name = Step::getUnset(m_Name);
     }
-    else {
-        m_dependingProperty = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_dependantProperty = NULL;
-    }
-    else {
-        m_dependantProperty = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Name = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_name = Step::getUnset(m_name);
+    if (arg == "$" || arg == "*")
+    {
+        m_Description = Step::getUnset(m_Description);
     }
-    else {
-        m_name = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_description = Step::getUnset(m_description);
-    }
-    else {
-        m_description = Step::String::fromSPF(arg);
+    else
+    {
+        m_Description = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_expression = Step::getUnset(m_expression);
+    if (arg == "$" || arg == "*")
+    {
+        m_Expression = Step::getUnset(m_Expression);
     }
-    else {
-        m_expression = Step::String::fromSPF(arg);
+    else
+    {
+        m_Expression = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_DependantProperty = NULL;
+    }
+    else
+    {
+        m_DependantProperty = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_DependingProperty = NULL;
+    }
+    else
+    {
+        m_DependingProperty = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcPropertyDependencyRelationship::copy(const IfcPropertyDependencyRelationship &obj, const CopyOp &copyop) {
+void IfcPropertyDependencyRelationship::copy(const IfcPropertyDependencyRelationship &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setDependingProperty((IfcProperty*)copyop(obj.m_dependingProperty.get()));
-    setDependantProperty((IfcProperty*)copyop(obj.m_dependantProperty.get()));
-    setName(obj.m_name);
-    setDescription(obj.m_description);
-    setExpression(obj.m_expression);
+    setName(obj.m_Name);
+    setDescription(obj.m_Description);
+    setExpression(obj.m_Expression);
+    setDependantProperty((IfcProperty*)copyop(obj.m_DependantProperty.get()));
+    setDependingProperty((IfcProperty*)copyop(obj.m_DependingProperty.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertyDependencyRelationship::s_type("IfcPropertyDependencyRelationship");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPropertyDependencyRelationship, Step::BaseEntity)

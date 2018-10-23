@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,193 +24,220 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcStyledItem.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcPresentationStyleAssignment.h>
 #include <ifc2x3/IfcRepresentationItem.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcStyledItem::IfcStyledItem(Step::Id id, Step::SPFData *args) : IfcRepresentationItem(id, args) {
-    m_item = NULL;
-    m_name = Step::getUnset(m_name);
+IfcStyledItem::IfcStyledItem(Step::Id id, Step::SPFData *args) : 
+    IfcRepresentationItem(id, args)
+{
+    m_Styles.setUnset(true);
+    m_Name = Step::getUnset(m_Name);
+    m_Item = NULL;
 }
 
-IfcStyledItem::~IfcStyledItem() {
+IfcStyledItem::~IfcStyledItem()
+{}
+
+bool IfcStyledItem::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcStyledItem(this);
 }
 
-bool IfcStyledItem::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcStyledItem(this);
-}
 
-const std::string &IfcStyledItem::type() const {
-    return IfcStyledItem::s_type.getName();
-}
-
-const Step::ClassType &IfcStyledItem::getClassType() {
-    return IfcStyledItem::s_type;
-}
-
-const Step::ClassType &IfcStyledItem::getType() const {
-    return IfcStyledItem::s_type;
-}
-
-bool IfcStyledItem::isOfType(const Step::ClassType &t) const {
-    return IfcStyledItem::s_type == t ? true : IfcRepresentationItem::isOfType(t);
-}
-
-IfcRepresentationItem *IfcStyledItem::getItem() {
-    if (Step::BaseObject::inited()) {
-        return m_item.get();
+Set_IfcPresentationStyleAssignment_1_n &IfcStyledItem::getStyles()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Styles;
     }
-    else {
+    else 
+    {
+        m_Styles.setUnset(true);
+        return m_Styles;
+    }    
+}
+
+const Set_IfcPresentationStyleAssignment_1_n &IfcStyledItem::getStyles() const
+{
+    return const_cast<IfcStyledItem *>(this)->getStyles();
+}
+
+void IfcStyledItem::setStyles(const Set_IfcPresentationStyleAssignment_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Styles = value;
+}
+
+void IfcStyledItem::unsetStyles()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Styles.clear();
+    m_Styles.setUnset(true);
+}
+
+bool IfcStyledItem::testStyles() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_Styles.isUnset() == false;
+}
+
+
+IfcLabel IfcStyledItem::getName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Name;
+    }
+    else 
+    {
+        return Step::getUnset(m_Name);
+    }    
+}
+
+const IfcLabel IfcStyledItem::getName() const
+{
+    return const_cast<IfcStyledItem *>(this)->getName();
+}
+
+void IfcStyledItem::setName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = value;
+}
+
+void IfcStyledItem::unsetName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = Step::getUnset(getName());
+}
+
+bool IfcStyledItem::testName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getName()) == false;
+}
+
+IfcRepresentationItem *IfcStyledItem::getItem()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_Item.get();
+    }
+    else
+    {
         return NULL;
     }
 }
 
-const IfcRepresentationItem *IfcStyledItem::getItem() const {
-    IfcStyledItem * deConstObject = const_cast< IfcStyledItem * > (this);
-    return deConstObject->getItem();
+const IfcRepresentationItem *IfcStyledItem::getItem() const
+{
+    return const_cast< IfcStyledItem * > (this)->getItem();
 }
 
-void IfcStyledItem::setItem(const Step::RefPtr< IfcRepresentationItem > &value) {
-    if (m_item.valid()) {
-        m_item->getStyledByItem().erase(this);
+void IfcStyledItem::setItem(const Step::RefPtr< IfcRepresentationItem > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_Item.valid())
+    {
+        m_Item->m_StyledByItem.erase(this);
     }
-    if (value.valid()) {
-        value->getStyledByItem().insert(this);
+    if (value.valid() )
+    {
+       value->m_StyledByItem.insert(this);
     }
-    m_item = value;
+    m_Item = value;
 }
 
-void IfcStyledItem::unsetItem() {
-    m_item = Step::getUnset(getItem());
+void IfcStyledItem::unsetItem()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Item = Step::getUnset(getItem());
 }
 
-bool IfcStyledItem::testItem() const {
-    return !Step::isUnset(getItem());
+bool IfcStyledItem::testItem() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getItem()) == false;
 }
 
-Set_IfcPresentationStyleAssignment_1_n &IfcStyledItem::getStyles() {
-    if (Step::BaseObject::inited()) {
-        return m_styles;
-    }
-    else {
-        m_styles.setUnset(true);
-        return m_styles;
-    }
-}
-
-const Set_IfcPresentationStyleAssignment_1_n &IfcStyledItem::getStyles() const {
-    IfcStyledItem * deConstObject = const_cast< IfcStyledItem * > (this);
-    return deConstObject->getStyles();
-}
-
-void IfcStyledItem::setStyles(const Set_IfcPresentationStyleAssignment_1_n &value) {
-    m_styles = value;
-}
-
-void IfcStyledItem::unsetStyles() {
-    m_styles.clear();
-    m_styles.setUnset(true);
-}
-
-bool IfcStyledItem::testStyles() const {
-    return !m_styles.isUnset();
-}
-
-IfcLabel IfcStyledItem::getName() {
-    if (Step::BaseObject::inited()) {
-        return m_name;
-    }
-    else {
-        return Step::getUnset(m_name);
-    }
-}
-
-const IfcLabel IfcStyledItem::getName() const {
-    IfcStyledItem * deConstObject = const_cast< IfcStyledItem * > (this);
-    return deConstObject->getName();
-}
-
-void IfcStyledItem::setName(const IfcLabel &value) {
-    m_name = value;
-}
-
-void IfcStyledItem::unsetName() {
-    m_name = Step::getUnset(getName());
-}
-
-bool IfcStyledItem::testName() const {
-    return !Step::isUnset(getName());
-}
-
-bool IfcStyledItem::init() {
-    bool status = IfcRepresentationItem::init();
-    std::string arg;
-    if (!status) {
+bool IfcStyledItem::init()
+{
+    if (IfcRepresentationItem::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_item = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Styles.setUnset(true);
     }
-    else {
-        m_item = static_cast< IfcRepresentationItem * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_styles.setUnset(true);
-    }
-    else {
-        m_styles.setUnset(false);
-        while (true) {
+    else
+    {
+        m_Styles.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcPresentationStyleAssignment > attr2;
-                attr2 = static_cast< IfcPresentationStyleAssignment * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                if (attr2.valid()) m_styles.insert(attr2);
+            if (!str1.empty())
+            {
+                m_Styles.insert(static_cast< IfcPresentationStyleAssignment * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_name = Step::getUnset(m_name);
+    if (arg == "$" || arg == "*")
+    {
+        m_Name = Step::getUnset(m_Name);
     }
-    else {
-        m_name = Step::String::fromSPF(arg);
+    else
+    {
+        m_Name = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Item = NULL;
+    }
+    else
+    {
+        m_Item = static_cast< IfcRepresentationItem * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcStyledItem::copy(const IfcStyledItem &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcPresentationStyleAssignment >, 1 >::const_iterator it_m_styles;
+void IfcStyledItem::copy(const IfcStyledItem &obj, const CopyOp &copyop)
+{
     IfcRepresentationItem::copy(obj, copyop);
-    setItem((IfcRepresentationItem*)copyop(obj.m_item.get()));
-    for (it_m_styles = obj.m_styles.begin(); it_m_styles != obj.m_styles.end(); ++it_m_styles) {
-        Step::RefPtr< IfcPresentationStyleAssignment > copyTarget = (IfcPresentationStyleAssignment *) (copyop((*it_m_styles).get()));
-        m_styles.insert(copyTarget.get());
+    Set_IfcPresentationStyleAssignment_1_n::const_iterator it_m_Styles;
+    for (it_m_Styles = obj.m_Styles.begin(); it_m_Styles != obj.m_Styles.end(); ++it_m_Styles)
+    {
+        Step::RefPtr< IfcPresentationStyleAssignment > copyTarget = (IfcPresentationStyleAssignment *) (copyop((*it_m_Styles).get()));
+        m_Styles.insert(copyTarget);
     }
-    setName(obj.m_name);
+    
+    setName(obj.m_Name);
+    setItem((IfcRepresentationItem*)copyop(obj.m_Item.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStyledItem::s_type("IfcStyledItem");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcStyledItem, IfcRepresentationItem)

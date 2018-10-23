@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,357 +24,459 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcTendon.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcReinforcingElement.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcTendon::IfcTendon(Step::Id id, Step::SPFData *args) : IfcReinforcingElement(id, args) {
-    m_predefinedType = IfcTendonTypeEnum_UNSET;
-    m_nominalDiameter = Step::getUnset(m_nominalDiameter);
-    m_crossSectionArea = Step::getUnset(m_crossSectionArea);
-    m_tensionForce = Step::getUnset(m_tensionForce);
-    m_preStress = Step::getUnset(m_preStress);
-    m_frictionCoefficient = Step::getUnset(m_frictionCoefficient);
-    m_anchorageSlip = Step::getUnset(m_anchorageSlip);
-    m_minCurvatureRadius = Step::getUnset(m_minCurvatureRadius);
+IfcTendon::IfcTendon(Step::Id id, Step::SPFData *args) : 
+    IfcReinforcingElement(id, args)
+{
+    m_PredefinedType = IfcTendonTypeEnum_UNSET;
+    m_NominalDiameter = Step::getUnset(m_NominalDiameter);
+    m_CrossSectionArea = Step::getUnset(m_CrossSectionArea);
+    m_TensionForce = Step::getUnset(m_TensionForce);
+    m_PreStress = Step::getUnset(m_PreStress);
+    m_FrictionCoefficient = Step::getUnset(m_FrictionCoefficient);
+    m_AnchorageSlip = Step::getUnset(m_AnchorageSlip);
+    m_MinCurvatureRadius = Step::getUnset(m_MinCurvatureRadius);
 }
 
-IfcTendon::~IfcTendon() {
+IfcTendon::~IfcTendon()
+{}
+
+bool IfcTendon::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcTendon(this);
 }
 
-bool IfcTendon::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcTendon(this);
-}
 
-const std::string &IfcTendon::type() const {
-    return IfcTendon::s_type.getName();
-}
-
-const Step::ClassType &IfcTendon::getClassType() {
-    return IfcTendon::s_type;
-}
-
-const Step::ClassType &IfcTendon::getType() const {
-    return IfcTendon::s_type;
-}
-
-bool IfcTendon::isOfType(const Step::ClassType &t) const {
-    return IfcTendon::s_type == t ? true : IfcReinforcingElement::isOfType(t);
-}
-
-IfcTendonTypeEnum IfcTendon::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcTendonTypeEnum IfcTendon::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcTendonTypeEnum_UNSET;
+    }    
+}
+
+IfcTendonTypeEnum IfcTendon::getPredefinedType() const
+{
+    return const_cast<IfcTendon *>(this)->getPredefinedType();
+}
+
+void IfcTendon::setPredefinedType(IfcTendonTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
+}
+
+void IfcTendon::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcTendonTypeEnum_UNSET;
+}
+
+bool IfcTendon::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcTendon::getNominalDiameter()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_NominalDiameter;
     }
+    else 
+    {
+        return Step::getUnset(m_NominalDiameter);
+    }    
 }
 
-const IfcTendonTypeEnum IfcTendon::getPredefinedType() const {
-    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
-    return deConstObject->getPredefinedType();
+IfcPositiveLengthMeasure IfcTendon::getNominalDiameter() const
+{
+    return const_cast<IfcTendon *>(this)->getNominalDiameter();
 }
 
-void IfcTendon::setPredefinedType(IfcTendonTypeEnum value) {
-    m_predefinedType = value;
+void IfcTendon::setNominalDiameter(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NominalDiameter = value;
 }
 
-void IfcTendon::unsetPredefinedType() {
-    m_predefinedType = IfcTendonTypeEnum_UNSET;
+void IfcTendon::unsetNominalDiameter()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NominalDiameter = Step::getUnset(getNominalDiameter());
 }
 
-bool IfcTendon::testPredefinedType() const {
-    return getPredefinedType() != IfcTendonTypeEnum_UNSET;
+bool IfcTendon::testNominalDiameter() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getNominalDiameter()) == false;
 }
 
-IfcPositiveLengthMeasure IfcTendon::getNominalDiameter() {
-    if (Step::BaseObject::inited()) {
-        return m_nominalDiameter;
+
+IfcAreaMeasure IfcTendon::getCrossSectionArea()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CrossSectionArea;
     }
-    else {
-        return Step::getUnset(m_nominalDiameter);
+    else 
+    {
+        return Step::getUnset(m_CrossSectionArea);
+    }    
+}
+
+IfcAreaMeasure IfcTendon::getCrossSectionArea() const
+{
+    return const_cast<IfcTendon *>(this)->getCrossSectionArea();
+}
+
+void IfcTendon::setCrossSectionArea(IfcAreaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CrossSectionArea = value;
+}
+
+void IfcTendon::unsetCrossSectionArea()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CrossSectionArea = Step::getUnset(getCrossSectionArea());
+}
+
+bool IfcTendon::testCrossSectionArea() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCrossSectionArea()) == false;
+}
+
+
+IfcForceMeasure IfcTendon::getTensionForce()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TensionForce;
     }
+    else 
+    {
+        return Step::getUnset(m_TensionForce);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcTendon::getNominalDiameter() const {
-    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
-    return deConstObject->getNominalDiameter();
+IfcForceMeasure IfcTendon::getTensionForce() const
+{
+    return const_cast<IfcTendon *>(this)->getTensionForce();
 }
 
-void IfcTendon::setNominalDiameter(IfcPositiveLengthMeasure value) {
-    m_nominalDiameter = value;
+void IfcTendon::setTensionForce(IfcForceMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TensionForce = value;
 }
 
-void IfcTendon::unsetNominalDiameter() {
-    m_nominalDiameter = Step::getUnset(getNominalDiameter());
+void IfcTendon::unsetTensionForce()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TensionForce = Step::getUnset(getTensionForce());
 }
 
-bool IfcTendon::testNominalDiameter() const {
-    return !Step::isUnset(getNominalDiameter());
+bool IfcTendon::testTensionForce() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTensionForce()) == false;
 }
 
-IfcAreaMeasure IfcTendon::getCrossSectionArea() {
-    if (Step::BaseObject::inited()) {
-        return m_crossSectionArea;
+
+IfcPressureMeasure IfcTendon::getPreStress()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PreStress;
     }
-    else {
-        return Step::getUnset(m_crossSectionArea);
+    else 
+    {
+        return Step::getUnset(m_PreStress);
+    }    
+}
+
+IfcPressureMeasure IfcTendon::getPreStress() const
+{
+    return const_cast<IfcTendon *>(this)->getPreStress();
+}
+
+void IfcTendon::setPreStress(IfcPressureMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PreStress = value;
+}
+
+void IfcTendon::unsetPreStress()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PreStress = Step::getUnset(getPreStress());
+}
+
+bool IfcTendon::testPreStress() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPreStress()) == false;
+}
+
+
+IfcNormalisedRatioMeasure IfcTendon::getFrictionCoefficient()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FrictionCoefficient;
     }
+    else 
+    {
+        return Step::getUnset(m_FrictionCoefficient);
+    }    
 }
 
-const IfcAreaMeasure IfcTendon::getCrossSectionArea() const {
-    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
-    return deConstObject->getCrossSectionArea();
+IfcNormalisedRatioMeasure IfcTendon::getFrictionCoefficient() const
+{
+    return const_cast<IfcTendon *>(this)->getFrictionCoefficient();
 }
 
-void IfcTendon::setCrossSectionArea(IfcAreaMeasure value) {
-    m_crossSectionArea = value;
+void IfcTendon::setFrictionCoefficient(IfcNormalisedRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FrictionCoefficient = value;
 }
 
-void IfcTendon::unsetCrossSectionArea() {
-    m_crossSectionArea = Step::getUnset(getCrossSectionArea());
+void IfcTendon::unsetFrictionCoefficient()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FrictionCoefficient = Step::getUnset(getFrictionCoefficient());
 }
 
-bool IfcTendon::testCrossSectionArea() const {
-    return !Step::isUnset(getCrossSectionArea());
+bool IfcTendon::testFrictionCoefficient() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFrictionCoefficient()) == false;
 }
 
-IfcForceMeasure IfcTendon::getTensionForce() {
-    if (Step::BaseObject::inited()) {
-        return m_tensionForce;
+
+IfcPositiveLengthMeasure IfcTendon::getAnchorageSlip()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_AnchorageSlip;
     }
-    else {
-        return Step::getUnset(m_tensionForce);
+    else 
+    {
+        return Step::getUnset(m_AnchorageSlip);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcTendon::getAnchorageSlip() const
+{
+    return const_cast<IfcTendon *>(this)->getAnchorageSlip();
+}
+
+void IfcTendon::setAnchorageSlip(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_AnchorageSlip = value;
+}
+
+void IfcTendon::unsetAnchorageSlip()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_AnchorageSlip = Step::getUnset(getAnchorageSlip());
+}
+
+bool IfcTendon::testAnchorageSlip() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getAnchorageSlip()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcTendon::getMinCurvatureRadius()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MinCurvatureRadius;
     }
+    else 
+    {
+        return Step::getUnset(m_MinCurvatureRadius);
+    }    
 }
 
-const IfcForceMeasure IfcTendon::getTensionForce() const {
-    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
-    return deConstObject->getTensionForce();
+IfcPositiveLengthMeasure IfcTendon::getMinCurvatureRadius() const
+{
+    return const_cast<IfcTendon *>(this)->getMinCurvatureRadius();
 }
 
-void IfcTendon::setTensionForce(IfcForceMeasure value) {
-    m_tensionForce = value;
+void IfcTendon::setMinCurvatureRadius(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinCurvatureRadius = value;
 }
 
-void IfcTendon::unsetTensionForce() {
-    m_tensionForce = Step::getUnset(getTensionForce());
+void IfcTendon::unsetMinCurvatureRadius()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinCurvatureRadius = Step::getUnset(getMinCurvatureRadius());
 }
 
-bool IfcTendon::testTensionForce() const {
-    return !Step::isUnset(getTensionForce());
+bool IfcTendon::testMinCurvatureRadius() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMinCurvatureRadius()) == false;
 }
 
-IfcPressureMeasure IfcTendon::getPreStress() {
-    if (Step::BaseObject::inited()) {
-        return m_preStress;
-    }
-    else {
-        return Step::getUnset(m_preStress);
-    }
-}
-
-const IfcPressureMeasure IfcTendon::getPreStress() const {
-    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
-    return deConstObject->getPreStress();
-}
-
-void IfcTendon::setPreStress(IfcPressureMeasure value) {
-    m_preStress = value;
-}
-
-void IfcTendon::unsetPreStress() {
-    m_preStress = Step::getUnset(getPreStress());
-}
-
-bool IfcTendon::testPreStress() const {
-    return !Step::isUnset(getPreStress());
-}
-
-IfcNormalisedRatioMeasure IfcTendon::getFrictionCoefficient() {
-    if (Step::BaseObject::inited()) {
-        return m_frictionCoefficient;
-    }
-    else {
-        return Step::getUnset(m_frictionCoefficient);
-    }
-}
-
-const IfcNormalisedRatioMeasure IfcTendon::getFrictionCoefficient() const {
-    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
-    return deConstObject->getFrictionCoefficient();
-}
-
-void IfcTendon::setFrictionCoefficient(IfcNormalisedRatioMeasure value) {
-    m_frictionCoefficient = value;
-}
-
-void IfcTendon::unsetFrictionCoefficient() {
-    m_frictionCoefficient = Step::getUnset(getFrictionCoefficient());
-}
-
-bool IfcTendon::testFrictionCoefficient() const {
-    return !Step::isUnset(getFrictionCoefficient());
-}
-
-IfcPositiveLengthMeasure IfcTendon::getAnchorageSlip() {
-    if (Step::BaseObject::inited()) {
-        return m_anchorageSlip;
-    }
-    else {
-        return Step::getUnset(m_anchorageSlip);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcTendon::getAnchorageSlip() const {
-    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
-    return deConstObject->getAnchorageSlip();
-}
-
-void IfcTendon::setAnchorageSlip(IfcPositiveLengthMeasure value) {
-    m_anchorageSlip = value;
-}
-
-void IfcTendon::unsetAnchorageSlip() {
-    m_anchorageSlip = Step::getUnset(getAnchorageSlip());
-}
-
-bool IfcTendon::testAnchorageSlip() const {
-    return !Step::isUnset(getAnchorageSlip());
-}
-
-IfcPositiveLengthMeasure IfcTendon::getMinCurvatureRadius() {
-    if (Step::BaseObject::inited()) {
-        return m_minCurvatureRadius;
-    }
-    else {
-        return Step::getUnset(m_minCurvatureRadius);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcTendon::getMinCurvatureRadius() const {
-    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
-    return deConstObject->getMinCurvatureRadius();
-}
-
-void IfcTendon::setMinCurvatureRadius(IfcPositiveLengthMeasure value) {
-    m_minCurvatureRadius = value;
-}
-
-void IfcTendon::unsetMinCurvatureRadius() {
-    m_minCurvatureRadius = Step::getUnset(getMinCurvatureRadius());
-}
-
-bool IfcTendon::testMinCurvatureRadius() const {
-    return !Step::isUnset(getMinCurvatureRadius());
-}
-
-bool IfcTendon::init() {
-    bool status = IfcReinforcingElement::init();
-    std::string arg;
-    if (!status) {
+bool IfcTendon::init()
+{
+    if (IfcReinforcingElement::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcTendonTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcTendonTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".STRAND.") {
-            m_predefinedType = IfcTendonTypeEnum_STRAND;
+    else
+    {
+        if (arg == ".STRAND.")
+        {
+            m_PredefinedType = IfcTendonTypeEnum_STRAND;
         }
-        else if (arg == ".WIRE.") {
-            m_predefinedType = IfcTendonTypeEnum_WIRE;
+        else if (arg == ".WIRE.")
+        {
+            m_PredefinedType = IfcTendonTypeEnum_WIRE;
         }
-        else if (arg == ".BAR.") {
-            m_predefinedType = IfcTendonTypeEnum_BAR;
+        else if (arg == ".BAR.")
+        {
+            m_PredefinedType = IfcTendonTypeEnum_BAR;
         }
-        else if (arg == ".COATED.") {
-            m_predefinedType = IfcTendonTypeEnum_COATED;
+        else if (arg == ".COATED.")
+        {
+            m_PredefinedType = IfcTendonTypeEnum_COATED;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcTendonTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcTendonTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcTendonTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcTendonTypeEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_nominalDiameter = Step::getUnset(m_nominalDiameter);
+    if (arg == "$" || arg == "*")
+    {
+        m_NominalDiameter = Step::getUnset(m_NominalDiameter);
     }
-    else {
-        m_nominalDiameter = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_crossSectionArea = Step::getUnset(m_crossSectionArea);
-    }
-    else {
-        m_crossSectionArea = Step::spfToReal(arg);
+    else
+    {
+        m_NominalDiameter = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_tensionForce = Step::getUnset(m_tensionForce);
+    if (arg == "$" || arg == "*")
+    {
+        m_CrossSectionArea = Step::getUnset(m_CrossSectionArea);
     }
-    else {
-        m_tensionForce = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_preStress = Step::getUnset(m_preStress);
-    }
-    else {
-        m_preStress = Step::spfToReal(arg);
+    else
+    {
+        m_CrossSectionArea = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_frictionCoefficient = Step::getUnset(m_frictionCoefficient);
+    if (arg == "$" || arg == "*")
+    {
+        m_TensionForce = Step::getUnset(m_TensionForce);
     }
-    else {
-        m_frictionCoefficient = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_anchorageSlip = Step::getUnset(m_anchorageSlip);
-    }
-    else {
-        m_anchorageSlip = Step::spfToReal(arg);
+    else
+    {
+        m_TensionForce = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_minCurvatureRadius = Step::getUnset(m_minCurvatureRadius);
+    if (arg == "$" || arg == "*")
+    {
+        m_PreStress = Step::getUnset(m_PreStress);
     }
-    else {
-        m_minCurvatureRadius = Step::spfToReal(arg);
+    else
+    {
+        m_PreStress = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_FrictionCoefficient = Step::getUnset(m_FrictionCoefficient);
+    }
+    else
+    {
+        m_FrictionCoefficient = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_AnchorageSlip = Step::getUnset(m_AnchorageSlip);
+    }
+    else
+    {
+        m_AnchorageSlip = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_MinCurvatureRadius = Step::getUnset(m_MinCurvatureRadius);
+    }
+    else
+    {
+        m_MinCurvatureRadius = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcTendon::copy(const IfcTendon &obj, const CopyOp &copyop) {
+void IfcTendon::copy(const IfcTendon &obj, const CopyOp &copyop)
+{
     IfcReinforcingElement::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
-    setNominalDiameter(obj.m_nominalDiameter);
-    setCrossSectionArea(obj.m_crossSectionArea);
-    setTensionForce(obj.m_tensionForce);
-    setPreStress(obj.m_preStress);
-    setFrictionCoefficient(obj.m_frictionCoefficient);
-    setAnchorageSlip(obj.m_anchorageSlip);
-    setMinCurvatureRadius(obj.m_minCurvatureRadius);
+    setPredefinedType(obj.m_PredefinedType);
+    setNominalDiameter(obj.m_NominalDiameter);
+    setCrossSectionArea(obj.m_CrossSectionArea);
+    setTensionForce(obj.m_TensionForce);
+    setPreStress(obj.m_PreStress);
+    setFrictionCoefficient(obj.m_FrictionCoefficient);
+    setAnchorageSlip(obj.m_AnchorageSlip);
+    setMinCurvatureRadius(obj.m_MinCurvatureRadius);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTendon::s_type("IfcTendon");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcTendon, IfcReinforcingElement)

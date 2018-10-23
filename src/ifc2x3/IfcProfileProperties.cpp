@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,131 +24,139 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcProfileProperties.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcProfileDef.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcProfileProperties::IfcProfileProperties(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_profileName = Step::getUnset(m_profileName);
-    m_profileDefinition = NULL;
+IfcProfileProperties::IfcProfileProperties(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_ProfileName = Step::getUnset(m_ProfileName);
+    m_ProfileDefinition = NULL;
 }
 
-IfcProfileProperties::~IfcProfileProperties() {
+IfcProfileProperties::~IfcProfileProperties()
+{}
+
+bool IfcProfileProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcProfileProperties(this);
 }
 
-bool IfcProfileProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcProfileProperties(this);
-}
 
-const std::string &IfcProfileProperties::type() const {
-    return IfcProfileProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcProfileProperties::getClassType() {
-    return IfcProfileProperties::s_type;
-}
-
-const Step::ClassType &IfcProfileProperties::getType() const {
-    return IfcProfileProperties::s_type;
-}
-
-bool IfcProfileProperties::isOfType(const Step::ClassType &t) const {
-    return IfcProfileProperties::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcLabel IfcProfileProperties::getProfileName() {
-    if (Step::BaseObject::inited()) {
-        return m_profileName;
+IfcLabel IfcProfileProperties::getProfileName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ProfileName;
     }
-    else {
-        return Step::getUnset(m_profileName);
+    else 
+    {
+        return Step::getUnset(m_ProfileName);
+    }    
+}
+
+const IfcLabel IfcProfileProperties::getProfileName() const
+{
+    return const_cast<IfcProfileProperties *>(this)->getProfileName();
+}
+
+void IfcProfileProperties::setProfileName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ProfileName = value;
+}
+
+void IfcProfileProperties::unsetProfileName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ProfileName = Step::getUnset(getProfileName());
+}
+
+bool IfcProfileProperties::testProfileName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getProfileName()) == false;
+}
+
+
+IfcProfileDef *IfcProfileProperties::getProfileDefinition()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ProfileDefinition.get();
     }
-}
-
-const IfcLabel IfcProfileProperties::getProfileName() const {
-    IfcProfileProperties * deConstObject = const_cast< IfcProfileProperties * > (this);
-    return deConstObject->getProfileName();
-}
-
-void IfcProfileProperties::setProfileName(const IfcLabel &value) {
-    m_profileName = value;
-}
-
-void IfcProfileProperties::unsetProfileName() {
-    m_profileName = Step::getUnset(getProfileName());
-}
-
-bool IfcProfileProperties::testProfileName() const {
-    return !Step::isUnset(getProfileName());
-}
-
-IfcProfileDef *IfcProfileProperties::getProfileDefinition() {
-    if (Step::BaseObject::inited()) {
-        return m_profileDefinition.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcProfileDef *IfcProfileProperties::getProfileDefinition() const {
-    IfcProfileProperties * deConstObject = const_cast< IfcProfileProperties * > (this);
-    return deConstObject->getProfileDefinition();
+const IfcProfileDef *IfcProfileProperties::getProfileDefinition() const
+{
+    return const_cast<IfcProfileProperties *>(this)->getProfileDefinition();
 }
 
-void IfcProfileProperties::setProfileDefinition(const Step::RefPtr< IfcProfileDef > &value) {
-    m_profileDefinition = value;
+void IfcProfileProperties::setProfileDefinition(const Step::RefPtr< IfcProfileDef > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ProfileDefinition = value;
 }
 
-void IfcProfileProperties::unsetProfileDefinition() {
-    m_profileDefinition = Step::getUnset(getProfileDefinition());
+void IfcProfileProperties::unsetProfileDefinition()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ProfileDefinition = Step::getUnset(getProfileDefinition());
 }
 
-bool IfcProfileProperties::testProfileDefinition() const {
-    return !Step::isUnset(getProfileDefinition());
+bool IfcProfileProperties::testProfileDefinition() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getProfileDefinition()) == false;
 }
 
-bool IfcProfileProperties::init() {
+bool IfcProfileProperties::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_profileName = Step::getUnset(m_profileName);
+    if (arg == "$" || arg == "*")
+    {
+        m_ProfileName = Step::getUnset(m_ProfileName);
     }
-    else {
-        m_profileName = Step::String::fromSPF(arg);
+    else
+    {
+        m_ProfileName = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_profileDefinition = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_ProfileDefinition = NULL;
     }
-    else {
-        m_profileDefinition = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_ProfileDefinition = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcProfileProperties::copy(const IfcProfileProperties &obj, const CopyOp &copyop) {
+void IfcProfileProperties::copy(const IfcProfileProperties &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setProfileName(obj.m_profileName);
-    setProfileDefinition((IfcProfileDef*)copyop(obj.m_profileDefinition.get()));
+    setProfileName(obj.m_ProfileName);
+    setProfileDefinition((IfcProfileDef*)copyop(obj.m_ProfileDefinition.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProfileProperties::s_type("IfcProfileProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcProfileProperties, Step::BaseEntity)

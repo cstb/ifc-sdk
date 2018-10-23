@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,204 +24,242 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcBoundingBox.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcCartesianPoint.h>
-#include <ifc2x3/IfcGeometricRepresentationItem.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcBoundingBox::IfcBoundingBox(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_corner = NULL;
-    m_xDim = Step::getUnset(m_xDim);
-    m_yDim = Step::getUnset(m_yDim);
-    m_zDim = Step::getUnset(m_zDim);
+IfcBoundingBox::IfcBoundingBox(Step::Id id, Step::SPFData *args) : 
+    IfcGeometricRepresentationItem(id, args)
+{
+    m_Corner = NULL;
+    m_XDim = Step::getUnset(m_XDim);
+    m_YDim = Step::getUnset(m_YDim);
+    m_ZDim = Step::getUnset(m_ZDim);
 }
 
-IfcBoundingBox::~IfcBoundingBox() {
+IfcBoundingBox::~IfcBoundingBox()
+{}
+
+bool IfcBoundingBox::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcBoundingBox(this);
 }
 
-bool IfcBoundingBox::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcBoundingBox(this);
-}
 
-const std::string &IfcBoundingBox::type() const {
-    return IfcBoundingBox::s_type.getName();
-}
-
-const Step::ClassType &IfcBoundingBox::getClassType() {
-    return IfcBoundingBox::s_type;
-}
-
-const Step::ClassType &IfcBoundingBox::getType() const {
-    return IfcBoundingBox::s_type;
-}
-
-bool IfcBoundingBox::isOfType(const Step::ClassType &t) const {
-    return IfcBoundingBox::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-IfcCartesianPoint *IfcBoundingBox::getCorner() {
-    if (Step::BaseObject::inited()) {
-        return m_corner.get();
+IfcCartesianPoint *IfcBoundingBox::getCorner()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Corner.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcCartesianPoint *IfcBoundingBox::getCorner() const
+{
+    return const_cast<IfcBoundingBox *>(this)->getCorner();
+}
+
+void IfcBoundingBox::setCorner(const Step::RefPtr< IfcCartesianPoint > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Corner = value;
+}
+
+void IfcBoundingBox::unsetCorner()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Corner = Step::getUnset(getCorner());
+}
+
+bool IfcBoundingBox::testCorner() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCorner()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcBoundingBox::getXDim()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_XDim;
     }
+    else 
+    {
+        return Step::getUnset(m_XDim);
+    }    
 }
 
-const IfcCartesianPoint *IfcBoundingBox::getCorner() const {
-    IfcBoundingBox * deConstObject = const_cast< IfcBoundingBox * > (this);
-    return deConstObject->getCorner();
+IfcPositiveLengthMeasure IfcBoundingBox::getXDim() const
+{
+    return const_cast<IfcBoundingBox *>(this)->getXDim();
 }
 
-void IfcBoundingBox::setCorner(const Step::RefPtr< IfcCartesianPoint > &value) {
-    m_corner = value;
+void IfcBoundingBox::setXDim(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_XDim = value;
 }
 
-void IfcBoundingBox::unsetCorner() {
-    m_corner = Step::getUnset(getCorner());
+void IfcBoundingBox::unsetXDim()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_XDim = Step::getUnset(getXDim());
 }
 
-bool IfcBoundingBox::testCorner() const {
-    return !Step::isUnset(getCorner());
+bool IfcBoundingBox::testXDim() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getXDim()) == false;
 }
 
-IfcPositiveLengthMeasure IfcBoundingBox::getXDim() {
-    if (Step::BaseObject::inited()) {
-        return m_xDim;
+
+IfcPositiveLengthMeasure IfcBoundingBox::getYDim()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_YDim;
     }
-    else {
-        return Step::getUnset(m_xDim);
+    else 
+    {
+        return Step::getUnset(m_YDim);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcBoundingBox::getYDim() const
+{
+    return const_cast<IfcBoundingBox *>(this)->getYDim();
+}
+
+void IfcBoundingBox::setYDim(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_YDim = value;
+}
+
+void IfcBoundingBox::unsetYDim()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_YDim = Step::getUnset(getYDim());
+}
+
+bool IfcBoundingBox::testYDim() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getYDim()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcBoundingBox::getZDim()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ZDim;
     }
+    else 
+    {
+        return Step::getUnset(m_ZDim);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcBoundingBox::getXDim() const {
-    IfcBoundingBox * deConstObject = const_cast< IfcBoundingBox * > (this);
-    return deConstObject->getXDim();
+IfcPositiveLengthMeasure IfcBoundingBox::getZDim() const
+{
+    return const_cast<IfcBoundingBox *>(this)->getZDim();
 }
 
-void IfcBoundingBox::setXDim(IfcPositiveLengthMeasure value) {
-    m_xDim = value;
+void IfcBoundingBox::setZDim(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ZDim = value;
 }
 
-void IfcBoundingBox::unsetXDim() {
-    m_xDim = Step::getUnset(getXDim());
+void IfcBoundingBox::unsetZDim()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ZDim = Step::getUnset(getZDim());
 }
 
-bool IfcBoundingBox::testXDim() const {
-    return !Step::isUnset(getXDim());
+bool IfcBoundingBox::testZDim() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getZDim()) == false;
 }
 
-IfcPositiveLengthMeasure IfcBoundingBox::getYDim() {
-    if (Step::BaseObject::inited()) {
-        return m_yDim;
-    }
-    else {
-        return Step::getUnset(m_yDim);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcBoundingBox::getYDim() const {
-    IfcBoundingBox * deConstObject = const_cast< IfcBoundingBox * > (this);
-    return deConstObject->getYDim();
-}
-
-void IfcBoundingBox::setYDim(IfcPositiveLengthMeasure value) {
-    m_yDim = value;
-}
-
-void IfcBoundingBox::unsetYDim() {
-    m_yDim = Step::getUnset(getYDim());
-}
-
-bool IfcBoundingBox::testYDim() const {
-    return !Step::isUnset(getYDim());
-}
-
-IfcPositiveLengthMeasure IfcBoundingBox::getZDim() {
-    if (Step::BaseObject::inited()) {
-        return m_zDim;
-    }
-    else {
-        return Step::getUnset(m_zDim);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcBoundingBox::getZDim() const {
-    IfcBoundingBox * deConstObject = const_cast< IfcBoundingBox * > (this);
-    return deConstObject->getZDim();
-}
-
-void IfcBoundingBox::setZDim(IfcPositiveLengthMeasure value) {
-    m_zDim = value;
-}
-
-void IfcBoundingBox::unsetZDim() {
-    m_zDim = Step::getUnset(getZDim());
-}
-
-bool IfcBoundingBox::testZDim() const {
-    return !Step::isUnset(getZDim());
-}
-
-bool IfcBoundingBox::init() {
-    bool status = IfcGeometricRepresentationItem::init();
-    std::string arg;
-    if (!status) {
+bool IfcBoundingBox::init()
+{
+    if (IfcGeometricRepresentationItem::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_corner = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Corner = NULL;
     }
-    else {
-        m_corner = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_xDim = Step::getUnset(m_xDim);
-    }
-    else {
-        m_xDim = Step::spfToReal(arg);
+    else
+    {
+        m_Corner = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_yDim = Step::getUnset(m_yDim);
+    if (arg == "$" || arg == "*")
+    {
+        m_XDim = Step::getUnset(m_XDim);
     }
-    else {
-        m_yDim = Step::spfToReal(arg);
+    else
+    {
+        m_XDim = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_zDim = Step::getUnset(m_zDim);
+    if (arg == "$" || arg == "*")
+    {
+        m_YDim = Step::getUnset(m_YDim);
     }
-    else {
-        m_zDim = Step::spfToReal(arg);
+    else
+    {
+        m_YDim = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ZDim = Step::getUnset(m_ZDim);
+    }
+    else
+    {
+        m_ZDim = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcBoundingBox::copy(const IfcBoundingBox &obj, const CopyOp &copyop) {
+void IfcBoundingBox::copy(const IfcBoundingBox &obj, const CopyOp &copyop)
+{
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setCorner((IfcCartesianPoint*)copyop(obj.m_corner.get()));
-    setXDim(obj.m_xDim);
-    setYDim(obj.m_yDim);
-    setZDim(obj.m_zDim);
+    setCorner((IfcCartesianPoint*)copyop(obj.m_Corner.get()));
+    setXDim(obj.m_XDim);
+    setYDim(obj.m_YDim);
+    setZDim(obj.m_ZDim);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoundingBox::s_type("IfcBoundingBox");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcBoundingBox, IfcGeometricRepresentationItem)

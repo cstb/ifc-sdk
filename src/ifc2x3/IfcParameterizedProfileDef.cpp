@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,99 +24,95 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcParameterizedProfileDef.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcAxis2Placement2D.h>
-#include <ifc2x3/IfcProfileDef.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcParameterizedProfileDef::IfcParameterizedProfileDef(Step::Id id, Step::SPFData *args) : IfcProfileDef(id, args) {
-    m_position = NULL;
+IfcParameterizedProfileDef::IfcParameterizedProfileDef(Step::Id id, Step::SPFData *args) : 
+    IfcProfileDef(id, args)
+{
+    m_Position = NULL;
 }
 
-IfcParameterizedProfileDef::~IfcParameterizedProfileDef() {
+IfcParameterizedProfileDef::~IfcParameterizedProfileDef()
+{}
+
+bool IfcParameterizedProfileDef::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcParameterizedProfileDef(this);
 }
 
-bool IfcParameterizedProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcParameterizedProfileDef(this);
-}
 
-const std::string &IfcParameterizedProfileDef::type() const {
-    return IfcParameterizedProfileDef::s_type.getName();
-}
-
-const Step::ClassType &IfcParameterizedProfileDef::getClassType() {
-    return IfcParameterizedProfileDef::s_type;
-}
-
-const Step::ClassType &IfcParameterizedProfileDef::getType() const {
-    return IfcParameterizedProfileDef::s_type;
-}
-
-bool IfcParameterizedProfileDef::isOfType(const Step::ClassType &t) const {
-    return IfcParameterizedProfileDef::s_type == t ? true : IfcProfileDef::isOfType(t);
-}
-
-IfcAxis2Placement2D *IfcParameterizedProfileDef::getPosition() {
-    if (Step::BaseObject::inited()) {
-        return m_position.get();
+IfcAxis2Placement2D *IfcParameterizedProfileDef::getPosition()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Position.get();
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcAxis2Placement2D *IfcParameterizedProfileDef::getPosition() const {
-    IfcParameterizedProfileDef * deConstObject = const_cast< IfcParameterizedProfileDef * > (this);
-    return deConstObject->getPosition();
+const IfcAxis2Placement2D *IfcParameterizedProfileDef::getPosition() const
+{
+    return const_cast<IfcParameterizedProfileDef *>(this)->getPosition();
 }
 
-void IfcParameterizedProfileDef::setPosition(const Step::RefPtr< IfcAxis2Placement2D > &value) {
-    m_position = value;
+void IfcParameterizedProfileDef::setPosition(const Step::RefPtr< IfcAxis2Placement2D > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Position = value;
 }
 
-void IfcParameterizedProfileDef::unsetPosition() {
-    m_position = Step::getUnset(getPosition());
+void IfcParameterizedProfileDef::unsetPosition()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Position = Step::getUnset(getPosition());
 }
 
-bool IfcParameterizedProfileDef::testPosition() const {
-    return !Step::isUnset(getPosition());
+bool IfcParameterizedProfileDef::testPosition() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPosition()) == false;
 }
 
-bool IfcParameterizedProfileDef::init() {
-    bool status = IfcProfileDef::init();
-    std::string arg;
-    if (!status) {
+bool IfcParameterizedProfileDef::init()
+{
+    if (IfcProfileDef::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_position = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Position = NULL;
     }
-    else {
-        m_position = static_cast< IfcAxis2Placement2D * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Position = static_cast< IfcAxis2Placement2D * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcParameterizedProfileDef::copy(const IfcParameterizedProfileDef &obj, const CopyOp &copyop) {
+void IfcParameterizedProfileDef::copy(const IfcParameterizedProfileDef &obj, const CopyOp &copyop)
+{
     IfcProfileDef::copy(obj, copyop);
-    setPosition((IfcAxis2Placement2D*)copyop(obj.m_position.get()));
+    setPosition((IfcAxis2Placement2D*)copyop(obj.m_Position.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcParameterizedProfileDef::s_type("IfcParameterizedProfileDef");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcParameterizedProfileDef, IfcProfileDef)

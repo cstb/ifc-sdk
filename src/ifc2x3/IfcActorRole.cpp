@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,230 +24,276 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcActorRole.h>
+
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseObject.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcActorRole::IfcActorRole(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_role = IfcRoleEnum_UNSET;
-    m_userDefinedRole = Step::getUnset(m_userDefinedRole);
-    m_description = Step::getUnset(m_description);
+IfcActorRole::IfcActorRole(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_Role = IfcRoleEnum_UNSET;
+    m_UserDefinedRole = Step::getUnset(m_UserDefinedRole);
+    m_Description = Step::getUnset(m_Description);
 }
 
-IfcActorRole::~IfcActorRole() {
+IfcActorRole::~IfcActorRole()
+{}
+
+bool IfcActorRole::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcActorRole(this);
 }
 
-bool IfcActorRole::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcActorRole(this);
-}
 
-const std::string &IfcActorRole::type() const {
-    return IfcActorRole::s_type.getName();
-}
-
-const Step::ClassType &IfcActorRole::getClassType() {
-    return IfcActorRole::s_type;
-}
-
-const Step::ClassType &IfcActorRole::getType() const {
-    return IfcActorRole::s_type;
-}
-
-bool IfcActorRole::isOfType(const Step::ClassType &t) const {
-    return IfcActorRole::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcRoleEnum IfcActorRole::getRole() {
-    if (Step::BaseObject::inited()) {
-        return m_role;
+IfcRoleEnum IfcActorRole::getRole()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Role;
     }
-    else {
+    else 
+    {
         return IfcRoleEnum_UNSET;
+    }    
+}
+
+IfcRoleEnum IfcActorRole::getRole() const
+{
+    return const_cast<IfcActorRole *>(this)->getRole();
+}
+
+void IfcActorRole::setRole(IfcRoleEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Role = value;
+}
+
+void IfcActorRole::unsetRole()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Role = IfcRoleEnum_UNSET;
+}
+
+bool IfcActorRole::testRole() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRole()) == false;
+}
+
+
+IfcLabel IfcActorRole::getUserDefinedRole()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UserDefinedRole;
     }
+    else 
+    {
+        return Step::getUnset(m_UserDefinedRole);
+    }    
 }
 
-const IfcRoleEnum IfcActorRole::getRole() const {
-    IfcActorRole * deConstObject = const_cast< IfcActorRole * > (this);
-    return deConstObject->getRole();
+const IfcLabel IfcActorRole::getUserDefinedRole() const
+{
+    return const_cast<IfcActorRole *>(this)->getUserDefinedRole();
 }
 
-void IfcActorRole::setRole(IfcRoleEnum value) {
-    m_role = value;
+void IfcActorRole::setUserDefinedRole(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedRole = value;
 }
 
-void IfcActorRole::unsetRole() {
-    m_role = IfcRoleEnum_UNSET;
+void IfcActorRole::unsetUserDefinedRole()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedRole = Step::getUnset(getUserDefinedRole());
 }
 
-bool IfcActorRole::testRole() const {
-    return getRole() != IfcRoleEnum_UNSET;
+bool IfcActorRole::testUserDefinedRole() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUserDefinedRole()) == false;
 }
 
-IfcLabel IfcActorRole::getUserDefinedRole() {
-    if (Step::BaseObject::inited()) {
-        return m_userDefinedRole;
+
+IfcText IfcActorRole::getDescription()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Description;
     }
-    else {
-        return Step::getUnset(m_userDefinedRole);
-    }
+    else 
+    {
+        return Step::getUnset(m_Description);
+    }    
 }
 
-const IfcLabel IfcActorRole::getUserDefinedRole() const {
-    IfcActorRole * deConstObject = const_cast< IfcActorRole * > (this);
-    return deConstObject->getUserDefinedRole();
+const IfcText IfcActorRole::getDescription() const
+{
+    return const_cast<IfcActorRole *>(this)->getDescription();
 }
 
-void IfcActorRole::setUserDefinedRole(const IfcLabel &value) {
-    m_userDefinedRole = value;
+void IfcActorRole::setDescription(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = value;
 }
 
-void IfcActorRole::unsetUserDefinedRole() {
-    m_userDefinedRole = Step::getUnset(getUserDefinedRole());
+void IfcActorRole::unsetDescription()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = Step::getUnset(getDescription());
 }
 
-bool IfcActorRole::testUserDefinedRole() const {
-    return !Step::isUnset(getUserDefinedRole());
+bool IfcActorRole::testDescription() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDescription()) == false;
 }
 
-IfcText IfcActorRole::getDescription() {
-    if (Step::BaseObject::inited()) {
-        return m_description;
-    }
-    else {
-        return Step::getUnset(m_description);
-    }
-}
-
-const IfcText IfcActorRole::getDescription() const {
-    IfcActorRole * deConstObject = const_cast< IfcActorRole * > (this);
-    return deConstObject->getDescription();
-}
-
-void IfcActorRole::setDescription(const IfcText &value) {
-    m_description = value;
-}
-
-void IfcActorRole::unsetDescription() {
-    m_description = Step::getUnset(getDescription());
-}
-
-bool IfcActorRole::testDescription() const {
-    return !Step::isUnset(getDescription());
-}
-
-bool IfcActorRole::init() {
+bool IfcActorRole::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_role = IfcRoleEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_Role = IfcRoleEnum_UNSET;
     }
-    else {
-        if (arg == ".SUPPLIER.") {
-            m_role = IfcRoleEnum_SUPPLIER;
+    else
+    {
+        if (arg == ".SUPPLIER.")
+        {
+            m_Role = IfcRoleEnum_SUPPLIER;
         }
-        else if (arg == ".MANUFACTURER.") {
-            m_role = IfcRoleEnum_MANUFACTURER;
+        else if (arg == ".MANUFACTURER.")
+        {
+            m_Role = IfcRoleEnum_MANUFACTURER;
         }
-        else if (arg == ".CONTRACTOR.") {
-            m_role = IfcRoleEnum_CONTRACTOR;
+        else if (arg == ".CONTRACTOR.")
+        {
+            m_Role = IfcRoleEnum_CONTRACTOR;
         }
-        else if (arg == ".SUBCONTRACTOR.") {
-            m_role = IfcRoleEnum_SUBCONTRACTOR;
+        else if (arg == ".SUBCONTRACTOR.")
+        {
+            m_Role = IfcRoleEnum_SUBCONTRACTOR;
         }
-        else if (arg == ".ARCHITECT.") {
-            m_role = IfcRoleEnum_ARCHITECT;
+        else if (arg == ".ARCHITECT.")
+        {
+            m_Role = IfcRoleEnum_ARCHITECT;
         }
-        else if (arg == ".STRUCTURALENGINEER.") {
-            m_role = IfcRoleEnum_STRUCTURALENGINEER;
+        else if (arg == ".STRUCTURALENGINEER.")
+        {
+            m_Role = IfcRoleEnum_STRUCTURALENGINEER;
         }
-        else if (arg == ".COSTENGINEER.") {
-            m_role = IfcRoleEnum_COSTENGINEER;
+        else if (arg == ".COSTENGINEER.")
+        {
+            m_Role = IfcRoleEnum_COSTENGINEER;
         }
-        else if (arg == ".CLIENT.") {
-            m_role = IfcRoleEnum_CLIENT;
+        else if (arg == ".CLIENT.")
+        {
+            m_Role = IfcRoleEnum_CLIENT;
         }
-        else if (arg == ".BUILDINGOWNER.") {
-            m_role = IfcRoleEnum_BUILDINGOWNER;
+        else if (arg == ".BUILDINGOWNER.")
+        {
+            m_Role = IfcRoleEnum_BUILDINGOWNER;
         }
-        else if (arg == ".BUILDINGOPERATOR.") {
-            m_role = IfcRoleEnum_BUILDINGOPERATOR;
+        else if (arg == ".BUILDINGOPERATOR.")
+        {
+            m_Role = IfcRoleEnum_BUILDINGOPERATOR;
         }
-        else if (arg == ".MECHANICALENGINEER.") {
-            m_role = IfcRoleEnum_MECHANICALENGINEER;
+        else if (arg == ".MECHANICALENGINEER.")
+        {
+            m_Role = IfcRoleEnum_MECHANICALENGINEER;
         }
-        else if (arg == ".ELECTRICALENGINEER.") {
-            m_role = IfcRoleEnum_ELECTRICALENGINEER;
+        else if (arg == ".ELECTRICALENGINEER.")
+        {
+            m_Role = IfcRoleEnum_ELECTRICALENGINEER;
         }
-        else if (arg == ".PROJECTMANAGER.") {
-            m_role = IfcRoleEnum_PROJECTMANAGER;
+        else if (arg == ".PROJECTMANAGER.")
+        {
+            m_Role = IfcRoleEnum_PROJECTMANAGER;
         }
-        else if (arg == ".FACILITIESMANAGER.") {
-            m_role = IfcRoleEnum_FACILITIESMANAGER;
+        else if (arg == ".FACILITIESMANAGER.")
+        {
+            m_Role = IfcRoleEnum_FACILITIESMANAGER;
         }
-        else if (arg == ".CIVILENGINEER.") {
-            m_role = IfcRoleEnum_CIVILENGINEER;
+        else if (arg == ".CIVILENGINEER.")
+        {
+            m_Role = IfcRoleEnum_CIVILENGINEER;
         }
-        else if (arg == ".COMISSIONINGENGINEER.") {
-            m_role = IfcRoleEnum_COMISSIONINGENGINEER;
+        else if (arg == ".COMISSIONINGENGINEER.")
+        {
+            m_Role = IfcRoleEnum_COMISSIONINGENGINEER;
         }
-        else if (arg == ".ENGINEER.") {
-            m_role = IfcRoleEnum_ENGINEER;
+        else if (arg == ".ENGINEER.")
+        {
+            m_Role = IfcRoleEnum_ENGINEER;
         }
-        else if (arg == ".OWNER.") {
-            m_role = IfcRoleEnum_OWNER;
+        else if (arg == ".OWNER.")
+        {
+            m_Role = IfcRoleEnum_OWNER;
         }
-        else if (arg == ".CONSULTANT.") {
-            m_role = IfcRoleEnum_CONSULTANT;
+        else if (arg == ".CONSULTANT.")
+        {
+            m_Role = IfcRoleEnum_CONSULTANT;
         }
-        else if (arg == ".CONSTRUCTIONMANAGER.") {
-            m_role = IfcRoleEnum_CONSTRUCTIONMANAGER;
+        else if (arg == ".CONSTRUCTIONMANAGER.")
+        {
+            m_Role = IfcRoleEnum_CONSTRUCTIONMANAGER;
         }
-        else if (arg == ".FIELDCONSTRUCTIONMANAGER.") {
-            m_role = IfcRoleEnum_FIELDCONSTRUCTIONMANAGER;
+        else if (arg == ".FIELDCONSTRUCTIONMANAGER.")
+        {
+            m_Role = IfcRoleEnum_FIELDCONSTRUCTIONMANAGER;
         }
-        else if (arg == ".RESELLER.") {
-            m_role = IfcRoleEnum_RESELLER;
+        else if (arg == ".RESELLER.")
+        {
+            m_Role = IfcRoleEnum_RESELLER;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_role = IfcRoleEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_Role = IfcRoleEnum_USERDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_userDefinedRole = Step::getUnset(m_userDefinedRole);
+    if (arg == "$" || arg == "*")
+    {
+        m_UserDefinedRole = Step::getUnset(m_UserDefinedRole);
     }
-    else {
-        m_userDefinedRole = Step::String::fromSPF(arg);
+    else
+    {
+        m_UserDefinedRole = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_description = Step::getUnset(m_description);
+    if (arg == "$" || arg == "*")
+    {
+        m_Description = Step::getUnset(m_Description);
     }
-    else {
-        m_description = Step::String::fromSPF(arg);
+    else
+    {
+        m_Description = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcActorRole::copy(const IfcActorRole &obj, const CopyOp &copyop) {
+void IfcActorRole::copy(const IfcActorRole &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setRole(obj.m_role);
-    setUserDefinedRole(obj.m_userDefinedRole);
-    setDescription(obj.m_description);
+    setRole(obj.m_Role);
+    setUserDefinedRole(obj.m_UserDefinedRole);
+    setDescription(obj.m_Description);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcActorRole::s_type("IfcActorRole");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcActorRole, Step::BaseEntity)

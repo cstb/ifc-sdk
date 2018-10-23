@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,160 +24,177 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcComplexProperty.h>
 
+#include <ifc2x3/IfcProperty.h>
+#include <ifc2x3/IfcProperty.h>
 
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcProperty.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-Inverted_IfcComplexProperty_HasProperties_type::Inverted_IfcComplexProperty_HasProperties_type():
-    mOwner(0)
+Inverted_IfcComplexProperty_HasProperties_type::Inverted_IfcComplexProperty_HasProperties_type()
 {
+
 }
 
-void Inverted_IfcComplexProperty_HasProperties_type::setOwner(IfcComplexProperty *owner) {
+void Inverted_IfcComplexProperty_HasProperties_type::setOwner(IfcComplexProperty *owner)
+{
     mOwner = owner;
 }
 
-void Inverted_IfcComplexProperty_HasProperties_type::insert(const Step::RefPtr< IfcProperty > &value) throw(std::out_of_range) {
+void Inverted_IfcComplexProperty_HasProperties_type::insert(const Step::RefPtr< IfcProperty > &value)
+#ifdef STEP_CHECK_RANGE
+    throw(std::out_of_range)
+#endif
+{
     IfcProperty *inverse = const_cast< IfcProperty * > (value.get());
     Set_IfcProperty_1_n::insert(value);
-    inverse->getPartOfComplex().insert(mOwner);
+    inverse->m_PartOfComplex.insert(mOwner);
 }
 
-Inverted_IfcComplexProperty_HasProperties_type::size_type Inverted_IfcComplexProperty_HasProperties_type::erase(const Step::RefPtr< IfcProperty > &value) {
+
+Inverted_IfcComplexProperty_HasProperties_type::size_type Inverted_IfcComplexProperty_HasProperties_type::erase(const Step::RefPtr< IfcProperty > &value)
+{
     IfcProperty *inverse = const_cast< IfcProperty * > (value.get());
-    inverse->getPartOfComplex().erase(mOwner);
+    inverse->m_PartOfComplex.erase(mOwner);
     return Set_IfcProperty_1_n::erase(value);
 }
 
-void Inverted_IfcComplexProperty_HasProperties_type::clear() {
-    while (size()) {
+void Inverted_IfcComplexProperty_HasProperties_type::clear()
+{
+    while (size())
+    {
         erase(*begin());
     }
 }
 
-IfcComplexProperty::IfcComplexProperty(Step::Id id, Step::SPFData *args) : IfcProperty(id, args) {
-    m_usageName = Step::getUnset(m_usageName);
-    m_hasProperties.setOwner(this);
+
+IfcComplexProperty::IfcComplexProperty(Step::Id id, Step::SPFData *args) : 
+    IfcProperty(id, args)
+{
+    m_UsageName = Step::getUnset(m_UsageName);
+    m_HasProperties.setUnset(true);
+    m_HasProperties.setOwner(this);
 }
 
-IfcComplexProperty::~IfcComplexProperty() {
+IfcComplexProperty::~IfcComplexProperty()
+{}
+
+bool IfcComplexProperty::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcComplexProperty(this);
 }
 
-bool IfcComplexProperty::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcComplexProperty(this);
-}
 
-const std::string &IfcComplexProperty::type() const {
-    return IfcComplexProperty::s_type.getName();
-}
-
-const Step::ClassType &IfcComplexProperty::getClassType() {
-    return IfcComplexProperty::s_type;
-}
-
-const Step::ClassType &IfcComplexProperty::getType() const {
-    return IfcComplexProperty::s_type;
-}
-
-bool IfcComplexProperty::isOfType(const Step::ClassType &t) const {
-    return IfcComplexProperty::s_type == t ? true : IfcProperty::isOfType(t);
-}
-
-IfcIdentifier IfcComplexProperty::getUsageName() {
-    if (Step::BaseObject::inited()) {
-        return m_usageName;
+IfcIdentifier IfcComplexProperty::getUsageName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UsageName;
     }
-    else {
-        return Step::getUnset(m_usageName);
+    else 
+    {
+        return Step::getUnset(m_UsageName);
+    }    
+}
+
+const IfcIdentifier IfcComplexProperty::getUsageName() const
+{
+    return const_cast<IfcComplexProperty *>(this)->getUsageName();
+}
+
+void IfcComplexProperty::setUsageName(const IfcIdentifier &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UsageName = value;
+}
+
+void IfcComplexProperty::unsetUsageName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UsageName = Step::getUnset(getUsageName());
+}
+
+bool IfcComplexProperty::testUsageName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUsageName()) == false;
+}
+
+Set_IfcProperty_1_n &IfcComplexProperty::getHasProperties()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_HasProperties;
+    }
+    else
+    {
+        m_HasProperties.setUnset(true);
+        return m_HasProperties;
     }
 }
 
-const IfcIdentifier IfcComplexProperty::getUsageName() const {
-    IfcComplexProperty * deConstObject = const_cast< IfcComplexProperty * > (this);
-    return deConstObject->getUsageName();
+const Set_IfcProperty_1_n &IfcComplexProperty::getHasProperties() const
+{
+    return const_cast< IfcComplexProperty * > (this)->getHasProperties();
 }
 
-void IfcComplexProperty::setUsageName(const IfcIdentifier &value) {
-    m_usageName = value;
+void IfcComplexProperty::unsetHasProperties()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_HasProperties.clear();
+    m_HasProperties.setUnset(true);
 }
 
-void IfcComplexProperty::unsetUsageName() {
-    m_usageName = Step::getUnset(getUsageName());
+bool IfcComplexProperty::testHasProperties() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_HasProperties.isUnset() == false;
 }
 
-bool IfcComplexProperty::testUsageName() const {
-    return !Step::isUnset(getUsageName());
-}
-
-Set_IfcProperty_1_n &IfcComplexProperty::getHasProperties() {
-    if (Step::BaseObject::inited()) {
-        return m_hasProperties;
-    }
-    else {
-        m_hasProperties.setUnset(true);
-        return m_hasProperties;
-    }
-}
-
-const Set_IfcProperty_1_n &IfcComplexProperty::getHasProperties() const {
-    IfcComplexProperty * deConstObject = const_cast< IfcComplexProperty * > (this);
-    return deConstObject->getHasProperties();
-}
-
-void IfcComplexProperty::unsetHasProperties() {
-    m_hasProperties.clear();
-    m_hasProperties.setUnset(true);
-}
-
-bool IfcComplexProperty::testHasProperties() const {
-    return !m_hasProperties.isUnset();
-}
-
-bool IfcComplexProperty::init() {
-    bool status = IfcProperty::init();
-    std::string arg;
-    if (!status) {
+bool IfcComplexProperty::init()
+{
+    if (IfcProperty::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_usageName = Step::getUnset(m_usageName);
+    if (arg == "$" || arg == "*")
+    {
+        m_UsageName = Step::getUnset(m_UsageName);
     }
-    else {
-        m_usageName = Step::String::fromSPF(arg);
+    else
+    {
+        m_UsageName = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_hasProperties.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_HasProperties.setUnset(true);
     }
-    else {
-        m_hasProperties.setUnset(false);
-        while (true) {
+    else
+    {
+        m_HasProperties.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcProperty > attr2;
-                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                if (attr2.valid()) m_hasProperties.insert(attr2);
+            if (!str1.empty())
+            {
+                m_HasProperties.insert(static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
@@ -176,15 +202,18 @@ bool IfcComplexProperty::init() {
     return true;
 }
 
-void IfcComplexProperty::copy(const IfcComplexProperty &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcProperty >, 1 >::const_iterator it_m_hasProperties;
+void IfcComplexProperty::copy(const IfcComplexProperty &obj, const CopyOp &copyop)
+{
     IfcProperty::copy(obj, copyop);
-    setUsageName(obj.m_usageName);
-    for (it_m_hasProperties = obj.m_hasProperties.begin(); it_m_hasProperties != obj.m_hasProperties.end(); ++it_m_hasProperties) {
-        Step::RefPtr< IfcProperty > copyTarget = (IfcProperty *) (copyop((*it_m_hasProperties).get()));
-        m_hasProperties.insert(copyTarget.get());
+    setUsageName(obj.m_UsageName);
+    Set_IfcProperty_1_n::const_iterator it_m_HasProperties;
+    for (it_m_HasProperties = obj.m_HasProperties.begin(); it_m_HasProperties != obj.m_HasProperties.end(); ++it_m_HasProperties)
+    {
+        Step::RefPtr< IfcProperty > copyTarget = (IfcProperty *) (copyop((*it_m_HasProperties).get()));
+        m_HasProperties.insert(copyTarget);
     }
+    
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcComplexProperty::s_type("IfcComplexProperty");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcComplexProperty, IfcProperty)

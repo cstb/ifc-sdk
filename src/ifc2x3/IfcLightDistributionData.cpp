@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,175 +24,205 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcLightDistributionData.h>
+
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseObject.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcLightDistributionData::IfcLightDistributionData(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_mainPlaneAngle = Step::getUnset(m_mainPlaneAngle);
+IfcLightDistributionData::IfcLightDistributionData(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_MainPlaneAngle = Step::getUnset(m_MainPlaneAngle);
+    m_SecondaryPlaneAngle.setUnset(true);
+    m_LuminousIntensity.setUnset(true);
 }
 
-IfcLightDistributionData::~IfcLightDistributionData() {
+IfcLightDistributionData::~IfcLightDistributionData()
+{}
+
+bool IfcLightDistributionData::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcLightDistributionData(this);
 }
 
-bool IfcLightDistributionData::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcLightDistributionData(this);
-}
 
-const std::string &IfcLightDistributionData::type() const {
-    return IfcLightDistributionData::s_type.getName();
-}
-
-const Step::ClassType &IfcLightDistributionData::getClassType() {
-    return IfcLightDistributionData::s_type;
-}
-
-const Step::ClassType &IfcLightDistributionData::getType() const {
-    return IfcLightDistributionData::s_type;
-}
-
-bool IfcLightDistributionData::isOfType(const Step::ClassType &t) const {
-    return IfcLightDistributionData::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcPlaneAngleMeasure IfcLightDistributionData::getMainPlaneAngle() {
-    if (Step::BaseObject::inited()) {
-        return m_mainPlaneAngle;
+IfcPlaneAngleMeasure IfcLightDistributionData::getMainPlaneAngle()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MainPlaneAngle;
     }
-    else {
-        return Step::getUnset(m_mainPlaneAngle);
+    else 
+    {
+        return Step::getUnset(m_MainPlaneAngle);
+    }    
+}
+
+IfcPlaneAngleMeasure IfcLightDistributionData::getMainPlaneAngle() const
+{
+    return const_cast<IfcLightDistributionData *>(this)->getMainPlaneAngle();
+}
+
+void IfcLightDistributionData::setMainPlaneAngle(IfcPlaneAngleMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MainPlaneAngle = value;
+}
+
+void IfcLightDistributionData::unsetMainPlaneAngle()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MainPlaneAngle = Step::getUnset(getMainPlaneAngle());
+}
+
+bool IfcLightDistributionData::testMainPlaneAngle() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMainPlaneAngle()) == false;
+}
+
+
+List_IfcPlaneAngleMeasure_1_n &IfcLightDistributionData::getSecondaryPlaneAngle()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SecondaryPlaneAngle;
     }
+    else 
+    {
+        m_SecondaryPlaneAngle.setUnset(true);
+        return m_SecondaryPlaneAngle;
+    }    
 }
 
-const IfcPlaneAngleMeasure IfcLightDistributionData::getMainPlaneAngle() const {
-    IfcLightDistributionData * deConstObject = const_cast< IfcLightDistributionData * > (this);
-    return deConstObject->getMainPlaneAngle();
+const List_IfcPlaneAngleMeasure_1_n &IfcLightDistributionData::getSecondaryPlaneAngle() const
+{
+    return const_cast<IfcLightDistributionData *>(this)->getSecondaryPlaneAngle();
 }
 
-void IfcLightDistributionData::setMainPlaneAngle(IfcPlaneAngleMeasure value) {
-    m_mainPlaneAngle = value;
+void IfcLightDistributionData::setSecondaryPlaneAngle(const List_IfcPlaneAngleMeasure_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SecondaryPlaneAngle = value;
 }
 
-void IfcLightDistributionData::unsetMainPlaneAngle() {
-    m_mainPlaneAngle = Step::getUnset(getMainPlaneAngle());
+void IfcLightDistributionData::unsetSecondaryPlaneAngle()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SecondaryPlaneAngle.clear();
+    m_SecondaryPlaneAngle.setUnset(true);
 }
 
-bool IfcLightDistributionData::testMainPlaneAngle() const {
-    return !Step::isUnset(getMainPlaneAngle());
+bool IfcLightDistributionData::testSecondaryPlaneAngle() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_SecondaryPlaneAngle.isUnset() == false;
 }
 
-List_IfcPlaneAngleMeasure_1_n &IfcLightDistributionData::getSecondaryPlaneAngle() {
-    if (Step::BaseObject::inited()) {
-        return m_secondaryPlaneAngle;
+
+List_IfcLuminousIntensityDistributionMeasure_1_n &IfcLightDistributionData::getLuminousIntensity()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LuminousIntensity;
     }
-    else {
-        m_secondaryPlaneAngle.setUnset(true);
-        return m_secondaryPlaneAngle;
-    }
+    else 
+    {
+        m_LuminousIntensity.setUnset(true);
+        return m_LuminousIntensity;
+    }    
 }
 
-const List_IfcPlaneAngleMeasure_1_n &IfcLightDistributionData::getSecondaryPlaneAngle() const {
-    IfcLightDistributionData * deConstObject = const_cast< IfcLightDistributionData * > (this);
-    return deConstObject->getSecondaryPlaneAngle();
+const List_IfcLuminousIntensityDistributionMeasure_1_n &IfcLightDistributionData::getLuminousIntensity() const
+{
+    return const_cast<IfcLightDistributionData *>(this)->getLuminousIntensity();
 }
 
-void IfcLightDistributionData::setSecondaryPlaneAngle(const List_IfcPlaneAngleMeasure_1_n &value) {
-    m_secondaryPlaneAngle = value;
+void IfcLightDistributionData::setLuminousIntensity(const List_IfcLuminousIntensityDistributionMeasure_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LuminousIntensity = value;
 }
 
-void IfcLightDistributionData::unsetSecondaryPlaneAngle() {
-    m_secondaryPlaneAngle.clear();
-    m_secondaryPlaneAngle.setUnset(true);
+void IfcLightDistributionData::unsetLuminousIntensity()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LuminousIntensity.clear();
+    m_LuminousIntensity.setUnset(true);
 }
 
-bool IfcLightDistributionData::testSecondaryPlaneAngle() const {
-    return !m_secondaryPlaneAngle.isUnset();
+bool IfcLightDistributionData::testLuminousIntensity() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_LuminousIntensity.isUnset() == false;
 }
 
-List_IfcLuminousIntensityDistributionMeasure_1_n &IfcLightDistributionData::getLuminousIntensity() {
-    if (Step::BaseObject::inited()) {
-        return m_luminousIntensity;
-    }
-    else {
-        m_luminousIntensity.setUnset(true);
-        return m_luminousIntensity;
-    }
-}
-
-const List_IfcLuminousIntensityDistributionMeasure_1_n &IfcLightDistributionData::getLuminousIntensity() const {
-    IfcLightDistributionData * deConstObject = const_cast< IfcLightDistributionData * > (this);
-    return deConstObject->getLuminousIntensity();
-}
-
-void IfcLightDistributionData::setLuminousIntensity(const List_IfcLuminousIntensityDistributionMeasure_1_n &value) {
-    m_luminousIntensity = value;
-}
-
-void IfcLightDistributionData::unsetLuminousIntensity() {
-    m_luminousIntensity.clear();
-    m_luminousIntensity.setUnset(true);
-}
-
-bool IfcLightDistributionData::testLuminousIntensity() const {
-    return !m_luminousIntensity.isUnset();
-}
-
-bool IfcLightDistributionData::init() {
+bool IfcLightDistributionData::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_mainPlaneAngle = Step::getUnset(m_mainPlaneAngle);
+    if (arg == "$" || arg == "*")
+    {
+        m_MainPlaneAngle = Step::getUnset(m_MainPlaneAngle);
     }
-    else {
-        m_mainPlaneAngle = Step::spfToReal(arg);
+    else
+    {
+        m_MainPlaneAngle = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_secondaryPlaneAngle.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_SecondaryPlaneAngle.setUnset(true);
     }
-    else {
-        m_secondaryPlaneAngle.setUnset(false);
-        while (true) {
+    else
+    {
+        m_SecondaryPlaneAngle.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                IfcPlaneAngleMeasure attr2;
-                attr2 = Step::spfToReal(str1);
-                m_secondaryPlaneAngle.push_back(attr2);
+            if (!str1.empty())
+            {
+                m_SecondaryPlaneAngle.push_back(Step::spfToReal(str1)
+
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_luminousIntensity.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_LuminousIntensity.setUnset(true);
     }
-    else {
-        m_luminousIntensity.setUnset(false);
-        while (true) {
+    else
+    {
+        m_LuminousIntensity.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                IfcLuminousIntensityDistributionMeasure attr2;
-                attr2 = Step::spfToReal(str1);
-                m_luminousIntensity.push_back(attr2);
+            if (!str1.empty())
+            {
+                m_LuminousIntensity.push_back(Step::spfToReal(str1)
+
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
@@ -191,20 +230,25 @@ bool IfcLightDistributionData::init() {
     return true;
 }
 
-void IfcLightDistributionData::copy(const IfcLightDistributionData &obj, const CopyOp &copyop) {
-    Step::List< IfcPlaneAngleMeasure, 1 >::const_iterator it_m_secondaryPlaneAngle;
-    Step::List< IfcLuminousIntensityDistributionMeasure, 1 >::const_iterator it_m_luminousIntensity;
+void IfcLightDistributionData::copy(const IfcLightDistributionData &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setMainPlaneAngle(obj.m_mainPlaneAngle);
-    for (it_m_secondaryPlaneAngle = obj.m_secondaryPlaneAngle.begin(); it_m_secondaryPlaneAngle != obj.m_secondaryPlaneAngle.end(); ++it_m_secondaryPlaneAngle) {
-        IfcPlaneAngleMeasure copyTarget = (*it_m_secondaryPlaneAngle);
-        m_secondaryPlaneAngle.push_back(copyTarget);
+    setMainPlaneAngle(obj.m_MainPlaneAngle);
+    List_IfcPlaneAngleMeasure_1_n::const_iterator it_m_SecondaryPlaneAngle;
+    for (it_m_SecondaryPlaneAngle = obj.m_SecondaryPlaneAngle.begin(); it_m_SecondaryPlaneAngle != obj.m_SecondaryPlaneAngle.end(); ++it_m_SecondaryPlaneAngle)
+    {
+        IfcPlaneAngleMeasure copyTarget = (*it_m_SecondaryPlaneAngle);
+        m_SecondaryPlaneAngle.push_back(copyTarget);
     }
-    for (it_m_luminousIntensity = obj.m_luminousIntensity.begin(); it_m_luminousIntensity != obj.m_luminousIntensity.end(); ++it_m_luminousIntensity) {
-        IfcLuminousIntensityDistributionMeasure copyTarget = (*it_m_luminousIntensity);
-        m_luminousIntensity.push_back(copyTarget);
+    
+    List_IfcLuminousIntensityDistributionMeasure_1_n::const_iterator it_m_LuminousIntensity;
+    for (it_m_LuminousIntensity = obj.m_LuminousIntensity.begin(); it_m_LuminousIntensity != obj.m_LuminousIntensity.end(); ++it_m_LuminousIntensity)
+    {
+        IfcLuminousIntensityDistributionMeasure copyTarget = (*it_m_LuminousIntensity);
+        m_LuminousIntensity.push_back(copyTarget);
     }
+    
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightDistributionData::s_type("IfcLightDistributionData");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcLightDistributionData, Step::BaseEntity)

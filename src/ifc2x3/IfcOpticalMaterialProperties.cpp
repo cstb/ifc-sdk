@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,375 +24,487 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcOpticalMaterialProperties.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcMaterialProperties.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcOpticalMaterialProperties::IfcOpticalMaterialProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
-    m_visibleTransmittance = Step::getUnset(m_visibleTransmittance);
-    m_solarTransmittance = Step::getUnset(m_solarTransmittance);
-    m_thermalIrTransmittance = Step::getUnset(m_thermalIrTransmittance);
-    m_thermalIrEmissivityBack = Step::getUnset(m_thermalIrEmissivityBack);
-    m_thermalIrEmissivityFront = Step::getUnset(m_thermalIrEmissivityFront);
-    m_visibleReflectanceBack = Step::getUnset(m_visibleReflectanceBack);
-    m_visibleReflectanceFront = Step::getUnset(m_visibleReflectanceFront);
-    m_solarReflectanceFront = Step::getUnset(m_solarReflectanceFront);
-    m_solarReflectanceBack = Step::getUnset(m_solarReflectanceBack);
+IfcOpticalMaterialProperties::IfcOpticalMaterialProperties(Step::Id id, Step::SPFData *args) : 
+    IfcMaterialProperties(id, args)
+{
+    m_VisibleTransmittance = Step::getUnset(m_VisibleTransmittance);
+    m_SolarTransmittance = Step::getUnset(m_SolarTransmittance);
+    m_ThermalIrTransmittance = Step::getUnset(m_ThermalIrTransmittance);
+    m_ThermalIrEmissivityBack = Step::getUnset(m_ThermalIrEmissivityBack);
+    m_ThermalIrEmissivityFront = Step::getUnset(m_ThermalIrEmissivityFront);
+    m_VisibleReflectanceBack = Step::getUnset(m_VisibleReflectanceBack);
+    m_VisibleReflectanceFront = Step::getUnset(m_VisibleReflectanceFront);
+    m_SolarReflectanceFront = Step::getUnset(m_SolarReflectanceFront);
+    m_SolarReflectanceBack = Step::getUnset(m_SolarReflectanceBack);
 }
 
-IfcOpticalMaterialProperties::~IfcOpticalMaterialProperties() {
+IfcOpticalMaterialProperties::~IfcOpticalMaterialProperties()
+{}
+
+bool IfcOpticalMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcOpticalMaterialProperties(this);
 }
 
-bool IfcOpticalMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcOpticalMaterialProperties(this);
-}
 
-const std::string &IfcOpticalMaterialProperties::type() const {
-    return IfcOpticalMaterialProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcOpticalMaterialProperties::getClassType() {
-    return IfcOpticalMaterialProperties::s_type;
-}
-
-const Step::ClassType &IfcOpticalMaterialProperties::getType() const {
-    return IfcOpticalMaterialProperties::s_type;
-}
-
-bool IfcOpticalMaterialProperties::isOfType(const Step::ClassType &t) const {
-    return IfcOpticalMaterialProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
-}
-
-IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleTransmittance() {
-    if (Step::BaseObject::inited()) {
-        return m_visibleTransmittance;
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleTransmittance()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_VisibleTransmittance;
     }
-    else {
-        return Step::getUnset(m_visibleTransmittance);
+    else 
+    {
+        return Step::getUnset(m_VisibleTransmittance);
+    }    
+}
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleTransmittance() const
+{
+    return const_cast<IfcOpticalMaterialProperties *>(this)->getVisibleTransmittance();
+}
+
+void IfcOpticalMaterialProperties::setVisibleTransmittance(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VisibleTransmittance = value;
+}
+
+void IfcOpticalMaterialProperties::unsetVisibleTransmittance()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VisibleTransmittance = Step::getUnset(getVisibleTransmittance());
+}
+
+bool IfcOpticalMaterialProperties::testVisibleTransmittance() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getVisibleTransmittance()) == false;
+}
+
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarTransmittance()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SolarTransmittance;
     }
+    else 
+    {
+        return Step::getUnset(m_SolarTransmittance);
+    }    
 }
 
-const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleTransmittance() const {
-    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
-    return deConstObject->getVisibleTransmittance();
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarTransmittance() const
+{
+    return const_cast<IfcOpticalMaterialProperties *>(this)->getSolarTransmittance();
 }
 
-void IfcOpticalMaterialProperties::setVisibleTransmittance(IfcPositiveRatioMeasure value) {
-    m_visibleTransmittance = value;
+void IfcOpticalMaterialProperties::setSolarTransmittance(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SolarTransmittance = value;
 }
 
-void IfcOpticalMaterialProperties::unsetVisibleTransmittance() {
-    m_visibleTransmittance = Step::getUnset(getVisibleTransmittance());
+void IfcOpticalMaterialProperties::unsetSolarTransmittance()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SolarTransmittance = Step::getUnset(getSolarTransmittance());
 }
 
-bool IfcOpticalMaterialProperties::testVisibleTransmittance() const {
-    return !Step::isUnset(getVisibleTransmittance());
+bool IfcOpticalMaterialProperties::testSolarTransmittance() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSolarTransmittance()) == false;
 }
 
-IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarTransmittance() {
-    if (Step::BaseObject::inited()) {
-        return m_solarTransmittance;
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrTransmittance()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ThermalIrTransmittance;
     }
-    else {
-        return Step::getUnset(m_solarTransmittance);
+    else 
+    {
+        return Step::getUnset(m_ThermalIrTransmittance);
+    }    
+}
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrTransmittance() const
+{
+    return const_cast<IfcOpticalMaterialProperties *>(this)->getThermalIrTransmittance();
+}
+
+void IfcOpticalMaterialProperties::setThermalIrTransmittance(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalIrTransmittance = value;
+}
+
+void IfcOpticalMaterialProperties::unsetThermalIrTransmittance()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalIrTransmittance = Step::getUnset(getThermalIrTransmittance());
+}
+
+bool IfcOpticalMaterialProperties::testThermalIrTransmittance() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getThermalIrTransmittance()) == false;
+}
+
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityBack()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ThermalIrEmissivityBack;
     }
+    else 
+    {
+        return Step::getUnset(m_ThermalIrEmissivityBack);
+    }    
 }
 
-const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarTransmittance() const {
-    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
-    return deConstObject->getSolarTransmittance();
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityBack() const
+{
+    return const_cast<IfcOpticalMaterialProperties *>(this)->getThermalIrEmissivityBack();
 }
 
-void IfcOpticalMaterialProperties::setSolarTransmittance(IfcPositiveRatioMeasure value) {
-    m_solarTransmittance = value;
+void IfcOpticalMaterialProperties::setThermalIrEmissivityBack(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalIrEmissivityBack = value;
 }
 
-void IfcOpticalMaterialProperties::unsetSolarTransmittance() {
-    m_solarTransmittance = Step::getUnset(getSolarTransmittance());
+void IfcOpticalMaterialProperties::unsetThermalIrEmissivityBack()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalIrEmissivityBack = Step::getUnset(getThermalIrEmissivityBack());
 }
 
-bool IfcOpticalMaterialProperties::testSolarTransmittance() const {
-    return !Step::isUnset(getSolarTransmittance());
+bool IfcOpticalMaterialProperties::testThermalIrEmissivityBack() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getThermalIrEmissivityBack()) == false;
 }
 
-IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrTransmittance() {
-    if (Step::BaseObject::inited()) {
-        return m_thermalIrTransmittance;
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityFront()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ThermalIrEmissivityFront;
     }
-    else {
-        return Step::getUnset(m_thermalIrTransmittance);
+    else 
+    {
+        return Step::getUnset(m_ThermalIrEmissivityFront);
+    }    
+}
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityFront() const
+{
+    return const_cast<IfcOpticalMaterialProperties *>(this)->getThermalIrEmissivityFront();
+}
+
+void IfcOpticalMaterialProperties::setThermalIrEmissivityFront(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalIrEmissivityFront = value;
+}
+
+void IfcOpticalMaterialProperties::unsetThermalIrEmissivityFront()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalIrEmissivityFront = Step::getUnset(getThermalIrEmissivityFront());
+}
+
+bool IfcOpticalMaterialProperties::testThermalIrEmissivityFront() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getThermalIrEmissivityFront()) == false;
+}
+
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceBack()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_VisibleReflectanceBack;
     }
+    else 
+    {
+        return Step::getUnset(m_VisibleReflectanceBack);
+    }    
 }
 
-const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrTransmittance() const {
-    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
-    return deConstObject->getThermalIrTransmittance();
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceBack() const
+{
+    return const_cast<IfcOpticalMaterialProperties *>(this)->getVisibleReflectanceBack();
 }
 
-void IfcOpticalMaterialProperties::setThermalIrTransmittance(IfcPositiveRatioMeasure value) {
-    m_thermalIrTransmittance = value;
+void IfcOpticalMaterialProperties::setVisibleReflectanceBack(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VisibleReflectanceBack = value;
 }
 
-void IfcOpticalMaterialProperties::unsetThermalIrTransmittance() {
-    m_thermalIrTransmittance = Step::getUnset(getThermalIrTransmittance());
+void IfcOpticalMaterialProperties::unsetVisibleReflectanceBack()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VisibleReflectanceBack = Step::getUnset(getVisibleReflectanceBack());
 }
 
-bool IfcOpticalMaterialProperties::testThermalIrTransmittance() const {
-    return !Step::isUnset(getThermalIrTransmittance());
+bool IfcOpticalMaterialProperties::testVisibleReflectanceBack() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getVisibleReflectanceBack()) == false;
 }
 
-IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityBack() {
-    if (Step::BaseObject::inited()) {
-        return m_thermalIrEmissivityBack;
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceFront()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_VisibleReflectanceFront;
     }
-    else {
-        return Step::getUnset(m_thermalIrEmissivityBack);
+    else 
+    {
+        return Step::getUnset(m_VisibleReflectanceFront);
+    }    
+}
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceFront() const
+{
+    return const_cast<IfcOpticalMaterialProperties *>(this)->getVisibleReflectanceFront();
+}
+
+void IfcOpticalMaterialProperties::setVisibleReflectanceFront(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VisibleReflectanceFront = value;
+}
+
+void IfcOpticalMaterialProperties::unsetVisibleReflectanceFront()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_VisibleReflectanceFront = Step::getUnset(getVisibleReflectanceFront());
+}
+
+bool IfcOpticalMaterialProperties::testVisibleReflectanceFront() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getVisibleReflectanceFront()) == false;
+}
+
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceFront()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SolarReflectanceFront;
     }
+    else 
+    {
+        return Step::getUnset(m_SolarReflectanceFront);
+    }    
 }
 
-const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityBack() const {
-    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
-    return deConstObject->getThermalIrEmissivityBack();
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceFront() const
+{
+    return const_cast<IfcOpticalMaterialProperties *>(this)->getSolarReflectanceFront();
 }
 
-void IfcOpticalMaterialProperties::setThermalIrEmissivityBack(IfcPositiveRatioMeasure value) {
-    m_thermalIrEmissivityBack = value;
+void IfcOpticalMaterialProperties::setSolarReflectanceFront(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SolarReflectanceFront = value;
 }
 
-void IfcOpticalMaterialProperties::unsetThermalIrEmissivityBack() {
-    m_thermalIrEmissivityBack = Step::getUnset(getThermalIrEmissivityBack());
+void IfcOpticalMaterialProperties::unsetSolarReflectanceFront()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SolarReflectanceFront = Step::getUnset(getSolarReflectanceFront());
 }
 
-bool IfcOpticalMaterialProperties::testThermalIrEmissivityBack() const {
-    return !Step::isUnset(getThermalIrEmissivityBack());
+bool IfcOpticalMaterialProperties::testSolarReflectanceFront() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSolarReflectanceFront()) == false;
 }
 
-IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityFront() {
-    if (Step::BaseObject::inited()) {
-        return m_thermalIrEmissivityFront;
+
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceBack()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SolarReflectanceBack;
     }
-    else {
-        return Step::getUnset(m_thermalIrEmissivityFront);
-    }
+    else 
+    {
+        return Step::getUnset(m_SolarReflectanceBack);
+    }    
 }
 
-const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityFront() const {
-    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
-    return deConstObject->getThermalIrEmissivityFront();
+IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceBack() const
+{
+    return const_cast<IfcOpticalMaterialProperties *>(this)->getSolarReflectanceBack();
 }
 
-void IfcOpticalMaterialProperties::setThermalIrEmissivityFront(IfcPositiveRatioMeasure value) {
-    m_thermalIrEmissivityFront = value;
+void IfcOpticalMaterialProperties::setSolarReflectanceBack(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SolarReflectanceBack = value;
 }
 
-void IfcOpticalMaterialProperties::unsetThermalIrEmissivityFront() {
-    m_thermalIrEmissivityFront = Step::getUnset(getThermalIrEmissivityFront());
+void IfcOpticalMaterialProperties::unsetSolarReflectanceBack()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SolarReflectanceBack = Step::getUnset(getSolarReflectanceBack());
 }
 
-bool IfcOpticalMaterialProperties::testThermalIrEmissivityFront() const {
-    return !Step::isUnset(getThermalIrEmissivityFront());
+bool IfcOpticalMaterialProperties::testSolarReflectanceBack() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSolarReflectanceBack()) == false;
 }
 
-IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceBack() {
-    if (Step::BaseObject::inited()) {
-        return m_visibleReflectanceBack;
-    }
-    else {
-        return Step::getUnset(m_visibleReflectanceBack);
-    }
-}
-
-const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceBack() const {
-    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
-    return deConstObject->getVisibleReflectanceBack();
-}
-
-void IfcOpticalMaterialProperties::setVisibleReflectanceBack(IfcPositiveRatioMeasure value) {
-    m_visibleReflectanceBack = value;
-}
-
-void IfcOpticalMaterialProperties::unsetVisibleReflectanceBack() {
-    m_visibleReflectanceBack = Step::getUnset(getVisibleReflectanceBack());
-}
-
-bool IfcOpticalMaterialProperties::testVisibleReflectanceBack() const {
-    return !Step::isUnset(getVisibleReflectanceBack());
-}
-
-IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceFront() {
-    if (Step::BaseObject::inited()) {
-        return m_visibleReflectanceFront;
-    }
-    else {
-        return Step::getUnset(m_visibleReflectanceFront);
-    }
-}
-
-const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceFront() const {
-    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
-    return deConstObject->getVisibleReflectanceFront();
-}
-
-void IfcOpticalMaterialProperties::setVisibleReflectanceFront(IfcPositiveRatioMeasure value) {
-    m_visibleReflectanceFront = value;
-}
-
-void IfcOpticalMaterialProperties::unsetVisibleReflectanceFront() {
-    m_visibleReflectanceFront = Step::getUnset(getVisibleReflectanceFront());
-}
-
-bool IfcOpticalMaterialProperties::testVisibleReflectanceFront() const {
-    return !Step::isUnset(getVisibleReflectanceFront());
-}
-
-IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceFront() {
-    if (Step::BaseObject::inited()) {
-        return m_solarReflectanceFront;
-    }
-    else {
-        return Step::getUnset(m_solarReflectanceFront);
-    }
-}
-
-const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceFront() const {
-    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
-    return deConstObject->getSolarReflectanceFront();
-}
-
-void IfcOpticalMaterialProperties::setSolarReflectanceFront(IfcPositiveRatioMeasure value) {
-    m_solarReflectanceFront = value;
-}
-
-void IfcOpticalMaterialProperties::unsetSolarReflectanceFront() {
-    m_solarReflectanceFront = Step::getUnset(getSolarReflectanceFront());
-}
-
-bool IfcOpticalMaterialProperties::testSolarReflectanceFront() const {
-    return !Step::isUnset(getSolarReflectanceFront());
-}
-
-IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceBack() {
-    if (Step::BaseObject::inited()) {
-        return m_solarReflectanceBack;
-    }
-    else {
-        return Step::getUnset(m_solarReflectanceBack);
-    }
-}
-
-const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceBack() const {
-    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
-    return deConstObject->getSolarReflectanceBack();
-}
-
-void IfcOpticalMaterialProperties::setSolarReflectanceBack(IfcPositiveRatioMeasure value) {
-    m_solarReflectanceBack = value;
-}
-
-void IfcOpticalMaterialProperties::unsetSolarReflectanceBack() {
-    m_solarReflectanceBack = Step::getUnset(getSolarReflectanceBack());
-}
-
-bool IfcOpticalMaterialProperties::testSolarReflectanceBack() const {
-    return !Step::isUnset(getSolarReflectanceBack());
-}
-
-bool IfcOpticalMaterialProperties::init() {
-    bool status = IfcMaterialProperties::init();
-    std::string arg;
-    if (!status) {
+bool IfcOpticalMaterialProperties::init()
+{
+    if (IfcMaterialProperties::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_visibleTransmittance = Step::getUnset(m_visibleTransmittance);
+    if (arg == "$" || arg == "*")
+    {
+        m_VisibleTransmittance = Step::getUnset(m_VisibleTransmittance);
     }
-    else {
-        m_visibleTransmittance = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_solarTransmittance = Step::getUnset(m_solarTransmittance);
-    }
-    else {
-        m_solarTransmittance = Step::spfToReal(arg);
+    else
+    {
+        m_VisibleTransmittance = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_thermalIrTransmittance = Step::getUnset(m_thermalIrTransmittance);
+    if (arg == "$" || arg == "*")
+    {
+        m_SolarTransmittance = Step::getUnset(m_SolarTransmittance);
     }
-    else {
-        m_thermalIrTransmittance = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_thermalIrEmissivityBack = Step::getUnset(m_thermalIrEmissivityBack);
-    }
-    else {
-        m_thermalIrEmissivityBack = Step::spfToReal(arg);
+    else
+    {
+        m_SolarTransmittance = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_thermalIrEmissivityFront = Step::getUnset(m_thermalIrEmissivityFront);
+    if (arg == "$" || arg == "*")
+    {
+        m_ThermalIrTransmittance = Step::getUnset(m_ThermalIrTransmittance);
     }
-    else {
-        m_thermalIrEmissivityFront = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_visibleReflectanceBack = Step::getUnset(m_visibleReflectanceBack);
-    }
-    else {
-        m_visibleReflectanceBack = Step::spfToReal(arg);
+    else
+    {
+        m_ThermalIrTransmittance = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_visibleReflectanceFront = Step::getUnset(m_visibleReflectanceFront);
+    if (arg == "$" || arg == "*")
+    {
+        m_ThermalIrEmissivityBack = Step::getUnset(m_ThermalIrEmissivityBack);
     }
-    else {
-        m_visibleReflectanceFront = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_solarReflectanceFront = Step::getUnset(m_solarReflectanceFront);
-    }
-    else {
-        m_solarReflectanceFront = Step::spfToReal(arg);
+    else
+    {
+        m_ThermalIrEmissivityBack = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_solarReflectanceBack = Step::getUnset(m_solarReflectanceBack);
+    if (arg == "$" || arg == "*")
+    {
+        m_ThermalIrEmissivityFront = Step::getUnset(m_ThermalIrEmissivityFront);
     }
-    else {
-        m_solarReflectanceBack = Step::spfToReal(arg);
+    else
+    {
+        m_ThermalIrEmissivityFront = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_VisibleReflectanceBack = Step::getUnset(m_VisibleReflectanceBack);
+    }
+    else
+    {
+        m_VisibleReflectanceBack = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_VisibleReflectanceFront = Step::getUnset(m_VisibleReflectanceFront);
+    }
+    else
+    {
+        m_VisibleReflectanceFront = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_SolarReflectanceFront = Step::getUnset(m_SolarReflectanceFront);
+    }
+    else
+    {
+        m_SolarReflectanceFront = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_SolarReflectanceBack = Step::getUnset(m_SolarReflectanceBack);
+    }
+    else
+    {
+        m_SolarReflectanceBack = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcOpticalMaterialProperties::copy(const IfcOpticalMaterialProperties &obj, const CopyOp &copyop) {
+void IfcOpticalMaterialProperties::copy(const IfcOpticalMaterialProperties &obj, const CopyOp &copyop)
+{
     IfcMaterialProperties::copy(obj, copyop);
-    setVisibleTransmittance(obj.m_visibleTransmittance);
-    setSolarTransmittance(obj.m_solarTransmittance);
-    setThermalIrTransmittance(obj.m_thermalIrTransmittance);
-    setThermalIrEmissivityBack(obj.m_thermalIrEmissivityBack);
-    setThermalIrEmissivityFront(obj.m_thermalIrEmissivityFront);
-    setVisibleReflectanceBack(obj.m_visibleReflectanceBack);
-    setVisibleReflectanceFront(obj.m_visibleReflectanceFront);
-    setSolarReflectanceFront(obj.m_solarReflectanceFront);
-    setSolarReflectanceBack(obj.m_solarReflectanceBack);
+    setVisibleTransmittance(obj.m_VisibleTransmittance);
+    setSolarTransmittance(obj.m_SolarTransmittance);
+    setThermalIrTransmittance(obj.m_ThermalIrTransmittance);
+    setThermalIrEmissivityBack(obj.m_ThermalIrEmissivityBack);
+    setThermalIrEmissivityFront(obj.m_ThermalIrEmissivityFront);
+    setVisibleReflectanceBack(obj.m_VisibleReflectanceBack);
+    setVisibleReflectanceFront(obj.m_VisibleReflectanceFront);
+    setSolarReflectanceFront(obj.m_SolarReflectanceFront);
+    setSolarReflectanceBack(obj.m_SolarReflectanceBack);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOpticalMaterialProperties::s_type("IfcOpticalMaterialProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcOpticalMaterialProperties, IfcMaterialProperties)

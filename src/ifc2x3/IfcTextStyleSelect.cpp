@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,76 +24,66 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcTextStyleSelect.h>
 
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcTextStyleTextModel.h>
-#include <ifc2x3/IfcTextStyleWithBoxCharacteristics.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
+
+#include <ifc2x3/IfcTextStyleWithBoxCharacteristics.h>
+#include <ifc2x3/IfcTextStyleTextModel.h>
 
 
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcTextStyleSelect::IfcTextStyleSelect() : Step::BaseObject(0) {
+IfcTextStyleSelect::IfcTextStyleSelect() : Step::BaseObject(0)
+{
     m_type = UNSET;
 }
 
-IfcTextStyleSelect::IfcTextStyleSelect(Step::SPFData *args) : Step::BaseObject(args) {
+IfcTextStyleSelect::IfcTextStyleSelect(Step::SPFData *args) : Step::BaseObject(args)
+{
     m_type = UNSET;
 }
 
-IfcTextStyleSelect::~IfcTextStyleSelect() {
+IfcTextStyleSelect::~IfcTextStyleSelect()
+{
     deleteUnion();
 }
 
-bool IfcTextStyleSelect::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcTextStyleSelect(this);
+bool IfcTextStyleSelect::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcTextStyleSelect(this);
 }
 
-bool IfcTextStyleSelect::init() {
+bool IfcTextStyleSelect::init()
+{
     return false;
 }
 
-const std::string &IfcTextStyleSelect::type() const {
-    return IfcTextStyleSelect::s_type.getName();
-}
-
-const Step::ClassType &IfcTextStyleSelect::getClassType() {
-    return IfcTextStyleSelect::s_type;
-}
-
-const Step::ClassType &IfcTextStyleSelect::getType() const {
-    return IfcTextStyleSelect::s_type;
-}
-
-bool IfcTextStyleSelect::isOfType(const Step::ClassType &t) const {
-    return IfcTextStyleSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-void IfcTextStyleSelect::copy(const IfcTextStyleSelect &obj, const CopyOp &copyop) {
-    switch(obj.m_type) {
-    case IFCTEXTSTYLEWITHBOXCHARACTERISTICS:
-        setIfcTextStyleWithBoxCharacteristics((IfcTextStyleWithBoxCharacteristics *) (copyop(obj.m_IfcTextStyleSelect_union.m_IfcTextStyleWithBoxCharacteristics)));
+void IfcTextStyleSelect::copy(const IfcTextStyleSelect &obj, const CopyOp &copyop)
+{
+    switch(obj.m_type)
+    {
+    case IFCTEXTSTYLEWITHBOXCHARACTERISTICS :
+        setIfcTextStyleWithBoxCharacteristics((IfcTextStyleWithBoxCharacteristics*)(copyop(obj.m_union.m_IfcTextStyleWithBoxCharacteristics)));
         break;
-    case IFCTEXTSTYLETEXTMODEL:
-        setIfcTextStyleTextModel((IfcTextStyleTextModel *) (copyop(obj.m_IfcTextStyleSelect_union.m_IfcTextStyleTextModel)));
+    case IFCTEXTSTYLETEXTMODEL :
+        setIfcTextStyleTextModel((IfcTextStyleTextModel*)(copyop(obj.m_union.m_IfcTextStyleTextModel)));
         break;
     default:
         break;
     }
 }
 
-std::string IfcTextStyleSelect::currentTypeName() const {
-    switch(m_type) {
-    case IFCTEXTSTYLEWITHBOXCHARACTERISTICS:
+std::string IfcTextStyleSelect::currentTypeName() const
+{
+    switch(m_type)
+    {
+    case IFCTEXTSTYLEWITHBOXCHARACTERISTICS :
         return "IfcTextStyleWithBoxCharacteristics";
         break;
-    case IFCTEXTSTYLETEXTMODEL:
+    case IFCTEXTSTYLETEXTMODEL :
         return "IfcTextStyleTextModel";
         break;
     default:
@@ -92,17 +91,20 @@ std::string IfcTextStyleSelect::currentTypeName() const {
     }
 }
 
-IfcTextStyleSelect::IfcTextStyleSelect_select IfcTextStyleSelect::currentType() const {
+IfcTextStyleSelect::IfcTextStyleSelect_select IfcTextStyleSelect::currentType() const 
+{
     return m_type;
 }
 
-void IfcTextStyleSelect::deleteUnion() {
-    switch(m_type) {
-    case IFCTEXTSTYLEWITHBOXCHARACTERISTICS:
-        m_IfcTextStyleSelect_union.m_IfcTextStyleWithBoxCharacteristics->unref();
+void IfcTextStyleSelect::deleteUnion() 
+{ 
+    switch(m_type)
+    {
+    case IFCTEXTSTYLEWITHBOXCHARACTERISTICS :
+        m_union.m_IfcTextStyleWithBoxCharacteristics->unref();
         break;
-    case IFCTEXTSTYLETEXTMODEL:
-        m_IfcTextStyleSelect_union.m_IfcTextStyleTextModel->unref();
+    case IFCTEXTSTYLETEXTMODEL :
+        m_union.m_IfcTextStyleTextModel->unref();
         break;
     default:
         break;
@@ -110,61 +112,79 @@ void IfcTextStyleSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcTextStyleWithBoxCharacteristics *IfcTextStyleSelect::getIfcTextStyleWithBoxCharacteristics() const {
-    if (m_type == IFCTEXTSTYLEWITHBOXCHARACTERISTICS) {
-        return m_IfcTextStyleSelect_union.m_IfcTextStyleWithBoxCharacteristics;
+
+IfcTextStyleWithBoxCharacteristics *IfcTextStyleSelect::getIfcTextStyleWithBoxCharacteristics() const
+{
+    if (m_type == IFCTEXTSTYLEWITHBOXCHARACTERISTICS ) 
+    {
+        return m_union.m_IfcTextStyleWithBoxCharacteristics;
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-void IfcTextStyleSelect::setIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *value) {
-    if (m_type != UNSET) {
+void IfcTextStyleSelect::setIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *value)
+{
+    if (m_type != UNSET)
+    {
         deleteUnion();
     }
-    m_IfcTextStyleSelect_union.m_IfcTextStyleWithBoxCharacteristics = value;
-    if (value) {
+
+    m_union.m_IfcTextStyleWithBoxCharacteristics = value;
+
+    if (value != 0)
+    {
         value->ref();
-        m_type = IFCTEXTSTYLEWITHBOXCHARACTERISTICS;
     }
-    else {
-        m_type = UNSET;
-    }
-    m_type = IFCTEXTSTYLEWITHBOXCHARACTERISTICS;
+    m_type = IFCTEXTSTYLEWITHBOXCHARACTERISTICS ;
 }
 
-IfcTextStyleTextModel *IfcTextStyleSelect::getIfcTextStyleTextModel() const {
-    if (m_type == IFCTEXTSTYLETEXTMODEL) {
-        return m_IfcTextStyleSelect_union.m_IfcTextStyleTextModel;
+IfcTextStyleTextModel *IfcTextStyleSelect::getIfcTextStyleTextModel() const
+{
+    if (m_type == IFCTEXTSTYLETEXTMODEL ) 
+    {
+        return m_union.m_IfcTextStyleTextModel;
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-void IfcTextStyleSelect::setIfcTextStyleTextModel(IfcTextStyleTextModel *value) {
-    if (m_type != UNSET) {
+void IfcTextStyleSelect::setIfcTextStyleTextModel(IfcTextStyleTextModel *value)
+{
+    if (m_type != UNSET)
+    {
         deleteUnion();
     }
-    m_IfcTextStyleSelect_union.m_IfcTextStyleTextModel = value;
-    if (value) {
+
+    m_union.m_IfcTextStyleTextModel = value;
+
+    if (value != 0)
+    {
         value->ref();
-        m_type = IFCTEXTSTYLETEXTMODEL;
     }
-    else {
-        m_type = UNSET;
-    }
-    m_type = IFCTEXTSTYLETEXTMODEL;
+    m_type = IFCTEXTSTYLETEXTMODEL ;
 }
 
-void IfcTextStyleSelect::set(Step::BaseObject *v) {
-    if (v && v->isOfType(IfcTextStyleWithBoxCharacteristics::getClassType())) {
-        setIfcTextStyleWithBoxCharacteristics(static_cast< IfcTextStyleWithBoxCharacteristics* > (v));
-    }
-    else if (v && v->isOfType(IfcTextStyleTextModel::getClassType())) {
-        setIfcTextStyleTextModel(static_cast< IfcTextStyleTextModel* > (v));
+void IfcTextStyleSelect::set(Step::BaseObject *v) 
+{
+    if (v) 
+    {
+        if (v->isOfType(IfcTextStyleWithBoxCharacteristics::getClassType())) 
+        {
+            setIfcTextStyleWithBoxCharacteristics(static_cast< IfcTextStyleWithBoxCharacteristics* > (v));
+            return;
+        }
+        if (v->isOfType(IfcTextStyleTextModel::getClassType())) 
+        {
+            setIfcTextStyleTextModel(static_cast< IfcTextStyleTextModel* > (v));
+            return;
+        }
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextStyleSelect::s_type("IfcTextStyleSelect");
+
+ClassType_child_implementations(IFC2X3_EXPORT, IfcTextStyleSelect, Step::BaseObject)

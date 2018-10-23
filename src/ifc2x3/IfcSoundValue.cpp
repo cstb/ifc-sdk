@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,163 +24,183 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcSoundValue.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcDerivedMeasureValue.h>
-#include <ifc2x3/IfcPropertySetDefinition.h>
 #include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/IfcDerivedMeasureValue.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcSoundValue::IfcSoundValue(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
-    m_soundLevelTimeSeries = NULL;
-    m_frequency = Step::getUnset(m_frequency);
-    m_soundLevelSingleValue = NULL;
+IfcSoundValue::IfcSoundValue(Step::Id id, Step::SPFData *args) : 
+    IfcPropertySetDefinition(id, args)
+{
+    m_SoundLevelTimeSeries = NULL;
+    m_Frequency = Step::getUnset(m_Frequency);
+    m_SoundLevelSingleValue = NULL;
 }
 
-IfcSoundValue::~IfcSoundValue() {
+IfcSoundValue::~IfcSoundValue()
+{}
+
+bool IfcSoundValue::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcSoundValue(this);
 }
 
-bool IfcSoundValue::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcSoundValue(this);
-}
 
-const std::string &IfcSoundValue::type() const {
-    return IfcSoundValue::s_type.getName();
-}
-
-const Step::ClassType &IfcSoundValue::getClassType() {
-    return IfcSoundValue::s_type;
-}
-
-const Step::ClassType &IfcSoundValue::getType() const {
-    return IfcSoundValue::s_type;
-}
-
-bool IfcSoundValue::isOfType(const Step::ClassType &t) const {
-    return IfcSoundValue::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
-}
-
-IfcTimeSeries *IfcSoundValue::getSoundLevelTimeSeries() {
-    if (Step::BaseObject::inited()) {
-        return m_soundLevelTimeSeries.get();
+IfcTimeSeries *IfcSoundValue::getSoundLevelTimeSeries()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SoundLevelTimeSeries.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcTimeSeries *IfcSoundValue::getSoundLevelTimeSeries() const
+{
+    return const_cast<IfcSoundValue *>(this)->getSoundLevelTimeSeries();
+}
+
+void IfcSoundValue::setSoundLevelTimeSeries(const Step::RefPtr< IfcTimeSeries > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SoundLevelTimeSeries = value;
+}
+
+void IfcSoundValue::unsetSoundLevelTimeSeries()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SoundLevelTimeSeries = Step::getUnset(getSoundLevelTimeSeries());
+}
+
+bool IfcSoundValue::testSoundLevelTimeSeries() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSoundLevelTimeSeries()) == false;
+}
+
+
+IfcFrequencyMeasure IfcSoundValue::getFrequency()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Frequency;
     }
+    else 
+    {
+        return Step::getUnset(m_Frequency);
+    }    
 }
 
-const IfcTimeSeries *IfcSoundValue::getSoundLevelTimeSeries() const {
-    IfcSoundValue * deConstObject = const_cast< IfcSoundValue * > (this);
-    return deConstObject->getSoundLevelTimeSeries();
+IfcFrequencyMeasure IfcSoundValue::getFrequency() const
+{
+    return const_cast<IfcSoundValue *>(this)->getFrequency();
 }
 
-void IfcSoundValue::setSoundLevelTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
-    m_soundLevelTimeSeries = value;
+void IfcSoundValue::setFrequency(IfcFrequencyMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Frequency = value;
 }
 
-void IfcSoundValue::unsetSoundLevelTimeSeries() {
-    m_soundLevelTimeSeries = Step::getUnset(getSoundLevelTimeSeries());
+void IfcSoundValue::unsetFrequency()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Frequency = Step::getUnset(getFrequency());
 }
 
-bool IfcSoundValue::testSoundLevelTimeSeries() const {
-    return !Step::isUnset(getSoundLevelTimeSeries());
+bool IfcSoundValue::testFrequency() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFrequency()) == false;
 }
 
-IfcFrequencyMeasure IfcSoundValue::getFrequency() {
-    if (Step::BaseObject::inited()) {
-        return m_frequency;
+
+IfcDerivedMeasureValue *IfcSoundValue::getSoundLevelSingleValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SoundLevelSingleValue.get();
     }
-    else {
-        return Step::getUnset(m_frequency);
-    }
-}
-
-const IfcFrequencyMeasure IfcSoundValue::getFrequency() const {
-    IfcSoundValue * deConstObject = const_cast< IfcSoundValue * > (this);
-    return deConstObject->getFrequency();
-}
-
-void IfcSoundValue::setFrequency(IfcFrequencyMeasure value) {
-    m_frequency = value;
-}
-
-void IfcSoundValue::unsetFrequency() {
-    m_frequency = Step::getUnset(getFrequency());
-}
-
-bool IfcSoundValue::testFrequency() const {
-    return !Step::isUnset(getFrequency());
-}
-
-IfcDerivedMeasureValue *IfcSoundValue::getSoundLevelSingleValue() {
-    if (Step::BaseObject::inited()) {
-        return m_soundLevelSingleValue.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcDerivedMeasureValue *IfcSoundValue::getSoundLevelSingleValue() const {
-    IfcSoundValue * deConstObject = const_cast< IfcSoundValue * > (this);
-    return deConstObject->getSoundLevelSingleValue();
+const IfcDerivedMeasureValue *IfcSoundValue::getSoundLevelSingleValue() const
+{
+    return const_cast<IfcSoundValue *>(this)->getSoundLevelSingleValue();
 }
 
-void IfcSoundValue::setSoundLevelSingleValue(const Step::RefPtr< IfcDerivedMeasureValue > &value) {
-    m_soundLevelSingleValue = value;
+void IfcSoundValue::setSoundLevelSingleValue(const Step::RefPtr< IfcDerivedMeasureValue > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SoundLevelSingleValue = value;
 }
 
-void IfcSoundValue::unsetSoundLevelSingleValue() {
-    m_soundLevelSingleValue = Step::getUnset(getSoundLevelSingleValue());
+void IfcSoundValue::unsetSoundLevelSingleValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SoundLevelSingleValue = Step::getUnset(getSoundLevelSingleValue());
 }
 
-bool IfcSoundValue::testSoundLevelSingleValue() const {
-    return !Step::isUnset(getSoundLevelSingleValue());
+bool IfcSoundValue::testSoundLevelSingleValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSoundLevelSingleValue()) == false;
 }
 
-bool IfcSoundValue::init() {
-    bool status = IfcPropertySetDefinition::init();
-    std::string arg;
-    if (!status) {
+bool IfcSoundValue::init()
+{
+    if (IfcPropertySetDefinition::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_soundLevelTimeSeries = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_SoundLevelTimeSeries = NULL;
     }
-    else {
-        m_soundLevelTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_frequency = Step::getUnset(m_frequency);
-    }
-    else {
-        m_frequency = Step::spfToReal(arg);
+    else
+    {
+        m_SoundLevelTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_soundLevelSingleValue = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Frequency = Step::getUnset(m_Frequency);
     }
-    else {
-        m_soundLevelSingleValue = new IfcDerivedMeasureValue;
+    else
+    {
+        m_Frequency = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_SoundLevelSingleValue = NULL;
+    }
+    else
+    {
+        m_SoundLevelSingleValue = new IfcDerivedMeasureValue;
         if (arg[0] == '#') {
-            m_soundLevelSingleValue->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_SoundLevelSingleValue->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -180,357 +209,460 @@ bool IfcSoundValue::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCVOLUMETRICFLOWRATEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcVolumetricFlowRateMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTIMESTAMP") {
-                    Step::Integer tmp_attr1;
-                    tmp_attr1 = Step::spfToInteger(arg);
-                    m_soundLevelSingleValue->setIfcTimeStamp(tmp_attr1);
-                }
-                if (type1 == "IFCTHERMALTRANSMITTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcThermalTransmittanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTHERMALRESISTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcThermalResistanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTHERMALADMITTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcThermalAdmittanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCPRESSUREMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcPressureMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCPOWERMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcPowerMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMASSFLOWRATEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcMassFlowRateMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMASSDENSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcMassDensityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLINEARVELOCITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcLinearVelocityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCKINEMATICVISCOSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcKinematicViscosityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCINTEGERCOUNTRATEMEASURE") {
-                    Step::Integer tmp_attr1;
-                    tmp_attr1 = Step::spfToInteger(arg);
-                    m_soundLevelSingleValue->setIfcIntegerCountRateMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCHEATFLUXDENSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcHeatFluxDensityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCFREQUENCYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcFrequencyMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCENERGYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcEnergyMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCELECTRICVOLTAGEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcElectricVoltageMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCDYNAMICVISCOSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcDynamicViscosityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                    List_Integer_3_4 tmp_attr1;
-                    tmp_attr1.setUnset(false);
-                    while (true) {
-                        std::string str2;
-                        Step::getSubParameter(arg, str2);
-                        if (str2 != "") {
-                            Step::Integer attr3;
-                            attr3 = Step::spfToInteger(str2);
-                            tmp_attr1.push_back(attr3);
-                        }
-                        else {
-                            break;
-                        }
-                    }
-                    m_soundLevelSingleValue->setIfcCompoundPlaneAngleMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCANGULARVELOCITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcAngularVelocityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTHERMALCONDUCTIVITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcThermalConductivityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMOLECULARWEIGHTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcMolecularWeightMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCVAPORPERMEABILITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcVaporPermeabilityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMOISTUREDIFFUSIVITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcMoistureDiffusivityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCISOTHERMALMOISTURECAPACITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcIsothermalMoistureCapacityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSPECIFICHEATCAPACITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcSpecificHeatCapacityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMONETARYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcMonetaryMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMAGNETICFLUXDENSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcMagneticFluxDensityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMAGNETICFLUXMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcMagneticFluxMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLUMINOUSFLUXMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcLuminousFluxMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCFORCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcForceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCINDUCTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcInductanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCILLUMINANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcIlluminanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCELECTRICRESISTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcElectricResistanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCELECTRICCONDUCTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcElectricConductanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCELECTRICCHARGEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcElectricChargeMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCDOSEEQUIVALENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcDoseEquivalentMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCELECTRICCAPACITANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcElectricCapacitanceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCABSORBEDDOSEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcAbsorbedDoseMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCRADIOACTIVITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcRadioActivityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCROTATIONALFREQUENCYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcRotationalFrequencyMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTORQUEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcTorqueMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCACCELERATIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcAccelerationMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLINEARFORCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcLinearForceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLINEARSTIFFNESSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcLinearStiffnessMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMODULUSOFSUBGRADEREACTIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcModulusOfSubgradeReactionMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMODULUSOFELASTICITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcModulusOfElasticityMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMOMENTOFINERTIAMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcMomentOfInertiaMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCPLANARFORCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcPlanarForceMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCROTATIONALSTIFFNESSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcRotationalStiffnessMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSHEARMODULUSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcShearModulusMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLINEARMOMENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcLinearMomentMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCLUMINOUSINTENSITYDISTRIBUTIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcLuminousIntensityDistributionMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCCURVATUREMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcCurvatureMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMASSPERLENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcMassPerLengthMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMODULUSOFLINEARSUBGRADEREACTIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcModulusOfLinearSubgradeReactionMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCMODULUSOFROTATIONALSUBGRADEREACTIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcModulusOfRotationalSubgradeReactionMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCROTATIONALMASSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcRotationalMassMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSECTIONALAREAINTEGRALMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcSectionalAreaIntegralMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSECTIONMODULUSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcSectionModulusMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTEMPERATUREGRADIENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcTemperatureGradientMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCTHERMALEXPANSIONCOEFFICIENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcThermalExpansionCoefficientMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCWARPINGCONSTANTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcWarpingConstantMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCWARPINGMOMENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcWarpingMomentMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSOUNDPOWERMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcSoundPowerMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCSOUNDPRESSUREMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcSoundPressureMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCHEATINGVALUEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcHeatingValueMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCPHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcPHMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCIONCONCENTRATIONMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_soundLevelSingleValue->setIfcIonConcentrationMeasure(tmp_attr1);
+                if (type1 == "IFCVOLUMETRICFLOWRATEMEASURE")
+                {
+                    IfcVolumetricFlowRateMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcVolumetricFlowRateMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTHERMALTRANSMITTANCEMEASURE")
+                {
+                    IfcThermalTransmittanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcThermalTransmittanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTHERMALRESISTANCEMEASURE")
+                {
+                    IfcThermalResistanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcThermalResistanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTHERMALADMITTANCEMEASURE")
+                {
+                    IfcThermalAdmittanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcThermalAdmittanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCPRESSUREMEASURE")
+                {
+                    IfcPressureMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcPressureMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCPOWERMEASURE")
+                {
+                    IfcPowerMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcPowerMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMASSFLOWRATEMEASURE")
+                {
+                    IfcMassFlowRateMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcMassFlowRateMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMASSDENSITYMEASURE")
+                {
+                    IfcMassDensityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcMassDensityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLINEARVELOCITYMEASURE")
+                {
+                    IfcLinearVelocityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcLinearVelocityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCKINEMATICVISCOSITYMEASURE")
+                {
+                    IfcKinematicViscosityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcKinematicViscosityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCHEATFLUXDENSITYMEASURE")
+                {
+                    IfcHeatFluxDensityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcHeatFluxDensityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCFREQUENCYMEASURE")
+                {
+                    IfcFrequencyMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcFrequencyMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCENERGYMEASURE")
+                {
+                    IfcEnergyMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcEnergyMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCELECTRICVOLTAGEMEASURE")
+                {
+                    IfcElectricVoltageMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcElectricVoltageMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCDYNAMICVISCOSITYMEASURE")
+                {
+                    IfcDynamicViscosityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcDynamicViscosityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCANGULARVELOCITYMEASURE")
+                {
+                    IfcAngularVelocityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcAngularVelocityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTHERMALCONDUCTIVITYMEASURE")
+                {
+                    IfcThermalConductivityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcThermalConductivityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMOLECULARWEIGHTMEASURE")
+                {
+                    IfcMolecularWeightMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcMolecularWeightMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCVAPORPERMEABILITYMEASURE")
+                {
+                    IfcVaporPermeabilityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcVaporPermeabilityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMOISTUREDIFFUSIVITYMEASURE")
+                {
+                    IfcMoistureDiffusivityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcMoistureDiffusivityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCISOTHERMALMOISTURECAPACITYMEASURE")
+                {
+                    IfcIsothermalMoistureCapacityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcIsothermalMoistureCapacityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSPECIFICHEATCAPACITYMEASURE")
+                {
+                    IfcSpecificHeatCapacityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcSpecificHeatCapacityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMONETARYMEASURE")
+                {
+                    IfcMonetaryMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcMonetaryMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMAGNETICFLUXDENSITYMEASURE")
+                {
+                    IfcMagneticFluxDensityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcMagneticFluxDensityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMAGNETICFLUXMEASURE")
+                {
+                    IfcMagneticFluxMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcMagneticFluxMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLUMINOUSFLUXMEASURE")
+                {
+                    IfcLuminousFluxMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcLuminousFluxMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCFORCEMEASURE")
+                {
+                    IfcForceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcForceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCINDUCTANCEMEASURE")
+                {
+                    IfcInductanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcInductanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCILLUMINANCEMEASURE")
+                {
+                    IfcIlluminanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcIlluminanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCELECTRICRESISTANCEMEASURE")
+                {
+                    IfcElectricResistanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcElectricResistanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCELECTRICCONDUCTANCEMEASURE")
+                {
+                    IfcElectricConductanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcElectricConductanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCELECTRICCHARGEMEASURE")
+                {
+                    IfcElectricChargeMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcElectricChargeMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCDOSEEQUIVALENTMEASURE")
+                {
+                    IfcDoseEquivalentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcDoseEquivalentMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCELECTRICCAPACITANCEMEASURE")
+                {
+                    IfcElectricCapacitanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcElectricCapacitanceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCABSORBEDDOSEMEASURE")
+                {
+                    IfcAbsorbedDoseMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcAbsorbedDoseMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCRADIOACTIVITYMEASURE")
+                {
+                    IfcRadioActivityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcRadioActivityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCROTATIONALFREQUENCYMEASURE")
+                {
+                    IfcRotationalFrequencyMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcRotationalFrequencyMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTORQUEMEASURE")
+                {
+                    IfcTorqueMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcTorqueMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCACCELERATIONMEASURE")
+                {
+                    IfcAccelerationMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcAccelerationMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLINEARFORCEMEASURE")
+                {
+                    IfcLinearForceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcLinearForceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLINEARSTIFFNESSMEASURE")
+                {
+                    IfcLinearStiffnessMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcLinearStiffnessMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMODULUSOFSUBGRADEREACTIONMEASURE")
+                {
+                    IfcModulusOfSubgradeReactionMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcModulusOfSubgradeReactionMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMODULUSOFELASTICITYMEASURE")
+                {
+                    IfcModulusOfElasticityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcModulusOfElasticityMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMOMENTOFINERTIAMEASURE")
+                {
+                    IfcMomentOfInertiaMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcMomentOfInertiaMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCPLANARFORCEMEASURE")
+                {
+                    IfcPlanarForceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcPlanarForceMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCROTATIONALSTIFFNESSMEASURE")
+                {
+                    IfcRotationalStiffnessMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcRotationalStiffnessMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSHEARMODULUSMEASURE")
+                {
+                    IfcShearModulusMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcShearModulusMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLINEARMOMENTMEASURE")
+                {
+                    IfcLinearMomentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcLinearMomentMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCLUMINOUSINTENSITYDISTRIBUTIONMEASURE")
+                {
+                    IfcLuminousIntensityDistributionMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcLuminousIntensityDistributionMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCCURVATUREMEASURE")
+                {
+                    IfcCurvatureMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcCurvatureMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMASSPERLENGTHMEASURE")
+                {
+                    IfcMassPerLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcMassPerLengthMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMODULUSOFLINEARSUBGRADEREACTIONMEASURE")
+                {
+                    IfcModulusOfLinearSubgradeReactionMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcModulusOfLinearSubgradeReactionMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCMODULUSOFROTATIONALSUBGRADEREACTIONMEASURE")
+                {
+                    IfcModulusOfRotationalSubgradeReactionMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcModulusOfRotationalSubgradeReactionMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCROTATIONALMASSMEASURE")
+                {
+                    IfcRotationalMassMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcRotationalMassMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSECTIONALAREAINTEGRALMEASURE")
+                {
+                    IfcSectionalAreaIntegralMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcSectionalAreaIntegralMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSECTIONMODULUSMEASURE")
+                {
+                    IfcSectionModulusMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcSectionModulusMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTEMPERATUREGRADIENTMEASURE")
+                {
+                    IfcTemperatureGradientMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcTemperatureGradientMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCTHERMALEXPANSIONCOEFFICIENTMEASURE")
+                {
+                    IfcThermalExpansionCoefficientMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcThermalExpansionCoefficientMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCWARPINGCONSTANTMEASURE")
+                {
+                    IfcWarpingConstantMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcWarpingConstantMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCWARPINGMOMENTMEASURE")
+                {
+                    IfcWarpingMomentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcWarpingMomentMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSOUNDPOWERMEASURE")
+                {
+                    IfcSoundPowerMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcSoundPowerMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCSOUNDPRESSUREMEASURE")
+                {
+                    IfcSoundPressureMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcSoundPressureMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCHEATINGVALUEMEASURE")
+                {
+                    IfcHeatingValueMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcHeatingValueMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCPHMEASURE")
+                {
+                    IfcPHMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcPHMeasure(tmp_attr1);
+                }
+                else if (type1 == "IFCIONCONCENTRATIONMEASURE")
+                {
+                    IfcIonConcentrationMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_SoundLevelSingleValue->setIfcIonConcentrationMeasure(tmp_attr1);
                 }
             }
         }
@@ -538,13 +670,13 @@ bool IfcSoundValue::init() {
     return true;
 }
 
-void IfcSoundValue::copy(const IfcSoundValue &obj, const CopyOp &copyop) {
+void IfcSoundValue::copy(const IfcSoundValue &obj, const CopyOp &copyop)
+{
     IfcPropertySetDefinition::copy(obj, copyop);
-    setSoundLevelTimeSeries((IfcTimeSeries*)copyop(obj.m_soundLevelTimeSeries.get()));
-    setFrequency(obj.m_frequency);
-    m_soundLevelSingleValue = new IfcDerivedMeasureValue;
-    m_soundLevelSingleValue->copy(*(obj.m_soundLevelSingleValue.get()), copyop);
+    setSoundLevelTimeSeries((IfcTimeSeries*)copyop(obj.m_SoundLevelTimeSeries.get()));
+    setFrequency(obj.m_Frequency);
+    setSoundLevelSingleValue((IfcDerivedMeasureValue*)copyop(obj.m_SoundLevelSingleValue.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSoundValue::s_type("IfcSoundValue");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcSoundValue, IfcPropertySetDefinition)

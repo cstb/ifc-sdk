@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,490 +24,628 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcSpaceThermalLoadProperties.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcPropertySetDefinition.h>
 #include <ifc2x3/IfcTimeSeries.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcSpaceThermalLoadProperties::IfcSpaceThermalLoadProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
-    m_applicableValueRatio = Step::getUnset(m_applicableValueRatio);
-    m_thermalLoadSource = IfcThermalLoadSourceEnum_UNSET;
-    m_propertySource = IfcPropertySourceEnum_UNSET;
-    m_sourceDescription = Step::getUnset(m_sourceDescription);
-    m_maximumValue = Step::getUnset(m_maximumValue);
-    m_minimumValue = Step::getUnset(m_minimumValue);
-    m_thermalLoadTimeSeriesValues = NULL;
-    m_userDefinedThermalLoadSource = Step::getUnset(m_userDefinedThermalLoadSource);
-    m_userDefinedPropertySource = Step::getUnset(m_userDefinedPropertySource);
-    m_thermalLoadType = IfcThermalLoadTypeEnum_UNSET;
+IfcSpaceThermalLoadProperties::IfcSpaceThermalLoadProperties(Step::Id id, Step::SPFData *args) : 
+    IfcPropertySetDefinition(id, args)
+{
+    m_ApplicableValueRatio = Step::getUnset(m_ApplicableValueRatio);
+    m_ThermalLoadSource = IfcThermalLoadSourceEnum_UNSET;
+    m_PropertySource = IfcPropertySourceEnum_UNSET;
+    m_SourceDescription = Step::getUnset(m_SourceDescription);
+    m_MaximumValue = Step::getUnset(m_MaximumValue);
+    m_MinimumValue = Step::getUnset(m_MinimumValue);
+    m_ThermalLoadTimeSeriesValues = NULL;
+    m_UserDefinedThermalLoadSource = Step::getUnset(m_UserDefinedThermalLoadSource);
+    m_UserDefinedPropertySource = Step::getUnset(m_UserDefinedPropertySource);
+    m_ThermalLoadType = IfcThermalLoadTypeEnum_UNSET;
 }
 
-IfcSpaceThermalLoadProperties::~IfcSpaceThermalLoadProperties() {
+IfcSpaceThermalLoadProperties::~IfcSpaceThermalLoadProperties()
+{}
+
+bool IfcSpaceThermalLoadProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcSpaceThermalLoadProperties(this);
 }
 
-bool IfcSpaceThermalLoadProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcSpaceThermalLoadProperties(this);
-}
 
-const std::string &IfcSpaceThermalLoadProperties::type() const {
-    return IfcSpaceThermalLoadProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcSpaceThermalLoadProperties::getClassType() {
-    return IfcSpaceThermalLoadProperties::s_type;
-}
-
-const Step::ClassType &IfcSpaceThermalLoadProperties::getType() const {
-    return IfcSpaceThermalLoadProperties::s_type;
-}
-
-bool IfcSpaceThermalLoadProperties::isOfType(const Step::ClassType &t) const {
-    return IfcSpaceThermalLoadProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
-}
-
-IfcPositiveRatioMeasure IfcSpaceThermalLoadProperties::getApplicableValueRatio() {
-    if (Step::BaseObject::inited()) {
-        return m_applicableValueRatio;
+IfcPositiveRatioMeasure IfcSpaceThermalLoadProperties::getApplicableValueRatio()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ApplicableValueRatio;
     }
-    else {
-        return Step::getUnset(m_applicableValueRatio);
+    else 
+    {
+        return Step::getUnset(m_ApplicableValueRatio);
+    }    
+}
+
+IfcPositiveRatioMeasure IfcSpaceThermalLoadProperties::getApplicableValueRatio() const
+{
+    return const_cast<IfcSpaceThermalLoadProperties *>(this)->getApplicableValueRatio();
+}
+
+void IfcSpaceThermalLoadProperties::setApplicableValueRatio(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ApplicableValueRatio = value;
+}
+
+void IfcSpaceThermalLoadProperties::unsetApplicableValueRatio()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ApplicableValueRatio = Step::getUnset(getApplicableValueRatio());
+}
+
+bool IfcSpaceThermalLoadProperties::testApplicableValueRatio() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getApplicableValueRatio()) == false;
+}
+
+
+IfcThermalLoadSourceEnum IfcSpaceThermalLoadProperties::getThermalLoadSource()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ThermalLoadSource;
     }
-}
-
-const IfcPositiveRatioMeasure IfcSpaceThermalLoadProperties::getApplicableValueRatio() const {
-    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
-    return deConstObject->getApplicableValueRatio();
-}
-
-void IfcSpaceThermalLoadProperties::setApplicableValueRatio(IfcPositiveRatioMeasure value) {
-    m_applicableValueRatio = value;
-}
-
-void IfcSpaceThermalLoadProperties::unsetApplicableValueRatio() {
-    m_applicableValueRatio = Step::getUnset(getApplicableValueRatio());
-}
-
-bool IfcSpaceThermalLoadProperties::testApplicableValueRatio() const {
-    return !Step::isUnset(getApplicableValueRatio());
-}
-
-IfcThermalLoadSourceEnum IfcSpaceThermalLoadProperties::getThermalLoadSource() {
-    if (Step::BaseObject::inited()) {
-        return m_thermalLoadSource;
-    }
-    else {
+    else 
+    {
         return IfcThermalLoadSourceEnum_UNSET;
+    }    
+}
+
+IfcThermalLoadSourceEnum IfcSpaceThermalLoadProperties::getThermalLoadSource() const
+{
+    return const_cast<IfcSpaceThermalLoadProperties *>(this)->getThermalLoadSource();
+}
+
+void IfcSpaceThermalLoadProperties::setThermalLoadSource(IfcThermalLoadSourceEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalLoadSource = value;
+}
+
+void IfcSpaceThermalLoadProperties::unsetThermalLoadSource()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalLoadSource = IfcThermalLoadSourceEnum_UNSET;
+}
+
+bool IfcSpaceThermalLoadProperties::testThermalLoadSource() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getThermalLoadSource()) == false;
+}
+
+
+IfcPropertySourceEnum IfcSpaceThermalLoadProperties::getPropertySource()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PropertySource;
     }
-}
-
-const IfcThermalLoadSourceEnum IfcSpaceThermalLoadProperties::getThermalLoadSource() const {
-    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
-    return deConstObject->getThermalLoadSource();
-}
-
-void IfcSpaceThermalLoadProperties::setThermalLoadSource(IfcThermalLoadSourceEnum value) {
-    m_thermalLoadSource = value;
-}
-
-void IfcSpaceThermalLoadProperties::unsetThermalLoadSource() {
-    m_thermalLoadSource = IfcThermalLoadSourceEnum_UNSET;
-}
-
-bool IfcSpaceThermalLoadProperties::testThermalLoadSource() const {
-    return getThermalLoadSource() != IfcThermalLoadSourceEnum_UNSET;
-}
-
-IfcPropertySourceEnum IfcSpaceThermalLoadProperties::getPropertySource() {
-    if (Step::BaseObject::inited()) {
-        return m_propertySource;
-    }
-    else {
+    else 
+    {
         return IfcPropertySourceEnum_UNSET;
+    }    
+}
+
+IfcPropertySourceEnum IfcSpaceThermalLoadProperties::getPropertySource() const
+{
+    return const_cast<IfcSpaceThermalLoadProperties *>(this)->getPropertySource();
+}
+
+void IfcSpaceThermalLoadProperties::setPropertySource(IfcPropertySourceEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PropertySource = value;
+}
+
+void IfcSpaceThermalLoadProperties::unsetPropertySource()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PropertySource = IfcPropertySourceEnum_UNSET;
+}
+
+bool IfcSpaceThermalLoadProperties::testPropertySource() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPropertySource()) == false;
+}
+
+
+IfcText IfcSpaceThermalLoadProperties::getSourceDescription()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SourceDescription;
     }
+    else 
+    {
+        return Step::getUnset(m_SourceDescription);
+    }    
 }
 
-const IfcPropertySourceEnum IfcSpaceThermalLoadProperties::getPropertySource() const {
-    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
-    return deConstObject->getPropertySource();
+const IfcText IfcSpaceThermalLoadProperties::getSourceDescription() const
+{
+    return const_cast<IfcSpaceThermalLoadProperties *>(this)->getSourceDescription();
 }
 
-void IfcSpaceThermalLoadProperties::setPropertySource(IfcPropertySourceEnum value) {
-    m_propertySource = value;
+void IfcSpaceThermalLoadProperties::setSourceDescription(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SourceDescription = value;
 }
 
-void IfcSpaceThermalLoadProperties::unsetPropertySource() {
-    m_propertySource = IfcPropertySourceEnum_UNSET;
+void IfcSpaceThermalLoadProperties::unsetSourceDescription()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SourceDescription = Step::getUnset(getSourceDescription());
 }
 
-bool IfcSpaceThermalLoadProperties::testPropertySource() const {
-    return getPropertySource() != IfcPropertySourceEnum_UNSET;
+bool IfcSpaceThermalLoadProperties::testSourceDescription() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSourceDescription()) == false;
 }
 
-IfcText IfcSpaceThermalLoadProperties::getSourceDescription() {
-    if (Step::BaseObject::inited()) {
-        return m_sourceDescription;
+
+IfcPowerMeasure IfcSpaceThermalLoadProperties::getMaximumValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MaximumValue;
     }
-    else {
-        return Step::getUnset(m_sourceDescription);
+    else 
+    {
+        return Step::getUnset(m_MaximumValue);
+    }    
+}
+
+IfcPowerMeasure IfcSpaceThermalLoadProperties::getMaximumValue() const
+{
+    return const_cast<IfcSpaceThermalLoadProperties *>(this)->getMaximumValue();
+}
+
+void IfcSpaceThermalLoadProperties::setMaximumValue(IfcPowerMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MaximumValue = value;
+}
+
+void IfcSpaceThermalLoadProperties::unsetMaximumValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MaximumValue = Step::getUnset(getMaximumValue());
+}
+
+bool IfcSpaceThermalLoadProperties::testMaximumValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMaximumValue()) == false;
+}
+
+
+IfcPowerMeasure IfcSpaceThermalLoadProperties::getMinimumValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MinimumValue;
     }
+    else 
+    {
+        return Step::getUnset(m_MinimumValue);
+    }    
 }
 
-const IfcText IfcSpaceThermalLoadProperties::getSourceDescription() const {
-    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
-    return deConstObject->getSourceDescription();
+IfcPowerMeasure IfcSpaceThermalLoadProperties::getMinimumValue() const
+{
+    return const_cast<IfcSpaceThermalLoadProperties *>(this)->getMinimumValue();
 }
 
-void IfcSpaceThermalLoadProperties::setSourceDescription(const IfcText &value) {
-    m_sourceDescription = value;
+void IfcSpaceThermalLoadProperties::setMinimumValue(IfcPowerMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinimumValue = value;
 }
 
-void IfcSpaceThermalLoadProperties::unsetSourceDescription() {
-    m_sourceDescription = Step::getUnset(getSourceDescription());
+void IfcSpaceThermalLoadProperties::unsetMinimumValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinimumValue = Step::getUnset(getMinimumValue());
 }
 
-bool IfcSpaceThermalLoadProperties::testSourceDescription() const {
-    return !Step::isUnset(getSourceDescription());
+bool IfcSpaceThermalLoadProperties::testMinimumValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMinimumValue()) == false;
 }
 
-IfcPowerMeasure IfcSpaceThermalLoadProperties::getMaximumValue() {
-    if (Step::BaseObject::inited()) {
-        return m_maximumValue;
+
+IfcTimeSeries *IfcSpaceThermalLoadProperties::getThermalLoadTimeSeriesValues()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ThermalLoadTimeSeriesValues.get();
     }
-    else {
-        return Step::getUnset(m_maximumValue);
-    }
-}
-
-const IfcPowerMeasure IfcSpaceThermalLoadProperties::getMaximumValue() const {
-    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
-    return deConstObject->getMaximumValue();
-}
-
-void IfcSpaceThermalLoadProperties::setMaximumValue(IfcPowerMeasure value) {
-    m_maximumValue = value;
-}
-
-void IfcSpaceThermalLoadProperties::unsetMaximumValue() {
-    m_maximumValue = Step::getUnset(getMaximumValue());
-}
-
-bool IfcSpaceThermalLoadProperties::testMaximumValue() const {
-    return !Step::isUnset(getMaximumValue());
-}
-
-IfcPowerMeasure IfcSpaceThermalLoadProperties::getMinimumValue() {
-    if (Step::BaseObject::inited()) {
-        return m_minimumValue;
-    }
-    else {
-        return Step::getUnset(m_minimumValue);
-    }
-}
-
-const IfcPowerMeasure IfcSpaceThermalLoadProperties::getMinimumValue() const {
-    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
-    return deConstObject->getMinimumValue();
-}
-
-void IfcSpaceThermalLoadProperties::setMinimumValue(IfcPowerMeasure value) {
-    m_minimumValue = value;
-}
-
-void IfcSpaceThermalLoadProperties::unsetMinimumValue() {
-    m_minimumValue = Step::getUnset(getMinimumValue());
-}
-
-bool IfcSpaceThermalLoadProperties::testMinimumValue() const {
-    return !Step::isUnset(getMinimumValue());
-}
-
-IfcTimeSeries *IfcSpaceThermalLoadProperties::getThermalLoadTimeSeriesValues() {
-    if (Step::BaseObject::inited()) {
-        return m_thermalLoadTimeSeriesValues.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcTimeSeries *IfcSpaceThermalLoadProperties::getThermalLoadTimeSeriesValues() const
+{
+    return const_cast<IfcSpaceThermalLoadProperties *>(this)->getThermalLoadTimeSeriesValues();
+}
+
+void IfcSpaceThermalLoadProperties::setThermalLoadTimeSeriesValues(const Step::RefPtr< IfcTimeSeries > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalLoadTimeSeriesValues = value;
+}
+
+void IfcSpaceThermalLoadProperties::unsetThermalLoadTimeSeriesValues()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalLoadTimeSeriesValues = Step::getUnset(getThermalLoadTimeSeriesValues());
+}
+
+bool IfcSpaceThermalLoadProperties::testThermalLoadTimeSeriesValues() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getThermalLoadTimeSeriesValues()) == false;
+}
+
+
+IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedThermalLoadSource()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UserDefinedThermalLoadSource;
     }
+    else 
+    {
+        return Step::getUnset(m_UserDefinedThermalLoadSource);
+    }    
 }
 
-const IfcTimeSeries *IfcSpaceThermalLoadProperties::getThermalLoadTimeSeriesValues() const {
-    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
-    return deConstObject->getThermalLoadTimeSeriesValues();
+const IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedThermalLoadSource() const
+{
+    return const_cast<IfcSpaceThermalLoadProperties *>(this)->getUserDefinedThermalLoadSource();
 }
 
-void IfcSpaceThermalLoadProperties::setThermalLoadTimeSeriesValues(const Step::RefPtr< IfcTimeSeries > &value) {
-    m_thermalLoadTimeSeriesValues = value;
+void IfcSpaceThermalLoadProperties::setUserDefinedThermalLoadSource(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedThermalLoadSource = value;
 }
 
-void IfcSpaceThermalLoadProperties::unsetThermalLoadTimeSeriesValues() {
-    m_thermalLoadTimeSeriesValues = Step::getUnset(getThermalLoadTimeSeriesValues());
+void IfcSpaceThermalLoadProperties::unsetUserDefinedThermalLoadSource()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedThermalLoadSource = Step::getUnset(getUserDefinedThermalLoadSource());
 }
 
-bool IfcSpaceThermalLoadProperties::testThermalLoadTimeSeriesValues() const {
-    return !Step::isUnset(getThermalLoadTimeSeriesValues());
+bool IfcSpaceThermalLoadProperties::testUserDefinedThermalLoadSource() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUserDefinedThermalLoadSource()) == false;
 }
 
-IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedThermalLoadSource() {
-    if (Step::BaseObject::inited()) {
-        return m_userDefinedThermalLoadSource;
+
+IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedPropertySource()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UserDefinedPropertySource;
     }
-    else {
-        return Step::getUnset(m_userDefinedThermalLoadSource);
+    else 
+    {
+        return Step::getUnset(m_UserDefinedPropertySource);
+    }    
+}
+
+const IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedPropertySource() const
+{
+    return const_cast<IfcSpaceThermalLoadProperties *>(this)->getUserDefinedPropertySource();
+}
+
+void IfcSpaceThermalLoadProperties::setUserDefinedPropertySource(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedPropertySource = value;
+}
+
+void IfcSpaceThermalLoadProperties::unsetUserDefinedPropertySource()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedPropertySource = Step::getUnset(getUserDefinedPropertySource());
+}
+
+bool IfcSpaceThermalLoadProperties::testUserDefinedPropertySource() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUserDefinedPropertySource()) == false;
+}
+
+
+IfcThermalLoadTypeEnum IfcSpaceThermalLoadProperties::getThermalLoadType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ThermalLoadType;
     }
-}
-
-const IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedThermalLoadSource() const {
-    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
-    return deConstObject->getUserDefinedThermalLoadSource();
-}
-
-void IfcSpaceThermalLoadProperties::setUserDefinedThermalLoadSource(const IfcLabel &value) {
-    m_userDefinedThermalLoadSource = value;
-}
-
-void IfcSpaceThermalLoadProperties::unsetUserDefinedThermalLoadSource() {
-    m_userDefinedThermalLoadSource = Step::getUnset(getUserDefinedThermalLoadSource());
-}
-
-bool IfcSpaceThermalLoadProperties::testUserDefinedThermalLoadSource() const {
-    return !Step::isUnset(getUserDefinedThermalLoadSource());
-}
-
-IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedPropertySource() {
-    if (Step::BaseObject::inited()) {
-        return m_userDefinedPropertySource;
-    }
-    else {
-        return Step::getUnset(m_userDefinedPropertySource);
-    }
-}
-
-const IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedPropertySource() const {
-    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
-    return deConstObject->getUserDefinedPropertySource();
-}
-
-void IfcSpaceThermalLoadProperties::setUserDefinedPropertySource(const IfcLabel &value) {
-    m_userDefinedPropertySource = value;
-}
-
-void IfcSpaceThermalLoadProperties::unsetUserDefinedPropertySource() {
-    m_userDefinedPropertySource = Step::getUnset(getUserDefinedPropertySource());
-}
-
-bool IfcSpaceThermalLoadProperties::testUserDefinedPropertySource() const {
-    return !Step::isUnset(getUserDefinedPropertySource());
-}
-
-IfcThermalLoadTypeEnum IfcSpaceThermalLoadProperties::getThermalLoadType() {
-    if (Step::BaseObject::inited()) {
-        return m_thermalLoadType;
-    }
-    else {
+    else 
+    {
         return IfcThermalLoadTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcThermalLoadTypeEnum IfcSpaceThermalLoadProperties::getThermalLoadType() const {
-    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
-    return deConstObject->getThermalLoadType();
+IfcThermalLoadTypeEnum IfcSpaceThermalLoadProperties::getThermalLoadType() const
+{
+    return const_cast<IfcSpaceThermalLoadProperties *>(this)->getThermalLoadType();
 }
 
-void IfcSpaceThermalLoadProperties::setThermalLoadType(IfcThermalLoadTypeEnum value) {
-    m_thermalLoadType = value;
+void IfcSpaceThermalLoadProperties::setThermalLoadType(IfcThermalLoadTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalLoadType = value;
 }
 
-void IfcSpaceThermalLoadProperties::unsetThermalLoadType() {
-    m_thermalLoadType = IfcThermalLoadTypeEnum_UNSET;
+void IfcSpaceThermalLoadProperties::unsetThermalLoadType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ThermalLoadType = IfcThermalLoadTypeEnum_UNSET;
 }
 
-bool IfcSpaceThermalLoadProperties::testThermalLoadType() const {
-    return getThermalLoadType() != IfcThermalLoadTypeEnum_UNSET;
+bool IfcSpaceThermalLoadProperties::testThermalLoadType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getThermalLoadType()) == false;
 }
 
-bool IfcSpaceThermalLoadProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
-    std::string arg;
-    if (!status) {
+bool IfcSpaceThermalLoadProperties::init()
+{
+    if (IfcPropertySetDefinition::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_applicableValueRatio = Step::getUnset(m_applicableValueRatio);
+    if (arg == "$" || arg == "*")
+    {
+        m_ApplicableValueRatio = Step::getUnset(m_ApplicableValueRatio);
     }
-    else {
-        m_applicableValueRatio = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_thermalLoadSource = IfcThermalLoadSourceEnum_UNSET;
-    }
-    else {
-        if (arg == ".PEOPLE.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_PEOPLE;
-        }
-        else if (arg == ".LIGHTING.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_LIGHTING;
-        }
-        else if (arg == ".EQUIPMENT.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_EQUIPMENT;
-        }
-        else if (arg == ".VENTILATIONINDOORAIR.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_VENTILATIONINDOORAIR;
-        }
-        else if (arg == ".VENTILATIONOUTSIDEAIR.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_VENTILATIONOUTSIDEAIR;
-        }
-        else if (arg == ".RECIRCULATEDAIR.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_RECIRCULATEDAIR;
-        }
-        else if (arg == ".EXHAUSTAIR.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_EXHAUSTAIR;
-        }
-        else if (arg == ".AIREXCHANGERATE.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_AIREXCHANGERATE;
-        }
-        else if (arg == ".DRYBULBTEMPERATURE.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_DRYBULBTEMPERATURE;
-        }
-        else if (arg == ".RELATIVEHUMIDITY.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_RELATIVEHUMIDITY;
-        }
-        else if (arg == ".INFILTRATION.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_INFILTRATION;
-        }
-        else if (arg == ".USERDEFINED.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_USERDEFINED;
-        }
-        else if (arg == ".NOTDEFINED.") {
-            m_thermalLoadSource = IfcThermalLoadSourceEnum_NOTDEFINED;
-        }
+    else
+    {
+        m_ApplicableValueRatio = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_propertySource = IfcPropertySourceEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_ThermalLoadSource = IfcThermalLoadSourceEnum_UNSET;
     }
-    else {
-        if (arg == ".DESIGN.") {
-            m_propertySource = IfcPropertySourceEnum_DESIGN;
+    else
+    {
+        if (arg == ".PEOPLE.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_PEOPLE;
         }
-        else if (arg == ".DESIGNMAXIMUM.") {
-            m_propertySource = IfcPropertySourceEnum_DESIGNMAXIMUM;
+        else if (arg == ".LIGHTING.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_LIGHTING;
         }
-        else if (arg == ".DESIGNMINIMUM.") {
-            m_propertySource = IfcPropertySourceEnum_DESIGNMINIMUM;
+        else if (arg == ".EQUIPMENT.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_EQUIPMENT;
         }
-        else if (arg == ".SIMULATED.") {
-            m_propertySource = IfcPropertySourceEnum_SIMULATED;
+        else if (arg == ".VENTILATIONINDOORAIR.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_VENTILATIONINDOORAIR;
         }
-        else if (arg == ".ASBUILT.") {
-            m_propertySource = IfcPropertySourceEnum_ASBUILT;
+        else if (arg == ".VENTILATIONOUTSIDEAIR.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_VENTILATIONOUTSIDEAIR;
         }
-        else if (arg == ".COMMISSIONING.") {
-            m_propertySource = IfcPropertySourceEnum_COMMISSIONING;
+        else if (arg == ".RECIRCULATEDAIR.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_RECIRCULATEDAIR;
         }
-        else if (arg == ".MEASURED.") {
-            m_propertySource = IfcPropertySourceEnum_MEASURED;
+        else if (arg == ".EXHAUSTAIR.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_EXHAUSTAIR;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_propertySource = IfcPropertySourceEnum_USERDEFINED;
+        else if (arg == ".AIREXCHANGERATE.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_AIREXCHANGERATE;
         }
-        else if (arg == ".NOTKNOWN.") {
-            m_propertySource = IfcPropertySourceEnum_NOTKNOWN;
+        else if (arg == ".DRYBULBTEMPERATURE.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_DRYBULBTEMPERATURE;
+        }
+        else if (arg == ".RELATIVEHUMIDITY.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_RELATIVEHUMIDITY;
+        }
+        else if (arg == ".INFILTRATION.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_INFILTRATION;
+        }
+        else if (arg == ".USERDEFINED.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_USERDEFINED;
+        }
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_ThermalLoadSource = IfcThermalLoadSourceEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_sourceDescription = Step::getUnset(m_sourceDescription);
+    if (arg == "$" || arg == "*")
+    {
+        m_PropertySource = IfcPropertySourceEnum_UNSET;
     }
-    else {
-        m_sourceDescription = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_maximumValue = Step::getUnset(m_maximumValue);
-    }
-    else {
-        m_maximumValue = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_minimumValue = Step::getUnset(m_minimumValue);
-    }
-    else {
-        m_minimumValue = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_thermalLoadTimeSeriesValues = NULL;
-    }
-    else {
-        m_thermalLoadTimeSeriesValues = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_userDefinedThermalLoadSource = Step::getUnset(m_userDefinedThermalLoadSource);
-    }
-    else {
-        m_userDefinedThermalLoadSource = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_userDefinedPropertySource = Step::getUnset(m_userDefinedPropertySource);
-    }
-    else {
-        m_userDefinedPropertySource = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_thermalLoadType = IfcThermalLoadTypeEnum_UNSET;
-    }
-    else {
-        if (arg == ".SENSIBLE.") {
-            m_thermalLoadType = IfcThermalLoadTypeEnum_SENSIBLE;
+    else
+    {
+        if (arg == ".DESIGN.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_DESIGN;
         }
-        else if (arg == ".LATENT.") {
-            m_thermalLoadType = IfcThermalLoadTypeEnum_LATENT;
+        else if (arg == ".DESIGNMAXIMUM.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_DESIGNMAXIMUM;
         }
-        else if (arg == ".RADIANT.") {
-            m_thermalLoadType = IfcThermalLoadTypeEnum_RADIANT;
+        else if (arg == ".DESIGNMINIMUM.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_DESIGNMINIMUM;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_thermalLoadType = IfcThermalLoadTypeEnum_NOTDEFINED;
+        else if (arg == ".SIMULATED.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_SIMULATED;
+        }
+        else if (arg == ".ASBUILT.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_ASBUILT;
+        }
+        else if (arg == ".COMMISSIONING.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_COMMISSIONING;
+        }
+        else if (arg == ".MEASURED.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_MEASURED;
+        }
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_USERDEFINED;
+        }
+        else if (arg == ".NOTKNOWN.")
+        {
+            m_PropertySource = IfcPropertySourceEnum_NOTKNOWN;
+        }
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_SourceDescription = Step::getUnset(m_SourceDescription);
+    }
+    else
+    {
+        m_SourceDescription = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_MaximumValue = Step::getUnset(m_MaximumValue);
+    }
+    else
+    {
+        m_MaximumValue = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_MinimumValue = Step::getUnset(m_MinimumValue);
+    }
+    else
+    {
+        m_MinimumValue = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ThermalLoadTimeSeriesValues = NULL;
+    }
+    else
+    {
+        m_ThermalLoadTimeSeriesValues = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_UserDefinedThermalLoadSource = Step::getUnset(m_UserDefinedThermalLoadSource);
+    }
+    else
+    {
+        m_UserDefinedThermalLoadSource = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_UserDefinedPropertySource = Step::getUnset(m_UserDefinedPropertySource);
+    }
+    else
+    {
+        m_UserDefinedPropertySource = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ThermalLoadType = IfcThermalLoadTypeEnum_UNSET;
+    }
+    else
+    {
+        if (arg == ".SENSIBLE.")
+        {
+            m_ThermalLoadType = IfcThermalLoadTypeEnum_SENSIBLE;
+        }
+        else if (arg == ".LATENT.")
+        {
+            m_ThermalLoadType = IfcThermalLoadTypeEnum_LATENT;
+        }
+        else if (arg == ".RADIANT.")
+        {
+            m_ThermalLoadType = IfcThermalLoadTypeEnum_RADIANT;
+        }
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_ThermalLoadType = IfcThermalLoadTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcSpaceThermalLoadProperties::copy(const IfcSpaceThermalLoadProperties &obj, const CopyOp &copyop) {
+void IfcSpaceThermalLoadProperties::copy(const IfcSpaceThermalLoadProperties &obj, const CopyOp &copyop)
+{
     IfcPropertySetDefinition::copy(obj, copyop);
-    setApplicableValueRatio(obj.m_applicableValueRatio);
-    setThermalLoadSource(obj.m_thermalLoadSource);
-    setPropertySource(obj.m_propertySource);
-    setSourceDescription(obj.m_sourceDescription);
-    setMaximumValue(obj.m_maximumValue);
-    setMinimumValue(obj.m_minimumValue);
-    setThermalLoadTimeSeriesValues((IfcTimeSeries*)copyop(obj.m_thermalLoadTimeSeriesValues.get()));
-    setUserDefinedThermalLoadSource(obj.m_userDefinedThermalLoadSource);
-    setUserDefinedPropertySource(obj.m_userDefinedPropertySource);
-    setThermalLoadType(obj.m_thermalLoadType);
+    setApplicableValueRatio(obj.m_ApplicableValueRatio);
+    setThermalLoadSource(obj.m_ThermalLoadSource);
+    setPropertySource(obj.m_PropertySource);
+    setSourceDescription(obj.m_SourceDescription);
+    setMaximumValue(obj.m_MaximumValue);
+    setMinimumValue(obj.m_MinimumValue);
+    setThermalLoadTimeSeriesValues((IfcTimeSeries*)copyop(obj.m_ThermalLoadTimeSeriesValues.get()));
+    setUserDefinedThermalLoadSource(obj.m_UserDefinedThermalLoadSource);
+    setUserDefinedPropertySource(obj.m_UserDefinedPropertySource);
+    setThermalLoadType(obj.m_ThermalLoadType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSpaceThermalLoadProperties::s_type("IfcSpaceThermalLoadProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcSpaceThermalLoadProperties, IfcPropertySetDefinition)

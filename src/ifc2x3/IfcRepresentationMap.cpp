@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,146 +24,151 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRepresentationMap.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcAxis2Placement.h>
-#include <ifc2x3/IfcMappedItem.h>
 #include <ifc2x3/IfcRepresentation.h>
+#include <ifc2x3/IfcMappedItem.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRepresentationMap::IfcRepresentationMap(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_mappingOrigin = NULL;
-    m_mappedRepresentation = NULL;
+IfcRepresentationMap::IfcRepresentationMap(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_MappingOrigin = NULL;
+    m_MappedRepresentation = NULL;
 }
 
-IfcRepresentationMap::~IfcRepresentationMap() {
+IfcRepresentationMap::~IfcRepresentationMap()
+{}
+
+bool IfcRepresentationMap::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRepresentationMap(this);
 }
 
-bool IfcRepresentationMap::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRepresentationMap(this);
-}
 
-const std::string &IfcRepresentationMap::type() const {
-    return IfcRepresentationMap::s_type.getName();
-}
-
-const Step::ClassType &IfcRepresentationMap::getClassType() {
-    return IfcRepresentationMap::s_type;
-}
-
-const Step::ClassType &IfcRepresentationMap::getType() const {
-    return IfcRepresentationMap::s_type;
-}
-
-bool IfcRepresentationMap::isOfType(const Step::ClassType &t) const {
-    return IfcRepresentationMap::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcAxis2Placement *IfcRepresentationMap::getMappingOrigin() {
-    if (Step::BaseObject::inited()) {
-        return m_mappingOrigin.get();
+IfcAxis2Placement *IfcRepresentationMap::getMappingOrigin()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MappingOrigin.get();
     }
-    else {
+    else 
+    {
+        return NULL;
+    }    
+}
+
+const IfcAxis2Placement *IfcRepresentationMap::getMappingOrigin() const
+{
+    return const_cast<IfcRepresentationMap *>(this)->getMappingOrigin();
+}
+
+void IfcRepresentationMap::setMappingOrigin(const Step::RefPtr< IfcAxis2Placement > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MappingOrigin = value;
+}
+
+void IfcRepresentationMap::unsetMappingOrigin()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MappingOrigin = Step::getUnset(getMappingOrigin());
+}
+
+bool IfcRepresentationMap::testMappingOrigin() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMappingOrigin()) == false;
+}
+
+IfcRepresentation *IfcRepresentationMap::getMappedRepresentation()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_MappedRepresentation.get();
+    }
+    else
+    {
         return NULL;
     }
 }
 
-const IfcAxis2Placement *IfcRepresentationMap::getMappingOrigin() const {
-    IfcRepresentationMap * deConstObject = const_cast< IfcRepresentationMap * > (this);
-    return deConstObject->getMappingOrigin();
+const IfcRepresentation *IfcRepresentationMap::getMappedRepresentation() const
+{
+    return const_cast< IfcRepresentationMap * > (this)->getMappedRepresentation();
 }
 
-void IfcRepresentationMap::setMappingOrigin(const Step::RefPtr< IfcAxis2Placement > &value) {
-    m_mappingOrigin = value;
-}
-
-void IfcRepresentationMap::unsetMappingOrigin() {
-    m_mappingOrigin = Step::getUnset(getMappingOrigin());
-}
-
-bool IfcRepresentationMap::testMappingOrigin() const {
-    return !Step::isUnset(getMappingOrigin());
-}
-
-IfcRepresentation *IfcRepresentationMap::getMappedRepresentation() {
-    if (Step::BaseObject::inited()) {
-        return m_mappedRepresentation.get();
+void IfcRepresentationMap::setMappedRepresentation(const Step::RefPtr< IfcRepresentation > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_MappedRepresentation.valid())
+    {
+        m_MappedRepresentation->m_RepresentationMap.erase(this);
     }
-    else {
-        return NULL;
+    if (value.valid() )
+    {
+       value->m_RepresentationMap.insert(this);
     }
+    m_MappedRepresentation = value;
 }
 
-const IfcRepresentation *IfcRepresentationMap::getMappedRepresentation() const {
-    IfcRepresentationMap * deConstObject = const_cast< IfcRepresentationMap * > (this);
-    return deConstObject->getMappedRepresentation();
+void IfcRepresentationMap::unsetMappedRepresentation()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MappedRepresentation = Step::getUnset(getMappedRepresentation());
 }
 
-void IfcRepresentationMap::setMappedRepresentation(const Step::RefPtr< IfcRepresentation > &value) {
-    if (m_mappedRepresentation.valid()) {
-        m_mappedRepresentation->m_representationMap.erase(this);
+bool IfcRepresentationMap::testMappedRepresentation() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMappedRepresentation()) == false;
+}
+
+Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_MapUsage;
     }
-    if (value.valid()) {
-        value->m_representationMap.insert(this);
-    }
-    m_mappedRepresentation = value;
+ 
+    m_MapUsage.setUnset(true);
+    return m_MapUsage;
 }
 
-void IfcRepresentationMap::unsetMappedRepresentation() {
-    m_mappedRepresentation = Step::getUnset(getMappedRepresentation());
+const Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() const
+{
+    return  const_cast< IfcRepresentationMap * > (this)->getMapUsage();
 }
 
-bool IfcRepresentationMap::testMappedRepresentation() const {
-    return !Step::isUnset(getMappedRepresentation());
+bool IfcRepresentationMap::testMapUsage() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_MapUsage.isUnset() == false;
 }
 
-Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() {
-    if (Step::BaseObject::inited()) {
-        return m_mapUsage;
-    }
-    else {
-        m_mapUsage.setUnset(true);
-        return m_mapUsage;
-    }
-}
-
-const Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() const {
-    IfcRepresentationMap * deConstObject = const_cast< IfcRepresentationMap * > (this);
-    return deConstObject->getMapUsage();
-}
-
-bool IfcRepresentationMap::testMapUsage() const {
-    return !m_mapUsage.isUnset();
-}
-
-bool IfcRepresentationMap::init() {
+bool IfcRepresentationMap::init()
+{
     std::string arg;
-    std::vector< Step::Id > *inverses;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_mappingOrigin = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_MappingOrigin = NULL;
     }
-    else {
-        m_mappingOrigin = new IfcAxis2Placement;
+    else
+    {
+        m_MappingOrigin = new IfcAxis2Placement;
         if (arg[0] == '#') {
-            m_mappingOrigin->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_MappingOrigin->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -167,29 +181,35 @@ bool IfcRepresentationMap::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_mappedRepresentation = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_MappedRepresentation = NULL;
     }
-    else {
-        m_mappedRepresentation = static_cast< IfcRepresentation * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_MappedRepresentation = static_cast< IfcRepresentation * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
+    std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcMappedItem::getClassType(), 0);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_mapUsage.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_mapUsage.insert(static_cast< IfcMappedItem * > (m_expressDataSet->get((*inverses)[i])));
+        m_MapUsage.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_MapUsage.insert(static_cast< IfcMappedItem * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcRepresentationMap::copy(const IfcRepresentationMap &obj, const CopyOp &copyop) {
+void IfcRepresentationMap::copy(const IfcRepresentationMap &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    m_mappingOrigin = new IfcAxis2Placement;
-    m_mappingOrigin->copy(*(obj.m_mappingOrigin.get()), copyop);
-    setMappedRepresentation((IfcRepresentation*)copyop(obj.m_mappedRepresentation.get()));
+    setMappingOrigin((IfcAxis2Placement*)copyop(obj.m_MappingOrigin.get()));
+    setMappedRepresentation((IfcRepresentation*)copyop(obj.m_MappedRepresentation.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRepresentationMap::s_type("IfcRepresentationMap");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRepresentationMap, Step::BaseEntity)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,92 +24,87 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcCsgSolid.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcCsgSelect.h>
-#include <ifc2x3/IfcSolidModel.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcCsgSolid::IfcCsgSolid(Step::Id id, Step::SPFData *args) : IfcSolidModel(id, args) {
-    m_treeRootExpression = NULL;
+IfcCsgSolid::IfcCsgSolid(Step::Id id, Step::SPFData *args) : 
+    IfcSolidModel(id, args)
+{
+    m_TreeRootExpression = NULL;
 }
 
-IfcCsgSolid::~IfcCsgSolid() {
+IfcCsgSolid::~IfcCsgSolid()
+{}
+
+bool IfcCsgSolid::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcCsgSolid(this);
 }
 
-bool IfcCsgSolid::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcCsgSolid(this);
-}
 
-const std::string &IfcCsgSolid::type() const {
-    return IfcCsgSolid::s_type.getName();
-}
-
-const Step::ClassType &IfcCsgSolid::getClassType() {
-    return IfcCsgSolid::s_type;
-}
-
-const Step::ClassType &IfcCsgSolid::getType() const {
-    return IfcCsgSolid::s_type;
-}
-
-bool IfcCsgSolid::isOfType(const Step::ClassType &t) const {
-    return IfcCsgSolid::s_type == t ? true : IfcSolidModel::isOfType(t);
-}
-
-IfcCsgSelect *IfcCsgSolid::getTreeRootExpression() {
-    if (Step::BaseObject::inited()) {
-        return m_treeRootExpression.get();
+IfcCsgSelect *IfcCsgSolid::getTreeRootExpression()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TreeRootExpression.get();
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcCsgSelect *IfcCsgSolid::getTreeRootExpression() const {
-    IfcCsgSolid * deConstObject = const_cast< IfcCsgSolid * > (this);
-    return deConstObject->getTreeRootExpression();
+const IfcCsgSelect *IfcCsgSolid::getTreeRootExpression() const
+{
+    return const_cast<IfcCsgSolid *>(this)->getTreeRootExpression();
 }
 
-void IfcCsgSolid::setTreeRootExpression(const Step::RefPtr< IfcCsgSelect > &value) {
-    m_treeRootExpression = value;
+void IfcCsgSolid::setTreeRootExpression(const Step::RefPtr< IfcCsgSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TreeRootExpression = value;
 }
 
-void IfcCsgSolid::unsetTreeRootExpression() {
-    m_treeRootExpression = Step::getUnset(getTreeRootExpression());
+void IfcCsgSolid::unsetTreeRootExpression()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TreeRootExpression = Step::getUnset(getTreeRootExpression());
 }
 
-bool IfcCsgSolid::testTreeRootExpression() const {
-    return !Step::isUnset(getTreeRootExpression());
+bool IfcCsgSolid::testTreeRootExpression() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTreeRootExpression()) == false;
 }
 
-bool IfcCsgSolid::init() {
-    bool status = IfcSolidModel::init();
-    std::string arg;
-    if (!status) {
+bool IfcCsgSolid::init()
+{
+    if (IfcSolidModel::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_treeRootExpression = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TreeRootExpression = NULL;
     }
-    else {
-        m_treeRootExpression = new IfcCsgSelect;
+    else
+    {
+        m_TreeRootExpression = new IfcCsgSelect;
         if (arg[0] == '#') {
-            m_treeRootExpression->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_TreeRootExpression->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -115,11 +119,11 @@ bool IfcCsgSolid::init() {
     return true;
 }
 
-void IfcCsgSolid::copy(const IfcCsgSolid &obj, const CopyOp &copyop) {
+void IfcCsgSolid::copy(const IfcCsgSolid &obj, const CopyOp &copyop)
+{
     IfcSolidModel::copy(obj, copyop);
-    m_treeRootExpression = new IfcCsgSelect;
-    m_treeRootExpression->copy(*(obj.m_treeRootExpression.get()), copyop);
+    setTreeRootExpression((IfcCsgSelect*)copyop(obj.m_TreeRootExpression.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCsgSolid::s_type("IfcCsgSolid");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcCsgSolid, IfcSolidModel)

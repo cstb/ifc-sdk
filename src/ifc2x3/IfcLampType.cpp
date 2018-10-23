@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,118 +24,124 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcLampType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcFlowTerminalType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcLampType::IfcLampType(Step::Id id, Step::SPFData *args) : IfcFlowTerminalType(id, args) {
-    m_predefinedType = IfcLampTypeEnum_UNSET;
+IfcLampType::IfcLampType(Step::Id id, Step::SPFData *args) : 
+    IfcFlowTerminalType(id, args)
+{
+    m_PredefinedType = IfcLampTypeEnum_UNSET;
 }
 
-IfcLampType::~IfcLampType() {
+IfcLampType::~IfcLampType()
+{}
+
+bool IfcLampType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcLampType(this);
 }
 
-bool IfcLampType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcLampType(this);
-}
 
-const std::string &IfcLampType::type() const {
-    return IfcLampType::s_type.getName();
-}
-
-const Step::ClassType &IfcLampType::getClassType() {
-    return IfcLampType::s_type;
-}
-
-const Step::ClassType &IfcLampType::getType() const {
-    return IfcLampType::s_type;
-}
-
-bool IfcLampType::isOfType(const Step::ClassType &t) const {
-    return IfcLampType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
-}
-
-IfcLampTypeEnum IfcLampType::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcLampTypeEnum IfcLampType::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcLampTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcLampTypeEnum IfcLampType::getPredefinedType() const {
-    IfcLampType * deConstObject = const_cast< IfcLampType * > (this);
-    return deConstObject->getPredefinedType();
+IfcLampTypeEnum IfcLampType::getPredefinedType() const
+{
+    return const_cast<IfcLampType *>(this)->getPredefinedType();
 }
 
-void IfcLampType::setPredefinedType(IfcLampTypeEnum value) {
-    m_predefinedType = value;
+void IfcLampType::setPredefinedType(IfcLampTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcLampType::unsetPredefinedType() {
-    m_predefinedType = IfcLampTypeEnum_UNSET;
+void IfcLampType::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcLampTypeEnum_UNSET;
 }
 
-bool IfcLampType::testPredefinedType() const {
-    return getPredefinedType() != IfcLampTypeEnum_UNSET;
+bool IfcLampType::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcLampType::init() {
-    bool status = IfcFlowTerminalType::init();
-    std::string arg;
-    if (!status) {
+bool IfcLampType::init()
+{
+    if (IfcFlowTerminalType::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcLampTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcLampTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".COMPACTFLUORESCENT.") {
-            m_predefinedType = IfcLampTypeEnum_COMPACTFLUORESCENT;
+    else
+    {
+        if (arg == ".COMPACTFLUORESCENT.")
+        {
+            m_PredefinedType = IfcLampTypeEnum_COMPACTFLUORESCENT;
         }
-        else if (arg == ".FLUORESCENT.") {
-            m_predefinedType = IfcLampTypeEnum_FLUORESCENT;
+        else if (arg == ".FLUORESCENT.")
+        {
+            m_PredefinedType = IfcLampTypeEnum_FLUORESCENT;
         }
-        else if (arg == ".HIGHPRESSUREMERCURY.") {
-            m_predefinedType = IfcLampTypeEnum_HIGHPRESSUREMERCURY;
+        else if (arg == ".HIGHPRESSUREMERCURY.")
+        {
+            m_PredefinedType = IfcLampTypeEnum_HIGHPRESSUREMERCURY;
         }
-        else if (arg == ".HIGHPRESSURESODIUM.") {
-            m_predefinedType = IfcLampTypeEnum_HIGHPRESSURESODIUM;
+        else if (arg == ".HIGHPRESSURESODIUM.")
+        {
+            m_PredefinedType = IfcLampTypeEnum_HIGHPRESSURESODIUM;
         }
-        else if (arg == ".METALHALIDE.") {
-            m_predefinedType = IfcLampTypeEnum_METALHALIDE;
+        else if (arg == ".METALHALIDE.")
+        {
+            m_PredefinedType = IfcLampTypeEnum_METALHALIDE;
         }
-        else if (arg == ".TUNGSTENFILAMENT.") {
-            m_predefinedType = IfcLampTypeEnum_TUNGSTENFILAMENT;
+        else if (arg == ".TUNGSTENFILAMENT.")
+        {
+            m_PredefinedType = IfcLampTypeEnum_TUNGSTENFILAMENT;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcLampTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcLampTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcLampTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcLampTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcLampType::copy(const IfcLampType &obj, const CopyOp &copyop) {
+void IfcLampType::copy(const IfcLampType &obj, const CopyOp &copyop)
+{
     IfcFlowTerminalType::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLampType::s_type("IfcLampType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcLampType, IfcFlowTerminalType)

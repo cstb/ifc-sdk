@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,130 +24,144 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRectangleProfileDef.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcParameterizedProfileDef.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRectangleProfileDef::IfcRectangleProfileDef(Step::Id id, Step::SPFData *args) : IfcParameterizedProfileDef(id, args) {
-    m_xDim = Step::getUnset(m_xDim);
-    m_yDim = Step::getUnset(m_yDim);
+IfcRectangleProfileDef::IfcRectangleProfileDef(Step::Id id, Step::SPFData *args) : 
+    IfcParameterizedProfileDef(id, args)
+{
+    m_XDim = Step::getUnset(m_XDim);
+    m_YDim = Step::getUnset(m_YDim);
 }
 
-IfcRectangleProfileDef::~IfcRectangleProfileDef() {
+IfcRectangleProfileDef::~IfcRectangleProfileDef()
+{}
+
+bool IfcRectangleProfileDef::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRectangleProfileDef(this);
 }
 
-bool IfcRectangleProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRectangleProfileDef(this);
-}
 
-const std::string &IfcRectangleProfileDef::type() const {
-    return IfcRectangleProfileDef::s_type.getName();
-}
-
-const Step::ClassType &IfcRectangleProfileDef::getClassType() {
-    return IfcRectangleProfileDef::s_type;
-}
-
-const Step::ClassType &IfcRectangleProfileDef::getType() const {
-    return IfcRectangleProfileDef::s_type;
-}
-
-bool IfcRectangleProfileDef::isOfType(const Step::ClassType &t) const {
-    return IfcRectangleProfileDef::s_type == t ? true : IfcParameterizedProfileDef::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcRectangleProfileDef::getXDim() {
-    if (Step::BaseObject::inited()) {
-        return m_xDim;
+IfcPositiveLengthMeasure IfcRectangleProfileDef::getXDim()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_XDim;
     }
-    else {
-        return Step::getUnset(m_xDim);
+    else 
+    {
+        return Step::getUnset(m_XDim);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcRectangleProfileDef::getXDim() const
+{
+    return const_cast<IfcRectangleProfileDef *>(this)->getXDim();
+}
+
+void IfcRectangleProfileDef::setXDim(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_XDim = value;
+}
+
+void IfcRectangleProfileDef::unsetXDim()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_XDim = Step::getUnset(getXDim());
+}
+
+bool IfcRectangleProfileDef::testXDim() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getXDim()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcRectangleProfileDef::getYDim()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_YDim;
     }
+    else 
+    {
+        return Step::getUnset(m_YDim);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcRectangleProfileDef::getXDim() const {
-    IfcRectangleProfileDef * deConstObject = const_cast< IfcRectangleProfileDef * > (this);
-    return deConstObject->getXDim();
+IfcPositiveLengthMeasure IfcRectangleProfileDef::getYDim() const
+{
+    return const_cast<IfcRectangleProfileDef *>(this)->getYDim();
 }
 
-void IfcRectangleProfileDef::setXDim(IfcPositiveLengthMeasure value) {
-    m_xDim = value;
+void IfcRectangleProfileDef::setYDim(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_YDim = value;
 }
 
-void IfcRectangleProfileDef::unsetXDim() {
-    m_xDim = Step::getUnset(getXDim());
+void IfcRectangleProfileDef::unsetYDim()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_YDim = Step::getUnset(getYDim());
 }
 
-bool IfcRectangleProfileDef::testXDim() const {
-    return !Step::isUnset(getXDim());
+bool IfcRectangleProfileDef::testYDim() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getYDim()) == false;
 }
 
-IfcPositiveLengthMeasure IfcRectangleProfileDef::getYDim() {
-    if (Step::BaseObject::inited()) {
-        return m_yDim;
-    }
-    else {
-        return Step::getUnset(m_yDim);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcRectangleProfileDef::getYDim() const {
-    IfcRectangleProfileDef * deConstObject = const_cast< IfcRectangleProfileDef * > (this);
-    return deConstObject->getYDim();
-}
-
-void IfcRectangleProfileDef::setYDim(IfcPositiveLengthMeasure value) {
-    m_yDim = value;
-}
-
-void IfcRectangleProfileDef::unsetYDim() {
-    m_yDim = Step::getUnset(getYDim());
-}
-
-bool IfcRectangleProfileDef::testYDim() const {
-    return !Step::isUnset(getYDim());
-}
-
-bool IfcRectangleProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
-    std::string arg;
-    if (!status) {
+bool IfcRectangleProfileDef::init()
+{
+    if (IfcParameterizedProfileDef::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_xDim = Step::getUnset(m_xDim);
+    if (arg == "$" || arg == "*")
+    {
+        m_XDim = Step::getUnset(m_XDim);
     }
-    else {
-        m_xDim = Step::spfToReal(arg);
+    else
+    {
+        m_XDim = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_yDim = Step::getUnset(m_yDim);
+    if (arg == "$" || arg == "*")
+    {
+        m_YDim = Step::getUnset(m_YDim);
     }
-    else {
-        m_yDim = Step::spfToReal(arg);
+    else
+    {
+        m_YDim = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcRectangleProfileDef::copy(const IfcRectangleProfileDef &obj, const CopyOp &copyop) {
+void IfcRectangleProfileDef::copy(const IfcRectangleProfileDef &obj, const CopyOp &copyop)
+{
     IfcParameterizedProfileDef::copy(obj, copyop);
-    setXDim(obj.m_xDim);
-    setYDim(obj.m_yDim);
+    setXDim(obj.m_XDim);
+    setYDim(obj.m_YDim);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRectangleProfileDef::s_type("IfcRectangleProfileDef");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRectangleProfileDef, IfcParameterizedProfileDef)

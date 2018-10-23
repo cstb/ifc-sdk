@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,237 +24,287 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcCurrencyRelationship.h>
 
-#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcMonetaryUnit.h>
+#include <ifc2x3/IfcMonetaryUnit.h>
 #include <ifc2x3/IfcDateAndTime.h>
 #include <ifc2x3/IfcLibraryInformation.h>
-#include <ifc2x3/IfcMonetaryUnit.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcCurrencyRelationship::IfcCurrencyRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_relatingMonetaryUnit = NULL;
-    m_relatedMonetaryUnit = NULL;
-    m_exchangeRate = Step::getUnset(m_exchangeRate);
-    m_rateDateTime = NULL;
-    m_rateSource = NULL;
+IfcCurrencyRelationship::IfcCurrencyRelationship(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_RelatingMonetaryUnit = NULL;
+    m_RelatedMonetaryUnit = NULL;
+    m_ExchangeRate = Step::getUnset(m_ExchangeRate);
+    m_RateDateTime = NULL;
+    m_RateSource = NULL;
 }
 
-IfcCurrencyRelationship::~IfcCurrencyRelationship() {
+IfcCurrencyRelationship::~IfcCurrencyRelationship()
+{}
+
+bool IfcCurrencyRelationship::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcCurrencyRelationship(this);
 }
 
-bool IfcCurrencyRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcCurrencyRelationship(this);
-}
 
-const std::string &IfcCurrencyRelationship::type() const {
-    return IfcCurrencyRelationship::s_type.getName();
-}
-
-const Step::ClassType &IfcCurrencyRelationship::getClassType() {
-    return IfcCurrencyRelationship::s_type;
-}
-
-const Step::ClassType &IfcCurrencyRelationship::getType() const {
-    return IfcCurrencyRelationship::s_type;
-}
-
-bool IfcCurrencyRelationship::isOfType(const Step::ClassType &t) const {
-    return IfcCurrencyRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcMonetaryUnit *IfcCurrencyRelationship::getRelatingMonetaryUnit() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingMonetaryUnit.get();
+IfcMonetaryUnit *IfcCurrencyRelationship::getRelatingMonetaryUnit()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RelatingMonetaryUnit.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcMonetaryUnit *IfcCurrencyRelationship::getRelatingMonetaryUnit() const
+{
+    return const_cast<IfcCurrencyRelationship *>(this)->getRelatingMonetaryUnit();
+}
+
+void IfcCurrencyRelationship::setRelatingMonetaryUnit(const Step::RefPtr< IfcMonetaryUnit > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingMonetaryUnit = value;
+}
+
+void IfcCurrencyRelationship::unsetRelatingMonetaryUnit()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingMonetaryUnit = Step::getUnset(getRelatingMonetaryUnit());
+}
+
+bool IfcCurrencyRelationship::testRelatingMonetaryUnit() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingMonetaryUnit()) == false;
+}
+
+
+IfcMonetaryUnit *IfcCurrencyRelationship::getRelatedMonetaryUnit()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RelatedMonetaryUnit.get();
     }
-}
-
-const IfcMonetaryUnit *IfcCurrencyRelationship::getRelatingMonetaryUnit() const {
-    IfcCurrencyRelationship * deConstObject = const_cast< IfcCurrencyRelationship * > (this);
-    return deConstObject->getRelatingMonetaryUnit();
-}
-
-void IfcCurrencyRelationship::setRelatingMonetaryUnit(const Step::RefPtr< IfcMonetaryUnit > &value) {
-    m_relatingMonetaryUnit = value;
-}
-
-void IfcCurrencyRelationship::unsetRelatingMonetaryUnit() {
-    m_relatingMonetaryUnit = Step::getUnset(getRelatingMonetaryUnit());
-}
-
-bool IfcCurrencyRelationship::testRelatingMonetaryUnit() const {
-    return !Step::isUnset(getRelatingMonetaryUnit());
-}
-
-IfcMonetaryUnit *IfcCurrencyRelationship::getRelatedMonetaryUnit() {
-    if (Step::BaseObject::inited()) {
-        return m_relatedMonetaryUnit.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcMonetaryUnit *IfcCurrencyRelationship::getRelatedMonetaryUnit() const
+{
+    return const_cast<IfcCurrencyRelationship *>(this)->getRelatedMonetaryUnit();
+}
+
+void IfcCurrencyRelationship::setRelatedMonetaryUnit(const Step::RefPtr< IfcMonetaryUnit > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedMonetaryUnit = value;
+}
+
+void IfcCurrencyRelationship::unsetRelatedMonetaryUnit()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedMonetaryUnit = Step::getUnset(getRelatedMonetaryUnit());
+}
+
+bool IfcCurrencyRelationship::testRelatedMonetaryUnit() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatedMonetaryUnit()) == false;
+}
+
+
+IfcPositiveRatioMeasure IfcCurrencyRelationship::getExchangeRate()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ExchangeRate;
     }
+    else 
+    {
+        return Step::getUnset(m_ExchangeRate);
+    }    
 }
 
-const IfcMonetaryUnit *IfcCurrencyRelationship::getRelatedMonetaryUnit() const {
-    IfcCurrencyRelationship * deConstObject = const_cast< IfcCurrencyRelationship * > (this);
-    return deConstObject->getRelatedMonetaryUnit();
+IfcPositiveRatioMeasure IfcCurrencyRelationship::getExchangeRate() const
+{
+    return const_cast<IfcCurrencyRelationship *>(this)->getExchangeRate();
 }
 
-void IfcCurrencyRelationship::setRelatedMonetaryUnit(const Step::RefPtr< IfcMonetaryUnit > &value) {
-    m_relatedMonetaryUnit = value;
+void IfcCurrencyRelationship::setExchangeRate(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ExchangeRate = value;
 }
 
-void IfcCurrencyRelationship::unsetRelatedMonetaryUnit() {
-    m_relatedMonetaryUnit = Step::getUnset(getRelatedMonetaryUnit());
+void IfcCurrencyRelationship::unsetExchangeRate()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ExchangeRate = Step::getUnset(getExchangeRate());
 }
 
-bool IfcCurrencyRelationship::testRelatedMonetaryUnit() const {
-    return !Step::isUnset(getRelatedMonetaryUnit());
+bool IfcCurrencyRelationship::testExchangeRate() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getExchangeRate()) == false;
 }
 
-IfcPositiveRatioMeasure IfcCurrencyRelationship::getExchangeRate() {
-    if (Step::BaseObject::inited()) {
-        return m_exchangeRate;
+
+IfcDateAndTime *IfcCurrencyRelationship::getRateDateTime()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RateDateTime.get();
     }
-    else {
-        return Step::getUnset(m_exchangeRate);
-    }
-}
-
-const IfcPositiveRatioMeasure IfcCurrencyRelationship::getExchangeRate() const {
-    IfcCurrencyRelationship * deConstObject = const_cast< IfcCurrencyRelationship * > (this);
-    return deConstObject->getExchangeRate();
-}
-
-void IfcCurrencyRelationship::setExchangeRate(IfcPositiveRatioMeasure value) {
-    m_exchangeRate = value;
-}
-
-void IfcCurrencyRelationship::unsetExchangeRate() {
-    m_exchangeRate = Step::getUnset(getExchangeRate());
-}
-
-bool IfcCurrencyRelationship::testExchangeRate() const {
-    return !Step::isUnset(getExchangeRate());
-}
-
-IfcDateAndTime *IfcCurrencyRelationship::getRateDateTime() {
-    if (Step::BaseObject::inited()) {
-        return m_rateDateTime.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDateAndTime *IfcCurrencyRelationship::getRateDateTime() const
+{
+    return const_cast<IfcCurrencyRelationship *>(this)->getRateDateTime();
+}
+
+void IfcCurrencyRelationship::setRateDateTime(const Step::RefPtr< IfcDateAndTime > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RateDateTime = value;
+}
+
+void IfcCurrencyRelationship::unsetRateDateTime()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RateDateTime = Step::getUnset(getRateDateTime());
+}
+
+bool IfcCurrencyRelationship::testRateDateTime() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRateDateTime()) == false;
+}
+
+
+IfcLibraryInformation *IfcCurrencyRelationship::getRateSource()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RateSource.get();
     }
-}
-
-const IfcDateAndTime *IfcCurrencyRelationship::getRateDateTime() const {
-    IfcCurrencyRelationship * deConstObject = const_cast< IfcCurrencyRelationship * > (this);
-    return deConstObject->getRateDateTime();
-}
-
-void IfcCurrencyRelationship::setRateDateTime(const Step::RefPtr< IfcDateAndTime > &value) {
-    m_rateDateTime = value;
-}
-
-void IfcCurrencyRelationship::unsetRateDateTime() {
-    m_rateDateTime = Step::getUnset(getRateDateTime());
-}
-
-bool IfcCurrencyRelationship::testRateDateTime() const {
-    return !Step::isUnset(getRateDateTime());
-}
-
-IfcLibraryInformation *IfcCurrencyRelationship::getRateSource() {
-    if (Step::BaseObject::inited()) {
-        return m_rateSource.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcLibraryInformation *IfcCurrencyRelationship::getRateSource() const {
-    IfcCurrencyRelationship * deConstObject = const_cast< IfcCurrencyRelationship * > (this);
-    return deConstObject->getRateSource();
+const IfcLibraryInformation *IfcCurrencyRelationship::getRateSource() const
+{
+    return const_cast<IfcCurrencyRelationship *>(this)->getRateSource();
 }
 
-void IfcCurrencyRelationship::setRateSource(const Step::RefPtr< IfcLibraryInformation > &value) {
-    m_rateSource = value;
+void IfcCurrencyRelationship::setRateSource(const Step::RefPtr< IfcLibraryInformation > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RateSource = value;
 }
 
-void IfcCurrencyRelationship::unsetRateSource() {
-    m_rateSource = Step::getUnset(getRateSource());
+void IfcCurrencyRelationship::unsetRateSource()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RateSource = Step::getUnset(getRateSource());
 }
 
-bool IfcCurrencyRelationship::testRateSource() const {
-    return !Step::isUnset(getRateSource());
+bool IfcCurrencyRelationship::testRateSource() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRateSource()) == false;
 }
 
-bool IfcCurrencyRelationship::init() {
+bool IfcCurrencyRelationship::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingMonetaryUnit = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingMonetaryUnit = NULL;
     }
-    else {
-        m_relatingMonetaryUnit = static_cast< IfcMonetaryUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatedMonetaryUnit = NULL;
-    }
-    else {
-        m_relatedMonetaryUnit = static_cast< IfcMonetaryUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_RelatingMonetaryUnit = static_cast< IfcMonetaryUnit * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_exchangeRate = Step::getUnset(m_exchangeRate);
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedMonetaryUnit = NULL;
     }
-    else {
-        m_exchangeRate = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_rateDateTime = NULL;
-    }
-    else {
-        m_rateDateTime = static_cast< IfcDateAndTime * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_RelatedMonetaryUnit = static_cast< IfcMonetaryUnit * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_rateSource = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_ExchangeRate = Step::getUnset(m_ExchangeRate);
     }
-    else {
-        m_rateSource = static_cast< IfcLibraryInformation * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_ExchangeRate = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RateDateTime = NULL;
+    }
+    else
+    {
+        m_RateDateTime = static_cast< IfcDateAndTime * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RateSource = NULL;
+    }
+    else
+    {
+        m_RateSource = static_cast< IfcLibraryInformation * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcCurrencyRelationship::copy(const IfcCurrencyRelationship &obj, const CopyOp &copyop) {
+void IfcCurrencyRelationship::copy(const IfcCurrencyRelationship &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setRelatingMonetaryUnit((IfcMonetaryUnit*)copyop(obj.m_relatingMonetaryUnit.get()));
-    setRelatedMonetaryUnit((IfcMonetaryUnit*)copyop(obj.m_relatedMonetaryUnit.get()));
-    setExchangeRate(obj.m_exchangeRate);
-    setRateDateTime((IfcDateAndTime*)copyop(obj.m_rateDateTime.get()));
-    setRateSource((IfcLibraryInformation*)copyop(obj.m_rateSource.get()));
+    setRelatingMonetaryUnit((IfcMonetaryUnit*)copyop(obj.m_RelatingMonetaryUnit.get()));
+    setRelatedMonetaryUnit((IfcMonetaryUnit*)copyop(obj.m_RelatedMonetaryUnit.get()));
+    setExchangeRate(obj.m_ExchangeRate);
+    setRateDateTime((IfcDateAndTime*)copyop(obj.m_RateDateTime.get()));
+    setRateSource((IfcLibraryInformation*)copyop(obj.m_RateSource.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurrencyRelationship::s_type("IfcCurrencyRelationship");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcCurrencyRelationship, Step::BaseEntity)

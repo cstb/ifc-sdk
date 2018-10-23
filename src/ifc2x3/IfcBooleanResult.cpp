@@ -1,5 +1,14 @@
 // IFC SDK : IFC2X3 C++ Early Classes
-// Copyright (C) 2009 CSTB
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -15,161 +24,182 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcBooleanResult.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcBooleanOperand.h>
-#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/IfcBooleanOperand.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcBooleanResult::IfcBooleanResult(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_operator = IfcBooleanOperator_UNSET;
-    m_firstOperand = NULL;
-    m_secondOperand = NULL;
+IfcBooleanResult::IfcBooleanResult(Step::Id id, Step::SPFData *args) : 
+    IfcGeometricRepresentationItem(id, args)
+{
+    m_Operator = IfcBooleanOperator_UNSET;
+    m_FirstOperand = NULL;
+    m_SecondOperand = NULL;
 }
 
-IfcBooleanResult::~IfcBooleanResult() {
+IfcBooleanResult::~IfcBooleanResult()
+{}
+
+bool IfcBooleanResult::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcBooleanResult(this);
 }
 
-bool IfcBooleanResult::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcBooleanResult(this);
-}
 
-const std::string &IfcBooleanResult::type() const {
-    return IfcBooleanResult::s_type.getName();
-}
-
-const Step::ClassType &IfcBooleanResult::getClassType() {
-    return IfcBooleanResult::s_type;
-}
-
-const Step::ClassType &IfcBooleanResult::getType() const {
-    return IfcBooleanResult::s_type;
-}
-
-bool IfcBooleanResult::isOfType(const Step::ClassType &t) const {
-    return IfcBooleanResult::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-IfcBooleanOperator IfcBooleanResult::getOperator() {
-    if (Step::BaseObject::inited()) {
-        return m_operator;
+IfcBooleanOperator IfcBooleanResult::getOperator()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Operator;
     }
-    else {
+    else 
+    {
         return IfcBooleanOperator_UNSET;
+    }    
+}
+
+IfcBooleanOperator IfcBooleanResult::getOperator() const
+{
+    return const_cast<IfcBooleanResult *>(this)->getOperator();
+}
+
+void IfcBooleanResult::setOperator(IfcBooleanOperator value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Operator = value;
+}
+
+void IfcBooleanResult::unsetOperator()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Operator = IfcBooleanOperator_UNSET;
+}
+
+bool IfcBooleanResult::testOperator() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getOperator()) == false;
+}
+
+
+IfcBooleanOperand *IfcBooleanResult::getFirstOperand()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_FirstOperand.get();
     }
-}
-
-const IfcBooleanOperator IfcBooleanResult::getOperator() const {
-    IfcBooleanResult * deConstObject = const_cast< IfcBooleanResult * > (this);
-    return deConstObject->getOperator();
-}
-
-void IfcBooleanResult::setOperator(IfcBooleanOperator value) {
-    m_operator = value;
-}
-
-void IfcBooleanResult::unsetOperator() {
-    m_operator = IfcBooleanOperator_UNSET;
-}
-
-bool IfcBooleanResult::testOperator() const {
-    return getOperator() != IfcBooleanOperator_UNSET;
-}
-
-IfcBooleanOperand *IfcBooleanResult::getFirstOperand() {
-    if (Step::BaseObject::inited()) {
-        return m_firstOperand.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcBooleanOperand *IfcBooleanResult::getFirstOperand() const
+{
+    return const_cast<IfcBooleanResult *>(this)->getFirstOperand();
+}
+
+void IfcBooleanResult::setFirstOperand(const Step::RefPtr< IfcBooleanOperand > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FirstOperand = value;
+}
+
+void IfcBooleanResult::unsetFirstOperand()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_FirstOperand = Step::getUnset(getFirstOperand());
+}
+
+bool IfcBooleanResult::testFirstOperand() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getFirstOperand()) == false;
+}
+
+
+IfcBooleanOperand *IfcBooleanResult::getSecondOperand()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_SecondOperand.get();
     }
-}
-
-const IfcBooleanOperand *IfcBooleanResult::getFirstOperand() const {
-    IfcBooleanResult * deConstObject = const_cast< IfcBooleanResult * > (this);
-    return deConstObject->getFirstOperand();
-}
-
-void IfcBooleanResult::setFirstOperand(const Step::RefPtr< IfcBooleanOperand > &value) {
-    m_firstOperand = value;
-}
-
-void IfcBooleanResult::unsetFirstOperand() {
-    m_firstOperand = Step::getUnset(getFirstOperand());
-}
-
-bool IfcBooleanResult::testFirstOperand() const {
-    return !Step::isUnset(getFirstOperand());
-}
-
-IfcBooleanOperand *IfcBooleanResult::getSecondOperand() {
-    if (Step::BaseObject::inited()) {
-        return m_secondOperand.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcBooleanOperand *IfcBooleanResult::getSecondOperand() const {
-    IfcBooleanResult * deConstObject = const_cast< IfcBooleanResult * > (this);
-    return deConstObject->getSecondOperand();
+const IfcBooleanOperand *IfcBooleanResult::getSecondOperand() const
+{
+    return const_cast<IfcBooleanResult *>(this)->getSecondOperand();
 }
 
-void IfcBooleanResult::setSecondOperand(const Step::RefPtr< IfcBooleanOperand > &value) {
-    m_secondOperand = value;
+void IfcBooleanResult::setSecondOperand(const Step::RefPtr< IfcBooleanOperand > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SecondOperand = value;
 }
 
-void IfcBooleanResult::unsetSecondOperand() {
-    m_secondOperand = Step::getUnset(getSecondOperand());
+void IfcBooleanResult::unsetSecondOperand()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_SecondOperand = Step::getUnset(getSecondOperand());
 }
 
-bool IfcBooleanResult::testSecondOperand() const {
-    return !Step::isUnset(getSecondOperand());
+bool IfcBooleanResult::testSecondOperand() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getSecondOperand()) == false;
 }
 
-bool IfcBooleanResult::init() {
-    bool status = IfcGeometricRepresentationItem::init();
-    std::string arg;
-    if (!status) {
+bool IfcBooleanResult::init()
+{
+    if (IfcGeometricRepresentationItem::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_operator = IfcBooleanOperator_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_Operator = IfcBooleanOperator_UNSET;
     }
-    else {
-        if (arg == ".UNION.") {
-            m_operator = IfcBooleanOperator_UNION;
+    else
+    {
+        if (arg == ".UNION.")
+        {
+            m_Operator = IfcBooleanOperator_UNION;
         }
-        else if (arg == ".INTERSECTION.") {
-            m_operator = IfcBooleanOperator_INTERSECTION;
+        else if (arg == ".INTERSECTION.")
+        {
+            m_Operator = IfcBooleanOperator_INTERSECTION;
         }
-        else if (arg == ".DIFFERENCE.") {
-            m_operator = IfcBooleanOperator_DIFFERENCE;
+        else if (arg == ".DIFFERENCE.")
+        {
+            m_Operator = IfcBooleanOperator_DIFFERENCE;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_firstOperand = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_FirstOperand = NULL;
     }
-    else {
-        m_firstOperand = new IfcBooleanOperand;
+    else
+    {
+        m_FirstOperand = new IfcBooleanOperand;
         if (arg[0] == '#') {
-            m_firstOperand->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_FirstOperand->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -182,13 +212,15 @@ bool IfcBooleanResult::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_secondOperand = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_SecondOperand = NULL;
     }
-    else {
-        m_secondOperand = new IfcBooleanOperand;
+    else
+    {
+        m_SecondOperand = new IfcBooleanOperand;
         if (arg[0] == '#') {
-            m_secondOperand->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_SecondOperand->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -203,14 +235,13 @@ bool IfcBooleanResult::init() {
     return true;
 }
 
-void IfcBooleanResult::copy(const IfcBooleanResult &obj, const CopyOp &copyop) {
+void IfcBooleanResult::copy(const IfcBooleanResult &obj, const CopyOp &copyop)
+{
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setOperator(obj.m_operator);
-    m_firstOperand = new IfcBooleanOperand;
-    m_firstOperand->copy(*(obj.m_firstOperand.get()), copyop);
-    m_secondOperand = new IfcBooleanOperand;
-    m_secondOperand->copy(*(obj.m_secondOperand.get()), copyop);
+    setOperator(obj.m_Operator);
+    setFirstOperand((IfcBooleanOperand*)copyop(obj.m_FirstOperand.get()));
+    setSecondOperand((IfcBooleanOperand*)copyop(obj.m_SecondOperand.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBooleanResult::s_type("IfcBooleanResult");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcBooleanResult, IfcGeometricRepresentationItem)

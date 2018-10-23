@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,162 +24,186 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcExternalReference.h>
+
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseObject.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcExternalReference::IfcExternalReference(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_location = Step::getUnset(m_location);
-    m_itemReference = Step::getUnset(m_itemReference);
-    m_name = Step::getUnset(m_name);
+IfcExternalReference::IfcExternalReference(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_Location = Step::getUnset(m_Location);
+    m_ItemReference = Step::getUnset(m_ItemReference);
+    m_Name = Step::getUnset(m_Name);
 }
 
-IfcExternalReference::~IfcExternalReference() {
+IfcExternalReference::~IfcExternalReference()
+{}
+
+bool IfcExternalReference::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcExternalReference(this);
 }
 
-bool IfcExternalReference::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcExternalReference(this);
-}
 
-const std::string &IfcExternalReference::type() const {
-    return IfcExternalReference::s_type.getName();
-}
-
-const Step::ClassType &IfcExternalReference::getClassType() {
-    return IfcExternalReference::s_type;
-}
-
-const Step::ClassType &IfcExternalReference::getType() const {
-    return IfcExternalReference::s_type;
-}
-
-bool IfcExternalReference::isOfType(const Step::ClassType &t) const {
-    return IfcExternalReference::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcLabel IfcExternalReference::getLocation() {
-    if (Step::BaseObject::inited()) {
-        return m_location;
+IfcLabel IfcExternalReference::getLocation()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Location;
     }
-    else {
-        return Step::getUnset(m_location);
+    else 
+    {
+        return Step::getUnset(m_Location);
+    }    
+}
+
+const IfcLabel IfcExternalReference::getLocation() const
+{
+    return const_cast<IfcExternalReference *>(this)->getLocation();
+}
+
+void IfcExternalReference::setLocation(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Location = value;
+}
+
+void IfcExternalReference::unsetLocation()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Location = Step::getUnset(getLocation());
+}
+
+bool IfcExternalReference::testLocation() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLocation()) == false;
+}
+
+
+IfcIdentifier IfcExternalReference::getItemReference()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ItemReference;
     }
+    else 
+    {
+        return Step::getUnset(m_ItemReference);
+    }    
 }
 
-const IfcLabel IfcExternalReference::getLocation() const {
-    IfcExternalReference * deConstObject = const_cast< IfcExternalReference * > (this);
-    return deConstObject->getLocation();
+const IfcIdentifier IfcExternalReference::getItemReference() const
+{
+    return const_cast<IfcExternalReference *>(this)->getItemReference();
 }
 
-void IfcExternalReference::setLocation(const IfcLabel &value) {
-    m_location = value;
+void IfcExternalReference::setItemReference(const IfcIdentifier &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ItemReference = value;
 }
 
-void IfcExternalReference::unsetLocation() {
-    m_location = Step::getUnset(getLocation());
+void IfcExternalReference::unsetItemReference()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ItemReference = Step::getUnset(getItemReference());
 }
 
-bool IfcExternalReference::testLocation() const {
-    return !Step::isUnset(getLocation());
+bool IfcExternalReference::testItemReference() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getItemReference()) == false;
 }
 
-IfcIdentifier IfcExternalReference::getItemReference() {
-    if (Step::BaseObject::inited()) {
-        return m_itemReference;
+
+IfcLabel IfcExternalReference::getName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Name;
     }
-    else {
-        return Step::getUnset(m_itemReference);
-    }
+    else 
+    {
+        return Step::getUnset(m_Name);
+    }    
 }
 
-const IfcIdentifier IfcExternalReference::getItemReference() const {
-    IfcExternalReference * deConstObject = const_cast< IfcExternalReference * > (this);
-    return deConstObject->getItemReference();
+const IfcLabel IfcExternalReference::getName() const
+{
+    return const_cast<IfcExternalReference *>(this)->getName();
 }
 
-void IfcExternalReference::setItemReference(const IfcIdentifier &value) {
-    m_itemReference = value;
+void IfcExternalReference::setName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = value;
 }
 
-void IfcExternalReference::unsetItemReference() {
-    m_itemReference = Step::getUnset(getItemReference());
+void IfcExternalReference::unsetName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = Step::getUnset(getName());
 }
 
-bool IfcExternalReference::testItemReference() const {
-    return !Step::isUnset(getItemReference());
+bool IfcExternalReference::testName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getName()) == false;
 }
 
-IfcLabel IfcExternalReference::getName() {
-    if (Step::BaseObject::inited()) {
-        return m_name;
-    }
-    else {
-        return Step::getUnset(m_name);
-    }
-}
-
-const IfcLabel IfcExternalReference::getName() const {
-    IfcExternalReference * deConstObject = const_cast< IfcExternalReference * > (this);
-    return deConstObject->getName();
-}
-
-void IfcExternalReference::setName(const IfcLabel &value) {
-    m_name = value;
-}
-
-void IfcExternalReference::unsetName() {
-    m_name = Step::getUnset(getName());
-}
-
-bool IfcExternalReference::testName() const {
-    return !Step::isUnset(getName());
-}
-
-bool IfcExternalReference::init() {
+bool IfcExternalReference::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_location = Step::getUnset(m_location);
+    if (arg == "$" || arg == "*")
+    {
+        m_Location = Step::getUnset(m_Location);
     }
-    else {
-        m_location = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_itemReference = Step::getUnset(m_itemReference);
-    }
-    else {
-        m_itemReference = Step::String::fromSPF(arg);
+    else
+    {
+        m_Location = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_name = Step::getUnset(m_name);
+    if (arg == "$" || arg == "*")
+    {
+        m_ItemReference = Step::getUnset(m_ItemReference);
     }
-    else {
-        m_name = Step::String::fromSPF(arg);
+    else
+    {
+        m_ItemReference = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Name = Step::getUnset(m_Name);
+    }
+    else
+    {
+        m_Name = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcExternalReference::copy(const IfcExternalReference &obj, const CopyOp &copyop) {
+void IfcExternalReference::copy(const IfcExternalReference &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setLocation(obj.m_location);
-    setItemReference(obj.m_itemReference);
-    setName(obj.m_name);
+    setLocation(obj.m_Location);
+    setItemReference(obj.m_ItemReference);
+    setName(obj.m_Name);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcExternalReference::s_type("IfcExternalReference");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcExternalReference, Step::BaseEntity)

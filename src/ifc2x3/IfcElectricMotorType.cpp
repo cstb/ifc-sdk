@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,115 +24,120 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcElectricMotorType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcEnergyConversionDeviceType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcElectricMotorType::IfcElectricMotorType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
-    m_predefinedType = IfcElectricMotorTypeEnum_UNSET;
+IfcElectricMotorType::IfcElectricMotorType(Step::Id id, Step::SPFData *args) : 
+    IfcEnergyConversionDeviceType(id, args)
+{
+    m_PredefinedType = IfcElectricMotorTypeEnum_UNSET;
 }
 
-IfcElectricMotorType::~IfcElectricMotorType() {
+IfcElectricMotorType::~IfcElectricMotorType()
+{}
+
+bool IfcElectricMotorType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcElectricMotorType(this);
 }
 
-bool IfcElectricMotorType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcElectricMotorType(this);
-}
 
-const std::string &IfcElectricMotorType::type() const {
-    return IfcElectricMotorType::s_type.getName();
-}
-
-const Step::ClassType &IfcElectricMotorType::getClassType() {
-    return IfcElectricMotorType::s_type;
-}
-
-const Step::ClassType &IfcElectricMotorType::getType() const {
-    return IfcElectricMotorType::s_type;
-}
-
-bool IfcElectricMotorType::isOfType(const Step::ClassType &t) const {
-    return IfcElectricMotorType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
-}
-
-IfcElectricMotorTypeEnum IfcElectricMotorType::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcElectricMotorTypeEnum IfcElectricMotorType::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcElectricMotorTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcElectricMotorTypeEnum IfcElectricMotorType::getPredefinedType() const {
-    IfcElectricMotorType * deConstObject = const_cast< IfcElectricMotorType * > (this);
-    return deConstObject->getPredefinedType();
+IfcElectricMotorTypeEnum IfcElectricMotorType::getPredefinedType() const
+{
+    return const_cast<IfcElectricMotorType *>(this)->getPredefinedType();
 }
 
-void IfcElectricMotorType::setPredefinedType(IfcElectricMotorTypeEnum value) {
-    m_predefinedType = value;
+void IfcElectricMotorType::setPredefinedType(IfcElectricMotorTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcElectricMotorType::unsetPredefinedType() {
-    m_predefinedType = IfcElectricMotorTypeEnum_UNSET;
+void IfcElectricMotorType::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcElectricMotorTypeEnum_UNSET;
 }
 
-bool IfcElectricMotorType::testPredefinedType() const {
-    return getPredefinedType() != IfcElectricMotorTypeEnum_UNSET;
+bool IfcElectricMotorType::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcElectricMotorType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
-    std::string arg;
-    if (!status) {
+bool IfcElectricMotorType::init()
+{
+    if (IfcEnergyConversionDeviceType::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcElectricMotorTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcElectricMotorTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".DC.") {
-            m_predefinedType = IfcElectricMotorTypeEnum_DC;
+    else
+    {
+        if (arg == ".DC.")
+        {
+            m_PredefinedType = IfcElectricMotorTypeEnum_DC;
         }
-        else if (arg == ".INDUCTION.") {
-            m_predefinedType = IfcElectricMotorTypeEnum_INDUCTION;
+        else if (arg == ".INDUCTION.")
+        {
+            m_PredefinedType = IfcElectricMotorTypeEnum_INDUCTION;
         }
-        else if (arg == ".POLYPHASE.") {
-            m_predefinedType = IfcElectricMotorTypeEnum_POLYPHASE;
+        else if (arg == ".POLYPHASE.")
+        {
+            m_PredefinedType = IfcElectricMotorTypeEnum_POLYPHASE;
         }
-        else if (arg == ".RELUCTANCESYNCHRONOUS.") {
-            m_predefinedType = IfcElectricMotorTypeEnum_RELUCTANCESYNCHRONOUS;
+        else if (arg == ".RELUCTANCESYNCHRONOUS.")
+        {
+            m_PredefinedType = IfcElectricMotorTypeEnum_RELUCTANCESYNCHRONOUS;
         }
-        else if (arg == ".SYNCHRONOUS.") {
-            m_predefinedType = IfcElectricMotorTypeEnum_SYNCHRONOUS;
+        else if (arg == ".SYNCHRONOUS.")
+        {
+            m_PredefinedType = IfcElectricMotorTypeEnum_SYNCHRONOUS;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcElectricMotorTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcElectricMotorTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcElectricMotorTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcElectricMotorTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcElectricMotorType::copy(const IfcElectricMotorType &obj, const CopyOp &copyop) {
+void IfcElectricMotorType::copy(const IfcElectricMotorType &obj, const CopyOp &copyop)
+{
     IfcEnergyConversionDeviceType::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricMotorType::s_type("IfcElectricMotorType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcElectricMotorType, IfcEnergyConversionDeviceType)

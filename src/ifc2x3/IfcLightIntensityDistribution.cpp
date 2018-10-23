@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,142 +24,155 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcLightIntensityDistribution.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcLightDistributionData.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcLightIntensityDistribution::IfcLightIntensityDistribution(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_lightDistributionCurve = IfcLightDistributionCurveEnum_UNSET;
+IfcLightIntensityDistribution::IfcLightIntensityDistribution(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_LightDistributionCurve = IfcLightDistributionCurveEnum_UNSET;
+    m_DistributionData.setUnset(true);
 }
 
-IfcLightIntensityDistribution::~IfcLightIntensityDistribution() {
+IfcLightIntensityDistribution::~IfcLightIntensityDistribution()
+{}
+
+bool IfcLightIntensityDistribution::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcLightIntensityDistribution(this);
 }
 
-bool IfcLightIntensityDistribution::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcLightIntensityDistribution(this);
-}
 
-const std::string &IfcLightIntensityDistribution::type() const {
-    return IfcLightIntensityDistribution::s_type.getName();
-}
-
-const Step::ClassType &IfcLightIntensityDistribution::getClassType() {
-    return IfcLightIntensityDistribution::s_type;
-}
-
-const Step::ClassType &IfcLightIntensityDistribution::getType() const {
-    return IfcLightIntensityDistribution::s_type;
-}
-
-bool IfcLightIntensityDistribution::isOfType(const Step::ClassType &t) const {
-    return IfcLightIntensityDistribution::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcLightDistributionCurveEnum IfcLightIntensityDistribution::getLightDistributionCurve() {
-    if (Step::BaseObject::inited()) {
-        return m_lightDistributionCurve;
+IfcLightDistributionCurveEnum IfcLightIntensityDistribution::getLightDistributionCurve()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LightDistributionCurve;
     }
-    else {
+    else 
+    {
         return IfcLightDistributionCurveEnum_UNSET;
+    }    
+}
+
+IfcLightDistributionCurveEnum IfcLightIntensityDistribution::getLightDistributionCurve() const
+{
+    return const_cast<IfcLightIntensityDistribution *>(this)->getLightDistributionCurve();
+}
+
+void IfcLightIntensityDistribution::setLightDistributionCurve(IfcLightDistributionCurveEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LightDistributionCurve = value;
+}
+
+void IfcLightIntensityDistribution::unsetLightDistributionCurve()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LightDistributionCurve = IfcLightDistributionCurveEnum_UNSET;
+}
+
+bool IfcLightIntensityDistribution::testLightDistributionCurve() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLightDistributionCurve()) == false;
+}
+
+
+List_IfcLightDistributionData_1_n &IfcLightIntensityDistribution::getDistributionData()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_DistributionData;
     }
+    else 
+    {
+        m_DistributionData.setUnset(true);
+        return m_DistributionData;
+    }    
 }
 
-const IfcLightDistributionCurveEnum IfcLightIntensityDistribution::getLightDistributionCurve() const {
-    IfcLightIntensityDistribution * deConstObject = const_cast< IfcLightIntensityDistribution * > (this);
-    return deConstObject->getLightDistributionCurve();
+const List_IfcLightDistributionData_1_n &IfcLightIntensityDistribution::getDistributionData() const
+{
+    return const_cast<IfcLightIntensityDistribution *>(this)->getDistributionData();
 }
 
-void IfcLightIntensityDistribution::setLightDistributionCurve(IfcLightDistributionCurveEnum value) {
-    m_lightDistributionCurve = value;
+void IfcLightIntensityDistribution::setDistributionData(const List_IfcLightDistributionData_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DistributionData = value;
 }
 
-void IfcLightIntensityDistribution::unsetLightDistributionCurve() {
-    m_lightDistributionCurve = IfcLightDistributionCurveEnum_UNSET;
+void IfcLightIntensityDistribution::unsetDistributionData()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DistributionData.clear();
+    m_DistributionData.setUnset(true);
 }
 
-bool IfcLightIntensityDistribution::testLightDistributionCurve() const {
-    return getLightDistributionCurve() != IfcLightDistributionCurveEnum_UNSET;
+bool IfcLightIntensityDistribution::testDistributionData() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_DistributionData.isUnset() == false;
 }
 
-List_IfcLightDistributionData_1_n &IfcLightIntensityDistribution::getDistributionData() {
-    if (Step::BaseObject::inited()) {
-        return m_distributionData;
-    }
-    else {
-        m_distributionData.setUnset(true);
-        return m_distributionData;
-    }
-}
-
-const List_IfcLightDistributionData_1_n &IfcLightIntensityDistribution::getDistributionData() const {
-    IfcLightIntensityDistribution * deConstObject = const_cast< IfcLightIntensityDistribution * > (this);
-    return deConstObject->getDistributionData();
-}
-
-void IfcLightIntensityDistribution::setDistributionData(const List_IfcLightDistributionData_1_n &value) {
-    m_distributionData = value;
-}
-
-void IfcLightIntensityDistribution::unsetDistributionData() {
-    m_distributionData.clear();
-    m_distributionData.setUnset(true);
-}
-
-bool IfcLightIntensityDistribution::testDistributionData() const {
-    return !m_distributionData.isUnset();
-}
-
-bool IfcLightIntensityDistribution::init() {
+bool IfcLightIntensityDistribution::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_lightDistributionCurve = IfcLightDistributionCurveEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_LightDistributionCurve = IfcLightDistributionCurveEnum_UNSET;
     }
-    else {
-        if (arg == ".TYPE_A.") {
-            m_lightDistributionCurve = IfcLightDistributionCurveEnum_TYPE_A;
+    else
+    {
+        if (arg == ".TYPE_A.")
+        {
+            m_LightDistributionCurve = IfcLightDistributionCurveEnum_TYPE_A;
         }
-        else if (arg == ".TYPE_B.") {
-            m_lightDistributionCurve = IfcLightDistributionCurveEnum_TYPE_B;
+        else if (arg == ".TYPE_B.")
+        {
+            m_LightDistributionCurve = IfcLightDistributionCurveEnum_TYPE_B;
         }
-        else if (arg == ".TYPE_C.") {
-            m_lightDistributionCurve = IfcLightDistributionCurveEnum_TYPE_C;
+        else if (arg == ".TYPE_C.")
+        {
+            m_LightDistributionCurve = IfcLightDistributionCurveEnum_TYPE_C;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_lightDistributionCurve = IfcLightDistributionCurveEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_LightDistributionCurve = IfcLightDistributionCurveEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_distributionData.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_DistributionData.setUnset(true);
     }
-    else {
-        m_distributionData.setUnset(false);
-        while (true) {
+    else
+    {
+        m_DistributionData.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcLightDistributionData > attr2;
-                attr2 = static_cast< IfcLightDistributionData * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_distributionData.push_back(attr2);
+            if (!str1.empty())
+            {
+                m_DistributionData.push_back(static_cast< IfcLightDistributionData * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
@@ -158,15 +180,18 @@ bool IfcLightIntensityDistribution::init() {
     return true;
 }
 
-void IfcLightIntensityDistribution::copy(const IfcLightIntensityDistribution &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcLightDistributionData >, 1 >::const_iterator it_m_distributionData;
+void IfcLightIntensityDistribution::copy(const IfcLightIntensityDistribution &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setLightDistributionCurve(obj.m_lightDistributionCurve);
-    for (it_m_distributionData = obj.m_distributionData.begin(); it_m_distributionData != obj.m_distributionData.end(); ++it_m_distributionData) {
-        Step::RefPtr< IfcLightDistributionData > copyTarget = (IfcLightDistributionData *) (copyop((*it_m_distributionData).get()));
-        m_distributionData.push_back(copyTarget.get());
+    setLightDistributionCurve(obj.m_LightDistributionCurve);
+    List_IfcLightDistributionData_1_n::const_iterator it_m_DistributionData;
+    for (it_m_DistributionData = obj.m_DistributionData.begin(); it_m_DistributionData != obj.m_DistributionData.end(); ++it_m_DistributionData)
+    {
+        Step::RefPtr< IfcLightDistributionData > copyTarget = (IfcLightDistributionData *) (copyop((*it_m_DistributionData).get()));
+        m_DistributionData.push_back(copyTarget);
     }
+    
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightIntensityDistribution::s_type("IfcLightIntensityDistribution");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcLightIntensityDistribution, Step::BaseEntity)

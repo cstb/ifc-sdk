@@ -1,5 +1,16 @@
+#pragma once
+
 // IFC SDK : IFC2X3 C++ Early Classes
-// Copyright (C) 2009 CSTB
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -14,725 +25,22 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifndef IFC2X3_SPFWRITER_H
-#define IFC2X3_SPFWRITER_H
-#include <ifc2x3/DefinedTypes.h>
+
 #include <ifc2x3/Export.h>
 
+#include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/InheritVisitor.h>
+
 #include <Step/BaseSPFWriter.h>
+
 #include <string>
 
-namespace ifc2x3 {
-
+namespace ifc2x3
+{
     class ExpressDataSet;
-    class Ifc2DCompositeCurve;
-    class IfcActionRequest;
-    class IfcActor;
-    class IfcActorRole;
-    class IfcActorSelect;
-    class IfcActuatorType;
-    class IfcAddress;
-    class IfcAirTerminalBoxType;
-    class IfcAirTerminalType;
-    class IfcAirToAirHeatRecoveryType;
-    class IfcAlarmType;
-    class IfcAngularDimension;
-    class IfcAnnotation;
-    class IfcAnnotationCurveOccurrence;
-    class IfcAnnotationFillArea;
-    class IfcAnnotationFillAreaOccurrence;
-    class IfcAnnotationOccurrence;
-    class IfcAnnotationSurface;
-    class IfcAnnotationSurfaceOccurrence;
-    class IfcAnnotationSymbolOccurrence;
-    class IfcAnnotationTextOccurrence;
-    class IfcApplication;
-    class IfcAppliedValue;
-    class IfcAppliedValueRelationship;
-    class IfcAppliedValueSelect;
-    class IfcApproval;
-    class IfcApprovalActorRelationship;
-    class IfcApprovalPropertyRelationship;
-    class IfcApprovalRelationship;
-    class IfcArbitraryClosedProfileDef;
-    class IfcArbitraryOpenProfileDef;
-    class IfcArbitraryProfileDefWithVoids;
-    class IfcAsset;
-    class IfcAsymmetricIShapeProfileDef;
-    class IfcAxis1Placement;
-    class IfcAxis2Placement;
-    class IfcAxis2Placement2D;
-    class IfcAxis2Placement3D;
-    class IfcBSplineCurve;
-    class IfcBeam;
-    class IfcBeamType;
-    class IfcBezierCurve;
-    class IfcBlobTexture;
-    class IfcBlock;
-    class IfcBoilerType;
-    class IfcBooleanClippingResult;
-    class IfcBooleanOperand;
-    class IfcBooleanResult;
-    class IfcBoundaryCondition;
-    class IfcBoundaryEdgeCondition;
-    class IfcBoundaryFaceCondition;
-    class IfcBoundaryNodeCondition;
-    class IfcBoundaryNodeConditionWarping;
-    class IfcBoundedCurve;
-    class IfcBoundedSurface;
-    class IfcBoundingBox;
-    class IfcBoxedHalfSpace;
-    class IfcBuilding;
-    class IfcBuildingElement;
-    class IfcBuildingElementComponent;
-    class IfcBuildingElementPart;
-    class IfcBuildingElementProxy;
-    class IfcBuildingElementProxyType;
-    class IfcBuildingElementType;
-    class IfcBuildingStorey;
-    class IfcCShapeProfileDef;
-    class IfcCableCarrierFittingType;
-    class IfcCableCarrierSegmentType;
-    class IfcCableSegmentType;
-    class IfcCalendarDate;
-    class IfcCartesianPoint;
-    class IfcCartesianTransformationOperator;
-    class IfcCartesianTransformationOperator2D;
-    class IfcCartesianTransformationOperator2DnonUniform;
-    class IfcCartesianTransformationOperator3D;
-    class IfcCartesianTransformationOperator3DnonUniform;
-    class IfcCenterLineProfileDef;
-    class IfcChamferEdgeFeature;
-    class IfcCharacterStyleSelect;
-    class IfcChillerType;
-    class IfcCircle;
-    class IfcCircleHollowProfileDef;
-    class IfcCircleProfileDef;
-    class IfcClassification;
-    class IfcClassificationItem;
-    class IfcClassificationItemRelationship;
-    class IfcClassificationNotation;
-    class IfcClassificationNotationFacet;
-    class IfcClassificationNotationSelect;
-    class IfcClassificationReference;
-    class IfcClosedShell;
-    class IfcCoilType;
-    class IfcColour;
-    class IfcColourOrFactor;
-    class IfcColourRgb;
-    class IfcColourSpecification;
-    class IfcColumn;
-    class IfcColumnType;
-    class IfcComplexProperty;
-    class IfcCompositeCurve;
-    class IfcCompositeCurveSegment;
-    class IfcCompositeProfileDef;
-    class IfcCompressorType;
-    class IfcCondenserType;
-    class IfcCondition;
-    class IfcConditionCriterion;
-    class IfcConditionCriterionSelect;
-    class IfcConic;
-    class IfcConnectedFaceSet;
-    class IfcConnectionCurveGeometry;
-    class IfcConnectionGeometry;
-    class IfcConnectionPointEccentricity;
-    class IfcConnectionPointGeometry;
-    class IfcConnectionPortGeometry;
-    class IfcConnectionSurfaceGeometry;
-    class IfcConstraint;
-    class IfcConstraintAggregationRelationship;
-    class IfcConstraintClassificationRelationship;
-    class IfcConstraintRelationship;
-    class IfcConstructionEquipmentResource;
-    class IfcConstructionMaterialResource;
-    class IfcConstructionProductResource;
-    class IfcConstructionResource;
-    class IfcContextDependentUnit;
-    class IfcControl;
-    class IfcControllerType;
-    class IfcConversionBasedUnit;
-    class IfcCooledBeamType;
-    class IfcCoolingTowerType;
-    class IfcCoordinatedUniversalTimeOffset;
-    class IfcCostItem;
-    class IfcCostSchedule;
-    class IfcCostValue;
-    class IfcCovering;
-    class IfcCoveringType;
-    class IfcCraneRailAShapeProfileDef;
-    class IfcCraneRailFShapeProfileDef;
-    class IfcCrewResource;
-    class IfcCsgPrimitive3D;
-    class IfcCsgSelect;
-    class IfcCsgSolid;
-    class IfcCurrencyRelationship;
-    class IfcCurtainWall;
-    class IfcCurtainWallType;
-    class IfcCurve;
-    class IfcCurveBoundedPlane;
-    class IfcCurveFontOrScaledCurveFontSelect;
-    class IfcCurveOrEdgeCurve;
-    class IfcCurveStyle;
-    class IfcCurveStyleFont;
-    class IfcCurveStyleFontAndScaling;
-    class IfcCurveStyleFontPattern;
-    class IfcCurveStyleFontSelect;
-    class IfcDamperType;
-    class IfcDateAndTime;
-    class IfcDateTimeSelect;
-    class IfcDefinedSymbol;
-    class IfcDefinedSymbolSelect;
-    class IfcDerivedMeasureValue;
-    class IfcDerivedProfileDef;
-    class IfcDerivedUnit;
-    class IfcDerivedUnitElement;
-    class IfcDiameterDimension;
-    class IfcDimensionCalloutRelationship;
-    class IfcDimensionCurve;
-    class IfcDimensionCurveDirectedCallout;
-    class IfcDimensionCurveTerminator;
-    class IfcDimensionPair;
-    class IfcDimensionalExponents;
-    class IfcDirection;
-    class IfcDiscreteAccessory;
-    class IfcDiscreteAccessoryType;
-    class IfcDistributionChamberElement;
-    class IfcDistributionChamberElementType;
-    class IfcDistributionControlElement;
-    class IfcDistributionControlElementType;
-    class IfcDistributionElement;
-    class IfcDistributionElementType;
-    class IfcDistributionFlowElement;
-    class IfcDistributionFlowElementType;
-    class IfcDistributionPort;
-    class IfcDocumentElectronicFormat;
-    class IfcDocumentInformation;
-    class IfcDocumentInformationRelationship;
-    class IfcDocumentReference;
-    class IfcDocumentSelect;
-    class IfcDoor;
-    class IfcDoorLiningProperties;
-    class IfcDoorPanelProperties;
-    class IfcDoorStyle;
-    class IfcDraughtingCallout;
-    class IfcDraughtingCalloutElement;
-    class IfcDraughtingCalloutRelationship;
-    class IfcDraughtingPreDefinedColour;
-    class IfcDraughtingPreDefinedCurveFont;
-    class IfcDraughtingPreDefinedTextFont;
-    class IfcDuctFittingType;
-    class IfcDuctSegmentType;
-    class IfcDuctSilencerType;
-    class IfcEdge;
-    class IfcEdgeCurve;
-    class IfcEdgeFeature;
-    class IfcEdgeLoop;
-    class IfcElectricApplianceType;
-    class IfcElectricDistributionPoint;
-    class IfcElectricFlowStorageDeviceType;
-    class IfcElectricGeneratorType;
-    class IfcElectricHeaterType;
-    class IfcElectricMotorType;
-    class IfcElectricTimeControlType;
-    class IfcElectricalBaseProperties;
-    class IfcElectricalCircuit;
-    class IfcElectricalElement;
-    class IfcElement;
-    class IfcElementAssembly;
-    class IfcElementComponent;
-    class IfcElementComponentType;
-    class IfcElementQuantity;
-    class IfcElementType;
-    class IfcElementarySurface;
-    class IfcEllipse;
-    class IfcEllipseProfileDef;
-    class IfcEnergyConversionDevice;
-    class IfcEnergyConversionDeviceType;
-    class IfcEnergyProperties;
-    class IfcEnvironmentalImpactValue;
-    class IfcEquipmentElement;
-    class IfcEquipmentStandard;
-    class IfcEvaporativeCoolerType;
-    class IfcEvaporatorType;
-    class IfcExtendedMaterialProperties;
-    class IfcExternalReference;
-    class IfcExternallyDefinedHatchStyle;
-    class IfcExternallyDefinedSurfaceStyle;
-    class IfcExternallyDefinedSymbol;
-    class IfcExternallyDefinedTextFont;
-    class IfcExtrudedAreaSolid;
-    class IfcFace;
-    class IfcFaceBasedSurfaceModel;
-    class IfcFaceBound;
-    class IfcFaceOuterBound;
-    class IfcFaceSurface;
-    class IfcFacetedBrep;
-    class IfcFacetedBrepWithVoids;
-    class IfcFailureConnectionCondition;
-    class IfcFanType;
-    class IfcFastener;
-    class IfcFastenerType;
-    class IfcFeatureElement;
-    class IfcFeatureElementAddition;
-    class IfcFeatureElementSubtraction;
-    class IfcFillAreaStyle;
-    class IfcFillAreaStyleHatching;
-    class IfcFillAreaStyleTileShapeSelect;
-    class IfcFillAreaStyleTileSymbolWithStyle;
-    class IfcFillAreaStyleTiles;
-    class IfcFillStyleSelect;
-    class IfcFilterType;
-    class IfcFireSuppressionTerminalType;
-    class IfcFlowController;
-    class IfcFlowControllerType;
-    class IfcFlowFitting;
-    class IfcFlowFittingType;
-    class IfcFlowInstrumentType;
-    class IfcFlowMeterType;
-    class IfcFlowMovingDevice;
-    class IfcFlowMovingDeviceType;
-    class IfcFlowSegment;
-    class IfcFlowSegmentType;
-    class IfcFlowStorageDevice;
-    class IfcFlowStorageDeviceType;
-    class IfcFlowTerminal;
-    class IfcFlowTerminalType;
-    class IfcFlowTreatmentDevice;
-    class IfcFlowTreatmentDeviceType;
-    class IfcFluidFlowProperties;
-    class IfcFooting;
-    class IfcFuelProperties;
-    class IfcFurnishingElement;
-    class IfcFurnishingElementType;
-    class IfcFurnitureStandard;
-    class IfcFurnitureType;
-    class IfcGasTerminalType;
-    class IfcGeneralMaterialProperties;
-    class IfcGeneralProfileProperties;
-    class IfcGeometricCurveSet;
-    class IfcGeometricRepresentationContext;
-    class IfcGeometricRepresentationItem;
-    class IfcGeometricRepresentationSubContext;
-    class IfcGeometricSet;
-    class IfcGeometricSetSelect;
-    class IfcGrid;
-    class IfcGridAxis;
-    class IfcGridPlacement;
-    class IfcGroup;
-    class IfcHalfSpaceSolid;
-    class IfcHatchLineDistanceSelect;
-    class IfcHeatExchangerType;
-    class IfcHumidifierType;
-    class IfcHygroscopicMaterialProperties;
-    class IfcIShapeProfileDef;
-    class IfcImageTexture;
-    class IfcInventory;
-    class IfcIrregularTimeSeries;
-    class IfcIrregularTimeSeriesValue;
-    class IfcJunctionBoxType;
-    class IfcLShapeProfileDef;
-    class IfcLaborResource;
-    class IfcLampType;
-    class IfcLayeredItem;
-    class IfcLibraryInformation;
-    class IfcLibraryReference;
-    class IfcLibrarySelect;
-    class IfcLightDistributionData;
-    class IfcLightDistributionDataSourceSelect;
-    class IfcLightFixtureType;
-    class IfcLightIntensityDistribution;
-    class IfcLightSource;
-    class IfcLightSourceAmbient;
-    class IfcLightSourceDirectional;
-    class IfcLightSourceGoniometric;
-    class IfcLightSourcePositional;
-    class IfcLightSourceSpot;
-    class IfcLine;
-    class IfcLinearDimension;
-    class IfcLocalPlacement;
-    class IfcLocalTime;
-    class IfcLoop;
-    class IfcManifoldSolidBrep;
-    class IfcMappedItem;
-    class IfcMaterial;
-    class IfcMaterialClassificationRelationship;
-    class IfcMaterialDefinitionRepresentation;
-    class IfcMaterialLayer;
-    class IfcMaterialLayerSet;
-    class IfcMaterialLayerSetUsage;
-    class IfcMaterialList;
-    class IfcMaterialProperties;
-    class IfcMaterialSelect;
-    class IfcMeasureValue;
-    class IfcMeasureWithUnit;
-    class IfcMechanicalConcreteMaterialProperties;
-    class IfcMechanicalFastener;
-    class IfcMechanicalFastenerType;
-    class IfcMechanicalMaterialProperties;
-    class IfcMechanicalSteelMaterialProperties;
-    class IfcMember;
-    class IfcMemberType;
-    class IfcMetric;
-    class IfcMetricValueSelect;
-    class IfcMonetaryUnit;
-    class IfcMotorConnectionType;
-    class IfcMove;
-    class IfcNamedUnit;
-    class IfcObject;
-    class IfcObjectDefinition;
-    class IfcObjectPlacement;
-    class IfcObjectReferenceSelect;
-    class IfcObjective;
-    class IfcOccupant;
-    class IfcOffsetCurve2D;
-    class IfcOffsetCurve3D;
-    class IfcOneDirectionRepeatFactor;
-    class IfcOpenShell;
-    class IfcOpeningElement;
-    class IfcOpticalMaterialProperties;
-    class IfcOrderAction;
-    class IfcOrganization;
-    class IfcOrganizationRelationship;
-    class IfcOrientationSelect;
-    class IfcOrientedEdge;
-    class IfcOutletType;
-    class IfcOwnerHistory;
-    class IfcParameterizedProfileDef;
-    class IfcPath;
-    class IfcPerformanceHistory;
-    class IfcPermeableCoveringProperties;
-    class IfcPermit;
-    class IfcPerson;
-    class IfcPersonAndOrganization;
-    class IfcPhysicalComplexQuantity;
-    class IfcPhysicalQuantity;
-    class IfcPhysicalSimpleQuantity;
-    class IfcPile;
-    class IfcPipeFittingType;
-    class IfcPipeSegmentType;
-    class IfcPixelTexture;
-    class IfcPlacement;
-    class IfcPlanarBox;
-    class IfcPlanarExtent;
-    class IfcPlane;
-    class IfcPlate;
-    class IfcPlateType;
-    class IfcPoint;
-    class IfcPointOnCurve;
-    class IfcPointOnSurface;
-    class IfcPointOrVertexPoint;
-    class IfcPolyLoop;
-    class IfcPolygonalBoundedHalfSpace;
-    class IfcPolyline;
-    class IfcPort;
-    class IfcPostalAddress;
-    class IfcPreDefinedColour;
-    class IfcPreDefinedCurveFont;
-    class IfcPreDefinedDimensionSymbol;
-    class IfcPreDefinedItem;
-    class IfcPreDefinedPointMarkerSymbol;
-    class IfcPreDefinedSymbol;
-    class IfcPreDefinedTerminatorSymbol;
-    class IfcPreDefinedTextFont;
-    class IfcPresentationLayerAssignment;
-    class IfcPresentationLayerWithStyle;
-    class IfcPresentationStyle;
-    class IfcPresentationStyleAssignment;
-    class IfcPresentationStyleSelect;
-    class IfcProcedure;
-    class IfcProcess;
-    class IfcProduct;
-    class IfcProductDefinitionShape;
-    class IfcProductRepresentation;
-    class IfcProductsOfCombustionProperties;
-    class IfcProfileDef;
-    class IfcProfileProperties;
-    class IfcProject;
-    class IfcProjectOrder;
-    class IfcProjectOrderRecord;
-    class IfcProjectionCurve;
-    class IfcProjectionElement;
-    class IfcProperty;
-    class IfcPropertyBoundedValue;
-    class IfcPropertyConstraintRelationship;
-    class IfcPropertyDefinition;
-    class IfcPropertyDependencyRelationship;
-    class IfcPropertyEnumeratedValue;
-    class IfcPropertyEnumeration;
-    class IfcPropertyListValue;
-    class IfcPropertyReferenceValue;
-    class IfcPropertySet;
-    class IfcPropertySetDefinition;
-    class IfcPropertySingleValue;
-    class IfcPropertyTableValue;
-    class IfcProtectiveDeviceType;
-    class IfcProxy;
-    class IfcPumpType;
-    class IfcQuantityArea;
-    class IfcQuantityCount;
-    class IfcQuantityLength;
-    class IfcQuantityTime;
-    class IfcQuantityVolume;
-    class IfcQuantityWeight;
-    class IfcRadiusDimension;
-    class IfcRailing;
-    class IfcRailingType;
-    class IfcRamp;
-    class IfcRampFlight;
-    class IfcRampFlightType;
-    class IfcRationalBezierCurve;
-    class IfcRectangleHollowProfileDef;
-    class IfcRectangleProfileDef;
-    class IfcRectangularPyramid;
-    class IfcRectangularTrimmedSurface;
-    class IfcReferencesValueDocument;
-    class IfcRegularTimeSeries;
-    class IfcReinforcementBarProperties;
-    class IfcReinforcementDefinitionProperties;
-    class IfcReinforcingBar;
-    class IfcReinforcingElement;
-    class IfcReinforcingMesh;
-    class IfcRelAggregates;
-    class IfcRelAssigns;
-    class IfcRelAssignsTasks;
-    class IfcRelAssignsToActor;
-    class IfcRelAssignsToControl;
-    class IfcRelAssignsToGroup;
-    class IfcRelAssignsToProcess;
-    class IfcRelAssignsToProduct;
-    class IfcRelAssignsToProjectOrder;
-    class IfcRelAssignsToResource;
-    class IfcRelAssociates;
-    class IfcRelAssociatesAppliedValue;
-    class IfcRelAssociatesApproval;
-    class IfcRelAssociatesClassification;
-    class IfcRelAssociatesConstraint;
-    class IfcRelAssociatesDocument;
-    class IfcRelAssociatesLibrary;
-    class IfcRelAssociatesMaterial;
-    class IfcRelAssociatesProfileProperties;
-    class IfcRelConnects;
-    class IfcRelConnectsElements;
-    class IfcRelConnectsPathElements;
-    class IfcRelConnectsPortToElement;
-    class IfcRelConnectsPorts;
-    class IfcRelConnectsStructuralActivity;
-    class IfcRelConnectsStructuralElement;
-    class IfcRelConnectsStructuralMember;
-    class IfcRelConnectsWithEccentricity;
-    class IfcRelConnectsWithRealizingElements;
-    class IfcRelContainedInSpatialStructure;
-    class IfcRelCoversBldgElements;
-    class IfcRelCoversSpaces;
-    class IfcRelDecomposes;
-    class IfcRelDefines;
-    class IfcRelDefinesByProperties;
-    class IfcRelDefinesByType;
-    class IfcRelFillsElement;
-    class IfcRelFlowControlElements;
-    class IfcRelInteractionRequirements;
-    class IfcRelNests;
-    class IfcRelOccupiesSpaces;
-    class IfcRelOverridesProperties;
-    class IfcRelProjectsElement;
-    class IfcRelReferencedInSpatialStructure;
-    class IfcRelSchedulesCostItems;
-    class IfcRelSequence;
-    class IfcRelServicesBuildings;
-    class IfcRelSpaceBoundary;
-    class IfcRelVoidsElement;
-    class IfcRelationship;
-    class IfcRelaxation;
-    class IfcRepresentation;
-    class IfcRepresentationContext;
-    class IfcRepresentationItem;
-    class IfcRepresentationMap;
-    class IfcResource;
-    class IfcRevolvedAreaSolid;
-    class IfcRibPlateProfileProperties;
-    class IfcRightCircularCone;
-    class IfcRightCircularCylinder;
-    class IfcRoof;
-    class IfcRoot;
-    class IfcRoundedEdgeFeature;
-    class IfcRoundedRectangleProfileDef;
-    class IfcSIUnit;
-    class IfcSanitaryTerminalType;
-    class IfcScheduleTimeControl;
-    class IfcSectionProperties;
-    class IfcSectionReinforcementProperties;
-    class IfcSectionedSpine;
-    class IfcSensorType;
-    class IfcServiceLife;
-    class IfcServiceLifeFactor;
-    class IfcShapeAspect;
-    class IfcShapeModel;
-    class IfcShapeRepresentation;
-    class IfcShell;
-    class IfcShellBasedSurfaceModel;
-    class IfcSimpleProperty;
-    class IfcSimpleValue;
-    class IfcSite;
-    class IfcSizeSelect;
-    class IfcSlab;
-    class IfcSlabType;
-    class IfcSlippageConnectionCondition;
-    class IfcSolidModel;
-    class IfcSoundProperties;
-    class IfcSoundValue;
-    class IfcSpace;
-    class IfcSpaceHeaterType;
-    class IfcSpaceProgram;
-    class IfcSpaceThermalLoadProperties;
-    class IfcSpaceType;
-    class IfcSpatialStructureElement;
-    class IfcSpatialStructureElementType;
-    class IfcSpecularHighlightSelect;
-    class IfcSphere;
-    class IfcStackTerminalType;
-    class IfcStair;
-    class IfcStairFlight;
-    class IfcStairFlightType;
-    class IfcStructuralAction;
-    class IfcStructuralActivity;
-    class IfcStructuralActivityAssignmentSelect;
-    class IfcStructuralAnalysisModel;
-    class IfcStructuralConnection;
-    class IfcStructuralConnectionCondition;
-    class IfcStructuralCurveConnection;
-    class IfcStructuralCurveMember;
-    class IfcStructuralCurveMemberVarying;
-    class IfcStructuralItem;
-    class IfcStructuralLinearAction;
-    class IfcStructuralLinearActionVarying;
-    class IfcStructuralLoad;
-    class IfcStructuralLoadGroup;
-    class IfcStructuralLoadLinearForce;
-    class IfcStructuralLoadPlanarForce;
-    class IfcStructuralLoadSingleDisplacement;
-    class IfcStructuralLoadSingleDisplacementDistortion;
-    class IfcStructuralLoadSingleForce;
-    class IfcStructuralLoadSingleForceWarping;
-    class IfcStructuralLoadStatic;
-    class IfcStructuralLoadTemperature;
-    class IfcStructuralMember;
-    class IfcStructuralPlanarAction;
-    class IfcStructuralPlanarActionVarying;
-    class IfcStructuralPointAction;
-    class IfcStructuralPointConnection;
-    class IfcStructuralPointReaction;
-    class IfcStructuralProfileProperties;
-    class IfcStructuralReaction;
-    class IfcStructuralResultGroup;
-    class IfcStructuralSteelProfileProperties;
-    class IfcStructuralSurfaceConnection;
-    class IfcStructuralSurfaceMember;
-    class IfcStructuralSurfaceMemberVarying;
-    class IfcStructuredDimensionCallout;
-    class IfcStyleModel;
-    class IfcStyledItem;
-    class IfcStyledRepresentation;
-    class IfcSubContractResource;
-    class IfcSubedge;
-    class IfcSurface;
-    class IfcSurfaceCurveSweptAreaSolid;
-    class IfcSurfaceOfLinearExtrusion;
-    class IfcSurfaceOfRevolution;
-    class IfcSurfaceOrFaceSurface;
-    class IfcSurfaceStyle;
-    class IfcSurfaceStyleElementSelect;
-    class IfcSurfaceStyleLighting;
-    class IfcSurfaceStyleRefraction;
-    class IfcSurfaceStyleRendering;
-    class IfcSurfaceStyleShading;
-    class IfcSurfaceStyleWithTextures;
-    class IfcSurfaceTexture;
-    class IfcSweptAreaSolid;
-    class IfcSweptDiskSolid;
-    class IfcSweptSurface;
-    class IfcSwitchingDeviceType;
-    class IfcSymbolStyle;
-    class IfcSymbolStyleSelect;
-    class IfcSystem;
-    class IfcSystemFurnitureElementType;
-    class IfcTShapeProfileDef;
-    class IfcTable;
-    class IfcTableRow;
-    class IfcTankType;
-    class IfcTask;
-    class IfcTelecomAddress;
-    class IfcTendon;
-    class IfcTendonAnchor;
-    class IfcTerminatorSymbol;
-    class IfcTextFontSelect;
-    class IfcTextLiteral;
-    class IfcTextLiteralWithExtent;
-    class IfcTextStyle;
-    class IfcTextStyleFontModel;
-    class IfcTextStyleForDefinedFont;
-    class IfcTextStyleSelect;
-    class IfcTextStyleTextModel;
-    class IfcTextStyleWithBoxCharacteristics;
-    class IfcTextureCoordinate;
-    class IfcTextureCoordinateGenerator;
-    class IfcTextureMap;
-    class IfcTextureVertex;
-    class IfcThermalMaterialProperties;
-    class IfcTimeSeries;
-    class IfcTimeSeriesReferenceRelationship;
-    class IfcTimeSeriesSchedule;
-    class IfcTimeSeriesValue;
-    class IfcTopologicalRepresentationItem;
-    class IfcTopologyRepresentation;
-    class IfcTransformerType;
-    class IfcTransportElement;
-    class IfcTransportElementType;
-    class IfcTrapeziumProfileDef;
-    class IfcTrimmedCurve;
-    class IfcTrimmingSelect;
-    class IfcTubeBundleType;
-    class IfcTwoDirectionRepeatFactor;
-    class IfcTypeObject;
-    class IfcTypeProduct;
-    class IfcUShapeProfileDef;
-    class IfcUnit;
-    class IfcUnitAssignment;
-    class IfcUnitaryEquipmentType;
-    class IfcValue;
-    class IfcValveType;
-    class IfcVector;
-    class IfcVertex;
-    class IfcVertexBasedTextureMap;
-    class IfcVertexLoop;
-    class IfcVertexPoint;
-    class IfcVibrationIsolatorType;
-    class IfcVirtualElement;
-    class IfcVirtualGridIntersection;
-    class IfcWall;
-    class IfcWallStandardCase;
-    class IfcWallType;
-    class IfcWasteTerminalType;
-    class IfcWaterProperties;
-    class IfcWindow;
-    class IfcWindowLiningProperties;
-    class IfcWindowPanelProperties;
-    class IfcWindowStyle;
-    class IfcWorkControl;
-    class IfcWorkPlan;
-    class IfcWorkSchedule;
-    class IfcZShapeProfileDef;
-    class IfcZone;
 
-    /**
-     * This is the specific SPF writer for the generated schema.
-     *
-     * It is constructed with a specific ExpressDataSet instance.
-     * It is used by calling the writeSPF method.
-     *
-     */
-    class IFC2X3_EXPORT SPFWriter : public Step::BaseSPFWriter, public InheritVisitor {
+    class IFC2X3_EXPORT SPFWriter : public Step::BaseSPFWriter, public InheritVisitor
+    {
     public:
         /**
          * Default Constructor, needs a valid ExpressDataSet.
@@ -762,19 +70,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcActionRequest(IfcActionRequest *value);
         /**
-         * @param selectData
-         */
-        void writeIfcActorSelect(IfcActorSelect *selectData);
-        /**
          * write the IfcActor datatype to m_out.
          *
          * @param value the IfcActor datatype to write
          */
         virtual bool visitIfcActor(IfcActor *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcRoleEnum(IfcRoleEnum enumData);
         /**
          * write the IfcActorRole datatype to m_out.
          *
@@ -782,19 +82,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcActorRole(IfcActorRole *value);
         /**
-         * @param enumData
-         */
-        void writeIfcActuatorTypeEnum(IfcActuatorTypeEnum enumData);
-        /**
          * write the IfcActuatorType datatype to m_out.
          *
          * @param value the IfcActuatorType datatype to write
          */
         virtual bool visitIfcActuatorType(IfcActuatorType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcAddressTypeEnum(IfcAddressTypeEnum enumData);
         /**
          * write the IfcAddress datatype to m_out.
          *
@@ -802,19 +94,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcAddress(IfcAddress *value);
         /**
-         * @param enumData
-         */
-        void writeIfcAirTerminalBoxTypeEnum(IfcAirTerminalBoxTypeEnum enumData);
-        /**
          * write the IfcAirTerminalBoxType datatype to m_out.
          *
          * @param value the IfcAirTerminalBoxType datatype to write
          */
         virtual bool visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcAirTerminalTypeEnum(IfcAirTerminalTypeEnum enumData);
         /**
          * write the IfcAirTerminalType datatype to m_out.
          *
@@ -822,29 +106,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcAirTerminalType(IfcAirTerminalType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcAirToAirHeatRecoveryTypeEnum(IfcAirToAirHeatRecoveryTypeEnum enumData);
-        /**
          * write the IfcAirToAirHeatRecoveryType datatype to m_out.
          *
          * @param value the IfcAirToAirHeatRecoveryType datatype to write
          */
         virtual bool visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcAlarmTypeEnum(IfcAlarmTypeEnum enumData);
-        /**
          * write the IfcAlarmType datatype to m_out.
          *
          * @param value the IfcAlarmType datatype to write
          */
         virtual bool visitIfcAlarmType(IfcAlarmType *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcDraughtingCalloutElement(IfcDraughtingCalloutElement *selectData);
         /**
          * write the IfcAngularDimension datatype to m_out.
          *
@@ -869,10 +141,6 @@ namespace ifc2x3 {
          * @param value the IfcAnnotationFillArea datatype to write
          */
         virtual bool visitIfcAnnotationFillArea(IfcAnnotationFillArea *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcGlobalOrLocalEnum(IfcGlobalOrLocalEnum enumData);
         /**
          * write the IfcAnnotationFillAreaOccurrence datatype to m_out.
          *
@@ -916,23 +184,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcApplication(IfcApplication *value);
         /**
-         * @param selectData
-         */
-        void writeIfcAppliedValueSelect(IfcAppliedValueSelect *selectData);
-        /**
-         * @param selectData
-         */
-        void writeIfcDateTimeSelect(IfcDateTimeSelect *selectData);
-        /**
          * write the IfcAppliedValue datatype to m_out.
          *
          * @param value the IfcAppliedValue datatype to write
          */
         virtual bool visitIfcAppliedValue(IfcAppliedValue *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcArithmeticOperatorEnum(IfcArithmeticOperatorEnum enumData);
         /**
          * write the IfcAppliedValueRelationship datatype to m_out.
          *
@@ -963,10 +219,6 @@ namespace ifc2x3 {
          * @param value the IfcApprovalRelationship datatype to write
          */
         virtual bool visitIfcApprovalRelationship(IfcApprovalRelationship *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcProfileTypeEnum(IfcProfileTypeEnum enumData);
         /**
          * write the IfcArbitraryClosedProfileDef datatype to m_out.
          *
@@ -1016,25 +268,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcAxis2Placement3D(IfcAxis2Placement3D *value);
         /**
-         * @param enumData
-         */
-        void writeIfcBSplineCurveForm(IfcBSplineCurveForm enumData);
-        /**
-         * write the IfcBSplineCurve datatype to m_out.
-         *
-         * @param value the IfcBSplineCurve datatype to write
-         */
-        virtual bool visitIfcBSplineCurve(IfcBSplineCurve *value);
-        /**
          * write the IfcBeam datatype to m_out.
          *
          * @param value the IfcBeam datatype to write
          */
         virtual bool visitIfcBeam(IfcBeam *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcBeamTypeEnum(IfcBeamTypeEnum enumData);
         /**
          * write the IfcBeamType datatype to m_out.
          *
@@ -1048,10 +286,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcBezierCurve(IfcBezierCurve *value);
         /**
-         * @param enumData
-         */
-        void writeIfcSurfaceTextureEnum(IfcSurfaceTextureEnum enumData);
-        /**
          * write the IfcBlobTexture datatype to m_out.
          *
          * @param value the IfcBlobTexture datatype to write
@@ -1064,23 +298,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcBlock(IfcBlock *value);
         /**
-         * @param enumData
-         */
-        void writeIfcBoilerTypeEnum(IfcBoilerTypeEnum enumData);
-        /**
          * write the IfcBoilerType datatype to m_out.
          *
          * @param value the IfcBoilerType datatype to write
          */
         virtual bool visitIfcBoilerType(IfcBoilerType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcBooleanOperator(IfcBooleanOperator enumData);
-        /**
-         * @param selectData
-         */
-        void writeIfcBooleanOperand(IfcBooleanOperand *selectData);
         /**
          * write the IfcBooleanClippingResult datatype to m_out.
          *
@@ -1148,9 +370,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcBoxedHalfSpace(IfcBoxedHalfSpace *value);
         /**
-         * @param enumData
+         * write the IfcBSplineCurve datatype to m_out.
+         *
+         * @param value the IfcBSplineCurve datatype to write
          */
-        void writeIfcElementCompositionEnum(IfcElementCompositionEnum enumData);
+        virtual bool visitIfcBSplineCurve(IfcBSplineCurve *value);
         /**
          * write the IfcBuilding datatype to m_out.
          *
@@ -1182,10 +406,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcBuildingElementProxy(IfcBuildingElementProxy *value);
         /**
-         * @param enumData
-         */
-        void writeIfcBuildingElementProxyTypeEnum(IfcBuildingElementProxyTypeEnum enumData);
-        /**
          * write the IfcBuildingElementProxyType datatype to m_out.
          *
          * @param value the IfcBuildingElementProxyType datatype to write
@@ -1204,35 +424,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcBuildingStorey(IfcBuildingStorey *value);
         /**
-         * write the IfcCShapeProfileDef datatype to m_out.
-         *
-         * @param value the IfcCShapeProfileDef datatype to write
-         */
-        virtual bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcCableCarrierFittingTypeEnum(IfcCableCarrierFittingTypeEnum enumData);
-        /**
          * write the IfcCableCarrierFittingType datatype to m_out.
          *
          * @param value the IfcCableCarrierFittingType datatype to write
          */
         virtual bool visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcCableCarrierSegmentTypeEnum(IfcCableCarrierSegmentTypeEnum enumData);
-        /**
          * write the IfcCableCarrierSegmentType datatype to m_out.
          *
          * @param value the IfcCableCarrierSegmentType datatype to write
          */
         virtual bool visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcCableSegmentTypeEnum(IfcCableSegmentTypeEnum enumData);
         /**
          * write the IfcCableSegmentType datatype to m_out.
          *
@@ -1294,19 +496,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcChamferEdgeFeature(IfcChamferEdgeFeature *value);
         /**
-         * @param enumData
-         */
-        void writeIfcChillerTypeEnum(IfcChillerTypeEnum enumData);
-        /**
          * write the IfcChillerType datatype to m_out.
          *
          * @param value the IfcChillerType datatype to write
          */
         virtual bool visitIfcChillerType(IfcChillerType *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcAxis2Placement(IfcAxis2Placement *selectData);
         /**
          * write the IfcCircle datatype to m_out.
          *
@@ -1368,10 +562,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcClosedShell(IfcClosedShell *value);
         /**
-         * @param enumData
-         */
-        void writeIfcCoilTypeEnum(IfcCoilTypeEnum enumData);
-        /**
          * write the IfcCoilType datatype to m_out.
          *
          * @param value the IfcCoilType datatype to write
@@ -1396,10 +586,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcColumn(IfcColumn *value);
         /**
-         * @param enumData
-         */
-        void writeIfcColumnTypeEnum(IfcColumnTypeEnum enumData);
-        /**
          * write the IfcColumnType datatype to m_out.
          *
          * @param value the IfcColumnType datatype to write
@@ -1418,10 +604,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcCompositeCurve(IfcCompositeCurve *value);
         /**
-         * @param enumData
-         */
-        void writeIfcTransitionCode(IfcTransitionCode enumData);
-        /**
          * write the IfcCompositeCurveSegment datatype to m_out.
          *
          * @param value the IfcCompositeCurveSegment datatype to write
@@ -1434,19 +616,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcCompositeProfileDef(IfcCompositeProfileDef *value);
         /**
-         * @param enumData
-         */
-        void writeIfcCompressorTypeEnum(IfcCompressorTypeEnum enumData);
-        /**
          * write the IfcCompressorType datatype to m_out.
          *
          * @param value the IfcCompressorType datatype to write
          */
         virtual bool visitIfcCompressorType(IfcCompressorType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcCondenserTypeEnum(IfcCondenserTypeEnum enumData);
         /**
          * write the IfcCondenserType datatype to m_out.
          *
@@ -1459,10 +633,6 @@ namespace ifc2x3 {
          * @param value the IfcCondition datatype to write
          */
         virtual bool visitIfcCondition(IfcCondition *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcConditionCriterionSelect(IfcConditionCriterionSelect *selectData);
         /**
          * write the IfcConditionCriterion datatype to m_out.
          *
@@ -1482,10 +652,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcConnectedFaceSet(IfcConnectedFaceSet *value);
         /**
-         * @param selectData
-         */
-        void writeIfcCurveOrEdgeCurve(IfcCurveOrEdgeCurve *selectData);
-        /**
          * write the IfcConnectionCurveGeometry datatype to m_out.
          *
          * @param value the IfcConnectionCurveGeometry datatype to write
@@ -1497,10 +663,6 @@ namespace ifc2x3 {
          * @param value the IfcConnectionGeometry datatype to write
          */
         virtual bool visitIfcConnectionGeometry(IfcConnectionGeometry *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcPointOrVertexPoint(IfcPointOrVertexPoint *selectData);
         /**
          * write the IfcConnectionPointEccentricity datatype to m_out.
          *
@@ -1520,19 +682,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcConnectionPortGeometry(IfcConnectionPortGeometry *value);
         /**
-         * @param selectData
-         */
-        void writeIfcSurfaceOrFaceSurface(IfcSurfaceOrFaceSurface *selectData);
-        /**
          * write the IfcConnectionSurfaceGeometry datatype to m_out.
          *
          * @param value the IfcConnectionSurfaceGeometry datatype to write
          */
         virtual bool visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcConstraintEnum(IfcConstraintEnum enumData);
         /**
          * write the IfcConstraint datatype to m_out.
          *
@@ -1540,19 +694,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcConstraint(IfcConstraint *value);
         /**
-         * @param enumData
-         */
-        void writeIfcLogicalOperatorEnum(IfcLogicalOperatorEnum enumData);
-        /**
          * write the IfcConstraintAggregationRelationship datatype to m_out.
          *
          * @param value the IfcConstraintAggregationRelationship datatype to write
          */
         virtual bool visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcClassificationNotationSelect(IfcClassificationNotationSelect *selectData);
         /**
          * write the IfcConstraintClassificationRelationship datatype to m_out.
          *
@@ -1565,10 +711,6 @@ namespace ifc2x3 {
          * @param value the IfcConstraintRelationship datatype to write
          */
         virtual bool visitIfcConstraintRelationship(IfcConstraintRelationship *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcResourceConsumptionEnum(IfcResourceConsumptionEnum enumData);
         /**
          * write the IfcConstructionEquipmentResource datatype to m_out.
          *
@@ -1594,10 +736,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcConstructionResource(IfcConstructionResource *value);
         /**
-         * @param enumData
-         */
-        void writeIfcUnitEnum(IfcUnitEnum enumData);
-        /**
          * write the IfcContextDependentUnit datatype to m_out.
          *
          * @param value the IfcContextDependentUnit datatype to write
@@ -1609,10 +747,6 @@ namespace ifc2x3 {
          * @param value the IfcControl datatype to write
          */
         virtual bool visitIfcControl(IfcControl *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcControllerTypeEnum(IfcControllerTypeEnum enumData);
         /**
          * write the IfcControllerType datatype to m_out.
          *
@@ -1626,29 +760,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcConversionBasedUnit(IfcConversionBasedUnit *value);
         /**
-         * @param enumData
-         */
-        void writeIfcCooledBeamTypeEnum(IfcCooledBeamTypeEnum enumData);
-        /**
          * write the IfcCooledBeamType datatype to m_out.
          *
          * @param value the IfcCooledBeamType datatype to write
          */
         virtual bool visitIfcCooledBeamType(IfcCooledBeamType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcCoolingTowerTypeEnum(IfcCoolingTowerTypeEnum enumData);
-        /**
          * write the IfcCoolingTowerType datatype to m_out.
          *
          * @param value the IfcCoolingTowerType datatype to write
          */
         virtual bool visitIfcCoolingTowerType(IfcCoolingTowerType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcAheadOrBehind(IfcAheadOrBehind enumData);
         /**
          * write the IfcCoordinatedUniversalTimeOffset datatype to m_out.
          *
@@ -1662,10 +784,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcCostItem(IfcCostItem *value);
         /**
-         * @param enumData
-         */
-        void writeIfcCostScheduleTypeEnum(IfcCostScheduleTypeEnum enumData);
-        /**
          * write the IfcCostSchedule datatype to m_out.
          *
          * @param value the IfcCostSchedule datatype to write
@@ -1677,10 +795,6 @@ namespace ifc2x3 {
          * @param value the IfcCostValue datatype to write
          */
         virtual bool visitIfcCostValue(IfcCostValue *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcCoveringTypeEnum(IfcCoveringTypeEnum enumData);
         /**
          * write the IfcCovering datatype to m_out.
          *
@@ -1718,15 +832,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcCsgPrimitive3D(IfcCsgPrimitive3D *value);
         /**
-         * @param selectData
-         */
-        void writeIfcCsgSelect(IfcCsgSelect *selectData);
-        /**
          * write the IfcCsgSolid datatype to m_out.
          *
          * @param value the IfcCsgSolid datatype to write
          */
         virtual bool visitIfcCsgSolid(IfcCsgSolid *value);
+        /**
+         * write the IfcCShapeProfileDef datatype to m_out.
+         *
+         * @param value the IfcCShapeProfileDef datatype to write
+         */
+        virtual bool visitIfcCShapeProfileDef(IfcCShapeProfileDef *value);
         /**
          * write the IfcCurrencyRelationship datatype to m_out.
          *
@@ -1739,10 +855,6 @@ namespace ifc2x3 {
          * @param value the IfcCurtainWall datatype to write
          */
         virtual bool visitIfcCurtainWall(IfcCurtainWall *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcCurtainWallTypeEnum(IfcCurtainWallTypeEnum enumData);
         /**
          * write the IfcCurtainWallType datatype to m_out.
          *
@@ -1762,18 +874,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *value);
         /**
-         * @param selectData
-         */
-        void writeIfcCurveFontOrScaledCurveFontSelect(IfcCurveFontOrScaledCurveFontSelect *selectData);
-        /**
-         * @param selectData
-         */
-        void writeIfcSizeSelect(IfcSizeSelect *selectData);
-        /**
-         * @param selectData
-         */
-        void writeIfcColour(IfcColour *selectData);
-        /**
          * write the IfcCurveStyle datatype to m_out.
          *
          * @param value the IfcCurveStyle datatype to write
@@ -1785,10 +885,6 @@ namespace ifc2x3 {
          * @param value the IfcCurveStyleFont datatype to write
          */
         virtual bool visitIfcCurveStyleFont(IfcCurveStyleFont *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcCurveStyleFontSelect(IfcCurveStyleFontSelect *selectData);
         /**
          * write the IfcCurveStyleFontAndScaling datatype to m_out.
          *
@@ -1802,10 +898,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *value);
         /**
-         * @param enumData
-         */
-        void writeIfcDamperTypeEnum(IfcDamperTypeEnum enumData);
-        /**
          * write the IfcDamperType datatype to m_out.
          *
          * @param value the IfcDamperType datatype to write
@@ -1818,10 +910,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcDateAndTime(IfcDateAndTime *value);
         /**
-         * @param selectData
-         */
-        void writeIfcDefinedSymbolSelect(IfcDefinedSymbolSelect *selectData);
-        /**
          * write the IfcDefinedSymbol datatype to m_out.
          *
          * @param value the IfcDefinedSymbol datatype to write
@@ -1833,10 +921,6 @@ namespace ifc2x3 {
          * @param value the IfcDerivedProfileDef datatype to write
          */
         virtual bool visitIfcDerivedProfileDef(IfcDerivedProfileDef *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcDerivedUnitEnum(IfcDerivedUnitEnum enumData);
         /**
          * write the IfcDerivedUnit datatype to m_out.
          *
@@ -1856,6 +940,12 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcDiameterDimension(IfcDiameterDimension *value);
         /**
+         * write the IfcDimensionalExponents datatype to m_out.
+         *
+         * @param value the IfcDimensionalExponents datatype to write
+         */
+        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *value);
+        /**
          * write the IfcDimensionCalloutRelationship datatype to m_out.
          *
          * @param value the IfcDimensionCalloutRelationship datatype to write
@@ -1874,10 +964,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *value);
         /**
-         * @param enumData
-         */
-        void writeIfcDimensionExtentUsage(IfcDimensionExtentUsage enumData);
-        /**
          * write the IfcDimensionCurveTerminator datatype to m_out.
          *
          * @param value the IfcDimensionCurveTerminator datatype to write
@@ -1889,12 +975,6 @@ namespace ifc2x3 {
          * @param value the IfcDimensionPair datatype to write
          */
         virtual bool visitIfcDimensionPair(IfcDimensionPair *value);
-        /**
-         * write the IfcDimensionalExponents datatype to m_out.
-         *
-         * @param value the IfcDimensionalExponents datatype to write
-         */
-        virtual bool visitIfcDimensionalExponents(IfcDimensionalExponents *value);
         /**
          * write the IfcDirection datatype to m_out.
          *
@@ -1919,10 +999,6 @@ namespace ifc2x3 {
          * @param value the IfcDistributionChamberElement datatype to write
          */
         virtual bool visitIfcDistributionChamberElement(IfcDistributionChamberElement *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcDistributionChamberElementTypeEnum(IfcDistributionChamberElementTypeEnum enumData);
         /**
          * write the IfcDistributionChamberElementType datatype to m_out.
          *
@@ -1966,10 +1042,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcDistributionFlowElementType(IfcDistributionFlowElementType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcFlowDirectionEnum(IfcFlowDirectionEnum enumData);
-        /**
          * write the IfcDistributionPort datatype to m_out.
          *
          * @param value the IfcDistributionPort datatype to write
@@ -1981,14 +1053,6 @@ namespace ifc2x3 {
          * @param value the IfcDocumentElectronicFormat datatype to write
          */
         virtual bool visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcDocumentConfidentialityEnum(IfcDocumentConfidentialityEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcDocumentStatusEnum(IfcDocumentStatusEnum enumData);
         /**
          * write the IfcDocumentInformation datatype to m_out.
          *
@@ -2020,27 +1084,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcDoorLiningProperties(IfcDoorLiningProperties *value);
         /**
-         * @param enumData
-         */
-        void writeIfcDoorPanelOperationEnum(IfcDoorPanelOperationEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcDoorPanelPositionEnum(IfcDoorPanelPositionEnum enumData);
-        /**
          * write the IfcDoorPanelProperties datatype to m_out.
          *
          * @param value the IfcDoorPanelProperties datatype to write
          */
         virtual bool visitIfcDoorPanelProperties(IfcDoorPanelProperties *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcDoorStyleOperationEnum(IfcDoorStyleOperationEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcDoorStyleConstructionEnum(IfcDoorStyleConstructionEnum enumData);
         /**
          * write the IfcDoorStyle datatype to m_out.
          *
@@ -2078,29 +1126,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *value);
         /**
-         * @param enumData
-         */
-        void writeIfcDuctFittingTypeEnum(IfcDuctFittingTypeEnum enumData);
-        /**
          * write the IfcDuctFittingType datatype to m_out.
          *
          * @param value the IfcDuctFittingType datatype to write
          */
         virtual bool visitIfcDuctFittingType(IfcDuctFittingType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcDuctSegmentTypeEnum(IfcDuctSegmentTypeEnum enumData);
-        /**
          * write the IfcDuctSegmentType datatype to m_out.
          *
          * @param value the IfcDuctSegmentType datatype to write
          */
         virtual bool visitIfcDuctSegmentType(IfcDuctSegmentType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcDuctSilencerTypeEnum(IfcDuctSilencerTypeEnum enumData);
         /**
          * write the IfcDuctSilencerType datatype to m_out.
          *
@@ -2132,84 +1168,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcEdgeLoop(IfcEdgeLoop *value);
         /**
-         * @param enumData
-         */
-        void writeIfcElectricApplianceTypeEnum(IfcElectricApplianceTypeEnum enumData);
-        /**
-         * write the IfcElectricApplianceType datatype to m_out.
-         *
-         * @param value the IfcElectricApplianceType datatype to write
-         */
-        virtual bool visitIfcElectricApplianceType(IfcElectricApplianceType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcElectricDistributionPointFunctionEnum(IfcElectricDistributionPointFunctionEnum enumData);
-        /**
-         * write the IfcElectricDistributionPoint datatype to m_out.
-         *
-         * @param value the IfcElectricDistributionPoint datatype to write
-         */
-        virtual bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcElectricFlowStorageDeviceTypeEnum(IfcElectricFlowStorageDeviceTypeEnum enumData);
-        /**
-         * write the IfcElectricFlowStorageDeviceType datatype to m_out.
-         *
-         * @param value the IfcElectricFlowStorageDeviceType datatype to write
-         */
-        virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcElectricGeneratorTypeEnum(IfcElectricGeneratorTypeEnum enumData);
-        /**
-         * write the IfcElectricGeneratorType datatype to m_out.
-         *
-         * @param value the IfcElectricGeneratorType datatype to write
-         */
-        virtual bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcElectricHeaterTypeEnum(IfcElectricHeaterTypeEnum enumData);
-        /**
-         * write the IfcElectricHeaterType datatype to m_out.
-         *
-         * @param value the IfcElectricHeaterType datatype to write
-         */
-        virtual bool visitIfcElectricHeaterType(IfcElectricHeaterType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcElectricMotorTypeEnum(IfcElectricMotorTypeEnum enumData);
-        /**
-         * write the IfcElectricMotorType datatype to m_out.
-         *
-         * @param value the IfcElectricMotorType datatype to write
-         */
-        virtual bool visitIfcElectricMotorType(IfcElectricMotorType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcElectricTimeControlTypeEnum(IfcElectricTimeControlTypeEnum enumData);
-        /**
-         * write the IfcElectricTimeControlType datatype to m_out.
-         *
-         * @param value the IfcElectricTimeControlType datatype to write
-         */
-        virtual bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcEnergySequenceEnum(IfcEnergySequenceEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcElectricCurrentEnum(IfcElectricCurrentEnum enumData);
-        /**
          * write the IfcElectricalBaseProperties datatype to m_out.
          *
          * @param value the IfcElectricalBaseProperties datatype to write
@@ -2228,19 +1186,59 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcElectricalElement(IfcElectricalElement *value);
         /**
+         * write the IfcElectricApplianceType datatype to m_out.
+         *
+         * @param value the IfcElectricApplianceType datatype to write
+         */
+        virtual bool visitIfcElectricApplianceType(IfcElectricApplianceType *value);
+        /**
+         * write the IfcElectricDistributionPoint datatype to m_out.
+         *
+         * @param value the IfcElectricDistributionPoint datatype to write
+         */
+        virtual bool visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *value);
+        /**
+         * write the IfcElectricFlowStorageDeviceType datatype to m_out.
+         *
+         * @param value the IfcElectricFlowStorageDeviceType datatype to write
+         */
+        virtual bool visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *value);
+        /**
+         * write the IfcElectricGeneratorType datatype to m_out.
+         *
+         * @param value the IfcElectricGeneratorType datatype to write
+         */
+        virtual bool visitIfcElectricGeneratorType(IfcElectricGeneratorType *value);
+        /**
+         * write the IfcElectricHeaterType datatype to m_out.
+         *
+         * @param value the IfcElectricHeaterType datatype to write
+         */
+        virtual bool visitIfcElectricHeaterType(IfcElectricHeaterType *value);
+        /**
+         * write the IfcElectricMotorType datatype to m_out.
+         *
+         * @param value the IfcElectricMotorType datatype to write
+         */
+        virtual bool visitIfcElectricMotorType(IfcElectricMotorType *value);
+        /**
+         * write the IfcElectricTimeControlType datatype to m_out.
+         *
+         * @param value the IfcElectricTimeControlType datatype to write
+         */
+        virtual bool visitIfcElectricTimeControlType(IfcElectricTimeControlType *value);
+        /**
          * write the IfcElement datatype to m_out.
          *
          * @param value the IfcElement datatype to write
          */
         virtual bool visitIfcElement(IfcElement *value);
         /**
-         * @param enumData
+         * write the IfcElementarySurface datatype to m_out.
+         *
+         * @param value the IfcElementarySurface datatype to write
          */
-        void writeIfcAssemblyPlaceEnum(IfcAssemblyPlaceEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcElementAssemblyTypeEnum(IfcElementAssemblyTypeEnum enumData);
+        virtual bool visitIfcElementarySurface(IfcElementarySurface *value);
         /**
          * write the IfcElementAssembly datatype to m_out.
          *
@@ -2272,12 +1270,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcElementType(IfcElementType *value);
         /**
-         * write the IfcElementarySurface datatype to m_out.
-         *
-         * @param value the IfcElementarySurface datatype to write
-         */
-        virtual bool visitIfcElementarySurface(IfcElementarySurface *value);
-        /**
          * write the IfcEllipse datatype to m_out.
          *
          * @param value the IfcEllipse datatype to write
@@ -2308,10 +1300,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcEnergyProperties(IfcEnergyProperties *value);
         /**
-         * @param enumData
-         */
-        void writeIfcEnvironmentalImpactCategoryEnum(IfcEnvironmentalImpactCategoryEnum enumData);
-        /**
          * write the IfcEnvironmentalImpactValue datatype to m_out.
          *
          * @param value the IfcEnvironmentalImpactValue datatype to write
@@ -2330,19 +1318,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcEquipmentStandard(IfcEquipmentStandard *value);
         /**
-         * @param enumData
-         */
-        void writeIfcEvaporativeCoolerTypeEnum(IfcEvaporativeCoolerTypeEnum enumData);
-        /**
          * write the IfcEvaporativeCoolerType datatype to m_out.
          *
          * @param value the IfcEvaporativeCoolerType datatype to write
          */
         virtual bool visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcEvaporatorTypeEnum(IfcEvaporatorTypeEnum enumData);
         /**
          * write the IfcEvaporatorType datatype to m_out.
          *
@@ -2355,12 +1335,6 @@ namespace ifc2x3 {
          * @param value the IfcExtendedMaterialProperties datatype to write
          */
         virtual bool visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *value);
-        /**
-         * write the IfcExternalReference datatype to m_out.
-         *
-         * @param value the IfcExternalReference datatype to write
-         */
-        virtual bool visitIfcExternalReference(IfcExternalReference *value);
         /**
          * write the IfcExternallyDefinedHatchStyle datatype to m_out.
          *
@@ -2385,6 +1359,12 @@ namespace ifc2x3 {
          * @param value the IfcExternallyDefinedTextFont datatype to write
          */
         virtual bool visitIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *value);
+        /**
+         * write the IfcExternalReference datatype to m_out.
+         *
+         * @param value the IfcExternalReference datatype to write
+         */
+        virtual bool visitIfcExternalReference(IfcExternalReference *value);
         /**
          * write the IfcExtrudedAreaSolid datatype to m_out.
          *
@@ -2440,10 +1420,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcFailureConnectionCondition(IfcFailureConnectionCondition *value);
         /**
-         * @param enumData
-         */
-        void writeIfcFanTypeEnum(IfcFanTypeEnum enumData);
-        /**
          * write the IfcFanType datatype to m_out.
          *
          * @param value the IfcFanType datatype to write
@@ -2480,19 +1456,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcFeatureElementSubtraction(IfcFeatureElementSubtraction *value);
         /**
-         * @param selectData
-         */
-        void writeIfcFillStyleSelect(IfcFillStyleSelect *selectData);
-        /**
          * write the IfcFillAreaStyle datatype to m_out.
          *
          * @param value the IfcFillAreaStyle datatype to write
          */
         virtual bool visitIfcFillAreaStyle(IfcFillAreaStyle *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcHatchLineDistanceSelect(IfcHatchLineDistanceSelect *selectData);
         /**
          * write the IfcFillAreaStyleHatching datatype to m_out.
          *
@@ -2500,35 +1468,23 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *value);
         /**
-         * write the IfcFillAreaStyleTileSymbolWithStyle datatype to m_out.
-         *
-         * @param value the IfcFillAreaStyleTileSymbolWithStyle datatype to write
-         */
-        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcFillAreaStyleTileShapeSelect(IfcFillAreaStyleTileShapeSelect *selectData);
-        /**
          * write the IfcFillAreaStyleTiles datatype to m_out.
          *
          * @param value the IfcFillAreaStyleTiles datatype to write
          */
         virtual bool visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *value);
         /**
-         * @param enumData
+         * write the IfcFillAreaStyleTileSymbolWithStyle datatype to m_out.
+         *
+         * @param value the IfcFillAreaStyleTileSymbolWithStyle datatype to write
          */
-        void writeIfcFilterTypeEnum(IfcFilterTypeEnum enumData);
+        virtual bool visitIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *value);
         /**
          * write the IfcFilterType datatype to m_out.
          *
          * @param value the IfcFilterType datatype to write
          */
         virtual bool visitIfcFilterType(IfcFilterType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcFireSuppressionTerminalTypeEnum(IfcFireSuppressionTerminalTypeEnum enumData);
         /**
          * write the IfcFireSuppressionTerminalType datatype to m_out.
          *
@@ -2560,19 +1516,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcFlowFittingType(IfcFlowFittingType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcFlowInstrumentTypeEnum(IfcFlowInstrumentTypeEnum enumData);
-        /**
          * write the IfcFlowInstrumentType datatype to m_out.
          *
          * @param value the IfcFlowInstrumentType datatype to write
          */
         virtual bool visitIfcFlowInstrumentType(IfcFlowInstrumentType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcFlowMeterTypeEnum(IfcFlowMeterTypeEnum enumData);
         /**
          * write the IfcFlowMeterType datatype to m_out.
          *
@@ -2640,23 +1588,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcPropertySourceEnum(IfcPropertySourceEnum enumData);
-        /**
-         * @param selectData
-         */
-        void writeIfcDerivedMeasureValue(IfcDerivedMeasureValue *selectData);
-        /**
          * write the IfcFluidFlowProperties datatype to m_out.
          *
          * @param value the IfcFluidFlowProperties datatype to write
          */
         virtual bool visitIfcFluidFlowProperties(IfcFluidFlowProperties *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcFootingTypeEnum(IfcFootingTypeEnum enumData);
         /**
          * write the IfcFooting datatype to m_out.
          *
@@ -2694,10 +1630,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcFurnitureType(IfcFurnitureType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcGasTerminalTypeEnum(IfcGasTerminalTypeEnum enumData);
-        /**
          * write the IfcGasTerminalType datatype to m_out.
          *
          * @param value the IfcGasTerminalType datatype to write
@@ -2716,10 +1648,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcGeneralProfileProperties(IfcGeneralProfileProperties *value);
         /**
-         * @param selectData
-         */
-        void writeIfcGeometricSetSelect(IfcGeometricSetSelect *selectData);
-        /**
          * write the IfcGeometricCurveSet datatype to m_out.
          *
          * @param value the IfcGeometricCurveSet datatype to write
@@ -2737,10 +1665,6 @@ namespace ifc2x3 {
          * @param value the IfcGeometricRepresentationItem datatype to write
          */
         virtual bool visitIfcGeometricRepresentationItem(IfcGeometricRepresentationItem *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcGeometricProjectionEnum(IfcGeometricProjectionEnum enumData);
         /**
          * write the IfcGeometricRepresentationSubContext datatype to m_out.
          *
@@ -2784,19 +1708,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcHalfSpaceSolid(IfcHalfSpaceSolid *value);
         /**
-         * @param enumData
-         */
-        void writeIfcHeatExchangerTypeEnum(IfcHeatExchangerTypeEnum enumData);
-        /**
          * write the IfcHeatExchangerType datatype to m_out.
          *
          * @param value the IfcHeatExchangerType datatype to write
          */
         virtual bool visitIfcHeatExchangerType(IfcHeatExchangerType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcHumidifierTypeEnum(IfcHumidifierTypeEnum enumData);
         /**
          * write the IfcHumidifierType datatype to m_out.
          *
@@ -2810,21 +1726,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *value);
         /**
-         * write the IfcIShapeProfileDef datatype to m_out.
-         *
-         * @param value the IfcIShapeProfileDef datatype to write
-         */
-        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *value);
-        /**
          * write the IfcImageTexture datatype to m_out.
          *
          * @param value the IfcImageTexture datatype to write
          */
         virtual bool visitIfcImageTexture(IfcImageTexture *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcInventoryTypeEnum(IfcInventoryTypeEnum enumData);
         /**
          * write the IfcInventory datatype to m_out.
          *
@@ -2832,27 +1738,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcInventory(IfcInventory *value);
         /**
-         * @param enumData
-         */
-        void writeIfcTimeSeriesDataTypeEnum(IfcTimeSeriesDataTypeEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcDataOriginEnum(IfcDataOriginEnum enumData);
-        /**
-         * @param selectData
-         */
-        void writeIfcUnit(IfcUnit *selectData);
-        /**
          * write the IfcIrregularTimeSeries datatype to m_out.
          *
          * @param value the IfcIrregularTimeSeries datatype to write
          */
         virtual bool visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcValue(IfcValue *selectData);
         /**
          * write the IfcIrregularTimeSeriesValue datatype to m_out.
          *
@@ -2860,9 +1750,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *value);
         /**
-         * @param enumData
+         * write the IfcIShapeProfileDef datatype to m_out.
+         *
+         * @param value the IfcIShapeProfileDef datatype to write
          */
-        void writeIfcJunctionBoxTypeEnum(IfcJunctionBoxTypeEnum enumData);
+        virtual bool visitIfcIShapeProfileDef(IfcIShapeProfileDef *value);
         /**
          * write the IfcJunctionBoxType datatype to m_out.
          *
@@ -2870,21 +1762,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcJunctionBoxType(IfcJunctionBoxType *value);
         /**
-         * write the IfcLShapeProfileDef datatype to m_out.
-         *
-         * @param value the IfcLShapeProfileDef datatype to write
-         */
-        virtual bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *value);
-        /**
          * write the IfcLaborResource datatype to m_out.
          *
          * @param value the IfcLaborResource datatype to write
          */
         virtual bool visitIfcLaborResource(IfcLaborResource *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcLampTypeEnum(IfcLampTypeEnum enumData);
         /**
          * write the IfcLampType datatype to m_out.
          *
@@ -2910,19 +1792,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcLightDistributionData(IfcLightDistributionData *value);
         /**
-         * @param enumData
-         */
-        void writeIfcLightFixtureTypeEnum(IfcLightFixtureTypeEnum enumData);
-        /**
          * write the IfcLightFixtureType datatype to m_out.
          *
          * @param value the IfcLightFixtureType datatype to write
          */
         virtual bool visitIfcLightFixtureType(IfcLightFixtureType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcLightDistributionCurveEnum(IfcLightDistributionCurveEnum enumData);
         /**
          * write the IfcLightIntensityDistribution datatype to m_out.
          *
@@ -2947,14 +1821,6 @@ namespace ifc2x3 {
          * @param value the IfcLightSourceDirectional datatype to write
          */
         virtual bool visitIfcLightSourceDirectional(IfcLightSourceDirectional *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcLightEmissionSourceEnum(IfcLightEmissionSourceEnum enumData);
-        /**
-         * @param selectData
-         */
-        void writeIfcLightDistributionDataSourceSelect(IfcLightDistributionDataSourceSelect *selectData);
         /**
          * write the IfcLightSourceGoniometric datatype to m_out.
          *
@@ -3004,6 +1870,12 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcLoop(IfcLoop *value);
         /**
+         * write the IfcLShapeProfileDef datatype to m_out.
+         *
+         * @param value the IfcLShapeProfileDef datatype to write
+         */
+        virtual bool visitIfcLShapeProfileDef(IfcLShapeProfileDef *value);
+        /**
          * write the IfcManifoldSolidBrep datatype to m_out.
          *
          * @param value the IfcManifoldSolidBrep datatype to write
@@ -3045,14 +1917,6 @@ namespace ifc2x3 {
          * @param value the IfcMaterialLayerSet datatype to write
          */
         virtual bool visitIfcMaterialLayerSet(IfcMaterialLayerSet *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcLayerSetDirectionEnum(IfcLayerSetDirectionEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcDirectionSenseEnum(IfcDirectionSenseEnum enumData);
         /**
          * write the IfcMaterialLayerSetUsage datatype to m_out.
          *
@@ -3114,23 +1978,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcMember(IfcMember *value);
         /**
-         * @param enumData
-         */
-        void writeIfcMemberTypeEnum(IfcMemberTypeEnum enumData);
-        /**
          * write the IfcMemberType datatype to m_out.
          *
          * @param value the IfcMemberType datatype to write
          */
         virtual bool visitIfcMemberType(IfcMemberType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcBenchmarkEnum(IfcBenchmarkEnum enumData);
-        /**
-         * @param selectData
-         */
-        void writeIfcMetricValueSelect(IfcMetricValueSelect *selectData);
         /**
          * write the IfcMetric datatype to m_out.
          *
@@ -3138,19 +1990,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcMetric(IfcMetric *value);
         /**
-         * @param enumData
-         */
-        void writeIfcCurrencyEnum(IfcCurrencyEnum enumData);
-        /**
          * write the IfcMonetaryUnit datatype to m_out.
          *
          * @param value the IfcMonetaryUnit datatype to write
          */
         virtual bool visitIfcMonetaryUnit(IfcMonetaryUnit *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcMotorConnectionTypeEnum(IfcMotorConnectionTypeEnum enumData);
         /**
          * write the IfcMotorConnectionType datatype to m_out.
          *
@@ -3182,25 +2026,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcObjectDefinition(IfcObjectDefinition *value);
         /**
-         * write the IfcObjectPlacement datatype to m_out.
-         *
-         * @param value the IfcObjectPlacement datatype to write
-         */
-        virtual bool visitIfcObjectPlacement(IfcObjectPlacement *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcObjectiveEnum(IfcObjectiveEnum enumData);
-        /**
          * write the IfcObjective datatype to m_out.
          *
          * @param value the IfcObjective datatype to write
          */
         virtual bool visitIfcObjective(IfcObjective *value);
         /**
-         * @param enumData
+         * write the IfcObjectPlacement datatype to m_out.
+         *
+         * @param value the IfcObjectPlacement datatype to write
          */
-        void writeIfcOccupantTypeEnum(IfcOccupantTypeEnum enumData);
+        virtual bool visitIfcObjectPlacement(IfcObjectPlacement *value);
         /**
          * write the IfcOccupant datatype to m_out.
          *
@@ -3226,17 +2062,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *value);
         /**
-         * write the IfcOpenShell datatype to m_out.
-         *
-         * @param value the IfcOpenShell datatype to write
-         */
-        virtual bool visitIfcOpenShell(IfcOpenShell *value);
-        /**
          * write the IfcOpeningElement datatype to m_out.
          *
          * @param value the IfcOpeningElement datatype to write
          */
         virtual bool visitIfcOpeningElement(IfcOpeningElement *value);
+        /**
+         * write the IfcOpenShell datatype to m_out.
+         *
+         * @param value the IfcOpenShell datatype to write
+         */
+        virtual bool visitIfcOpenShell(IfcOpenShell *value);
         /**
          * write the IfcOpticalMaterialProperties datatype to m_out.
          *
@@ -3268,23 +2104,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcOrientedEdge(IfcOrientedEdge *value);
         /**
-         * @param enumData
-         */
-        void writeIfcOutletTypeEnum(IfcOutletTypeEnum enumData);
-        /**
          * write the IfcOutletType datatype to m_out.
          *
          * @param value the IfcOutletType datatype to write
          */
         virtual bool visitIfcOutletType(IfcOutletType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcStateEnum(IfcStateEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcChangeActionEnum(IfcChangeActionEnum enumData);
         /**
          * write the IfcOwnerHistory datatype to m_out.
          *
@@ -3309,14 +2133,6 @@ namespace ifc2x3 {
          * @param value the IfcPerformanceHistory datatype to write
          */
         virtual bool visitIfcPerformanceHistory(IfcPerformanceHistory *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcPermeableCoveringOperationEnum(IfcPermeableCoveringOperationEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcWindowPanelPositionEnum(IfcWindowPanelPositionEnum enumData);
         /**
          * write the IfcPermeableCoveringProperties datatype to m_out.
          *
@@ -3360,33 +2176,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcPhysicalSimpleQuantity(IfcPhysicalSimpleQuantity *value);
         /**
-         * @param enumData
-         */
-        void writeIfcPileTypeEnum(IfcPileTypeEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcPileConstructionEnum(IfcPileConstructionEnum enumData);
-        /**
          * write the IfcPile datatype to m_out.
          *
          * @param value the IfcPile datatype to write
          */
         virtual bool visitIfcPile(IfcPile *value);
         /**
-         * @param enumData
-         */
-        void writeIfcPipeFittingTypeEnum(IfcPipeFittingTypeEnum enumData);
-        /**
          * write the IfcPipeFittingType datatype to m_out.
          *
          * @param value the IfcPipeFittingType datatype to write
          */
         virtual bool visitIfcPipeFittingType(IfcPipeFittingType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcPipeSegmentTypeEnum(IfcPipeSegmentTypeEnum enumData);
         /**
          * write the IfcPipeSegmentType datatype to m_out.
          *
@@ -3430,10 +2230,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcPlate(IfcPlate *value);
         /**
-         * @param enumData
-         */
-        void writeIfcPlateTypeEnum(IfcPlateTypeEnum enumData);
-        /**
          * write the IfcPlateType datatype to m_out.
          *
          * @param value the IfcPlateType datatype to write
@@ -3458,12 +2254,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcPointOnSurface(IfcPointOnSurface *value);
         /**
-         * write the IfcPolyLoop datatype to m_out.
-         *
-         * @param value the IfcPolyLoop datatype to write
-         */
-        virtual bool visitIfcPolyLoop(IfcPolyLoop *value);
-        /**
          * write the IfcPolygonalBoundedHalfSpace datatype to m_out.
          *
          * @param value the IfcPolygonalBoundedHalfSpace datatype to write
@@ -3475,6 +2265,12 @@ namespace ifc2x3 {
          * @param value the IfcPolyline datatype to write
          */
         virtual bool visitIfcPolyline(IfcPolyline *value);
+        /**
+         * write the IfcPolyLoop datatype to m_out.
+         *
+         * @param value the IfcPolyLoop datatype to write
+         */
+        virtual bool visitIfcPolyLoop(IfcPolyLoop *value);
         /**
          * write the IfcPort datatype to m_out.
          *
@@ -3536,23 +2332,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcPreDefinedTextFont(IfcPreDefinedTextFont *value);
         /**
-         * @param selectData
-         */
-        void writeIfcLayeredItem(IfcLayeredItem *selectData);
-        /**
          * write the IfcPresentationLayerAssignment datatype to m_out.
          *
          * @param value the IfcPresentationLayerAssignment datatype to write
          */
         virtual bool visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcPresentationStyleSelect(IfcPresentationStyleSelect *selectData);
-        /**
-         * @param enumData
-         */
-        void writeIfcNullStyle(IfcNullStyle enumData);
         /**
          * write the IfcPresentationLayerWithStyle datatype to m_out.
          *
@@ -3571,10 +2355,6 @@ namespace ifc2x3 {
          * @param value the IfcPresentationStyleAssignment datatype to write
          */
         virtual bool visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcProcedureTypeEnum(IfcProcedureTypeEnum enumData);
         /**
          * write the IfcProcedure datatype to m_out.
          *
@@ -3630,26 +2410,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcProject(IfcProject *value);
         /**
-         * @param enumData
-         */
-        void writeIfcProjectOrderTypeEnum(IfcProjectOrderTypeEnum enumData);
-        /**
-         * write the IfcProjectOrder datatype to m_out.
-         *
-         * @param value the IfcProjectOrder datatype to write
-         */
-        virtual bool visitIfcProjectOrder(IfcProjectOrder *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcProjectOrderRecordTypeEnum(IfcProjectOrderRecordTypeEnum enumData);
-        /**
-         * write the IfcProjectOrderRecord datatype to m_out.
-         *
-         * @param value the IfcProjectOrderRecord datatype to write
-         */
-        virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *value);
-        /**
          * write the IfcProjectionCurve datatype to m_out.
          *
          * @param value the IfcProjectionCurve datatype to write
@@ -3661,6 +2421,18 @@ namespace ifc2x3 {
          * @param value the IfcProjectionElement datatype to write
          */
         virtual bool visitIfcProjectionElement(IfcProjectionElement *value);
+        /**
+         * write the IfcProjectOrder datatype to m_out.
+         *
+         * @param value the IfcProjectOrder datatype to write
+         */
+        virtual bool visitIfcProjectOrder(IfcProjectOrder *value);
+        /**
+         * write the IfcProjectOrderRecord datatype to m_out.
+         *
+         * @param value the IfcProjectOrderRecord datatype to write
+         */
+        virtual bool visitIfcProjectOrderRecord(IfcProjectOrderRecord *value);
         /**
          * write the IfcProperty datatype to m_out.
          *
@@ -3710,10 +2482,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcPropertyListValue(IfcPropertyListValue *value);
         /**
-         * @param selectData
-         */
-        void writeIfcObjectReferenceSelect(IfcObjectReferenceSelect *selectData);
-        /**
          * write the IfcPropertyReferenceValue datatype to m_out.
          *
          * @param value the IfcPropertyReferenceValue datatype to write
@@ -3744,29 +2512,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcPropertyTableValue(IfcPropertyTableValue *value);
         /**
-         * @param enumData
-         */
-        void writeIfcProtectiveDeviceTypeEnum(IfcProtectiveDeviceTypeEnum enumData);
-        /**
          * write the IfcProtectiveDeviceType datatype to m_out.
          *
          * @param value the IfcProtectiveDeviceType datatype to write
          */
         virtual bool visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcObjectTypeEnum(IfcObjectTypeEnum enumData);
-        /**
          * write the IfcProxy datatype to m_out.
          *
          * @param value the IfcProxy datatype to write
          */
         virtual bool visitIfcProxy(IfcProxy *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcPumpTypeEnum(IfcPumpTypeEnum enumData);
         /**
          * write the IfcPumpType datatype to m_out.
          *
@@ -3816,10 +2572,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRadiusDimension(IfcRadiusDimension *value);
         /**
-         * @param enumData
-         */
-        void writeIfcRailingTypeEnum(IfcRailingTypeEnum enumData);
-        /**
          * write the IfcRailing datatype to m_out.
          *
          * @param value the IfcRailing datatype to write
@@ -3832,10 +2584,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRailingType(IfcRailingType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcRampTypeEnum(IfcRampTypeEnum enumData);
-        /**
          * write the IfcRamp datatype to m_out.
          *
          * @param value the IfcRamp datatype to write
@@ -3847,10 +2595,6 @@ namespace ifc2x3 {
          * @param value the IfcRampFlight datatype to write
          */
         virtual bool visitIfcRampFlight(IfcRampFlight *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcRampFlightTypeEnum(IfcRampFlightTypeEnum enumData);
         /**
          * write the IfcRampFlightType datatype to m_out.
          *
@@ -3888,10 +2632,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *value);
         /**
-         * @param selectData
-         */
-        void writeIfcDocumentSelect(IfcDocumentSelect *selectData);
-        /**
          * write the IfcReferencesValueDocument datatype to m_out.
          *
          * @param value the IfcReferencesValueDocument datatype to write
@@ -3904,10 +2644,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRegularTimeSeries(IfcRegularTimeSeries *value);
         /**
-         * @param enumData
-         */
-        void writeIfcReinforcingBarSurfaceEnum(IfcReinforcingBarSurfaceEnum enumData);
-        /**
          * write the IfcReinforcementBarProperties datatype to m_out.
          *
          * @param value the IfcReinforcementBarProperties datatype to write
@@ -3919,10 +2655,6 @@ namespace ifc2x3 {
          * @param value the IfcReinforcementDefinitionProperties datatype to write
          */
         virtual bool visitIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcReinforcingBarRoleEnum(IfcReinforcingBarRoleEnum enumData);
         /**
          * write the IfcReinforcingBar datatype to m_out.
          *
@@ -4038,19 +2770,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *value);
         /**
-         * @param selectData
-         */
-        void writeIfcLibrarySelect(IfcLibrarySelect *selectData);
-        /**
          * write the IfcRelAssociatesLibrary datatype to m_out.
          *
          * @param value the IfcRelAssociatesLibrary datatype to write
          */
         virtual bool visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcMaterialSelect(IfcMaterialSelect *selectData);
         /**
          * write the IfcRelAssociatesMaterial datatype to m_out.
          *
@@ -4058,15 +2782,23 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *value);
         /**
-         * @param selectData
-         */
-        void writeIfcOrientationSelect(IfcOrientationSelect *selectData);
-        /**
          * write the IfcRelAssociatesProfileProperties datatype to m_out.
          *
          * @param value the IfcRelAssociatesProfileProperties datatype to write
          */
         virtual bool visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *value);
+        /**
+         * write the IfcRelationship datatype to m_out.
+         *
+         * @param value the IfcRelationship datatype to write
+         */
+        virtual bool visitIfcRelationship(IfcRelationship *value);
+        /**
+         * write the IfcRelaxation datatype to m_out.
+         *
+         * @param value the IfcRelaxation datatype to write
+         */
+        virtual bool visitIfcRelaxation(IfcRelaxation *value);
         /**
          * write the IfcRelConnects datatype to m_out.
          *
@@ -4080,21 +2812,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRelConnectsElements(IfcRelConnectsElements *value);
         /**
-         * @param enumData
-         */
-        void writeIfcConnectionTypeEnum(IfcConnectionTypeEnum enumData);
-        /**
          * write the IfcRelConnectsPathElements datatype to m_out.
          *
          * @param value the IfcRelConnectsPathElements datatype to write
          */
         virtual bool visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *value);
-        /**
-         * write the IfcRelConnectsPortToElement datatype to m_out.
-         *
-         * @param value the IfcRelConnectsPortToElement datatype to write
-         */
-        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *value);
         /**
          * write the IfcRelConnectsPorts datatype to m_out.
          *
@@ -4102,9 +2824,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRelConnectsPorts(IfcRelConnectsPorts *value);
         /**
-         * @param selectData
+         * write the IfcRelConnectsPortToElement datatype to m_out.
+         *
+         * @param value the IfcRelConnectsPortToElement datatype to write
          */
-        void writeIfcStructuralActivityAssignmentSelect(IfcStructuralActivityAssignmentSelect *selectData);
+        virtual bool visitIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *value);
         /**
          * write the IfcRelConnectsStructuralActivity datatype to m_out.
          *
@@ -4232,10 +2956,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *value);
         /**
-         * @param enumData
-         */
-        void writeIfcSequenceEnum(IfcSequenceEnum enumData);
-        /**
          * write the IfcRelSequence datatype to m_out.
          *
          * @param value the IfcRelSequence datatype to write
@@ -4248,14 +2968,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRelServicesBuildings(IfcRelServicesBuildings *value);
         /**
-         * @param enumData
-         */
-        void writeIfcPhysicalOrVirtualEnum(IfcPhysicalOrVirtualEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcInternalOrExternalEnum(IfcInternalOrExternalEnum enumData);
-        /**
          * write the IfcRelSpaceBoundary datatype to m_out.
          *
          * @param value the IfcRelSpaceBoundary datatype to write
@@ -4267,18 +2979,6 @@ namespace ifc2x3 {
          * @param value the IfcRelVoidsElement datatype to write
          */
         virtual bool visitIfcRelVoidsElement(IfcRelVoidsElement *value);
-        /**
-         * write the IfcRelationship datatype to m_out.
-         *
-         * @param value the IfcRelationship datatype to write
-         */
-        virtual bool visitIfcRelationship(IfcRelationship *value);
-        /**
-         * write the IfcRelaxation datatype to m_out.
-         *
-         * @param value the IfcRelaxation datatype to write
-         */
-        virtual bool visitIfcRelaxation(IfcRelaxation *value);
         /**
          * write the IfcRepresentation datatype to m_out.
          *
@@ -4316,10 +3016,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *value);
         /**
-         * @param enumData
-         */
-        void writeIfcRibPlateDirectionEnum(IfcRibPlateDirectionEnum enumData);
-        /**
          * write the IfcRibPlateProfileProperties datatype to m_out.
          *
          * @param value the IfcRibPlateProfileProperties datatype to write
@@ -4337,10 +3033,6 @@ namespace ifc2x3 {
          * @param value the IfcRightCircularCylinder datatype to write
          */
         virtual bool visitIfcRightCircularCylinder(IfcRightCircularCylinder *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcRoofTypeEnum(IfcRoofTypeEnum enumData);
         /**
          * write the IfcRoof datatype to m_out.
          *
@@ -4366,24 +3058,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *value);
         /**
-         * @param enumData
-         */
-        void writeIfcSIPrefix(IfcSIPrefix enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcSIUnitName(IfcSIUnitName enumData);
-        /**
-         * write the IfcSIUnit datatype to m_out.
-         *
-         * @param value the IfcSIUnit datatype to write
-         */
-        virtual bool visitIfcSIUnit(IfcSIUnit *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcSanitaryTerminalTypeEnum(IfcSanitaryTerminalTypeEnum enumData);
-        /**
          * write the IfcSanitaryTerminalType datatype to m_out.
          *
          * @param value the IfcSanitaryTerminalType datatype to write
@@ -4396,9 +3070,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcScheduleTimeControl(IfcScheduleTimeControl *value);
         /**
-         * @param enumData
+         * write the IfcSectionedSpine datatype to m_out.
+         *
+         * @param value the IfcSectionedSpine datatype to write
          */
-        void writeIfcSectionTypeEnum(IfcSectionTypeEnum enumData);
+        virtual bool visitIfcSectionedSpine(IfcSectionedSpine *value);
         /**
          * write the IfcSectionProperties datatype to m_out.
          *
@@ -4412,39 +3088,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *value);
         /**
-         * write the IfcSectionedSpine datatype to m_out.
-         *
-         * @param value the IfcSectionedSpine datatype to write
-         */
-        virtual bool visitIfcSectionedSpine(IfcSectionedSpine *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcSensorTypeEnum(IfcSensorTypeEnum enumData);
-        /**
          * write the IfcSensorType datatype to m_out.
          *
          * @param value the IfcSensorType datatype to write
          */
         virtual bool visitIfcSensorType(IfcSensorType *value);
         /**
-         * @param enumData
-         */
-        void writeIfcServiceLifeTypeEnum(IfcServiceLifeTypeEnum enumData);
-        /**
          * write the IfcServiceLife datatype to m_out.
          *
          * @param value the IfcServiceLife datatype to write
          */
         virtual bool visitIfcServiceLife(IfcServiceLife *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcServiceLifeFactorTypeEnum(IfcServiceLifeFactorTypeEnum enumData);
-        /**
-         * @param selectData
-         */
-        void writeIfcMeasureValue(IfcMeasureValue *selectData);
         /**
          * write the IfcServiceLifeFactor datatype to m_out.
          *
@@ -4470,10 +3124,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcShapeRepresentation(IfcShapeRepresentation *value);
         /**
-         * @param selectData
-         */
-        void writeIfcShell(IfcShell *selectData);
-        /**
          * write the IfcShellBasedSurfaceModel datatype to m_out.
          *
          * @param value the IfcShellBasedSurfaceModel datatype to write
@@ -4492,9 +3142,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcSite(IfcSite *value);
         /**
-         * @param enumData
+         * write the IfcSIUnit datatype to m_out.
+         *
+         * @param value the IfcSIUnit datatype to write
          */
-        void writeIfcSlabTypeEnum(IfcSlabTypeEnum enumData);
+        virtual bool visitIfcSIUnit(IfcSIUnit *value);
         /**
          * write the IfcSlab datatype to m_out.
          *
@@ -4520,10 +3172,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcSolidModel(IfcSolidModel *value);
         /**
-         * @param enumData
-         */
-        void writeIfcSoundScaleEnum(IfcSoundScaleEnum enumData);
-        /**
          * write the IfcSoundProperties datatype to m_out.
          *
          * @param value the IfcSoundProperties datatype to write
@@ -4542,10 +3190,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcSpace(IfcSpace *value);
         /**
-         * @param enumData
-         */
-        void writeIfcSpaceHeaterTypeEnum(IfcSpaceHeaterTypeEnum enumData);
-        /**
          * write the IfcSpaceHeaterType datatype to m_out.
          *
          * @param value the IfcSpaceHeaterType datatype to write
@@ -4558,23 +3202,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcSpaceProgram(IfcSpaceProgram *value);
         /**
-         * @param enumData
-         */
-        void writeIfcThermalLoadSourceEnum(IfcThermalLoadSourceEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcThermalLoadTypeEnum(IfcThermalLoadTypeEnum enumData);
-        /**
          * write the IfcSpaceThermalLoadProperties datatype to m_out.
          *
          * @param value the IfcSpaceThermalLoadProperties datatype to write
          */
         virtual bool visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcSpaceTypeEnum(IfcSpaceTypeEnum enumData);
         /**
          * write the IfcSpaceType datatype to m_out.
          *
@@ -4600,19 +3232,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcSphere(IfcSphere *value);
         /**
-         * @param enumData
-         */
-        void writeIfcStackTerminalTypeEnum(IfcStackTerminalTypeEnum enumData);
-        /**
          * write the IfcStackTerminalType datatype to m_out.
          *
          * @param value the IfcStackTerminalType datatype to write
          */
         virtual bool visitIfcStackTerminalType(IfcStackTerminalType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcStairTypeEnum(IfcStairTypeEnum enumData);
         /**
          * write the IfcStair datatype to m_out.
          *
@@ -4625,10 +3249,6 @@ namespace ifc2x3 {
          * @param value the IfcStairFlight datatype to write
          */
         virtual bool visitIfcStairFlight(IfcStairFlight *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcStairFlightTypeEnum(IfcStairFlightTypeEnum enumData);
         /**
          * write the IfcStairFlightType datatype to m_out.
          *
@@ -4647,10 +3267,6 @@ namespace ifc2x3 {
          * @param value the IfcStructuralActivity datatype to write
          */
         virtual bool visitIfcStructuralActivity(IfcStructuralActivity *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcAnalysisModelTypeEnum(IfcAnalysisModelTypeEnum enumData);
         /**
          * write the IfcStructuralAnalysisModel datatype to m_out.
          *
@@ -4676,10 +3292,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcStructuralCurveConnection(IfcStructuralCurveConnection *value);
         /**
-         * @param enumData
-         */
-        void writeIfcStructuralCurveTypeEnum(IfcStructuralCurveTypeEnum enumData);
-        /**
          * write the IfcStructuralCurveMember datatype to m_out.
          *
          * @param value the IfcStructuralCurveMember datatype to write
@@ -4698,10 +3310,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcStructuralItem(IfcStructuralItem *value);
         /**
-         * @param enumData
-         */
-        void writeIfcProjectedOrTrueLengthEnum(IfcProjectedOrTrueLengthEnum enumData);
-        /**
          * write the IfcStructuralLinearAction datatype to m_out.
          *
          * @param value the IfcStructuralLinearAction datatype to write
@@ -4719,18 +3327,6 @@ namespace ifc2x3 {
          * @param value the IfcStructuralLoad datatype to write
          */
         virtual bool visitIfcStructuralLoad(IfcStructuralLoad *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcLoadGroupTypeEnum(IfcLoadGroupTypeEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcActionTypeEnum(IfcActionTypeEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcActionSourceTypeEnum(IfcActionSourceTypeEnum enumData);
         /**
          * write the IfcStructuralLoadGroup datatype to m_out.
          *
@@ -4834,10 +3430,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcStructuralReaction(IfcStructuralReaction *value);
         /**
-         * @param enumData
-         */
-        void writeIfcAnalysisTheoryTypeEnum(IfcAnalysisTheoryTypeEnum enumData);
-        /**
          * write the IfcStructuralResultGroup datatype to m_out.
          *
          * @param value the IfcStructuralResultGroup datatype to write
@@ -4855,10 +3447,6 @@ namespace ifc2x3 {
          * @param value the IfcStructuralSurfaceConnection datatype to write
          */
         virtual bool visitIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcStructuralSurfaceTypeEnum(IfcStructuralSurfaceTypeEnum enumData);
         /**
          * write the IfcStructuralSurfaceMember datatype to m_out.
          *
@@ -4878,12 +3466,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *value);
         /**
-         * write the IfcStyleModel datatype to m_out.
-         *
-         * @param value the IfcStyleModel datatype to write
-         */
-        virtual bool visitIfcStyleModel(IfcStyleModel *value);
-        /**
          * write the IfcStyledItem datatype to m_out.
          *
          * @param value the IfcStyledItem datatype to write
@@ -4895,6 +3477,12 @@ namespace ifc2x3 {
          * @param value the IfcStyledRepresentation datatype to write
          */
         virtual bool visitIfcStyledRepresentation(IfcStyledRepresentation *value);
+        /**
+         * write the IfcStyleModel datatype to m_out.
+         *
+         * @param value the IfcStyleModel datatype to write
+         */
+        virtual bool visitIfcStyleModel(IfcStyleModel *value);
         /**
          * write the IfcSubContractResource datatype to m_out.
          *
@@ -4932,14 +3520,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *value);
         /**
-         * @param enumData
-         */
-        void writeIfcSurfaceSide(IfcSurfaceSide enumData);
-        /**
-         * @param selectData
-         */
-        void writeIfcSurfaceStyleElementSelect(IfcSurfaceStyleElementSelect *selectData);
-        /**
          * write the IfcSurfaceStyle datatype to m_out.
          *
          * @param value the IfcSurfaceStyle datatype to write
@@ -4957,18 +3537,6 @@ namespace ifc2x3 {
          * @param value the IfcSurfaceStyleRefraction datatype to write
          */
         virtual bool visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcColourOrFactor(IfcColourOrFactor *selectData);
-        /**
-         * @param selectData
-         */
-        void writeIfcSpecularHighlightSelect(IfcSpecularHighlightSelect *selectData);
-        /**
-         * @param enumData
-         */
-        void writeIfcReflectanceMethodEnum(IfcReflectanceMethodEnum enumData);
         /**
          * write the IfcSurfaceStyleRendering datatype to m_out.
          *
@@ -5012,19 +3580,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcSweptSurface(IfcSweptSurface *value);
         /**
-         * @param enumData
-         */
-        void writeIfcSwitchingDeviceTypeEnum(IfcSwitchingDeviceTypeEnum enumData);
-        /**
          * write the IfcSwitchingDeviceType datatype to m_out.
          *
          * @param value the IfcSwitchingDeviceType datatype to write
          */
         virtual bool visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcSymbolStyleSelect(IfcSymbolStyleSelect *selectData);
         /**
          * write the IfcSymbolStyle datatype to m_out.
          *
@@ -5044,12 +3604,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *value);
         /**
-         * write the IfcTShapeProfileDef datatype to m_out.
-         *
-         * @param value the IfcTShapeProfileDef datatype to write
-         */
-        virtual bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *value);
-        /**
          * write the IfcTable datatype to m_out.
          *
          * @param value the IfcTable datatype to write
@@ -5061,10 +3615,6 @@ namespace ifc2x3 {
          * @param value the IfcTableRow datatype to write
          */
         virtual bool visitIfcTableRow(IfcTableRow *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcTankTypeEnum(IfcTankTypeEnum enumData);
         /**
          * write the IfcTankType datatype to m_out.
          *
@@ -5084,10 +3634,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcTelecomAddress(IfcTelecomAddress *value);
         /**
-         * @param enumData
-         */
-        void writeIfcTendonTypeEnum(IfcTendonTypeEnum enumData);
-        /**
          * write the IfcTendon datatype to m_out.
          *
          * @param value the IfcTendon datatype to write
@@ -5106,10 +3652,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcTerminatorSymbol(IfcTerminatorSymbol *value);
         /**
-         * @param enumData
-         */
-        void writeIfcTextPath(IfcTextPath enumData);
-        /**
          * write the IfcTextLiteral datatype to m_out.
          *
          * @param value the IfcTextLiteral datatype to write
@@ -5121,18 +3663,6 @@ namespace ifc2x3 {
          * @param value the IfcTextLiteralWithExtent datatype to write
          */
         virtual bool visitIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *value);
-        /**
-         * @param selectData
-         */
-        void writeIfcCharacterStyleSelect(IfcCharacterStyleSelect *selectData);
-        /**
-         * @param selectData
-         */
-        void writeIfcTextStyleSelect(IfcTextStyleSelect *selectData);
-        /**
-         * @param selectData
-         */
-        void writeIfcTextFontSelect(IfcTextFontSelect *selectData);
         /**
          * write the IfcTextStyle datatype to m_out.
          *
@@ -5170,10 +3700,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcTextureCoordinate(IfcTextureCoordinate *value);
         /**
-         * @param selectData
-         */
-        void writeIfcSimpleValue(IfcSimpleValue *selectData);
-        /**
          * write the IfcTextureCoordinateGenerator datatype to m_out.
          *
          * @param value the IfcTextureCoordinateGenerator datatype to write
@@ -5210,10 +3736,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *value);
         /**
-         * @param enumData
-         */
-        void writeIfcTimeSeriesScheduleTypeEnum(IfcTimeSeriesScheduleTypeEnum enumData);
-        /**
          * write the IfcTimeSeriesSchedule datatype to m_out.
          *
          * @param value the IfcTimeSeriesSchedule datatype to write
@@ -5238,19 +3760,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcTopologyRepresentation(IfcTopologyRepresentation *value);
         /**
-         * @param enumData
-         */
-        void writeIfcTransformerTypeEnum(IfcTransformerTypeEnum enumData);
-        /**
          * write the IfcTransformerType datatype to m_out.
          *
          * @param value the IfcTransformerType datatype to write
          */
         virtual bool visitIfcTransformerType(IfcTransformerType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcTransportElementTypeEnum(IfcTransportElementTypeEnum enumData);
         /**
          * write the IfcTransportElement datatype to m_out.
          *
@@ -5270,23 +3784,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *value);
         /**
-         * @param selectData
-         */
-        void writeIfcTrimmingSelect(IfcTrimmingSelect *selectData);
-        /**
-         * @param enumData
-         */
-        void writeIfcTrimmingPreference(IfcTrimmingPreference enumData);
-        /**
          * write the IfcTrimmedCurve datatype to m_out.
          *
          * @param value the IfcTrimmedCurve datatype to write
          */
         virtual bool visitIfcTrimmedCurve(IfcTrimmedCurve *value);
         /**
-         * @param enumData
+         * write the IfcTShapeProfileDef datatype to m_out.
+         *
+         * @param value the IfcTShapeProfileDef datatype to write
          */
-        void writeIfcTubeBundleTypeEnum(IfcTubeBundleTypeEnum enumData);
+        virtual bool visitIfcTShapeProfileDef(IfcTShapeProfileDef *value);
         /**
          * write the IfcTubeBundleType datatype to m_out.
          *
@@ -5312,11 +3820,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcTypeProduct(IfcTypeProduct *value);
         /**
-         * write the IfcUShapeProfileDef datatype to m_out.
+         * write the IfcUnitaryEquipmentType datatype to m_out.
          *
-         * @param value the IfcUShapeProfileDef datatype to write
+         * @param value the IfcUnitaryEquipmentType datatype to write
          */
-        virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *value);
+        virtual bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *value);
         /**
          * write the IfcUnitAssignment datatype to m_out.
          *
@@ -5324,19 +3832,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcUnitAssignment(IfcUnitAssignment *value);
         /**
-         * @param enumData
-         */
-        void writeIfcUnitaryEquipmentTypeEnum(IfcUnitaryEquipmentTypeEnum enumData);
-        /**
-         * write the IfcUnitaryEquipmentType datatype to m_out.
+         * write the IfcUShapeProfileDef datatype to m_out.
          *
-         * @param value the IfcUnitaryEquipmentType datatype to write
+         * @param value the IfcUShapeProfileDef datatype to write
          */
-        virtual bool visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcValveTypeEnum(IfcValveTypeEnum enumData);
+        virtual bool visitIfcUShapeProfileDef(IfcUShapeProfileDef *value);
         /**
          * write the IfcValveType datatype to m_out.
          *
@@ -5374,10 +3874,6 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcVertexPoint(IfcVertexPoint *value);
         /**
-         * @param enumData
-         */
-        void writeIfcVibrationIsolatorTypeEnum(IfcVibrationIsolatorTypeEnum enumData);
-        /**
          * write the IfcVibrationIsolatorType datatype to m_out.
          *
          * @param value the IfcVibrationIsolatorType datatype to write
@@ -5408,19 +3904,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcWallStandardCase(IfcWallStandardCase *value);
         /**
-         * @param enumData
-         */
-        void writeIfcWallTypeEnum(IfcWallTypeEnum enumData);
-        /**
          * write the IfcWallType datatype to m_out.
          *
          * @param value the IfcWallType datatype to write
          */
         virtual bool visitIfcWallType(IfcWallType *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcWasteTerminalTypeEnum(IfcWasteTerminalTypeEnum enumData);
         /**
          * write the IfcWasteTerminalType datatype to m_out.
          *
@@ -5446,33 +3934,17 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcWindowLiningProperties(IfcWindowLiningProperties *value);
         /**
-         * @param enumData
-         */
-        void writeIfcWindowPanelOperationEnum(IfcWindowPanelOperationEnum enumData);
-        /**
          * write the IfcWindowPanelProperties datatype to m_out.
          *
          * @param value the IfcWindowPanelProperties datatype to write
          */
         virtual bool visitIfcWindowPanelProperties(IfcWindowPanelProperties *value);
         /**
-         * @param enumData
-         */
-        void writeIfcWindowStyleConstructionEnum(IfcWindowStyleConstructionEnum enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcWindowStyleOperationEnum(IfcWindowStyleOperationEnum enumData);
-        /**
          * write the IfcWindowStyle datatype to m_out.
          *
          * @param value the IfcWindowStyle datatype to write
          */
         virtual bool visitIfcWindowStyle(IfcWindowStyle *value);
-        /**
-         * @param enumData
-         */
-        void writeIfcWorkControlTypeEnum(IfcWorkControlTypeEnum enumData);
         /**
          * write the IfcWorkControl datatype to m_out.
          *
@@ -5492,20 +3964,856 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcWorkSchedule(IfcWorkSchedule *value);
         /**
+         * write the IfcZone datatype to m_out.
+         *
+         * @param value the IfcZone datatype to write
+         */
+        virtual bool visitIfcZone(IfcZone *value);
+        /**
          * write the IfcZShapeProfileDef datatype to m_out.
          *
          * @param value the IfcZShapeProfileDef datatype to write
          */
         virtual bool visitIfcZShapeProfileDef(IfcZShapeProfileDef *value);
         /**
-         * write the IfcZone datatype to m_out.
-         *
-         * @param value the IfcZone datatype to write
+         * @param enumData
          */
-        virtual bool visitIfcZone(IfcZone *value);
-
+        void writeIfcActionSourceTypeEnum(IfcActionSourceTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcActionTypeEnum(IfcActionTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcActuatorTypeEnum(IfcActuatorTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcAddressTypeEnum(IfcAddressTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcAheadOrBehind(IfcAheadOrBehind enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcAirTerminalBoxTypeEnum(IfcAirTerminalBoxTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcAirTerminalTypeEnum(IfcAirTerminalTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcAirToAirHeatRecoveryTypeEnum(IfcAirToAirHeatRecoveryTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcAlarmTypeEnum(IfcAlarmTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcAnalysisModelTypeEnum(IfcAnalysisModelTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcAnalysisTheoryTypeEnum(IfcAnalysisTheoryTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcArithmeticOperatorEnum(IfcArithmeticOperatorEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcAssemblyPlaceEnum(IfcAssemblyPlaceEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcBeamTypeEnum(IfcBeamTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcBenchmarkEnum(IfcBenchmarkEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcBoilerTypeEnum(IfcBoilerTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcBooleanOperator(IfcBooleanOperator enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcBSplineCurveForm(IfcBSplineCurveForm enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcBuildingElementProxyTypeEnum(IfcBuildingElementProxyTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCableCarrierFittingTypeEnum(IfcCableCarrierFittingTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCableCarrierSegmentTypeEnum(IfcCableCarrierSegmentTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCableSegmentTypeEnum(IfcCableSegmentTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcChangeActionEnum(IfcChangeActionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcChillerTypeEnum(IfcChillerTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCoilTypeEnum(IfcCoilTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcColumnTypeEnum(IfcColumnTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCompressorTypeEnum(IfcCompressorTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCondenserTypeEnum(IfcCondenserTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcConnectionTypeEnum(IfcConnectionTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcConstraintEnum(IfcConstraintEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcControllerTypeEnum(IfcControllerTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCooledBeamTypeEnum(IfcCooledBeamTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCoolingTowerTypeEnum(IfcCoolingTowerTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCostScheduleTypeEnum(IfcCostScheduleTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCoveringTypeEnum(IfcCoveringTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCurrencyEnum(IfcCurrencyEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcCurtainWallTypeEnum(IfcCurtainWallTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDamperTypeEnum(IfcDamperTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDataOriginEnum(IfcDataOriginEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDerivedUnitEnum(IfcDerivedUnitEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDimensionExtentUsage(IfcDimensionExtentUsage enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDirectionSenseEnum(IfcDirectionSenseEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDistributionChamberElementTypeEnum(IfcDistributionChamberElementTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDocumentConfidentialityEnum(IfcDocumentConfidentialityEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDocumentStatusEnum(IfcDocumentStatusEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDoorPanelOperationEnum(IfcDoorPanelOperationEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDoorPanelPositionEnum(IfcDoorPanelPositionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDoorStyleConstructionEnum(IfcDoorStyleConstructionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDoorStyleOperationEnum(IfcDoorStyleOperationEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDuctFittingTypeEnum(IfcDuctFittingTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDuctSegmentTypeEnum(IfcDuctSegmentTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcDuctSilencerTypeEnum(IfcDuctSilencerTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcElectricApplianceTypeEnum(IfcElectricApplianceTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcElectricCurrentEnum(IfcElectricCurrentEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcElectricDistributionPointFunctionEnum(IfcElectricDistributionPointFunctionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcElectricFlowStorageDeviceTypeEnum(IfcElectricFlowStorageDeviceTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcElectricGeneratorTypeEnum(IfcElectricGeneratorTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcElectricHeaterTypeEnum(IfcElectricHeaterTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcElectricMotorTypeEnum(IfcElectricMotorTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcElectricTimeControlTypeEnum(IfcElectricTimeControlTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcElementAssemblyTypeEnum(IfcElementAssemblyTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcElementCompositionEnum(IfcElementCompositionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcEnergySequenceEnum(IfcEnergySequenceEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcEnvironmentalImpactCategoryEnum(IfcEnvironmentalImpactCategoryEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcEvaporativeCoolerTypeEnum(IfcEvaporativeCoolerTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcEvaporatorTypeEnum(IfcEvaporatorTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcFanTypeEnum(IfcFanTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcFilterTypeEnum(IfcFilterTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcFireSuppressionTerminalTypeEnum(IfcFireSuppressionTerminalTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcFlowDirectionEnum(IfcFlowDirectionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcFlowInstrumentTypeEnum(IfcFlowInstrumentTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcFlowMeterTypeEnum(IfcFlowMeterTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcFootingTypeEnum(IfcFootingTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcGasTerminalTypeEnum(IfcGasTerminalTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcGeometricProjectionEnum(IfcGeometricProjectionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcGlobalOrLocalEnum(IfcGlobalOrLocalEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcHeatExchangerTypeEnum(IfcHeatExchangerTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcHumidifierTypeEnum(IfcHumidifierTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcInternalOrExternalEnum(IfcInternalOrExternalEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcInventoryTypeEnum(IfcInventoryTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcJunctionBoxTypeEnum(IfcJunctionBoxTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcLampTypeEnum(IfcLampTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcLayerSetDirectionEnum(IfcLayerSetDirectionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcLightDistributionCurveEnum(IfcLightDistributionCurveEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcLightEmissionSourceEnum(IfcLightEmissionSourceEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcLightFixtureTypeEnum(IfcLightFixtureTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcLoadGroupTypeEnum(IfcLoadGroupTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcLogicalOperatorEnum(IfcLogicalOperatorEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcMemberTypeEnum(IfcMemberTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcMotorConnectionTypeEnum(IfcMotorConnectionTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcNullStyle(IfcNullStyle enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcObjectiveEnum(IfcObjectiveEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcObjectTypeEnum(IfcObjectTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcOccupantTypeEnum(IfcOccupantTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcOutletTypeEnum(IfcOutletTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcPermeableCoveringOperationEnum(IfcPermeableCoveringOperationEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcPhysicalOrVirtualEnum(IfcPhysicalOrVirtualEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcPileConstructionEnum(IfcPileConstructionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcPileTypeEnum(IfcPileTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcPipeFittingTypeEnum(IfcPipeFittingTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcPipeSegmentTypeEnum(IfcPipeSegmentTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcPlateTypeEnum(IfcPlateTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcProcedureTypeEnum(IfcProcedureTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcProfileTypeEnum(IfcProfileTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcProjectedOrTrueLengthEnum(IfcProjectedOrTrueLengthEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcProjectOrderRecordTypeEnum(IfcProjectOrderRecordTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcProjectOrderTypeEnum(IfcProjectOrderTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcPropertySourceEnum(IfcPropertySourceEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcProtectiveDeviceTypeEnum(IfcProtectiveDeviceTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcPumpTypeEnum(IfcPumpTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcRailingTypeEnum(IfcRailingTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcRampFlightTypeEnum(IfcRampFlightTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcRampTypeEnum(IfcRampTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcReflectanceMethodEnum(IfcReflectanceMethodEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcReinforcingBarRoleEnum(IfcReinforcingBarRoleEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcReinforcingBarSurfaceEnum(IfcReinforcingBarSurfaceEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcResourceConsumptionEnum(IfcResourceConsumptionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcRibPlateDirectionEnum(IfcRibPlateDirectionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcRoleEnum(IfcRoleEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcRoofTypeEnum(IfcRoofTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSanitaryTerminalTypeEnum(IfcSanitaryTerminalTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSectionTypeEnum(IfcSectionTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSensorTypeEnum(IfcSensorTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSequenceEnum(IfcSequenceEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcServiceLifeFactorTypeEnum(IfcServiceLifeFactorTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcServiceLifeTypeEnum(IfcServiceLifeTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSIPrefix(IfcSIPrefix enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSIUnitName(IfcSIUnitName enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSlabTypeEnum(IfcSlabTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSoundScaleEnum(IfcSoundScaleEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSpaceHeaterTypeEnum(IfcSpaceHeaterTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSpaceTypeEnum(IfcSpaceTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcStackTerminalTypeEnum(IfcStackTerminalTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcStairFlightTypeEnum(IfcStairFlightTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcStairTypeEnum(IfcStairTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcStateEnum(IfcStateEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcStructuralCurveTypeEnum(IfcStructuralCurveTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcStructuralSurfaceTypeEnum(IfcStructuralSurfaceTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSurfaceSide(IfcSurfaceSide enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSurfaceTextureEnum(IfcSurfaceTextureEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcSwitchingDeviceTypeEnum(IfcSwitchingDeviceTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcTankTypeEnum(IfcTankTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcTendonTypeEnum(IfcTendonTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcTextPath(IfcTextPath enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcThermalLoadSourceEnum(IfcThermalLoadSourceEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcThermalLoadTypeEnum(IfcThermalLoadTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcTimeSeriesDataTypeEnum(IfcTimeSeriesDataTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcTimeSeriesScheduleTypeEnum(IfcTimeSeriesScheduleTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcTransformerTypeEnum(IfcTransformerTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcTransitionCode(IfcTransitionCode enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcTransportElementTypeEnum(IfcTransportElementTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcTrimmingPreference(IfcTrimmingPreference enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcTubeBundleTypeEnum(IfcTubeBundleTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcUnitaryEquipmentTypeEnum(IfcUnitaryEquipmentTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcUnitEnum(IfcUnitEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcValveTypeEnum(IfcValveTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcVibrationIsolatorTypeEnum(IfcVibrationIsolatorTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcWallTypeEnum(IfcWallTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcWasteTerminalTypeEnum(IfcWasteTerminalTypeEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcWindowPanelOperationEnum(IfcWindowPanelOperationEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcWindowPanelPositionEnum(IfcWindowPanelPositionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcWindowStyleConstructionEnum(IfcWindowStyleConstructionEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcWindowStyleOperationEnum(IfcWindowStyleOperationEnum enumData);
+        /**
+         * @param enumData
+         */
+        void writeIfcWorkControlTypeEnum(IfcWorkControlTypeEnum enumData);
+        /**
+         * @param selectData
+         */
+        void writeIfcActorSelect(IfcActorSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcAppliedValueSelect(IfcAppliedValueSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcAxis2Placement(IfcAxis2Placement *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcBooleanOperand(IfcBooleanOperand *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcCharacterStyleSelect(IfcCharacterStyleSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcClassificationNotationSelect(IfcClassificationNotationSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcColour(IfcColour *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcColourOrFactor(IfcColourOrFactor *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcConditionCriterionSelect(IfcConditionCriterionSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcCsgSelect(IfcCsgSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcCurveFontOrScaledCurveFontSelect(IfcCurveFontOrScaledCurveFontSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcCurveOrEdgeCurve(IfcCurveOrEdgeCurve *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcCurveStyleFontSelect(IfcCurveStyleFontSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcDateTimeSelect(IfcDateTimeSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcDefinedSymbolSelect(IfcDefinedSymbolSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcDerivedMeasureValue(IfcDerivedMeasureValue *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcDocumentSelect(IfcDocumentSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcDraughtingCalloutElement(IfcDraughtingCalloutElement *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcFillAreaStyleTileShapeSelect(IfcFillAreaStyleTileShapeSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcFillStyleSelect(IfcFillStyleSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcGeometricSetSelect(IfcGeometricSetSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcHatchLineDistanceSelect(IfcHatchLineDistanceSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcLayeredItem(IfcLayeredItem *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcLibrarySelect(IfcLibrarySelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcLightDistributionDataSourceSelect(IfcLightDistributionDataSourceSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcMaterialSelect(IfcMaterialSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcMeasureValue(IfcMeasureValue *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcMetricValueSelect(IfcMetricValueSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcObjectReferenceSelect(IfcObjectReferenceSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcOrientationSelect(IfcOrientationSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcPointOrVertexPoint(IfcPointOrVertexPoint *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcPresentationStyleSelect(IfcPresentationStyleSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcShell(IfcShell *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcSimpleValue(IfcSimpleValue *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcSizeSelect(IfcSizeSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcSpecularHighlightSelect(IfcSpecularHighlightSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcStructuralActivityAssignmentSelect(IfcStructuralActivityAssignmentSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcSurfaceOrFaceSurface(IfcSurfaceOrFaceSurface *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcSurfaceStyleElementSelect(IfcSurfaceStyleElementSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcSymbolStyleSelect(IfcSymbolStyleSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcTextFontSelect(IfcTextFontSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcTextStyleSelect(IfcTextStyleSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcTrimmingSelect(IfcTrimmingSelect *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcUnit(IfcUnit *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcValue(IfcValue *value);
+        /**
+         * @param selectData
+         */
+        void writeIfcVectorOrDirection(IfcVectorOrDirection *value);
     };
-
 }
-
-#endif // IFC2X3_SPFWRITER_H

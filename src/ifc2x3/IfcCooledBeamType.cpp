@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,106 +24,108 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcCooledBeamType.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcEnergyConversionDeviceType.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcCooledBeamType::IfcCooledBeamType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
-    m_predefinedType = IfcCooledBeamTypeEnum_UNSET;
+IfcCooledBeamType::IfcCooledBeamType(Step::Id id, Step::SPFData *args) : 
+    IfcEnergyConversionDeviceType(id, args)
+{
+    m_PredefinedType = IfcCooledBeamTypeEnum_UNSET;
 }
 
-IfcCooledBeamType::~IfcCooledBeamType() {
+IfcCooledBeamType::~IfcCooledBeamType()
+{}
+
+bool IfcCooledBeamType::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcCooledBeamType(this);
 }
 
-bool IfcCooledBeamType::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcCooledBeamType(this);
-}
 
-const std::string &IfcCooledBeamType::type() const {
-    return IfcCooledBeamType::s_type.getName();
-}
-
-const Step::ClassType &IfcCooledBeamType::getClassType() {
-    return IfcCooledBeamType::s_type;
-}
-
-const Step::ClassType &IfcCooledBeamType::getType() const {
-    return IfcCooledBeamType::s_type;
-}
-
-bool IfcCooledBeamType::isOfType(const Step::ClassType &t) const {
-    return IfcCooledBeamType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
-}
-
-IfcCooledBeamTypeEnum IfcCooledBeamType::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcCooledBeamTypeEnum IfcCooledBeamType::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcCooledBeamTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcCooledBeamTypeEnum IfcCooledBeamType::getPredefinedType() const {
-    IfcCooledBeamType * deConstObject = const_cast< IfcCooledBeamType * > (this);
-    return deConstObject->getPredefinedType();
+IfcCooledBeamTypeEnum IfcCooledBeamType::getPredefinedType() const
+{
+    return const_cast<IfcCooledBeamType *>(this)->getPredefinedType();
 }
 
-void IfcCooledBeamType::setPredefinedType(IfcCooledBeamTypeEnum value) {
-    m_predefinedType = value;
+void IfcCooledBeamType::setPredefinedType(IfcCooledBeamTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcCooledBeamType::unsetPredefinedType() {
-    m_predefinedType = IfcCooledBeamTypeEnum_UNSET;
+void IfcCooledBeamType::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcCooledBeamTypeEnum_UNSET;
 }
 
-bool IfcCooledBeamType::testPredefinedType() const {
-    return getPredefinedType() != IfcCooledBeamTypeEnum_UNSET;
+bool IfcCooledBeamType::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcCooledBeamType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
-    std::string arg;
-    if (!status) {
+bool IfcCooledBeamType::init()
+{
+    if (IfcEnergyConversionDeviceType::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcCooledBeamTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcCooledBeamTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".ACTIVE.") {
-            m_predefinedType = IfcCooledBeamTypeEnum_ACTIVE;
+    else
+    {
+        if (arg == ".ACTIVE.")
+        {
+            m_PredefinedType = IfcCooledBeamTypeEnum_ACTIVE;
         }
-        else if (arg == ".PASSIVE.") {
-            m_predefinedType = IfcCooledBeamTypeEnum_PASSIVE;
+        else if (arg == ".PASSIVE.")
+        {
+            m_PredefinedType = IfcCooledBeamTypeEnum_PASSIVE;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcCooledBeamTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcCooledBeamTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcCooledBeamTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcCooledBeamTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcCooledBeamType::copy(const IfcCooledBeamType &obj, const CopyOp &copyop) {
+void IfcCooledBeamType::copy(const IfcCooledBeamType &obj, const CopyOp &copyop)
+{
     IfcEnergyConversionDeviceType::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCooledBeamType::s_type("IfcCooledBeamType");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcCooledBeamType, IfcEnergyConversionDeviceType)

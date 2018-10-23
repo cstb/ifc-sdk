@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,208 +24,244 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcServiceLifeFactor.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcMeasureValue.h>
-#include <ifc2x3/IfcPropertySetDefinition.h>
+#include <ifc2x3/IfcMeasureValue.h>
+#include <ifc2x3/IfcMeasureValue.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcServiceLifeFactor::IfcServiceLifeFactor(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
-    m_predefinedType = IfcServiceLifeFactorTypeEnum_UNSET;
-    m_upperValue = NULL;
-    m_mostUsedValue = NULL;
-    m_lowerValue = NULL;
+IfcServiceLifeFactor::IfcServiceLifeFactor(Step::Id id, Step::SPFData *args) : 
+    IfcPropertySetDefinition(id, args)
+{
+    m_PredefinedType = IfcServiceLifeFactorTypeEnum_UNSET;
+    m_UpperValue = NULL;
+    m_MostUsedValue = NULL;
+    m_LowerValue = NULL;
 }
 
-IfcServiceLifeFactor::~IfcServiceLifeFactor() {
+IfcServiceLifeFactor::~IfcServiceLifeFactor()
+{}
+
+bool IfcServiceLifeFactor::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcServiceLifeFactor(this);
 }
 
-bool IfcServiceLifeFactor::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcServiceLifeFactor(this);
-}
 
-const std::string &IfcServiceLifeFactor::type() const {
-    return IfcServiceLifeFactor::s_type.getName();
-}
-
-const Step::ClassType &IfcServiceLifeFactor::getClassType() {
-    return IfcServiceLifeFactor::s_type;
-}
-
-const Step::ClassType &IfcServiceLifeFactor::getType() const {
-    return IfcServiceLifeFactor::s_type;
-}
-
-bool IfcServiceLifeFactor::isOfType(const Step::ClassType &t) const {
-    return IfcServiceLifeFactor::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
-}
-
-IfcServiceLifeFactorTypeEnum IfcServiceLifeFactor::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcServiceLifeFactorTypeEnum IfcServiceLifeFactor::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcServiceLifeFactorTypeEnum_UNSET;
+    }    
+}
+
+IfcServiceLifeFactorTypeEnum IfcServiceLifeFactor::getPredefinedType() const
+{
+    return const_cast<IfcServiceLifeFactor *>(this)->getPredefinedType();
+}
+
+void IfcServiceLifeFactor::setPredefinedType(IfcServiceLifeFactorTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
+}
+
+void IfcServiceLifeFactor::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcServiceLifeFactorTypeEnum_UNSET;
+}
+
+bool IfcServiceLifeFactor::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
+}
+
+
+IfcMeasureValue *IfcServiceLifeFactor::getUpperValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UpperValue.get();
     }
-}
-
-const IfcServiceLifeFactorTypeEnum IfcServiceLifeFactor::getPredefinedType() const {
-    IfcServiceLifeFactor * deConstObject = const_cast< IfcServiceLifeFactor * > (this);
-    return deConstObject->getPredefinedType();
-}
-
-void IfcServiceLifeFactor::setPredefinedType(IfcServiceLifeFactorTypeEnum value) {
-    m_predefinedType = value;
-}
-
-void IfcServiceLifeFactor::unsetPredefinedType() {
-    m_predefinedType = IfcServiceLifeFactorTypeEnum_UNSET;
-}
-
-bool IfcServiceLifeFactor::testPredefinedType() const {
-    return getPredefinedType() != IfcServiceLifeFactorTypeEnum_UNSET;
-}
-
-IfcMeasureValue *IfcServiceLifeFactor::getUpperValue() {
-    if (Step::BaseObject::inited()) {
-        return m_upperValue.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcMeasureValue *IfcServiceLifeFactor::getUpperValue() const
+{
+    return const_cast<IfcServiceLifeFactor *>(this)->getUpperValue();
+}
+
+void IfcServiceLifeFactor::setUpperValue(const Step::RefPtr< IfcMeasureValue > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UpperValue = value;
+}
+
+void IfcServiceLifeFactor::unsetUpperValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UpperValue = Step::getUnset(getUpperValue());
+}
+
+bool IfcServiceLifeFactor::testUpperValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUpperValue()) == false;
+}
+
+
+IfcMeasureValue *IfcServiceLifeFactor::getMostUsedValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MostUsedValue.get();
     }
-}
-
-const IfcMeasureValue *IfcServiceLifeFactor::getUpperValue() const {
-    IfcServiceLifeFactor * deConstObject = const_cast< IfcServiceLifeFactor * > (this);
-    return deConstObject->getUpperValue();
-}
-
-void IfcServiceLifeFactor::setUpperValue(const Step::RefPtr< IfcMeasureValue > &value) {
-    m_upperValue = value;
-}
-
-void IfcServiceLifeFactor::unsetUpperValue() {
-    m_upperValue = Step::getUnset(getUpperValue());
-}
-
-bool IfcServiceLifeFactor::testUpperValue() const {
-    return !Step::isUnset(getUpperValue());
-}
-
-IfcMeasureValue *IfcServiceLifeFactor::getMostUsedValue() {
-    if (Step::BaseObject::inited()) {
-        return m_mostUsedValue.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcMeasureValue *IfcServiceLifeFactor::getMostUsedValue() const
+{
+    return const_cast<IfcServiceLifeFactor *>(this)->getMostUsedValue();
+}
+
+void IfcServiceLifeFactor::setMostUsedValue(const Step::RefPtr< IfcMeasureValue > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MostUsedValue = value;
+}
+
+void IfcServiceLifeFactor::unsetMostUsedValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MostUsedValue = Step::getUnset(getMostUsedValue());
+}
+
+bool IfcServiceLifeFactor::testMostUsedValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMostUsedValue()) == false;
+}
+
+
+IfcMeasureValue *IfcServiceLifeFactor::getLowerValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LowerValue.get();
     }
-}
-
-const IfcMeasureValue *IfcServiceLifeFactor::getMostUsedValue() const {
-    IfcServiceLifeFactor * deConstObject = const_cast< IfcServiceLifeFactor * > (this);
-    return deConstObject->getMostUsedValue();
-}
-
-void IfcServiceLifeFactor::setMostUsedValue(const Step::RefPtr< IfcMeasureValue > &value) {
-    m_mostUsedValue = value;
-}
-
-void IfcServiceLifeFactor::unsetMostUsedValue() {
-    m_mostUsedValue = Step::getUnset(getMostUsedValue());
-}
-
-bool IfcServiceLifeFactor::testMostUsedValue() const {
-    return !Step::isUnset(getMostUsedValue());
-}
-
-IfcMeasureValue *IfcServiceLifeFactor::getLowerValue() {
-    if (Step::BaseObject::inited()) {
-        return m_lowerValue.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcMeasureValue *IfcServiceLifeFactor::getLowerValue() const {
-    IfcServiceLifeFactor * deConstObject = const_cast< IfcServiceLifeFactor * > (this);
-    return deConstObject->getLowerValue();
+const IfcMeasureValue *IfcServiceLifeFactor::getLowerValue() const
+{
+    return const_cast<IfcServiceLifeFactor *>(this)->getLowerValue();
 }
 
-void IfcServiceLifeFactor::setLowerValue(const Step::RefPtr< IfcMeasureValue > &value) {
-    m_lowerValue = value;
+void IfcServiceLifeFactor::setLowerValue(const Step::RefPtr< IfcMeasureValue > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LowerValue = value;
 }
 
-void IfcServiceLifeFactor::unsetLowerValue() {
-    m_lowerValue = Step::getUnset(getLowerValue());
+void IfcServiceLifeFactor::unsetLowerValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LowerValue = Step::getUnset(getLowerValue());
 }
 
-bool IfcServiceLifeFactor::testLowerValue() const {
-    return !Step::isUnset(getLowerValue());
+bool IfcServiceLifeFactor::testLowerValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLowerValue()) == false;
 }
 
-bool IfcServiceLifeFactor::init() {
-    bool status = IfcPropertySetDefinition::init();
-    std::string arg;
-    if (!status) {
+bool IfcServiceLifeFactor::init()
+{
+    if (IfcPropertySetDefinition::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcServiceLifeFactorTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcServiceLifeFactorTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".A_QUALITYOFCOMPONENTS.") {
-            m_predefinedType = IfcServiceLifeFactorTypeEnum_A_QUALITYOFCOMPONENTS;
+    else
+    {
+        if (arg == ".A_QUALITYOFCOMPONENTS.")
+        {
+            m_PredefinedType = IfcServiceLifeFactorTypeEnum_A_QUALITYOFCOMPONENTS;
         }
-        else if (arg == ".B_DESIGNLEVEL.") {
-            m_predefinedType = IfcServiceLifeFactorTypeEnum_B_DESIGNLEVEL;
+        else if (arg == ".B_DESIGNLEVEL.")
+        {
+            m_PredefinedType = IfcServiceLifeFactorTypeEnum_B_DESIGNLEVEL;
         }
-        else if (arg == ".C_WORKEXECUTIONLEVEL.") {
-            m_predefinedType = IfcServiceLifeFactorTypeEnum_C_WORKEXECUTIONLEVEL;
+        else if (arg == ".C_WORKEXECUTIONLEVEL.")
+        {
+            m_PredefinedType = IfcServiceLifeFactorTypeEnum_C_WORKEXECUTIONLEVEL;
         }
-        else if (arg == ".D_INDOORENVIRONMENT.") {
-            m_predefinedType = IfcServiceLifeFactorTypeEnum_D_INDOORENVIRONMENT;
+        else if (arg == ".D_INDOORENVIRONMENT.")
+        {
+            m_PredefinedType = IfcServiceLifeFactorTypeEnum_D_INDOORENVIRONMENT;
         }
-        else if (arg == ".E_OUTDOORENVIRONMENT.") {
-            m_predefinedType = IfcServiceLifeFactorTypeEnum_E_OUTDOORENVIRONMENT;
+        else if (arg == ".E_OUTDOORENVIRONMENT.")
+        {
+            m_PredefinedType = IfcServiceLifeFactorTypeEnum_E_OUTDOORENVIRONMENT;
         }
-        else if (arg == ".F_INUSECONDITIONS.") {
-            m_predefinedType = IfcServiceLifeFactorTypeEnum_F_INUSECONDITIONS;
+        else if (arg == ".F_INUSECONDITIONS.")
+        {
+            m_PredefinedType = IfcServiceLifeFactorTypeEnum_F_INUSECONDITIONS;
         }
-        else if (arg == ".G_MAINTENANCELEVEL.") {
-            m_predefinedType = IfcServiceLifeFactorTypeEnum_G_MAINTENANCELEVEL;
+        else if (arg == ".G_MAINTENANCELEVEL.")
+        {
+            m_PredefinedType = IfcServiceLifeFactorTypeEnum_G_MAINTENANCELEVEL;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcServiceLifeFactorTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcServiceLifeFactorTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcServiceLifeFactorTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcServiceLifeFactorTypeEnum_NOTDEFINED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_upperValue = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_UpperValue = NULL;
     }
-    else {
-        m_upperValue = new IfcMeasureValue;
+    else
+    {
+        m_UpperValue = new IfcMeasureValue;
         if (arg[0] == '#') {
-            m_upperValue->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_UpperValue->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -225,140 +270,165 @@ bool IfcServiceLifeFactor::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCVOLUMEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcVolumeMeasure(tmp_attr1);
+                if (type1 == "IFCVOLUMEMEASURE")
+                {
+                    IfcVolumeMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcVolumeMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCTIMEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcTimeMeasure(tmp_attr1);
+                else if (type1 == "IFCTIMEMEASURE")
+                {
+                    IfcTimeMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcTimeMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCTHERMODYNAMICTEMPERATUREMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcThermodynamicTemperatureMeasure(tmp_attr1);
+                else if (type1 == "IFCTHERMODYNAMICTEMPERATUREMEASURE")
+                {
+                    IfcThermodynamicTemperatureMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcThermodynamicTemperatureMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCSOLIDANGLEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcSolidAngleMeasure(tmp_attr1);
+                else if (type1 == "IFCSOLIDANGLEMEASURE")
+                {
+                    IfcSolidAngleMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcSolidAngleMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVERATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcPositiveRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVERATIOMEASURE")
+                {
+                    IfcPositiveRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcPositiveRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCRATIOMEASURE")
+                {
+                    IfcRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVEPLANEANGLEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcPositivePlaneAngleMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVEPLANEANGLEMEASURE")
+                {
+                    IfcPositivePlaneAngleMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcPositivePlaneAngleMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPLANEANGLEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcPlaneAngleMeasure(tmp_attr1);
+                else if (type1 == "IFCPLANEANGLEMEASURE")
+                {
+                    IfcPlaneAngleMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcPlaneAngleMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPARAMETERVALUE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcParameterValue(tmp_attr1);
+                else if (type1 == "IFCPARAMETERVALUE")
+                {
+                    IfcParameterValue tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcParameterValue(tmp_attr1);
                 }
-                if (type1 == "IFCNUMERICMEASURE") {
-                    Step::Number tmp_attr1;
-                    tmp_attr1 = Step::spfToInteger(arg);
-                    m_upperValue->setIfcNumericMeasure(tmp_attr1);
+                else if (type1 == "IFCNUMERICMEASURE")
+                {
+                    IfcNumericMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcNumericMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCMASSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcMassMeasure(tmp_attr1);
+                else if (type1 == "IFCMASSMEASURE")
+                {
+                    IfcMassMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcMassMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVELENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcPositiveLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVELENGTHMEASURE")
+                {
+                    IfcPositiveLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcPositiveLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCLENGTHMEASURE")
+                {
+                    IfcLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCELECTRICCURRENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcElectricCurrentMeasure(tmp_attr1);
+                else if (type1 == "IFCELECTRICCURRENTMEASURE")
+                {
+                    IfcElectricCurrentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcElectricCurrentMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    Step::String tmp_attr1;
-                    tmp_attr1 = Step::String::fromSPF(arg);
-                    m_upperValue->setIfcDescriptiveMeasure(tmp_attr1);
+                else if (type1 == "IFCDESCRIPTIVEMEASURE")
+                {
+                    IfcDescriptiveMeasure tmp_attr1 = Step::String::fromSPF(arg)
+;
+                    m_UpperValue->setIfcDescriptiveMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCCOUNTMEASURE") {
-                    Step::Number tmp_attr1;
-                    tmp_attr1 = Step::spfToInteger(arg);
-                    m_upperValue->setIfcCountMeasure(tmp_attr1);
+                else if (type1 == "IFCCOUNTMEASURE")
+                {
+                    IfcCountMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcCountMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCCONTEXTDEPENDENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcContextDependentMeasure(tmp_attr1);
+                else if (type1 == "IFCCONTEXTDEPENDENTMEASURE")
+                {
+                    IfcContextDependentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcContextDependentMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCAREAMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcAreaMeasure(tmp_attr1);
+                else if (type1 == "IFCAREAMEASURE")
+                {
+                    IfcAreaMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcAreaMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCAMOUNTOFSUBSTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcAmountOfSubstanceMeasure(tmp_attr1);
+                else if (type1 == "IFCAMOUNTOFSUBSTANCEMEASURE")
+                {
+                    IfcAmountOfSubstanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcAmountOfSubstanceMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLUMINOUSINTENSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcLuminousIntensityMeasure(tmp_attr1);
+                else if (type1 == "IFCLUMINOUSINTENSITYMEASURE")
+                {
+                    IfcLuminousIntensityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcLuminousIntensityMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_upperValue->setIfcNormalisedRatioMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCCOMPLEXNUMBER") {
-                    Array_Real_1_2 tmp_attr1;
-                    Array_Real_1_2::iterator it_tmp_attr1 = tmp_attr1.begin();
-                    tmp_attr1.setUnset(false);
-                    while (true) {
-                        std::string str2;
-                        Step::getSubParameter(arg, str2);
-                        if (str2 != "") {
-                            Step::Real attr3;
-                            attr3 = Step::spfToReal(str2);
-                            *(it_tmp_attr1++) = attr3;
-                        }
-                        else {
-                            break;
-                        }
-                    }
-                    m_upperValue->setIfcComplexNumber(tmp_attr1);
+                else if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_UpperValue->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_mostUsedValue = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_MostUsedValue = NULL;
     }
-    else {
-        m_mostUsedValue = new IfcMeasureValue;
+    else
+    {
+        m_MostUsedValue = new IfcMeasureValue;
         if (arg[0] == '#') {
-            m_mostUsedValue->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_MostUsedValue->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -367,140 +437,165 @@ bool IfcServiceLifeFactor::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCVOLUMEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcVolumeMeasure(tmp_attr1);
+                if (type1 == "IFCVOLUMEMEASURE")
+                {
+                    IfcVolumeMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcVolumeMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCTIMEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcTimeMeasure(tmp_attr1);
+                else if (type1 == "IFCTIMEMEASURE")
+                {
+                    IfcTimeMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcTimeMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCTHERMODYNAMICTEMPERATUREMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcThermodynamicTemperatureMeasure(tmp_attr1);
+                else if (type1 == "IFCTHERMODYNAMICTEMPERATUREMEASURE")
+                {
+                    IfcThermodynamicTemperatureMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcThermodynamicTemperatureMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCSOLIDANGLEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcSolidAngleMeasure(tmp_attr1);
+                else if (type1 == "IFCSOLIDANGLEMEASURE")
+                {
+                    IfcSolidAngleMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcSolidAngleMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVERATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcPositiveRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVERATIOMEASURE")
+                {
+                    IfcPositiveRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcPositiveRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCRATIOMEASURE")
+                {
+                    IfcRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVEPLANEANGLEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcPositivePlaneAngleMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVEPLANEANGLEMEASURE")
+                {
+                    IfcPositivePlaneAngleMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcPositivePlaneAngleMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPLANEANGLEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcPlaneAngleMeasure(tmp_attr1);
+                else if (type1 == "IFCPLANEANGLEMEASURE")
+                {
+                    IfcPlaneAngleMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcPlaneAngleMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPARAMETERVALUE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcParameterValue(tmp_attr1);
+                else if (type1 == "IFCPARAMETERVALUE")
+                {
+                    IfcParameterValue tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcParameterValue(tmp_attr1);
                 }
-                if (type1 == "IFCNUMERICMEASURE") {
-                    Step::Number tmp_attr1;
-                    tmp_attr1 = Step::spfToInteger(arg);
-                    m_mostUsedValue->setIfcNumericMeasure(tmp_attr1);
+                else if (type1 == "IFCNUMERICMEASURE")
+                {
+                    IfcNumericMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcNumericMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCMASSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcMassMeasure(tmp_attr1);
+                else if (type1 == "IFCMASSMEASURE")
+                {
+                    IfcMassMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcMassMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVELENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcPositiveLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVELENGTHMEASURE")
+                {
+                    IfcPositiveLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcPositiveLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCLENGTHMEASURE")
+                {
+                    IfcLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCELECTRICCURRENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcElectricCurrentMeasure(tmp_attr1);
+                else if (type1 == "IFCELECTRICCURRENTMEASURE")
+                {
+                    IfcElectricCurrentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcElectricCurrentMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    Step::String tmp_attr1;
-                    tmp_attr1 = Step::String::fromSPF(arg);
-                    m_mostUsedValue->setIfcDescriptiveMeasure(tmp_attr1);
+                else if (type1 == "IFCDESCRIPTIVEMEASURE")
+                {
+                    IfcDescriptiveMeasure tmp_attr1 = Step::String::fromSPF(arg)
+;
+                    m_MostUsedValue->setIfcDescriptiveMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCCOUNTMEASURE") {
-                    Step::Number tmp_attr1;
-                    tmp_attr1 = Step::spfToInteger(arg);
-                    m_mostUsedValue->setIfcCountMeasure(tmp_attr1);
+                else if (type1 == "IFCCOUNTMEASURE")
+                {
+                    IfcCountMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcCountMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCCONTEXTDEPENDENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcContextDependentMeasure(tmp_attr1);
+                else if (type1 == "IFCCONTEXTDEPENDENTMEASURE")
+                {
+                    IfcContextDependentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcContextDependentMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCAREAMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcAreaMeasure(tmp_attr1);
+                else if (type1 == "IFCAREAMEASURE")
+                {
+                    IfcAreaMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcAreaMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCAMOUNTOFSUBSTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcAmountOfSubstanceMeasure(tmp_attr1);
+                else if (type1 == "IFCAMOUNTOFSUBSTANCEMEASURE")
+                {
+                    IfcAmountOfSubstanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcAmountOfSubstanceMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLUMINOUSINTENSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcLuminousIntensityMeasure(tmp_attr1);
+                else if (type1 == "IFCLUMINOUSINTENSITYMEASURE")
+                {
+                    IfcLuminousIntensityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcLuminousIntensityMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_mostUsedValue->setIfcNormalisedRatioMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCCOMPLEXNUMBER") {
-                    Array_Real_1_2 tmp_attr1;
-                    Array_Real_1_2::iterator it_tmp_attr1 = tmp_attr1.begin();
-                    tmp_attr1.setUnset(false);
-                    while (true) {
-                        std::string str2;
-                        Step::getSubParameter(arg, str2);
-                        if (str2 != "") {
-                            Step::Real attr3;
-                            attr3 = Step::spfToReal(str2);
-                            *(it_tmp_attr1++) = attr3;
-                        }
-                        else {
-                            break;
-                        }
-                    }
-                    m_mostUsedValue->setIfcComplexNumber(tmp_attr1);
+                else if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_MostUsedValue->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_lowerValue = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_LowerValue = NULL;
     }
-    else {
-        m_lowerValue = new IfcMeasureValue;
+    else
+    {
+        m_LowerValue = new IfcMeasureValue;
         if (arg[0] == '#') {
-            m_lowerValue->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_LowerValue->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -509,128 +604,151 @@ bool IfcServiceLifeFactor::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCVOLUMEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcVolumeMeasure(tmp_attr1);
+                if (type1 == "IFCVOLUMEMEASURE")
+                {
+                    IfcVolumeMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcVolumeMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCTIMEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcTimeMeasure(tmp_attr1);
+                else if (type1 == "IFCTIMEMEASURE")
+                {
+                    IfcTimeMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcTimeMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCTHERMODYNAMICTEMPERATUREMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcThermodynamicTemperatureMeasure(tmp_attr1);
+                else if (type1 == "IFCTHERMODYNAMICTEMPERATUREMEASURE")
+                {
+                    IfcThermodynamicTemperatureMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcThermodynamicTemperatureMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCSOLIDANGLEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcSolidAngleMeasure(tmp_attr1);
+                else if (type1 == "IFCSOLIDANGLEMEASURE")
+                {
+                    IfcSolidAngleMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcSolidAngleMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVERATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcPositiveRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVERATIOMEASURE")
+                {
+                    IfcPositiveRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcPositiveRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCRATIOMEASURE")
+                {
+                    IfcRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVEPLANEANGLEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcPositivePlaneAngleMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVEPLANEANGLEMEASURE")
+                {
+                    IfcPositivePlaneAngleMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcPositivePlaneAngleMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPLANEANGLEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcPlaneAngleMeasure(tmp_attr1);
+                else if (type1 == "IFCPLANEANGLEMEASURE")
+                {
+                    IfcPlaneAngleMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcPlaneAngleMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPARAMETERVALUE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcParameterValue(tmp_attr1);
+                else if (type1 == "IFCPARAMETERVALUE")
+                {
+                    IfcParameterValue tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcParameterValue(tmp_attr1);
                 }
-                if (type1 == "IFCNUMERICMEASURE") {
-                    Step::Number tmp_attr1;
-                    tmp_attr1 = Step::spfToInteger(arg);
-                    m_lowerValue->setIfcNumericMeasure(tmp_attr1);
+                else if (type1 == "IFCNUMERICMEASURE")
+                {
+                    IfcNumericMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcNumericMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCMASSMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcMassMeasure(tmp_attr1);
+                else if (type1 == "IFCMASSMEASURE")
+                {
+                    IfcMassMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcMassMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVELENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcPositiveLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVELENGTHMEASURE")
+                {
+                    IfcPositiveLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcPositiveLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCLENGTHMEASURE")
+                {
+                    IfcLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCELECTRICCURRENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcElectricCurrentMeasure(tmp_attr1);
+                else if (type1 == "IFCELECTRICCURRENTMEASURE")
+                {
+                    IfcElectricCurrentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcElectricCurrentMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    Step::String tmp_attr1;
-                    tmp_attr1 = Step::String::fromSPF(arg);
-                    m_lowerValue->setIfcDescriptiveMeasure(tmp_attr1);
+                else if (type1 == "IFCDESCRIPTIVEMEASURE")
+                {
+                    IfcDescriptiveMeasure tmp_attr1 = Step::String::fromSPF(arg)
+;
+                    m_LowerValue->setIfcDescriptiveMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCCOUNTMEASURE") {
-                    Step::Number tmp_attr1;
-                    tmp_attr1 = Step::spfToInteger(arg);
-                    m_lowerValue->setIfcCountMeasure(tmp_attr1);
+                else if (type1 == "IFCCOUNTMEASURE")
+                {
+                    IfcCountMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcCountMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCCONTEXTDEPENDENTMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcContextDependentMeasure(tmp_attr1);
+                else if (type1 == "IFCCONTEXTDEPENDENTMEASURE")
+                {
+                    IfcContextDependentMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcContextDependentMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCAREAMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcAreaMeasure(tmp_attr1);
+                else if (type1 == "IFCAREAMEASURE")
+                {
+                    IfcAreaMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcAreaMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCAMOUNTOFSUBSTANCEMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcAmountOfSubstanceMeasure(tmp_attr1);
+                else if (type1 == "IFCAMOUNTOFSUBSTANCEMEASURE")
+                {
+                    IfcAmountOfSubstanceMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcAmountOfSubstanceMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLUMINOUSINTENSITYMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcLuminousIntensityMeasure(tmp_attr1);
+                else if (type1 == "IFCLUMINOUSINTENSITYMEASURE")
+                {
+                    IfcLuminousIntensityMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcLuminousIntensityMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lowerValue->setIfcNormalisedRatioMeasure(tmp_attr1);
-                }
-                if (type1 == "IFCCOMPLEXNUMBER") {
-                    Array_Real_1_2 tmp_attr1;
-                    Array_Real_1_2::iterator it_tmp_attr1 = tmp_attr1.begin();
-                    tmp_attr1.setUnset(false);
-                    while (true) {
-                        std::string str2;
-                        Step::getSubParameter(arg, str2);
-                        if (str2 != "") {
-                            Step::Real attr3;
-                            attr3 = Step::spfToReal(str2);
-                            *(it_tmp_attr1++) = attr3;
-                        }
-                        else {
-                            break;
-                        }
-                    }
-                    m_lowerValue->setIfcComplexNumber(tmp_attr1);
+                else if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LowerValue->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
             }
         }
@@ -638,16 +756,14 @@ bool IfcServiceLifeFactor::init() {
     return true;
 }
 
-void IfcServiceLifeFactor::copy(const IfcServiceLifeFactor &obj, const CopyOp &copyop) {
+void IfcServiceLifeFactor::copy(const IfcServiceLifeFactor &obj, const CopyOp &copyop)
+{
     IfcPropertySetDefinition::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
-    m_upperValue = new IfcMeasureValue;
-    m_upperValue->copy(*(obj.m_upperValue.get()), copyop);
-    m_mostUsedValue = new IfcMeasureValue;
-    m_mostUsedValue->copy(*(obj.m_mostUsedValue.get()), copyop);
-    m_lowerValue = new IfcMeasureValue;
-    m_lowerValue->copy(*(obj.m_lowerValue.get()), copyop);
+    setPredefinedType(obj.m_PredefinedType);
+    setUpperValue((IfcMeasureValue*)copyop(obj.m_UpperValue.get()));
+    setMostUsedValue((IfcMeasureValue*)copyop(obj.m_MostUsedValue.get()));
+    setLowerValue((IfcMeasureValue*)copyop(obj.m_LowerValue.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcServiceLifeFactor::s_type("IfcServiceLifeFactor");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcServiceLifeFactor, IfcPropertySetDefinition)

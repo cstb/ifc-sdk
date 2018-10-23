@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,372 +24,470 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcOwnerHistory.h>
 
-#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPersonAndOrganization.h>
 #include <ifc2x3/IfcApplication.h>
 #include <ifc2x3/IfcPersonAndOrganization.h>
+#include <ifc2x3/IfcApplication.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcOwnerHistory::IfcOwnerHistory(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_owningUser = NULL;
-    m_owningApplication = NULL;
-    m_state = IfcStateEnum_UNSET;
-    m_changeAction = IfcChangeActionEnum_UNSET;
-    m_lastModifiedDate = Step::getUnset(m_lastModifiedDate);
-    m_lastModifyingUser = NULL;
-    m_lastModifyingApplication = NULL;
-    m_creationDate = Step::getUnset(m_creationDate);
+IfcOwnerHistory::IfcOwnerHistory(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_OwningUser = NULL;
+    m_OwningApplication = NULL;
+    m_State = IfcStateEnum_UNSET;
+    m_ChangeAction = IfcChangeActionEnum_UNSET;
+    m_LastModifiedDate = Step::getUnset(m_LastModifiedDate);
+    m_LastModifyingUser = NULL;
+    m_LastModifyingApplication = NULL;
+    m_CreationDate = Step::getUnset(m_CreationDate);
 }
 
-IfcOwnerHistory::~IfcOwnerHistory() {
+IfcOwnerHistory::~IfcOwnerHistory()
+{}
+
+bool IfcOwnerHistory::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcOwnerHistory(this);
 }
 
-bool IfcOwnerHistory::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcOwnerHistory(this);
-}
 
-const std::string &IfcOwnerHistory::type() const {
-    return IfcOwnerHistory::s_type.getName();
-}
-
-const Step::ClassType &IfcOwnerHistory::getClassType() {
-    return IfcOwnerHistory::s_type;
-}
-
-const Step::ClassType &IfcOwnerHistory::getType() const {
-    return IfcOwnerHistory::s_type;
-}
-
-bool IfcOwnerHistory::isOfType(const Step::ClassType &t) const {
-    return IfcOwnerHistory::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcPersonAndOrganization *IfcOwnerHistory::getOwningUser() {
-    if (Step::BaseObject::inited()) {
-        return m_owningUser.get();
+IfcPersonAndOrganization *IfcOwnerHistory::getOwningUser()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_OwningUser.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcPersonAndOrganization *IfcOwnerHistory::getOwningUser() const
+{
+    return const_cast<IfcOwnerHistory *>(this)->getOwningUser();
+}
+
+void IfcOwnerHistory::setOwningUser(const Step::RefPtr< IfcPersonAndOrganization > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OwningUser = value;
+}
+
+void IfcOwnerHistory::unsetOwningUser()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OwningUser = Step::getUnset(getOwningUser());
+}
+
+bool IfcOwnerHistory::testOwningUser() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getOwningUser()) == false;
+}
+
+
+IfcApplication *IfcOwnerHistory::getOwningApplication()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_OwningApplication.get();
     }
-}
-
-const IfcPersonAndOrganization *IfcOwnerHistory::getOwningUser() const {
-    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
-    return deConstObject->getOwningUser();
-}
-
-void IfcOwnerHistory::setOwningUser(const Step::RefPtr< IfcPersonAndOrganization > &value) {
-    m_owningUser = value;
-}
-
-void IfcOwnerHistory::unsetOwningUser() {
-    m_owningUser = Step::getUnset(getOwningUser());
-}
-
-bool IfcOwnerHistory::testOwningUser() const {
-    return !Step::isUnset(getOwningUser());
-}
-
-IfcApplication *IfcOwnerHistory::getOwningApplication() {
-    if (Step::BaseObject::inited()) {
-        return m_owningApplication.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcApplication *IfcOwnerHistory::getOwningApplication() const
+{
+    return const_cast<IfcOwnerHistory *>(this)->getOwningApplication();
+}
+
+void IfcOwnerHistory::setOwningApplication(const Step::RefPtr< IfcApplication > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OwningApplication = value;
+}
+
+void IfcOwnerHistory::unsetOwningApplication()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OwningApplication = Step::getUnset(getOwningApplication());
+}
+
+bool IfcOwnerHistory::testOwningApplication() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getOwningApplication()) == false;
+}
+
+
+IfcStateEnum IfcOwnerHistory::getState()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_State;
     }
-}
-
-const IfcApplication *IfcOwnerHistory::getOwningApplication() const {
-    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
-    return deConstObject->getOwningApplication();
-}
-
-void IfcOwnerHistory::setOwningApplication(const Step::RefPtr< IfcApplication > &value) {
-    m_owningApplication = value;
-}
-
-void IfcOwnerHistory::unsetOwningApplication() {
-    m_owningApplication = Step::getUnset(getOwningApplication());
-}
-
-bool IfcOwnerHistory::testOwningApplication() const {
-    return !Step::isUnset(getOwningApplication());
-}
-
-IfcStateEnum IfcOwnerHistory::getState() {
-    if (Step::BaseObject::inited()) {
-        return m_state;
-    }
-    else {
+    else 
+    {
         return IfcStateEnum_UNSET;
+    }    
+}
+
+IfcStateEnum IfcOwnerHistory::getState() const
+{
+    return const_cast<IfcOwnerHistory *>(this)->getState();
+}
+
+void IfcOwnerHistory::setState(IfcStateEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_State = value;
+}
+
+void IfcOwnerHistory::unsetState()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_State = IfcStateEnum_UNSET;
+}
+
+bool IfcOwnerHistory::testState() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getState()) == false;
+}
+
+
+IfcChangeActionEnum IfcOwnerHistory::getChangeAction()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ChangeAction;
     }
-}
-
-const IfcStateEnum IfcOwnerHistory::getState() const {
-    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
-    return deConstObject->getState();
-}
-
-void IfcOwnerHistory::setState(IfcStateEnum value) {
-    m_state = value;
-}
-
-void IfcOwnerHistory::unsetState() {
-    m_state = IfcStateEnum_UNSET;
-}
-
-bool IfcOwnerHistory::testState() const {
-    return getState() != IfcStateEnum_UNSET;
-}
-
-IfcChangeActionEnum IfcOwnerHistory::getChangeAction() {
-    if (Step::BaseObject::inited()) {
-        return m_changeAction;
-    }
-    else {
+    else 
+    {
         return IfcChangeActionEnum_UNSET;
+    }    
+}
+
+IfcChangeActionEnum IfcOwnerHistory::getChangeAction() const
+{
+    return const_cast<IfcOwnerHistory *>(this)->getChangeAction();
+}
+
+void IfcOwnerHistory::setChangeAction(IfcChangeActionEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ChangeAction = value;
+}
+
+void IfcOwnerHistory::unsetChangeAction()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ChangeAction = IfcChangeActionEnum_UNSET;
+}
+
+bool IfcOwnerHistory::testChangeAction() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getChangeAction()) == false;
+}
+
+
+IfcTimeStamp IfcOwnerHistory::getLastModifiedDate()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LastModifiedDate;
     }
+    else 
+    {
+        return Step::getUnset(m_LastModifiedDate);
+    }    
 }
 
-const IfcChangeActionEnum IfcOwnerHistory::getChangeAction() const {
-    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
-    return deConstObject->getChangeAction();
+IfcTimeStamp IfcOwnerHistory::getLastModifiedDate() const
+{
+    return const_cast<IfcOwnerHistory *>(this)->getLastModifiedDate();
 }
 
-void IfcOwnerHistory::setChangeAction(IfcChangeActionEnum value) {
-    m_changeAction = value;
+void IfcOwnerHistory::setLastModifiedDate(IfcTimeStamp value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LastModifiedDate = value;
 }
 
-void IfcOwnerHistory::unsetChangeAction() {
-    m_changeAction = IfcChangeActionEnum_UNSET;
+void IfcOwnerHistory::unsetLastModifiedDate()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LastModifiedDate = Step::getUnset(getLastModifiedDate());
 }
 
-bool IfcOwnerHistory::testChangeAction() const {
-    return getChangeAction() != IfcChangeActionEnum_UNSET;
+bool IfcOwnerHistory::testLastModifiedDate() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLastModifiedDate()) == false;
 }
 
-IfcTimeStamp IfcOwnerHistory::getLastModifiedDate() {
-    if (Step::BaseObject::inited()) {
-        return m_lastModifiedDate;
+
+IfcPersonAndOrganization *IfcOwnerHistory::getLastModifyingUser()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LastModifyingUser.get();
     }
-    else {
-        return Step::getUnset(m_lastModifiedDate);
-    }
-}
-
-const IfcTimeStamp IfcOwnerHistory::getLastModifiedDate() const {
-    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
-    return deConstObject->getLastModifiedDate();
-}
-
-void IfcOwnerHistory::setLastModifiedDate(IfcTimeStamp value) {
-    m_lastModifiedDate = value;
-}
-
-void IfcOwnerHistory::unsetLastModifiedDate() {
-    m_lastModifiedDate = Step::getUnset(getLastModifiedDate());
-}
-
-bool IfcOwnerHistory::testLastModifiedDate() const {
-    return !Step::isUnset(getLastModifiedDate());
-}
-
-IfcPersonAndOrganization *IfcOwnerHistory::getLastModifyingUser() {
-    if (Step::BaseObject::inited()) {
-        return m_lastModifyingUser.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcPersonAndOrganization *IfcOwnerHistory::getLastModifyingUser() const
+{
+    return const_cast<IfcOwnerHistory *>(this)->getLastModifyingUser();
+}
+
+void IfcOwnerHistory::setLastModifyingUser(const Step::RefPtr< IfcPersonAndOrganization > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LastModifyingUser = value;
+}
+
+void IfcOwnerHistory::unsetLastModifyingUser()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LastModifyingUser = Step::getUnset(getLastModifyingUser());
+}
+
+bool IfcOwnerHistory::testLastModifyingUser() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLastModifyingUser()) == false;
+}
+
+
+IfcApplication *IfcOwnerHistory::getLastModifyingApplication()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LastModifyingApplication.get();
     }
-}
-
-const IfcPersonAndOrganization *IfcOwnerHistory::getLastModifyingUser() const {
-    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
-    return deConstObject->getLastModifyingUser();
-}
-
-void IfcOwnerHistory::setLastModifyingUser(const Step::RefPtr< IfcPersonAndOrganization > &value) {
-    m_lastModifyingUser = value;
-}
-
-void IfcOwnerHistory::unsetLastModifyingUser() {
-    m_lastModifyingUser = Step::getUnset(getLastModifyingUser());
-}
-
-bool IfcOwnerHistory::testLastModifyingUser() const {
-    return !Step::isUnset(getLastModifyingUser());
-}
-
-IfcApplication *IfcOwnerHistory::getLastModifyingApplication() {
-    if (Step::BaseObject::inited()) {
-        return m_lastModifyingApplication.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcApplication *IfcOwnerHistory::getLastModifyingApplication() const
+{
+    return const_cast<IfcOwnerHistory *>(this)->getLastModifyingApplication();
+}
+
+void IfcOwnerHistory::setLastModifyingApplication(const Step::RefPtr< IfcApplication > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LastModifyingApplication = value;
+}
+
+void IfcOwnerHistory::unsetLastModifyingApplication()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LastModifyingApplication = Step::getUnset(getLastModifyingApplication());
+}
+
+bool IfcOwnerHistory::testLastModifyingApplication() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLastModifyingApplication()) == false;
+}
+
+
+IfcTimeStamp IfcOwnerHistory::getCreationDate()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CreationDate;
     }
+    else 
+    {
+        return Step::getUnset(m_CreationDate);
+    }    
 }
 
-const IfcApplication *IfcOwnerHistory::getLastModifyingApplication() const {
-    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
-    return deConstObject->getLastModifyingApplication();
+IfcTimeStamp IfcOwnerHistory::getCreationDate() const
+{
+    return const_cast<IfcOwnerHistory *>(this)->getCreationDate();
 }
 
-void IfcOwnerHistory::setLastModifyingApplication(const Step::RefPtr< IfcApplication > &value) {
-    m_lastModifyingApplication = value;
+void IfcOwnerHistory::setCreationDate(IfcTimeStamp value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CreationDate = value;
 }
 
-void IfcOwnerHistory::unsetLastModifyingApplication() {
-    m_lastModifyingApplication = Step::getUnset(getLastModifyingApplication());
+void IfcOwnerHistory::unsetCreationDate()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CreationDate = Step::getUnset(getCreationDate());
 }
 
-bool IfcOwnerHistory::testLastModifyingApplication() const {
-    return !Step::isUnset(getLastModifyingApplication());
+bool IfcOwnerHistory::testCreationDate() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCreationDate()) == false;
 }
 
-IfcTimeStamp IfcOwnerHistory::getCreationDate() {
-    if (Step::BaseObject::inited()) {
-        return m_creationDate;
-    }
-    else {
-        return Step::getUnset(m_creationDate);
-    }
-}
-
-const IfcTimeStamp IfcOwnerHistory::getCreationDate() const {
-    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
-    return deConstObject->getCreationDate();
-}
-
-void IfcOwnerHistory::setCreationDate(IfcTimeStamp value) {
-    m_creationDate = value;
-}
-
-void IfcOwnerHistory::unsetCreationDate() {
-    m_creationDate = Step::getUnset(getCreationDate());
-}
-
-bool IfcOwnerHistory::testCreationDate() const {
-    return !Step::isUnset(getCreationDate());
-}
-
-bool IfcOwnerHistory::init() {
+bool IfcOwnerHistory::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_owningUser = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_OwningUser = NULL;
     }
-    else {
-        m_owningUser = static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_owningApplication = NULL;
-    }
-    else {
-        m_owningApplication = static_cast< IfcApplication * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_OwningUser = static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_state = IfcStateEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_OwningApplication = NULL;
     }
-    else {
-        if (arg == ".READWRITE.") {
-            m_state = IfcStateEnum_READWRITE;
-        }
-        else if (arg == ".READONLY.") {
-            m_state = IfcStateEnum_READONLY;
-        }
-        else if (arg == ".LOCKED.") {
-            m_state = IfcStateEnum_LOCKED;
-        }
-        else if (arg == ".READWRITELOCKED.") {
-            m_state = IfcStateEnum_READWRITELOCKED;
-        }
-        else if (arg == ".READONLYLOCKED.") {
-            m_state = IfcStateEnum_READONLYLOCKED;
-        }
+    else
+    {
+        m_OwningApplication = static_cast< IfcApplication * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_changeAction = IfcChangeActionEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_State = IfcStateEnum_UNSET;
     }
-    else {
-        if (arg == ".NOCHANGE.") {
-            m_changeAction = IfcChangeActionEnum_NOCHANGE;
+    else
+    {
+        if (arg == ".READWRITE.")
+        {
+            m_State = IfcStateEnum_READWRITE;
         }
-        else if (arg == ".MODIFIED.") {
-            m_changeAction = IfcChangeActionEnum_MODIFIED;
+        else if (arg == ".READONLY.")
+        {
+            m_State = IfcStateEnum_READONLY;
         }
-        else if (arg == ".ADDED.") {
-            m_changeAction = IfcChangeActionEnum_ADDED;
+        else if (arg == ".LOCKED.")
+        {
+            m_State = IfcStateEnum_LOCKED;
         }
-        else if (arg == ".DELETED.") {
-            m_changeAction = IfcChangeActionEnum_DELETED;
+        else if (arg == ".READWRITELOCKED.")
+        {
+            m_State = IfcStateEnum_READWRITELOCKED;
         }
-        else if (arg == ".MODIFIEDADDED.") {
-            m_changeAction = IfcChangeActionEnum_MODIFIEDADDED;
-        }
-        else if (arg == ".MODIFIEDDELETED.") {
-            m_changeAction = IfcChangeActionEnum_MODIFIEDDELETED;
+        else if (arg == ".READONLYLOCKED.")
+        {
+            m_State = IfcStateEnum_READONLYLOCKED;
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_lastModifiedDate = Step::getUnset(m_lastModifiedDate);
+    if (arg == "$" || arg == "*")
+    {
+        m_ChangeAction = IfcChangeActionEnum_UNSET;
     }
-    else {
-        m_lastModifiedDate = Step::spfToInteger(arg);
+    else
+    {
+        if (arg == ".NOCHANGE.")
+        {
+            m_ChangeAction = IfcChangeActionEnum_NOCHANGE;
+        }
+        else if (arg == ".MODIFIED.")
+        {
+            m_ChangeAction = IfcChangeActionEnum_MODIFIED;
+        }
+        else if (arg == ".ADDED.")
+        {
+            m_ChangeAction = IfcChangeActionEnum_ADDED;
+        }
+        else if (arg == ".DELETED.")
+        {
+            m_ChangeAction = IfcChangeActionEnum_DELETED;
+        }
+        else if (arg == ".MODIFIEDADDED.")
+        {
+            m_ChangeAction = IfcChangeActionEnum_MODIFIEDADDED;
+        }
+        else if (arg == ".MODIFIEDDELETED.")
+        {
+            m_ChangeAction = IfcChangeActionEnum_MODIFIEDDELETED;
+        }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_lastModifyingUser = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_LastModifiedDate = Step::getUnset(m_LastModifiedDate);
     }
-    else {
-        m_lastModifyingUser = static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_lastModifyingApplication = NULL;
-    }
-    else {
-        m_lastModifyingApplication = static_cast< IfcApplication * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_LastModifiedDate = Step::spfToInteger(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_creationDate = Step::getUnset(m_creationDate);
+    if (arg == "$" || arg == "*")
+    {
+        m_LastModifyingUser = NULL;
     }
-    else {
-        m_creationDate = Step::spfToInteger(arg);
+    else
+    {
+        m_LastModifyingUser = static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_LastModifyingApplication = NULL;
+    }
+    else
+    {
+        m_LastModifyingApplication = static_cast< IfcApplication * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CreationDate = Step::getUnset(m_CreationDate);
+    }
+    else
+    {
+        m_CreationDate = Step::spfToInteger(arg)
+;
     }
     return true;
 }
 
-void IfcOwnerHistory::copy(const IfcOwnerHistory &obj, const CopyOp &copyop) {
+void IfcOwnerHistory::copy(const IfcOwnerHistory &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setOwningUser((IfcPersonAndOrganization*)copyop(obj.m_owningUser.get()));
-    setOwningApplication((IfcApplication*)copyop(obj.m_owningApplication.get()));
-    setState(obj.m_state);
-    setChangeAction(obj.m_changeAction);
-    setLastModifiedDate(obj.m_lastModifiedDate);
-    setLastModifyingUser((IfcPersonAndOrganization*)copyop(obj.m_lastModifyingUser.get()));
-    setLastModifyingApplication((IfcApplication*)copyop(obj.m_lastModifyingApplication.get()));
-    setCreationDate(obj.m_creationDate);
+    setOwningUser((IfcPersonAndOrganization*)copyop(obj.m_OwningUser.get()));
+    setOwningApplication((IfcApplication*)copyop(obj.m_OwningApplication.get()));
+    setState(obj.m_State);
+    setChangeAction(obj.m_ChangeAction);
+    setLastModifiedDate(obj.m_LastModifiedDate);
+    setLastModifyingUser((IfcPersonAndOrganization*)copyop(obj.m_LastModifyingUser.get()));
+    setLastModifyingApplication((IfcApplication*)copyop(obj.m_LastModifyingApplication.get()));
+    setCreationDate(obj.m_CreationDate);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOwnerHistory::s_type("IfcOwnerHistory");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcOwnerHistory, Step::BaseEntity)

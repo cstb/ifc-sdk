@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,130 +24,144 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcMechanicalFastener.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcFastener.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcMechanicalFastener::IfcMechanicalFastener(Step::Id id, Step::SPFData *args) : IfcFastener(id, args) {
-    m_nominalDiameter = Step::getUnset(m_nominalDiameter);
-    m_nominalLength = Step::getUnset(m_nominalLength);
+IfcMechanicalFastener::IfcMechanicalFastener(Step::Id id, Step::SPFData *args) : 
+    IfcFastener(id, args)
+{
+    m_NominalDiameter = Step::getUnset(m_NominalDiameter);
+    m_NominalLength = Step::getUnset(m_NominalLength);
 }
 
-IfcMechanicalFastener::~IfcMechanicalFastener() {
+IfcMechanicalFastener::~IfcMechanicalFastener()
+{}
+
+bool IfcMechanicalFastener::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcMechanicalFastener(this);
 }
 
-bool IfcMechanicalFastener::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcMechanicalFastener(this);
-}
 
-const std::string &IfcMechanicalFastener::type() const {
-    return IfcMechanicalFastener::s_type.getName();
-}
-
-const Step::ClassType &IfcMechanicalFastener::getClassType() {
-    return IfcMechanicalFastener::s_type;
-}
-
-const Step::ClassType &IfcMechanicalFastener::getType() const {
-    return IfcMechanicalFastener::s_type;
-}
-
-bool IfcMechanicalFastener::isOfType(const Step::ClassType &t) const {
-    return IfcMechanicalFastener::s_type == t ? true : IfcFastener::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcMechanicalFastener::getNominalDiameter() {
-    if (Step::BaseObject::inited()) {
-        return m_nominalDiameter;
+IfcPositiveLengthMeasure IfcMechanicalFastener::getNominalDiameter()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_NominalDiameter;
     }
-    else {
-        return Step::getUnset(m_nominalDiameter);
+    else 
+    {
+        return Step::getUnset(m_NominalDiameter);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcMechanicalFastener::getNominalDiameter() const
+{
+    return const_cast<IfcMechanicalFastener *>(this)->getNominalDiameter();
+}
+
+void IfcMechanicalFastener::setNominalDiameter(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NominalDiameter = value;
+}
+
+void IfcMechanicalFastener::unsetNominalDiameter()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NominalDiameter = Step::getUnset(getNominalDiameter());
+}
+
+bool IfcMechanicalFastener::testNominalDiameter() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getNominalDiameter()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcMechanicalFastener::getNominalLength()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_NominalLength;
     }
+    else 
+    {
+        return Step::getUnset(m_NominalLength);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcMechanicalFastener::getNominalDiameter() const {
-    IfcMechanicalFastener * deConstObject = const_cast< IfcMechanicalFastener * > (this);
-    return deConstObject->getNominalDiameter();
+IfcPositiveLengthMeasure IfcMechanicalFastener::getNominalLength() const
+{
+    return const_cast<IfcMechanicalFastener *>(this)->getNominalLength();
 }
 
-void IfcMechanicalFastener::setNominalDiameter(IfcPositiveLengthMeasure value) {
-    m_nominalDiameter = value;
+void IfcMechanicalFastener::setNominalLength(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NominalLength = value;
 }
 
-void IfcMechanicalFastener::unsetNominalDiameter() {
-    m_nominalDiameter = Step::getUnset(getNominalDiameter());
+void IfcMechanicalFastener::unsetNominalLength()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_NominalLength = Step::getUnset(getNominalLength());
 }
 
-bool IfcMechanicalFastener::testNominalDiameter() const {
-    return !Step::isUnset(getNominalDiameter());
+bool IfcMechanicalFastener::testNominalLength() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getNominalLength()) == false;
 }
 
-IfcPositiveLengthMeasure IfcMechanicalFastener::getNominalLength() {
-    if (Step::BaseObject::inited()) {
-        return m_nominalLength;
-    }
-    else {
-        return Step::getUnset(m_nominalLength);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcMechanicalFastener::getNominalLength() const {
-    IfcMechanicalFastener * deConstObject = const_cast< IfcMechanicalFastener * > (this);
-    return deConstObject->getNominalLength();
-}
-
-void IfcMechanicalFastener::setNominalLength(IfcPositiveLengthMeasure value) {
-    m_nominalLength = value;
-}
-
-void IfcMechanicalFastener::unsetNominalLength() {
-    m_nominalLength = Step::getUnset(getNominalLength());
-}
-
-bool IfcMechanicalFastener::testNominalLength() const {
-    return !Step::isUnset(getNominalLength());
-}
-
-bool IfcMechanicalFastener::init() {
-    bool status = IfcFastener::init();
-    std::string arg;
-    if (!status) {
+bool IfcMechanicalFastener::init()
+{
+    if (IfcFastener::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_nominalDiameter = Step::getUnset(m_nominalDiameter);
+    if (arg == "$" || arg == "*")
+    {
+        m_NominalDiameter = Step::getUnset(m_NominalDiameter);
     }
-    else {
-        m_nominalDiameter = Step::spfToReal(arg);
+    else
+    {
+        m_NominalDiameter = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_nominalLength = Step::getUnset(m_nominalLength);
+    if (arg == "$" || arg == "*")
+    {
+        m_NominalLength = Step::getUnset(m_NominalLength);
     }
-    else {
-        m_nominalLength = Step::spfToReal(arg);
+    else
+    {
+        m_NominalLength = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcMechanicalFastener::copy(const IfcMechanicalFastener &obj, const CopyOp &copyop) {
+void IfcMechanicalFastener::copy(const IfcMechanicalFastener &obj, const CopyOp &copyop)
+{
     IfcFastener::copy(obj, copyop);
-    setNominalDiameter(obj.m_nominalDiameter);
-    setNominalLength(obj.m_nominalLength);
+    setNominalDiameter(obj.m_NominalDiameter);
+    setNominalLength(obj.m_NominalLength);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMechanicalFastener::s_type("IfcMechanicalFastener");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcMechanicalFastener, IfcFastener)

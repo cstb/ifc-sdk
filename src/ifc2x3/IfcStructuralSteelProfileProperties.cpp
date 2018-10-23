@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,200 +24,242 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcStructuralSteelProfileProperties.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcStructuralProfileProperties.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcStructuralSteelProfileProperties::IfcStructuralSteelProfileProperties(Step::Id id, Step::SPFData *args) : IfcStructuralProfileProperties(id, args) {
-    m_shearAreaZ = Step::getUnset(m_shearAreaZ);
-    m_shearAreaY = Step::getUnset(m_shearAreaY);
-    m_plasticShapeFactorY = Step::getUnset(m_plasticShapeFactorY);
-    m_plasticShapeFactorZ = Step::getUnset(m_plasticShapeFactorZ);
+IfcStructuralSteelProfileProperties::IfcStructuralSteelProfileProperties(Step::Id id, Step::SPFData *args) : 
+    IfcStructuralProfileProperties(id, args)
+{
+    m_ShearAreaZ = Step::getUnset(m_ShearAreaZ);
+    m_ShearAreaY = Step::getUnset(m_ShearAreaY);
+    m_PlasticShapeFactorY = Step::getUnset(m_PlasticShapeFactorY);
+    m_PlasticShapeFactorZ = Step::getUnset(m_PlasticShapeFactorZ);
 }
 
-IfcStructuralSteelProfileProperties::~IfcStructuralSteelProfileProperties() {
+IfcStructuralSteelProfileProperties::~IfcStructuralSteelProfileProperties()
+{}
+
+bool IfcStructuralSteelProfileProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcStructuralSteelProfileProperties(this);
 }
 
-bool IfcStructuralSteelProfileProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcStructuralSteelProfileProperties(this);
-}
 
-const std::string &IfcStructuralSteelProfileProperties::type() const {
-    return IfcStructuralSteelProfileProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcStructuralSteelProfileProperties::getClassType() {
-    return IfcStructuralSteelProfileProperties::s_type;
-}
-
-const Step::ClassType &IfcStructuralSteelProfileProperties::getType() const {
-    return IfcStructuralSteelProfileProperties::s_type;
-}
-
-bool IfcStructuralSteelProfileProperties::isOfType(const Step::ClassType &t) const {
-    return IfcStructuralSteelProfileProperties::s_type == t ? true : IfcStructuralProfileProperties::isOfType(t);
-}
-
-IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaZ() {
-    if (Step::BaseObject::inited()) {
-        return m_shearAreaZ;
+IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ShearAreaZ;
     }
-    else {
-        return Step::getUnset(m_shearAreaZ);
+    else 
+    {
+        return Step::getUnset(m_ShearAreaZ);
+    }    
+}
+
+IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaZ() const
+{
+    return const_cast<IfcStructuralSteelProfileProperties *>(this)->getShearAreaZ();
+}
+
+void IfcStructuralSteelProfileProperties::setShearAreaZ(IfcAreaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearAreaZ = value;
+}
+
+void IfcStructuralSteelProfileProperties::unsetShearAreaZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearAreaZ = Step::getUnset(getShearAreaZ());
+}
+
+bool IfcStructuralSteelProfileProperties::testShearAreaZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getShearAreaZ()) == false;
+}
+
+
+IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ShearAreaY;
     }
+    else 
+    {
+        return Step::getUnset(m_ShearAreaY);
+    }    
 }
 
-const IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaZ() const {
-    IfcStructuralSteelProfileProperties * deConstObject = const_cast< IfcStructuralSteelProfileProperties * > (this);
-    return deConstObject->getShearAreaZ();
+IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaY() const
+{
+    return const_cast<IfcStructuralSteelProfileProperties *>(this)->getShearAreaY();
 }
 
-void IfcStructuralSteelProfileProperties::setShearAreaZ(IfcAreaMeasure value) {
-    m_shearAreaZ = value;
+void IfcStructuralSteelProfileProperties::setShearAreaY(IfcAreaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearAreaY = value;
 }
 
-void IfcStructuralSteelProfileProperties::unsetShearAreaZ() {
-    m_shearAreaZ = Step::getUnset(getShearAreaZ());
+void IfcStructuralSteelProfileProperties::unsetShearAreaY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearAreaY = Step::getUnset(getShearAreaY());
 }
 
-bool IfcStructuralSteelProfileProperties::testShearAreaZ() const {
-    return !Step::isUnset(getShearAreaZ());
+bool IfcStructuralSteelProfileProperties::testShearAreaY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getShearAreaY()) == false;
 }
 
-IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaY() {
-    if (Step::BaseObject::inited()) {
-        return m_shearAreaY;
+
+IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PlasticShapeFactorY;
     }
-    else {
-        return Step::getUnset(m_shearAreaY);
+    else 
+    {
+        return Step::getUnset(m_PlasticShapeFactorY);
+    }    
+}
+
+IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorY() const
+{
+    return const_cast<IfcStructuralSteelProfileProperties *>(this)->getPlasticShapeFactorY();
+}
+
+void IfcStructuralSteelProfileProperties::setPlasticShapeFactorY(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PlasticShapeFactorY = value;
+}
+
+void IfcStructuralSteelProfileProperties::unsetPlasticShapeFactorY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PlasticShapeFactorY = Step::getUnset(getPlasticShapeFactorY());
+}
+
+bool IfcStructuralSteelProfileProperties::testPlasticShapeFactorY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPlasticShapeFactorY()) == false;
+}
+
+
+IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PlasticShapeFactorZ;
     }
+    else 
+    {
+        return Step::getUnset(m_PlasticShapeFactorZ);
+    }    
 }
 
-const IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaY() const {
-    IfcStructuralSteelProfileProperties * deConstObject = const_cast< IfcStructuralSteelProfileProperties * > (this);
-    return deConstObject->getShearAreaY();
+IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorZ() const
+{
+    return const_cast<IfcStructuralSteelProfileProperties *>(this)->getPlasticShapeFactorZ();
 }
 
-void IfcStructuralSteelProfileProperties::setShearAreaY(IfcAreaMeasure value) {
-    m_shearAreaY = value;
+void IfcStructuralSteelProfileProperties::setPlasticShapeFactorZ(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PlasticShapeFactorZ = value;
 }
 
-void IfcStructuralSteelProfileProperties::unsetShearAreaY() {
-    m_shearAreaY = Step::getUnset(getShearAreaY());
+void IfcStructuralSteelProfileProperties::unsetPlasticShapeFactorZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PlasticShapeFactorZ = Step::getUnset(getPlasticShapeFactorZ());
 }
 
-bool IfcStructuralSteelProfileProperties::testShearAreaY() const {
-    return !Step::isUnset(getShearAreaY());
+bool IfcStructuralSteelProfileProperties::testPlasticShapeFactorZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPlasticShapeFactorZ()) == false;
 }
 
-IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorY() {
-    if (Step::BaseObject::inited()) {
-        return m_plasticShapeFactorY;
-    }
-    else {
-        return Step::getUnset(m_plasticShapeFactorY);
-    }
-}
-
-const IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorY() const {
-    IfcStructuralSteelProfileProperties * deConstObject = const_cast< IfcStructuralSteelProfileProperties * > (this);
-    return deConstObject->getPlasticShapeFactorY();
-}
-
-void IfcStructuralSteelProfileProperties::setPlasticShapeFactorY(IfcPositiveRatioMeasure value) {
-    m_plasticShapeFactorY = value;
-}
-
-void IfcStructuralSteelProfileProperties::unsetPlasticShapeFactorY() {
-    m_plasticShapeFactorY = Step::getUnset(getPlasticShapeFactorY());
-}
-
-bool IfcStructuralSteelProfileProperties::testPlasticShapeFactorY() const {
-    return !Step::isUnset(getPlasticShapeFactorY());
-}
-
-IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorZ() {
-    if (Step::BaseObject::inited()) {
-        return m_plasticShapeFactorZ;
-    }
-    else {
-        return Step::getUnset(m_plasticShapeFactorZ);
-    }
-}
-
-const IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorZ() const {
-    IfcStructuralSteelProfileProperties * deConstObject = const_cast< IfcStructuralSteelProfileProperties * > (this);
-    return deConstObject->getPlasticShapeFactorZ();
-}
-
-void IfcStructuralSteelProfileProperties::setPlasticShapeFactorZ(IfcPositiveRatioMeasure value) {
-    m_plasticShapeFactorZ = value;
-}
-
-void IfcStructuralSteelProfileProperties::unsetPlasticShapeFactorZ() {
-    m_plasticShapeFactorZ = Step::getUnset(getPlasticShapeFactorZ());
-}
-
-bool IfcStructuralSteelProfileProperties::testPlasticShapeFactorZ() const {
-    return !Step::isUnset(getPlasticShapeFactorZ());
-}
-
-bool IfcStructuralSteelProfileProperties::init() {
-    bool status = IfcStructuralProfileProperties::init();
-    std::string arg;
-    if (!status) {
+bool IfcStructuralSteelProfileProperties::init()
+{
+    if (IfcStructuralProfileProperties::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_shearAreaZ = Step::getUnset(m_shearAreaZ);
+    if (arg == "$" || arg == "*")
+    {
+        m_ShearAreaZ = Step::getUnset(m_ShearAreaZ);
     }
-    else {
-        m_shearAreaZ = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_shearAreaY = Step::getUnset(m_shearAreaY);
-    }
-    else {
-        m_shearAreaY = Step::spfToReal(arg);
+    else
+    {
+        m_ShearAreaZ = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_plasticShapeFactorY = Step::getUnset(m_plasticShapeFactorY);
+    if (arg == "$" || arg == "*")
+    {
+        m_ShearAreaY = Step::getUnset(m_ShearAreaY);
     }
-    else {
-        m_plasticShapeFactorY = Step::spfToReal(arg);
+    else
+    {
+        m_ShearAreaY = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_plasticShapeFactorZ = Step::getUnset(m_plasticShapeFactorZ);
+    if (arg == "$" || arg == "*")
+    {
+        m_PlasticShapeFactorY = Step::getUnset(m_PlasticShapeFactorY);
     }
-    else {
-        m_plasticShapeFactorZ = Step::spfToReal(arg);
+    else
+    {
+        m_PlasticShapeFactorY = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_PlasticShapeFactorZ = Step::getUnset(m_PlasticShapeFactorZ);
+    }
+    else
+    {
+        m_PlasticShapeFactorZ = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcStructuralSteelProfileProperties::copy(const IfcStructuralSteelProfileProperties &obj, const CopyOp &copyop) {
+void IfcStructuralSteelProfileProperties::copy(const IfcStructuralSteelProfileProperties &obj, const CopyOp &copyop)
+{
     IfcStructuralProfileProperties::copy(obj, copyop);
-    setShearAreaZ(obj.m_shearAreaZ);
-    setShearAreaY(obj.m_shearAreaY);
-    setPlasticShapeFactorY(obj.m_plasticShapeFactorY);
-    setPlasticShapeFactorZ(obj.m_plasticShapeFactorZ);
+    setShearAreaZ(obj.m_ShearAreaZ);
+    setShearAreaY(obj.m_ShearAreaY);
+    setPlasticShapeFactorY(obj.m_PlasticShapeFactorY);
+    setPlasticShapeFactorZ(obj.m_PlasticShapeFactorZ);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralSteelProfileProperties::s_type("IfcStructuralSteelProfileProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcStructuralSteelProfileProperties, IfcStructuralProfileProperties)

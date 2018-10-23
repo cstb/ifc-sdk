@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,91 +24,79 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcShapeModel.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcRepresentation.h>
 #include <ifc2x3/IfcShapeAspect.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcShapeModel::IfcShapeModel(Step::Id id, Step::SPFData *args) : IfcRepresentation(id, args) {
+IfcShapeModel::IfcShapeModel(Step::Id id, Step::SPFData *args) : 
+    IfcRepresentation(id, args)
+{
 }
 
-IfcShapeModel::~IfcShapeModel() {
+IfcShapeModel::~IfcShapeModel()
+{}
+
+bool IfcShapeModel::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcShapeModel(this);
 }
 
-bool IfcShapeModel::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcShapeModel(this);
-}
-
-const std::string &IfcShapeModel::type() const {
-    return IfcShapeModel::s_type.getName();
-}
-
-const Step::ClassType &IfcShapeModel::getClassType() {
-    return IfcShapeModel::s_type;
-}
-
-const Step::ClassType &IfcShapeModel::getType() const {
-    return IfcShapeModel::s_type;
-}
-
-bool IfcShapeModel::isOfType(const Step::ClassType &t) const {
-    return IfcShapeModel::s_type == t ? true : IfcRepresentation::isOfType(t);
-}
-
-Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() {
-    if (Step::BaseObject::inited()) {
-        return m_ofShapeAspect;
+Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_OfShapeAspect;
     }
-    else {
-        m_ofShapeAspect.setUnset(true);
-        return m_ofShapeAspect;
-    }
+ 
+    m_OfShapeAspect.setUnset(true);
+    return m_OfShapeAspect;
 }
 
-const Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() const {
-    IfcShapeModel * deConstObject = const_cast< IfcShapeModel * > (this);
-    return deConstObject->getOfShapeAspect();
+const Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() const
+{
+    return  const_cast< IfcShapeModel * > (this)->getOfShapeAspect();
 }
 
-bool IfcShapeModel::testOfShapeAspect() const {
-    return !m_ofShapeAspect.isUnset();
+bool IfcShapeModel::testOfShapeAspect() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_OfShapeAspect.isUnset() == false;
 }
 
-bool IfcShapeModel::init() {
-    bool status = IfcRepresentation::init();
-    std::string arg;
-    std::vector< Step::Id > *inverses;
-    if (!status) {
+bool IfcShapeModel::init()
+{
+    if (IfcRepresentation::init() == false)
+    {
         return false;
     }
+    std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcShapeAspect::getClassType(), 0);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_ofShapeAspect.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_ofShapeAspect.insert(static_cast< IfcShapeAspect * > (m_expressDataSet->get((*inverses)[i])));
+        m_OfShapeAspect.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_OfShapeAspect.insert(static_cast< IfcShapeAspect * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcShapeModel::copy(const IfcShapeModel &obj, const CopyOp &copyop) {
+void IfcShapeModel::copy(const IfcShapeModel &obj, const CopyOp &copyop)
+{
     IfcRepresentation::copy(obj, copyop);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcShapeModel::s_type("IfcShapeModel");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcShapeModel, IfcRepresentation)

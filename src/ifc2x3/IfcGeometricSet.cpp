@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,114 +24,114 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcGeometricSet.h>
 
-#include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcGeometricRepresentationItem.h>
 #include <ifc2x3/IfcGeometricSetSelect.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcGeometricSet::IfcGeometricSet(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
+IfcGeometricSet::IfcGeometricSet(Step::Id id, Step::SPFData *args) : 
+    IfcGeometricRepresentationItem(id, args)
+{
+    m_Elements.setUnset(true);
 }
 
-IfcGeometricSet::~IfcGeometricSet() {
+IfcGeometricSet::~IfcGeometricSet()
+{}
+
+bool IfcGeometricSet::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcGeometricSet(this);
 }
 
-bool IfcGeometricSet::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcGeometricSet(this);
-}
 
-const std::string &IfcGeometricSet::type() const {
-    return IfcGeometricSet::s_type.getName();
-}
-
-const Step::ClassType &IfcGeometricSet::getClassType() {
-    return IfcGeometricSet::s_type;
-}
-
-const Step::ClassType &IfcGeometricSet::getType() const {
-    return IfcGeometricSet::s_type;
-}
-
-bool IfcGeometricSet::isOfType(const Step::ClassType &t) const {
-    return IfcGeometricSet::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-Set_IfcGeometricSetSelect_1_n &IfcGeometricSet::getElements() {
-    if (Step::BaseObject::inited()) {
-        return m_elements;
+Set_IfcGeometricSetSelect_1_n &IfcGeometricSet::getElements()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Elements;
     }
-    else {
-        m_elements.setUnset(true);
-        return m_elements;
-    }
+    else 
+    {
+        m_Elements.setUnset(true);
+        return m_Elements;
+    }    
 }
 
-const Set_IfcGeometricSetSelect_1_n &IfcGeometricSet::getElements() const {
-    IfcGeometricSet * deConstObject = const_cast< IfcGeometricSet * > (this);
-    return deConstObject->getElements();
+const Set_IfcGeometricSetSelect_1_n &IfcGeometricSet::getElements() const
+{
+    return const_cast<IfcGeometricSet *>(this)->getElements();
 }
 
-void IfcGeometricSet::setElements(const Set_IfcGeometricSetSelect_1_n &value) {
-    m_elements = value;
+void IfcGeometricSet::setElements(const Set_IfcGeometricSetSelect_1_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Elements = value;
 }
 
-void IfcGeometricSet::unsetElements() {
-    m_elements.clear();
-    m_elements.setUnset(true);
+void IfcGeometricSet::unsetElements()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Elements.clear();
+    m_Elements.setUnset(true);
 }
 
-bool IfcGeometricSet::testElements() const {
-    return !m_elements.isUnset();
+bool IfcGeometricSet::testElements() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_Elements.isUnset() == false;
 }
 
-bool IfcGeometricSet::init() {
-    bool status = IfcGeometricRepresentationItem::init();
-    std::string arg;
-    if (!status) {
+bool IfcGeometricSet::init()
+{
+    if (IfcGeometricRepresentationItem::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_elements.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_Elements.setUnset(true);
     }
-    else {
-        m_elements.setUnset(false);
-        while (true) {
+    else
+    {
+        m_Elements.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcGeometricSetSelect > attr2;
-                attr2 = new IfcGeometricSetSelect;
-                if (str1[0] == '#') {
+            if (!str1.empty())
+            {
+                Step::RefPtr< IfcGeometricSetSelect > attr2 = new IfcGeometricSetSelect();
+                if (str1[0] == '#') 
+                {
                     attr2->set(m_expressDataSet->get((Step::Id)atol(str1.c_str() + 1)));
                 }
-                else if (str1[str1.length() - 1] == ')') {
-                    std::string type2;
-                    std::string::size_type i2;
-                    i2 = str1.find('(');
-                    if (i2 != std::string::npos) {
-                        type2 = str1.substr(0, i2);
+                else if (str1[str1.length() - 1] == ')') 
+                {
+                    std::string::size_type i2 = str1.find('(');
+                    if (i2 != std::string::npos) 
+                    {
+                        std::string type2 = str1.substr(0, i2);
                         str1 = str1.substr(i2 + 1, str1.length() - i2 - 2);
                     }
                 }
-                if (attr2.valid()) m_elements.insert(attr2);
+                if (attr2.valid()) 
+                {
+                    m_Elements.insert(attr2);
+                }
             }
-            else {
+            else 
+            {
                 break;
             }
         }
@@ -130,15 +139,18 @@ bool IfcGeometricSet::init() {
     return true;
 }
 
-void IfcGeometricSet::copy(const IfcGeometricSet &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcGeometricSetSelect >, 1 >::const_iterator it_m_elements;
+void IfcGeometricSet::copy(const IfcGeometricSet &obj, const CopyOp &copyop)
+{
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    for (it_m_elements = obj.m_elements.begin(); it_m_elements != obj.m_elements.end(); ++it_m_elements) {
+    Set_IfcGeometricSetSelect_1_n::const_iterator it_m_Elements;
+    for (it_m_Elements = obj.m_Elements.begin(); it_m_Elements != obj.m_Elements.end(); ++it_m_Elements)
+    {
         Step::RefPtr< IfcGeometricSetSelect > copyTarget = new IfcGeometricSetSelect;
-        copyTarget->copy(*((*it_m_elements).get()), copyop);
-        m_elements.insert(copyTarget.get());
+        copyTarget->copy(*((*it_m_Elements).get()), copyop);
+        m_Elements.insert(copyTarget.get());
     }
+    
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGeometricSet::s_type("IfcGeometricSet");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcGeometricSet, IfcGeometricRepresentationItem)

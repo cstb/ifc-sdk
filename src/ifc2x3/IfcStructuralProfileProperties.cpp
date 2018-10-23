@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,620 +24,830 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcStructuralProfileProperties.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcGeneralProfileProperties.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcStructuralProfileProperties::IfcStructuralProfileProperties(Step::Id id, Step::SPFData *args) : IfcGeneralProfileProperties(id, args) {
-    m_torsionalConstantX = Step::getUnset(m_torsionalConstantX);
-    m_momentOfInertiaYZ = Step::getUnset(m_momentOfInertiaYZ);
-    m_momentOfInertiaY = Step::getUnset(m_momentOfInertiaY);
-    m_momentOfInertiaZ = Step::getUnset(m_momentOfInertiaZ);
-    m_warpingConstant = Step::getUnset(m_warpingConstant);
-    m_shearCentreZ = Step::getUnset(m_shearCentreZ);
-    m_shearCentreY = Step::getUnset(m_shearCentreY);
-    m_shearDeformationAreaZ = Step::getUnset(m_shearDeformationAreaZ);
-    m_shearDeformationAreaY = Step::getUnset(m_shearDeformationAreaY);
-    m_maximumSectionModulusY = Step::getUnset(m_maximumSectionModulusY);
-    m_minimumSectionModulusY = Step::getUnset(m_minimumSectionModulusY);
-    m_maximumSectionModulusZ = Step::getUnset(m_maximumSectionModulusZ);
-    m_minimumSectionModulusZ = Step::getUnset(m_minimumSectionModulusZ);
-    m_torsionalSectionModulus = Step::getUnset(m_torsionalSectionModulus);
-    m_centreOfGravityInX = Step::getUnset(m_centreOfGravityInX);
-    m_centreOfGravityInY = Step::getUnset(m_centreOfGravityInY);
+IfcStructuralProfileProperties::IfcStructuralProfileProperties(Step::Id id, Step::SPFData *args) : 
+    IfcGeneralProfileProperties(id, args)
+{
+    m_TorsionalConstantX = Step::getUnset(m_TorsionalConstantX);
+    m_MomentOfInertiaYZ = Step::getUnset(m_MomentOfInertiaYZ);
+    m_MomentOfInertiaY = Step::getUnset(m_MomentOfInertiaY);
+    m_MomentOfInertiaZ = Step::getUnset(m_MomentOfInertiaZ);
+    m_WarpingConstant = Step::getUnset(m_WarpingConstant);
+    m_ShearCentreZ = Step::getUnset(m_ShearCentreZ);
+    m_ShearCentreY = Step::getUnset(m_ShearCentreY);
+    m_ShearDeformationAreaZ = Step::getUnset(m_ShearDeformationAreaZ);
+    m_ShearDeformationAreaY = Step::getUnset(m_ShearDeformationAreaY);
+    m_MaximumSectionModulusY = Step::getUnset(m_MaximumSectionModulusY);
+    m_MinimumSectionModulusY = Step::getUnset(m_MinimumSectionModulusY);
+    m_MaximumSectionModulusZ = Step::getUnset(m_MaximumSectionModulusZ);
+    m_MinimumSectionModulusZ = Step::getUnset(m_MinimumSectionModulusZ);
+    m_TorsionalSectionModulus = Step::getUnset(m_TorsionalSectionModulus);
+    m_CentreOfGravityInX = Step::getUnset(m_CentreOfGravityInX);
+    m_CentreOfGravityInY = Step::getUnset(m_CentreOfGravityInY);
 }
 
-IfcStructuralProfileProperties::~IfcStructuralProfileProperties() {
+IfcStructuralProfileProperties::~IfcStructuralProfileProperties()
+{}
+
+bool IfcStructuralProfileProperties::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcStructuralProfileProperties(this);
 }
 
-bool IfcStructuralProfileProperties::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcStructuralProfileProperties(this);
-}
 
-const std::string &IfcStructuralProfileProperties::type() const {
-    return IfcStructuralProfileProperties::s_type.getName();
-}
-
-const Step::ClassType &IfcStructuralProfileProperties::getClassType() {
-    return IfcStructuralProfileProperties::s_type;
-}
-
-const Step::ClassType &IfcStructuralProfileProperties::getType() const {
-    return IfcStructuralProfileProperties::s_type;
-}
-
-bool IfcStructuralProfileProperties::isOfType(const Step::ClassType &t) const {
-    return IfcStructuralProfileProperties::s_type == t ? true : IfcGeneralProfileProperties::isOfType(t);
-}
-
-IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getTorsionalConstantX() {
-    if (Step::BaseObject::inited()) {
-        return m_torsionalConstantX;
+IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getTorsionalConstantX()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TorsionalConstantX;
     }
-    else {
-        return Step::getUnset(m_torsionalConstantX);
+    else 
+    {
+        return Step::getUnset(m_TorsionalConstantX);
+    }    
+}
+
+IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getTorsionalConstantX() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getTorsionalConstantX();
+}
+
+void IfcStructuralProfileProperties::setTorsionalConstantX(IfcMomentOfInertiaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TorsionalConstantX = value;
+}
+
+void IfcStructuralProfileProperties::unsetTorsionalConstantX()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TorsionalConstantX = Step::getUnset(getTorsionalConstantX());
+}
+
+bool IfcStructuralProfileProperties::testTorsionalConstantX() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTorsionalConstantX()) == false;
+}
+
+
+IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaYZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MomentOfInertiaYZ;
     }
+    else 
+    {
+        return Step::getUnset(m_MomentOfInertiaYZ);
+    }    
 }
 
-const IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getTorsionalConstantX() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getTorsionalConstantX();
+IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaYZ() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getMomentOfInertiaYZ();
 }
 
-void IfcStructuralProfileProperties::setTorsionalConstantX(IfcMomentOfInertiaMeasure value) {
-    m_torsionalConstantX = value;
+void IfcStructuralProfileProperties::setMomentOfInertiaYZ(IfcMomentOfInertiaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MomentOfInertiaYZ = value;
 }
 
-void IfcStructuralProfileProperties::unsetTorsionalConstantX() {
-    m_torsionalConstantX = Step::getUnset(getTorsionalConstantX());
+void IfcStructuralProfileProperties::unsetMomentOfInertiaYZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MomentOfInertiaYZ = Step::getUnset(getMomentOfInertiaYZ());
 }
 
-bool IfcStructuralProfileProperties::testTorsionalConstantX() const {
-    return !Step::isUnset(getTorsionalConstantX());
+bool IfcStructuralProfileProperties::testMomentOfInertiaYZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMomentOfInertiaYZ()) == false;
 }
 
-IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaYZ() {
-    if (Step::BaseObject::inited()) {
-        return m_momentOfInertiaYZ;
+
+IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MomentOfInertiaY;
     }
-    else {
-        return Step::getUnset(m_momentOfInertiaYZ);
+    else 
+    {
+        return Step::getUnset(m_MomentOfInertiaY);
+    }    
+}
+
+IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaY() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getMomentOfInertiaY();
+}
+
+void IfcStructuralProfileProperties::setMomentOfInertiaY(IfcMomentOfInertiaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MomentOfInertiaY = value;
+}
+
+void IfcStructuralProfileProperties::unsetMomentOfInertiaY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MomentOfInertiaY = Step::getUnset(getMomentOfInertiaY());
+}
+
+bool IfcStructuralProfileProperties::testMomentOfInertiaY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMomentOfInertiaY()) == false;
+}
+
+
+IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MomentOfInertiaZ;
     }
+    else 
+    {
+        return Step::getUnset(m_MomentOfInertiaZ);
+    }    
 }
 
-const IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaYZ() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getMomentOfInertiaYZ();
+IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaZ() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getMomentOfInertiaZ();
 }
 
-void IfcStructuralProfileProperties::setMomentOfInertiaYZ(IfcMomentOfInertiaMeasure value) {
-    m_momentOfInertiaYZ = value;
+void IfcStructuralProfileProperties::setMomentOfInertiaZ(IfcMomentOfInertiaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MomentOfInertiaZ = value;
 }
 
-void IfcStructuralProfileProperties::unsetMomentOfInertiaYZ() {
-    m_momentOfInertiaYZ = Step::getUnset(getMomentOfInertiaYZ());
+void IfcStructuralProfileProperties::unsetMomentOfInertiaZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MomentOfInertiaZ = Step::getUnset(getMomentOfInertiaZ());
 }
 
-bool IfcStructuralProfileProperties::testMomentOfInertiaYZ() const {
-    return !Step::isUnset(getMomentOfInertiaYZ());
+bool IfcStructuralProfileProperties::testMomentOfInertiaZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMomentOfInertiaZ()) == false;
 }
 
-IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaY() {
-    if (Step::BaseObject::inited()) {
-        return m_momentOfInertiaY;
+
+IfcWarpingConstantMeasure IfcStructuralProfileProperties::getWarpingConstant()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_WarpingConstant;
     }
-    else {
-        return Step::getUnset(m_momentOfInertiaY);
+    else 
+    {
+        return Step::getUnset(m_WarpingConstant);
+    }    
+}
+
+IfcWarpingConstantMeasure IfcStructuralProfileProperties::getWarpingConstant() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getWarpingConstant();
+}
+
+void IfcStructuralProfileProperties::setWarpingConstant(IfcWarpingConstantMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WarpingConstant = value;
+}
+
+void IfcStructuralProfileProperties::unsetWarpingConstant()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WarpingConstant = Step::getUnset(getWarpingConstant());
+}
+
+bool IfcStructuralProfileProperties::testWarpingConstant() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getWarpingConstant()) == false;
+}
+
+
+IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ShearCentreZ;
     }
+    else 
+    {
+        return Step::getUnset(m_ShearCentreZ);
+    }    
 }
 
-const IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaY() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getMomentOfInertiaY();
+IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreZ() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getShearCentreZ();
 }
 
-void IfcStructuralProfileProperties::setMomentOfInertiaY(IfcMomentOfInertiaMeasure value) {
-    m_momentOfInertiaY = value;
+void IfcStructuralProfileProperties::setShearCentreZ(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearCentreZ = value;
 }
 
-void IfcStructuralProfileProperties::unsetMomentOfInertiaY() {
-    m_momentOfInertiaY = Step::getUnset(getMomentOfInertiaY());
+void IfcStructuralProfileProperties::unsetShearCentreZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearCentreZ = Step::getUnset(getShearCentreZ());
 }
 
-bool IfcStructuralProfileProperties::testMomentOfInertiaY() const {
-    return !Step::isUnset(getMomentOfInertiaY());
+bool IfcStructuralProfileProperties::testShearCentreZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getShearCentreZ()) == false;
 }
 
-IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaZ() {
-    if (Step::BaseObject::inited()) {
-        return m_momentOfInertiaZ;
+
+IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ShearCentreY;
     }
-    else {
-        return Step::getUnset(m_momentOfInertiaZ);
+    else 
+    {
+        return Step::getUnset(m_ShearCentreY);
+    }    
+}
+
+IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreY() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getShearCentreY();
+}
+
+void IfcStructuralProfileProperties::setShearCentreY(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearCentreY = value;
+}
+
+void IfcStructuralProfileProperties::unsetShearCentreY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearCentreY = Step::getUnset(getShearCentreY());
+}
+
+bool IfcStructuralProfileProperties::testShearCentreY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getShearCentreY()) == false;
+}
+
+
+IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ShearDeformationAreaZ;
     }
+    else 
+    {
+        return Step::getUnset(m_ShearDeformationAreaZ);
+    }    
 }
 
-const IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaZ() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getMomentOfInertiaZ();
+IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaZ() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getShearDeformationAreaZ();
 }
 
-void IfcStructuralProfileProperties::setMomentOfInertiaZ(IfcMomentOfInertiaMeasure value) {
-    m_momentOfInertiaZ = value;
+void IfcStructuralProfileProperties::setShearDeformationAreaZ(IfcAreaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearDeformationAreaZ = value;
 }
 
-void IfcStructuralProfileProperties::unsetMomentOfInertiaZ() {
-    m_momentOfInertiaZ = Step::getUnset(getMomentOfInertiaZ());
+void IfcStructuralProfileProperties::unsetShearDeformationAreaZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearDeformationAreaZ = Step::getUnset(getShearDeformationAreaZ());
 }
 
-bool IfcStructuralProfileProperties::testMomentOfInertiaZ() const {
-    return !Step::isUnset(getMomentOfInertiaZ());
+bool IfcStructuralProfileProperties::testShearDeformationAreaZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getShearDeformationAreaZ()) == false;
 }
 
-IfcWarpingConstantMeasure IfcStructuralProfileProperties::getWarpingConstant() {
-    if (Step::BaseObject::inited()) {
-        return m_warpingConstant;
+
+IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ShearDeformationAreaY;
     }
-    else {
-        return Step::getUnset(m_warpingConstant);
+    else 
+    {
+        return Step::getUnset(m_ShearDeformationAreaY);
+    }    
+}
+
+IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaY() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getShearDeformationAreaY();
+}
+
+void IfcStructuralProfileProperties::setShearDeformationAreaY(IfcAreaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearDeformationAreaY = value;
+}
+
+void IfcStructuralProfileProperties::unsetShearDeformationAreaY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ShearDeformationAreaY = Step::getUnset(getShearDeformationAreaY());
+}
+
+bool IfcStructuralProfileProperties::testShearDeformationAreaY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getShearDeformationAreaY()) == false;
+}
+
+
+IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulusY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MaximumSectionModulusY;
     }
+    else 
+    {
+        return Step::getUnset(m_MaximumSectionModulusY);
+    }    
 }
 
-const IfcWarpingConstantMeasure IfcStructuralProfileProperties::getWarpingConstant() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getWarpingConstant();
+IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulusY() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getMaximumSectionModulusY();
 }
 
-void IfcStructuralProfileProperties::setWarpingConstant(IfcWarpingConstantMeasure value) {
-    m_warpingConstant = value;
+void IfcStructuralProfileProperties::setMaximumSectionModulusY(IfcSectionModulusMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MaximumSectionModulusY = value;
 }
 
-void IfcStructuralProfileProperties::unsetWarpingConstant() {
-    m_warpingConstant = Step::getUnset(getWarpingConstant());
+void IfcStructuralProfileProperties::unsetMaximumSectionModulusY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MaximumSectionModulusY = Step::getUnset(getMaximumSectionModulusY());
 }
 
-bool IfcStructuralProfileProperties::testWarpingConstant() const {
-    return !Step::isUnset(getWarpingConstant());
+bool IfcStructuralProfileProperties::testMaximumSectionModulusY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMaximumSectionModulusY()) == false;
 }
 
-IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreZ() {
-    if (Step::BaseObject::inited()) {
-        return m_shearCentreZ;
+
+IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulusY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MinimumSectionModulusY;
     }
-    else {
-        return Step::getUnset(m_shearCentreZ);
+    else 
+    {
+        return Step::getUnset(m_MinimumSectionModulusY);
+    }    
+}
+
+IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulusY() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getMinimumSectionModulusY();
+}
+
+void IfcStructuralProfileProperties::setMinimumSectionModulusY(IfcSectionModulusMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinimumSectionModulusY = value;
+}
+
+void IfcStructuralProfileProperties::unsetMinimumSectionModulusY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinimumSectionModulusY = Step::getUnset(getMinimumSectionModulusY());
+}
+
+bool IfcStructuralProfileProperties::testMinimumSectionModulusY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMinimumSectionModulusY()) == false;
+}
+
+
+IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulusZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MaximumSectionModulusZ;
     }
+    else 
+    {
+        return Step::getUnset(m_MaximumSectionModulusZ);
+    }    
 }
 
-const IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreZ() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getShearCentreZ();
+IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulusZ() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getMaximumSectionModulusZ();
 }
 
-void IfcStructuralProfileProperties::setShearCentreZ(IfcLengthMeasure value) {
-    m_shearCentreZ = value;
+void IfcStructuralProfileProperties::setMaximumSectionModulusZ(IfcSectionModulusMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MaximumSectionModulusZ = value;
 }
 
-void IfcStructuralProfileProperties::unsetShearCentreZ() {
-    m_shearCentreZ = Step::getUnset(getShearCentreZ());
+void IfcStructuralProfileProperties::unsetMaximumSectionModulusZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MaximumSectionModulusZ = Step::getUnset(getMaximumSectionModulusZ());
 }
 
-bool IfcStructuralProfileProperties::testShearCentreZ() const {
-    return !Step::isUnset(getShearCentreZ());
+bool IfcStructuralProfileProperties::testMaximumSectionModulusZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMaximumSectionModulusZ()) == false;
 }
 
-IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreY() {
-    if (Step::BaseObject::inited()) {
-        return m_shearCentreY;
+
+IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulusZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MinimumSectionModulusZ;
     }
-    else {
-        return Step::getUnset(m_shearCentreY);
+    else 
+    {
+        return Step::getUnset(m_MinimumSectionModulusZ);
+    }    
+}
+
+IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulusZ() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getMinimumSectionModulusZ();
+}
+
+void IfcStructuralProfileProperties::setMinimumSectionModulusZ(IfcSectionModulusMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinimumSectionModulusZ = value;
+}
+
+void IfcStructuralProfileProperties::unsetMinimumSectionModulusZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MinimumSectionModulusZ = Step::getUnset(getMinimumSectionModulusZ());
+}
+
+bool IfcStructuralProfileProperties::testMinimumSectionModulusZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMinimumSectionModulusZ()) == false;
+}
+
+
+IfcSectionModulusMeasure IfcStructuralProfileProperties::getTorsionalSectionModulus()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TorsionalSectionModulus;
     }
+    else 
+    {
+        return Step::getUnset(m_TorsionalSectionModulus);
+    }    
 }
 
-const IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreY() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getShearCentreY();
+IfcSectionModulusMeasure IfcStructuralProfileProperties::getTorsionalSectionModulus() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getTorsionalSectionModulus();
 }
 
-void IfcStructuralProfileProperties::setShearCentreY(IfcLengthMeasure value) {
-    m_shearCentreY = value;
+void IfcStructuralProfileProperties::setTorsionalSectionModulus(IfcSectionModulusMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TorsionalSectionModulus = value;
 }
 
-void IfcStructuralProfileProperties::unsetShearCentreY() {
-    m_shearCentreY = Step::getUnset(getShearCentreY());
+void IfcStructuralProfileProperties::unsetTorsionalSectionModulus()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TorsionalSectionModulus = Step::getUnset(getTorsionalSectionModulus());
 }
 
-bool IfcStructuralProfileProperties::testShearCentreY() const {
-    return !Step::isUnset(getShearCentreY());
+bool IfcStructuralProfileProperties::testTorsionalSectionModulus() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTorsionalSectionModulus()) == false;
 }
 
-IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaZ() {
-    if (Step::BaseObject::inited()) {
-        return m_shearDeformationAreaZ;
+
+IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInX()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CentreOfGravityInX;
     }
-    else {
-        return Step::getUnset(m_shearDeformationAreaZ);
+    else 
+    {
+        return Step::getUnset(m_CentreOfGravityInX);
+    }    
+}
+
+IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInX() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getCentreOfGravityInX();
+}
+
+void IfcStructuralProfileProperties::setCentreOfGravityInX(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CentreOfGravityInX = value;
+}
+
+void IfcStructuralProfileProperties::unsetCentreOfGravityInX()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CentreOfGravityInX = Step::getUnset(getCentreOfGravityInX());
+}
+
+bool IfcStructuralProfileProperties::testCentreOfGravityInX() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCentreOfGravityInX()) == false;
+}
+
+
+IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CentreOfGravityInY;
     }
+    else 
+    {
+        return Step::getUnset(m_CentreOfGravityInY);
+    }    
 }
 
-const IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaZ() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getShearDeformationAreaZ();
+IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInY() const
+{
+    return const_cast<IfcStructuralProfileProperties *>(this)->getCentreOfGravityInY();
 }
 
-void IfcStructuralProfileProperties::setShearDeformationAreaZ(IfcAreaMeasure value) {
-    m_shearDeformationAreaZ = value;
+void IfcStructuralProfileProperties::setCentreOfGravityInY(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CentreOfGravityInY = value;
 }
 
-void IfcStructuralProfileProperties::unsetShearDeformationAreaZ() {
-    m_shearDeformationAreaZ = Step::getUnset(getShearDeformationAreaZ());
+void IfcStructuralProfileProperties::unsetCentreOfGravityInY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CentreOfGravityInY = Step::getUnset(getCentreOfGravityInY());
 }
 
-bool IfcStructuralProfileProperties::testShearDeformationAreaZ() const {
-    return !Step::isUnset(getShearDeformationAreaZ());
+bool IfcStructuralProfileProperties::testCentreOfGravityInY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCentreOfGravityInY()) == false;
 }
 
-IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaY() {
-    if (Step::BaseObject::inited()) {
-        return m_shearDeformationAreaY;
-    }
-    else {
-        return Step::getUnset(m_shearDeformationAreaY);
-    }
-}
-
-const IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaY() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getShearDeformationAreaY();
-}
-
-void IfcStructuralProfileProperties::setShearDeformationAreaY(IfcAreaMeasure value) {
-    m_shearDeformationAreaY = value;
-}
-
-void IfcStructuralProfileProperties::unsetShearDeformationAreaY() {
-    m_shearDeformationAreaY = Step::getUnset(getShearDeformationAreaY());
-}
-
-bool IfcStructuralProfileProperties::testShearDeformationAreaY() const {
-    return !Step::isUnset(getShearDeformationAreaY());
-}
-
-IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulusY() {
-    if (Step::BaseObject::inited()) {
-        return m_maximumSectionModulusY;
-    }
-    else {
-        return Step::getUnset(m_maximumSectionModulusY);
-    }
-}
-
-const IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulusY() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getMaximumSectionModulusY();
-}
-
-void IfcStructuralProfileProperties::setMaximumSectionModulusY(IfcSectionModulusMeasure value) {
-    m_maximumSectionModulusY = value;
-}
-
-void IfcStructuralProfileProperties::unsetMaximumSectionModulusY() {
-    m_maximumSectionModulusY = Step::getUnset(getMaximumSectionModulusY());
-}
-
-bool IfcStructuralProfileProperties::testMaximumSectionModulusY() const {
-    return !Step::isUnset(getMaximumSectionModulusY());
-}
-
-IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulusY() {
-    if (Step::BaseObject::inited()) {
-        return m_minimumSectionModulusY;
-    }
-    else {
-        return Step::getUnset(m_minimumSectionModulusY);
-    }
-}
-
-const IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulusY() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getMinimumSectionModulusY();
-}
-
-void IfcStructuralProfileProperties::setMinimumSectionModulusY(IfcSectionModulusMeasure value) {
-    m_minimumSectionModulusY = value;
-}
-
-void IfcStructuralProfileProperties::unsetMinimumSectionModulusY() {
-    m_minimumSectionModulusY = Step::getUnset(getMinimumSectionModulusY());
-}
-
-bool IfcStructuralProfileProperties::testMinimumSectionModulusY() const {
-    return !Step::isUnset(getMinimumSectionModulusY());
-}
-
-IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulusZ() {
-    if (Step::BaseObject::inited()) {
-        return m_maximumSectionModulusZ;
-    }
-    else {
-        return Step::getUnset(m_maximumSectionModulusZ);
-    }
-}
-
-const IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulusZ() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getMaximumSectionModulusZ();
-}
-
-void IfcStructuralProfileProperties::setMaximumSectionModulusZ(IfcSectionModulusMeasure value) {
-    m_maximumSectionModulusZ = value;
-}
-
-void IfcStructuralProfileProperties::unsetMaximumSectionModulusZ() {
-    m_maximumSectionModulusZ = Step::getUnset(getMaximumSectionModulusZ());
-}
-
-bool IfcStructuralProfileProperties::testMaximumSectionModulusZ() const {
-    return !Step::isUnset(getMaximumSectionModulusZ());
-}
-
-IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulusZ() {
-    if (Step::BaseObject::inited()) {
-        return m_minimumSectionModulusZ;
-    }
-    else {
-        return Step::getUnset(m_minimumSectionModulusZ);
-    }
-}
-
-const IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulusZ() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getMinimumSectionModulusZ();
-}
-
-void IfcStructuralProfileProperties::setMinimumSectionModulusZ(IfcSectionModulusMeasure value) {
-    m_minimumSectionModulusZ = value;
-}
-
-void IfcStructuralProfileProperties::unsetMinimumSectionModulusZ() {
-    m_minimumSectionModulusZ = Step::getUnset(getMinimumSectionModulusZ());
-}
-
-bool IfcStructuralProfileProperties::testMinimumSectionModulusZ() const {
-    return !Step::isUnset(getMinimumSectionModulusZ());
-}
-
-IfcSectionModulusMeasure IfcStructuralProfileProperties::getTorsionalSectionModulus() {
-    if (Step::BaseObject::inited()) {
-        return m_torsionalSectionModulus;
-    }
-    else {
-        return Step::getUnset(m_torsionalSectionModulus);
-    }
-}
-
-const IfcSectionModulusMeasure IfcStructuralProfileProperties::getTorsionalSectionModulus() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getTorsionalSectionModulus();
-}
-
-void IfcStructuralProfileProperties::setTorsionalSectionModulus(IfcSectionModulusMeasure value) {
-    m_torsionalSectionModulus = value;
-}
-
-void IfcStructuralProfileProperties::unsetTorsionalSectionModulus() {
-    m_torsionalSectionModulus = Step::getUnset(getTorsionalSectionModulus());
-}
-
-bool IfcStructuralProfileProperties::testTorsionalSectionModulus() const {
-    return !Step::isUnset(getTorsionalSectionModulus());
-}
-
-IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInX() {
-    if (Step::BaseObject::inited()) {
-        return m_centreOfGravityInX;
-    }
-    else {
-        return Step::getUnset(m_centreOfGravityInX);
-    }
-}
-
-const IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInX() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getCentreOfGravityInX();
-}
-
-void IfcStructuralProfileProperties::setCentreOfGravityInX(IfcLengthMeasure value) {
-    m_centreOfGravityInX = value;
-}
-
-void IfcStructuralProfileProperties::unsetCentreOfGravityInX() {
-    m_centreOfGravityInX = Step::getUnset(getCentreOfGravityInX());
-}
-
-bool IfcStructuralProfileProperties::testCentreOfGravityInX() const {
-    return !Step::isUnset(getCentreOfGravityInX());
-}
-
-IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInY() {
-    if (Step::BaseObject::inited()) {
-        return m_centreOfGravityInY;
-    }
-    else {
-        return Step::getUnset(m_centreOfGravityInY);
-    }
-}
-
-const IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInY() const {
-    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
-    return deConstObject->getCentreOfGravityInY();
-}
-
-void IfcStructuralProfileProperties::setCentreOfGravityInY(IfcLengthMeasure value) {
-    m_centreOfGravityInY = value;
-}
-
-void IfcStructuralProfileProperties::unsetCentreOfGravityInY() {
-    m_centreOfGravityInY = Step::getUnset(getCentreOfGravityInY());
-}
-
-bool IfcStructuralProfileProperties::testCentreOfGravityInY() const {
-    return !Step::isUnset(getCentreOfGravityInY());
-}
-
-bool IfcStructuralProfileProperties::init() {
-    bool status = IfcGeneralProfileProperties::init();
-    std::string arg;
-    if (!status) {
+bool IfcStructuralProfileProperties::init()
+{
+    if (IfcGeneralProfileProperties::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_torsionalConstantX = Step::getUnset(m_torsionalConstantX);
+    if (arg == "$" || arg == "*")
+    {
+        m_TorsionalConstantX = Step::getUnset(m_TorsionalConstantX);
     }
-    else {
-        m_torsionalConstantX = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_momentOfInertiaYZ = Step::getUnset(m_momentOfInertiaYZ);
-    }
-    else {
-        m_momentOfInertiaYZ = Step::spfToReal(arg);
+    else
+    {
+        m_TorsionalConstantX = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_momentOfInertiaY = Step::getUnset(m_momentOfInertiaY);
+    if (arg == "$" || arg == "*")
+    {
+        m_MomentOfInertiaYZ = Step::getUnset(m_MomentOfInertiaYZ);
     }
-    else {
-        m_momentOfInertiaY = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_momentOfInertiaZ = Step::getUnset(m_momentOfInertiaZ);
-    }
-    else {
-        m_momentOfInertiaZ = Step::spfToReal(arg);
+    else
+    {
+        m_MomentOfInertiaYZ = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_warpingConstant = Step::getUnset(m_warpingConstant);
+    if (arg == "$" || arg == "*")
+    {
+        m_MomentOfInertiaY = Step::getUnset(m_MomentOfInertiaY);
     }
-    else {
-        m_warpingConstant = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_shearCentreZ = Step::getUnset(m_shearCentreZ);
-    }
-    else {
-        m_shearCentreZ = Step::spfToReal(arg);
+    else
+    {
+        m_MomentOfInertiaY = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_shearCentreY = Step::getUnset(m_shearCentreY);
+    if (arg == "$" || arg == "*")
+    {
+        m_MomentOfInertiaZ = Step::getUnset(m_MomentOfInertiaZ);
     }
-    else {
-        m_shearCentreY = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_shearDeformationAreaZ = Step::getUnset(m_shearDeformationAreaZ);
-    }
-    else {
-        m_shearDeformationAreaZ = Step::spfToReal(arg);
+    else
+    {
+        m_MomentOfInertiaZ = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_shearDeformationAreaY = Step::getUnset(m_shearDeformationAreaY);
+    if (arg == "$" || arg == "*")
+    {
+        m_WarpingConstant = Step::getUnset(m_WarpingConstant);
     }
-    else {
-        m_shearDeformationAreaY = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_maximumSectionModulusY = Step::getUnset(m_maximumSectionModulusY);
-    }
-    else {
-        m_maximumSectionModulusY = Step::spfToReal(arg);
+    else
+    {
+        m_WarpingConstant = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_minimumSectionModulusY = Step::getUnset(m_minimumSectionModulusY);
+    if (arg == "$" || arg == "*")
+    {
+        m_ShearCentreZ = Step::getUnset(m_ShearCentreZ);
     }
-    else {
-        m_minimumSectionModulusY = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_maximumSectionModulusZ = Step::getUnset(m_maximumSectionModulusZ);
-    }
-    else {
-        m_maximumSectionModulusZ = Step::spfToReal(arg);
+    else
+    {
+        m_ShearCentreZ = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_minimumSectionModulusZ = Step::getUnset(m_minimumSectionModulusZ);
+    if (arg == "$" || arg == "*")
+    {
+        m_ShearCentreY = Step::getUnset(m_ShearCentreY);
     }
-    else {
-        m_minimumSectionModulusZ = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_torsionalSectionModulus = Step::getUnset(m_torsionalSectionModulus);
-    }
-    else {
-        m_torsionalSectionModulus = Step::spfToReal(arg);
+    else
+    {
+        m_ShearCentreY = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_centreOfGravityInX = Step::getUnset(m_centreOfGravityInX);
+    if (arg == "$" || arg == "*")
+    {
+        m_ShearDeformationAreaZ = Step::getUnset(m_ShearDeformationAreaZ);
     }
-    else {
-        m_centreOfGravityInX = Step::spfToReal(arg);
+    else
+    {
+        m_ShearDeformationAreaZ = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_centreOfGravityInY = Step::getUnset(m_centreOfGravityInY);
+    if (arg == "$" || arg == "*")
+    {
+        m_ShearDeformationAreaY = Step::getUnset(m_ShearDeformationAreaY);
     }
-    else {
-        m_centreOfGravityInY = Step::spfToReal(arg);
+    else
+    {
+        m_ShearDeformationAreaY = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_MaximumSectionModulusY = Step::getUnset(m_MaximumSectionModulusY);
+    }
+    else
+    {
+        m_MaximumSectionModulusY = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_MinimumSectionModulusY = Step::getUnset(m_MinimumSectionModulusY);
+    }
+    else
+    {
+        m_MinimumSectionModulusY = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_MaximumSectionModulusZ = Step::getUnset(m_MaximumSectionModulusZ);
+    }
+    else
+    {
+        m_MaximumSectionModulusZ = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_MinimumSectionModulusZ = Step::getUnset(m_MinimumSectionModulusZ);
+    }
+    else
+    {
+        m_MinimumSectionModulusZ = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_TorsionalSectionModulus = Step::getUnset(m_TorsionalSectionModulus);
+    }
+    else
+    {
+        m_TorsionalSectionModulus = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CentreOfGravityInX = Step::getUnset(m_CentreOfGravityInX);
+    }
+    else
+    {
+        m_CentreOfGravityInX = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CentreOfGravityInY = Step::getUnset(m_CentreOfGravityInY);
+    }
+    else
+    {
+        m_CentreOfGravityInY = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcStructuralProfileProperties::copy(const IfcStructuralProfileProperties &obj, const CopyOp &copyop) {
+void IfcStructuralProfileProperties::copy(const IfcStructuralProfileProperties &obj, const CopyOp &copyop)
+{
     IfcGeneralProfileProperties::copy(obj, copyop);
-    setTorsionalConstantX(obj.m_torsionalConstantX);
-    setMomentOfInertiaYZ(obj.m_momentOfInertiaYZ);
-    setMomentOfInertiaY(obj.m_momentOfInertiaY);
-    setMomentOfInertiaZ(obj.m_momentOfInertiaZ);
-    setWarpingConstant(obj.m_warpingConstant);
-    setShearCentreZ(obj.m_shearCentreZ);
-    setShearCentreY(obj.m_shearCentreY);
-    setShearDeformationAreaZ(obj.m_shearDeformationAreaZ);
-    setShearDeformationAreaY(obj.m_shearDeformationAreaY);
-    setMaximumSectionModulusY(obj.m_maximumSectionModulusY);
-    setMinimumSectionModulusY(obj.m_minimumSectionModulusY);
-    setMaximumSectionModulusZ(obj.m_maximumSectionModulusZ);
-    setMinimumSectionModulusZ(obj.m_minimumSectionModulusZ);
-    setTorsionalSectionModulus(obj.m_torsionalSectionModulus);
-    setCentreOfGravityInX(obj.m_centreOfGravityInX);
-    setCentreOfGravityInY(obj.m_centreOfGravityInY);
+    setTorsionalConstantX(obj.m_TorsionalConstantX);
+    setMomentOfInertiaYZ(obj.m_MomentOfInertiaYZ);
+    setMomentOfInertiaY(obj.m_MomentOfInertiaY);
+    setMomentOfInertiaZ(obj.m_MomentOfInertiaZ);
+    setWarpingConstant(obj.m_WarpingConstant);
+    setShearCentreZ(obj.m_ShearCentreZ);
+    setShearCentreY(obj.m_ShearCentreY);
+    setShearDeformationAreaZ(obj.m_ShearDeformationAreaZ);
+    setShearDeformationAreaY(obj.m_ShearDeformationAreaY);
+    setMaximumSectionModulusY(obj.m_MaximumSectionModulusY);
+    setMinimumSectionModulusY(obj.m_MinimumSectionModulusY);
+    setMaximumSectionModulusZ(obj.m_MaximumSectionModulusZ);
+    setMinimumSectionModulusZ(obj.m_MinimumSectionModulusZ);
+    setTorsionalSectionModulus(obj.m_TorsionalSectionModulus);
+    setCentreOfGravityInX(obj.m_CentreOfGravityInX);
+    setCentreOfGravityInY(obj.m_CentreOfGravityInY);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralProfileProperties::s_type("IfcStructuralProfileProperties");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcStructuralProfileProperties, IfcGeneralProfileProperties)

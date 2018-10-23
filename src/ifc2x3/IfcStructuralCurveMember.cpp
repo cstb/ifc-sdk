@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,115 +24,120 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcStructuralCurveMember.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcStructuralMember.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcStructuralCurveMember::IfcStructuralCurveMember(Step::Id id, Step::SPFData *args) : IfcStructuralMember(id, args) {
-    m_predefinedType = IfcStructuralCurveTypeEnum_UNSET;
+IfcStructuralCurveMember::IfcStructuralCurveMember(Step::Id id, Step::SPFData *args) : 
+    IfcStructuralMember(id, args)
+{
+    m_PredefinedType = IfcStructuralCurveTypeEnum_UNSET;
 }
 
-IfcStructuralCurveMember::~IfcStructuralCurveMember() {
+IfcStructuralCurveMember::~IfcStructuralCurveMember()
+{}
+
+bool IfcStructuralCurveMember::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcStructuralCurveMember(this);
 }
 
-bool IfcStructuralCurveMember::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcStructuralCurveMember(this);
-}
 
-const std::string &IfcStructuralCurveMember::type() const {
-    return IfcStructuralCurveMember::s_type.getName();
-}
-
-const Step::ClassType &IfcStructuralCurveMember::getClassType() {
-    return IfcStructuralCurveMember::s_type;
-}
-
-const Step::ClassType &IfcStructuralCurveMember::getType() const {
-    return IfcStructuralCurveMember::s_type;
-}
-
-bool IfcStructuralCurveMember::isOfType(const Step::ClassType &t) const {
-    return IfcStructuralCurveMember::s_type == t ? true : IfcStructuralMember::isOfType(t);
-}
-
-IfcStructuralCurveTypeEnum IfcStructuralCurveMember::getPredefinedType() {
-    if (Step::BaseObject::inited()) {
-        return m_predefinedType;
+IfcStructuralCurveTypeEnum IfcStructuralCurveMember::getPredefinedType()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PredefinedType;
     }
-    else {
+    else 
+    {
         return IfcStructuralCurveTypeEnum_UNSET;
-    }
+    }    
 }
 
-const IfcStructuralCurveTypeEnum IfcStructuralCurveMember::getPredefinedType() const {
-    IfcStructuralCurveMember * deConstObject = const_cast< IfcStructuralCurveMember * > (this);
-    return deConstObject->getPredefinedType();
+IfcStructuralCurveTypeEnum IfcStructuralCurveMember::getPredefinedType() const
+{
+    return const_cast<IfcStructuralCurveMember *>(this)->getPredefinedType();
 }
 
-void IfcStructuralCurveMember::setPredefinedType(IfcStructuralCurveTypeEnum value) {
-    m_predefinedType = value;
+void IfcStructuralCurveMember::setPredefinedType(IfcStructuralCurveTypeEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = value;
 }
 
-void IfcStructuralCurveMember::unsetPredefinedType() {
-    m_predefinedType = IfcStructuralCurveTypeEnum_UNSET;
+void IfcStructuralCurveMember::unsetPredefinedType()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PredefinedType = IfcStructuralCurveTypeEnum_UNSET;
 }
 
-bool IfcStructuralCurveMember::testPredefinedType() const {
-    return getPredefinedType() != IfcStructuralCurveTypeEnum_UNSET;
+bool IfcStructuralCurveMember::testPredefinedType() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPredefinedType()) == false;
 }
 
-bool IfcStructuralCurveMember::init() {
-    bool status = IfcStructuralMember::init();
-    std::string arg;
-    if (!status) {
+bool IfcStructuralCurveMember::init()
+{
+    if (IfcStructuralMember::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_predefinedType = IfcStructuralCurveTypeEnum_UNSET;
+    if (arg == "$" || arg == "*")
+    {
+        m_PredefinedType = IfcStructuralCurveTypeEnum_UNSET;
     }
-    else {
-        if (arg == ".RIGID_JOINED_MEMBER.") {
-            m_predefinedType = IfcStructuralCurveTypeEnum_RIGID_JOINED_MEMBER;
+    else
+    {
+        if (arg == ".RIGID_JOINED_MEMBER.")
+        {
+            m_PredefinedType = IfcStructuralCurveTypeEnum_RIGID_JOINED_MEMBER;
         }
-        else if (arg == ".PIN_JOINED_MEMBER.") {
-            m_predefinedType = IfcStructuralCurveTypeEnum_PIN_JOINED_MEMBER;
+        else if (arg == ".PIN_JOINED_MEMBER.")
+        {
+            m_PredefinedType = IfcStructuralCurveTypeEnum_PIN_JOINED_MEMBER;
         }
-        else if (arg == ".CABLE.") {
-            m_predefinedType = IfcStructuralCurveTypeEnum_CABLE;
+        else if (arg == ".CABLE.")
+        {
+            m_PredefinedType = IfcStructuralCurveTypeEnum_CABLE;
         }
-        else if (arg == ".TENSION_MEMBER.") {
-            m_predefinedType = IfcStructuralCurveTypeEnum_TENSION_MEMBER;
+        else if (arg == ".TENSION_MEMBER.")
+        {
+            m_PredefinedType = IfcStructuralCurveTypeEnum_TENSION_MEMBER;
         }
-        else if (arg == ".COMPRESSION_MEMBER.") {
-            m_predefinedType = IfcStructuralCurveTypeEnum_COMPRESSION_MEMBER;
+        else if (arg == ".COMPRESSION_MEMBER.")
+        {
+            m_PredefinedType = IfcStructuralCurveTypeEnum_COMPRESSION_MEMBER;
         }
-        else if (arg == ".USERDEFINED.") {
-            m_predefinedType = IfcStructuralCurveTypeEnum_USERDEFINED;
+        else if (arg == ".USERDEFINED.")
+        {
+            m_PredefinedType = IfcStructuralCurveTypeEnum_USERDEFINED;
         }
-        else if (arg == ".NOTDEFINED.") {
-            m_predefinedType = IfcStructuralCurveTypeEnum_NOTDEFINED;
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_PredefinedType = IfcStructuralCurveTypeEnum_NOTDEFINED;
         }
     }
     return true;
 }
 
-void IfcStructuralCurveMember::copy(const IfcStructuralCurveMember &obj, const CopyOp &copyop) {
+void IfcStructuralCurveMember::copy(const IfcStructuralCurveMember &obj, const CopyOp &copyop)
+{
     IfcStructuralMember::copy(obj, copyop);
-    setPredefinedType(obj.m_predefinedType);
+    setPredefinedType(obj.m_PredefinedType);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralCurveMember::s_type("IfcStructuralCurveMember");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcStructuralCurveMember, IfcStructuralMember)

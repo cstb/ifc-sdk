@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,150 +24,167 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcCurveStyleFontAndScaling.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcCurveStyleFontSelect.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcCurveStyleFontAndScaling::IfcCurveStyleFontAndScaling(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_name = Step::getUnset(m_name);
-    m_curveFont = NULL;
-    m_curveFontScaling = Step::getUnset(m_curveFontScaling);
+IfcCurveStyleFontAndScaling::IfcCurveStyleFontAndScaling(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_Name = Step::getUnset(m_Name);
+    m_CurveFont = NULL;
+    m_CurveFontScaling = Step::getUnset(m_CurveFontScaling);
 }
 
-IfcCurveStyleFontAndScaling::~IfcCurveStyleFontAndScaling() {
+IfcCurveStyleFontAndScaling::~IfcCurveStyleFontAndScaling()
+{}
+
+bool IfcCurveStyleFontAndScaling::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcCurveStyleFontAndScaling(this);
 }
 
-bool IfcCurveStyleFontAndScaling::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcCurveStyleFontAndScaling(this);
-}
 
-const std::string &IfcCurveStyleFontAndScaling::type() const {
-    return IfcCurveStyleFontAndScaling::s_type.getName();
-}
-
-const Step::ClassType &IfcCurveStyleFontAndScaling::getClassType() {
-    return IfcCurveStyleFontAndScaling::s_type;
-}
-
-const Step::ClassType &IfcCurveStyleFontAndScaling::getType() const {
-    return IfcCurveStyleFontAndScaling::s_type;
-}
-
-bool IfcCurveStyleFontAndScaling::isOfType(const Step::ClassType &t) const {
-    return IfcCurveStyleFontAndScaling::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcLabel IfcCurveStyleFontAndScaling::getName() {
-    if (Step::BaseObject::inited()) {
-        return m_name;
+IfcLabel IfcCurveStyleFontAndScaling::getName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Name;
     }
-    else {
-        return Step::getUnset(m_name);
+    else 
+    {
+        return Step::getUnset(m_Name);
+    }    
+}
+
+const IfcLabel IfcCurveStyleFontAndScaling::getName() const
+{
+    return const_cast<IfcCurveStyleFontAndScaling *>(this)->getName();
+}
+
+void IfcCurveStyleFontAndScaling::setName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = value;
+}
+
+void IfcCurveStyleFontAndScaling::unsetName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = Step::getUnset(getName());
+}
+
+bool IfcCurveStyleFontAndScaling::testName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getName()) == false;
+}
+
+
+IfcCurveStyleFontSelect *IfcCurveStyleFontAndScaling::getCurveFont()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CurveFont.get();
     }
-}
-
-const IfcLabel IfcCurveStyleFontAndScaling::getName() const {
-    IfcCurveStyleFontAndScaling * deConstObject = const_cast< IfcCurveStyleFontAndScaling * > (this);
-    return deConstObject->getName();
-}
-
-void IfcCurveStyleFontAndScaling::setName(const IfcLabel &value) {
-    m_name = value;
-}
-
-void IfcCurveStyleFontAndScaling::unsetName() {
-    m_name = Step::getUnset(getName());
-}
-
-bool IfcCurveStyleFontAndScaling::testName() const {
-    return !Step::isUnset(getName());
-}
-
-IfcCurveStyleFontSelect *IfcCurveStyleFontAndScaling::getCurveFont() {
-    if (Step::BaseObject::inited()) {
-        return m_curveFont.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcCurveStyleFontSelect *IfcCurveStyleFontAndScaling::getCurveFont() const
+{
+    return const_cast<IfcCurveStyleFontAndScaling *>(this)->getCurveFont();
+}
+
+void IfcCurveStyleFontAndScaling::setCurveFont(const Step::RefPtr< IfcCurveStyleFontSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveFont = value;
+}
+
+void IfcCurveStyleFontAndScaling::unsetCurveFont()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveFont = Step::getUnset(getCurveFont());
+}
+
+bool IfcCurveStyleFontAndScaling::testCurveFont() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCurveFont()) == false;
+}
+
+
+IfcPositiveRatioMeasure IfcCurveStyleFontAndScaling::getCurveFontScaling()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CurveFontScaling;
     }
+    else 
+    {
+        return Step::getUnset(m_CurveFontScaling);
+    }    
 }
 
-const IfcCurveStyleFontSelect *IfcCurveStyleFontAndScaling::getCurveFont() const {
-    IfcCurveStyleFontAndScaling * deConstObject = const_cast< IfcCurveStyleFontAndScaling * > (this);
-    return deConstObject->getCurveFont();
+IfcPositiveRatioMeasure IfcCurveStyleFontAndScaling::getCurveFontScaling() const
+{
+    return const_cast<IfcCurveStyleFontAndScaling *>(this)->getCurveFontScaling();
 }
 
-void IfcCurveStyleFontAndScaling::setCurveFont(const Step::RefPtr< IfcCurveStyleFontSelect > &value) {
-    m_curveFont = value;
+void IfcCurveStyleFontAndScaling::setCurveFontScaling(IfcPositiveRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveFontScaling = value;
 }
 
-void IfcCurveStyleFontAndScaling::unsetCurveFont() {
-    m_curveFont = Step::getUnset(getCurveFont());
+void IfcCurveStyleFontAndScaling::unsetCurveFontScaling()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CurveFontScaling = Step::getUnset(getCurveFontScaling());
 }
 
-bool IfcCurveStyleFontAndScaling::testCurveFont() const {
-    return !Step::isUnset(getCurveFont());
+bool IfcCurveStyleFontAndScaling::testCurveFontScaling() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCurveFontScaling()) == false;
 }
 
-IfcPositiveRatioMeasure IfcCurveStyleFontAndScaling::getCurveFontScaling() {
-    if (Step::BaseObject::inited()) {
-        return m_curveFontScaling;
-    }
-    else {
-        return Step::getUnset(m_curveFontScaling);
-    }
-}
-
-const IfcPositiveRatioMeasure IfcCurveStyleFontAndScaling::getCurveFontScaling() const {
-    IfcCurveStyleFontAndScaling * deConstObject = const_cast< IfcCurveStyleFontAndScaling * > (this);
-    return deConstObject->getCurveFontScaling();
-}
-
-void IfcCurveStyleFontAndScaling::setCurveFontScaling(IfcPositiveRatioMeasure value) {
-    m_curveFontScaling = value;
-}
-
-void IfcCurveStyleFontAndScaling::unsetCurveFontScaling() {
-    m_curveFontScaling = Step::getUnset(getCurveFontScaling());
-}
-
-bool IfcCurveStyleFontAndScaling::testCurveFontScaling() const {
-    return !Step::isUnset(getCurveFontScaling());
-}
-
-bool IfcCurveStyleFontAndScaling::init() {
+bool IfcCurveStyleFontAndScaling::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_name = Step::getUnset(m_name);
+    if (arg == "$" || arg == "*")
+    {
+        m_Name = Step::getUnset(m_Name);
     }
-    else {
-        m_name = Step::String::fromSPF(arg);
+    else
+    {
+        m_Name = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_curveFont = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_CurveFont = NULL;
     }
-    else {
-        m_curveFont = new IfcCurveStyleFontSelect;
+    else
+    {
+        m_CurveFont = new IfcCurveStyleFontSelect;
         if (arg[0] == '#') {
-            m_curveFont->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_CurveFont->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -171,22 +197,26 @@ bool IfcCurveStyleFontAndScaling::init() {
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_curveFontScaling = Step::getUnset(m_curveFontScaling);
+    if (arg == "$" || arg == "*")
+    {
+        m_CurveFontScaling = Step::getUnset(m_CurveFontScaling);
     }
-    else {
-        m_curveFontScaling = Step::spfToReal(arg);
+    else
+    {
+        m_CurveFontScaling = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcCurveStyleFontAndScaling::copy(const IfcCurveStyleFontAndScaling &obj, const CopyOp &copyop) {
+void IfcCurveStyleFontAndScaling::copy(const IfcCurveStyleFontAndScaling &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setName(obj.m_name);
-    m_curveFont = new IfcCurveStyleFontSelect;
-    m_curveFont->copy(*(obj.m_curveFont.get()), copyop);
-    setCurveFontScaling(obj.m_curveFontScaling);
+    setName(obj.m_Name);
+    setCurveFont((IfcCurveStyleFontSelect*)copyop(obj.m_CurveFont.get()));
+    setCurveFontScaling(obj.m_CurveFontScaling);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurveStyleFontAndScaling::s_type("IfcCurveStyleFontAndScaling");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcCurveStyleFontAndScaling, Step::BaseEntity)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,126 +24,140 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRelaxation.h>
+
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseObject.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRelaxation::IfcRelaxation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_relaxationValue = Step::getUnset(m_relaxationValue);
-    m_initialStress = Step::getUnset(m_initialStress);
+IfcRelaxation::IfcRelaxation(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_RelaxationValue = Step::getUnset(m_RelaxationValue);
+    m_InitialStress = Step::getUnset(m_InitialStress);
 }
 
-IfcRelaxation::~IfcRelaxation() {
+IfcRelaxation::~IfcRelaxation()
+{}
+
+bool IfcRelaxation::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRelaxation(this);
 }
 
-bool IfcRelaxation::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRelaxation(this);
-}
 
-const std::string &IfcRelaxation::type() const {
-    return IfcRelaxation::s_type.getName();
-}
-
-const Step::ClassType &IfcRelaxation::getClassType() {
-    return IfcRelaxation::s_type;
-}
-
-const Step::ClassType &IfcRelaxation::getType() const {
-    return IfcRelaxation::s_type;
-}
-
-bool IfcRelaxation::isOfType(const Step::ClassType &t) const {
-    return IfcRelaxation::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcNormalisedRatioMeasure IfcRelaxation::getRelaxationValue() {
-    if (Step::BaseObject::inited()) {
-        return m_relaxationValue;
+IfcNormalisedRatioMeasure IfcRelaxation::getRelaxationValue()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_RelaxationValue;
     }
-    else {
-        return Step::getUnset(m_relaxationValue);
+    else 
+    {
+        return Step::getUnset(m_RelaxationValue);
+    }    
+}
+
+IfcNormalisedRatioMeasure IfcRelaxation::getRelaxationValue() const
+{
+    return const_cast<IfcRelaxation *>(this)->getRelaxationValue();
+}
+
+void IfcRelaxation::setRelaxationValue(IfcNormalisedRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelaxationValue = value;
+}
+
+void IfcRelaxation::unsetRelaxationValue()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelaxationValue = Step::getUnset(getRelaxationValue());
+}
+
+bool IfcRelaxation::testRelaxationValue() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelaxationValue()) == false;
+}
+
+
+IfcNormalisedRatioMeasure IfcRelaxation::getInitialStress()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_InitialStress;
     }
+    else 
+    {
+        return Step::getUnset(m_InitialStress);
+    }    
 }
 
-const IfcNormalisedRatioMeasure IfcRelaxation::getRelaxationValue() const {
-    IfcRelaxation * deConstObject = const_cast< IfcRelaxation * > (this);
-    return deConstObject->getRelaxationValue();
+IfcNormalisedRatioMeasure IfcRelaxation::getInitialStress() const
+{
+    return const_cast<IfcRelaxation *>(this)->getInitialStress();
 }
 
-void IfcRelaxation::setRelaxationValue(IfcNormalisedRatioMeasure value) {
-    m_relaxationValue = value;
+void IfcRelaxation::setInitialStress(IfcNormalisedRatioMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InitialStress = value;
 }
 
-void IfcRelaxation::unsetRelaxationValue() {
-    m_relaxationValue = Step::getUnset(getRelaxationValue());
+void IfcRelaxation::unsetInitialStress()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_InitialStress = Step::getUnset(getInitialStress());
 }
 
-bool IfcRelaxation::testRelaxationValue() const {
-    return !Step::isUnset(getRelaxationValue());
+bool IfcRelaxation::testInitialStress() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getInitialStress()) == false;
 }
 
-IfcNormalisedRatioMeasure IfcRelaxation::getInitialStress() {
-    if (Step::BaseObject::inited()) {
-        return m_initialStress;
-    }
-    else {
-        return Step::getUnset(m_initialStress);
-    }
-}
-
-const IfcNormalisedRatioMeasure IfcRelaxation::getInitialStress() const {
-    IfcRelaxation * deConstObject = const_cast< IfcRelaxation * > (this);
-    return deConstObject->getInitialStress();
-}
-
-void IfcRelaxation::setInitialStress(IfcNormalisedRatioMeasure value) {
-    m_initialStress = value;
-}
-
-void IfcRelaxation::unsetInitialStress() {
-    m_initialStress = Step::getUnset(getInitialStress());
-}
-
-bool IfcRelaxation::testInitialStress() const {
-    return !Step::isUnset(getInitialStress());
-}
-
-bool IfcRelaxation::init() {
+bool IfcRelaxation::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relaxationValue = Step::getUnset(m_relaxationValue);
+    if (arg == "$" || arg == "*")
+    {
+        m_RelaxationValue = Step::getUnset(m_RelaxationValue);
     }
-    else {
-        m_relaxationValue = Step::spfToReal(arg);
+    else
+    {
+        m_RelaxationValue = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_initialStress = Step::getUnset(m_initialStress);
+    if (arg == "$" || arg == "*")
+    {
+        m_InitialStress = Step::getUnset(m_InitialStress);
     }
-    else {
-        m_initialStress = Step::spfToReal(arg);
+    else
+    {
+        m_InitialStress = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcRelaxation::copy(const IfcRelaxation &obj, const CopyOp &copyop) {
+void IfcRelaxation::copy(const IfcRelaxation &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setRelaxationValue(obj.m_relaxationValue);
-    setInitialStress(obj.m_initialStress);
+    setRelaxationValue(obj.m_RelaxationValue);
+    setInitialStress(obj.m_InitialStress);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelaxation::s_type("IfcRelaxation");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRelaxation, Step::BaseEntity)

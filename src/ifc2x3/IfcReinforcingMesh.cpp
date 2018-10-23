@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,340 +24,438 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcReinforcingMesh.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcReinforcingElement.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcReinforcingMesh::IfcReinforcingMesh(Step::Id id, Step::SPFData *args) : IfcReinforcingElement(id, args) {
-    m_meshLength = Step::getUnset(m_meshLength);
-    m_meshWidth = Step::getUnset(m_meshWidth);
-    m_longitudinalBarNominalDiameter = Step::getUnset(m_longitudinalBarNominalDiameter);
-    m_transverseBarNominalDiameter = Step::getUnset(m_transverseBarNominalDiameter);
-    m_longitudinalBarCrossSectionArea = Step::getUnset(m_longitudinalBarCrossSectionArea);
-    m_transverseBarCrossSectionArea = Step::getUnset(m_transverseBarCrossSectionArea);
-    m_longitudinalBarSpacing = Step::getUnset(m_longitudinalBarSpacing);
-    m_transverseBarSpacing = Step::getUnset(m_transverseBarSpacing);
+IfcReinforcingMesh::IfcReinforcingMesh(Step::Id id, Step::SPFData *args) : 
+    IfcReinforcingElement(id, args)
+{
+    m_MeshLength = Step::getUnset(m_MeshLength);
+    m_MeshWidth = Step::getUnset(m_MeshWidth);
+    m_LongitudinalBarNominalDiameter = Step::getUnset(m_LongitudinalBarNominalDiameter);
+    m_TransverseBarNominalDiameter = Step::getUnset(m_TransverseBarNominalDiameter);
+    m_LongitudinalBarCrossSectionArea = Step::getUnset(m_LongitudinalBarCrossSectionArea);
+    m_TransverseBarCrossSectionArea = Step::getUnset(m_TransverseBarCrossSectionArea);
+    m_LongitudinalBarSpacing = Step::getUnset(m_LongitudinalBarSpacing);
+    m_TransverseBarSpacing = Step::getUnset(m_TransverseBarSpacing);
 }
 
-IfcReinforcingMesh::~IfcReinforcingMesh() {
+IfcReinforcingMesh::~IfcReinforcingMesh()
+{}
+
+bool IfcReinforcingMesh::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcReinforcingMesh(this);
 }
 
-bool IfcReinforcingMesh::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcReinforcingMesh(this);
-}
 
-const std::string &IfcReinforcingMesh::type() const {
-    return IfcReinforcingMesh::s_type.getName();
-}
-
-const Step::ClassType &IfcReinforcingMesh::getClassType() {
-    return IfcReinforcingMesh::s_type;
-}
-
-const Step::ClassType &IfcReinforcingMesh::getType() const {
-    return IfcReinforcingMesh::s_type;
-}
-
-bool IfcReinforcingMesh::isOfType(const Step::ClassType &t) const {
-    return IfcReinforcingMesh::s_type == t ? true : IfcReinforcingElement::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshLength() {
-    if (Step::BaseObject::inited()) {
-        return m_meshLength;
+IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshLength()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MeshLength;
     }
-    else {
-        return Step::getUnset(m_meshLength);
+    else 
+    {
+        return Step::getUnset(m_MeshLength);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshLength() const
+{
+    return const_cast<IfcReinforcingMesh *>(this)->getMeshLength();
+}
+
+void IfcReinforcingMesh::setMeshLength(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MeshLength = value;
+}
+
+void IfcReinforcingMesh::unsetMeshLength()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MeshLength = Step::getUnset(getMeshLength());
+}
+
+bool IfcReinforcingMesh::testMeshLength() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMeshLength()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshWidth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_MeshWidth;
     }
+    else 
+    {
+        return Step::getUnset(m_MeshWidth);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshLength() const {
-    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
-    return deConstObject->getMeshLength();
+IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshWidth() const
+{
+    return const_cast<IfcReinforcingMesh *>(this)->getMeshWidth();
 }
 
-void IfcReinforcingMesh::setMeshLength(IfcPositiveLengthMeasure value) {
-    m_meshLength = value;
+void IfcReinforcingMesh::setMeshWidth(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MeshWidth = value;
 }
 
-void IfcReinforcingMesh::unsetMeshLength() {
-    m_meshLength = Step::getUnset(getMeshLength());
+void IfcReinforcingMesh::unsetMeshWidth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_MeshWidth = Step::getUnset(getMeshWidth());
 }
 
-bool IfcReinforcingMesh::testMeshLength() const {
-    return !Step::isUnset(getMeshLength());
+bool IfcReinforcingMesh::testMeshWidth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getMeshWidth()) == false;
 }
 
-IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshWidth() {
-    if (Step::BaseObject::inited()) {
-        return m_meshWidth;
+
+IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarNominalDiameter()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LongitudinalBarNominalDiameter;
     }
-    else {
-        return Step::getUnset(m_meshWidth);
+    else 
+    {
+        return Step::getUnset(m_LongitudinalBarNominalDiameter);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarNominalDiameter() const
+{
+    return const_cast<IfcReinforcingMesh *>(this)->getLongitudinalBarNominalDiameter();
+}
+
+void IfcReinforcingMesh::setLongitudinalBarNominalDiameter(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LongitudinalBarNominalDiameter = value;
+}
+
+void IfcReinforcingMesh::unsetLongitudinalBarNominalDiameter()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LongitudinalBarNominalDiameter = Step::getUnset(getLongitudinalBarNominalDiameter());
+}
+
+bool IfcReinforcingMesh::testLongitudinalBarNominalDiameter() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLongitudinalBarNominalDiameter()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarNominalDiameter()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TransverseBarNominalDiameter;
     }
+    else 
+    {
+        return Step::getUnset(m_TransverseBarNominalDiameter);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshWidth() const {
-    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
-    return deConstObject->getMeshWidth();
+IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarNominalDiameter() const
+{
+    return const_cast<IfcReinforcingMesh *>(this)->getTransverseBarNominalDiameter();
 }
 
-void IfcReinforcingMesh::setMeshWidth(IfcPositiveLengthMeasure value) {
-    m_meshWidth = value;
+void IfcReinforcingMesh::setTransverseBarNominalDiameter(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransverseBarNominalDiameter = value;
 }
 
-void IfcReinforcingMesh::unsetMeshWidth() {
-    m_meshWidth = Step::getUnset(getMeshWidth());
+void IfcReinforcingMesh::unsetTransverseBarNominalDiameter()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransverseBarNominalDiameter = Step::getUnset(getTransverseBarNominalDiameter());
 }
 
-bool IfcReinforcingMesh::testMeshWidth() const {
-    return !Step::isUnset(getMeshWidth());
+bool IfcReinforcingMesh::testTransverseBarNominalDiameter() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTransverseBarNominalDiameter()) == false;
 }
 
-IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarNominalDiameter() {
-    if (Step::BaseObject::inited()) {
-        return m_longitudinalBarNominalDiameter;
+
+IfcAreaMeasure IfcReinforcingMesh::getLongitudinalBarCrossSectionArea()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LongitudinalBarCrossSectionArea;
     }
-    else {
-        return Step::getUnset(m_longitudinalBarNominalDiameter);
+    else 
+    {
+        return Step::getUnset(m_LongitudinalBarCrossSectionArea);
+    }    
+}
+
+IfcAreaMeasure IfcReinforcingMesh::getLongitudinalBarCrossSectionArea() const
+{
+    return const_cast<IfcReinforcingMesh *>(this)->getLongitudinalBarCrossSectionArea();
+}
+
+void IfcReinforcingMesh::setLongitudinalBarCrossSectionArea(IfcAreaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LongitudinalBarCrossSectionArea = value;
+}
+
+void IfcReinforcingMesh::unsetLongitudinalBarCrossSectionArea()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LongitudinalBarCrossSectionArea = Step::getUnset(getLongitudinalBarCrossSectionArea());
+}
+
+bool IfcReinforcingMesh::testLongitudinalBarCrossSectionArea() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLongitudinalBarCrossSectionArea()) == false;
+}
+
+
+IfcAreaMeasure IfcReinforcingMesh::getTransverseBarCrossSectionArea()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TransverseBarCrossSectionArea;
     }
+    else 
+    {
+        return Step::getUnset(m_TransverseBarCrossSectionArea);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarNominalDiameter() const {
-    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
-    return deConstObject->getLongitudinalBarNominalDiameter();
+IfcAreaMeasure IfcReinforcingMesh::getTransverseBarCrossSectionArea() const
+{
+    return const_cast<IfcReinforcingMesh *>(this)->getTransverseBarCrossSectionArea();
 }
 
-void IfcReinforcingMesh::setLongitudinalBarNominalDiameter(IfcPositiveLengthMeasure value) {
-    m_longitudinalBarNominalDiameter = value;
+void IfcReinforcingMesh::setTransverseBarCrossSectionArea(IfcAreaMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransverseBarCrossSectionArea = value;
 }
 
-void IfcReinforcingMesh::unsetLongitudinalBarNominalDiameter() {
-    m_longitudinalBarNominalDiameter = Step::getUnset(getLongitudinalBarNominalDiameter());
+void IfcReinforcingMesh::unsetTransverseBarCrossSectionArea()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransverseBarCrossSectionArea = Step::getUnset(getTransverseBarCrossSectionArea());
 }
 
-bool IfcReinforcingMesh::testLongitudinalBarNominalDiameter() const {
-    return !Step::isUnset(getLongitudinalBarNominalDiameter());
+bool IfcReinforcingMesh::testTransverseBarCrossSectionArea() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTransverseBarCrossSectionArea()) == false;
 }
 
-IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarNominalDiameter() {
-    if (Step::BaseObject::inited()) {
-        return m_transverseBarNominalDiameter;
+
+IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarSpacing()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LongitudinalBarSpacing;
     }
-    else {
-        return Step::getUnset(m_transverseBarNominalDiameter);
+    else 
+    {
+        return Step::getUnset(m_LongitudinalBarSpacing);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarSpacing() const
+{
+    return const_cast<IfcReinforcingMesh *>(this)->getLongitudinalBarSpacing();
+}
+
+void IfcReinforcingMesh::setLongitudinalBarSpacing(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LongitudinalBarSpacing = value;
+}
+
+void IfcReinforcingMesh::unsetLongitudinalBarSpacing()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LongitudinalBarSpacing = Step::getUnset(getLongitudinalBarSpacing());
+}
+
+bool IfcReinforcingMesh::testLongitudinalBarSpacing() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLongitudinalBarSpacing()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarSpacing()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TransverseBarSpacing;
     }
+    else 
+    {
+        return Step::getUnset(m_TransverseBarSpacing);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarNominalDiameter() const {
-    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
-    return deConstObject->getTransverseBarNominalDiameter();
+IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarSpacing() const
+{
+    return const_cast<IfcReinforcingMesh *>(this)->getTransverseBarSpacing();
 }
 
-void IfcReinforcingMesh::setTransverseBarNominalDiameter(IfcPositiveLengthMeasure value) {
-    m_transverseBarNominalDiameter = value;
+void IfcReinforcingMesh::setTransverseBarSpacing(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransverseBarSpacing = value;
 }
 
-void IfcReinforcingMesh::unsetTransverseBarNominalDiameter() {
-    m_transverseBarNominalDiameter = Step::getUnset(getTransverseBarNominalDiameter());
+void IfcReinforcingMesh::unsetTransverseBarSpacing()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TransverseBarSpacing = Step::getUnset(getTransverseBarSpacing());
 }
 
-bool IfcReinforcingMesh::testTransverseBarNominalDiameter() const {
-    return !Step::isUnset(getTransverseBarNominalDiameter());
+bool IfcReinforcingMesh::testTransverseBarSpacing() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTransverseBarSpacing()) == false;
 }
 
-IfcAreaMeasure IfcReinforcingMesh::getLongitudinalBarCrossSectionArea() {
-    if (Step::BaseObject::inited()) {
-        return m_longitudinalBarCrossSectionArea;
-    }
-    else {
-        return Step::getUnset(m_longitudinalBarCrossSectionArea);
-    }
-}
-
-const IfcAreaMeasure IfcReinforcingMesh::getLongitudinalBarCrossSectionArea() const {
-    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
-    return deConstObject->getLongitudinalBarCrossSectionArea();
-}
-
-void IfcReinforcingMesh::setLongitudinalBarCrossSectionArea(IfcAreaMeasure value) {
-    m_longitudinalBarCrossSectionArea = value;
-}
-
-void IfcReinforcingMesh::unsetLongitudinalBarCrossSectionArea() {
-    m_longitudinalBarCrossSectionArea = Step::getUnset(getLongitudinalBarCrossSectionArea());
-}
-
-bool IfcReinforcingMesh::testLongitudinalBarCrossSectionArea() const {
-    return !Step::isUnset(getLongitudinalBarCrossSectionArea());
-}
-
-IfcAreaMeasure IfcReinforcingMesh::getTransverseBarCrossSectionArea() {
-    if (Step::BaseObject::inited()) {
-        return m_transverseBarCrossSectionArea;
-    }
-    else {
-        return Step::getUnset(m_transverseBarCrossSectionArea);
-    }
-}
-
-const IfcAreaMeasure IfcReinforcingMesh::getTransverseBarCrossSectionArea() const {
-    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
-    return deConstObject->getTransverseBarCrossSectionArea();
-}
-
-void IfcReinforcingMesh::setTransverseBarCrossSectionArea(IfcAreaMeasure value) {
-    m_transverseBarCrossSectionArea = value;
-}
-
-void IfcReinforcingMesh::unsetTransverseBarCrossSectionArea() {
-    m_transverseBarCrossSectionArea = Step::getUnset(getTransverseBarCrossSectionArea());
-}
-
-bool IfcReinforcingMesh::testTransverseBarCrossSectionArea() const {
-    return !Step::isUnset(getTransverseBarCrossSectionArea());
-}
-
-IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarSpacing() {
-    if (Step::BaseObject::inited()) {
-        return m_longitudinalBarSpacing;
-    }
-    else {
-        return Step::getUnset(m_longitudinalBarSpacing);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarSpacing() const {
-    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
-    return deConstObject->getLongitudinalBarSpacing();
-}
-
-void IfcReinforcingMesh::setLongitudinalBarSpacing(IfcPositiveLengthMeasure value) {
-    m_longitudinalBarSpacing = value;
-}
-
-void IfcReinforcingMesh::unsetLongitudinalBarSpacing() {
-    m_longitudinalBarSpacing = Step::getUnset(getLongitudinalBarSpacing());
-}
-
-bool IfcReinforcingMesh::testLongitudinalBarSpacing() const {
-    return !Step::isUnset(getLongitudinalBarSpacing());
-}
-
-IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarSpacing() {
-    if (Step::BaseObject::inited()) {
-        return m_transverseBarSpacing;
-    }
-    else {
-        return Step::getUnset(m_transverseBarSpacing);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarSpacing() const {
-    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
-    return deConstObject->getTransverseBarSpacing();
-}
-
-void IfcReinforcingMesh::setTransverseBarSpacing(IfcPositiveLengthMeasure value) {
-    m_transverseBarSpacing = value;
-}
-
-void IfcReinforcingMesh::unsetTransverseBarSpacing() {
-    m_transverseBarSpacing = Step::getUnset(getTransverseBarSpacing());
-}
-
-bool IfcReinforcingMesh::testTransverseBarSpacing() const {
-    return !Step::isUnset(getTransverseBarSpacing());
-}
-
-bool IfcReinforcingMesh::init() {
-    bool status = IfcReinforcingElement::init();
-    std::string arg;
-    if (!status) {
+bool IfcReinforcingMesh::init()
+{
+    if (IfcReinforcingElement::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_meshLength = Step::getUnset(m_meshLength);
+    if (arg == "$" || arg == "*")
+    {
+        m_MeshLength = Step::getUnset(m_MeshLength);
     }
-    else {
-        m_meshLength = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_meshWidth = Step::getUnset(m_meshWidth);
-    }
-    else {
-        m_meshWidth = Step::spfToReal(arg);
+    else
+    {
+        m_MeshLength = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_longitudinalBarNominalDiameter = Step::getUnset(m_longitudinalBarNominalDiameter);
+    if (arg == "$" || arg == "*")
+    {
+        m_MeshWidth = Step::getUnset(m_MeshWidth);
     }
-    else {
-        m_longitudinalBarNominalDiameter = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_transverseBarNominalDiameter = Step::getUnset(m_transverseBarNominalDiameter);
-    }
-    else {
-        m_transverseBarNominalDiameter = Step::spfToReal(arg);
+    else
+    {
+        m_MeshWidth = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_longitudinalBarCrossSectionArea = Step::getUnset(m_longitudinalBarCrossSectionArea);
+    if (arg == "$" || arg == "*")
+    {
+        m_LongitudinalBarNominalDiameter = Step::getUnset(m_LongitudinalBarNominalDiameter);
     }
-    else {
-        m_longitudinalBarCrossSectionArea = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_transverseBarCrossSectionArea = Step::getUnset(m_transverseBarCrossSectionArea);
-    }
-    else {
-        m_transverseBarCrossSectionArea = Step::spfToReal(arg);
+    else
+    {
+        m_LongitudinalBarNominalDiameter = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_longitudinalBarSpacing = Step::getUnset(m_longitudinalBarSpacing);
+    if (arg == "$" || arg == "*")
+    {
+        m_TransverseBarNominalDiameter = Step::getUnset(m_TransverseBarNominalDiameter);
     }
-    else {
-        m_longitudinalBarSpacing = Step::spfToReal(arg);
+    else
+    {
+        m_TransverseBarNominalDiameter = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_transverseBarSpacing = Step::getUnset(m_transverseBarSpacing);
+    if (arg == "$" || arg == "*")
+    {
+        m_LongitudinalBarCrossSectionArea = Step::getUnset(m_LongitudinalBarCrossSectionArea);
     }
-    else {
-        m_transverseBarSpacing = Step::spfToReal(arg);
+    else
+    {
+        m_LongitudinalBarCrossSectionArea = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_TransverseBarCrossSectionArea = Step::getUnset(m_TransverseBarCrossSectionArea);
+    }
+    else
+    {
+        m_TransverseBarCrossSectionArea = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_LongitudinalBarSpacing = Step::getUnset(m_LongitudinalBarSpacing);
+    }
+    else
+    {
+        m_LongitudinalBarSpacing = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_TransverseBarSpacing = Step::getUnset(m_TransverseBarSpacing);
+    }
+    else
+    {
+        m_TransverseBarSpacing = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcReinforcingMesh::copy(const IfcReinforcingMesh &obj, const CopyOp &copyop) {
+void IfcReinforcingMesh::copy(const IfcReinforcingMesh &obj, const CopyOp &copyop)
+{
     IfcReinforcingElement::copy(obj, copyop);
-    setMeshLength(obj.m_meshLength);
-    setMeshWidth(obj.m_meshWidth);
-    setLongitudinalBarNominalDiameter(obj.m_longitudinalBarNominalDiameter);
-    setTransverseBarNominalDiameter(obj.m_transverseBarNominalDiameter);
-    setLongitudinalBarCrossSectionArea(obj.m_longitudinalBarCrossSectionArea);
-    setTransverseBarCrossSectionArea(obj.m_transverseBarCrossSectionArea);
-    setLongitudinalBarSpacing(obj.m_longitudinalBarSpacing);
-    setTransverseBarSpacing(obj.m_transverseBarSpacing);
+    setMeshLength(obj.m_MeshLength);
+    setMeshWidth(obj.m_MeshWidth);
+    setLongitudinalBarNominalDiameter(obj.m_LongitudinalBarNominalDiameter);
+    setTransverseBarNominalDiameter(obj.m_TransverseBarNominalDiameter);
+    setLongitudinalBarCrossSectionArea(obj.m_LongitudinalBarCrossSectionArea);
+    setTransverseBarCrossSectionArea(obj.m_TransverseBarCrossSectionArea);
+    setLongitudinalBarSpacing(obj.m_LongitudinalBarSpacing);
+    setTransverseBarSpacing(obj.m_TransverseBarSpacing);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcReinforcingMesh::s_type("IfcReinforcingMesh");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcReinforcingMesh, IfcReinforcingElement)

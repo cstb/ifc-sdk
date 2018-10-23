@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,165 +24,193 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcConnectionPointEccentricity.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcConnectionPointGeometry.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcConnectionPointEccentricity::IfcConnectionPointEccentricity(Step::Id id, Step::SPFData *args) : IfcConnectionPointGeometry(id, args) {
-    m_eccentricityInX = Step::getUnset(m_eccentricityInX);
-    m_eccentricityInY = Step::getUnset(m_eccentricityInY);
-    m_eccentricityInZ = Step::getUnset(m_eccentricityInZ);
+IfcConnectionPointEccentricity::IfcConnectionPointEccentricity(Step::Id id, Step::SPFData *args) : 
+    IfcConnectionPointGeometry(id, args)
+{
+    m_EccentricityInX = Step::getUnset(m_EccentricityInX);
+    m_EccentricityInY = Step::getUnset(m_EccentricityInY);
+    m_EccentricityInZ = Step::getUnset(m_EccentricityInZ);
 }
 
-IfcConnectionPointEccentricity::~IfcConnectionPointEccentricity() {
+IfcConnectionPointEccentricity::~IfcConnectionPointEccentricity()
+{}
+
+bool IfcConnectionPointEccentricity::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcConnectionPointEccentricity(this);
 }
 
-bool IfcConnectionPointEccentricity::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcConnectionPointEccentricity(this);
-}
 
-const std::string &IfcConnectionPointEccentricity::type() const {
-    return IfcConnectionPointEccentricity::s_type.getName();
-}
-
-const Step::ClassType &IfcConnectionPointEccentricity::getClassType() {
-    return IfcConnectionPointEccentricity::s_type;
-}
-
-const Step::ClassType &IfcConnectionPointEccentricity::getType() const {
-    return IfcConnectionPointEccentricity::s_type;
-}
-
-bool IfcConnectionPointEccentricity::isOfType(const Step::ClassType &t) const {
-    return IfcConnectionPointEccentricity::s_type == t ? true : IfcConnectionPointGeometry::isOfType(t);
-}
-
-IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInX() {
-    if (Step::BaseObject::inited()) {
-        return m_eccentricityInX;
+IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInX()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_EccentricityInX;
     }
-    else {
-        return Step::getUnset(m_eccentricityInX);
+    else 
+    {
+        return Step::getUnset(m_EccentricityInX);
+    }    
+}
+
+IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInX() const
+{
+    return const_cast<IfcConnectionPointEccentricity *>(this)->getEccentricityInX();
+}
+
+void IfcConnectionPointEccentricity::setEccentricityInX(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EccentricityInX = value;
+}
+
+void IfcConnectionPointEccentricity::unsetEccentricityInX()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EccentricityInX = Step::getUnset(getEccentricityInX());
+}
+
+bool IfcConnectionPointEccentricity::testEccentricityInX() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getEccentricityInX()) == false;
+}
+
+
+IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_EccentricityInY;
     }
+    else 
+    {
+        return Step::getUnset(m_EccentricityInY);
+    }    
 }
 
-const IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInX() const {
-    IfcConnectionPointEccentricity * deConstObject = const_cast< IfcConnectionPointEccentricity * > (this);
-    return deConstObject->getEccentricityInX();
+IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInY() const
+{
+    return const_cast<IfcConnectionPointEccentricity *>(this)->getEccentricityInY();
 }
 
-void IfcConnectionPointEccentricity::setEccentricityInX(IfcLengthMeasure value) {
-    m_eccentricityInX = value;
+void IfcConnectionPointEccentricity::setEccentricityInY(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EccentricityInY = value;
 }
 
-void IfcConnectionPointEccentricity::unsetEccentricityInX() {
-    m_eccentricityInX = Step::getUnset(getEccentricityInX());
+void IfcConnectionPointEccentricity::unsetEccentricityInY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EccentricityInY = Step::getUnset(getEccentricityInY());
 }
 
-bool IfcConnectionPointEccentricity::testEccentricityInX() const {
-    return !Step::isUnset(getEccentricityInX());
+bool IfcConnectionPointEccentricity::testEccentricityInY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getEccentricityInY()) == false;
 }
 
-IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInY() {
-    if (Step::BaseObject::inited()) {
-        return m_eccentricityInY;
+
+IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInZ()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_EccentricityInZ;
     }
-    else {
-        return Step::getUnset(m_eccentricityInY);
-    }
+    else 
+    {
+        return Step::getUnset(m_EccentricityInZ);
+    }    
 }
 
-const IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInY() const {
-    IfcConnectionPointEccentricity * deConstObject = const_cast< IfcConnectionPointEccentricity * > (this);
-    return deConstObject->getEccentricityInY();
+IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInZ() const
+{
+    return const_cast<IfcConnectionPointEccentricity *>(this)->getEccentricityInZ();
 }
 
-void IfcConnectionPointEccentricity::setEccentricityInY(IfcLengthMeasure value) {
-    m_eccentricityInY = value;
+void IfcConnectionPointEccentricity::setEccentricityInZ(IfcLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EccentricityInZ = value;
 }
 
-void IfcConnectionPointEccentricity::unsetEccentricityInY() {
-    m_eccentricityInY = Step::getUnset(getEccentricityInY());
+void IfcConnectionPointEccentricity::unsetEccentricityInZ()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_EccentricityInZ = Step::getUnset(getEccentricityInZ());
 }
 
-bool IfcConnectionPointEccentricity::testEccentricityInY() const {
-    return !Step::isUnset(getEccentricityInY());
+bool IfcConnectionPointEccentricity::testEccentricityInZ() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getEccentricityInZ()) == false;
 }
 
-IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInZ() {
-    if (Step::BaseObject::inited()) {
-        return m_eccentricityInZ;
-    }
-    else {
-        return Step::getUnset(m_eccentricityInZ);
-    }
-}
-
-const IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInZ() const {
-    IfcConnectionPointEccentricity * deConstObject = const_cast< IfcConnectionPointEccentricity * > (this);
-    return deConstObject->getEccentricityInZ();
-}
-
-void IfcConnectionPointEccentricity::setEccentricityInZ(IfcLengthMeasure value) {
-    m_eccentricityInZ = value;
-}
-
-void IfcConnectionPointEccentricity::unsetEccentricityInZ() {
-    m_eccentricityInZ = Step::getUnset(getEccentricityInZ());
-}
-
-bool IfcConnectionPointEccentricity::testEccentricityInZ() const {
-    return !Step::isUnset(getEccentricityInZ());
-}
-
-bool IfcConnectionPointEccentricity::init() {
-    bool status = IfcConnectionPointGeometry::init();
-    std::string arg;
-    if (!status) {
+bool IfcConnectionPointEccentricity::init()
+{
+    if (IfcConnectionPointGeometry::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_eccentricityInX = Step::getUnset(m_eccentricityInX);
+    if (arg == "$" || arg == "*")
+    {
+        m_EccentricityInX = Step::getUnset(m_EccentricityInX);
     }
-    else {
-        m_eccentricityInX = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_eccentricityInY = Step::getUnset(m_eccentricityInY);
-    }
-    else {
-        m_eccentricityInY = Step::spfToReal(arg);
+    else
+    {
+        m_EccentricityInX = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_eccentricityInZ = Step::getUnset(m_eccentricityInZ);
+    if (arg == "$" || arg == "*")
+    {
+        m_EccentricityInY = Step::getUnset(m_EccentricityInY);
     }
-    else {
-        m_eccentricityInZ = Step::spfToReal(arg);
+    else
+    {
+        m_EccentricityInY = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_EccentricityInZ = Step::getUnset(m_EccentricityInZ);
+    }
+    else
+    {
+        m_EccentricityInZ = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcConnectionPointEccentricity::copy(const IfcConnectionPointEccentricity &obj, const CopyOp &copyop) {
+void IfcConnectionPointEccentricity::copy(const IfcConnectionPointEccentricity &obj, const CopyOp &copyop)
+{
     IfcConnectionPointGeometry::copy(obj, copyop);
-    setEccentricityInX(obj.m_eccentricityInX);
-    setEccentricityInY(obj.m_eccentricityInY);
-    setEccentricityInZ(obj.m_eccentricityInZ);
+    setEccentricityInX(obj.m_EccentricityInX);
+    setEccentricityInY(obj.m_EccentricityInY);
+    setEccentricityInZ(obj.m_EccentricityInZ);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConnectionPointEccentricity::s_type("IfcConnectionPointEccentricity");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcConnectionPointEccentricity, IfcConnectionPointGeometry)

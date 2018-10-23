@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,151 +24,164 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcCompositeProfileDef.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcProfileDef.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
-#include <Step/String.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcCompositeProfileDef::IfcCompositeProfileDef(Step::Id id, Step::SPFData *args) : IfcProfileDef(id, args) {
-    m_label = Step::getUnset(m_label);
+IfcCompositeProfileDef::IfcCompositeProfileDef(Step::Id id, Step::SPFData *args) : 
+    IfcProfileDef(id, args)
+{
+    m_Profiles.setUnset(true);
+    m_Label = Step::getUnset(m_Label);
 }
 
-IfcCompositeProfileDef::~IfcCompositeProfileDef() {
+IfcCompositeProfileDef::~IfcCompositeProfileDef()
+{}
+
+bool IfcCompositeProfileDef::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcCompositeProfileDef(this);
 }
 
-bool IfcCompositeProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcCompositeProfileDef(this);
-}
 
-const std::string &IfcCompositeProfileDef::type() const {
-    return IfcCompositeProfileDef::s_type.getName();
-}
-
-const Step::ClassType &IfcCompositeProfileDef::getClassType() {
-    return IfcCompositeProfileDef::s_type;
-}
-
-const Step::ClassType &IfcCompositeProfileDef::getType() const {
-    return IfcCompositeProfileDef::s_type;
-}
-
-bool IfcCompositeProfileDef::isOfType(const Step::ClassType &t) const {
-    return IfcCompositeProfileDef::s_type == t ? true : IfcProfileDef::isOfType(t);
-}
-
-Set_IfcProfileDef_2_n &IfcCompositeProfileDef::getProfiles() {
-    if (Step::BaseObject::inited()) {
-        return m_profiles;
+Set_IfcProfileDef_2_n &IfcCompositeProfileDef::getProfiles()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Profiles;
     }
-    else {
-        m_profiles.setUnset(true);
-        return m_profiles;
+    else 
+    {
+        m_Profiles.setUnset(true);
+        return m_Profiles;
+    }    
+}
+
+const Set_IfcProfileDef_2_n &IfcCompositeProfileDef::getProfiles() const
+{
+    return const_cast<IfcCompositeProfileDef *>(this)->getProfiles();
+}
+
+void IfcCompositeProfileDef::setProfiles(const Set_IfcProfileDef_2_n &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Profiles = value;
+}
+
+void IfcCompositeProfileDef::unsetProfiles()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Profiles.clear();
+    m_Profiles.setUnset(true);
+}
+
+bool IfcCompositeProfileDef::testProfiles() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_Profiles.isUnset() == false;
+}
+
+
+IfcLabel IfcCompositeProfileDef::getLabel()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Label;
     }
+    else 
+    {
+        return Step::getUnset(m_Label);
+    }    
 }
 
-const Set_IfcProfileDef_2_n &IfcCompositeProfileDef::getProfiles() const {
-    IfcCompositeProfileDef * deConstObject = const_cast< IfcCompositeProfileDef * > (this);
-    return deConstObject->getProfiles();
+const IfcLabel IfcCompositeProfileDef::getLabel() const
+{
+    return const_cast<IfcCompositeProfileDef *>(this)->getLabel();
 }
 
-void IfcCompositeProfileDef::setProfiles(const Set_IfcProfileDef_2_n &value) {
-    m_profiles = value;
+void IfcCompositeProfileDef::setLabel(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Label = value;
 }
 
-void IfcCompositeProfileDef::unsetProfiles() {
-    m_profiles.clear();
-    m_profiles.setUnset(true);
+void IfcCompositeProfileDef::unsetLabel()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Label = Step::getUnset(getLabel());
 }
 
-bool IfcCompositeProfileDef::testProfiles() const {
-    return !m_profiles.isUnset();
+bool IfcCompositeProfileDef::testLabel() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLabel()) == false;
 }
 
-IfcLabel IfcCompositeProfileDef::getLabel() {
-    if (Step::BaseObject::inited()) {
-        return m_label;
-    }
-    else {
-        return Step::getUnset(m_label);
-    }
-}
-
-const IfcLabel IfcCompositeProfileDef::getLabel() const {
-    IfcCompositeProfileDef * deConstObject = const_cast< IfcCompositeProfileDef * > (this);
-    return deConstObject->getLabel();
-}
-
-void IfcCompositeProfileDef::setLabel(const IfcLabel &value) {
-    m_label = value;
-}
-
-void IfcCompositeProfileDef::unsetLabel() {
-    m_label = Step::getUnset(getLabel());
-}
-
-bool IfcCompositeProfileDef::testLabel() const {
-    return !Step::isUnset(getLabel());
-}
-
-bool IfcCompositeProfileDef::init() {
-    bool status = IfcProfileDef::init();
-    std::string arg;
-    if (!status) {
+bool IfcCompositeProfileDef::init()
+{
+    if (IfcProfileDef::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_profiles.setUnset(true);
+    if (arg == "$" || arg == "*")
+    {
+        m_Profiles.setUnset(true);
     }
-    else {
-        m_profiles.setUnset(false);
-        while (true) {
+    else
+    {
+        m_Profiles.setUnset(false);
+        while (true)
+        {
             std::string str1;
             Step::getSubParameter(arg, str1);
-            if (str1 != "") {
-                Step::RefPtr< IfcProfileDef > attr2;
-                attr2 = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                if (attr2.valid()) m_profiles.insert(attr2);
+            if (!str1.empty())
+            {
+                m_Profiles.insert(static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(str1)))
+);
             }
-            else {
+            else 
+            {
                 break;
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_label = Step::getUnset(m_label);
+    if (arg == "$" || arg == "*")
+    {
+        m_Label = Step::getUnset(m_Label);
     }
-    else {
-        m_label = Step::String::fromSPF(arg);
+    else
+    {
+        m_Label = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcCompositeProfileDef::copy(const IfcCompositeProfileDef &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcProfileDef >, 2 >::const_iterator it_m_profiles;
+void IfcCompositeProfileDef::copy(const IfcCompositeProfileDef &obj, const CopyOp &copyop)
+{
     IfcProfileDef::copy(obj, copyop);
-    for (it_m_profiles = obj.m_profiles.begin(); it_m_profiles != obj.m_profiles.end(); ++it_m_profiles) {
-        Step::RefPtr< IfcProfileDef > copyTarget = (IfcProfileDef *) (copyop((*it_m_profiles).get()));
-        m_profiles.insert(copyTarget.get());
+    Set_IfcProfileDef_2_n::const_iterator it_m_Profiles;
+    for (it_m_Profiles = obj.m_Profiles.begin(); it_m_Profiles != obj.m_Profiles.end(); ++it_m_Profiles)
+    {
+        Step::RefPtr< IfcProfileDef > copyTarget = (IfcProfileDef *) (copyop((*it_m_Profiles).get()));
+        m_Profiles.insert(copyTarget);
     }
-    setLabel(obj.m_label);
+    
+    setLabel(obj.m_Label);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCompositeProfileDef::s_type("IfcCompositeProfileDef");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcCompositeProfileDef, IfcProfileDef)

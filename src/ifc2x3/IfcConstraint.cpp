@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,514 +24,619 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcConstraint.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcActorSelect.h>
-#include <ifc2x3/IfcConstraintAggregationRelationship.h>
-#include <ifc2x3/IfcConstraintClassificationRelationship.h>
-#include <ifc2x3/IfcConstraintRelationship.h>
 #include <ifc2x3/IfcDateTimeSelect.h>
+#include <ifc2x3/IfcConstraintAggregationRelationship.h>
 #include <ifc2x3/IfcPropertyConstraintRelationship.h>
+#include <ifc2x3/IfcConstraintAggregationRelationship.h>
+#include <ifc2x3/IfcConstraintRelationship.h>
+#include <ifc2x3/IfcConstraintRelationship.h>
+#include <ifc2x3/IfcConstraintClassificationRelationship.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-#include <vector>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcConstraint::IfcConstraint(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_name = Step::getUnset(m_name);
-    m_description = Step::getUnset(m_description);
-    m_constraintGrade = IfcConstraintEnum_UNSET;
-    m_constraintSource = Step::getUnset(m_constraintSource);
-    m_creatingActor = NULL;
-    m_creationTime = NULL;
-    m_userDefinedGrade = Step::getUnset(m_userDefinedGrade);
+IfcConstraint::IfcConstraint(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_Name = Step::getUnset(m_Name);
+    m_Description = Step::getUnset(m_Description);
+    m_ConstraintGrade = IfcConstraintEnum_UNSET;
+    m_ConstraintSource = Step::getUnset(m_ConstraintSource);
+    m_CreatingActor = NULL;
+    m_CreationTime = NULL;
+    m_UserDefinedGrade = Step::getUnset(m_UserDefinedGrade);
 }
 
-IfcConstraint::~IfcConstraint() {
+IfcConstraint::~IfcConstraint()
+{}
+
+bool IfcConstraint::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcConstraint(this);
 }
 
-bool IfcConstraint::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcConstraint(this);
-}
 
-const std::string &IfcConstraint::type() const {
-    return IfcConstraint::s_type.getName();
-}
-
-const Step::ClassType &IfcConstraint::getClassType() {
-    return IfcConstraint::s_type;
-}
-
-const Step::ClassType &IfcConstraint::getType() const {
-    return IfcConstraint::s_type;
-}
-
-bool IfcConstraint::isOfType(const Step::ClassType &t) const {
-    return IfcConstraint::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcLabel IfcConstraint::getName() {
-    if (Step::BaseObject::inited()) {
-        return m_name;
+IfcLabel IfcConstraint::getName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Name;
     }
-    else {
-        return Step::getUnset(m_name);
+    else 
+    {
+        return Step::getUnset(m_Name);
+    }    
+}
+
+const IfcLabel IfcConstraint::getName() const
+{
+    return const_cast<IfcConstraint *>(this)->getName();
+}
+
+void IfcConstraint::setName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = value;
+}
+
+void IfcConstraint::unsetName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Name = Step::getUnset(getName());
+}
+
+bool IfcConstraint::testName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getName()) == false;
+}
+
+
+IfcText IfcConstraint::getDescription()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Description;
     }
+    else 
+    {
+        return Step::getUnset(m_Description);
+    }    
 }
 
-const IfcLabel IfcConstraint::getName() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getName();
+const IfcText IfcConstraint::getDescription() const
+{
+    return const_cast<IfcConstraint *>(this)->getDescription();
 }
 
-void IfcConstraint::setName(const IfcLabel &value) {
-    m_name = value;
+void IfcConstraint::setDescription(const IfcText &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = value;
 }
 
-void IfcConstraint::unsetName() {
-    m_name = Step::getUnset(getName());
+void IfcConstraint::unsetDescription()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Description = Step::getUnset(getDescription());
 }
 
-bool IfcConstraint::testName() const {
-    return !Step::isUnset(getName());
+bool IfcConstraint::testDescription() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getDescription()) == false;
 }
 
-IfcText IfcConstraint::getDescription() {
-    if (Step::BaseObject::inited()) {
-        return m_description;
+
+IfcConstraintEnum IfcConstraint::getConstraintGrade()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ConstraintGrade;
     }
-    else {
-        return Step::getUnset(m_description);
-    }
-}
-
-const IfcText IfcConstraint::getDescription() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getDescription();
-}
-
-void IfcConstraint::setDescription(const IfcText &value) {
-    m_description = value;
-}
-
-void IfcConstraint::unsetDescription() {
-    m_description = Step::getUnset(getDescription());
-}
-
-bool IfcConstraint::testDescription() const {
-    return !Step::isUnset(getDescription());
-}
-
-IfcConstraintEnum IfcConstraint::getConstraintGrade() {
-    if (Step::BaseObject::inited()) {
-        return m_constraintGrade;
-    }
-    else {
+    else 
+    {
         return IfcConstraintEnum_UNSET;
+    }    
+}
+
+IfcConstraintEnum IfcConstraint::getConstraintGrade() const
+{
+    return const_cast<IfcConstraint *>(this)->getConstraintGrade();
+}
+
+void IfcConstraint::setConstraintGrade(IfcConstraintEnum value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ConstraintGrade = value;
+}
+
+void IfcConstraint::unsetConstraintGrade()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ConstraintGrade = IfcConstraintEnum_UNSET;
+}
+
+bool IfcConstraint::testConstraintGrade() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getConstraintGrade()) == false;
+}
+
+
+IfcLabel IfcConstraint::getConstraintSource()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_ConstraintSource;
     }
+    else 
+    {
+        return Step::getUnset(m_ConstraintSource);
+    }    
 }
 
-const IfcConstraintEnum IfcConstraint::getConstraintGrade() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getConstraintGrade();
+const IfcLabel IfcConstraint::getConstraintSource() const
+{
+    return const_cast<IfcConstraint *>(this)->getConstraintSource();
 }
 
-void IfcConstraint::setConstraintGrade(IfcConstraintEnum value) {
-    m_constraintGrade = value;
+void IfcConstraint::setConstraintSource(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ConstraintSource = value;
 }
 
-void IfcConstraint::unsetConstraintGrade() {
-    m_constraintGrade = IfcConstraintEnum_UNSET;
+void IfcConstraint::unsetConstraintSource()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_ConstraintSource = Step::getUnset(getConstraintSource());
 }
 
-bool IfcConstraint::testConstraintGrade() const {
-    return getConstraintGrade() != IfcConstraintEnum_UNSET;
+bool IfcConstraint::testConstraintSource() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getConstraintSource()) == false;
 }
 
-IfcLabel IfcConstraint::getConstraintSource() {
-    if (Step::BaseObject::inited()) {
-        return m_constraintSource;
+
+IfcActorSelect *IfcConstraint::getCreatingActor()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CreatingActor.get();
     }
-    else {
-        return Step::getUnset(m_constraintSource);
-    }
-}
-
-const IfcLabel IfcConstraint::getConstraintSource() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getConstraintSource();
-}
-
-void IfcConstraint::setConstraintSource(const IfcLabel &value) {
-    m_constraintSource = value;
-}
-
-void IfcConstraint::unsetConstraintSource() {
-    m_constraintSource = Step::getUnset(getConstraintSource());
-}
-
-bool IfcConstraint::testConstraintSource() const {
-    return !Step::isUnset(getConstraintSource());
-}
-
-IfcActorSelect *IfcConstraint::getCreatingActor() {
-    if (Step::BaseObject::inited()) {
-        return m_creatingActor.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcActorSelect *IfcConstraint::getCreatingActor() const
+{
+    return const_cast<IfcConstraint *>(this)->getCreatingActor();
+}
+
+void IfcConstraint::setCreatingActor(const Step::RefPtr< IfcActorSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CreatingActor = value;
+}
+
+void IfcConstraint::unsetCreatingActor()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CreatingActor = Step::getUnset(getCreatingActor());
+}
+
+bool IfcConstraint::testCreatingActor() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCreatingActor()) == false;
+}
+
+
+IfcDateTimeSelect *IfcConstraint::getCreationTime()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CreationTime.get();
     }
-}
-
-const IfcActorSelect *IfcConstraint::getCreatingActor() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getCreatingActor();
-}
-
-void IfcConstraint::setCreatingActor(const Step::RefPtr< IfcActorSelect > &value) {
-    m_creatingActor = value;
-}
-
-void IfcConstraint::unsetCreatingActor() {
-    m_creatingActor = Step::getUnset(getCreatingActor());
-}
-
-bool IfcConstraint::testCreatingActor() const {
-    return !Step::isUnset(getCreatingActor());
-}
-
-IfcDateTimeSelect *IfcConstraint::getCreationTime() {
-    if (Step::BaseObject::inited()) {
-        return m_creationTime.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcDateTimeSelect *IfcConstraint::getCreationTime() const
+{
+    return const_cast<IfcConstraint *>(this)->getCreationTime();
+}
+
+void IfcConstraint::setCreationTime(const Step::RefPtr< IfcDateTimeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CreationTime = value;
+}
+
+void IfcConstraint::unsetCreationTime()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CreationTime = Step::getUnset(getCreationTime());
+}
+
+bool IfcConstraint::testCreationTime() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCreationTime()) == false;
+}
+
+
+IfcLabel IfcConstraint::getUserDefinedGrade()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UserDefinedGrade;
     }
+    else 
+    {
+        return Step::getUnset(m_UserDefinedGrade);
+    }    
 }
 
-const IfcDateTimeSelect *IfcConstraint::getCreationTime() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getCreationTime();
+const IfcLabel IfcConstraint::getUserDefinedGrade() const
+{
+    return const_cast<IfcConstraint *>(this)->getUserDefinedGrade();
 }
 
-void IfcConstraint::setCreationTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
-    m_creationTime = value;
+void IfcConstraint::setUserDefinedGrade(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedGrade = value;
 }
 
-void IfcConstraint::unsetCreationTime() {
-    m_creationTime = Step::getUnset(getCreationTime());
+void IfcConstraint::unsetUserDefinedGrade()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UserDefinedGrade = Step::getUnset(getUserDefinedGrade());
 }
 
-bool IfcConstraint::testCreationTime() const {
-    return !Step::isUnset(getCreationTime());
+bool IfcConstraint::testUserDefinedGrade() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUserDefinedGrade()) == false;
 }
 
-IfcLabel IfcConstraint::getUserDefinedGrade() {
-    if (Step::BaseObject::inited()) {
-        return m_userDefinedGrade;
+Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getAggregates()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_Aggregates;
     }
-    else {
-        return Step::getUnset(m_userDefinedGrade);
+ 
+    m_Aggregates.setUnset(true);
+    return m_Aggregates;
+}
+
+const Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getAggregates() const
+{
+    return  const_cast< IfcConstraint * > (this)->getAggregates();
+}
+
+bool IfcConstraint::testAggregates() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_Aggregates.isUnset() == false;
+}
+
+Inverse_Set_IfcPropertyConstraintRelationship_0_n &IfcConstraint::getPropertiesForConstraint()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_PropertiesForConstraint;
     }
+ 
+    m_PropertiesForConstraint.setUnset(true);
+    return m_PropertiesForConstraint;
 }
 
-const IfcLabel IfcConstraint::getUserDefinedGrade() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getUserDefinedGrade();
+const Inverse_Set_IfcPropertyConstraintRelationship_0_n &IfcConstraint::getPropertiesForConstraint() const
+{
+    return  const_cast< IfcConstraint * > (this)->getPropertiesForConstraint();
 }
 
-void IfcConstraint::setUserDefinedGrade(const IfcLabel &value) {
-    m_userDefinedGrade = value;
+bool IfcConstraint::testPropertiesForConstraint() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_PropertiesForConstraint.isUnset() == false;
 }
 
-void IfcConstraint::unsetUserDefinedGrade() {
-    m_userDefinedGrade = Step::getUnset(getUserDefinedGrade());
-}
-
-bool IfcConstraint::testUserDefinedGrade() const {
-    return !Step::isUnset(getUserDefinedGrade());
-}
-
-Inverse_Set_IfcConstraintClassificationRelationship_0_n &IfcConstraint::getClassifiedAs() {
-    if (Step::BaseObject::inited()) {
-        return m_classifiedAs;
+Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getIsAggregatedIn()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_IsAggregatedIn;
     }
-    else {
-        m_classifiedAs.setUnset(true);
-        return m_classifiedAs;
+ 
+    m_IsAggregatedIn.setUnset(true);
+    return m_IsAggregatedIn;
+}
+
+const Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getIsAggregatedIn() const
+{
+    return  const_cast< IfcConstraint * > (this)->getIsAggregatedIn();
+}
+
+bool IfcConstraint::testIsAggregatedIn() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_IsAggregatedIn.isUnset() == false;
+}
+
+Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getRelatesConstraints()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatesConstraints;
     }
+ 
+    m_RelatesConstraints.setUnset(true);
+    return m_RelatesConstraints;
 }
 
-const Inverse_Set_IfcConstraintClassificationRelationship_0_n &IfcConstraint::getClassifiedAs() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getClassifiedAs();
+const Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getRelatesConstraints() const
+{
+    return  const_cast< IfcConstraint * > (this)->getRelatesConstraints();
 }
 
-bool IfcConstraint::testClassifiedAs() const {
-    return !m_classifiedAs.isUnset();
+bool IfcConstraint::testRelatesConstraints() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_RelatesConstraints.isUnset() == false;
 }
 
-Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getRelatesConstraints() {
-    if (Step::BaseObject::inited()) {
-        return m_relatesConstraints;
+Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getIsRelatedWith()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_IsRelatedWith;
     }
-    else {
-        m_relatesConstraints.setUnset(true);
-        return m_relatesConstraints;
+ 
+    m_IsRelatedWith.setUnset(true);
+    return m_IsRelatedWith;
+}
+
+const Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getIsRelatedWith() const
+{
+    return  const_cast< IfcConstraint * > (this)->getIsRelatedWith();
+}
+
+bool IfcConstraint::testIsRelatedWith() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_IsRelatedWith.isUnset() == false;
+}
+
+Inverse_Set_IfcConstraintClassificationRelationship_0_n &IfcConstraint::getClassifiedAs()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ClassifiedAs;
     }
+ 
+    m_ClassifiedAs.setUnset(true);
+    return m_ClassifiedAs;
 }
 
-const Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getRelatesConstraints() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getRelatesConstraints();
+const Inverse_Set_IfcConstraintClassificationRelationship_0_n &IfcConstraint::getClassifiedAs() const
+{
+    return  const_cast< IfcConstraint * > (this)->getClassifiedAs();
 }
 
-bool IfcConstraint::testRelatesConstraints() const {
-    return !m_relatesConstraints.isUnset();
+bool IfcConstraint::testClassifiedAs() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return m_ClassifiedAs.isUnset() == false;
 }
 
-Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getIsRelatedWith() {
-    if (Step::BaseObject::inited()) {
-        return m_isRelatedWith;
-    }
-    else {
-        m_isRelatedWith.setUnset(true);
-        return m_isRelatedWith;
-    }
-}
-
-const Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getIsRelatedWith() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getIsRelatedWith();
-}
-
-bool IfcConstraint::testIsRelatedWith() const {
-    return !m_isRelatedWith.isUnset();
-}
-
-Inverse_Set_IfcPropertyConstraintRelationship_0_n &IfcConstraint::getPropertiesForConstraint() {
-    if (Step::BaseObject::inited()) {
-        return m_propertiesForConstraint;
-    }
-    else {
-        m_propertiesForConstraint.setUnset(true);
-        return m_propertiesForConstraint;
-    }
-}
-
-const Inverse_Set_IfcPropertyConstraintRelationship_0_n &IfcConstraint::getPropertiesForConstraint() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getPropertiesForConstraint();
-}
-
-bool IfcConstraint::testPropertiesForConstraint() const {
-    return !m_propertiesForConstraint.isUnset();
-}
-
-Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getAggregates() {
-    if (Step::BaseObject::inited()) {
-        return m_aggregates;
-    }
-    else {
-        m_aggregates.setUnset(true);
-        return m_aggregates;
-    }
-}
-
-const Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getAggregates() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getAggregates();
-}
-
-bool IfcConstraint::testAggregates() const {
-    return !m_aggregates.isUnset();
-}
-
-Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getIsAggregatedIn() {
-    if (Step::BaseObject::inited()) {
-        return m_isAggregatedIn;
-    }
-    else {
-        m_isAggregatedIn.setUnset(true);
-        return m_isAggregatedIn;
-    }
-}
-
-const Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getIsAggregatedIn() const {
-    IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
-    return deConstObject->getIsAggregatedIn();
-}
-
-bool IfcConstraint::testIsAggregatedIn() const {
-    return !m_isAggregatedIn.isUnset();
-}
-
-bool IfcConstraint::init() {
+bool IfcConstraint::init()
+{
     std::string arg;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Name = Step::getUnset(m_Name);
+    }
+    else
+    {
+        m_Name = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Description = Step::getUnset(m_Description);
+    }
+    else
+    {
+        m_Description = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ConstraintGrade = IfcConstraintEnum_UNSET;
+    }
+    else
+    {
+        if (arg == ".HARD.")
+        {
+            m_ConstraintGrade = IfcConstraintEnum_HARD;
+        }
+        else if (arg == ".SOFT.")
+        {
+            m_ConstraintGrade = IfcConstraintEnum_SOFT;
+        }
+        else if (arg == ".ADVISORY.")
+        {
+            m_ConstraintGrade = IfcConstraintEnum_ADVISORY;
+        }
+        else if (arg == ".USERDEFINED.")
+        {
+            m_ConstraintGrade = IfcConstraintEnum_USERDEFINED;
+        }
+        else if (arg == ".NOTDEFINED.")
+        {
+            m_ConstraintGrade = IfcConstraintEnum_NOTDEFINED;
+        }
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ConstraintSource = Step::getUnset(m_ConstraintSource);
+    }
+    else
+    {
+        m_ConstraintSource = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CreatingActor = NULL;
+    }
+    else
+    {
+        m_CreatingActor = new IfcActorSelect;
+        if (arg[0] == '#') {
+            m_CreatingActor->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+        }
+        else if (arg[arg.length() - 1] == ')') {
+            std::string type1;
+            std::string::size_type i1;
+            i1 = arg.find('(');
+            if (i1 != std::string::npos) {
+                type1 = arg.substr(0, i1);
+                arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
+            }
+        }
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CreationTime = NULL;
+    }
+    else
+    {
+        m_CreationTime = new IfcDateTimeSelect;
+        if (arg[0] == '#') {
+            m_CreationTime->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+        }
+        else if (arg[arg.length() - 1] == ')') {
+            std::string type1;
+            std::string::size_type i1;
+            i1 = arg.find('(');
+            if (i1 != std::string::npos) {
+                type1 = arg.substr(0, i1);
+                arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
+            }
+        }
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_UserDefinedGrade = Step::getUnset(m_UserDefinedGrade);
+    }
+    else
+    {
+        m_UserDefinedGrade = Step::String::fromSPF(arg)
+;
+    }
     std::vector< Step::Id > *inverses;
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_name = Step::getUnset(m_name);
-    }
-    else {
-        m_name = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_description = Step::getUnset(m_description);
-    }
-    else {
-        m_description = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_constraintGrade = IfcConstraintEnum_UNSET;
-    }
-    else {
-        if (arg == ".HARD.") {
-            m_constraintGrade = IfcConstraintEnum_HARD;
-        }
-        else if (arg == ".SOFT.") {
-            m_constraintGrade = IfcConstraintEnum_SOFT;
-        }
-        else if (arg == ".ADVISORY.") {
-            m_constraintGrade = IfcConstraintEnum_ADVISORY;
-        }
-        else if (arg == ".USERDEFINED.") {
-            m_constraintGrade = IfcConstraintEnum_USERDEFINED;
-        }
-        else if (arg == ".NOTDEFINED.") {
-            m_constraintGrade = IfcConstraintEnum_NOTDEFINED;
-        }
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_constraintSource = Step::getUnset(m_constraintSource);
-    }
-    else {
-        m_constraintSource = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_creatingActor = NULL;
-    }
-    else {
-        m_creatingActor = new IfcActorSelect;
-        if (arg[0] == '#') {
-            m_creatingActor->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
-        }
-        else if (arg[arg.length() - 1] == ')') {
-            std::string type1;
-            std::string::size_type i1;
-            i1 = arg.find('(');
-            if (i1 != std::string::npos) {
-                type1 = arg.substr(0, i1);
-                arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-            }
-        }
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_creationTime = NULL;
-    }
-    else {
-        m_creationTime = new IfcDateTimeSelect;
-        if (arg[0] == '#') {
-            m_creationTime->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
-        }
-        else if (arg[arg.length() - 1] == ')') {
-            std::string type1;
-            std::string::size_type i1;
-            i1 = arg.find('(');
-            if (i1 != std::string::npos) {
-                type1 = arg.substr(0, i1);
-                arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-            }
-        }
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_userDefinedGrade = Step::getUnset(m_userDefinedGrade);
-    }
-    else {
-        m_userDefinedGrade = Step::String::fromSPF(arg);
-    }
-    inverses = m_args->getInverses(IfcConstraintClassificationRelationship::getClassType(), 0);
-    if (inverses) {
+    inverses = m_args->getInverses(IfcConstraintAggregationRelationship::getClassType(), 2);
+    if (inverses)
+    {
         unsigned int i;
-        m_classifiedAs.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_classifiedAs.insert(static_cast< IfcConstraintClassificationRelationship * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
-    inverses = m_args->getInverses(IfcConstraintRelationship::getClassType(), 2);
-    if (inverses) {
-        unsigned int i;
-        m_relatesConstraints.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_relatesConstraints.insert(static_cast< IfcConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
-    inverses = m_args->getInverses(IfcConstraintRelationship::getClassType(), 3);
-    if (inverses) {
-        unsigned int i;
-        m_isRelatedWith.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_isRelatedWith.insert(static_cast< IfcConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        m_Aggregates.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_Aggregates.insert(static_cast< IfcConstraintAggregationRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcPropertyConstraintRelationship::getClassType(), 0);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_propertiesForConstraint.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_propertiesForConstraint.insert(static_cast< IfcPropertyConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
-    inverses = m_args->getInverses(IfcConstraintAggregationRelationship::getClassType(), 2);
-    if (inverses) {
-        unsigned int i;
-        m_aggregates.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_aggregates.insert(static_cast< IfcConstraintAggregationRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        m_PropertiesForConstraint.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_PropertiesForConstraint.insert(static_cast< IfcPropertyConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcConstraintAggregationRelationship::getClassType(), 3);
-    if (inverses) {
+    if (inverses)
+    {
         unsigned int i;
-        m_isAggregatedIn.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_isAggregatedIn.insert(static_cast< IfcConstraintAggregationRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        m_IsAggregatedIn.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_IsAggregatedIn.insert(static_cast< IfcConstraintAggregationRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcConstraintRelationship::getClassType(), 2);
+    if (inverses)
+    {
+        unsigned int i;
+        m_RelatesConstraints.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_RelatesConstraints.insert(static_cast< IfcConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcConstraintRelationship::getClassType(), 3);
+    if (inverses)
+    {
+        unsigned int i;
+        m_IsRelatedWith.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_IsRelatedWith.insert(static_cast< IfcConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcConstraintClassificationRelationship::getClassType(), 0);
+    if (inverses)
+    {
+        unsigned int i;
+        m_ClassifiedAs.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_ClassifiedAs.insert(static_cast< IfcConstraintClassificationRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
 }
 
-void IfcConstraint::copy(const IfcConstraint &obj, const CopyOp &copyop) {
+void IfcConstraint::copy(const IfcConstraint &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    setName(obj.m_name);
-    setDescription(obj.m_description);
-    setConstraintGrade(obj.m_constraintGrade);
-    setConstraintSource(obj.m_constraintSource);
-    m_creatingActor = new IfcActorSelect;
-    m_creatingActor->copy(*(obj.m_creatingActor.get()), copyop);
-    m_creationTime = new IfcDateTimeSelect;
-    m_creationTime->copy(*(obj.m_creationTime.get()), copyop);
-    setUserDefinedGrade(obj.m_userDefinedGrade);
+    setName(obj.m_Name);
+    setDescription(obj.m_Description);
+    setConstraintGrade(obj.m_ConstraintGrade);
+    setConstraintSource(obj.m_ConstraintSource);
+    setCreatingActor((IfcActorSelect*)copyop(obj.m_CreatingActor.get()));
+    setCreationTime((IfcDateTimeSelect*)copyop(obj.m_CreationTime.get()));
+    setUserDefinedGrade(obj.m_UserDefinedGrade);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConstraint::s_type("IfcConstraint");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcConstraint, Step::BaseEntity)

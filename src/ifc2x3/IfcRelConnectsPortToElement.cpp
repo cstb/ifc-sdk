@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,147 +24,158 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcRelConnectsPortToElement.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcElement.h>
 #include <ifc2x3/IfcPort.h>
-#include <ifc2x3/IfcRelConnects.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcRelConnectsPortToElement::IfcRelConnectsPortToElement(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatingPort = NULL;
-    m_relatedElement = NULL;
+IfcRelConnectsPortToElement::IfcRelConnectsPortToElement(Step::Id id, Step::SPFData *args) : 
+    IfcRelConnects(id, args)
+{
+    m_RelatedElement = NULL;
+    m_RelatingPort = NULL;
 }
 
-IfcRelConnectsPortToElement::~IfcRelConnectsPortToElement() {
+IfcRelConnectsPortToElement::~IfcRelConnectsPortToElement()
+{}
+
+bool IfcRelConnectsPortToElement::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcRelConnectsPortToElement(this);
 }
 
-bool IfcRelConnectsPortToElement::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcRelConnectsPortToElement(this);
-}
-
-const std::string &IfcRelConnectsPortToElement::type() const {
-    return IfcRelConnectsPortToElement::s_type.getName();
-}
-
-const Step::ClassType &IfcRelConnectsPortToElement::getClassType() {
-    return IfcRelConnectsPortToElement::s_type;
-}
-
-const Step::ClassType &IfcRelConnectsPortToElement::getType() const {
-    return IfcRelConnectsPortToElement::s_type;
-}
-
-bool IfcRelConnectsPortToElement::isOfType(const Step::ClassType &t) const {
-    return IfcRelConnectsPortToElement::s_type == t ? true : IfcRelConnects::isOfType(t);
-}
-
-IfcPort *IfcRelConnectsPortToElement::getRelatingPort() {
-    if (Step::BaseObject::inited()) {
-        return m_relatingPort.get();
+IfcElement *IfcRelConnectsPortToElement::getRelatedElement()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedElement.get();
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcPort *IfcRelConnectsPortToElement::getRelatingPort() const {
-    IfcRelConnectsPortToElement * deConstObject = const_cast< IfcRelConnectsPortToElement * > (this);
-    return deConstObject->getRelatingPort();
+const IfcElement *IfcRelConnectsPortToElement::getRelatedElement() const
+{
+    return const_cast< IfcRelConnectsPortToElement * > (this)->getRelatedElement();
 }
 
-void IfcRelConnectsPortToElement::setRelatingPort(const Step::RefPtr< IfcPort > &value) {
-    if (m_relatingPort.valid()) {
-        m_relatingPort->m_containedIn = NULL;
+void IfcRelConnectsPortToElement::setRelatedElement(const Step::RefPtr< IfcElement > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatedElement.valid())
+    {
+        m_RelatedElement->m_HasPorts.erase(this);
     }
-    if (value.valid()) {
-        value->m_containedIn = this;
+    if (value.valid() )
+    {
+       value->m_HasPorts.insert(this);
     }
-    m_relatingPort = value;
+    m_RelatedElement = value;
 }
 
-void IfcRelConnectsPortToElement::unsetRelatingPort() {
-    m_relatingPort = Step::getUnset(getRelatingPort());
+void IfcRelConnectsPortToElement::unsetRelatedElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedElement = Step::getUnset(getRelatedElement());
 }
 
-bool IfcRelConnectsPortToElement::testRelatingPort() const {
-    return !Step::isUnset(getRelatingPort());
+bool IfcRelConnectsPortToElement::testRelatedElement() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatedElement()) == false;
 }
 
-IfcElement *IfcRelConnectsPortToElement::getRelatedElement() {
-    if (Step::BaseObject::inited()) {
-        return m_relatedElement.get();
+IfcPort *IfcRelConnectsPortToElement::getRelatingPort()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingPort.get();
     }
-    else {
+    else
+    {
         return NULL;
     }
 }
 
-const IfcElement *IfcRelConnectsPortToElement::getRelatedElement() const {
-    IfcRelConnectsPortToElement * deConstObject = const_cast< IfcRelConnectsPortToElement * > (this);
-    return deConstObject->getRelatedElement();
+const IfcPort *IfcRelConnectsPortToElement::getRelatingPort() const
+{
+    return const_cast< IfcRelConnectsPortToElement * > (this)->getRelatingPort();
 }
 
-void IfcRelConnectsPortToElement::setRelatedElement(const Step::RefPtr< IfcElement > &value) {
-    if (m_relatedElement.valid()) {
-        m_relatedElement->m_hasPorts.erase(this);
+void IfcRelConnectsPortToElement::setRelatingPort(const Step::RefPtr< IfcPort > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingPort.valid())
+    {
+        m_RelatingPort->m_ContainedIn = NULL;
     }
-    if (value.valid()) {
-        value->m_hasPorts.insert(this);
+    if (value.valid() )
+    {
+        value->m_ContainedIn = this;
     }
-    m_relatedElement = value;
+    m_RelatingPort = value;
 }
 
-void IfcRelConnectsPortToElement::unsetRelatedElement() {
-    m_relatedElement = Step::getUnset(getRelatedElement());
+void IfcRelConnectsPortToElement::unsetRelatingPort()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingPort = Step::getUnset(getRelatingPort());
 }
 
-bool IfcRelConnectsPortToElement::testRelatedElement() const {
-    return !Step::isUnset(getRelatedElement());
+bool IfcRelConnectsPortToElement::testRelatingPort() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRelatingPort()) == false;
 }
 
-bool IfcRelConnectsPortToElement::init() {
-    bool status = IfcRelConnects::init();
-    std::string arg;
-    if (!status) {
+bool IfcRelConnectsPortToElement::init()
+{
+    if (IfcRelConnects::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatingPort = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedElement = NULL;
     }
-    else {
-        m_relatingPort = static_cast< IfcPort * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_RelatedElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_relatedElement = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingPort = NULL;
     }
-    else {
-        m_relatedElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_RelatingPort = static_cast< IfcPort * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcRelConnectsPortToElement::copy(const IfcRelConnectsPortToElement &obj, const CopyOp &copyop) {
+void IfcRelConnectsPortToElement::copy(const IfcRelConnectsPortToElement &obj, const CopyOp &copyop)
+{
     IfcRelConnects::copy(obj, copyop);
-    setRelatingPort((IfcPort*)copyop(obj.m_relatingPort.get()));
-    setRelatedElement((IfcElement*)copyop(obj.m_relatedElement.get()));
+    setRelatedElement((IfcElement*)copyop(obj.m_RelatedElement.get()));
+    setRelatingPort((IfcPort*)copyop(obj.m_RelatingPort.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelConnectsPortToElement::s_type("IfcRelConnectsPortToElement");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcRelConnectsPortToElement, IfcRelConnects)

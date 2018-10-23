@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,99 +24,95 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcArbitraryOpenProfileDef.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcBoundedCurve.h>
-#include <ifc2x3/IfcProfileDef.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/Referenced.h>
+
+#include <Step/SPFData.h>
 #include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcArbitraryOpenProfileDef::IfcArbitraryOpenProfileDef(Step::Id id, Step::SPFData *args) : IfcProfileDef(id, args) {
-    m_curve = NULL;
+IfcArbitraryOpenProfileDef::IfcArbitraryOpenProfileDef(Step::Id id, Step::SPFData *args) : 
+    IfcProfileDef(id, args)
+{
+    m_Curve = NULL;
 }
 
-IfcArbitraryOpenProfileDef::~IfcArbitraryOpenProfileDef() {
+IfcArbitraryOpenProfileDef::~IfcArbitraryOpenProfileDef()
+{}
+
+bool IfcArbitraryOpenProfileDef::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcArbitraryOpenProfileDef(this);
 }
 
-bool IfcArbitraryOpenProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcArbitraryOpenProfileDef(this);
-}
 
-const std::string &IfcArbitraryOpenProfileDef::type() const {
-    return IfcArbitraryOpenProfileDef::s_type.getName();
-}
-
-const Step::ClassType &IfcArbitraryOpenProfileDef::getClassType() {
-    return IfcArbitraryOpenProfileDef::s_type;
-}
-
-const Step::ClassType &IfcArbitraryOpenProfileDef::getType() const {
-    return IfcArbitraryOpenProfileDef::s_type;
-}
-
-bool IfcArbitraryOpenProfileDef::isOfType(const Step::ClassType &t) const {
-    return IfcArbitraryOpenProfileDef::s_type == t ? true : IfcProfileDef::isOfType(t);
-}
-
-IfcBoundedCurve *IfcArbitraryOpenProfileDef::getCurve() {
-    if (Step::BaseObject::inited()) {
-        return m_curve.get();
+IfcBoundedCurve *IfcArbitraryOpenProfileDef::getCurve()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Curve.get();
     }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcBoundedCurve *IfcArbitraryOpenProfileDef::getCurve() const {
-    IfcArbitraryOpenProfileDef * deConstObject = const_cast< IfcArbitraryOpenProfileDef * > (this);
-    return deConstObject->getCurve();
+const IfcBoundedCurve *IfcArbitraryOpenProfileDef::getCurve() const
+{
+    return const_cast<IfcArbitraryOpenProfileDef *>(this)->getCurve();
 }
 
-void IfcArbitraryOpenProfileDef::setCurve(const Step::RefPtr< IfcBoundedCurve > &value) {
-    m_curve = value;
+void IfcArbitraryOpenProfileDef::setCurve(const Step::RefPtr< IfcBoundedCurve > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Curve = value;
 }
 
-void IfcArbitraryOpenProfileDef::unsetCurve() {
-    m_curve = Step::getUnset(getCurve());
+void IfcArbitraryOpenProfileDef::unsetCurve()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Curve = Step::getUnset(getCurve());
 }
 
-bool IfcArbitraryOpenProfileDef::testCurve() const {
-    return !Step::isUnset(getCurve());
+bool IfcArbitraryOpenProfileDef::testCurve() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCurve()) == false;
 }
 
-bool IfcArbitraryOpenProfileDef::init() {
-    bool status = IfcProfileDef::init();
-    std::string arg;
-    if (!status) {
+bool IfcArbitraryOpenProfileDef::init()
+{
+    if (IfcProfileDef::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_curve = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_Curve = NULL;
     }
-    else {
-        m_curve = static_cast< IfcBoundedCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
+    else
+    {
+        m_Curve = static_cast< IfcBoundedCurve * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
     }
     return true;
 }
 
-void IfcArbitraryOpenProfileDef::copy(const IfcArbitraryOpenProfileDef &obj, const CopyOp &copyop) {
+void IfcArbitraryOpenProfileDef::copy(const IfcArbitraryOpenProfileDef &obj, const CopyOp &copyop)
+{
     IfcProfileDef::copy(obj, copyop);
-    setCurve((IfcBoundedCurve*)copyop(obj.m_curve.get()));
+    setCurve((IfcBoundedCurve*)copyop(obj.m_Curve.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcArbitraryOpenProfileDef::s_type("IfcArbitraryOpenProfileDef");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcArbitraryOpenProfileDef, IfcProfileDef)

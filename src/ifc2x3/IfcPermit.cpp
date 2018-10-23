@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,96 +24,94 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPermit.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcControl.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPermit::IfcPermit(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
-    m_permitID = Step::getUnset(m_permitID);
+IfcPermit::IfcPermit(Step::Id id, Step::SPFData *args) : 
+    IfcControl(id, args)
+{
+    m_PermitID = Step::getUnset(m_PermitID);
 }
 
-IfcPermit::~IfcPermit() {
+IfcPermit::~IfcPermit()
+{}
+
+bool IfcPermit::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPermit(this);
 }
 
-bool IfcPermit::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPermit(this);
-}
 
-const std::string &IfcPermit::type() const {
-    return IfcPermit::s_type.getName();
-}
-
-const Step::ClassType &IfcPermit::getClassType() {
-    return IfcPermit::s_type;
-}
-
-const Step::ClassType &IfcPermit::getType() const {
-    return IfcPermit::s_type;
-}
-
-bool IfcPermit::isOfType(const Step::ClassType &t) const {
-    return IfcPermit::s_type == t ? true : IfcControl::isOfType(t);
-}
-
-IfcIdentifier IfcPermit::getPermitID() {
-    if (Step::BaseObject::inited()) {
-        return m_permitID;
+IfcIdentifier IfcPermit::getPermitID()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PermitID;
     }
-    else {
-        return Step::getUnset(m_permitID);
-    }
+    else 
+    {
+        return Step::getUnset(m_PermitID);
+    }    
 }
 
-const IfcIdentifier IfcPermit::getPermitID() const {
-    IfcPermit * deConstObject = const_cast< IfcPermit * > (this);
-    return deConstObject->getPermitID();
+const IfcIdentifier IfcPermit::getPermitID() const
+{
+    return const_cast<IfcPermit *>(this)->getPermitID();
 }
 
-void IfcPermit::setPermitID(const IfcIdentifier &value) {
-    m_permitID = value;
+void IfcPermit::setPermitID(const IfcIdentifier &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PermitID = value;
 }
 
-void IfcPermit::unsetPermitID() {
-    m_permitID = Step::getUnset(getPermitID());
+void IfcPermit::unsetPermitID()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PermitID = Step::getUnset(getPermitID());
 }
 
-bool IfcPermit::testPermitID() const {
-    return !Step::isUnset(getPermitID());
+bool IfcPermit::testPermitID() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPermitID()) == false;
 }
 
-bool IfcPermit::init() {
-    bool status = IfcControl::init();
-    std::string arg;
-    if (!status) {
+bool IfcPermit::init()
+{
+    if (IfcControl::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_permitID = Step::getUnset(m_permitID);
+    if (arg == "$" || arg == "*")
+    {
+        m_PermitID = Step::getUnset(m_PermitID);
     }
-    else {
-        m_permitID = Step::String::fromSPF(arg);
+    else
+    {
+        m_PermitID = Step::String::fromSPF(arg)
+;
     }
     return true;
 }
 
-void IfcPermit::copy(const IfcPermit &obj, const CopyOp &copyop) {
+void IfcPermit::copy(const IfcPermit &obj, const CopyOp &copyop)
+{
     IfcControl::copy(obj, copyop);
-    setPermitID(obj.m_permitID);
+    setPermitID(obj.m_PermitID);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPermit::s_type("IfcPermit");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPermit, IfcControl)

@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,127 +24,134 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcPropertyReferenceValue.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcObjectReferenceSelect.h>
-#include <ifc2x3/IfcSimpleProperty.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcPropertyReferenceValue::IfcPropertyReferenceValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
-    m_usageName = Step::getUnset(m_usageName);
-    m_propertyReference = NULL;
+IfcPropertyReferenceValue::IfcPropertyReferenceValue(Step::Id id, Step::SPFData *args) : 
+    IfcSimpleProperty(id, args)
+{
+    m_UsageName = Step::getUnset(m_UsageName);
+    m_PropertyReference = NULL;
 }
 
-IfcPropertyReferenceValue::~IfcPropertyReferenceValue() {
+IfcPropertyReferenceValue::~IfcPropertyReferenceValue()
+{}
+
+bool IfcPropertyReferenceValue::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcPropertyReferenceValue(this);
 }
 
-bool IfcPropertyReferenceValue::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcPropertyReferenceValue(this);
-}
 
-const std::string &IfcPropertyReferenceValue::type() const {
-    return IfcPropertyReferenceValue::s_type.getName();
-}
-
-const Step::ClassType &IfcPropertyReferenceValue::getClassType() {
-    return IfcPropertyReferenceValue::s_type;
-}
-
-const Step::ClassType &IfcPropertyReferenceValue::getType() const {
-    return IfcPropertyReferenceValue::s_type;
-}
-
-bool IfcPropertyReferenceValue::isOfType(const Step::ClassType &t) const {
-    return IfcPropertyReferenceValue::s_type == t ? true : IfcSimpleProperty::isOfType(t);
-}
-
-IfcLabel IfcPropertyReferenceValue::getUsageName() {
-    if (Step::BaseObject::inited()) {
-        return m_usageName;
+IfcLabel IfcPropertyReferenceValue::getUsageName()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_UsageName;
     }
-    else {
-        return Step::getUnset(m_usageName);
+    else 
+    {
+        return Step::getUnset(m_UsageName);
+    }    
+}
+
+const IfcLabel IfcPropertyReferenceValue::getUsageName() const
+{
+    return const_cast<IfcPropertyReferenceValue *>(this)->getUsageName();
+}
+
+void IfcPropertyReferenceValue::setUsageName(const IfcLabel &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UsageName = value;
+}
+
+void IfcPropertyReferenceValue::unsetUsageName()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_UsageName = Step::getUnset(getUsageName());
+}
+
+bool IfcPropertyReferenceValue::testUsageName() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getUsageName()) == false;
+}
+
+
+IfcObjectReferenceSelect *IfcPropertyReferenceValue::getPropertyReference()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_PropertyReference.get();
     }
-}
-
-const IfcLabel IfcPropertyReferenceValue::getUsageName() const {
-    IfcPropertyReferenceValue * deConstObject = const_cast< IfcPropertyReferenceValue * > (this);
-    return deConstObject->getUsageName();
-}
-
-void IfcPropertyReferenceValue::setUsageName(const IfcLabel &value) {
-    m_usageName = value;
-}
-
-void IfcPropertyReferenceValue::unsetUsageName() {
-    m_usageName = Step::getUnset(getUsageName());
-}
-
-bool IfcPropertyReferenceValue::testUsageName() const {
-    return !Step::isUnset(getUsageName());
-}
-
-IfcObjectReferenceSelect *IfcPropertyReferenceValue::getPropertyReference() {
-    if (Step::BaseObject::inited()) {
-        return m_propertyReference.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcObjectReferenceSelect *IfcPropertyReferenceValue::getPropertyReference() const {
-    IfcPropertyReferenceValue * deConstObject = const_cast< IfcPropertyReferenceValue * > (this);
-    return deConstObject->getPropertyReference();
+const IfcObjectReferenceSelect *IfcPropertyReferenceValue::getPropertyReference() const
+{
+    return const_cast<IfcPropertyReferenceValue *>(this)->getPropertyReference();
 }
 
-void IfcPropertyReferenceValue::setPropertyReference(const Step::RefPtr< IfcObjectReferenceSelect > &value) {
-    m_propertyReference = value;
+void IfcPropertyReferenceValue::setPropertyReference(const Step::RefPtr< IfcObjectReferenceSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PropertyReference = value;
 }
 
-void IfcPropertyReferenceValue::unsetPropertyReference() {
-    m_propertyReference = Step::getUnset(getPropertyReference());
+void IfcPropertyReferenceValue::unsetPropertyReference()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_PropertyReference = Step::getUnset(getPropertyReference());
 }
 
-bool IfcPropertyReferenceValue::testPropertyReference() const {
-    return !Step::isUnset(getPropertyReference());
+bool IfcPropertyReferenceValue::testPropertyReference() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getPropertyReference()) == false;
 }
 
-bool IfcPropertyReferenceValue::init() {
-    bool status = IfcSimpleProperty::init();
-    std::string arg;
-    if (!status) {
+bool IfcPropertyReferenceValue::init()
+{
+    if (IfcSimpleProperty::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_usageName = Step::getUnset(m_usageName);
+    if (arg == "$" || arg == "*")
+    {
+        m_UsageName = Step::getUnset(m_UsageName);
     }
-    else {
-        m_usageName = Step::String::fromSPF(arg);
+    else
+    {
+        m_UsageName = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_propertyReference = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_PropertyReference = NULL;
     }
-    else {
-        m_propertyReference = new IfcObjectReferenceSelect;
+    else
+    {
+        m_PropertyReference = new IfcObjectReferenceSelect;
         if (arg[0] == '#') {
-            m_propertyReference->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_PropertyReference->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -150,12 +166,12 @@ bool IfcPropertyReferenceValue::init() {
     return true;
 }
 
-void IfcPropertyReferenceValue::copy(const IfcPropertyReferenceValue &obj, const CopyOp &copyop) {
+void IfcPropertyReferenceValue::copy(const IfcPropertyReferenceValue &obj, const CopyOp &copyop)
+{
     IfcSimpleProperty::copy(obj, copyop);
-    setUsageName(obj.m_usageName);
-    m_propertyReference = new IfcObjectReferenceSelect;
-    m_propertyReference->copy(*(obj.m_propertyReference.get()), copyop);
+    setUsageName(obj.m_UsageName);
+    setPropertyReference((IfcObjectReferenceSelect*)copyop(obj.m_PropertyReference.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertyReferenceValue::s_type("IfcPropertyReferenceValue");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcPropertyReferenceValue, IfcSimpleProperty)

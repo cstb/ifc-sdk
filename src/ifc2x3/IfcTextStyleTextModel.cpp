@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,251 +24,308 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcTextStyleTextModel.h>
 
-#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/IfcSizeSelect.h>
+#include <ifc2x3/IfcSizeSelect.h>
+#include <ifc2x3/IfcSizeSelect.h>
+#include <ifc2x3/IfcSizeSelect.h>
+
+#include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseCopyOp.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseObject.h>
-#include <Step/String.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <stdlib.h>
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcTextStyleTextModel::IfcTextStyleTextModel(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_textIndent = NULL;
-    m_textAlign = Step::getUnset(m_textAlign);
-    m_textDecoration = Step::getUnset(m_textDecoration);
-    m_letterSpacing = NULL;
-    m_wordSpacing = NULL;
-    m_textTransform = Step::getUnset(m_textTransform);
-    m_lineHeight = NULL;
+IfcTextStyleTextModel::IfcTextStyleTextModel(Step::Id id, Step::SPFData *args) : 
+    Step::BaseEntity(id, args)
+{
+    m_TextIndent = NULL;
+    m_TextAlign = Step::getUnset(m_TextAlign);
+    m_TextDecoration = Step::getUnset(m_TextDecoration);
+    m_LetterSpacing = NULL;
+    m_WordSpacing = NULL;
+    m_TextTransform = Step::getUnset(m_TextTransform);
+    m_LineHeight = NULL;
 }
 
-IfcTextStyleTextModel::~IfcTextStyleTextModel() {
+IfcTextStyleTextModel::~IfcTextStyleTextModel()
+{}
+
+bool IfcTextStyleTextModel::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcTextStyleTextModel(this);
 }
 
-bool IfcTextStyleTextModel::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcTextStyleTextModel(this);
-}
 
-const std::string &IfcTextStyleTextModel::type() const {
-    return IfcTextStyleTextModel::s_type.getName();
-}
-
-const Step::ClassType &IfcTextStyleTextModel::getClassType() {
-    return IfcTextStyleTextModel::s_type;
-}
-
-const Step::ClassType &IfcTextStyleTextModel::getType() const {
-    return IfcTextStyleTextModel::s_type;
-}
-
-bool IfcTextStyleTextModel::isOfType(const Step::ClassType &t) const {
-    return IfcTextStyleTextModel::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-IfcSizeSelect *IfcTextStyleTextModel::getTextIndent() {
-    if (Step::BaseObject::inited()) {
-        return m_textIndent.get();
+IfcSizeSelect *IfcTextStyleTextModel::getTextIndent()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TextIndent.get();
     }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcSizeSelect *IfcTextStyleTextModel::getTextIndent() const
+{
+    return const_cast<IfcTextStyleTextModel *>(this)->getTextIndent();
+}
+
+void IfcTextStyleTextModel::setTextIndent(const Step::RefPtr< IfcSizeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextIndent = value;
+}
+
+void IfcTextStyleTextModel::unsetTextIndent()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextIndent = Step::getUnset(getTextIndent());
+}
+
+bool IfcTextStyleTextModel::testTextIndent() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTextIndent()) == false;
+}
+
+
+IfcTextAlignment IfcTextStyleTextModel::getTextAlign()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TextAlign;
     }
+    else 
+    {
+        return Step::getUnset(m_TextAlign);
+    }    
 }
 
-const IfcSizeSelect *IfcTextStyleTextModel::getTextIndent() const {
-    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
-    return deConstObject->getTextIndent();
+const IfcTextAlignment IfcTextStyleTextModel::getTextAlign() const
+{
+    return const_cast<IfcTextStyleTextModel *>(this)->getTextAlign();
 }
 
-void IfcTextStyleTextModel::setTextIndent(const Step::RefPtr< IfcSizeSelect > &value) {
-    m_textIndent = value;
+void IfcTextStyleTextModel::setTextAlign(const IfcTextAlignment &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextAlign = value;
 }
 
-void IfcTextStyleTextModel::unsetTextIndent() {
-    m_textIndent = Step::getUnset(getTextIndent());
+void IfcTextStyleTextModel::unsetTextAlign()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextAlign = Step::getUnset(getTextAlign());
 }
 
-bool IfcTextStyleTextModel::testTextIndent() const {
-    return !Step::isUnset(getTextIndent());
+bool IfcTextStyleTextModel::testTextAlign() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTextAlign()) == false;
 }
 
-IfcTextAlignment IfcTextStyleTextModel::getTextAlign() {
-    if (Step::BaseObject::inited()) {
-        return m_textAlign;
+
+IfcTextDecoration IfcTextStyleTextModel::getTextDecoration()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TextDecoration;
     }
-    else {
-        return Step::getUnset(m_textAlign);
+    else 
+    {
+        return Step::getUnset(m_TextDecoration);
+    }    
+}
+
+const IfcTextDecoration IfcTextStyleTextModel::getTextDecoration() const
+{
+    return const_cast<IfcTextStyleTextModel *>(this)->getTextDecoration();
+}
+
+void IfcTextStyleTextModel::setTextDecoration(const IfcTextDecoration &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextDecoration = value;
+}
+
+void IfcTextStyleTextModel::unsetTextDecoration()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextDecoration = Step::getUnset(getTextDecoration());
+}
+
+bool IfcTextStyleTextModel::testTextDecoration() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTextDecoration()) == false;
+}
+
+
+IfcSizeSelect *IfcTextStyleTextModel::getLetterSpacing()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LetterSpacing.get();
     }
-}
-
-const IfcTextAlignment IfcTextStyleTextModel::getTextAlign() const {
-    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
-    return deConstObject->getTextAlign();
-}
-
-void IfcTextStyleTextModel::setTextAlign(const IfcTextAlignment &value) {
-    m_textAlign = value;
-}
-
-void IfcTextStyleTextModel::unsetTextAlign() {
-    m_textAlign = Step::getUnset(getTextAlign());
-}
-
-bool IfcTextStyleTextModel::testTextAlign() const {
-    return !Step::isUnset(getTextAlign());
-}
-
-IfcTextDecoration IfcTextStyleTextModel::getTextDecoration() {
-    if (Step::BaseObject::inited()) {
-        return m_textDecoration;
-    }
-    else {
-        return Step::getUnset(m_textDecoration);
-    }
-}
-
-const IfcTextDecoration IfcTextStyleTextModel::getTextDecoration() const {
-    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
-    return deConstObject->getTextDecoration();
-}
-
-void IfcTextStyleTextModel::setTextDecoration(const IfcTextDecoration &value) {
-    m_textDecoration = value;
-}
-
-void IfcTextStyleTextModel::unsetTextDecoration() {
-    m_textDecoration = Step::getUnset(getTextDecoration());
-}
-
-bool IfcTextStyleTextModel::testTextDecoration() const {
-    return !Step::isUnset(getTextDecoration());
-}
-
-IfcSizeSelect *IfcTextStyleTextModel::getLetterSpacing() {
-    if (Step::BaseObject::inited()) {
-        return m_letterSpacing.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcSizeSelect *IfcTextStyleTextModel::getLetterSpacing() const
+{
+    return const_cast<IfcTextStyleTextModel *>(this)->getLetterSpacing();
+}
+
+void IfcTextStyleTextModel::setLetterSpacing(const Step::RefPtr< IfcSizeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LetterSpacing = value;
+}
+
+void IfcTextStyleTextModel::unsetLetterSpacing()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LetterSpacing = Step::getUnset(getLetterSpacing());
+}
+
+bool IfcTextStyleTextModel::testLetterSpacing() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLetterSpacing()) == false;
+}
+
+
+IfcSizeSelect *IfcTextStyleTextModel::getWordSpacing()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_WordSpacing.get();
     }
-}
-
-const IfcSizeSelect *IfcTextStyleTextModel::getLetterSpacing() const {
-    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
-    return deConstObject->getLetterSpacing();
-}
-
-void IfcTextStyleTextModel::setLetterSpacing(const Step::RefPtr< IfcSizeSelect > &value) {
-    m_letterSpacing = value;
-}
-
-void IfcTextStyleTextModel::unsetLetterSpacing() {
-    m_letterSpacing = Step::getUnset(getLetterSpacing());
-}
-
-bool IfcTextStyleTextModel::testLetterSpacing() const {
-    return !Step::isUnset(getLetterSpacing());
-}
-
-IfcSizeSelect *IfcTextStyleTextModel::getWordSpacing() {
-    if (Step::BaseObject::inited()) {
-        return m_wordSpacing.get();
-    }
-    else {
+    else 
+    {
         return NULL;
+    }    
+}
+
+const IfcSizeSelect *IfcTextStyleTextModel::getWordSpacing() const
+{
+    return const_cast<IfcTextStyleTextModel *>(this)->getWordSpacing();
+}
+
+void IfcTextStyleTextModel::setWordSpacing(const Step::RefPtr< IfcSizeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WordSpacing = value;
+}
+
+void IfcTextStyleTextModel::unsetWordSpacing()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WordSpacing = Step::getUnset(getWordSpacing());
+}
+
+bool IfcTextStyleTextModel::testWordSpacing() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getWordSpacing()) == false;
+}
+
+
+IfcTextTransformation IfcTextStyleTextModel::getTextTransform()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_TextTransform;
     }
+    else 
+    {
+        return Step::getUnset(m_TextTransform);
+    }    
 }
 
-const IfcSizeSelect *IfcTextStyleTextModel::getWordSpacing() const {
-    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
-    return deConstObject->getWordSpacing();
+const IfcTextTransformation IfcTextStyleTextModel::getTextTransform() const
+{
+    return const_cast<IfcTextStyleTextModel *>(this)->getTextTransform();
 }
 
-void IfcTextStyleTextModel::setWordSpacing(const Step::RefPtr< IfcSizeSelect > &value) {
-    m_wordSpacing = value;
+void IfcTextStyleTextModel::setTextTransform(const IfcTextTransformation &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextTransform = value;
 }
 
-void IfcTextStyleTextModel::unsetWordSpacing() {
-    m_wordSpacing = Step::getUnset(getWordSpacing());
+void IfcTextStyleTextModel::unsetTextTransform()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_TextTransform = Step::getUnset(getTextTransform());
 }
 
-bool IfcTextStyleTextModel::testWordSpacing() const {
-    return !Step::isUnset(getWordSpacing());
+bool IfcTextStyleTextModel::testTextTransform() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getTextTransform()) == false;
 }
 
-IfcTextTransformation IfcTextStyleTextModel::getTextTransform() {
-    if (Step::BaseObject::inited()) {
-        return m_textTransform;
+
+IfcSizeSelect *IfcTextStyleTextModel::getLineHeight()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_LineHeight.get();
     }
-    else {
-        return Step::getUnset(m_textTransform);
-    }
-}
-
-const IfcTextTransformation IfcTextStyleTextModel::getTextTransform() const {
-    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
-    return deConstObject->getTextTransform();
-}
-
-void IfcTextStyleTextModel::setTextTransform(const IfcTextTransformation &value) {
-    m_textTransform = value;
-}
-
-void IfcTextStyleTextModel::unsetTextTransform() {
-    m_textTransform = Step::getUnset(getTextTransform());
-}
-
-bool IfcTextStyleTextModel::testTextTransform() const {
-    return !Step::isUnset(getTextTransform());
-}
-
-IfcSizeSelect *IfcTextStyleTextModel::getLineHeight() {
-    if (Step::BaseObject::inited()) {
-        return m_lineHeight.get();
-    }
-    else {
+    else 
+    {
         return NULL;
-    }
+    }    
 }
 
-const IfcSizeSelect *IfcTextStyleTextModel::getLineHeight() const {
-    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
-    return deConstObject->getLineHeight();
+const IfcSizeSelect *IfcTextStyleTextModel::getLineHeight() const
+{
+    return const_cast<IfcTextStyleTextModel *>(this)->getLineHeight();
 }
 
-void IfcTextStyleTextModel::setLineHeight(const Step::RefPtr< IfcSizeSelect > &value) {
-    m_lineHeight = value;
+void IfcTextStyleTextModel::setLineHeight(const Step::RefPtr< IfcSizeSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LineHeight = value;
 }
 
-void IfcTextStyleTextModel::unsetLineHeight() {
-    m_lineHeight = Step::getUnset(getLineHeight());
+void IfcTextStyleTextModel::unsetLineHeight()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_LineHeight = Step::getUnset(getLineHeight());
 }
 
-bool IfcTextStyleTextModel::testLineHeight() const {
-    return !Step::isUnset(getLineHeight());
+bool IfcTextStyleTextModel::testLineHeight() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getLineHeight()) == false;
 }
 
-bool IfcTextStyleTextModel::init() {
+bool IfcTextStyleTextModel::init()
+{
     std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_textIndent = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TextIndent = NULL;
     }
-    else {
-        m_textIndent = new IfcSizeSelect;
+    else
+    {
+        m_TextIndent = new IfcSizeSelect;
         if (arg[0] == '#') {
-            m_textIndent->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_TextIndent->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -268,61 +334,80 @@ bool IfcTextStyleTextModel::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_textIndent->setIfcRatioMeasure(tmp_attr1);
+                if (type1 == "IFCRATIOMEASURE")
+                {
+                    IfcRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_TextIndent->setIfcRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_textIndent->setIfcLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCLENGTHMEASURE")
+                {
+                    IfcLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_TextIndent->setIfcLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    Step::String tmp_attr1;
-                    tmp_attr1 = Step::String::fromSPF(arg);
-                    m_textIndent->setIfcDescriptiveMeasure(tmp_attr1);
+                else if (type1 == "IFCDESCRIPTIVEMEASURE")
+                {
+                    IfcDescriptiveMeasure tmp_attr1 = Step::String::fromSPF(arg)
+;
+                    m_TextIndent->setIfcDescriptiveMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVELENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_textIndent->setIfcPositiveLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVELENGTHMEASURE")
+                {
+                    IfcPositiveLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_TextIndent->setIfcPositiveLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_textIndent->setIfcNormalisedRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_TextIndent->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVERATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_textIndent->setIfcPositiveRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVERATIOMEASURE")
+                {
+                    IfcPositiveRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_TextIndent->setIfcPositiveRatioMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_textAlign = Step::getUnset(m_textAlign);
+    if (arg == "$" || arg == "*")
+    {
+        m_TextAlign = Step::getUnset(m_TextAlign);
     }
-    else {
-        m_textAlign = Step::String::fromSPF(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_textDecoration = Step::getUnset(m_textDecoration);
-    }
-    else {
-        m_textDecoration = Step::String::fromSPF(arg);
+    else
+    {
+        m_TextAlign = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_letterSpacing = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_TextDecoration = Step::getUnset(m_TextDecoration);
     }
-    else {
-        m_letterSpacing = new IfcSizeSelect;
+    else
+    {
+        m_TextDecoration = Step::String::fromSPF(arg)
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_LetterSpacing = NULL;
+    }
+    else
+    {
+        m_LetterSpacing = new IfcSizeSelect;
         if (arg[0] == '#') {
-            m_letterSpacing->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_LetterSpacing->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -331,47 +416,60 @@ bool IfcTextStyleTextModel::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_letterSpacing->setIfcRatioMeasure(tmp_attr1);
+                if (type1 == "IFCRATIOMEASURE")
+                {
+                    IfcRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LetterSpacing->setIfcRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_letterSpacing->setIfcLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCLENGTHMEASURE")
+                {
+                    IfcLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LetterSpacing->setIfcLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    Step::String tmp_attr1;
-                    tmp_attr1 = Step::String::fromSPF(arg);
-                    m_letterSpacing->setIfcDescriptiveMeasure(tmp_attr1);
+                else if (type1 == "IFCDESCRIPTIVEMEASURE")
+                {
+                    IfcDescriptiveMeasure tmp_attr1 = Step::String::fromSPF(arg)
+;
+                    m_LetterSpacing->setIfcDescriptiveMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVELENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_letterSpacing->setIfcPositiveLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVELENGTHMEASURE")
+                {
+                    IfcPositiveLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LetterSpacing->setIfcPositiveLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_letterSpacing->setIfcNormalisedRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LetterSpacing->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVERATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_letterSpacing->setIfcPositiveRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVERATIOMEASURE")
+                {
+                    IfcPositiveRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LetterSpacing->setIfcPositiveRatioMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_wordSpacing = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_WordSpacing = NULL;
     }
-    else {
-        m_wordSpacing = new IfcSizeSelect;
+    else
+    {
+        m_WordSpacing = new IfcSizeSelect;
         if (arg[0] == '#') {
-            m_wordSpacing->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_WordSpacing->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -380,54 +478,70 @@ bool IfcTextStyleTextModel::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_wordSpacing->setIfcRatioMeasure(tmp_attr1);
+                if (type1 == "IFCRATIOMEASURE")
+                {
+                    IfcRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_WordSpacing->setIfcRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_wordSpacing->setIfcLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCLENGTHMEASURE")
+                {
+                    IfcLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_WordSpacing->setIfcLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    Step::String tmp_attr1;
-                    tmp_attr1 = Step::String::fromSPF(arg);
-                    m_wordSpacing->setIfcDescriptiveMeasure(tmp_attr1);
+                else if (type1 == "IFCDESCRIPTIVEMEASURE")
+                {
+                    IfcDescriptiveMeasure tmp_attr1 = Step::String::fromSPF(arg)
+;
+                    m_WordSpacing->setIfcDescriptiveMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVELENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_wordSpacing->setIfcPositiveLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVELENGTHMEASURE")
+                {
+                    IfcPositiveLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_WordSpacing->setIfcPositiveLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_wordSpacing->setIfcNormalisedRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_WordSpacing->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVERATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_wordSpacing->setIfcPositiveRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVERATIOMEASURE")
+                {
+                    IfcPositiveRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_WordSpacing->setIfcPositiveRatioMeasure(tmp_attr1);
                 }
             }
         }
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_textTransform = Step::getUnset(m_textTransform);
+    if (arg == "$" || arg == "*")
+    {
+        m_TextTransform = Step::getUnset(m_TextTransform);
     }
-    else {
-        m_textTransform = Step::String::fromSPF(arg);
+    else
+    {
+        m_TextTransform = Step::String::fromSPF(arg)
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_lineHeight = NULL;
+    if (arg == "$" || arg == "*")
+    {
+        m_LineHeight = NULL;
     }
-    else {
-        m_lineHeight = new IfcSizeSelect;
+    else
+    {
+        m_LineHeight = new IfcSizeSelect;
         if (arg[0] == '#') {
-            m_lineHeight->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
+            m_LineHeight->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -436,35 +550,46 @@ bool IfcTextStyleTextModel::init() {
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
-                if (type1 == "IFCRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lineHeight->setIfcRatioMeasure(tmp_attr1);
+                if (type1 == "IFCRATIOMEASURE")
+                {
+                    IfcRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LineHeight->setIfcRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCLENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lineHeight->setIfcLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCLENGTHMEASURE")
+                {
+                    IfcLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LineHeight->setIfcLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    Step::String tmp_attr1;
-                    tmp_attr1 = Step::String::fromSPF(arg);
-                    m_lineHeight->setIfcDescriptiveMeasure(tmp_attr1);
+                else if (type1 == "IFCDESCRIPTIVEMEASURE")
+                {
+                    IfcDescriptiveMeasure tmp_attr1 = Step::String::fromSPF(arg)
+;
+                    m_LineHeight->setIfcDescriptiveMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVELENGTHMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lineHeight->setIfcPositiveLengthMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVELENGTHMEASURE")
+                {
+                    IfcPositiveLengthMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LineHeight->setIfcPositiveLengthMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCNORMALISEDRATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lineHeight->setIfcNormalisedRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCNORMALISEDRATIOMEASURE")
+                {
+                    IfcNormalisedRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LineHeight->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
-                if (type1 == "IFCPOSITIVERATIOMEASURE") {
-                    Step::Real tmp_attr1;
-                    tmp_attr1 = Step::spfToReal(arg);
-                    m_lineHeight->setIfcPositiveRatioMeasure(tmp_attr1);
+                else if (type1 == "IFCPOSITIVERATIOMEASURE")
+                {
+                    IfcPositiveRatioMeasure tmp_attr1 = Step::spfToReal(arg)
+
+;
+                    m_LineHeight->setIfcPositiveRatioMeasure(tmp_attr1);
                 }
             }
         }
@@ -472,20 +597,17 @@ bool IfcTextStyleTextModel::init() {
     return true;
 }
 
-void IfcTextStyleTextModel::copy(const IfcTextStyleTextModel &obj, const CopyOp &copyop) {
+void IfcTextStyleTextModel::copy(const IfcTextStyleTextModel &obj, const CopyOp &copyop)
+{
     Step::BaseEntity::copy(obj, copyop);
-    m_textIndent = new IfcSizeSelect;
-    m_textIndent->copy(*(obj.m_textIndent.get()), copyop);
-    setTextAlign(obj.m_textAlign);
-    setTextDecoration(obj.m_textDecoration);
-    m_letterSpacing = new IfcSizeSelect;
-    m_letterSpacing->copy(*(obj.m_letterSpacing.get()), copyop);
-    m_wordSpacing = new IfcSizeSelect;
-    m_wordSpacing->copy(*(obj.m_wordSpacing.get()), copyop);
-    setTextTransform(obj.m_textTransform);
-    m_lineHeight = new IfcSizeSelect;
-    m_lineHeight->copy(*(obj.m_lineHeight.get()), copyop);
+    setTextIndent((IfcSizeSelect*)copyop(obj.m_TextIndent.get()));
+    setTextAlign(obj.m_TextAlign);
+    setTextDecoration(obj.m_TextDecoration);
+    setLetterSpacing((IfcSizeSelect*)copyop(obj.m_LetterSpacing.get()));
+    setWordSpacing((IfcSizeSelect*)copyop(obj.m_WordSpacing.get()));
+    setTextTransform(obj.m_TextTransform);
+    setLineHeight((IfcSizeSelect*)copyop(obj.m_LineHeight.get()));
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextStyleTextModel::s_type("IfcTextStyleTextModel");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcTextStyleTextModel, Step::BaseEntity)

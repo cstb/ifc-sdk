@@ -1,11 +1,20 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
-// Copyright (C) 2009 CSTB
+// IFC SDK : IFC2X3 C++ Early Classes
+// Copyright (C) 2009-2018 CSTB   
+//   
+// For further information please contact
+//                                       
+//         eveBIM-support@cstb.fr        
+//   or                                  
+//         CSTB DTI/MIC                  
+//         290, route des Lucioles       
+//         BP 209                        
+//         06904 Sophia Antipolis, France
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -15,375 +24,487 @@
 // Lesser General Public License for more details.
 
 
-
 #include <ifc2x3/IfcCraneRailFShapeProfileDef.h>
 
+
 #include <ifc2x3/CopyOp.h>
-#include <ifc2x3/IfcParameterizedProfileDef.h>
 #include <ifc2x3/Visitor.h>
-#include <Step/BaseObject.h>
-#include <Step/ClassType.h>
+
+#include <Step/SPFData.h>
+#include <Step/SPFFunctions.h>
 
 
-#include <string>
-
-#include "precompiled.h"
 
 using namespace ifc2x3;
 
-IfcCraneRailFShapeProfileDef::IfcCraneRailFShapeProfileDef(Step::Id id, Step::SPFData *args) : IfcParameterizedProfileDef(id, args) {
-    m_overallHeight = Step::getUnset(m_overallHeight);
-    m_headWidth = Step::getUnset(m_headWidth);
-    m_radius = Step::getUnset(m_radius);
-    m_headDepth2 = Step::getUnset(m_headDepth2);
-    m_headDepth3 = Step::getUnset(m_headDepth3);
-    m_webThickness = Step::getUnset(m_webThickness);
-    m_baseDepth1 = Step::getUnset(m_baseDepth1);
-    m_baseDepth2 = Step::getUnset(m_baseDepth2);
-    m_centreOfGravityInY = Step::getUnset(m_centreOfGravityInY);
+IfcCraneRailFShapeProfileDef::IfcCraneRailFShapeProfileDef(Step::Id id, Step::SPFData *args) : 
+    IfcParameterizedProfileDef(id, args)
+{
+    m_OverallHeight = Step::getUnset(m_OverallHeight);
+    m_HeadWidth = Step::getUnset(m_HeadWidth);
+    m_Radius = Step::getUnset(m_Radius);
+    m_HeadDepth2 = Step::getUnset(m_HeadDepth2);
+    m_HeadDepth3 = Step::getUnset(m_HeadDepth3);
+    m_WebThickness = Step::getUnset(m_WebThickness);
+    m_BaseDepth1 = Step::getUnset(m_BaseDepth1);
+    m_BaseDepth2 = Step::getUnset(m_BaseDepth2);
+    m_CentreOfGravityInY = Step::getUnset(m_CentreOfGravityInY);
 }
 
-IfcCraneRailFShapeProfileDef::~IfcCraneRailFShapeProfileDef() {
+IfcCraneRailFShapeProfileDef::~IfcCraneRailFShapeProfileDef()
+{}
+
+bool IfcCraneRailFShapeProfileDef::acceptVisitor(Step::BaseVisitor *visitor)
+{
+    return static_cast<Visitor *>(visitor)->visitIfcCraneRailFShapeProfileDef(this);
 }
 
-bool IfcCraneRailFShapeProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
-    return static_cast< Visitor * > (visitor)->visitIfcCraneRailFShapeProfileDef(this);
-}
 
-const std::string &IfcCraneRailFShapeProfileDef::type() const {
-    return IfcCraneRailFShapeProfileDef::s_type.getName();
-}
-
-const Step::ClassType &IfcCraneRailFShapeProfileDef::getClassType() {
-    return IfcCraneRailFShapeProfileDef::s_type;
-}
-
-const Step::ClassType &IfcCraneRailFShapeProfileDef::getType() const {
-    return IfcCraneRailFShapeProfileDef::s_type;
-}
-
-bool IfcCraneRailFShapeProfileDef::isOfType(const Step::ClassType &t) const {
-    return IfcCraneRailFShapeProfileDef::s_type == t ? true : IfcParameterizedProfileDef::isOfType(t);
-}
-
-IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getOverallHeight() {
-    if (Step::BaseObject::inited()) {
-        return m_overallHeight;
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getOverallHeight()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_OverallHeight;
     }
-    else {
-        return Step::getUnset(m_overallHeight);
+    else 
+    {
+        return Step::getUnset(m_OverallHeight);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getOverallHeight() const
+{
+    return const_cast<IfcCraneRailFShapeProfileDef *>(this)->getOverallHeight();
+}
+
+void IfcCraneRailFShapeProfileDef::setOverallHeight(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OverallHeight = value;
+}
+
+void IfcCraneRailFShapeProfileDef::unsetOverallHeight()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_OverallHeight = Step::getUnset(getOverallHeight());
+}
+
+bool IfcCraneRailFShapeProfileDef::testOverallHeight() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getOverallHeight()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadWidth()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_HeadWidth;
     }
+    else 
+    {
+        return Step::getUnset(m_HeadWidth);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getOverallHeight() const {
-    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
-    return deConstObject->getOverallHeight();
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadWidth() const
+{
+    return const_cast<IfcCraneRailFShapeProfileDef *>(this)->getHeadWidth();
 }
 
-void IfcCraneRailFShapeProfileDef::setOverallHeight(IfcPositiveLengthMeasure value) {
-    m_overallHeight = value;
+void IfcCraneRailFShapeProfileDef::setHeadWidth(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_HeadWidth = value;
 }
 
-void IfcCraneRailFShapeProfileDef::unsetOverallHeight() {
-    m_overallHeight = Step::getUnset(getOverallHeight());
+void IfcCraneRailFShapeProfileDef::unsetHeadWidth()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_HeadWidth = Step::getUnset(getHeadWidth());
 }
 
-bool IfcCraneRailFShapeProfileDef::testOverallHeight() const {
-    return !Step::isUnset(getOverallHeight());
+bool IfcCraneRailFShapeProfileDef::testHeadWidth() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getHeadWidth()) == false;
 }
 
-IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadWidth() {
-    if (Step::BaseObject::inited()) {
-        return m_headWidth;
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getRadius()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_Radius;
     }
-    else {
-        return Step::getUnset(m_headWidth);
+    else 
+    {
+        return Step::getUnset(m_Radius);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getRadius() const
+{
+    return const_cast<IfcCraneRailFShapeProfileDef *>(this)->getRadius();
+}
+
+void IfcCraneRailFShapeProfileDef::setRadius(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Radius = value;
+}
+
+void IfcCraneRailFShapeProfileDef::unsetRadius()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Radius = Step::getUnset(getRadius());
+}
+
+bool IfcCraneRailFShapeProfileDef::testRadius() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getRadius()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth2()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_HeadDepth2;
     }
+    else 
+    {
+        return Step::getUnset(m_HeadDepth2);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadWidth() const {
-    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
-    return deConstObject->getHeadWidth();
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth2() const
+{
+    return const_cast<IfcCraneRailFShapeProfileDef *>(this)->getHeadDepth2();
 }
 
-void IfcCraneRailFShapeProfileDef::setHeadWidth(IfcPositiveLengthMeasure value) {
-    m_headWidth = value;
+void IfcCraneRailFShapeProfileDef::setHeadDepth2(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_HeadDepth2 = value;
 }
 
-void IfcCraneRailFShapeProfileDef::unsetHeadWidth() {
-    m_headWidth = Step::getUnset(getHeadWidth());
+void IfcCraneRailFShapeProfileDef::unsetHeadDepth2()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_HeadDepth2 = Step::getUnset(getHeadDepth2());
 }
 
-bool IfcCraneRailFShapeProfileDef::testHeadWidth() const {
-    return !Step::isUnset(getHeadWidth());
+bool IfcCraneRailFShapeProfileDef::testHeadDepth2() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getHeadDepth2()) == false;
 }
 
-IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getRadius() {
-    if (Step::BaseObject::inited()) {
-        return m_radius;
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth3()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_HeadDepth3;
     }
-    else {
-        return Step::getUnset(m_radius);
+    else 
+    {
+        return Step::getUnset(m_HeadDepth3);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth3() const
+{
+    return const_cast<IfcCraneRailFShapeProfileDef *>(this)->getHeadDepth3();
+}
+
+void IfcCraneRailFShapeProfileDef::setHeadDepth3(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_HeadDepth3 = value;
+}
+
+void IfcCraneRailFShapeProfileDef::unsetHeadDepth3()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_HeadDepth3 = Step::getUnset(getHeadDepth3());
+}
+
+bool IfcCraneRailFShapeProfileDef::testHeadDepth3() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getHeadDepth3()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getWebThickness()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_WebThickness;
     }
+    else 
+    {
+        return Step::getUnset(m_WebThickness);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getRadius() const {
-    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
-    return deConstObject->getRadius();
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getWebThickness() const
+{
+    return const_cast<IfcCraneRailFShapeProfileDef *>(this)->getWebThickness();
 }
 
-void IfcCraneRailFShapeProfileDef::setRadius(IfcPositiveLengthMeasure value) {
-    m_radius = value;
+void IfcCraneRailFShapeProfileDef::setWebThickness(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WebThickness = value;
 }
 
-void IfcCraneRailFShapeProfileDef::unsetRadius() {
-    m_radius = Step::getUnset(getRadius());
+void IfcCraneRailFShapeProfileDef::unsetWebThickness()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_WebThickness = Step::getUnset(getWebThickness());
 }
 
-bool IfcCraneRailFShapeProfileDef::testRadius() const {
-    return !Step::isUnset(getRadius());
+bool IfcCraneRailFShapeProfileDef::testWebThickness() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getWebThickness()) == false;
 }
 
-IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth2() {
-    if (Step::BaseObject::inited()) {
-        return m_headDepth2;
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth1()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BaseDepth1;
     }
-    else {
-        return Step::getUnset(m_headDepth2);
+    else 
+    {
+        return Step::getUnset(m_BaseDepth1);
+    }    
+}
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth1() const
+{
+    return const_cast<IfcCraneRailFShapeProfileDef *>(this)->getBaseDepth1();
+}
+
+void IfcCraneRailFShapeProfileDef::setBaseDepth1(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BaseDepth1 = value;
+}
+
+void IfcCraneRailFShapeProfileDef::unsetBaseDepth1()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BaseDepth1 = Step::getUnset(getBaseDepth1());
+}
+
+bool IfcCraneRailFShapeProfileDef::testBaseDepth1() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBaseDepth1()) == false;
+}
+
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth2()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_BaseDepth2;
     }
+    else 
+    {
+        return Step::getUnset(m_BaseDepth2);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth2() const {
-    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
-    return deConstObject->getHeadDepth2();
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth2() const
+{
+    return const_cast<IfcCraneRailFShapeProfileDef *>(this)->getBaseDepth2();
 }
 
-void IfcCraneRailFShapeProfileDef::setHeadDepth2(IfcPositiveLengthMeasure value) {
-    m_headDepth2 = value;
+void IfcCraneRailFShapeProfileDef::setBaseDepth2(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BaseDepth2 = value;
 }
 
-void IfcCraneRailFShapeProfileDef::unsetHeadDepth2() {
-    m_headDepth2 = Step::getUnset(getHeadDepth2());
+void IfcCraneRailFShapeProfileDef::unsetBaseDepth2()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_BaseDepth2 = Step::getUnset(getBaseDepth2());
 }
 
-bool IfcCraneRailFShapeProfileDef::testHeadDepth2() const {
-    return !Step::isUnset(getHeadDepth2());
+bool IfcCraneRailFShapeProfileDef::testBaseDepth2() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getBaseDepth2()) == false;
 }
 
-IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth3() {
-    if (Step::BaseObject::inited()) {
-        return m_headDepth3;
+
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getCentreOfGravityInY()
+{
+    if (Step::BaseObject::inited()) 
+    {
+        return m_CentreOfGravityInY;
     }
-    else {
-        return Step::getUnset(m_headDepth3);
-    }
+    else 
+    {
+        return Step::getUnset(m_CentreOfGravityInY);
+    }    
 }
 
-const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth3() const {
-    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
-    return deConstObject->getHeadDepth3();
+IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getCentreOfGravityInY() const
+{
+    return const_cast<IfcCraneRailFShapeProfileDef *>(this)->getCentreOfGravityInY();
 }
 
-void IfcCraneRailFShapeProfileDef::setHeadDepth3(IfcPositiveLengthMeasure value) {
-    m_headDepth3 = value;
+void IfcCraneRailFShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CentreOfGravityInY = value;
 }
 
-void IfcCraneRailFShapeProfileDef::unsetHeadDepth3() {
-    m_headDepth3 = Step::getUnset(getHeadDepth3());
+void IfcCraneRailFShapeProfileDef::unsetCentreOfGravityInY()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_CentreOfGravityInY = Step::getUnset(getCentreOfGravityInY());
 }
 
-bool IfcCraneRailFShapeProfileDef::testHeadDepth3() const {
-    return !Step::isUnset(getHeadDepth3());
+bool IfcCraneRailFShapeProfileDef::testCentreOfGravityInY() const
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    return Step::isUnset(getCentreOfGravityInY()) == false;
 }
 
-IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getWebThickness() {
-    if (Step::BaseObject::inited()) {
-        return m_webThickness;
-    }
-    else {
-        return Step::getUnset(m_webThickness);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getWebThickness() const {
-    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
-    return deConstObject->getWebThickness();
-}
-
-void IfcCraneRailFShapeProfileDef::setWebThickness(IfcPositiveLengthMeasure value) {
-    m_webThickness = value;
-}
-
-void IfcCraneRailFShapeProfileDef::unsetWebThickness() {
-    m_webThickness = Step::getUnset(getWebThickness());
-}
-
-bool IfcCraneRailFShapeProfileDef::testWebThickness() const {
-    return !Step::isUnset(getWebThickness());
-}
-
-IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth1() {
-    if (Step::BaseObject::inited()) {
-        return m_baseDepth1;
-    }
-    else {
-        return Step::getUnset(m_baseDepth1);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth1() const {
-    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
-    return deConstObject->getBaseDepth1();
-}
-
-void IfcCraneRailFShapeProfileDef::setBaseDepth1(IfcPositiveLengthMeasure value) {
-    m_baseDepth1 = value;
-}
-
-void IfcCraneRailFShapeProfileDef::unsetBaseDepth1() {
-    m_baseDepth1 = Step::getUnset(getBaseDepth1());
-}
-
-bool IfcCraneRailFShapeProfileDef::testBaseDepth1() const {
-    return !Step::isUnset(getBaseDepth1());
-}
-
-IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth2() {
-    if (Step::BaseObject::inited()) {
-        return m_baseDepth2;
-    }
-    else {
-        return Step::getUnset(m_baseDepth2);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth2() const {
-    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
-    return deConstObject->getBaseDepth2();
-}
-
-void IfcCraneRailFShapeProfileDef::setBaseDepth2(IfcPositiveLengthMeasure value) {
-    m_baseDepth2 = value;
-}
-
-void IfcCraneRailFShapeProfileDef::unsetBaseDepth2() {
-    m_baseDepth2 = Step::getUnset(getBaseDepth2());
-}
-
-bool IfcCraneRailFShapeProfileDef::testBaseDepth2() const {
-    return !Step::isUnset(getBaseDepth2());
-}
-
-IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getCentreOfGravityInY() {
-    if (Step::BaseObject::inited()) {
-        return m_centreOfGravityInY;
-    }
-    else {
-        return Step::getUnset(m_centreOfGravityInY);
-    }
-}
-
-const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getCentreOfGravityInY() const {
-    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
-    return deConstObject->getCentreOfGravityInY();
-}
-
-void IfcCraneRailFShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value) {
-    m_centreOfGravityInY = value;
-}
-
-void IfcCraneRailFShapeProfileDef::unsetCentreOfGravityInY() {
-    m_centreOfGravityInY = Step::getUnset(getCentreOfGravityInY());
-}
-
-bool IfcCraneRailFShapeProfileDef::testCentreOfGravityInY() const {
-    return !Step::isUnset(getCentreOfGravityInY());
-}
-
-bool IfcCraneRailFShapeProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
-    std::string arg;
-    if (!status) {
+bool IfcCraneRailFShapeProfileDef::init()
+{
+    if (IfcParameterizedProfileDef::init() == false)
+    {
         return false;
     }
+    std::string arg;
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_overallHeight = Step::getUnset(m_overallHeight);
+    if (arg == "$" || arg == "*")
+    {
+        m_OverallHeight = Step::getUnset(m_OverallHeight);
     }
-    else {
-        m_overallHeight = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_headWidth = Step::getUnset(m_headWidth);
-    }
-    else {
-        m_headWidth = Step::spfToReal(arg);
+    else
+    {
+        m_OverallHeight = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_radius = Step::getUnset(m_radius);
+    if (arg == "$" || arg == "*")
+    {
+        m_HeadWidth = Step::getUnset(m_HeadWidth);
     }
-    else {
-        m_radius = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_headDepth2 = Step::getUnset(m_headDepth2);
-    }
-    else {
-        m_headDepth2 = Step::spfToReal(arg);
+    else
+    {
+        m_HeadWidth = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_headDepth3 = Step::getUnset(m_headDepth3);
+    if (arg == "$" || arg == "*")
+    {
+        m_Radius = Step::getUnset(m_Radius);
     }
-    else {
-        m_headDepth3 = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_webThickness = Step::getUnset(m_webThickness);
-    }
-    else {
-        m_webThickness = Step::spfToReal(arg);
+    else
+    {
+        m_Radius = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_baseDepth1 = Step::getUnset(m_baseDepth1);
+    if (arg == "$" || arg == "*")
+    {
+        m_HeadDepth2 = Step::getUnset(m_HeadDepth2);
     }
-    else {
-        m_baseDepth1 = Step::spfToReal(arg);
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_baseDepth2 = Step::getUnset(m_baseDepth2);
-    }
-    else {
-        m_baseDepth2 = Step::spfToReal(arg);
+    else
+    {
+        m_HeadDepth2 = Step::spfToReal(arg)
+
+;
     }
     arg = m_args->getNext();
-    if (arg == "$" || arg == "*") {
-        m_centreOfGravityInY = Step::getUnset(m_centreOfGravityInY);
+    if (arg == "$" || arg == "*")
+    {
+        m_HeadDepth3 = Step::getUnset(m_HeadDepth3);
     }
-    else {
-        m_centreOfGravityInY = Step::spfToReal(arg);
+    else
+    {
+        m_HeadDepth3 = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_WebThickness = Step::getUnset(m_WebThickness);
+    }
+    else
+    {
+        m_WebThickness = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_BaseDepth1 = Step::getUnset(m_BaseDepth1);
+    }
+    else
+    {
+        m_BaseDepth1 = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_BaseDepth2 = Step::getUnset(m_BaseDepth2);
+    }
+    else
+    {
+        m_BaseDepth2 = Step::spfToReal(arg)
+
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_CentreOfGravityInY = Step::getUnset(m_CentreOfGravityInY);
+    }
+    else
+    {
+        m_CentreOfGravityInY = Step::spfToReal(arg)
+
+;
     }
     return true;
 }
 
-void IfcCraneRailFShapeProfileDef::copy(const IfcCraneRailFShapeProfileDef &obj, const CopyOp &copyop) {
+void IfcCraneRailFShapeProfileDef::copy(const IfcCraneRailFShapeProfileDef &obj, const CopyOp &copyop)
+{
     IfcParameterizedProfileDef::copy(obj, copyop);
-    setOverallHeight(obj.m_overallHeight);
-    setHeadWidth(obj.m_headWidth);
-    setRadius(obj.m_radius);
-    setHeadDepth2(obj.m_headDepth2);
-    setHeadDepth3(obj.m_headDepth3);
-    setWebThickness(obj.m_webThickness);
-    setBaseDepth1(obj.m_baseDepth1);
-    setBaseDepth2(obj.m_baseDepth2);
-    setCentreOfGravityInY(obj.m_centreOfGravityInY);
+    setOverallHeight(obj.m_OverallHeight);
+    setHeadWidth(obj.m_HeadWidth);
+    setRadius(obj.m_Radius);
+    setHeadDepth2(obj.m_HeadDepth2);
+    setHeadDepth3(obj.m_HeadDepth3);
+    setWebThickness(obj.m_WebThickness);
+    setBaseDepth1(obj.m_BaseDepth1);
+    setBaseDepth2(obj.m_BaseDepth2);
+    setCentreOfGravityInY(obj.m_CentreOfGravityInY);
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCraneRailFShapeProfileDef::s_type("IfcCraneRailFShapeProfileDef");
+ClassType_child_implementations(IFC2X3_EXPORT, IfcCraneRailFShapeProfileDef, IfcParameterizedProfileDef)
