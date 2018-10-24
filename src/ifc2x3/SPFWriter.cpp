@@ -765,6 +765,12 @@ bool SPFWriter::write(std::ostream& filestream)
         {
             // update progress callback
             _callback->setProgress(++nb);
+
+            // stop writting when user canceled
+            if (_callback->stop()) {
+                writeEnder();
+                return false;
+            }
         }
     }
     writeEnder();
