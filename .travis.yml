@@ -26,7 +26,9 @@ addons:
 
 
 script: 
-  - cmake -DCMAKE_BUILD_TYPE=Release -DSTEP_CHECK_RANGE=OFF -DENABLE_EXAMPLES=OFF . 
+  - mkdir build
+  - de build
+  - cmake -DCMAKE_BUILD_TYPE=Release -DSTEP_CHECK_RANGE=OFF -DENABLE_EXAMPLES=OFF .. 
   - make -j 3
   - make test
   
