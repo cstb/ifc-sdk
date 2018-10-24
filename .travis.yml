@@ -12,8 +12,8 @@ addons:
       name: "cstb/ifc-sdk"
       description: "Build submitted via Travis CI"
     notification_email: mathieu.marache@cstb.fr
-    build_command_prepend: "cmake -DENABLE_EXAMPLES=OFF -DENABLE_TESTS=OFF -DSTEP_CHECK_RANGE=OFF -DCMAKE_BUILD_TYPE=Release ."
-    build_command: "make -j 3"
+    build_command_prepend: "mkdir build && cd build && cmake -DENABLE_EXAMPLES=OFF -DENABLE_TESTS=OFF -DSTEP_CHECK_RANGE=OFF -DCMAKE_BUILD_TYPE=Release .."
+    build_command: "cd build && make -j 3"
     branch_pattern: coverity_scan
   apt:
     sources:
@@ -27,7 +27,7 @@ addons:
 
 script: 
   - mkdir build
-  - de build
+  - cd build
   - cmake -DCMAKE_BUILD_TYPE=Release -DSTEP_CHECK_RANGE=OFF -DENABLE_EXAMPLES=OFF .. 
   - make -j 3
   - make test
