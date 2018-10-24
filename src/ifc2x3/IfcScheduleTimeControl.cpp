@@ -166,12 +166,12 @@ const IfcDateTimeSelect *IfcScheduleTimeControl::getLateStart() const
     return const_cast<IfcScheduleTimeControl *>(this)->getLateStart();
 }
 
-void IfcScheduleTimeControl::setLatestart(const Step::RefPtr< IfcDateTimeSelect > &value)
+void IfcScheduleTimeControl::setLateStart(const Step::RefPtr< IfcDateTimeSelect > &value)
 {
     m_LateStart = value;
 }
 
-void IfcScheduleTimeControl::unsetLatestart()
+void IfcScheduleTimeControl::unsetLateStart()
 {
     m_LateStart = Step::getUnset(getLateStart());
 }

@@ -47,7 +47,7 @@ INSTALL(TARGETS ifc2x3
         ARCHIVE DESTINATION lib${LIB_POSTFIX}
 )
 
-if(WIN32)
+if(WIN32 OR APPLE)
     install_pdb(ifc2x3 Debug)
     install_pdb(ifc2x3 RelWithDebInfo)
 endif()

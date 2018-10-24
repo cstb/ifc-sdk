@@ -111,12 +111,12 @@ IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getUltimateStress() con
     return const_cast<IfcMechanicalSteelMaterialProperties *>(this)->getUltimateStress();
 }
 
-void IfcMechanicalSteelMaterialProperties::setUltimatestress(IfcPressureMeasure value)
+void IfcMechanicalSteelMaterialProperties::setUltimateStress(IfcPressureMeasure value)
 {
     m_UltimateStress = value;
 }
 
-void IfcMechanicalSteelMaterialProperties::unsetUltimatestress()
+void IfcMechanicalSteelMaterialProperties::unsetUltimateStress()
 {
     m_UltimateStress = Step::getUnset(getUltimateStress());
 }
@@ -144,12 +144,12 @@ IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getUltimateStrain(
     return const_cast<IfcMechanicalSteelMaterialProperties *>(this)->getUltimateStrain();
 }
 
-void IfcMechanicalSteelMaterialProperties::setUltimatestrain(IfcPositiveRatioMeasure value)
+void IfcMechanicalSteelMaterialProperties::setUltimateStrain(IfcPositiveRatioMeasure value)
 {
     m_UltimateStrain = value;
 }
 
-void IfcMechanicalSteelMaterialProperties::unsetUltimatestrain()
+void IfcMechanicalSteelMaterialProperties::unsetUltimateStrain()
 {
     m_UltimateStrain = Step::getUnset(getUltimateStrain());
 }

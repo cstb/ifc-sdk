@@ -23,15 +23,15 @@ ENDIF(NOT DEFINED LIB_POSTFIX)
 
 macro(install_pdb target config)
   if(WIN32)
-    install(FILES ${'$'}<TARGET_PDB_FILE:${'$'}{target}> DESTINATION bin CONFIGURATIONS ${'$'}{config})
+    install(FILES $<TARGET_PDB_FILE:${target}> DESTINATION bin CONFIGURATIONS ${config})
   endif()
 
   if(APPLE)
-    if(${'$'}{CMAKE_BUILD_TYPE} STREQUAL "${'$'}{config}")
-      message(STATUS "   ${'$'}{target} added post build dylib to dSYM")
-      add_custom_command(TARGET ${'$'}{target} POST_BUILD
-          COMMAND xcrun dsymutil ${'$'}<TARGET_FILE:${'$'}{target}>)
-      install(DIRECTORY ${'$'}<TARGET_FILE_NAME:${'$'}{target}>.dSYM DESTINATION lib CONFIGURATIONS ${'$'}{config} COMPONENT SDK)
+    if(${CMAKE_BUILD_TYPE} STREQUAL "${config}")
+      message(STATUS "   ${target} added post build dylib to dSYM")
+      add_custom_command(TARGET ${target} POST_BUILD
+          COMMAND xcrun dsymutil $<TARGET_FILE:${target}>)
+      install(DIRECTORY $<TARGET_FILE_NAME:${target}>.dSYM DESTINATION lib CONFIGURATIONS ${config} COMPONENT SDK)
     endif()
   endif()
 
