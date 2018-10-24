@@ -85,7 +85,6 @@ void IfcCalendarDate::unsetDayComponent()
 
 bool IfcCalendarDate::testDayComponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDayComponent()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcCalendarDate::unsetMonthComponent()
 
 bool IfcCalendarDate::testMonthComponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMonthComponent()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcCalendarDate::unsetYearComponent()
 
 bool IfcCalendarDate::testYearComponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getYearComponent()) == false;
 }
 

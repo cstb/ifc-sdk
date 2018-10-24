@@ -86,7 +86,6 @@ void IfcPointOnSurface::unsetBasisSurface()
 
 bool IfcPointOnSurface::testBasisSurface() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBasisSurface()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcPointOnSurface::unsetPointParameterU()
 
 bool IfcPointOnSurface::testPointParameterU() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPointParameterU()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcPointOnSurface::unsetPointParameterV()
 
 bool IfcPointOnSurface::testPointParameterV() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPointParameterV()) == false;
 }
 

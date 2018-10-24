@@ -88,7 +88,6 @@ void IfcPropertyBoundedValue::unsetUpperBoundValue()
 
 bool IfcPropertyBoundedValue::testUpperBoundValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUpperBoundValue()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcPropertyBoundedValue::unsetLowerBoundValue()
 
 bool IfcPropertyBoundedValue::testLowerBoundValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLowerBoundValue()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcPropertyBoundedValue::unsetUnit()
 
 bool IfcPropertyBoundedValue::testUnit() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnit()) == false;
 }
 

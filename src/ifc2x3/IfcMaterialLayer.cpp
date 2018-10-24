@@ -87,7 +87,6 @@ void IfcMaterialLayer::unsetMaterial()
 
 bool IfcMaterialLayer::testMaterial() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMaterial()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcMaterialLayer::unsetLayerThickness()
 
 bool IfcMaterialLayer::testLayerThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLayerThickness()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcMaterialLayer::unsetIsVentilated()
 
 bool IfcMaterialLayer::testIsVentilated() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIsVentilated()) == false;
 }
 
@@ -180,7 +177,6 @@ const IfcMaterialLayerSet *IfcMaterialLayer::getToMaterialLayerSet() const
 
 bool IfcMaterialLayer::testToMaterialLayerSet() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getToMaterialLayerSet()) == false;
 }
 

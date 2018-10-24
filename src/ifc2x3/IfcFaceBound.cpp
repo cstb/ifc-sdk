@@ -85,7 +85,6 @@ void IfcFaceBound::unsetBound()
 
 bool IfcFaceBound::testBound() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBound()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcFaceBound::unsetOrientation()
 
 bool IfcFaceBound::testOrientation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOrientation()) == false;
 }
 

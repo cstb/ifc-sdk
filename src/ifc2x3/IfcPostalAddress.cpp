@@ -89,7 +89,6 @@ void IfcPostalAddress::unsetInternalLocation()
 
 bool IfcPostalAddress::testInternalLocation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInternalLocation()) == false;
 }
 
@@ -127,7 +126,6 @@ void IfcPostalAddress::unsetAddressLines()
 
 bool IfcPostalAddress::testAddressLines() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_AddressLines.isUnset() == false;
 }
 
@@ -163,7 +161,6 @@ void IfcPostalAddress::unsetPostalBox()
 
 bool IfcPostalAddress::testPostalBox() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPostalBox()) == false;
 }
 
@@ -199,7 +196,6 @@ void IfcPostalAddress::unsetTown()
 
 bool IfcPostalAddress::testTown() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTown()) == false;
 }
 
@@ -235,7 +231,6 @@ void IfcPostalAddress::unsetRegion()
 
 bool IfcPostalAddress::testRegion() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRegion()) == false;
 }
 
@@ -271,7 +266,6 @@ void IfcPostalAddress::unsetPostalCode()
 
 bool IfcPostalAddress::testPostalCode() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPostalCode()) == false;
 }
 
@@ -307,7 +301,6 @@ void IfcPostalAddress::unsetCountry()
 
 bool IfcPostalAddress::testCountry() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCountry()) == false;
 }
 

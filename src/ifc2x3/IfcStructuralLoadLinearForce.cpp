@@ -88,7 +88,6 @@ void IfcStructuralLoadLinearForce::unsetLinearForceX()
 
 bool IfcStructuralLoadLinearForce::testLinearForceX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearForceX()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcStructuralLoadLinearForce::unsetLinearForceY()
 
 bool IfcStructuralLoadLinearForce::testLinearForceY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearForceY()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcStructuralLoadLinearForce::unsetLinearForceZ()
 
 bool IfcStructuralLoadLinearForce::testLinearForceZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearForceZ()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcStructuralLoadLinearForce::unsetLinearMomentX()
 
 bool IfcStructuralLoadLinearForce::testLinearMomentX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearMomentX()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcStructuralLoadLinearForce::unsetLinearMomentY()
 
 bool IfcStructuralLoadLinearForce::testLinearMomentY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearMomentY()) == false;
 }
 
@@ -268,7 +263,6 @@ void IfcStructuralLoadLinearForce::unsetLinearMomentZ()
 
 bool IfcStructuralLoadLinearForce::testLinearMomentZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearMomentZ()) == false;
 }
 

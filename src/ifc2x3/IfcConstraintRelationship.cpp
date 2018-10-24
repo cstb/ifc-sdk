@@ -127,7 +127,6 @@ void IfcConstraintRelationship::unsetName()
 
 bool IfcConstraintRelationship::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -163,7 +162,6 @@ void IfcConstraintRelationship::unsetDescription()
 
 bool IfcConstraintRelationship::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -194,7 +192,6 @@ void IfcConstraintRelationship::unsetRelatedConstraints()
 
 bool IfcConstraintRelationship::testRelatedConstraints() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedConstraints.isUnset() == false;
 }
 
@@ -237,7 +234,6 @@ void IfcConstraintRelationship::unsetRelatingConstraint()
 
 bool IfcConstraintRelationship::testRelatingConstraint() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingConstraint()) == false;
 }
 

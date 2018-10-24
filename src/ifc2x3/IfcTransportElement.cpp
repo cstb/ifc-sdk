@@ -85,7 +85,6 @@ void IfcTransportElement::unsetOperationType()
 
 bool IfcTransportElement::testOperationType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOperationType()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcTransportElement::unsetCapacityByWeight()
 
 bool IfcTransportElement::testCapacityByWeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCapacityByWeight()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcTransportElement::unsetCapacityByNumber()
 
 bool IfcTransportElement::testCapacityByNumber() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCapacityByNumber()) == false;
 }
 

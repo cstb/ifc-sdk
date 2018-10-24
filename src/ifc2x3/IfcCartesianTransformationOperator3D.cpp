@@ -84,7 +84,6 @@ void IfcCartesianTransformationOperator3D::unsetAxis3()
 
 bool IfcCartesianTransformationOperator3D::testAxis3() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAxis3()) == false;
 }
 

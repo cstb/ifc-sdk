@@ -132,7 +132,6 @@ void IfcClassificationItemRelationship::unsetRelatingItem()
 
 bool IfcClassificationItemRelationship::testRelatingItem() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingItem()) == false;
 }
 
@@ -163,7 +162,6 @@ void IfcClassificationItemRelationship::unsetRelatedItems()
 
 bool IfcClassificationItemRelationship::testRelatedItems() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedItems.isUnset() == false;
 }
 

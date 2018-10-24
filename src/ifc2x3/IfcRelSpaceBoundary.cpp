@@ -90,7 +90,6 @@ void IfcRelSpaceBoundary::unsetConnectionGeometry()
 
 bool IfcRelSpaceBoundary::testConnectionGeometry() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConnectionGeometry()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcRelSpaceBoundary::unsetPhysicalOrVirtualBoundary()
 
 bool IfcRelSpaceBoundary::testPhysicalOrVirtualBoundary() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPhysicalOrVirtualBoundary()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcRelSpaceBoundary::unsetInternalOrExternalBoundary()
 
 bool IfcRelSpaceBoundary::testInternalOrExternalBoundary() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInternalOrExternalBoundary()) == false;
 }
 
@@ -205,7 +202,6 @@ void IfcRelSpaceBoundary::unsetRelatingSpace()
 
 bool IfcRelSpaceBoundary::testRelatingSpace() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingSpace()) == false;
 }
 
@@ -248,7 +244,6 @@ void IfcRelSpaceBoundary::unsetRelatedBuildingElement()
 
 bool IfcRelSpaceBoundary::testRelatedBuildingElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedBuildingElement()) == false;
 }
 

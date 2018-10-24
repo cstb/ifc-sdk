@@ -95,7 +95,6 @@ void IfcProduct::unsetRepresentation()
 
 bool IfcProduct::testRepresentation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRepresentation()) == false;
 }
 
@@ -138,7 +137,6 @@ void IfcProduct::unsetObjectPlacement()
 
 bool IfcProduct::testObjectPlacement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getObjectPlacement()) == false;
 }
 
@@ -160,7 +158,6 @@ const Inverse_Set_IfcRelAssignsToProduct_0_n &IfcProduct::getReferencedBy() cons
 
 bool IfcProduct::testReferencedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ReferencedBy.isUnset() == false;
 }
 

@@ -127,7 +127,6 @@ void IfcReferencesValueDocument::unsetReferencedDocument()
 
 bool IfcReferencesValueDocument::testReferencedDocument() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getReferencedDocument()) == false;
 }
 
@@ -163,7 +162,6 @@ void IfcReferencesValueDocument::unsetName()
 
 bool IfcReferencesValueDocument::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -199,7 +197,6 @@ void IfcReferencesValueDocument::unsetDescription()
 
 bool IfcReferencesValueDocument::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -230,7 +227,6 @@ void IfcReferencesValueDocument::unsetReferencingValues()
 
 bool IfcReferencesValueDocument::testReferencingValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ReferencingValues.isUnset() == false;
 }
 

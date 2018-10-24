@@ -86,7 +86,6 @@ void IfcEdge::unsetEdgeStart()
 
 bool IfcEdge::testEdgeStart() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEdgeStart()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcEdge::unsetEdgeEnd()
 
 bool IfcEdge::testEdgeEnd() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEdgeEnd()) == false;
 }
 

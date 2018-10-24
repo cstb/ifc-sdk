@@ -87,7 +87,6 @@ void IfcTypeProduct::unsetRepresentationMaps()
 
 bool IfcTypeProduct::testRepresentationMaps() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RepresentationMaps.isUnset() == false;
 }
 
@@ -123,7 +122,6 @@ void IfcTypeProduct::unsetTag()
 
 bool IfcTypeProduct::testTag() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTag()) == false;
 }
 

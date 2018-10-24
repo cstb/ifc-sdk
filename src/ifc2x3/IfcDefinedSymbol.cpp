@@ -86,7 +86,6 @@ void IfcDefinedSymbol::unsetDefinition()
 
 bool IfcDefinedSymbol::testDefinition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDefinition()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcDefinedSymbol::unsetTarget()
 
 bool IfcDefinedSymbol::testTarget() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTarget()) == false;
 }
 

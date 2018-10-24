@@ -88,7 +88,6 @@ void IfcLocalTime::unsetHourComponent()
 
 bool IfcLocalTime::testHourComponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHourComponent()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcLocalTime::unsetMinuteComponent()
 
 bool IfcLocalTime::testMinuteComponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMinuteComponent()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcLocalTime::unsetSecondComponent()
 
 bool IfcLocalTime::testSecondComponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSecondComponent()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcLocalTime::unsetZone()
 
 bool IfcLocalTime::testZone() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getZone()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcLocalTime::unsetDaylightSavingOffset()
 
 bool IfcLocalTime::testDaylightSavingOffset() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDaylightSavingOffset()) == false;
 }
 

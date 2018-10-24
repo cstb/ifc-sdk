@@ -88,7 +88,6 @@ void IfcDoorPanelProperties::unsetPanelDepth()
 
 bool IfcDoorPanelProperties::testPanelDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPanelDepth()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcDoorPanelProperties::unsetPanelOperation()
 
 bool IfcDoorPanelProperties::testPanelOperation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPanelOperation()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcDoorPanelProperties::unsetPanelWidth()
 
 bool IfcDoorPanelProperties::testPanelWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPanelWidth()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcDoorPanelProperties::unsetPanelPosition()
 
 bool IfcDoorPanelProperties::testPanelPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPanelPosition()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcDoorPanelProperties::unsetShapeAspectStyle()
 
 bool IfcDoorPanelProperties::testShapeAspectStyle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShapeAspectStyle()) == false;
 }
 

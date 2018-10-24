@@ -93,7 +93,6 @@ void IfcSpaceThermalLoadProperties::unsetApplicableValueRatio()
 
 bool IfcSpaceThermalLoadProperties::testApplicableValueRatio() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApplicableValueRatio()) == false;
 }
 
@@ -129,7 +128,6 @@ void IfcSpaceThermalLoadProperties::unsetThermalLoadSource()
 
 bool IfcSpaceThermalLoadProperties::testThermalLoadSource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThermalLoadSource()) == false;
 }
 
@@ -165,7 +163,6 @@ void IfcSpaceThermalLoadProperties::unsetPropertySource()
 
 bool IfcSpaceThermalLoadProperties::testPropertySource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPropertySource()) == false;
 }
 
@@ -201,7 +198,6 @@ void IfcSpaceThermalLoadProperties::unsetSourceDescription()
 
 bool IfcSpaceThermalLoadProperties::testSourceDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSourceDescription()) == false;
 }
 
@@ -237,7 +233,6 @@ void IfcSpaceThermalLoadProperties::unsetMaximumValue()
 
 bool IfcSpaceThermalLoadProperties::testMaximumValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMaximumValue()) == false;
 }
 
@@ -273,7 +268,6 @@ void IfcSpaceThermalLoadProperties::unsetMinimumValue()
 
 bool IfcSpaceThermalLoadProperties::testMinimumValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMinimumValue()) == false;
 }
 
@@ -309,7 +303,6 @@ void IfcSpaceThermalLoadProperties::unsetThermalLoadTimeSeriesValues()
 
 bool IfcSpaceThermalLoadProperties::testThermalLoadTimeSeriesValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThermalLoadTimeSeriesValues()) == false;
 }
 
@@ -345,7 +338,6 @@ void IfcSpaceThermalLoadProperties::unsetUserDefinedThermalLoadSource()
 
 bool IfcSpaceThermalLoadProperties::testUserDefinedThermalLoadSource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedThermalLoadSource()) == false;
 }
 
@@ -381,7 +373,6 @@ void IfcSpaceThermalLoadProperties::unsetUserDefinedPropertySource()
 
 bool IfcSpaceThermalLoadProperties::testUserDefinedPropertySource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedPropertySource()) == false;
 }
 
@@ -417,7 +408,6 @@ void IfcSpaceThermalLoadProperties::unsetThermalLoadType()
 
 bool IfcSpaceThermalLoadProperties::testThermalLoadType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThermalLoadType()) == false;
 }
 

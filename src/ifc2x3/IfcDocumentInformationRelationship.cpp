@@ -126,7 +126,6 @@ void IfcDocumentInformationRelationship::unsetRelationshipType()
 
 bool IfcDocumentInformationRelationship::testRelationshipType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelationshipType()) == false;
 }
 
@@ -157,7 +156,6 @@ void IfcDocumentInformationRelationship::unsetRelatedDocuments()
 
 bool IfcDocumentInformationRelationship::testRelatedDocuments() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedDocuments.isUnset() == false;
 }
 
@@ -200,7 +198,6 @@ void IfcDocumentInformationRelationship::unsetRelatingDocument()
 
 bool IfcDocumentInformationRelationship::testRelatingDocument() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingDocument()) == false;
 }
 

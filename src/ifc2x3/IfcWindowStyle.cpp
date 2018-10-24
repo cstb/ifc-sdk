@@ -86,7 +86,6 @@ void IfcWindowStyle::unsetConstructionType()
 
 bool IfcWindowStyle::testConstructionType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConstructionType()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcWindowStyle::unsetOperationType()
 
 bool IfcWindowStyle::testOperationType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOperationType()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcWindowStyle::unsetParameterTakesPrecedence()
 
 bool IfcWindowStyle::testParameterTakesPrecedence() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getParameterTakesPrecedence()) == false;
 }
 
@@ -194,7 +191,6 @@ void IfcWindowStyle::unsetSizeable()
 
 bool IfcWindowStyle::testSizeable() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSizeable()) == false;
 }
 

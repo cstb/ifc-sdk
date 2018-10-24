@@ -84,7 +84,6 @@ void IfcBoxedHalfSpace::unsetEnclosure()
 
 bool IfcBoxedHalfSpace::testEnclosure() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEnclosure()) == false;
 }
 

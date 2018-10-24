@@ -133,7 +133,6 @@ void IfcRelAssociates::unsetRelatedObjects()
 
 bool IfcRelAssociates::testRelatedObjects() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedObjects.isUnset() == false;
 }
 

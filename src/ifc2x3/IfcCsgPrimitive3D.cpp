@@ -84,7 +84,6 @@ void IfcCsgPrimitive3D::unsetPosition()
 
 bool IfcCsgPrimitive3D::testPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPosition()) == false;
 }
 

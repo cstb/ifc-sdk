@@ -89,7 +89,6 @@ void IfcStructuralLoadGroup::unsetPredefinedType()
 
 bool IfcStructuralLoadGroup::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 
@@ -125,7 +124,6 @@ void IfcStructuralLoadGroup::unsetActionType()
 
 bool IfcStructuralLoadGroup::testActionType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getActionType()) == false;
 }
 
@@ -161,7 +159,6 @@ void IfcStructuralLoadGroup::unsetActionSource()
 
 bool IfcStructuralLoadGroup::testActionSource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getActionSource()) == false;
 }
 
@@ -197,7 +194,6 @@ void IfcStructuralLoadGroup::unsetCoefficient()
 
 bool IfcStructuralLoadGroup::testCoefficient() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCoefficient()) == false;
 }
 
@@ -233,7 +229,6 @@ void IfcStructuralLoadGroup::unsetPurpose()
 
 bool IfcStructuralLoadGroup::testPurpose() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPurpose()) == false;
 }
 
@@ -255,7 +250,6 @@ const Inverse_Set_IfcStructuralResultGroup_0_1 &IfcStructuralLoadGroup::getSourc
 
 bool IfcStructuralLoadGroup::testSourceOfResultGroup() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_SourceOfResultGroup.isUnset() == false;
 }
 
@@ -277,7 +271,6 @@ const Inverse_Set_IfcStructuralAnalysisModel_0_n &IfcStructuralLoadGroup::getLoa
 
 bool IfcStructuralLoadGroup::testLoadGroupFor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_LoadGroupFor.isUnset() == false;
 }
 

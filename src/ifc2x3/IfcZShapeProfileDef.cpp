@@ -88,7 +88,6 @@ void IfcZShapeProfileDef::unsetDepth()
 
 bool IfcZShapeProfileDef::testDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDepth()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcZShapeProfileDef::unsetFlangeWidth()
 
 bool IfcZShapeProfileDef::testFlangeWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlangeWidth()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcZShapeProfileDef::unsetWebThickness()
 
 bool IfcZShapeProfileDef::testWebThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWebThickness()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcZShapeProfileDef::unsetFlangeThickness()
 
 bool IfcZShapeProfileDef::testFlangeThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlangeThickness()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcZShapeProfileDef::unsetFilletRadius()
 
 bool IfcZShapeProfileDef::testFilletRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFilletRadius()) == false;
 }
 
@@ -268,7 +263,6 @@ void IfcZShapeProfileDef::unsetEdgeRadius()
 
 bool IfcZShapeProfileDef::testEdgeRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEdgeRadius()) == false;
 }
 

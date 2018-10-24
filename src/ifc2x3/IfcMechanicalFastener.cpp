@@ -84,7 +84,6 @@ void IfcMechanicalFastener::unsetNominalDiameter()
 
 bool IfcMechanicalFastener::testNominalDiameter() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getNominalDiameter()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcMechanicalFastener::unsetNominalLength()
 
 bool IfcMechanicalFastener::testNominalLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getNominalLength()) == false;
 }
 

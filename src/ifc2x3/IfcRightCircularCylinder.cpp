@@ -84,7 +84,6 @@ void IfcRightCircularCylinder::unsetHeight()
 
 bool IfcRightCircularCylinder::testHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHeight()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcRightCircularCylinder::unsetRadius()
 
 bool IfcRightCircularCylinder::testRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRadius()) == false;
 }
 

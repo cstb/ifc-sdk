@@ -88,7 +88,6 @@ void IfcStructuralLoadSingleForce::unsetForceX()
 
 bool IfcStructuralLoadSingleForce::testForceX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getForceX()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcStructuralLoadSingleForce::unsetForceY()
 
 bool IfcStructuralLoadSingleForce::testForceY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getForceY()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcStructuralLoadSingleForce::unsetForceZ()
 
 bool IfcStructuralLoadSingleForce::testForceZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getForceZ()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcStructuralLoadSingleForce::unsetMomentX()
 
 bool IfcStructuralLoadSingleForce::testMomentX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMomentX()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcStructuralLoadSingleForce::unsetMomentY()
 
 bool IfcStructuralLoadSingleForce::testMomentY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMomentY()) == false;
 }
 
@@ -268,7 +263,6 @@ void IfcStructuralLoadSingleForce::unsetMomentZ()
 
 bool IfcStructuralLoadSingleForce::testMomentZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMomentZ()) == false;
 }
 

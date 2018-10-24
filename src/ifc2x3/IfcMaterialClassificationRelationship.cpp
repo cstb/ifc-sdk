@@ -88,7 +88,6 @@ void IfcMaterialClassificationRelationship::unsetMaterialClassifications()
 
 bool IfcMaterialClassificationRelationship::testMaterialClassifications() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_MaterialClassifications.isUnset() == false;
 }
 
@@ -131,7 +130,6 @@ void IfcMaterialClassificationRelationship::unsetClassifiedMaterial()
 
 bool IfcMaterialClassificationRelationship::testClassifiedMaterial() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getClassifiedMaterial()) == false;
 }
 

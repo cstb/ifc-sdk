@@ -95,7 +95,6 @@ void IfcAppliedValue::unsetName()
 
 bool IfcAppliedValue::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -131,7 +130,6 @@ void IfcAppliedValue::unsetDescription()
 
 bool IfcAppliedValue::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -167,7 +165,6 @@ void IfcAppliedValue::unsetAppliedValue()
 
 bool IfcAppliedValue::testAppliedValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAppliedValue()) == false;
 }
 
@@ -203,7 +200,6 @@ void IfcAppliedValue::unsetUnitBasis()
 
 bool IfcAppliedValue::testUnitBasis() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnitBasis()) == false;
 }
 
@@ -239,7 +235,6 @@ void IfcAppliedValue::unsetApplicableDate()
 
 bool IfcAppliedValue::testApplicableDate() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApplicableDate()) == false;
 }
 
@@ -275,7 +270,6 @@ void IfcAppliedValue::unsetFixedUntilDate()
 
 bool IfcAppliedValue::testFixedUntilDate() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFixedUntilDate()) == false;
 }
 
@@ -297,7 +291,6 @@ const Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesRefe
 
 bool IfcAppliedValue::testValuesReferenced() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ValuesReferenced.isUnset() == false;
 }
 
@@ -319,7 +312,6 @@ const Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsCompone
 
 bool IfcAppliedValue::testIsComponentIn() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsComponentIn.isUnset() == false;
 }
 
@@ -341,7 +333,6 @@ const Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getValueOfCo
 
 bool IfcAppliedValue::testValueOfComponents() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ValueOfComponents.isUnset() == false;
 }
 

@@ -91,7 +91,6 @@ void IfcFillAreaStyleHatching::unsetHatchLineAppearance()
 
 bool IfcFillAreaStyleHatching::testHatchLineAppearance() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHatchLineAppearance()) == false;
 }
 
@@ -127,7 +126,6 @@ void IfcFillAreaStyleHatching::unsetStartOfNextHatchLine()
 
 bool IfcFillAreaStyleHatching::testStartOfNextHatchLine() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStartOfNextHatchLine()) == false;
 }
 
@@ -163,7 +161,6 @@ void IfcFillAreaStyleHatching::unsetPointOfReferenceHatchLine()
 
 bool IfcFillAreaStyleHatching::testPointOfReferenceHatchLine() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPointOfReferenceHatchLine()) == false;
 }
 
@@ -199,7 +196,6 @@ void IfcFillAreaStyleHatching::unsetPatternStart()
 
 bool IfcFillAreaStyleHatching::testPatternStart() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPatternStart()) == false;
 }
 
@@ -235,7 +231,6 @@ void IfcFillAreaStyleHatching::unsetHatchLineAngle()
 
 bool IfcFillAreaStyleHatching::testHatchLineAngle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHatchLineAngle()) == false;
 }
 

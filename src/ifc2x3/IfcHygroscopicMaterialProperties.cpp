@@ -87,7 +87,6 @@ void IfcHygroscopicMaterialProperties::unsetUpperVaporResistanceFactor()
 
 bool IfcHygroscopicMaterialProperties::testUpperVaporResistanceFactor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUpperVaporResistanceFactor()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcHygroscopicMaterialProperties::unsetLowerVaporResistanceFactor()
 
 bool IfcHygroscopicMaterialProperties::testLowerVaporResistanceFactor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLowerVaporResistanceFactor()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcHygroscopicMaterialProperties::unsetIsothermalMoistureCapacity()
 
 bool IfcHygroscopicMaterialProperties::testIsothermalMoistureCapacity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIsothermalMoistureCapacity()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcHygroscopicMaterialProperties::unsetVaporPermeability()
 
 bool IfcHygroscopicMaterialProperties::testVaporPermeability() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVaporPermeability()) == false;
 }
 
@@ -231,7 +227,6 @@ void IfcHygroscopicMaterialProperties::unsetMoistureDiffusivity()
 
 bool IfcHygroscopicMaterialProperties::testMoistureDiffusivity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMoistureDiffusivity()) == false;
 }
 

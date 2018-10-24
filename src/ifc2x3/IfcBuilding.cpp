@@ -86,7 +86,6 @@ void IfcBuilding::unsetElevationOfRefHeight()
 
 bool IfcBuilding::testElevationOfRefHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getElevationOfRefHeight()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcBuilding::unsetElevationOfTerrain()
 
 bool IfcBuilding::testElevationOfTerrain() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getElevationOfTerrain()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcBuilding::unsetBuildingAddress()
 
 bool IfcBuilding::testBuildingAddress() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBuildingAddress()) == false;
 }
 

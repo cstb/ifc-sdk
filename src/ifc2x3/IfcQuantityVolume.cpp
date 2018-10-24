@@ -83,7 +83,6 @@ void IfcQuantityVolume::unsetVolumeValue()
 
 bool IfcQuantityVolume::testVolumeValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVolumeValue()) == false;
 }
 

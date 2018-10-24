@@ -87,7 +87,6 @@ void IfcReinforcingBar::unsetNominalDiameter()
 
 bool IfcReinforcingBar::testNominalDiameter() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getNominalDiameter()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcReinforcingBar::unsetCrossSectionArea()
 
 bool IfcReinforcingBar::testCrossSectionArea() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCrossSectionArea()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcReinforcingBar::unsetBarLength()
 
 bool IfcReinforcingBar::testBarLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBarLength()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcReinforcingBar::unsetBarRole()
 
 bool IfcReinforcingBar::testBarRole() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBarRole()) == false;
 }
 
@@ -231,7 +227,6 @@ void IfcReinforcingBar::unsetBarSurface()
 
 bool IfcReinforcingBar::testBarSurface() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBarSurface()) == false;
 }
 

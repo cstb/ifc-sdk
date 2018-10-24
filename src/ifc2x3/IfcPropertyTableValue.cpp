@@ -93,7 +93,6 @@ void IfcPropertyTableValue::unsetDefiningValues()
 
 bool IfcPropertyTableValue::testDefiningValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_DefiningValues.isUnset() == false;
 }
 
@@ -131,7 +130,6 @@ void IfcPropertyTableValue::unsetDefinedValues()
 
 bool IfcPropertyTableValue::testDefinedValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_DefinedValues.isUnset() == false;
 }
 
@@ -167,7 +165,6 @@ void IfcPropertyTableValue::unsetExpression()
 
 bool IfcPropertyTableValue::testExpression() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getExpression()) == false;
 }
 
@@ -203,7 +200,6 @@ void IfcPropertyTableValue::unsetDefiningUnit()
 
 bool IfcPropertyTableValue::testDefiningUnit() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDefiningUnit()) == false;
 }
 
@@ -239,7 +235,6 @@ void IfcPropertyTableValue::unsetDefinedUnit()
 
 bool IfcPropertyTableValue::testDefinedUnit() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDefinedUnit()) == false;
 }
 

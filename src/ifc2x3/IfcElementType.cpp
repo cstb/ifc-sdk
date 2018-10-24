@@ -83,7 +83,6 @@ void IfcElementType::unsetElementType()
 
 bool IfcElementType::testElementType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getElementType()) == false;
 }
 

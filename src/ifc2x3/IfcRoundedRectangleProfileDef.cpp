@@ -83,7 +83,6 @@ void IfcRoundedRectangleProfileDef::unsetRoundingRadius()
 
 bool IfcRoundedRectangleProfileDef::testRoundingRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRoundingRadius()) == false;
 }
 

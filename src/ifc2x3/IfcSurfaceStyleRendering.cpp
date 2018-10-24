@@ -96,7 +96,6 @@ void IfcSurfaceStyleRendering::unsetTransparency()
 
 bool IfcSurfaceStyleRendering::testTransparency() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTransparency()) == false;
 }
 
@@ -132,7 +131,6 @@ void IfcSurfaceStyleRendering::unsetDiffuseColour()
 
 bool IfcSurfaceStyleRendering::testDiffuseColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDiffuseColour()) == false;
 }
 
@@ -168,7 +166,6 @@ void IfcSurfaceStyleRendering::unsetTransmissionColour()
 
 bool IfcSurfaceStyleRendering::testTransmissionColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTransmissionColour()) == false;
 }
 
@@ -204,7 +201,6 @@ void IfcSurfaceStyleRendering::unsetDiffuseTransmissionColour()
 
 bool IfcSurfaceStyleRendering::testDiffuseTransmissionColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDiffuseTransmissionColour()) == false;
 }
 
@@ -240,7 +236,6 @@ void IfcSurfaceStyleRendering::unsetReflectionColour()
 
 bool IfcSurfaceStyleRendering::testReflectionColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getReflectionColour()) == false;
 }
 
@@ -276,7 +271,6 @@ void IfcSurfaceStyleRendering::unsetSpecularColour()
 
 bool IfcSurfaceStyleRendering::testSpecularColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSpecularColour()) == false;
 }
 
@@ -312,7 +306,6 @@ void IfcSurfaceStyleRendering::unsetSpecularHighlight()
 
 bool IfcSurfaceStyleRendering::testSpecularHighlight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSpecularHighlight()) == false;
 }
 
@@ -348,7 +341,6 @@ void IfcSurfaceStyleRendering::unsetReflectanceMethod()
 
 bool IfcSurfaceStyleRendering::testReflectanceMethod() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getReflectanceMethod()) == false;
 }
 

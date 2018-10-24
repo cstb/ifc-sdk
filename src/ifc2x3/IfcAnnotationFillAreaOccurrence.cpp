@@ -85,7 +85,6 @@ void IfcAnnotationFillAreaOccurrence::unsetFillStyleTarget()
 
 bool IfcAnnotationFillAreaOccurrence::testFillStyleTarget() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFillStyleTarget()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcAnnotationFillAreaOccurrence::unsetGlobalOrLocal()
 
 bool IfcAnnotationFillAreaOccurrence::testGlobalOrLocal() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getGlobalOrLocal()) == false;
 }
 

@@ -86,7 +86,6 @@ void IfcTrapeziumProfileDef::unsetBottomXDim()
 
 bool IfcTrapeziumProfileDef::testBottomXDim() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBottomXDim()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcTrapeziumProfileDef::unsetTopXDim()
 
 bool IfcTrapeziumProfileDef::testTopXDim() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTopXDim()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcTrapeziumProfileDef::unsetYDim()
 
 bool IfcTrapeziumProfileDef::testYDim() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getYDim()) == false;
 }
 
@@ -194,7 +191,6 @@ void IfcTrapeziumProfileDef::unsetTopXOffset()
 
 bool IfcTrapeziumProfileDef::testTopXOffset() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTopXOffset()) == false;
 }
 

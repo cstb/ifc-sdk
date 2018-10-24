@@ -85,7 +85,6 @@ void IfcConnectionPointEccentricity::unsetEccentricityInX()
 
 bool IfcConnectionPointEccentricity::testEccentricityInX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEccentricityInX()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcConnectionPointEccentricity::unsetEccentricityInY()
 
 bool IfcConnectionPointEccentricity::testEccentricityInY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEccentricityInY()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcConnectionPointEccentricity::unsetEccentricityInZ()
 
 bool IfcConnectionPointEccentricity::testEccentricityInZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEccentricityInZ()) == false;
 }
 

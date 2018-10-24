@@ -83,7 +83,6 @@ void IfcDimensionCurveTerminator::unsetRole()
 
 bool IfcDimensionCurveTerminator::testRole() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRole()) == false;
 }
 

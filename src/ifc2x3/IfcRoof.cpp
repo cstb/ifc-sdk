@@ -83,7 +83,6 @@ void IfcRoof::unsetShapeType()
 
 bool IfcRoof::testShapeType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShapeType()) == false;
 }
 

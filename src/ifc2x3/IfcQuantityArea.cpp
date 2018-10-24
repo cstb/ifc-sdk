@@ -83,7 +83,6 @@ void IfcQuantityArea::unsetAreaValue()
 
 bool IfcQuantityArea::testAreaValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAreaValue()) == false;
 }
 

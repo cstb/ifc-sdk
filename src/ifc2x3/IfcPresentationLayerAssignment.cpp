@@ -149,7 +149,6 @@ void IfcPresentationLayerAssignment::unsetName()
 
 bool IfcPresentationLayerAssignment::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -185,7 +184,6 @@ void IfcPresentationLayerAssignment::unsetDescription()
 
 bool IfcPresentationLayerAssignment::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -221,7 +219,6 @@ void IfcPresentationLayerAssignment::unsetIdentifier()
 
 bool IfcPresentationLayerAssignment::testIdentifier() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIdentifier()) == false;
 }
 
@@ -252,7 +249,6 @@ void IfcPresentationLayerAssignment::unsetAssignedItems()
 
 bool IfcPresentationLayerAssignment::testAssignedItems() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_AssignedItems.isUnset() == false;
 }
 

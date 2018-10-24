@@ -85,7 +85,6 @@ void IfcOrientedEdge::unsetEdgeElement()
 
 bool IfcOrientedEdge::testEdgeElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEdgeElement()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcOrientedEdge::unsetOrientation()
 
 bool IfcOrientedEdge::testOrientation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOrientation()) == false;
 }
 

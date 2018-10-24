@@ -85,7 +85,6 @@ void IfcTextureVertex::unsetCoordinates()
 
 bool IfcTextureVertex::testCoordinates() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Coordinates.isUnset() == false;
 }
 

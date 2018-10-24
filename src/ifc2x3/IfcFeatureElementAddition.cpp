@@ -68,7 +68,6 @@ const IfcRelProjectsElement *IfcFeatureElementAddition::getProjectsElements() co
 
 bool IfcFeatureElementAddition::testProjectsElements() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProjectsElements()) == false;
 }
 

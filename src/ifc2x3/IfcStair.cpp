@@ -83,7 +83,6 @@ void IfcStair::unsetShapeType()
 
 bool IfcStair::testShapeType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShapeType()) == false;
 }
 

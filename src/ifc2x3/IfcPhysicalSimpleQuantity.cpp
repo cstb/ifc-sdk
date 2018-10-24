@@ -84,7 +84,6 @@ void IfcPhysicalSimpleQuantity::unsetUnit()
 
 bool IfcPhysicalSimpleQuantity::testUnit() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnit()) == false;
 }
 

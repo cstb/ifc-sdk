@@ -83,7 +83,6 @@ void IfcQuantityCount::unsetCountValue()
 
 bool IfcQuantityCount::testCountValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCountValue()) == false;
 }
 

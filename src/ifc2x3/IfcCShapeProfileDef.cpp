@@ -88,7 +88,6 @@ void IfcCShapeProfileDef::unsetDepth()
 
 bool IfcCShapeProfileDef::testDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDepth()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcCShapeProfileDef::unsetWidth()
 
 bool IfcCShapeProfileDef::testWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWidth()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcCShapeProfileDef::unsetWallThickness()
 
 bool IfcCShapeProfileDef::testWallThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWallThickness()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcCShapeProfileDef::unsetGirth()
 
 bool IfcCShapeProfileDef::testGirth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getGirth()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcCShapeProfileDef::unsetInternalFilletRadius()
 
 bool IfcCShapeProfileDef::testInternalFilletRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInternalFilletRadius()) == false;
 }
 
@@ -268,7 +263,6 @@ void IfcCShapeProfileDef::unsetCentreOfGravityInX()
 
 bool IfcCShapeProfileDef::testCentreOfGravityInX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCentreOfGravityInX()) == false;
 }
 

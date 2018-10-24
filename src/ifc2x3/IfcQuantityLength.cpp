@@ -83,7 +83,6 @@ void IfcQuantityLength::unsetLengthValue()
 
 bool IfcQuantityLength::testLengthValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLengthValue()) == false;
 }
 

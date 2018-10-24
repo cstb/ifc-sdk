@@ -84,7 +84,6 @@ void IfcStructuralSurfaceMember::unsetPredefinedType()
 
 bool IfcStructuralSurfaceMember::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcStructuralSurfaceMember::unsetThickness()
 
 bool IfcStructuralSurfaceMember::testThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThickness()) == false;
 }
 

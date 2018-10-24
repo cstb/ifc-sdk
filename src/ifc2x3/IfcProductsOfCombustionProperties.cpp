@@ -86,7 +86,6 @@ void IfcProductsOfCombustionProperties::unsetSpecificHeatCapacity()
 
 bool IfcProductsOfCombustionProperties::testSpecificHeatCapacity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSpecificHeatCapacity()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcProductsOfCombustionProperties::unsetN20Content()
 
 bool IfcProductsOfCombustionProperties::testN20Content() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getN20Content()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcProductsOfCombustionProperties::unsetCOContent()
 
 bool IfcProductsOfCombustionProperties::testCOContent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCOContent()) == false;
 }
 
@@ -194,7 +191,6 @@ void IfcProductsOfCombustionProperties::unsetCO2Content()
 
 bool IfcProductsOfCombustionProperties::testCO2Content() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCO2Content()) == false;
 }
 

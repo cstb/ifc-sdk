@@ -69,7 +69,6 @@ const Inverse_Set_IfcDocumentInformation_0_1 &IfcDocumentReference::getReference
 
 bool IfcDocumentReference::testReferenceToDocument() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ReferenceToDocument.isUnset() == false;
 }
 

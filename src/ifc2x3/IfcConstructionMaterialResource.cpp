@@ -87,7 +87,6 @@ void IfcConstructionMaterialResource::unsetSuppliers()
 
 bool IfcConstructionMaterialResource::testSuppliers() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Suppliers.isUnset() == false;
 }
 
@@ -123,7 +122,6 @@ void IfcConstructionMaterialResource::unsetUsageRatio()
 
 bool IfcConstructionMaterialResource::testUsageRatio() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUsageRatio()) == false;
 }
 

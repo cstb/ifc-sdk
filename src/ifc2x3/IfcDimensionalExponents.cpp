@@ -89,7 +89,6 @@ void IfcDimensionalExponents::unsetLengthExponent()
 
 bool IfcDimensionalExponents::testLengthExponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLengthExponent()) == false;
 }
 
@@ -125,7 +124,6 @@ void IfcDimensionalExponents::unsetMassExponent()
 
 bool IfcDimensionalExponents::testMassExponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMassExponent()) == false;
 }
 
@@ -161,7 +159,6 @@ void IfcDimensionalExponents::unsetTimeExponent()
 
 bool IfcDimensionalExponents::testTimeExponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTimeExponent()) == false;
 }
 
@@ -197,7 +194,6 @@ void IfcDimensionalExponents::unsetElectricCurrentExponent()
 
 bool IfcDimensionalExponents::testElectricCurrentExponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getElectricCurrentExponent()) == false;
 }
 
@@ -233,7 +229,6 @@ void IfcDimensionalExponents::unsetThermodynamicTemperatureExponent()
 
 bool IfcDimensionalExponents::testThermodynamicTemperatureExponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThermodynamicTemperatureExponent()) == false;
 }
 
@@ -269,7 +264,6 @@ void IfcDimensionalExponents::unsetAmountOfSubstanceExponent()
 
 bool IfcDimensionalExponents::testAmountOfSubstanceExponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAmountOfSubstanceExponent()) == false;
 }
 
@@ -305,7 +299,6 @@ void IfcDimensionalExponents::unsetLuminousIntensityExponent()
 
 bool IfcDimensionalExponents::testLuminousIntensityExponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLuminousIntensityExponent()) == false;
 }
 

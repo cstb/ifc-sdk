@@ -120,7 +120,6 @@ void IfcRelDecomposes::unsetRelatedObjects()
 
 bool IfcRelDecomposes::testRelatedObjects() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedObjects.isUnset() == false;
 }
 
@@ -163,7 +162,6 @@ void IfcRelDecomposes::unsetRelatingObject()
 
 bool IfcRelDecomposes::testRelatingObject() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingObject()) == false;
 }
 

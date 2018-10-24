@@ -87,7 +87,6 @@ void IfcAddress::unsetPurpose()
 
 bool IfcAddress::testPurpose() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPurpose()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcAddress::unsetDescription()
 
 bool IfcAddress::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcAddress::unsetUserDefinedPurpose()
 
 bool IfcAddress::testUserDefinedPurpose() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedPurpose()) == false;
 }
 
@@ -181,7 +178,6 @@ const Inverse_Set_IfcOrganization_0_n &IfcAddress::getOfOrganization() const
 
 bool IfcAddress::testOfOrganization() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_OfOrganization.isUnset() == false;
 }
 
@@ -203,7 +199,6 @@ const Inverse_Set_IfcPerson_0_n &IfcAddress::getOfPerson() const
 
 bool IfcAddress::testOfPerson() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_OfPerson.isUnset() == false;
 }
 

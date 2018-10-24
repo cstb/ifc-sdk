@@ -83,7 +83,6 @@ void IfcBoundaryCondition::unsetName()
 
 bool IfcBoundaryCondition::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 

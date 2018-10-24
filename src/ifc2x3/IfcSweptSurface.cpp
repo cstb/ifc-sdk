@@ -86,7 +86,6 @@ void IfcSweptSurface::unsetSweptCurve()
 
 bool IfcSweptSurface::testSweptCurve() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSweptCurve()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcSweptSurface::unsetPosition()
 
 bool IfcSweptSurface::testPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPosition()) == false;
 }
 

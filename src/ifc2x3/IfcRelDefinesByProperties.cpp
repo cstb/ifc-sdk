@@ -91,7 +91,6 @@ void IfcRelDefinesByProperties::unsetRelatingPropertyDefinition()
 
 bool IfcRelDefinesByProperties::testRelatingPropertyDefinition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingPropertyDefinition()) == false;
 }
 

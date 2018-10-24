@@ -84,7 +84,6 @@ void IfcChamferEdgeFeature::unsetWidth()
 
 bool IfcChamferEdgeFeature::testWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWidth()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcChamferEdgeFeature::unsetHeight()
 
 bool IfcChamferEdgeFeature::testHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHeight()) == false;
 }
 

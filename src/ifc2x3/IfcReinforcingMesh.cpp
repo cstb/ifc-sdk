@@ -90,7 +90,6 @@ void IfcReinforcingMesh::unsetMeshLength()
 
 bool IfcReinforcingMesh::testMeshLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMeshLength()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcReinforcingMesh::unsetMeshWidth()
 
 bool IfcReinforcingMesh::testMeshWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMeshWidth()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcReinforcingMesh::unsetLongitudinalBarNominalDiameter()
 
 bool IfcReinforcingMesh::testLongitudinalBarNominalDiameter() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLongitudinalBarNominalDiameter()) == false;
 }
 
@@ -198,7 +195,6 @@ void IfcReinforcingMesh::unsetTransverseBarNominalDiameter()
 
 bool IfcReinforcingMesh::testTransverseBarNominalDiameter() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTransverseBarNominalDiameter()) == false;
 }
 
@@ -234,7 +230,6 @@ void IfcReinforcingMesh::unsetLongitudinalBarCrossSectionArea()
 
 bool IfcReinforcingMesh::testLongitudinalBarCrossSectionArea() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLongitudinalBarCrossSectionArea()) == false;
 }
 
@@ -270,7 +265,6 @@ void IfcReinforcingMesh::unsetTransverseBarCrossSectionArea()
 
 bool IfcReinforcingMesh::testTransverseBarCrossSectionArea() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTransverseBarCrossSectionArea()) == false;
 }
 
@@ -306,7 +300,6 @@ void IfcReinforcingMesh::unsetLongitudinalBarSpacing()
 
 bool IfcReinforcingMesh::testLongitudinalBarSpacing() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLongitudinalBarSpacing()) == false;
 }
 
@@ -342,7 +335,6 @@ void IfcReinforcingMesh::unsetTransverseBarSpacing()
 
 bool IfcReinforcingMesh::testTransverseBarSpacing() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTransverseBarSpacing()) == false;
 }
 

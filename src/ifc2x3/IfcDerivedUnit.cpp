@@ -88,7 +88,6 @@ void IfcDerivedUnit::unsetElements()
 
 bool IfcDerivedUnit::testElements() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Elements.isUnset() == false;
 }
 
@@ -124,7 +123,6 @@ void IfcDerivedUnit::unsetUnitType()
 
 bool IfcDerivedUnit::testUnitType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnitType()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcDerivedUnit::unsetUserDefinedType()
 
 bool IfcDerivedUnit::testUserDefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedType()) == false;
 }
 

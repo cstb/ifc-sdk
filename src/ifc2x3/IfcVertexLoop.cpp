@@ -84,7 +84,6 @@ void IfcVertexLoop::unsetLoopVertex()
 
 bool IfcVertexLoop::testLoopVertex() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLoopVertex()) == false;
 }
 

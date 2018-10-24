@@ -84,7 +84,6 @@ void IfcOneDirectionRepeatFactor::unsetRepeatFactor()
 
 bool IfcOneDirectionRepeatFactor::testRepeatFactor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRepeatFactor()) == false;
 }
 

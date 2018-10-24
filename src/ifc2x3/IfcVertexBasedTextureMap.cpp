@@ -88,7 +88,6 @@ void IfcVertexBasedTextureMap::unsetTextureVertices()
 
 bool IfcVertexBasedTextureMap::testTextureVertices() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_TextureVertices.isUnset() == false;
 }
 
@@ -126,7 +125,6 @@ void IfcVertexBasedTextureMap::unsetTexturePoints()
 
 bool IfcVertexBasedTextureMap::testTexturePoints() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_TexturePoints.isUnset() == false;
 }
 

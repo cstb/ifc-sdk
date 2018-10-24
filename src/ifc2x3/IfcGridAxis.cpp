@@ -90,7 +90,6 @@ void IfcGridAxis::unsetAxisTag()
 
 bool IfcGridAxis::testAxisTag() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAxisTag()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcGridAxis::unsetAxisCurve()
 
 bool IfcGridAxis::testAxisCurve() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAxisCurve()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcGridAxis::unsetSameSense()
 
 bool IfcGridAxis::testSameSense() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSameSense()) == false;
 }
 
@@ -184,7 +181,6 @@ const Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersectio
 
 bool IfcGridAxis::testHasIntersections() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasIntersections.isUnset() == false;
 }
 
@@ -206,7 +202,6 @@ const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() const
 
 bool IfcGridAxis::testPartOfV() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PartOfV.isUnset() == false;
 }
 
@@ -228,7 +223,6 @@ const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfU() const
 
 bool IfcGridAxis::testPartOfU() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PartOfU.isUnset() == false;
 }
 
@@ -250,7 +244,6 @@ const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfW() const
 
 bool IfcGridAxis::testPartOfW() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PartOfW.isUnset() == false;
 }
 

@@ -85,7 +85,6 @@ void IfcExternalReference::unsetLocation()
 
 bool IfcExternalReference::testLocation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLocation()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcExternalReference::unsetItemReference()
 
 bool IfcExternalReference::testItemReference() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getItemReference()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcExternalReference::unsetName()
 
 bool IfcExternalReference::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 

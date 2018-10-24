@@ -84,7 +84,6 @@ void IfcObject::unsetObjectType()
 
 bool IfcObject::testObjectType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getObjectType()) == false;
 }
 
@@ -106,7 +105,6 @@ const Inverse_Set_IfcRelDefines_0_n &IfcObject::getIsDefinedBy() const
 
 bool IfcObject::testIsDefinedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsDefinedBy.isUnset() == false;
 }
 

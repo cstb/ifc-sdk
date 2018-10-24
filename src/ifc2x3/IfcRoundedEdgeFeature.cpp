@@ -83,7 +83,6 @@ void IfcRoundedEdgeFeature::unsetRadius()
 
 bool IfcRoundedEdgeFeature::testRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRadius()) == false;
 }
 

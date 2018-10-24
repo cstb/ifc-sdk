@@ -93,7 +93,6 @@ void IfcTextStyleTextModel::unsetTextIndent()
 
 bool IfcTextStyleTextModel::testTextIndent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTextIndent()) == false;
 }
 
@@ -129,7 +128,6 @@ void IfcTextStyleTextModel::unsetTextAlign()
 
 bool IfcTextStyleTextModel::testTextAlign() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTextAlign()) == false;
 }
 
@@ -165,7 +163,6 @@ void IfcTextStyleTextModel::unsetTextDecoration()
 
 bool IfcTextStyleTextModel::testTextDecoration() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTextDecoration()) == false;
 }
 
@@ -201,7 +198,6 @@ void IfcTextStyleTextModel::unsetLetterSpacing()
 
 bool IfcTextStyleTextModel::testLetterSpacing() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLetterSpacing()) == false;
 }
 
@@ -237,7 +233,6 @@ void IfcTextStyleTextModel::unsetWordSpacing()
 
 bool IfcTextStyleTextModel::testWordSpacing() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWordSpacing()) == false;
 }
 
@@ -273,7 +268,6 @@ void IfcTextStyleTextModel::unsetTextTransform()
 
 bool IfcTextStyleTextModel::testTextTransform() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTextTransform()) == false;
 }
 
@@ -309,7 +303,6 @@ void IfcTextStyleTextModel::unsetLineHeight()
 
 bool IfcTextStyleTextModel::testLineHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLineHeight()) == false;
 }
 

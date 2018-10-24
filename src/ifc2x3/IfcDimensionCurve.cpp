@@ -69,7 +69,6 @@ const Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymb
 
 bool IfcDimensionCurve::testAnnotatedBySymbols() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_AnnotatedBySymbols.isUnset() == false;
 }
 

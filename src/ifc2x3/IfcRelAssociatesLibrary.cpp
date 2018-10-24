@@ -84,7 +84,6 @@ void IfcRelAssociatesLibrary::unsetRelatingLibrary()
 
 bool IfcRelAssociatesLibrary::testRelatingLibrary() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingLibrary()) == false;
 }
 

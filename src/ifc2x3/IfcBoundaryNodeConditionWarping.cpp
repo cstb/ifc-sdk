@@ -83,7 +83,6 @@ void IfcBoundaryNodeConditionWarping::unsetWarpingStiffness()
 
 bool IfcBoundaryNodeConditionWarping::testWarpingStiffness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWarpingStiffness()) == false;
 }
 

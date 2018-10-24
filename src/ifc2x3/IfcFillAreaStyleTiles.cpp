@@ -87,7 +87,6 @@ void IfcFillAreaStyleTiles::unsetTilingPattern()
 
 bool IfcFillAreaStyleTiles::testTilingPattern() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTilingPattern()) == false;
 }
 
@@ -125,7 +124,6 @@ void IfcFillAreaStyleTiles::unsetTiles()
 
 bool IfcFillAreaStyleTiles::testTiles() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Tiles.isUnset() == false;
 }
 
@@ -161,7 +159,6 @@ void IfcFillAreaStyleTiles::unsetTilingScale()
 
 bool IfcFillAreaStyleTiles::testTilingScale() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTilingScale()) == false;
 }
 

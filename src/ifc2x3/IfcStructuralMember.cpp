@@ -70,7 +70,6 @@ const Inverse_Set_IfcRelConnectsStructuralMember_0_n &IfcStructuralMember::getCo
 
 bool IfcStructuralMember::testConnectedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ConnectedBy.isUnset() == false;
 }
 
@@ -92,7 +91,6 @@ const Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcStructuralMember::getR
 
 bool IfcStructuralMember::testReferencesElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ReferencesElement.isUnset() == false;
 }
 

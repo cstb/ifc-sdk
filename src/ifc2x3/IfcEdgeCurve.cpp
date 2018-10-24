@@ -85,7 +85,6 @@ void IfcEdgeCurve::unsetEdgeGeometry()
 
 bool IfcEdgeCurve::testEdgeGeometry() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEdgeGeometry()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcEdgeCurve::unsetSameSense()
 
 bool IfcEdgeCurve::testSameSense() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSameSense()) == false;
 }
 

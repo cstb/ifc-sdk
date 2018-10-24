@@ -88,7 +88,6 @@ void IfcSurfaceCurveSweptAreaSolid::unsetDirectrix()
 
 bool IfcSurfaceCurveSweptAreaSolid::testDirectrix() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDirectrix()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcSurfaceCurveSweptAreaSolid::unsetStartParam()
 
 bool IfcSurfaceCurveSweptAreaSolid::testStartParam() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStartParam()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcSurfaceCurveSweptAreaSolid::unsetEndParam()
 
 bool IfcSurfaceCurveSweptAreaSolid::testEndParam() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEndParam()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcSurfaceCurveSweptAreaSolid::unsetReferenceSurface()
 
 bool IfcSurfaceCurveSweptAreaSolid::testReferenceSurface() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getReferenceSurface()) == false;
 }
 

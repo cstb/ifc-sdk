@@ -87,7 +87,6 @@ void IfcLightSource::unsetName()
 
 bool IfcLightSource::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcLightSource::unsetLightColour()
 
 bool IfcLightSource::testLightColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLightColour()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcLightSource::unsetAmbientIntensity()
 
 bool IfcLightSource::testAmbientIntensity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAmbientIntensity()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcLightSource::unsetIntensity()
 
 bool IfcLightSource::testIntensity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIntensity()) == false;
 }
 

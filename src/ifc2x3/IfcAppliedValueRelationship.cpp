@@ -128,7 +128,6 @@ void IfcAppliedValueRelationship::unsetArithmeticOperator()
 
 bool IfcAppliedValueRelationship::testArithmeticOperator() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getArithmeticOperator()) == false;
 }
 
@@ -164,7 +163,6 @@ void IfcAppliedValueRelationship::unsetName()
 
 bool IfcAppliedValueRelationship::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -200,7 +198,6 @@ void IfcAppliedValueRelationship::unsetDescription()
 
 bool IfcAppliedValueRelationship::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -243,7 +240,6 @@ void IfcAppliedValueRelationship::unsetComponentOfTotal()
 
 bool IfcAppliedValueRelationship::testComponentOfTotal() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getComponentOfTotal()) == false;
 }
 
@@ -274,7 +270,6 @@ void IfcAppliedValueRelationship::unsetComponents()
 
 bool IfcAppliedValueRelationship::testComponents() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Components.isUnset() == false;
 }
 

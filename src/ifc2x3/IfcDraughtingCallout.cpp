@@ -88,7 +88,6 @@ void IfcDraughtingCallout::unsetContents()
 
 bool IfcDraughtingCallout::testContents() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Contents.isUnset() == false;
 }
 
@@ -110,7 +109,6 @@ const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::ge
 
 bool IfcDraughtingCallout::testIsRelatedFromCallout() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsRelatedFromCallout.isUnset() == false;
 }
 
@@ -132,7 +130,6 @@ const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::ge
 
 bool IfcDraughtingCallout::testIsRelatedToCallout() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsRelatedToCallout.isUnset() == false;
 }
 

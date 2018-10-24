@@ -85,7 +85,6 @@ void IfcConversionBasedUnit::unsetName()
 
 bool IfcConversionBasedUnit::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcConversionBasedUnit::unsetConversionFactor()
 
 bool IfcConversionBasedUnit::testConversionFactor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConversionFactor()) == false;
 }
 

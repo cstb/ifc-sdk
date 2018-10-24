@@ -83,7 +83,6 @@ void IfcPresentationStyle::unsetName()
 
 bool IfcPresentationStyle::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 

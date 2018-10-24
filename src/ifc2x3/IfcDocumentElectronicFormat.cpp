@@ -85,7 +85,6 @@ void IfcDocumentElectronicFormat::unsetFileExtension()
 
 bool IfcDocumentElectronicFormat::testFileExtension() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFileExtension()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcDocumentElectronicFormat::unsetMimeContentType()
 
 bool IfcDocumentElectronicFormat::testMimeContentType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMimeContentType()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcDocumentElectronicFormat::unsetMimeSubtype()
 
 bool IfcDocumentElectronicFormat::testMimeSubtype() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMimeSubtype()) == false;
 }
 

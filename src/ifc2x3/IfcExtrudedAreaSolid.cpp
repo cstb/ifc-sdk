@@ -85,7 +85,6 @@ void IfcExtrudedAreaSolid::unsetExtrudedDirection()
 
 bool IfcExtrudedAreaSolid::testExtrudedDirection() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getExtrudedDirection()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcExtrudedAreaSolid::unsetDepth()
 
 bool IfcExtrudedAreaSolid::testDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDepth()) == false;
 }
 

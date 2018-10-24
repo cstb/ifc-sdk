@@ -91,7 +91,6 @@ void IfcRelAssignsTasks::unsetTimeForTask()
 
 bool IfcRelAssignsTasks::testTimeForTask() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTimeForTask()) == false;
 }
 

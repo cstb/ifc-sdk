@@ -84,7 +84,6 @@ void IfcManifoldSolidBrep::unsetOuter()
 
 bool IfcManifoldSolidBrep::testOuter() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOuter()) == false;
 }
 

@@ -87,7 +87,6 @@ void IfcSectionProperties::unsetSectionType()
 
 bool IfcSectionProperties::testSectionType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSectionType()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcSectionProperties::unsetStartProfile()
 
 bool IfcSectionProperties::testStartProfile() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStartProfile()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcSectionProperties::unsetEndProfile()
 
 bool IfcSectionProperties::testEndProfile() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEndProfile()) == false;
 }
 

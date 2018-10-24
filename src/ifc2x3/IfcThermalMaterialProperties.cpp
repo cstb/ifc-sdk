@@ -86,7 +86,6 @@ void IfcThermalMaterialProperties::unsetSpecificHeatCapacity()
 
 bool IfcThermalMaterialProperties::testSpecificHeatCapacity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSpecificHeatCapacity()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcThermalMaterialProperties::unsetBoilingPoint()
 
 bool IfcThermalMaterialProperties::testBoilingPoint() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBoilingPoint()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcThermalMaterialProperties::unsetFreezingPoint()
 
 bool IfcThermalMaterialProperties::testFreezingPoint() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFreezingPoint()) == false;
 }
 
@@ -194,7 +191,6 @@ void IfcThermalMaterialProperties::unsetThermalConductivity()
 
 bool IfcThermalMaterialProperties::testThermalConductivity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThermalConductivity()) == false;
 }
 

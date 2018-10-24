@@ -156,7 +156,6 @@ void IfcRelContainedInSpatialStructure::unsetRelatingStructure()
 
 bool IfcRelContainedInSpatialStructure::testRelatingStructure() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingStructure()) == false;
 }
 
@@ -187,7 +186,6 @@ void IfcRelContainedInSpatialStructure::unsetRelatedElements()
 
 bool IfcRelContainedInSpatialStructure::testRelatedElements() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedElements.isUnset() == false;
 }
 

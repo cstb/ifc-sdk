@@ -69,7 +69,6 @@ const Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionFlowElement::get
 
 bool IfcDistributionFlowElement::testHasControlElements() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasControlElements.isUnset() == false;
 }
 

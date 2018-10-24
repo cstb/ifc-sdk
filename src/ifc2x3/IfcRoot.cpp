@@ -87,7 +87,6 @@ void IfcRoot::unsetGlobalId()
 
 bool IfcRoot::testGlobalId() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getGlobalId()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcRoot::unsetOwnerHistory()
 
 bool IfcRoot::testOwnerHistory() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOwnerHistory()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcRoot::unsetName()
 
 bool IfcRoot::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcRoot::unsetDescription()
 
 bool IfcRoot::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 

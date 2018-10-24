@@ -105,7 +105,6 @@ void IfcFluidFlowProperties::unsetPropertySource()
 
 bool IfcFluidFlowProperties::testPropertySource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPropertySource()) == false;
 }
 
@@ -141,7 +140,6 @@ void IfcFluidFlowProperties::unsetFlowConditionTimeSeries()
 
 bool IfcFluidFlowProperties::testFlowConditionTimeSeries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlowConditionTimeSeries()) == false;
 }
 
@@ -177,7 +175,6 @@ void IfcFluidFlowProperties::unsetVelocityTimeSeries()
 
 bool IfcFluidFlowProperties::testVelocityTimeSeries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVelocityTimeSeries()) == false;
 }
 
@@ -213,7 +210,6 @@ void IfcFluidFlowProperties::unsetFlowrateTimeSeries()
 
 bool IfcFluidFlowProperties::testFlowrateTimeSeries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlowrateTimeSeries()) == false;
 }
 
@@ -249,7 +245,6 @@ void IfcFluidFlowProperties::unsetFluid()
 
 bool IfcFluidFlowProperties::testFluid() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFluid()) == false;
 }
 
@@ -285,7 +280,6 @@ void IfcFluidFlowProperties::unsetPressureTimeSeries()
 
 bool IfcFluidFlowProperties::testPressureTimeSeries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPressureTimeSeries()) == false;
 }
 
@@ -321,7 +315,6 @@ void IfcFluidFlowProperties::unsetUserDefinedPropertySource()
 
 bool IfcFluidFlowProperties::testUserDefinedPropertySource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedPropertySource()) == false;
 }
 
@@ -357,7 +350,6 @@ void IfcFluidFlowProperties::unsetTemperatureSingleValue()
 
 bool IfcFluidFlowProperties::testTemperatureSingleValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTemperatureSingleValue()) == false;
 }
 
@@ -393,7 +385,6 @@ void IfcFluidFlowProperties::unsetWetBulbTemperatureSingleValue()
 
 bool IfcFluidFlowProperties::testWetBulbTemperatureSingleValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWetBulbTemperatureSingleValue()) == false;
 }
 
@@ -429,7 +420,6 @@ void IfcFluidFlowProperties::unsetWetBulbTemperatureTimeSeries()
 
 bool IfcFluidFlowProperties::testWetBulbTemperatureTimeSeries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWetBulbTemperatureTimeSeries()) == false;
 }
 
@@ -465,7 +455,6 @@ void IfcFluidFlowProperties::unsetTemperatureTimeSeries()
 
 bool IfcFluidFlowProperties::testTemperatureTimeSeries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTemperatureTimeSeries()) == false;
 }
 
@@ -501,7 +490,6 @@ void IfcFluidFlowProperties::unsetFlowrateSingleValue()
 
 bool IfcFluidFlowProperties::testFlowrateSingleValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlowrateSingleValue()) == false;
 }
 
@@ -537,7 +525,6 @@ void IfcFluidFlowProperties::unsetFlowConditionSingleValue()
 
 bool IfcFluidFlowProperties::testFlowConditionSingleValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlowConditionSingleValue()) == false;
 }
 
@@ -573,7 +560,6 @@ void IfcFluidFlowProperties::unsetVelocitySingleValue()
 
 bool IfcFluidFlowProperties::testVelocitySingleValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVelocitySingleValue()) == false;
 }
 
@@ -609,7 +595,6 @@ void IfcFluidFlowProperties::unsetPressureSingleValue()
 
 bool IfcFluidFlowProperties::testPressureSingleValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPressureSingleValue()) == false;
 }
 

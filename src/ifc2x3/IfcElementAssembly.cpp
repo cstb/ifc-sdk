@@ -84,7 +84,6 @@ void IfcElementAssembly::unsetAssemblyPlace()
 
 bool IfcElementAssembly::testAssemblyPlace() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAssemblyPlace()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcElementAssembly::unsetPredefinedType()
 
 bool IfcElementAssembly::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 

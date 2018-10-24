@@ -86,7 +86,6 @@ void IfcAsymmetricIShapeProfileDef::unsetTopFlangeWidth()
 
 bool IfcAsymmetricIShapeProfileDef::testTopFlangeWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTopFlangeWidth()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcAsymmetricIShapeProfileDef::unsetTopFlangeThickness()
 
 bool IfcAsymmetricIShapeProfileDef::testTopFlangeThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTopFlangeThickness()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcAsymmetricIShapeProfileDef::unsetTopFlangeFilletRadius()
 
 bool IfcAsymmetricIShapeProfileDef::testTopFlangeFilletRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTopFlangeFilletRadius()) == false;
 }
 
@@ -194,7 +191,6 @@ void IfcAsymmetricIShapeProfileDef::unsetCentreOfGravityInY()
 
 bool IfcAsymmetricIShapeProfileDef::testCentreOfGravityInY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCentreOfGravityInY()) == false;
 }
 

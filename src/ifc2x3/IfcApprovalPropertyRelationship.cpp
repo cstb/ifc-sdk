@@ -88,7 +88,6 @@ void IfcApprovalPropertyRelationship::unsetApprovedProperties()
 
 bool IfcApprovalPropertyRelationship::testApprovedProperties() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ApprovedProperties.isUnset() == false;
 }
 
@@ -124,7 +123,6 @@ void IfcApprovalPropertyRelationship::unsetApproval()
 
 bool IfcApprovalPropertyRelationship::testApproval() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApproval()) == false;
 }
 

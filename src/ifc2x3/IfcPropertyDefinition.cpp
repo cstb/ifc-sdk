@@ -69,7 +69,6 @@ const Inverse_Set_IfcRelAssociates_0_n &IfcPropertyDefinition::getHasAssociation
 
 bool IfcPropertyDefinition::testHasAssociations() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasAssociations.isUnset() == false;
 }
 

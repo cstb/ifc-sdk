@@ -86,7 +86,6 @@ void IfcPolyLoop::unsetPolygon()
 
 bool IfcPolyLoop::testPolygon() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Polygon.isUnset() == false;
 }
 

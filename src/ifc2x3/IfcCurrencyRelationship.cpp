@@ -91,7 +91,6 @@ void IfcCurrencyRelationship::unsetRelatingMonetaryUnit()
 
 bool IfcCurrencyRelationship::testRelatingMonetaryUnit() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingMonetaryUnit()) == false;
 }
 
@@ -127,7 +126,6 @@ void IfcCurrencyRelationship::unsetRelatedMonetaryUnit()
 
 bool IfcCurrencyRelationship::testRelatedMonetaryUnit() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedMonetaryUnit()) == false;
 }
 
@@ -163,7 +161,6 @@ void IfcCurrencyRelationship::unsetExchangeRate()
 
 bool IfcCurrencyRelationship::testExchangeRate() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getExchangeRate()) == false;
 }
 
@@ -199,7 +196,6 @@ void IfcCurrencyRelationship::unsetRateDateTime()
 
 bool IfcCurrencyRelationship::testRateDateTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRateDateTime()) == false;
 }
 
@@ -235,7 +231,6 @@ void IfcCurrencyRelationship::unsetRateSource()
 
 bool IfcCurrencyRelationship::testRateSource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRateSource()) == false;
 }
 

@@ -97,7 +97,6 @@ void IfcConstraint::unsetName()
 
 bool IfcConstraint::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -133,7 +132,6 @@ void IfcConstraint::unsetDescription()
 
 bool IfcConstraint::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -169,7 +167,6 @@ void IfcConstraint::unsetConstraintGrade()
 
 bool IfcConstraint::testConstraintGrade() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConstraintGrade()) == false;
 }
 
@@ -205,7 +202,6 @@ void IfcConstraint::unsetConstraintSource()
 
 bool IfcConstraint::testConstraintSource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConstraintSource()) == false;
 }
 
@@ -241,7 +237,6 @@ void IfcConstraint::unsetCreatingActor()
 
 bool IfcConstraint::testCreatingActor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCreatingActor()) == false;
 }
 
@@ -277,7 +272,6 @@ void IfcConstraint::unsetCreationTime()
 
 bool IfcConstraint::testCreationTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCreationTime()) == false;
 }
 
@@ -313,7 +307,6 @@ void IfcConstraint::unsetUserDefinedGrade()
 
 bool IfcConstraint::testUserDefinedGrade() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedGrade()) == false;
 }
 
@@ -335,7 +328,6 @@ const Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getAg
 
 bool IfcConstraint::testAggregates() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Aggregates.isUnset() == false;
 }
 
@@ -357,7 +349,6 @@ const Inverse_Set_IfcPropertyConstraintRelationship_0_n &IfcConstraint::getPrope
 
 bool IfcConstraint::testPropertiesForConstraint() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PropertiesForConstraint.isUnset() == false;
 }
 
@@ -379,7 +370,6 @@ const Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getIs
 
 bool IfcConstraint::testIsAggregatedIn() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsAggregatedIn.isUnset() == false;
 }
 
@@ -401,7 +391,6 @@ const Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getRelatesConstr
 
 bool IfcConstraint::testRelatesConstraints() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatesConstraints.isUnset() == false;
 }
 
@@ -423,7 +412,6 @@ const Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getIsRelatedWith
 
 bool IfcConstraint::testIsRelatedWith() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsRelatedWith.isUnset() == false;
 }
 
@@ -445,7 +433,6 @@ const Inverse_Set_IfcConstraintClassificationRelationship_0_n &IfcConstraint::ge
 
 bool IfcConstraint::testClassifiedAs() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ClassifiedAs.isUnset() == false;
 }
 

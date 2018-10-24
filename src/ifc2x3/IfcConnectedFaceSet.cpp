@@ -86,7 +86,6 @@ void IfcConnectedFaceSet::unsetCfsFaces()
 
 bool IfcConnectedFaceSet::testCfsFaces() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_CfsFaces.isUnset() == false;
 }
 

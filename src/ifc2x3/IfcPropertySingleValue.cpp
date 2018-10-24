@@ -86,7 +86,6 @@ void IfcPropertySingleValue::unsetNominalValue()
 
 bool IfcPropertySingleValue::testNominalValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getNominalValue()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcPropertySingleValue::unsetUnit()
 
 bool IfcPropertySingleValue::testUnit() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnit()) == false;
 }
 

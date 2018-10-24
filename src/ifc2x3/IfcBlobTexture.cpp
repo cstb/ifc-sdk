@@ -84,7 +84,6 @@ void IfcBlobTexture::unsetRasterFormat()
 
 bool IfcBlobTexture::testRasterFormat() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRasterFormat()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcBlobTexture::unsetRasterCode()
 
 bool IfcBlobTexture::testRasterCode() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRasterCode()) == false;
 }
 

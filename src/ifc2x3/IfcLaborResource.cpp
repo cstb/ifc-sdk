@@ -83,7 +83,6 @@ void IfcLaborResource::unsetSkillSet()
 
 bool IfcLaborResource::testSkillSet() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSkillSet()) == false;
 }
 

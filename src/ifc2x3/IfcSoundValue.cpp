@@ -87,7 +87,6 @@ void IfcSoundValue::unsetSoundLevelTimeSeries()
 
 bool IfcSoundValue::testSoundLevelTimeSeries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSoundLevelTimeSeries()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcSoundValue::unsetFrequency()
 
 bool IfcSoundValue::testFrequency() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFrequency()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcSoundValue::unsetSoundLevelSingleValue()
 
 bool IfcSoundValue::testSoundLevelSingleValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSoundLevelSingleValue()) == false;
 }
 

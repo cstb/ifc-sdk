@@ -124,7 +124,6 @@ void IfcComplexProperty::unsetUsageName()
 
 bool IfcComplexProperty::testUsageName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUsageName()) == false;
 }
 
@@ -155,7 +154,6 @@ void IfcComplexProperty::unsetHasProperties()
 
 bool IfcComplexProperty::testHasProperties() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasProperties.isUnset() == false;
 }
 

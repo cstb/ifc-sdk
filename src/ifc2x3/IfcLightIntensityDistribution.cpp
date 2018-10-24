@@ -85,7 +85,6 @@ void IfcLightIntensityDistribution::unsetLightDistributionCurve()
 
 bool IfcLightIntensityDistribution::testLightDistributionCurve() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLightDistributionCurve()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcLightIntensityDistribution::unsetDistributionData()
 
 bool IfcLightIntensityDistribution::testDistributionData() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_DistributionData.isUnset() == false;
 }
 

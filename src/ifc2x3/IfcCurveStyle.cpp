@@ -88,7 +88,6 @@ void IfcCurveStyle::unsetCurveFont()
 
 bool IfcCurveStyle::testCurveFont() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCurveFont()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcCurveStyle::unsetCurveWidth()
 
 bool IfcCurveStyle::testCurveWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCurveWidth()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcCurveStyle::unsetCurveColour()
 
 bool IfcCurveStyle::testCurveColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCurveColour()) == false;
 }
 

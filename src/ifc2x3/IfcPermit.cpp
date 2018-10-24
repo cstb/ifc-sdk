@@ -83,7 +83,6 @@ void IfcPermit::unsetPermitID()
 
 bool IfcPermit::testPermitID() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPermitID()) == false;
 }
 

@@ -88,7 +88,6 @@ void IfcLightSourcePositional::unsetPosition()
 
 bool IfcLightSourcePositional::testPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPosition()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcLightSourcePositional::unsetRadius()
 
 bool IfcLightSourcePositional::testRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRadius()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcLightSourcePositional::unsetConstantAttenuation()
 
 bool IfcLightSourcePositional::testConstantAttenuation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConstantAttenuation()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcLightSourcePositional::unsetDistanceAttenuation()
 
 bool IfcLightSourcePositional::testDistanceAttenuation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDistanceAttenuation()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcLightSourcePositional::unsetQuadricAttenuation()
 
 bool IfcLightSourcePositional::testQuadricAttenuation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getQuadricAttenuation()) == false;
 }
 

@@ -84,7 +84,6 @@ void IfcVertexPoint::unsetVertexGeometry()
 
 bool IfcVertexPoint::testVertexGeometry() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVertexGeometry()) == false;
 }
 

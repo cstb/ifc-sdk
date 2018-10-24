@@ -125,7 +125,6 @@ void IfcProductRepresentation::unsetName()
 
 bool IfcProductRepresentation::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -161,7 +160,6 @@ void IfcProductRepresentation::unsetDescription()
 
 bool IfcProductRepresentation::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -192,7 +190,6 @@ void IfcProductRepresentation::unsetRepresentations()
 
 bool IfcProductRepresentation::testRepresentations() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Representations.isUnset() == false;
 }
 

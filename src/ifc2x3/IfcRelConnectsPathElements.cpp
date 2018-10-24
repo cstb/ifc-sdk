@@ -88,7 +88,6 @@ void IfcRelConnectsPathElements::unsetRelatingPriorities()
 
 bool IfcRelConnectsPathElements::testRelatingPriorities() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatingPriorities.isUnset() == false;
 }
 
@@ -126,7 +125,6 @@ void IfcRelConnectsPathElements::unsetRelatedPriorities()
 
 bool IfcRelConnectsPathElements::testRelatedPriorities() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedPriorities.isUnset() == false;
 }
 
@@ -162,7 +160,6 @@ void IfcRelConnectsPathElements::unsetRelatedConnectionType()
 
 bool IfcRelConnectsPathElements::testRelatedConnectionType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedConnectionType()) == false;
 }
 
@@ -198,7 +195,6 @@ void IfcRelConnectsPathElements::unsetRelatingConnectionType()
 
 bool IfcRelConnectsPathElements::testRelatingConnectionType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingConnectionType()) == false;
 }
 

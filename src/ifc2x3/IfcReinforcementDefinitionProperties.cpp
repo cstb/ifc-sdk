@@ -85,7 +85,6 @@ void IfcReinforcementDefinitionProperties::unsetDefinitionType()
 
 bool IfcReinforcementDefinitionProperties::testDefinitionType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDefinitionType()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcReinforcementDefinitionProperties::unsetReinforcementSectionDefinitions(
 
 bool IfcReinforcementDefinitionProperties::testReinforcementSectionDefinitions() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ReinforcementSectionDefinitions.isUnset() == false;
 }
 

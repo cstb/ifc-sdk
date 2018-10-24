@@ -85,7 +85,6 @@ void IfcRevolvedAreaSolid::unsetAxis()
 
 bool IfcRevolvedAreaSolid::testAxis() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAxis()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcRevolvedAreaSolid::unsetAngle()
 
 bool IfcRevolvedAreaSolid::testAngle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAngle()) == false;
 }
 

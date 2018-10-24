@@ -85,7 +85,6 @@ void IfcMaterial::unsetName()
 
 bool IfcMaterial::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -107,7 +106,6 @@ const Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getCla
 
 bool IfcMaterial::testClassifiedAs() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ClassifiedAs.isUnset() == false;
 }
 
@@ -129,7 +127,6 @@ const Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &IfcMaterial::getHasRe
 
 bool IfcMaterial::testHasRepresentation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasRepresentation.isUnset() == false;
 }
 

@@ -87,7 +87,6 @@ void IfcGeometricRepresentationSubContext::unsetTargetScale()
 
 bool IfcGeometricRepresentationSubContext::testTargetScale() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTargetScale()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcGeometricRepresentationSubContext::unsetTargetView()
 
 bool IfcGeometricRepresentationSubContext::testTargetView() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTargetView()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcGeometricRepresentationSubContext::unsetUserDefinedTargetView()
 
 bool IfcGeometricRepresentationSubContext::testUserDefinedTargetView() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedTargetView()) == false;
 }
 
@@ -202,7 +199,6 @@ void IfcGeometricRepresentationSubContext::unsetParentContext()
 
 bool IfcGeometricRepresentationSubContext::testParentContext() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getParentContext()) == false;
 }
 

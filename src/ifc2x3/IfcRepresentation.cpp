@@ -91,7 +91,6 @@ void IfcRepresentation::unsetRepresentationIdentifier()
 
 bool IfcRepresentation::testRepresentationIdentifier() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRepresentationIdentifier()) == false;
 }
 
@@ -127,7 +126,6 @@ void IfcRepresentation::unsetRepresentationType()
 
 bool IfcRepresentation::testRepresentationType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRepresentationType()) == false;
 }
 
@@ -165,7 +163,6 @@ void IfcRepresentation::unsetItems()
 
 bool IfcRepresentation::testItems() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Items.isUnset() == false;
 }
 
@@ -208,7 +205,6 @@ void IfcRepresentation::unsetContextOfItems()
 
 bool IfcRepresentation::testContextOfItems() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getContextOfItems()) == false;
 }
 
@@ -230,7 +226,6 @@ const Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductR
 
 bool IfcRepresentation::testOfProductRepresentation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_OfProductRepresentation.isUnset() == false;
 }
 
@@ -252,7 +247,6 @@ const Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentation
 
 bool IfcRepresentation::testRepresentationMap() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RepresentationMap.isUnset() == false;
 }
 
@@ -274,7 +268,6 @@ const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLaye
 
 bool IfcRepresentation::testLayerAssignments() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_LayerAssignments.isUnset() == false;
 }
 

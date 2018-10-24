@@ -84,7 +84,6 @@ void IfcRelAssociatesMaterial::unsetRelatingMaterial()
 
 bool IfcRelAssociatesMaterial::testRelatingMaterial() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingMaterial()) == false;
 }
 

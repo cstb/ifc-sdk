@@ -70,7 +70,6 @@ const Inverse_Set_IfcTypeObject_0_1 &IfcPropertySetDefinition::getDefinesType() 
 
 bool IfcPropertySetDefinition::testDefinesType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_DefinesType.isUnset() == false;
 }
 
@@ -92,7 +91,6 @@ const Inverse_Set_IfcRelDefinesByProperties_0_1 &IfcPropertySetDefinition::getPr
 
 bool IfcPropertySetDefinition::testPropertyDefinitionOf() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PropertyDefinitionOf.isUnset() == false;
 }
 

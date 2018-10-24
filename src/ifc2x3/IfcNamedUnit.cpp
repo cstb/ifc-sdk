@@ -85,7 +85,6 @@ void IfcNamedUnit::unsetDimensions()
 
 bool IfcNamedUnit::testDimensions() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDimensions()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcNamedUnit::unsetUnitType()
 
 bool IfcNamedUnit::testUnitType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnitType()) == false;
 }
 

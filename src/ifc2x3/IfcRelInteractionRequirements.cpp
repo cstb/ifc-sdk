@@ -90,7 +90,6 @@ void IfcRelInteractionRequirements::unsetDailyInteraction()
 
 bool IfcRelInteractionRequirements::testDailyInteraction() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDailyInteraction()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcRelInteractionRequirements::unsetImportanceRating()
 
 bool IfcRelInteractionRequirements::testImportanceRating() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getImportanceRating()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcRelInteractionRequirements::unsetLocationOfInteraction()
 
 bool IfcRelInteractionRequirements::testLocationOfInteraction() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLocationOfInteraction()) == false;
 }
 
@@ -205,7 +202,6 @@ void IfcRelInteractionRequirements::unsetRelatedSpaceProgram()
 
 bool IfcRelInteractionRequirements::testRelatedSpaceProgram() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedSpaceProgram()) == false;
 }
 
@@ -248,7 +244,6 @@ void IfcRelInteractionRequirements::unsetRelatingSpaceProgram()
 
 bool IfcRelInteractionRequirements::testRelatingSpaceProgram() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingSpaceProgram()) == false;
 }
 

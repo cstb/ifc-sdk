@@ -90,7 +90,6 @@ void IfcSectionReinforcementProperties::unsetLongitudinalStartPosition()
 
 bool IfcSectionReinforcementProperties::testLongitudinalStartPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLongitudinalStartPosition()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcSectionReinforcementProperties::unsetLongitudinalEndPosition()
 
 bool IfcSectionReinforcementProperties::testLongitudinalEndPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLongitudinalEndPosition()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcSectionReinforcementProperties::unsetTransversePosition()
 
 bool IfcSectionReinforcementProperties::testTransversePosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTransversePosition()) == false;
 }
 
@@ -198,7 +195,6 @@ void IfcSectionReinforcementProperties::unsetReinforcementRole()
 
 bool IfcSectionReinforcementProperties::testReinforcementRole() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getReinforcementRole()) == false;
 }
 
@@ -234,7 +230,6 @@ void IfcSectionReinforcementProperties::unsetSectionDefinition()
 
 bool IfcSectionReinforcementProperties::testSectionDefinition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSectionDefinition()) == false;
 }
 
@@ -272,7 +267,6 @@ void IfcSectionReinforcementProperties::unsetCrossSectionReinforcementDefinition
 
 bool IfcSectionReinforcementProperties::testCrossSectionReinforcementDefinitions() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_CrossSectionReinforcementDefinitions.isUnset() == false;
 }
 

@@ -86,7 +86,6 @@ void IfcEdgeLoop::unsetEdgeList()
 
 bool IfcEdgeLoop::testEdgeList() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_EdgeList.isUnset() == false;
 }
 

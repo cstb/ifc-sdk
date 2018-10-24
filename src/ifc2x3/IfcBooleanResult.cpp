@@ -87,7 +87,6 @@ void IfcBooleanResult::unsetOperator()
 
 bool IfcBooleanResult::testOperator() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOperator()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcBooleanResult::unsetFirstOperand()
 
 bool IfcBooleanResult::testFirstOperand() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFirstOperand()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcBooleanResult::unsetSecondOperand()
 
 bool IfcBooleanResult::testSecondOperand() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSecondOperand()) == false;
 }
 

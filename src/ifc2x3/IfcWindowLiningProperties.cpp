@@ -92,7 +92,6 @@ void IfcWindowLiningProperties::unsetLiningDepth()
 
 bool IfcWindowLiningProperties::testLiningDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLiningDepth()) == false;
 }
 
@@ -128,7 +127,6 @@ void IfcWindowLiningProperties::unsetLiningThickness()
 
 bool IfcWindowLiningProperties::testLiningThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLiningThickness()) == false;
 }
 
@@ -164,7 +162,6 @@ void IfcWindowLiningProperties::unsetTransomThickness()
 
 bool IfcWindowLiningProperties::testTransomThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTransomThickness()) == false;
 }
 
@@ -200,7 +197,6 @@ void IfcWindowLiningProperties::unsetMullionThickness()
 
 bool IfcWindowLiningProperties::testMullionThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMullionThickness()) == false;
 }
 
@@ -236,7 +232,6 @@ void IfcWindowLiningProperties::unsetFirstTransomOffset()
 
 bool IfcWindowLiningProperties::testFirstTransomOffset() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFirstTransomOffset()) == false;
 }
 
@@ -272,7 +267,6 @@ void IfcWindowLiningProperties::unsetSecondTransomOffset()
 
 bool IfcWindowLiningProperties::testSecondTransomOffset() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSecondTransomOffset()) == false;
 }
 
@@ -308,7 +302,6 @@ void IfcWindowLiningProperties::unsetFirstMullionOffset()
 
 bool IfcWindowLiningProperties::testFirstMullionOffset() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFirstMullionOffset()) == false;
 }
 
@@ -344,7 +337,6 @@ void IfcWindowLiningProperties::unsetSecondMullionOffset()
 
 bool IfcWindowLiningProperties::testSecondMullionOffset() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSecondMullionOffset()) == false;
 }
 
@@ -380,7 +372,6 @@ void IfcWindowLiningProperties::unsetShapeAspectStyle()
 
 bool IfcWindowLiningProperties::testShapeAspectStyle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShapeAspectStyle()) == false;
 }
 

@@ -87,7 +87,6 @@ void IfcSpatialStructureElement::unsetLongName()
 
 bool IfcSpatialStructureElement::testLongName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLongName()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcSpatialStructureElement::unsetCompositionType()
 
 bool IfcSpatialStructureElement::testCompositionType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCompositionType()) == false;
 }
 
@@ -145,7 +143,6 @@ const Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getSe
 
 bool IfcSpatialStructureElement::testServicedBySystems() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ServicedBySystems.isUnset() == false;
 }
 
@@ -167,7 +164,6 @@ const Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElem
 
 bool IfcSpatialStructureElement::testContainsElements() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ContainsElements.isUnset() == false;
 }
 
@@ -189,7 +185,6 @@ const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcSpatialStructureEle
 
 bool IfcSpatialStructureElement::testReferencesElements() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ReferencesElements.isUnset() == false;
 }
 

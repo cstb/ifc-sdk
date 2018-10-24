@@ -85,7 +85,6 @@ void IfcFaceSurface::unsetFaceSurface()
 
 bool IfcFaceSurface::testFaceSurface() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFaceSurface()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcFaceSurface::unsetSameSense()
 
 bool IfcFaceSurface::testSameSense() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSameSense()) == false;
 }
 

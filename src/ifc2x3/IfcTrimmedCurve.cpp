@@ -90,7 +90,6 @@ void IfcTrimmedCurve::unsetBasisCurve()
 
 bool IfcTrimmedCurve::testBasisCurve() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBasisCurve()) == false;
 }
 
@@ -128,7 +127,6 @@ void IfcTrimmedCurve::unsetTrim1()
 
 bool IfcTrimmedCurve::testTrim1() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Trim1.isUnset() == false;
 }
 
@@ -166,7 +164,6 @@ void IfcTrimmedCurve::unsetTrim2()
 
 bool IfcTrimmedCurve::testTrim2() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Trim2.isUnset() == false;
 }
 
@@ -202,7 +199,6 @@ void IfcTrimmedCurve::unsetSenseAgreement()
 
 bool IfcTrimmedCurve::testSenseAgreement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSenseAgreement()) == false;
 }
 
@@ -238,7 +234,6 @@ void IfcTrimmedCurve::unsetMasterRepresentation()
 
 bool IfcTrimmedCurve::testMasterRepresentation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMasterRepresentation()) == false;
 }
 

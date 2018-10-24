@@ -92,7 +92,6 @@ void IfcTShapeProfileDef::unsetDepth()
 
 bool IfcTShapeProfileDef::testDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDepth()) == false;
 }
 
@@ -128,7 +127,6 @@ void IfcTShapeProfileDef::unsetFlangeWidth()
 
 bool IfcTShapeProfileDef::testFlangeWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlangeWidth()) == false;
 }
 
@@ -164,7 +162,6 @@ void IfcTShapeProfileDef::unsetWebThickness()
 
 bool IfcTShapeProfileDef::testWebThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWebThickness()) == false;
 }
 
@@ -200,7 +197,6 @@ void IfcTShapeProfileDef::unsetFlangeThickness()
 
 bool IfcTShapeProfileDef::testFlangeThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlangeThickness()) == false;
 }
 
@@ -236,7 +232,6 @@ void IfcTShapeProfileDef::unsetFilletRadius()
 
 bool IfcTShapeProfileDef::testFilletRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFilletRadius()) == false;
 }
 
@@ -272,7 +267,6 @@ void IfcTShapeProfileDef::unsetFlangeEdgeRadius()
 
 bool IfcTShapeProfileDef::testFlangeEdgeRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlangeEdgeRadius()) == false;
 }
 
@@ -308,7 +302,6 @@ void IfcTShapeProfileDef::unsetWebEdgeRadius()
 
 bool IfcTShapeProfileDef::testWebEdgeRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWebEdgeRadius()) == false;
 }
 
@@ -344,7 +337,6 @@ void IfcTShapeProfileDef::unsetWebSlope()
 
 bool IfcTShapeProfileDef::testWebSlope() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWebSlope()) == false;
 }
 
@@ -380,7 +372,6 @@ void IfcTShapeProfileDef::unsetFlangeSlope()
 
 bool IfcTShapeProfileDef::testFlangeSlope() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlangeSlope()) == false;
 }
 
@@ -416,7 +407,6 @@ void IfcTShapeProfileDef::unsetCentreOfGravityInY()
 
 bool IfcTShapeProfileDef::testCentreOfGravityInY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCentreOfGravityInY()) == false;
 }
 

@@ -85,7 +85,6 @@ void IfcHalfSpaceSolid::unsetBaseSurface()
 
 bool IfcHalfSpaceSolid::testBaseSurface() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBaseSurface()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcHalfSpaceSolid::unsetAgreementFlag()
 
 bool IfcHalfSpaceSolid::testAgreementFlag() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAgreementFlag()) == false;
 }
 

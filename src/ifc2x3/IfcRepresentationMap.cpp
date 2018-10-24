@@ -87,7 +87,6 @@ void IfcRepresentationMap::unsetMappingOrigin()
 
 bool IfcRepresentationMap::testMappingOrigin() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMappingOrigin()) == false;
 }
 
@@ -130,7 +129,6 @@ void IfcRepresentationMap::unsetMappedRepresentation()
 
 bool IfcRepresentationMap::testMappedRepresentation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMappedRepresentation()) == false;
 }
 
@@ -152,7 +150,6 @@ const Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() const
 
 bool IfcRepresentationMap::testMapUsage() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_MapUsage.isUnset() == false;
 }
 

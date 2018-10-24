@@ -85,7 +85,6 @@ void IfcCartesianPoint::unsetCoordinates()
 
 bool IfcCartesianPoint::testCoordinates() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Coordinates.isUnset() == false;
 }
 

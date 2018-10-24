@@ -85,7 +85,6 @@ void IfcActorRole::unsetRole()
 
 bool IfcActorRole::testRole() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRole()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcActorRole::unsetUserDefinedRole()
 
 bool IfcActorRole::testUserDefinedRole() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedRole()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcActorRole::unsetDescription()
 
 bool IfcActorRole::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 

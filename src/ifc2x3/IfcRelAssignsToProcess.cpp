@@ -86,7 +86,6 @@ void IfcRelAssignsToProcess::unsetQuantityInProcess()
 
 bool IfcRelAssignsToProcess::testQuantityInProcess() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getQuantityInProcess()) == false;
 }
 
@@ -129,7 +128,6 @@ void IfcRelAssignsToProcess::unsetRelatingProcess()
 
 bool IfcRelAssignsToProcess::testRelatingProcess() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingProcess()) == false;
 }
 

@@ -88,7 +88,6 @@ void IfcPropertyListValue::unsetListValues()
 
 bool IfcPropertyListValue::testListValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ListValues.isUnset() == false;
 }
 
@@ -124,7 +123,6 @@ void IfcPropertyListValue::unsetUnit()
 
 bool IfcPropertyListValue::testUnit() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnit()) == false;
 }
 

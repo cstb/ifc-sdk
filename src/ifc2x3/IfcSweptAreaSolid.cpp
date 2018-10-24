@@ -86,7 +86,6 @@ void IfcSweptAreaSolid::unsetSweptArea()
 
 bool IfcSweptAreaSolid::testSweptArea() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSweptArea()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcSweptAreaSolid::unsetPosition()
 
 bool IfcSweptAreaSolid::testPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPosition()) == false;
 }
 

@@ -86,7 +86,6 @@ void IfcSurfaceStyleWithTextures::unsetTextures()
 
 bool IfcSurfaceStyleWithTextures::testTextures() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Textures.isUnset() == false;
 }
 

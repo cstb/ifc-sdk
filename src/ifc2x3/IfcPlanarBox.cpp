@@ -84,7 +84,6 @@ void IfcPlanarBox::unsetPlacement()
 
 bool IfcPlanarBox::testPlacement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPlacement()) == false;
 }
 

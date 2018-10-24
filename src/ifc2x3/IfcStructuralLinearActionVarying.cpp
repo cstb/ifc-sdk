@@ -86,7 +86,6 @@ void IfcStructuralLinearActionVarying::unsetVaryingAppliedLoadLocation()
 
 bool IfcStructuralLinearActionVarying::testVaryingAppliedLoadLocation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVaryingAppliedLoadLocation()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcStructuralLinearActionVarying::unsetSubsequentAppliedLoads()
 
 bool IfcStructuralLinearActionVarying::testSubsequentAppliedLoads() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_SubsequentAppliedLoads.isUnset() == false;
 }
 

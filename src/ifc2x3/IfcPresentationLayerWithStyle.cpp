@@ -87,7 +87,6 @@ void IfcPresentationLayerWithStyle::unsetLayerOn()
 
 bool IfcPresentationLayerWithStyle::testLayerOn() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLayerOn()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcPresentationLayerWithStyle::unsetLayerFrozen()
 
 bool IfcPresentationLayerWithStyle::testLayerFrozen() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLayerFrozen()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcPresentationLayerWithStyle::unsetLayerBlocked()
 
 bool IfcPresentationLayerWithStyle::testLayerBlocked() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLayerBlocked()) == false;
 }
 
@@ -197,7 +194,6 @@ void IfcPresentationLayerWithStyle::unsetLayerStyles()
 
 bool IfcPresentationLayerWithStyle::testLayerStyles() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_LayerStyles.isUnset() == false;
 }
 

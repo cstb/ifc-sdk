@@ -91,7 +91,6 @@ void IfcLightSourceGoniometric::unsetPosition()
 
 bool IfcLightSourceGoniometric::testPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPosition()) == false;
 }
 
@@ -127,7 +126,6 @@ void IfcLightSourceGoniometric::unsetColourAppearance()
 
 bool IfcLightSourceGoniometric::testColourAppearance() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getColourAppearance()) == false;
 }
 
@@ -163,7 +161,6 @@ void IfcLightSourceGoniometric::unsetColourTemperature()
 
 bool IfcLightSourceGoniometric::testColourTemperature() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getColourTemperature()) == false;
 }
 
@@ -199,7 +196,6 @@ void IfcLightSourceGoniometric::unsetLuminousFlux()
 
 bool IfcLightSourceGoniometric::testLuminousFlux() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLuminousFlux()) == false;
 }
 
@@ -235,7 +231,6 @@ void IfcLightSourceGoniometric::unsetLightEmissionSource()
 
 bool IfcLightSourceGoniometric::testLightEmissionSource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLightEmissionSource()) == false;
 }
 
@@ -271,7 +266,6 @@ void IfcLightSourceGoniometric::unsetLightDistributionDataSource()
 
 bool IfcLightSourceGoniometric::testLightDistributionDataSource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLightDistributionDataSource()) == false;
 }
 

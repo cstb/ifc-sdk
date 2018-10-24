@@ -84,7 +84,6 @@ void IfcLightSourceDirectional::unsetOrientation()
 
 bool IfcLightSourceDirectional::testOrientation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOrientation()) == false;
 }
 

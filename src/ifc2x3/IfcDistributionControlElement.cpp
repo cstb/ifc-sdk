@@ -84,7 +84,6 @@ void IfcDistributionControlElement::unsetControlElementId()
 
 bool IfcDistributionControlElement::testControlElementId() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getControlElementId()) == false;
 }
 
@@ -106,7 +105,6 @@ const Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionControlElement::
 
 bool IfcDistributionControlElement::testAssignedToFlowElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_AssignedToFlowElement.isUnset() == false;
 }
 

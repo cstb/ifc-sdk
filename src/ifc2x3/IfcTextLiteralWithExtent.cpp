@@ -85,7 +85,6 @@ void IfcTextLiteralWithExtent::unsetExtent()
 
 bool IfcTextLiteralWithExtent::testExtent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getExtent()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcTextLiteralWithExtent::unsetBoxAlignment()
 
 bool IfcTextLiteralWithExtent::testBoxAlignment() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBoxAlignment()) == false;
 }
 

@@ -83,7 +83,6 @@ void IfcDistributionChamberElementType::unsetPredefinedType()
 
 bool IfcDistributionChamberElementType::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 

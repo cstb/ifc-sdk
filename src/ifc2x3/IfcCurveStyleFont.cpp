@@ -85,7 +85,6 @@ void IfcCurveStyleFont::unsetName()
 
 bool IfcCurveStyleFont::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcCurveStyleFont::unsetPatternList()
 
 bool IfcCurveStyleFont::testPatternList() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PatternList.isUnset() == false;
 }
 

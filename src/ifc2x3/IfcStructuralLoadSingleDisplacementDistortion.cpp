@@ -83,7 +83,6 @@ void IfcStructuralLoadSingleDisplacementDistortion::unsetDistortion()
 
 bool IfcStructuralLoadSingleDisplacementDistortion::testDistortion() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDistortion()) == false;
 }
 

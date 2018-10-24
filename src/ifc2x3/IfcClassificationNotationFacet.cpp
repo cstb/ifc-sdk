@@ -83,7 +83,6 @@ void IfcClassificationNotationFacet::unsetNotationValue()
 
 bool IfcClassificationNotationFacet::testNotationValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getNotationValue()) == false;
 }
 

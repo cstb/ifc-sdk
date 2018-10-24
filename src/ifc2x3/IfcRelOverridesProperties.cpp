@@ -86,7 +86,6 @@ void IfcRelOverridesProperties::unsetOverridingProperties()
 
 bool IfcRelOverridesProperties::testOverridingProperties() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_OverridingProperties.isUnset() == false;
 }
 

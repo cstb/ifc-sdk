@@ -86,7 +86,6 @@ void IfcAxis2Placement3D::unsetAxis()
 
 bool IfcAxis2Placement3D::testAxis() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAxis()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcAxis2Placement3D::unsetRefDirection()
 
 bool IfcAxis2Placement3D::testRefDirection() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRefDirection()) == false;
 }
 

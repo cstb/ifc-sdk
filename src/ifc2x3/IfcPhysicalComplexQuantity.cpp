@@ -126,7 +126,6 @@ void IfcPhysicalComplexQuantity::unsetDiscrimination()
 
 bool IfcPhysicalComplexQuantity::testDiscrimination() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDiscrimination()) == false;
 }
 
@@ -162,7 +161,6 @@ void IfcPhysicalComplexQuantity::unsetQuality()
 
 bool IfcPhysicalComplexQuantity::testQuality() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getQuality()) == false;
 }
 
@@ -198,7 +196,6 @@ void IfcPhysicalComplexQuantity::unsetUsage()
 
 bool IfcPhysicalComplexQuantity::testUsage() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUsage()) == false;
 }
 
@@ -229,7 +226,6 @@ void IfcPhysicalComplexQuantity::unsetHasQuantities()
 
 bool IfcPhysicalComplexQuantity::testHasQuantities() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasQuantities.isUnset() == false;
 }
 

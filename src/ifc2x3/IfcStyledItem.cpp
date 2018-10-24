@@ -89,7 +89,6 @@ void IfcStyledItem::unsetStyles()
 
 bool IfcStyledItem::testStyles() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Styles.isUnset() == false;
 }
 
@@ -125,7 +124,6 @@ void IfcStyledItem::unsetName()
 
 bool IfcStyledItem::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -168,7 +166,6 @@ void IfcStyledItem::unsetItem()
 
 bool IfcStyledItem::testItem() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getItem()) == false;
 }
 

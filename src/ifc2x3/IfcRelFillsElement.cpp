@@ -93,7 +93,6 @@ void IfcRelFillsElement::unsetRelatingOpeningElement()
 
 bool IfcRelFillsElement::testRelatingOpeningElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingOpeningElement()) == false;
 }
 
@@ -136,7 +135,6 @@ void IfcRelFillsElement::unsetRelatedBuildingElement()
 
 bool IfcRelFillsElement::testRelatedBuildingElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedBuildingElement()) == false;
 }
 

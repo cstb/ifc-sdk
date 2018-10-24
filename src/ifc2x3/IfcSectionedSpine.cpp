@@ -88,7 +88,6 @@ void IfcSectionedSpine::unsetSpineCurve()
 
 bool IfcSectionedSpine::testSpineCurve() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSpineCurve()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcSectionedSpine::unsetCrossSections()
 
 bool IfcSectionedSpine::testCrossSections() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_CrossSections.isUnset() == false;
 }
 
@@ -164,7 +162,6 @@ void IfcSectionedSpine::unsetCrossSectionPositions()
 
 bool IfcSectionedSpine::testCrossSectionPositions() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_CrossSectionPositions.isUnset() == false;
 }
 

@@ -87,7 +87,6 @@ void IfcStructuralSurfaceMemberVarying::unsetSubsequentThickness()
 
 bool IfcStructuralSurfaceMemberVarying::testSubsequentThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_SubsequentThickness.isUnset() == false;
 }
 
@@ -123,7 +122,6 @@ void IfcStructuralSurfaceMemberVarying::unsetVaryingThicknessLocation()
 
 bool IfcStructuralSurfaceMemberVarying::testVaryingThicknessLocation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVaryingThicknessLocation()) == false;
 }
 

@@ -84,7 +84,6 @@ void IfcRightCircularCone::unsetHeight()
 
 bool IfcRightCircularCone::testHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHeight()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcRightCircularCone::unsetBottomRadius()
 
 bool IfcRightCircularCone::testBottomRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBottomRadius()) == false;
 }
 

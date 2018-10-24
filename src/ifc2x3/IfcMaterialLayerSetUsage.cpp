@@ -87,7 +87,6 @@ void IfcMaterialLayerSetUsage::unsetForLayerSet()
 
 bool IfcMaterialLayerSetUsage::testForLayerSet() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getForLayerSet()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcMaterialLayerSetUsage::unsetLayerSetDirection()
 
 bool IfcMaterialLayerSetUsage::testLayerSetDirection() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLayerSetDirection()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcMaterialLayerSetUsage::unsetDirectionSense()
 
 bool IfcMaterialLayerSetUsage::testDirectionSense() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDirectionSense()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcMaterialLayerSetUsage::unsetOffsetFromReferenceLine()
 
 bool IfcMaterialLayerSetUsage::testOffsetFromReferenceLine() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOffsetFromReferenceLine()) == false;
 }
 

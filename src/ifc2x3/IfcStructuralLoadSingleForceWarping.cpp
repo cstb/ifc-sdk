@@ -83,7 +83,6 @@ void IfcStructuralLoadSingleForceWarping::unsetWarpingMoment()
 
 bool IfcStructuralLoadSingleForceWarping::testWarpingMoment() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWarpingMoment()) == false;
 }
 

@@ -85,7 +85,6 @@ void IfcVector::unsetOrientation()
 
 bool IfcVector::testOrientation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOrientation()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcVector::unsetMagnitude()
 
 bool IfcVector::testMagnitude() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMagnitude()) == false;
 }
 

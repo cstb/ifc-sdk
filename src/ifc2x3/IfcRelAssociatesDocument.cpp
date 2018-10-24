@@ -84,7 +84,6 @@ void IfcRelAssociatesDocument::unsetRelatingDocument()
 
 bool IfcRelAssociatesDocument::testRelatingDocument() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingDocument()) == false;
 }
 

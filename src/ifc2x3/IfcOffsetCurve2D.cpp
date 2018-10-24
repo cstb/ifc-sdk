@@ -86,7 +86,6 @@ void IfcOffsetCurve2D::unsetBasisCurve()
 
 bool IfcOffsetCurve2D::testBasisCurve() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBasisCurve()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcOffsetCurve2D::unsetDistance()
 
 bool IfcOffsetCurve2D::testDistance() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDistance()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcOffsetCurve2D::unsetSelfIntersect()
 
 bool IfcOffsetCurve2D::testSelfIntersect() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSelfIntersect()) == false;
 }
 

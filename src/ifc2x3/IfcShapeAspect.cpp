@@ -128,7 +128,6 @@ void IfcShapeAspect::unsetName()
 
 bool IfcShapeAspect::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -164,7 +163,6 @@ void IfcShapeAspect::unsetDescription()
 
 bool IfcShapeAspect::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -200,7 +198,6 @@ void IfcShapeAspect::unsetProductDefinitional()
 
 bool IfcShapeAspect::testProductDefinitional() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProductDefinitional()) == false;
 }
 
@@ -243,7 +240,6 @@ void IfcShapeAspect::unsetPartOfProductDefinitionShape()
 
 bool IfcShapeAspect::testPartOfProductDefinitionShape() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPartOfProductDefinitionShape()) == false;
 }
 
@@ -274,7 +270,6 @@ void IfcShapeAspect::unsetShapeRepresentations()
 
 bool IfcShapeAspect::testShapeRepresentations() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ShapeRepresentations.isUnset() == false;
 }
 

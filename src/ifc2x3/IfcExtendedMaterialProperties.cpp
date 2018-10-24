@@ -88,7 +88,6 @@ void IfcExtendedMaterialProperties::unsetExtendedProperties()
 
 bool IfcExtendedMaterialProperties::testExtendedProperties() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ExtendedProperties.isUnset() == false;
 }
 
@@ -124,7 +123,6 @@ void IfcExtendedMaterialProperties::unsetDescription()
 
 bool IfcExtendedMaterialProperties::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcExtendedMaterialProperties::unsetName()
 
 bool IfcExtendedMaterialProperties::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 

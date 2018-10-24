@@ -91,7 +91,6 @@ void IfcMaterialDefinitionRepresentation::unsetRepresentedMaterial()
 
 bool IfcMaterialDefinitionRepresentation::testRepresentedMaterial() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRepresentedMaterial()) == false;
 }
 

@@ -84,7 +84,6 @@ void IfcDoor::unsetOverallHeight()
 
 bool IfcDoor::testOverallHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOverallHeight()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcDoor::unsetOverallWidth()
 
 bool IfcDoor::testOverallWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOverallWidth()) == false;
 }
 

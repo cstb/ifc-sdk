@@ -86,7 +86,6 @@ void IfcTextStyleForDefinedFont::unsetColour()
 
 bool IfcTextStyleForDefinedFont::testColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getColour()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcTextStyleForDefinedFont::unsetBackgroundColour()
 
 bool IfcTextStyleForDefinedFont::testBackgroundColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBackgroundColour()) == false;
 }
 

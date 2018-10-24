@@ -88,7 +88,6 @@ void IfcPropertyEnumeratedValue::unsetEnumerationValues()
 
 bool IfcPropertyEnumeratedValue::testEnumerationValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_EnumerationValues.isUnset() == false;
 }
 
@@ -124,7 +123,6 @@ void IfcPropertyEnumeratedValue::unsetEnumerationReference()
 
 bool IfcPropertyEnumeratedValue::testEnumerationReference() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEnumerationReference()) == false;
 }
 

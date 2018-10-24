@@ -88,7 +88,6 @@ void IfcBSplineCurve::unsetDegree()
 
 bool IfcBSplineCurve::testDegree() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDegree()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcBSplineCurve::unsetControlPointsList()
 
 bool IfcBSplineCurve::testControlPointsList() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ControlPointsList.isUnset() == false;
 }
 
@@ -162,7 +160,6 @@ void IfcBSplineCurve::unsetCurveForm()
 
 bool IfcBSplineCurve::testCurveForm() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCurveForm()) == false;
 }
 
@@ -198,7 +195,6 @@ void IfcBSplineCurve::unsetClosedCurve()
 
 bool IfcBSplineCurve::testClosedCurve() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getClosedCurve()) == false;
 }
 
@@ -234,7 +230,6 @@ void IfcBSplineCurve::unsetSelfIntersect()
 
 bool IfcBSplineCurve::testSelfIntersect() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSelfIntersect()) == false;
 }
 

@@ -99,7 +99,6 @@ void IfcAsset::unsetAssetID()
 
 bool IfcAsset::testAssetID() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAssetID()) == false;
 }
 
@@ -135,7 +134,6 @@ void IfcAsset::unsetOriginalValue()
 
 bool IfcAsset::testOriginalValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOriginalValue()) == false;
 }
 
@@ -171,7 +169,6 @@ void IfcAsset::unsetCurrentValue()
 
 bool IfcAsset::testCurrentValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCurrentValue()) == false;
 }
 
@@ -207,7 +204,6 @@ void IfcAsset::unsetTotalReplacementCost()
 
 bool IfcAsset::testTotalReplacementCost() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTotalReplacementCost()) == false;
 }
 
@@ -243,7 +239,6 @@ void IfcAsset::unsetOwner()
 
 bool IfcAsset::testOwner() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOwner()) == false;
 }
 
@@ -279,7 +274,6 @@ void IfcAsset::unsetUser()
 
 bool IfcAsset::testUser() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUser()) == false;
 }
 
@@ -315,7 +309,6 @@ void IfcAsset::unsetResponsiblePerson()
 
 bool IfcAsset::testResponsiblePerson() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getResponsiblePerson()) == false;
 }
 
@@ -351,7 +344,6 @@ void IfcAsset::unsetIncorporationDate()
 
 bool IfcAsset::testIncorporationDate() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIncorporationDate()) == false;
 }
 
@@ -387,7 +379,6 @@ void IfcAsset::unsetDepreciatedValue()
 
 bool IfcAsset::testDepreciatedValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDepreciatedValue()) == false;
 }
 

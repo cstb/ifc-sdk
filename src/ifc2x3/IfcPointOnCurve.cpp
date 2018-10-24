@@ -85,7 +85,6 @@ void IfcPointOnCurve::unsetBasisCurve()
 
 bool IfcPointOnCurve::testBasisCurve() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBasisCurve()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcPointOnCurve::unsetPointParameter()
 
 bool IfcPointOnCurve::testPointParameter() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPointParameter()) == false;
 }
 

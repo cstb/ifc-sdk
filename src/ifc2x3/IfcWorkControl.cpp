@@ -96,7 +96,6 @@ void IfcWorkControl::unsetIdentifier()
 
 bool IfcWorkControl::testIdentifier() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIdentifier()) == false;
 }
 
@@ -132,7 +131,6 @@ void IfcWorkControl::unsetCreationDate()
 
 bool IfcWorkControl::testCreationDate() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCreationDate()) == false;
 }
 
@@ -170,7 +168,6 @@ void IfcWorkControl::unsetCreators()
 
 bool IfcWorkControl::testCreators() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Creators.isUnset() == false;
 }
 
@@ -206,7 +203,6 @@ void IfcWorkControl::unsetPurpose()
 
 bool IfcWorkControl::testPurpose() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPurpose()) == false;
 }
 
@@ -242,7 +238,6 @@ void IfcWorkControl::unsetDuration()
 
 bool IfcWorkControl::testDuration() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDuration()) == false;
 }
 
@@ -278,7 +273,6 @@ void IfcWorkControl::unsetTotalFloat()
 
 bool IfcWorkControl::testTotalFloat() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTotalFloat()) == false;
 }
 
@@ -314,7 +308,6 @@ void IfcWorkControl::unsetStartTime()
 
 bool IfcWorkControl::testStartTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStartTime()) == false;
 }
 
@@ -350,7 +343,6 @@ void IfcWorkControl::unsetFinishTime()
 
 bool IfcWorkControl::testFinishTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFinishTime()) == false;
 }
 
@@ -386,7 +378,6 @@ void IfcWorkControl::unsetWorkControlType()
 
 bool IfcWorkControl::testWorkControlType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWorkControlType()) == false;
 }
 
@@ -422,7 +413,6 @@ void IfcWorkControl::unsetUserDefinedControlType()
 
 bool IfcWorkControl::testUserDefinedControlType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedControlType()) == false;
 }
 

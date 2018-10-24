@@ -87,7 +87,6 @@ void IfcGeneralProfileProperties::unsetPhysicalWeight()
 
 bool IfcGeneralProfileProperties::testPhysicalWeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPhysicalWeight()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcGeneralProfileProperties::unsetPerimeter()
 
 bool IfcGeneralProfileProperties::testPerimeter() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPerimeter()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcGeneralProfileProperties::unsetMinimumPlateThickness()
 
 bool IfcGeneralProfileProperties::testMinimumPlateThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMinimumPlateThickness()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcGeneralProfileProperties::unsetMaximumPlateThickness()
 
 bool IfcGeneralProfileProperties::testMaximumPlateThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMaximumPlateThickness()) == false;
 }
 
@@ -231,7 +227,6 @@ void IfcGeneralProfileProperties::unsetCrossSectionArea()
 
 bool IfcGeneralProfileProperties::testCrossSectionArea() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCrossSectionArea()) == false;
 }
 

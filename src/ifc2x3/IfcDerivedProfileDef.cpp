@@ -87,7 +87,6 @@ void IfcDerivedProfileDef::unsetParentProfile()
 
 bool IfcDerivedProfileDef::testParentProfile() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getParentProfile()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcDerivedProfileDef::unsetOperator()
 
 bool IfcDerivedProfileDef::testOperator() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOperator()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcDerivedProfileDef::unsetLabel()
 
 bool IfcDerivedProfileDef::testLabel() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLabel()) == false;
 }
 

@@ -84,7 +84,6 @@ void IfcElectricDistributionPoint::unsetDistributionPointFunction()
 
 bool IfcElectricDistributionPoint::testDistributionPointFunction() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDistributionPointFunction()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcElectricDistributionPoint::unsetUserDefinedFunction()
 
 bool IfcElectricDistributionPoint::testUserDefinedFunction() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedFunction()) == false;
 }
 

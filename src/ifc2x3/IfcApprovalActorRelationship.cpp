@@ -88,7 +88,6 @@ void IfcApprovalActorRelationship::unsetActor()
 
 bool IfcApprovalActorRelationship::testActor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getActor()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcApprovalActorRelationship::unsetRole()
 
 bool IfcApprovalActorRelationship::testRole() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRole()) == false;
 }
 
@@ -167,7 +165,6 @@ void IfcApprovalActorRelationship::unsetApproval()
 
 bool IfcApprovalActorRelationship::testApproval() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApproval()) == false;
 }
 

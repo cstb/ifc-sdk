@@ -87,7 +87,6 @@ void IfcSurfaceTexture::unsetRepeatS()
 
 bool IfcSurfaceTexture::testRepeatS() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRepeatS()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcSurfaceTexture::unsetRepeatT()
 
 bool IfcSurfaceTexture::testRepeatT() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRepeatT()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcSurfaceTexture::unsetTextureType()
 
 bool IfcSurfaceTexture::testTextureType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTextureType()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcSurfaceTexture::unsetTextureTransform()
 
 bool IfcSurfaceTexture::testTextureTransform() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTextureTransform()) == false;
 }
 

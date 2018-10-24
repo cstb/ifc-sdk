@@ -86,7 +86,6 @@ void IfcUnitAssignment::unsetUnits()
 
 bool IfcUnitAssignment::testUnits() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Units.isUnset() == false;
 }
 

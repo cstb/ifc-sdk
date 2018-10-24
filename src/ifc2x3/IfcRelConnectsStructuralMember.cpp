@@ -93,7 +93,6 @@ void IfcRelConnectsStructuralMember::unsetAppliedCondition()
 
 bool IfcRelConnectsStructuralMember::testAppliedCondition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAppliedCondition()) == false;
 }
 
@@ -129,7 +128,6 @@ void IfcRelConnectsStructuralMember::unsetAdditionalConditions()
 
 bool IfcRelConnectsStructuralMember::testAdditionalConditions() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAdditionalConditions()) == false;
 }
 
@@ -165,7 +163,6 @@ void IfcRelConnectsStructuralMember::unsetSupportedLength()
 
 bool IfcRelConnectsStructuralMember::testSupportedLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSupportedLength()) == false;
 }
 
@@ -201,7 +198,6 @@ void IfcRelConnectsStructuralMember::unsetConditionCoordinateSystem()
 
 bool IfcRelConnectsStructuralMember::testConditionCoordinateSystem() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConditionCoordinateSystem()) == false;
 }
 
@@ -244,7 +240,6 @@ void IfcRelConnectsStructuralMember::unsetRelatingStructuralMember()
 
 bool IfcRelConnectsStructuralMember::testRelatingStructuralMember() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingStructuralMember()) == false;
 }
 
@@ -287,7 +282,6 @@ void IfcRelConnectsStructuralMember::unsetRelatedStructuralConnection()
 
 bool IfcRelConnectsStructuralMember::testRelatedStructuralConnection() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedStructuralConnection()) == false;
 }
 

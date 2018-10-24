@@ -132,7 +132,6 @@ void IfcRelFlowControlElements::unsetRelatingFlowElement()
 
 bool IfcRelFlowControlElements::testRelatingFlowElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingFlowElement()) == false;
 }
 
@@ -163,7 +162,6 @@ void IfcRelFlowControlElements::unsetRelatedControlElements()
 
 bool IfcRelFlowControlElements::testRelatedControlElements() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedControlElements.isUnset() == false;
 }
 

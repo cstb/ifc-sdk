@@ -86,7 +86,6 @@ void IfcSoundProperties::unsetIsAttenuating()
 
 bool IfcSoundProperties::testIsAttenuating() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIsAttenuating()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcSoundProperties::unsetSoundScale()
 
 bool IfcSoundProperties::testSoundScale() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSoundScale()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcSoundProperties::unsetSoundValues()
 
 bool IfcSoundProperties::testSoundValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_SoundValues.isUnset() == false;
 }
 

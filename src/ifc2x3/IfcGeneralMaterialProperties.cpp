@@ -85,7 +85,6 @@ void IfcGeneralMaterialProperties::unsetMolecularWeight()
 
 bool IfcGeneralMaterialProperties::testMolecularWeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMolecularWeight()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcGeneralMaterialProperties::unsetPorosity()
 
 bool IfcGeneralMaterialProperties::testPorosity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPorosity()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcGeneralMaterialProperties::unsetMassDensity()
 
 bool IfcGeneralMaterialProperties::testMassDensity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMassDensity()) == false;
 }
 

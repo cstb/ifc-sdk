@@ -87,7 +87,6 @@ void IfcTask::unsetTaskId()
 
 bool IfcTask::testTaskId() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTaskId()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcTask::unsetStatus()
 
 bool IfcTask::testStatus() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStatus()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcTask::unsetWorkMethod()
 
 bool IfcTask::testWorkMethod() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWorkMethod()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcTask::unsetIsMilestone()
 
 bool IfcTask::testIsMilestone() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIsMilestone()) == false;
 }
 
@@ -231,7 +227,6 @@ void IfcTask::unsetPriority()
 
 bool IfcTask::testPriority() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPriority()) == false;
 }
 

@@ -84,7 +84,6 @@ void IfcAxis2Placement2D::unsetRefDirection()
 
 bool IfcAxis2Placement2D::testRefDirection() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRefDirection()) == false;
 }
 

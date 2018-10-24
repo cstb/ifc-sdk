@@ -86,7 +86,6 @@ void IfcCurveStyleFontAndScaling::unsetName()
 
 bool IfcCurveStyleFontAndScaling::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcCurveStyleFontAndScaling::unsetCurveFont()
 
 bool IfcCurveStyleFontAndScaling::testCurveFont() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCurveFont()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcCurveStyleFontAndScaling::unsetCurveFontScaling()
 
 bool IfcCurveStyleFontAndScaling::testCurveFontScaling() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCurveFontScaling()) == false;
 }
 

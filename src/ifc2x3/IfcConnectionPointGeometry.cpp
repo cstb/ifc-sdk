@@ -86,7 +86,6 @@ void IfcConnectionPointGeometry::unsetPointOnRelatingElement()
 
 bool IfcConnectionPointGeometry::testPointOnRelatingElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPointOnRelatingElement()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcConnectionPointGeometry::unsetPointOnRelatedElement()
 
 bool IfcConnectionPointGeometry::testPointOnRelatedElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPointOnRelatedElement()) == false;
 }
 

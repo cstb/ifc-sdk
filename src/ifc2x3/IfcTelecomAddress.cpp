@@ -89,7 +89,6 @@ void IfcTelecomAddress::unsetTelephoneNumbers()
 
 bool IfcTelecomAddress::testTelephoneNumbers() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_TelephoneNumbers.isUnset() == false;
 }
 
@@ -127,7 +126,6 @@ void IfcTelecomAddress::unsetFacsimileNumbers()
 
 bool IfcTelecomAddress::testFacsimileNumbers() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_FacsimileNumbers.isUnset() == false;
 }
 
@@ -163,7 +161,6 @@ void IfcTelecomAddress::unsetPagerNumber()
 
 bool IfcTelecomAddress::testPagerNumber() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPagerNumber()) == false;
 }
 
@@ -201,7 +198,6 @@ void IfcTelecomAddress::unsetElectronicMailAddresses()
 
 bool IfcTelecomAddress::testElectronicMailAddresses() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ElectronicMailAddresses.isUnset() == false;
 }
 
@@ -237,7 +233,6 @@ void IfcTelecomAddress::unsetWWWHomePageURL()
 
 bool IfcTelecomAddress::testWWWHomePageURL() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWWWHomePageURL()) == false;
 }
 

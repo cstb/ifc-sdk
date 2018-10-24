@@ -88,7 +88,6 @@ void IfcMechanicalConcreteMaterialProperties::unsetCompressiveStrength()
 
 bool IfcMechanicalConcreteMaterialProperties::testCompressiveStrength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCompressiveStrength()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcMechanicalConcreteMaterialProperties::unsetMaxAggregateSize()
 
 bool IfcMechanicalConcreteMaterialProperties::testMaxAggregateSize() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMaxAggregateSize()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcMechanicalConcreteMaterialProperties::unsetAdmixturesDescription()
 
 bool IfcMechanicalConcreteMaterialProperties::testAdmixturesDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAdmixturesDescription()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcMechanicalConcreteMaterialProperties::unsetWorkability()
 
 bool IfcMechanicalConcreteMaterialProperties::testWorkability() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWorkability()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcMechanicalConcreteMaterialProperties::unsetProtectivePoreRatio()
 
 bool IfcMechanicalConcreteMaterialProperties::testProtectivePoreRatio() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProtectivePoreRatio()) == false;
 }
 
@@ -268,7 +263,6 @@ void IfcMechanicalConcreteMaterialProperties::unsetWaterImpermeability()
 
 bool IfcMechanicalConcreteMaterialProperties::testWaterImpermeability() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWaterImpermeability()) == false;
 }
 

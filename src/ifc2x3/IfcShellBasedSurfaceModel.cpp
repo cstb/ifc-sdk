@@ -86,7 +86,6 @@ void IfcShellBasedSurfaceModel::unsetSbsmBoundary()
 
 bool IfcShellBasedSurfaceModel::testSbsmBoundary() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_SbsmBoundary.isUnset() == false;
 }
 

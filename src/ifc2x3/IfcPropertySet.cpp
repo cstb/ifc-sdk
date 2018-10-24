@@ -86,7 +86,6 @@ void IfcPropertySet::unsetHasProperties()
 
 bool IfcPropertySet::testHasProperties() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasProperties.isUnset() == false;
 }
 

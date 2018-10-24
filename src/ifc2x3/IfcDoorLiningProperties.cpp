@@ -94,7 +94,6 @@ void IfcDoorLiningProperties::unsetLiningDepth()
 
 bool IfcDoorLiningProperties::testLiningDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLiningDepth()) == false;
 }
 
@@ -130,7 +129,6 @@ void IfcDoorLiningProperties::unsetLiningThickness()
 
 bool IfcDoorLiningProperties::testLiningThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLiningThickness()) == false;
 }
 
@@ -166,7 +164,6 @@ void IfcDoorLiningProperties::unsetThresholdDepth()
 
 bool IfcDoorLiningProperties::testThresholdDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThresholdDepth()) == false;
 }
 
@@ -202,7 +199,6 @@ void IfcDoorLiningProperties::unsetThresholdThickness()
 
 bool IfcDoorLiningProperties::testThresholdThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThresholdThickness()) == false;
 }
 
@@ -238,7 +234,6 @@ void IfcDoorLiningProperties::unsetTransomThickness()
 
 bool IfcDoorLiningProperties::testTransomThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTransomThickness()) == false;
 }
 
@@ -274,7 +269,6 @@ void IfcDoorLiningProperties::unsetTransomOffset()
 
 bool IfcDoorLiningProperties::testTransomOffset() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTransomOffset()) == false;
 }
 
@@ -310,7 +304,6 @@ void IfcDoorLiningProperties::unsetLiningOffset()
 
 bool IfcDoorLiningProperties::testLiningOffset() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLiningOffset()) == false;
 }
 
@@ -346,7 +339,6 @@ void IfcDoorLiningProperties::unsetThresholdOffset()
 
 bool IfcDoorLiningProperties::testThresholdOffset() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThresholdOffset()) == false;
 }
 
@@ -382,7 +374,6 @@ void IfcDoorLiningProperties::unsetCasingThickness()
 
 bool IfcDoorLiningProperties::testCasingThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCasingThickness()) == false;
 }
 
@@ -418,7 +409,6 @@ void IfcDoorLiningProperties::unsetCasingDepth()
 
 bool IfcDoorLiningProperties::testCasingDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCasingDepth()) == false;
 }
 
@@ -454,7 +444,6 @@ void IfcDoorLiningProperties::unsetShapeAspectStyle()
 
 bool IfcDoorLiningProperties::testShapeAspectStyle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShapeAspectStyle()) == false;
 }
 

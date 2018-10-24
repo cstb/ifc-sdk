@@ -85,7 +85,6 @@ void IfcStructuralConnection::unsetAppliedCondition()
 
 bool IfcStructuralConnection::testAppliedCondition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAppliedCondition()) == false;
 }
 
@@ -107,7 +106,6 @@ const Inverse_Set_IfcRelConnectsStructuralMember_1_n &IfcStructuralConnection::g
 
 bool IfcStructuralConnection::testConnectsStructuralMembers() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ConnectsStructuralMembers.isUnset() == false;
 }
 

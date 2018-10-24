@@ -85,7 +85,6 @@ void IfcColourRgb::unsetRed()
 
 bool IfcColourRgb::testRed() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRed()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcColourRgb::unsetGreen()
 
 bool IfcColourRgb::testGreen() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getGreen()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcColourRgb::unsetBlue()
 
 bool IfcColourRgb::testBlue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBlue()) == false;
 }
 

@@ -90,7 +90,6 @@ void IfcPersonAndOrganization::unsetRoles()
 
 bool IfcPersonAndOrganization::testRoles() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Roles.isUnset() == false;
 }
 
@@ -133,7 +132,6 @@ void IfcPersonAndOrganization::unsetThePerson()
 
 bool IfcPersonAndOrganization::testThePerson() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThePerson()) == false;
 }
 
@@ -176,7 +174,6 @@ void IfcPersonAndOrganization::unsetTheOrganization()
 
 bool IfcPersonAndOrganization::testTheOrganization() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTheOrganization()) == false;
 }
 

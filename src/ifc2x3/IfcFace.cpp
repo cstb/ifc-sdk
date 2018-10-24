@@ -86,7 +86,6 @@ void IfcFace::unsetBounds()
 
 bool IfcFace::testBounds() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Bounds.isUnset() == false;
 }
 

@@ -88,7 +88,6 @@ void IfcConstraintClassificationRelationship::unsetRelatedClassifications()
 
 bool IfcConstraintClassificationRelationship::testRelatedClassifications() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedClassifications.isUnset() == false;
 }
 
@@ -131,7 +130,6 @@ void IfcConstraintClassificationRelationship::unsetClassifiedConstraint()
 
 bool IfcConstraintClassificationRelationship::testClassifiedConstraint() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getClassifiedConstraint()) == false;
 }
 

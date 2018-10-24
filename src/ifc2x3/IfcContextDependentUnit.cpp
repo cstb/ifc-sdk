@@ -83,7 +83,6 @@ void IfcContextDependentUnit::unsetName()
 
 bool IfcContextDependentUnit::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 

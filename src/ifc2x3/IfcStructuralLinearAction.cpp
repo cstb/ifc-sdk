@@ -83,7 +83,6 @@ void IfcStructuralLinearAction::unsetProjectedOrTrue()
 
 bool IfcStructuralLinearAction::testProjectedOrTrue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProjectedOrTrue()) == false;
 }
 

@@ -91,7 +91,6 @@ void IfcRelAssignsToProduct::unsetRelatingProduct()
 
 bool IfcRelAssignsToProduct::testRelatingProduct() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingProduct()) == false;
 }
 

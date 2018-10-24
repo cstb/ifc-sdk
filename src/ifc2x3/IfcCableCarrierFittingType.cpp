@@ -83,7 +83,6 @@ void IfcCableCarrierFittingType::unsetPredefinedType()
 
 bool IfcCableCarrierFittingType::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 

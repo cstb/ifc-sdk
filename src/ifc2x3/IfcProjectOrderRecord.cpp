@@ -87,7 +87,6 @@ void IfcProjectOrderRecord::unsetRecords()
 
 bool IfcProjectOrderRecord::testRecords() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Records.isUnset() == false;
 }
 
@@ -123,7 +122,6 @@ void IfcProjectOrderRecord::unsetPredefinedType()
 
 bool IfcProjectOrderRecord::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 

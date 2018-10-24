@@ -69,7 +69,6 @@ const Inverse_Set_IfcRelFillsElement_0_n &IfcOpeningElement::getHasFillings() co
 
 bool IfcOpeningElement::testHasFillings() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasFillings.isUnset() == false;
 }
 

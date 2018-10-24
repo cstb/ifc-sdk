@@ -83,7 +83,6 @@ void IfcSphere::unsetRadius()
 
 bool IfcSphere::testRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRadius()) == false;
 }
 

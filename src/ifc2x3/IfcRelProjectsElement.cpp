@@ -93,7 +93,6 @@ void IfcRelProjectsElement::unsetRelatingElement()
 
 bool IfcRelProjectsElement::testRelatingElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingElement()) == false;
 }
 
@@ -136,7 +135,6 @@ void IfcRelProjectsElement::unsetRelatedFeatureElement()
 
 bool IfcRelProjectsElement::testRelatedFeatureElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedFeatureElement()) == false;
 }
 

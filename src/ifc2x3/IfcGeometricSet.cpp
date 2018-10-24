@@ -86,7 +86,6 @@ void IfcGeometricSet::unsetElements()
 
 bool IfcGeometricSet::testElements() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Elements.isUnset() == false;
 }
 

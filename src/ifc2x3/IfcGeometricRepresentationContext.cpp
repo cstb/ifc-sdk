@@ -89,7 +89,6 @@ void IfcGeometricRepresentationContext::unsetCoordinateSpaceDimension()
 
 bool IfcGeometricRepresentationContext::testCoordinateSpaceDimension() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCoordinateSpaceDimension()) == false;
 }
 
@@ -125,7 +124,6 @@ void IfcGeometricRepresentationContext::unsetPrecision()
 
 bool IfcGeometricRepresentationContext::testPrecision() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPrecision()) == false;
 }
 
@@ -161,7 +159,6 @@ void IfcGeometricRepresentationContext::unsetWorldCoordinateSystem()
 
 bool IfcGeometricRepresentationContext::testWorldCoordinateSystem() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWorldCoordinateSystem()) == false;
 }
 
@@ -197,7 +194,6 @@ void IfcGeometricRepresentationContext::unsetTrueNorth()
 
 bool IfcGeometricRepresentationContext::testTrueNorth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTrueNorth()) == false;
 }
 
@@ -219,7 +215,6 @@ const Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresen
 
 bool IfcGeometricRepresentationContext::testHasSubContexts() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasSubContexts.isUnset() == false;
 }
 

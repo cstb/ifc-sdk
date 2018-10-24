@@ -84,7 +84,6 @@ void IfcFillAreaStyleTileSymbolWithStyle::unsetSymbol()
 
 bool IfcFillAreaStyleTileSymbolWithStyle::testSymbol() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSymbol()) == false;
 }
 

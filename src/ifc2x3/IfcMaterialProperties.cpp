@@ -84,7 +84,6 @@ void IfcMaterialProperties::unsetMaterial()
 
 bool IfcMaterialProperties::testMaterial() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMaterial()) == false;
 }
 

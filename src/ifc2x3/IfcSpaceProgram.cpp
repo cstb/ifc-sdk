@@ -90,7 +90,6 @@ void IfcSpaceProgram::unsetSpaceProgramIdentifier()
 
 bool IfcSpaceProgram::testSpaceProgramIdentifier() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSpaceProgramIdentifier()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcSpaceProgram::unsetMaxRequiredArea()
 
 bool IfcSpaceProgram::testMaxRequiredArea() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMaxRequiredArea()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcSpaceProgram::unsetMinRequiredArea()
 
 bool IfcSpaceProgram::testMinRequiredArea() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMinRequiredArea()) == false;
 }
 
@@ -198,7 +195,6 @@ void IfcSpaceProgram::unsetRequestedLocation()
 
 bool IfcSpaceProgram::testRequestedLocation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRequestedLocation()) == false;
 }
 
@@ -234,7 +230,6 @@ void IfcSpaceProgram::unsetStandardRequiredArea()
 
 bool IfcSpaceProgram::testStandardRequiredArea() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStandardRequiredArea()) == false;
 }
 
@@ -256,7 +251,6 @@ const Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInte
 
 bool IfcSpaceProgram::testHasInteractionReqsFrom() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasInteractionReqsFrom.isUnset() == false;
 }
 
@@ -278,7 +272,6 @@ const Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInte
 
 bool IfcSpaceProgram::testHasInteractionReqsTo() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasInteractionReqsTo.isUnset() == false;
 }
 

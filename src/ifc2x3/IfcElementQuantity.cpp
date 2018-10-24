@@ -85,7 +85,6 @@ void IfcElementQuantity::unsetMethodOfMeasurement()
 
 bool IfcElementQuantity::testMethodOfMeasurement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMethodOfMeasurement()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcElementQuantity::unsetQuantities()
 
 bool IfcElementQuantity::testQuantities() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Quantities.isUnset() == false;
 }
 

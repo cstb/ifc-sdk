@@ -87,7 +87,6 @@ void IfcCompositeProfileDef::unsetProfiles()
 
 bool IfcCompositeProfileDef::testProfiles() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Profiles.isUnset() == false;
 }
 
@@ -123,7 +122,6 @@ void IfcCompositeProfileDef::unsetLabel()
 
 bool IfcCompositeProfileDef::testLabel() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLabel()) == false;
 }
 

@@ -90,7 +90,6 @@ void IfcSite::unsetRefLatitude()
 
 bool IfcSite::testRefLatitude() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RefLatitude.isUnset() == false;
 }
 
@@ -128,7 +127,6 @@ void IfcSite::unsetRefLongitude()
 
 bool IfcSite::testRefLongitude() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RefLongitude.isUnset() == false;
 }
 
@@ -164,7 +162,6 @@ void IfcSite::unsetRefElevation()
 
 bool IfcSite::testRefElevation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRefElevation()) == false;
 }
 
@@ -200,7 +197,6 @@ void IfcSite::unsetLandTitleNumber()
 
 bool IfcSite::testLandTitleNumber() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLandTitleNumber()) == false;
 }
 
@@ -236,7 +232,6 @@ void IfcSite::unsetSiteAddress()
 
 bool IfcSite::testSiteAddress() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSiteAddress()) == false;
 }
 

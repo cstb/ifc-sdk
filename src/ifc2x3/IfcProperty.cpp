@@ -87,7 +87,6 @@ void IfcProperty::unsetName()
 
 bool IfcProperty::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcProperty::unsetDescription()
 
 bool IfcProperty::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -145,7 +143,6 @@ const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropert
 
 bool IfcProperty::testPropertyDependsOn() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PropertyDependsOn.isUnset() == false;
 }
 
@@ -167,7 +164,6 @@ const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropert
 
 bool IfcProperty::testPropertyForDependance() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PropertyForDependance.isUnset() == false;
 }
 
@@ -189,7 +185,6 @@ const Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() const
 
 bool IfcProperty::testPartOfComplex() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PartOfComplex.isUnset() == false;
 }
 

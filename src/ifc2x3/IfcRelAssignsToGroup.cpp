@@ -91,7 +91,6 @@ void IfcRelAssignsToGroup::unsetRelatingGroup()
 
 bool IfcRelAssignsToGroup::testRelatingGroup() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingGroup()) == false;
 }
 

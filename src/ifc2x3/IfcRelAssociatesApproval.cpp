@@ -84,7 +84,6 @@ void IfcRelAssociatesApproval::unsetRelatingApproval()
 
 bool IfcRelAssociatesApproval::testRelatingApproval() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingApproval()) == false;
 }
 

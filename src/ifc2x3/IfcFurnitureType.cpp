@@ -83,7 +83,6 @@ void IfcFurnitureType::unsetAssemblyPlace()
 
 bool IfcFurnitureType::testAssemblyPlace() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAssemblyPlace()) == false;
 }
 

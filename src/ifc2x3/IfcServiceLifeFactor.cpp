@@ -89,7 +89,6 @@ void IfcServiceLifeFactor::unsetPredefinedType()
 
 bool IfcServiceLifeFactor::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 
@@ -125,7 +124,6 @@ void IfcServiceLifeFactor::unsetUpperValue()
 
 bool IfcServiceLifeFactor::testUpperValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUpperValue()) == false;
 }
 
@@ -161,7 +159,6 @@ void IfcServiceLifeFactor::unsetMostUsedValue()
 
 bool IfcServiceLifeFactor::testMostUsedValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMostUsedValue()) == false;
 }
 
@@ -197,7 +194,6 @@ void IfcServiceLifeFactor::unsetLowerValue()
 
 bool IfcServiceLifeFactor::testLowerValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLowerValue()) == false;
 }
 

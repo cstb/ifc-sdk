@@ -88,7 +88,6 @@ void IfcPermeableCoveringProperties::unsetOperationType()
 
 bool IfcPermeableCoveringProperties::testOperationType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOperationType()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcPermeableCoveringProperties::unsetPanelPosition()
 
 bool IfcPermeableCoveringProperties::testPanelPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPanelPosition()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcPermeableCoveringProperties::unsetFrameDepth()
 
 bool IfcPermeableCoveringProperties::testFrameDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFrameDepth()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcPermeableCoveringProperties::unsetFrameThickness()
 
 bool IfcPermeableCoveringProperties::testFrameThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFrameThickness()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcPermeableCoveringProperties::unsetShapeAspectStyle()
 
 bool IfcPermeableCoveringProperties::testShapeAspectStyle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShapeAspectStyle()) == false;
 }
 

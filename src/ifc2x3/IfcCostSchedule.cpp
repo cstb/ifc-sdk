@@ -95,7 +95,6 @@ void IfcCostSchedule::unsetSubmittedBy()
 
 bool IfcCostSchedule::testSubmittedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSubmittedBy()) == false;
 }
 
@@ -131,7 +130,6 @@ void IfcCostSchedule::unsetPreparedBy()
 
 bool IfcCostSchedule::testPreparedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPreparedBy()) == false;
 }
 
@@ -167,7 +165,6 @@ void IfcCostSchedule::unsetSubmittedOn()
 
 bool IfcCostSchedule::testSubmittedOn() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSubmittedOn()) == false;
 }
 
@@ -203,7 +200,6 @@ void IfcCostSchedule::unsetStatus()
 
 bool IfcCostSchedule::testStatus() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStatus()) == false;
 }
 
@@ -241,7 +237,6 @@ void IfcCostSchedule::unsetTargetUsers()
 
 bool IfcCostSchedule::testTargetUsers() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_TargetUsers.isUnset() == false;
 }
 
@@ -277,7 +272,6 @@ void IfcCostSchedule::unsetUpdateDate()
 
 bool IfcCostSchedule::testUpdateDate() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUpdateDate()) == false;
 }
 
@@ -313,7 +307,6 @@ void IfcCostSchedule::unsetID()
 
 bool IfcCostSchedule::testID() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getID()) == false;
 }
 
@@ -349,7 +342,6 @@ void IfcCostSchedule::unsetPredefinedType()
 
 bool IfcCostSchedule::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 

@@ -89,7 +89,6 @@ void IfcWaterProperties::unsetIsPotable()
 
 bool IfcWaterProperties::testIsPotable() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIsPotable()) == false;
 }
 
@@ -125,7 +124,6 @@ void IfcWaterProperties::unsetHardness()
 
 bool IfcWaterProperties::testHardness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHardness()) == false;
 }
 
@@ -161,7 +159,6 @@ void IfcWaterProperties::unsetAlkalinityConcentration()
 
 bool IfcWaterProperties::testAlkalinityConcentration() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAlkalinityConcentration()) == false;
 }
 
@@ -197,7 +194,6 @@ void IfcWaterProperties::unsetAcidityConcentration()
 
 bool IfcWaterProperties::testAcidityConcentration() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAcidityConcentration()) == false;
 }
 
@@ -233,7 +229,6 @@ void IfcWaterProperties::unsetImpuritiesContent()
 
 bool IfcWaterProperties::testImpuritiesContent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getImpuritiesContent()) == false;
 }
 
@@ -269,7 +264,6 @@ void IfcWaterProperties::unsetPHLevel()
 
 bool IfcWaterProperties::testPHLevel() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPHLevel()) == false;
 }
 
@@ -305,7 +299,6 @@ void IfcWaterProperties::unsetDissolvedSolidsContent()
 
 bool IfcWaterProperties::testDissolvedSolidsContent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDissolvedSolidsContent()) == false;
 }
 

@@ -85,7 +85,6 @@ void IfcStructuralAction::unsetDestabilizingLoad()
 
 bool IfcStructuralAction::testDestabilizingLoad() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDestabilizingLoad()) == false;
 }
 
@@ -128,7 +127,6 @@ void IfcStructuralAction::unsetCausedBy()
 
 bool IfcStructuralAction::testCausedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCausedBy()) == false;
 }
 

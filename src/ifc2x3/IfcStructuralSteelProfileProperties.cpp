@@ -86,7 +86,6 @@ void IfcStructuralSteelProfileProperties::unsetShearAreaZ()
 
 bool IfcStructuralSteelProfileProperties::testShearAreaZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShearAreaZ()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcStructuralSteelProfileProperties::unsetShearAreaY()
 
 bool IfcStructuralSteelProfileProperties::testShearAreaY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShearAreaY()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcStructuralSteelProfileProperties::unsetPlasticShapeFactorY()
 
 bool IfcStructuralSteelProfileProperties::testPlasticShapeFactorY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPlasticShapeFactorY()) == false;
 }
 
@@ -194,7 +191,6 @@ void IfcStructuralSteelProfileProperties::unsetPlasticShapeFactorZ()
 
 bool IfcStructuralSteelProfileProperties::testPlasticShapeFactorZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPlasticShapeFactorZ()) == false;
 }
 

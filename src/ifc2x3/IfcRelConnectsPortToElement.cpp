@@ -93,7 +93,6 @@ void IfcRelConnectsPortToElement::unsetRelatedElement()
 
 bool IfcRelConnectsPortToElement::testRelatedElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedElement()) == false;
 }
 
@@ -136,7 +135,6 @@ void IfcRelConnectsPortToElement::unsetRelatingPort()
 
 bool IfcRelConnectsPortToElement::testRelatingPort() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingPort()) == false;
 }
 

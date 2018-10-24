@@ -68,7 +68,6 @@ const IfcRelVoidsElement *IfcFeatureElementSubtraction::getVoidsElements() const
 
 bool IfcFeatureElementSubtraction::testVoidsElements() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVoidsElements()) == false;
 }
 

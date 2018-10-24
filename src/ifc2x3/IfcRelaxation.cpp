@@ -84,7 +84,6 @@ void IfcRelaxation::unsetRelaxationValue()
 
 bool IfcRelaxation::testRelaxationValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelaxationValue()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcRelaxation::unsetInitialStress()
 
 bool IfcRelaxation::testInitialStress() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInitialStress()) == false;
 }
 

@@ -85,7 +85,6 @@ void IfcCovering::unsetPredefinedType()
 
 bool IfcCovering::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 
@@ -107,7 +106,6 @@ const Inverse_Set_IfcRelCoversSpaces_0_1 &IfcCovering::getCoversSpaces() const
 
 bool IfcCovering::testCoversSpaces() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_CoversSpaces.isUnset() == false;
 }
 
@@ -129,7 +127,6 @@ const Inverse_Set_IfcRelCoversBldgElements_0_1 &IfcCovering::getCovers() const
 
 bool IfcCovering::testCovers() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Covers.isUnset() == false;
 }
 

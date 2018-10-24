@@ -86,7 +86,6 @@ void IfcAnnotationSurface::unsetItem()
 
 bool IfcAnnotationSurface::testItem() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getItem()) == false;
 }
 
@@ -129,7 +128,6 @@ void IfcAnnotationSurface::unsetTextureCoordinates()
 
 bool IfcAnnotationSurface::testTextureCoordinates() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTextureCoordinates()) == false;
 }
 

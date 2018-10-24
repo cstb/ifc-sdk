@@ -94,7 +94,6 @@ void IfcTimeSeries::unsetName()
 
 bool IfcTimeSeries::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -130,7 +129,6 @@ void IfcTimeSeries::unsetDescription()
 
 bool IfcTimeSeries::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -166,7 +164,6 @@ void IfcTimeSeries::unsetStartTime()
 
 bool IfcTimeSeries::testStartTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStartTime()) == false;
 }
 
@@ -202,7 +199,6 @@ void IfcTimeSeries::unsetEndTime()
 
 bool IfcTimeSeries::testEndTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEndTime()) == false;
 }
 
@@ -238,7 +234,6 @@ void IfcTimeSeries::unsetTimeSeriesDataType()
 
 bool IfcTimeSeries::testTimeSeriesDataType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTimeSeriesDataType()) == false;
 }
 
@@ -274,7 +269,6 @@ void IfcTimeSeries::unsetDataOrigin()
 
 bool IfcTimeSeries::testDataOrigin() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDataOrigin()) == false;
 }
 
@@ -310,7 +304,6 @@ void IfcTimeSeries::unsetUserDefinedDataOrigin()
 
 bool IfcTimeSeries::testUserDefinedDataOrigin() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedDataOrigin()) == false;
 }
 
@@ -346,7 +339,6 @@ void IfcTimeSeries::unsetUnit()
 
 bool IfcTimeSeries::testUnit() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnit()) == false;
 }
 
@@ -368,7 +360,6 @@ const Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &IfcTimeSeries::getDocu
 
 bool IfcTimeSeries::testDocumentedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_DocumentedBy.isUnset() == false;
 }
 

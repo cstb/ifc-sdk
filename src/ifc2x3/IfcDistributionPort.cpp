@@ -83,7 +83,6 @@ void IfcDistributionPort::unsetFlowDirection()
 
 bool IfcDistributionPort::testFlowDirection() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlowDirection()) == false;
 }
 

@@ -88,7 +88,6 @@ void IfcTableRow::unsetRowCells()
 
 bool IfcTableRow::testRowCells() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RowCells.isUnset() == false;
 }
 
@@ -124,7 +123,6 @@ void IfcTableRow::unsetIsHeading()
 
 bool IfcTableRow::testIsHeading() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIsHeading()) == false;
 }
 
@@ -145,7 +143,6 @@ const IfcTable *IfcTableRow::getOfTable() const
 
 bool IfcTableRow::testOfTable() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOfTable()) == false;
 }
 

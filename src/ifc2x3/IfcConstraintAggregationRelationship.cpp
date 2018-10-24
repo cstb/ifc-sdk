@@ -128,7 +128,6 @@ void IfcConstraintAggregationRelationship::unsetName()
 
 bool IfcConstraintAggregationRelationship::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -164,7 +163,6 @@ void IfcConstraintAggregationRelationship::unsetDescription()
 
 bool IfcConstraintAggregationRelationship::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -200,7 +198,6 @@ void IfcConstraintAggregationRelationship::unsetLogicalAggregator()
 
 bool IfcConstraintAggregationRelationship::testLogicalAggregator() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLogicalAggregator()) == false;
 }
 
@@ -231,7 +228,6 @@ void IfcConstraintAggregationRelationship::unsetRelatedConstraints()
 
 bool IfcConstraintAggregationRelationship::testRelatedConstraints() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedConstraints.isUnset() == false;
 }
 
@@ -274,7 +270,6 @@ void IfcConstraintAggregationRelationship::unsetRelatingConstraint()
 
 bool IfcConstraintAggregationRelationship::testRelatingConstraint() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingConstraint()) == false;
 }
 

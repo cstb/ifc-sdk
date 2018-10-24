@@ -86,7 +86,6 @@ void IfcStairFlight::unsetNumberOfRiser()
 
 bool IfcStairFlight::testNumberOfRiser() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getNumberOfRiser()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcStairFlight::unsetNumberOfTreads()
 
 bool IfcStairFlight::testNumberOfTreads() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getNumberOfTreads()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcStairFlight::unsetRiserHeight()
 
 bool IfcStairFlight::testRiserHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRiserHeight()) == false;
 }
 
@@ -194,7 +191,6 @@ void IfcStairFlight::unsetTreadLength()
 
 bool IfcStairFlight::testTreadLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTreadLength()) == false;
 }
 

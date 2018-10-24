@@ -87,7 +87,6 @@ void IfcPropertyEnumeration::unsetName()
 
 bool IfcPropertyEnumeration::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -125,7 +124,6 @@ void IfcPropertyEnumeration::unsetEnumerationValues()
 
 bool IfcPropertyEnumeration::testEnumerationValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_EnumerationValues.isUnset() == false;
 }
 
@@ -161,7 +159,6 @@ void IfcPropertyEnumeration::unsetUnit()
 
 bool IfcPropertyEnumeration::testUnit() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnit()) == false;
 }
 

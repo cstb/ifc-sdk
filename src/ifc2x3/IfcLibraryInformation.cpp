@@ -129,7 +129,6 @@ void IfcLibraryInformation::unsetName()
 
 bool IfcLibraryInformation::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -165,7 +164,6 @@ void IfcLibraryInformation::unsetVersion()
 
 bool IfcLibraryInformation::testVersion() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVersion()) == false;
 }
 
@@ -201,7 +199,6 @@ void IfcLibraryInformation::unsetPublisher()
 
 bool IfcLibraryInformation::testPublisher() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPublisher()) == false;
 }
 
@@ -237,7 +234,6 @@ void IfcLibraryInformation::unsetVersionDate()
 
 bool IfcLibraryInformation::testVersionDate() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVersionDate()) == false;
 }
 
@@ -268,7 +264,6 @@ void IfcLibraryInformation::unsetLibraryReference()
 
 bool IfcLibraryInformation::testLibraryReference() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_LibraryReference.isUnset() == false;
 }
 

@@ -70,7 +70,6 @@ const IfcRelConnectsPortToElement *IfcPort::getContainedIn() const
 
 bool IfcPort::testContainedIn() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getContainedIn()) == false;
 }
 
@@ -92,7 +91,6 @@ const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() const
 
 bool IfcPort::testConnectedTo() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ConnectedTo.isUnset() == false;
 }
 
@@ -114,7 +112,6 @@ const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() const
 
 bool IfcPort::testConnectedFrom() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ConnectedFrom.isUnset() == false;
 }
 

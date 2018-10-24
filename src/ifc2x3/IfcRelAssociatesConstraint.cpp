@@ -85,7 +85,6 @@ void IfcRelAssociatesConstraint::unsetIntent()
 
 bool IfcRelAssociatesConstraint::testIntent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIntent()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcRelAssociatesConstraint::unsetRelatingConstraint()
 
 bool IfcRelAssociatesConstraint::testRelatingConstraint() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingConstraint()) == false;
 }
 

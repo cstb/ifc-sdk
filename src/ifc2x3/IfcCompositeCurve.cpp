@@ -124,7 +124,6 @@ void IfcCompositeCurve::unsetSelfIntersect()
 
 bool IfcCompositeCurve::testSelfIntersect() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSelfIntersect()) == false;
 }
 
@@ -155,7 +154,6 @@ void IfcCompositeCurve::unsetSegments()
 
 bool IfcCompositeCurve::testSegments() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Segments.isUnset() == false;
 }
 

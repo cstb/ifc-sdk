@@ -84,7 +84,6 @@ void IfcProxy::unsetProxyType()
 
 bool IfcProxy::testProxyType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProxyType()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcProxy::unsetTag()
 
 bool IfcProxy::testTag() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTag()) == false;
 }
 

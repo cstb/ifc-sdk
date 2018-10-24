@@ -84,7 +84,6 @@ void IfcSurfaceStyleRefraction::unsetRefractionIndex()
 
 bool IfcSurfaceStyleRefraction::testRefractionIndex() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRefractionIndex()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcSurfaceStyleRefraction::unsetDispersionFactor()
 
 bool IfcSurfaceStyleRefraction::testDispersionFactor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDispersionFactor()) == false;
 }
 

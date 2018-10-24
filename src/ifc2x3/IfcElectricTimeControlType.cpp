@@ -83,7 +83,6 @@ void IfcElectricTimeControlType::unsetPredefinedType()
 
 bool IfcElectricTimeControlType::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 

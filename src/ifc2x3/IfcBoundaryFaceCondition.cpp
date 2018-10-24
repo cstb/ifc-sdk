@@ -85,7 +85,6 @@ void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaX()
 
 bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearStiffnessByAreaX()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaY()
 
 bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearStiffnessByAreaY()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaZ()
 
 bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearStiffnessByAreaZ()) == false;
 }
 

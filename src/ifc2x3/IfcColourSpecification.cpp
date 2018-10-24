@@ -83,7 +83,6 @@ void IfcColourSpecification::unsetName()
 
 bool IfcColourSpecification::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 

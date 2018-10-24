@@ -70,7 +70,6 @@ const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::get
 
 bool IfcRepresentationItem::testLayerAssignments() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_LayerAssignments.isUnset() == false;
 }
 
@@ -92,7 +91,6 @@ const Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() co
 
 bool IfcRepresentationItem::testStyledByItem() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_StyledByItem.isUnset() == false;
 }
 

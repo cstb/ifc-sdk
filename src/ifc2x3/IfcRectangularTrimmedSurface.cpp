@@ -90,7 +90,6 @@ void IfcRectangularTrimmedSurface::unsetBasisSurface()
 
 bool IfcRectangularTrimmedSurface::testBasisSurface() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBasisSurface()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcRectangularTrimmedSurface::unsetU1()
 
 bool IfcRectangularTrimmedSurface::testU1() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getU1()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcRectangularTrimmedSurface::unsetV1()
 
 bool IfcRectangularTrimmedSurface::testV1() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getV1()) == false;
 }
 
@@ -198,7 +195,6 @@ void IfcRectangularTrimmedSurface::unsetU2()
 
 bool IfcRectangularTrimmedSurface::testU2() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getU2()) == false;
 }
 
@@ -234,7 +230,6 @@ void IfcRectangularTrimmedSurface::unsetV2()
 
 bool IfcRectangularTrimmedSurface::testV2() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getV2()) == false;
 }
 
@@ -270,7 +265,6 @@ void IfcRectangularTrimmedSurface::unsetUsense()
 
 bool IfcRectangularTrimmedSurface::testUsense() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUsense()) == false;
 }
 
@@ -306,7 +300,6 @@ void IfcRectangularTrimmedSurface::unsetVsense()
 
 bool IfcRectangularTrimmedSurface::testVsense() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVsense()) == false;
 }
 

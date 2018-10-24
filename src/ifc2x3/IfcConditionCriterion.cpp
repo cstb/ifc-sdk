@@ -86,7 +86,6 @@ void IfcConditionCriterion::unsetCriterion()
 
 bool IfcConditionCriterion::testCriterion() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCriterion()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcConditionCriterion::unsetCriterionDateTime()
 
 bool IfcConditionCriterion::testCriterionDateTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCriterionDateTime()) == false;
 }
 

@@ -87,7 +87,6 @@ void IfcIShapeProfileDef::unsetOverallWidth()
 
 bool IfcIShapeProfileDef::testOverallWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOverallWidth()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcIShapeProfileDef::unsetOverallDepth()
 
 bool IfcIShapeProfileDef::testOverallDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOverallDepth()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcIShapeProfileDef::unsetWebThickness()
 
 bool IfcIShapeProfileDef::testWebThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWebThickness()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcIShapeProfileDef::unsetFlangeThickness()
 
 bool IfcIShapeProfileDef::testFlangeThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFlangeThickness()) == false;
 }
 
@@ -231,7 +227,6 @@ void IfcIShapeProfileDef::unsetFilletRadius()
 
 bool IfcIShapeProfileDef::testFilletRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFilletRadius()) == false;
 }
 

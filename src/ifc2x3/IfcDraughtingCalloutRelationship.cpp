@@ -88,7 +88,6 @@ void IfcDraughtingCalloutRelationship::unsetName()
 
 bool IfcDraughtingCalloutRelationship::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcDraughtingCalloutRelationship::unsetDescription()
 
 bool IfcDraughtingCalloutRelationship::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -167,7 +165,6 @@ void IfcDraughtingCalloutRelationship::unsetRelatingDraughtingCallout()
 
 bool IfcDraughtingCalloutRelationship::testRelatingDraughtingCallout() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingDraughtingCallout()) == false;
 }
 
@@ -210,7 +207,6 @@ void IfcDraughtingCalloutRelationship::unsetRelatedDraughtingCallout()
 
 bool IfcDraughtingCalloutRelationship::testRelatedDraughtingCallout() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedDraughtingCallout()) == false;
 }
 

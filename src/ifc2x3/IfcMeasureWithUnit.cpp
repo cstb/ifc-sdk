@@ -86,7 +86,6 @@ void IfcMeasureWithUnit::unsetValueComponent()
 
 bool IfcMeasureWithUnit::testValueComponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getValueComponent()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcMeasureWithUnit::unsetUnitComponent()
 
 bool IfcMeasureWithUnit::testUnitComponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnitComponent()) == false;
 }
 

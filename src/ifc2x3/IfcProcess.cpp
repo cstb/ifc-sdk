@@ -71,7 +71,6 @@ const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsPredecessorTo() const
 
 bool IfcProcess::testIsPredecessorTo() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsPredecessorTo.isUnset() == false;
 }
 
@@ -93,7 +92,6 @@ const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() const
 
 bool IfcProcess::testIsSuccessorFrom() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsSuccessorFrom.isUnset() == false;
 }
 
@@ -115,7 +113,6 @@ const Inverse_Set_IfcRelAssignsToProcess_0_n &IfcProcess::getOperatesOn() const
 
 bool IfcProcess::testOperatesOn() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_OperatesOn.isUnset() == false;
 }
 

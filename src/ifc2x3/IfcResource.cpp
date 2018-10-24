@@ -69,7 +69,6 @@ const Inverse_Set_IfcRelAssignsToResource_0_n &IfcResource::getResourceOf() cons
 
 bool IfcResource::testResourceOf() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ResourceOf.isUnset() == false;
 }
 

@@ -127,7 +127,6 @@ void IfcOrganizationRelationship::unsetName()
 
 bool IfcOrganizationRelationship::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -163,7 +162,6 @@ void IfcOrganizationRelationship::unsetDescription()
 
 bool IfcOrganizationRelationship::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -194,7 +192,6 @@ void IfcOrganizationRelationship::unsetRelatedOrganizations()
 
 bool IfcOrganizationRelationship::testRelatedOrganizations() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedOrganizations.isUnset() == false;
 }
 
@@ -237,7 +234,6 @@ void IfcOrganizationRelationship::unsetRelatingOrganization()
 
 bool IfcOrganizationRelationship::testRelatingOrganization() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingOrganization()) == false;
 }
 

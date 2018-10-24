@@ -84,7 +84,6 @@ void IfcPlacement::unsetLocation()
 
 bool IfcPlacement::testLocation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLocation()) == false;
 }
 

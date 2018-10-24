@@ -85,7 +85,6 @@ void IfcRectangularPyramid::unsetXLength()
 
 bool IfcRectangularPyramid::testXLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getXLength()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcRectangularPyramid::unsetYLength()
 
 bool IfcRectangularPyramid::testYLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getYLength()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcRectangularPyramid::unsetHeight()
 
 bool IfcRectangularPyramid::testHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHeight()) == false;
 }
 

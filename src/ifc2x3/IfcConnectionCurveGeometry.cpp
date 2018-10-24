@@ -86,7 +86,6 @@ void IfcConnectionCurveGeometry::unsetCurveOnRelatingElement()
 
 bool IfcConnectionCurveGeometry::testCurveOnRelatingElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCurveOnRelatingElement()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcConnectionCurveGeometry::unsetCurveOnRelatedElement()
 
 bool IfcConnectionCurveGeometry::testCurveOnRelatedElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCurveOnRelatedElement()) == false;
 }
 

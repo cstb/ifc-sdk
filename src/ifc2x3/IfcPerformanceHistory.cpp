@@ -83,7 +83,6 @@ void IfcPerformanceHistory::unsetLifeCyclePhase()
 
 bool IfcPerformanceHistory::testLifeCyclePhase() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLifeCyclePhase()) == false;
 }
 

@@ -85,7 +85,6 @@ void IfcRepresentationContext::unsetContextIdentifier()
 
 bool IfcRepresentationContext::testContextIdentifier() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getContextIdentifier()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcRepresentationContext::unsetContextType()
 
 bool IfcRepresentationContext::testContextType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getContextType()) == false;
 }
 
@@ -143,7 +141,6 @@ const Inverse_Set_IfcRepresentation_0_n &IfcRepresentationContext::getRepresenta
 
 bool IfcRepresentationContext::testRepresentationsInContext() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RepresentationsInContext.isUnset() == false;
 }
 

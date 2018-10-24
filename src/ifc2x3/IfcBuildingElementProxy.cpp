@@ -83,7 +83,6 @@ void IfcBuildingElementProxy::unsetCompositionType()
 
 bool IfcBuildingElementProxy::testCompositionType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCompositionType()) == false;
 }
 

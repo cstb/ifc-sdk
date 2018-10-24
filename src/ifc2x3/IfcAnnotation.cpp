@@ -69,7 +69,6 @@ const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcAnnotation::getConta
 
 bool IfcAnnotation::testContainedInStructure() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ContainedInStructure.isUnset() == false;
 }
 

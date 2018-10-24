@@ -88,7 +88,6 @@ void IfcObjective::unsetBenchmarkValues()
 
 bool IfcObjective::testBenchmarkValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBenchmarkValues()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcObjective::unsetResultValues()
 
 bool IfcObjective::testResultValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getResultValues()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcObjective::unsetObjectiveQualifier()
 
 bool IfcObjective::testObjectiveQualifier() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getObjectiveQualifier()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcObjective::unsetUserDefinedQualifier()
 
 bool IfcObjective::testUserDefinedQualifier() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedQualifier()) == false;
 }
 

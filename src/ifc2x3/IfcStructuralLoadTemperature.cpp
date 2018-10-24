@@ -85,7 +85,6 @@ void IfcStructuralLoadTemperature::unsetDeltaT_Constant()
 
 bool IfcStructuralLoadTemperature::testDeltaT_Constant() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDeltaT_Constant()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcStructuralLoadTemperature::unsetDeltaT_Y()
 
 bool IfcStructuralLoadTemperature::testDeltaT_Y() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDeltaT_Y()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcStructuralLoadTemperature::unsetDeltaT_Z()
 
 bool IfcStructuralLoadTemperature::testDeltaT_Z() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDeltaT_Z()) == false;
 }
 

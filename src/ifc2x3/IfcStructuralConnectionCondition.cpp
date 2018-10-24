@@ -83,7 +83,6 @@ void IfcStructuralConnectionCondition::unsetName()
 
 bool IfcStructuralConnectionCondition::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 

@@ -84,7 +84,6 @@ void IfcSymbolStyle::unsetStyleOfSymbol()
 
 bool IfcSymbolStyle::testStyleOfSymbol() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStyleOfSymbol()) == false;
 }
 

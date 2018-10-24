@@ -84,7 +84,6 @@ void IfcProfileDef::unsetProfileType()
 
 bool IfcProfileDef::testProfileType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProfileType()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcProfileDef::unsetProfileName()
 
 bool IfcProfileDef::testProfileName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProfileName()) == false;
 }
 

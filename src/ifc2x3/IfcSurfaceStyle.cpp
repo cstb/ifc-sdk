@@ -85,7 +85,6 @@ void IfcSurfaceStyle::unsetSide()
 
 bool IfcSurfaceStyle::testSide() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSide()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcSurfaceStyle::unsetStyles()
 
 bool IfcSurfaceStyle::testStyles() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Styles.isUnset() == false;
 }
 

@@ -86,7 +86,6 @@ void IfcSpace::unsetInteriorOrExteriorSpace()
 
 bool IfcSpace::testInteriorOrExteriorSpace() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInteriorOrExteriorSpace()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcSpace::unsetElevationWithFlooring()
 
 bool IfcSpace::testElevationWithFlooring() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getElevationWithFlooring()) == false;
 }
 
@@ -144,7 +142,6 @@ const Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() const
 
 bool IfcSpace::testHasCoverings() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasCoverings.isUnset() == false;
 }
 
@@ -166,7 +163,6 @@ const Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() const
 
 bool IfcSpace::testBoundedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_BoundedBy.isUnset() == false;
 }
 

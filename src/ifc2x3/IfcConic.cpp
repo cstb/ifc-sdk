@@ -84,7 +84,6 @@ void IfcConic::unsetPosition()
 
 bool IfcConic::testPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPosition()) == false;
 }
 

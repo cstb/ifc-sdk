@@ -84,7 +84,6 @@ void IfcSIUnit::unsetPrefix()
 
 bool IfcSIUnit::testPrefix() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPrefix()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcSIUnit::unsetName()
 
 bool IfcSIUnit::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 

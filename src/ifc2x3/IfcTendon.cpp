@@ -90,7 +90,6 @@ void IfcTendon::unsetPredefinedType()
 
 bool IfcTendon::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcTendon::unsetNominalDiameter()
 
 bool IfcTendon::testNominalDiameter() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getNominalDiameter()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcTendon::unsetCrossSectionArea()
 
 bool IfcTendon::testCrossSectionArea() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCrossSectionArea()) == false;
 }
 
@@ -198,7 +195,6 @@ void IfcTendon::unsetTensionForce()
 
 bool IfcTendon::testTensionForce() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTensionForce()) == false;
 }
 
@@ -234,7 +230,6 @@ void IfcTendon::unsetPreStress()
 
 bool IfcTendon::testPreStress() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPreStress()) == false;
 }
 
@@ -270,7 +265,6 @@ void IfcTendon::unsetFrictionCoefficient()
 
 bool IfcTendon::testFrictionCoefficient() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFrictionCoefficient()) == false;
 }
 
@@ -306,7 +300,6 @@ void IfcTendon::unsetAnchorageSlip()
 
 bool IfcTendon::testAnchorageSlip() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAnchorageSlip()) == false;
 }
 
@@ -342,7 +335,6 @@ void IfcTendon::unsetMinCurvatureRadius()
 
 bool IfcTendon::testMinCurvatureRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMinCurvatureRadius()) == false;
 }
 

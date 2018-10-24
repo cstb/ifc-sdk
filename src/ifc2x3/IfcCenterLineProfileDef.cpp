@@ -83,7 +83,6 @@ void IfcCenterLineProfileDef::unsetThickness()
 
 bool IfcCenterLineProfileDef::testThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThickness()) == false;
 }
 

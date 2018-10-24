@@ -85,7 +85,6 @@ void IfcSubContractResource::unsetSubContractor()
 
 bool IfcSubContractResource::testSubContractor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSubContractor()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcSubContractResource::unsetJobDescription()
 
 bool IfcSubContractResource::testJobDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getJobDescription()) == false;
 }
 

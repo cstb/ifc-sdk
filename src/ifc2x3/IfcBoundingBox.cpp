@@ -87,7 +87,6 @@ void IfcBoundingBox::unsetCorner()
 
 bool IfcBoundingBox::testCorner() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCorner()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcBoundingBox::unsetXDim()
 
 bool IfcBoundingBox::testXDim() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getXDim()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcBoundingBox::unsetYDim()
 
 bool IfcBoundingBox::testYDim() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getYDim()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcBoundingBox::unsetZDim()
 
 bool IfcBoundingBox::testZDim() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getZDim()) == false;
 }
 

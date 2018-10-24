@@ -85,7 +85,6 @@ void IfcDirection::unsetDirectionRatios()
 
 bool IfcDirection::testDirectionRatios() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_DirectionRatios.isUnset() == false;
 }
 

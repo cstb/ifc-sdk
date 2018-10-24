@@ -84,7 +84,6 @@ void IfcArbitraryClosedProfileDef::unsetOuterCurve()
 
 bool IfcArbitraryClosedProfileDef::testOuterCurve() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOuterCurve()) == false;
 }
 

@@ -80,8 +80,6 @@
 # include <cmath>
 #endif
 
-#include "precompiled.h"
-
 #ifdef _DEBUG
 #  define LOG_DEBUG(msg) std::cerr << msg
 #else

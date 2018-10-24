@@ -83,7 +83,6 @@ void IfcOccupant::unsetPredefinedType()
 
 bool IfcOccupant::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 

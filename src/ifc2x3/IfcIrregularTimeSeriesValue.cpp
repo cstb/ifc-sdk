@@ -86,7 +86,6 @@ void IfcIrregularTimeSeriesValue::unsetTimeStamp()
 
 bool IfcIrregularTimeSeriesValue::testTimeStamp() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTimeStamp()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcIrregularTimeSeriesValue::unsetListValues()
 
 bool IfcIrregularTimeSeriesValue::testListValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ListValues.isUnset() == false;
 }
 

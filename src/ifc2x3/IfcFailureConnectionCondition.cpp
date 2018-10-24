@@ -88,7 +88,6 @@ void IfcFailureConnectionCondition::unsetTensionFailureX()
 
 bool IfcFailureConnectionCondition::testTensionFailureX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTensionFailureX()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcFailureConnectionCondition::unsetTensionFailureY()
 
 bool IfcFailureConnectionCondition::testTensionFailureY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTensionFailureY()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcFailureConnectionCondition::unsetTensionFailureZ()
 
 bool IfcFailureConnectionCondition::testTensionFailureZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTensionFailureZ()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcFailureConnectionCondition::unsetCompressionFailureX()
 
 bool IfcFailureConnectionCondition::testCompressionFailureX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCompressionFailureX()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcFailureConnectionCondition::unsetCompressionFailureY()
 
 bool IfcFailureConnectionCondition::testCompressionFailureY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCompressionFailureY()) == false;
 }
 
@@ -268,7 +263,6 @@ void IfcFailureConnectionCondition::unsetCompressionFailureZ()
 
 bool IfcFailureConnectionCondition::testCompressionFailureZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCompressionFailureZ()) == false;
 }
 

@@ -84,7 +84,6 @@ void IfcPile::unsetPredefinedType()
 
 bool IfcPile::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcPile::unsetConstructionType()
 
 bool IfcPile::testConstructionType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConstructionType()) == false;
 }
 

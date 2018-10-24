@@ -85,7 +85,6 @@ void IfcProjectOrder::unsetID()
 
 bool IfcProjectOrder::testID() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getID()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcProjectOrder::unsetPredefinedType()
 
 bool IfcProjectOrder::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcProjectOrder::unsetStatus()
 
 bool IfcProjectOrder::testStatus() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStatus()) == false;
 }
 

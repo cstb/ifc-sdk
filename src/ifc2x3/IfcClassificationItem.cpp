@@ -89,7 +89,6 @@ void IfcClassificationItem::unsetNotation()
 
 bool IfcClassificationItem::testNotation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getNotation()) == false;
 }
 
@@ -125,7 +124,6 @@ void IfcClassificationItem::unsetTitle()
 
 bool IfcClassificationItem::testTitle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTitle()) == false;
 }
 
@@ -168,7 +166,6 @@ void IfcClassificationItem::unsetItemOf()
 
 bool IfcClassificationItem::testItemOf() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getItemOf()) == false;
 }
 
@@ -190,7 +187,6 @@ const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::
 
 bool IfcClassificationItem::testIsClassifyingItemIn() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsClassifyingItemIn.isUnset() == false;
 }
 
@@ -212,7 +208,6 @@ const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::
 
 bool IfcClassificationItem::testIsClassifiedItemIn() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsClassifiedItemIn.isUnset() == false;
 }
 

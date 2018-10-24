@@ -201,7 +201,6 @@ void IfcGrid::unsetVAxes()
 
 bool IfcGrid::testVAxes() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_VAxes.isUnset() == false;
 }
 
@@ -232,7 +231,6 @@ void IfcGrid::unsetUAxes()
 
 bool IfcGrid::testUAxes() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_UAxes.isUnset() == false;
 }
 
@@ -263,7 +261,6 @@ void IfcGrid::unsetWAxes()
 
 bool IfcGrid::testWAxes() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_WAxes.isUnset() == false;
 }
 
@@ -285,7 +282,6 @@ const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcGrid::getContainedIn
 
 bool IfcGrid::testContainedInStructure() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ContainedInStructure.isUnset() == false;
 }
 

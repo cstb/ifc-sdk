@@ -88,7 +88,6 @@ void IfcRelConnectsElements::unsetConnectionGeometry()
 
 bool IfcRelConnectsElements::testConnectionGeometry() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConnectionGeometry()) == false;
 }
 
@@ -131,7 +130,6 @@ void IfcRelConnectsElements::unsetRelatingElement()
 
 bool IfcRelConnectsElements::testRelatingElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingElement()) == false;
 }
 
@@ -174,7 +172,6 @@ void IfcRelConnectsElements::unsetRelatedElement()
 
 bool IfcRelConnectsElements::testRelatedElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedElement()) == false;
 }
 

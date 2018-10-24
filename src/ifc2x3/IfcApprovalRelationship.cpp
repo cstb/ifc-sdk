@@ -88,7 +88,6 @@ void IfcApprovalRelationship::unsetDescription()
 
 bool IfcApprovalRelationship::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcApprovalRelationship::unsetName()
 
 bool IfcApprovalRelationship::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -167,7 +165,6 @@ void IfcApprovalRelationship::unsetRelatedApproval()
 
 bool IfcApprovalRelationship::testRelatedApproval() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedApproval()) == false;
 }
 
@@ -210,7 +207,6 @@ void IfcApprovalRelationship::unsetRelatingApproval()
 
 bool IfcApprovalRelationship::testRelatingApproval() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingApproval()) == false;
 }
 

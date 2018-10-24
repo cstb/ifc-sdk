@@ -86,7 +86,6 @@ void IfcAnnotationFillArea::unsetOuterBoundary()
 
 bool IfcAnnotationFillArea::testOuterBoundary() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOuterBoundary()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcAnnotationFillArea::unsetInnerBoundaries()
 
 bool IfcAnnotationFillArea::testInnerBoundaries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_InnerBoundaries.isUnset() == false;
 }
 

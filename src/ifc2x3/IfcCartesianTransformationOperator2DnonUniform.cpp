@@ -83,7 +83,6 @@ void IfcCartesianTransformationOperator2DnonUniform::unsetScale2()
 
 bool IfcCartesianTransformationOperator2DnonUniform::testScale2() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getScale2()) == false;
 }
 

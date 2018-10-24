@@ -86,7 +86,6 @@ void IfcMetric::unsetBenchmark()
 
 bool IfcMetric::testBenchmark() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBenchmark()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcMetric::unsetValueSource()
 
 bool IfcMetric::testValueSource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getValueSource()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcMetric::unsetDataValue()
 
 bool IfcMetric::testDataValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDataValue()) == false;
 }
 

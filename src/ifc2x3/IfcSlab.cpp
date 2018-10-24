@@ -83,7 +83,6 @@ void IfcSlab::unsetPredefinedType()
 
 bool IfcSlab::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 

@@ -88,7 +88,6 @@ void IfcClassification::unsetSource()
 
 bool IfcClassification::testSource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSource()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcClassification::unsetEdition()
 
 bool IfcClassification::testEdition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEdition()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcClassification::unsetEditionDate()
 
 bool IfcClassification::testEditionDate() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEditionDate()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcClassification::unsetName()
 
 bool IfcClassification::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -218,7 +214,6 @@ const Inverse_Set_IfcClassificationItem_0_n &IfcClassification::getContains() co
 
 bool IfcClassification::testContains() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Contains.isUnset() == false;
 }
 

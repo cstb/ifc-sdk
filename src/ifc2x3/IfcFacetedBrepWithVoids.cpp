@@ -86,7 +86,6 @@ void IfcFacetedBrepWithVoids::unsetVoids()
 
 bool IfcFacetedBrepWithVoids::testVoids() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Voids.isUnset() == false;
 }
 

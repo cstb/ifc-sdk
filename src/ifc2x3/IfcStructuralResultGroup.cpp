@@ -87,7 +87,6 @@ void IfcStructuralResultGroup::unsetTheoryType()
 
 bool IfcStructuralResultGroup::testTheoryType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTheoryType()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcStructuralResultGroup::unsetIsLinear()
 
 bool IfcStructuralResultGroup::testIsLinear() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIsLinear()) == false;
 }
 
@@ -166,7 +164,6 @@ void IfcStructuralResultGroup::unsetResultForLoadGroup()
 
 bool IfcStructuralResultGroup::testResultForLoadGroup() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getResultForLoadGroup()) == false;
 }
 
@@ -188,7 +185,6 @@ const Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getR
 
 bool IfcStructuralResultGroup::testResultGroupFor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ResultGroupFor.isUnset() == false;
 }
 

@@ -91,7 +91,6 @@ void IfcRelConnectsStructuralActivity::unsetRelatingElement()
 
 bool IfcRelConnectsStructuralActivity::testRelatingElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingElement()) == false;
 }
 
@@ -134,7 +133,6 @@ void IfcRelConnectsStructuralActivity::unsetRelatedStructuralActivity()
 
 bool IfcRelConnectsStructuralActivity::testRelatedStructuralActivity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedStructuralActivity()) == false;
 }
 

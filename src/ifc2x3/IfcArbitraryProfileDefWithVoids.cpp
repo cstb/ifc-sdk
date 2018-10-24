@@ -86,7 +86,6 @@ void IfcArbitraryProfileDefWithVoids::unsetInnerCurves()
 
 bool IfcArbitraryProfileDefWithVoids::testInnerCurves() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_InnerCurves.isUnset() == false;
 }
 

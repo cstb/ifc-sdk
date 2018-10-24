@@ -89,7 +89,6 @@ void IfcCartesianTransformationOperator::unsetAxis1()
 
 bool IfcCartesianTransformationOperator::testAxis1() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAxis1()) == false;
 }
 
@@ -125,7 +124,6 @@ void IfcCartesianTransformationOperator::unsetAxis2()
 
 bool IfcCartesianTransformationOperator::testAxis2() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAxis2()) == false;
 }
 
@@ -161,7 +159,6 @@ void IfcCartesianTransformationOperator::unsetLocalOrigin()
 
 bool IfcCartesianTransformationOperator::testLocalOrigin() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLocalOrigin()) == false;
 }
 
@@ -197,7 +194,6 @@ void IfcCartesianTransformationOperator::unsetScale()
 
 bool IfcCartesianTransformationOperator::testScale() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getScale()) == false;
 }
 

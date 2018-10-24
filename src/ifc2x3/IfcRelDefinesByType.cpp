@@ -91,7 +91,6 @@ void IfcRelDefinesByType::unsetRelatingType()
 
 bool IfcRelDefinesByType::testRelatingType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingType()) == false;
 }
 

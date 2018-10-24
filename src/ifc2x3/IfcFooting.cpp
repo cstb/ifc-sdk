@@ -83,7 +83,6 @@ void IfcFooting::unsetPredefinedType()
 
 bool IfcFooting::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 

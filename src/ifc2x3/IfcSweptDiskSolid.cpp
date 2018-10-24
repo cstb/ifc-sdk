@@ -88,7 +88,6 @@ void IfcSweptDiskSolid::unsetDirectrix()
 
 bool IfcSweptDiskSolid::testDirectrix() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDirectrix()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcSweptDiskSolid::unsetRadius()
 
 bool IfcSweptDiskSolid::testRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRadius()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcSweptDiskSolid::unsetInnerRadius()
 
 bool IfcSweptDiskSolid::testInnerRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInnerRadius()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcSweptDiskSolid::unsetStartParam()
 
 bool IfcSweptDiskSolid::testStartParam() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStartParam()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcSweptDiskSolid::unsetEndParam()
 
 bool IfcSweptDiskSolid::testEndParam() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEndParam()) == false;
 }
 

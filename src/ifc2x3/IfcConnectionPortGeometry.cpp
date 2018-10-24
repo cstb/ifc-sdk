@@ -88,7 +88,6 @@ void IfcConnectionPortGeometry::unsetLocationAtRelatingElement()
 
 bool IfcConnectionPortGeometry::testLocationAtRelatingElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLocationAtRelatingElement()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcConnectionPortGeometry::unsetLocationAtRelatedElement()
 
 bool IfcConnectionPortGeometry::testLocationAtRelatedElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLocationAtRelatedElement()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcConnectionPortGeometry::unsetProfileOfPort()
 
 bool IfcConnectionPortGeometry::testProfileOfPort() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProfileOfPort()) == false;
 }
 

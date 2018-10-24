@@ -88,7 +88,6 @@ void IfcWindowPanelProperties::unsetOperationType()
 
 bool IfcWindowPanelProperties::testOperationType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOperationType()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcWindowPanelProperties::unsetPanelPosition()
 
 bool IfcWindowPanelProperties::testPanelPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPanelPosition()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcWindowPanelProperties::unsetFrameDepth()
 
 bool IfcWindowPanelProperties::testFrameDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFrameDepth()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcWindowPanelProperties::unsetFrameThickness()
 
 bool IfcWindowPanelProperties::testFrameThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFrameThickness()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcWindowPanelProperties::unsetShapeAspectStyle()
 
 bool IfcWindowPanelProperties::testShapeAspectStyle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShapeAspectStyle()) == false;
 }
 

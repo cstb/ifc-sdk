@@ -86,7 +86,6 @@ void IfcTimeSeriesValue::unsetListValues()
 
 bool IfcTimeSeriesValue::testListValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ListValues.isUnset() == false;
 }
 

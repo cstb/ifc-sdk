@@ -88,7 +88,6 @@ void IfcRelConnectsPorts::unsetRealizingElement()
 
 bool IfcRelConnectsPorts::testRealizingElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRealizingElement()) == false;
 }
 
@@ -131,7 +130,6 @@ void IfcRelConnectsPorts::unsetRelatingPort()
 
 bool IfcRelConnectsPorts::testRelatingPort() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingPort()) == false;
 }
 
@@ -174,7 +172,6 @@ void IfcRelConnectsPorts::unsetRelatedPort()
 
 bool IfcRelConnectsPorts::testRelatedPort() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedPort()) == false;
 }
 

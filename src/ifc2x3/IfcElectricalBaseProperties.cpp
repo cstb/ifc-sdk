@@ -90,7 +90,6 @@ void IfcElectricalBaseProperties::unsetElectricCurrentType()
 
 bool IfcElectricalBaseProperties::testElectricCurrentType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getElectricCurrentType()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcElectricalBaseProperties::unsetInputVoltage()
 
 bool IfcElectricalBaseProperties::testInputVoltage() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInputVoltage()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcElectricalBaseProperties::unsetInputFrequency()
 
 bool IfcElectricalBaseProperties::testInputFrequency() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInputFrequency()) == false;
 }
 
@@ -198,7 +195,6 @@ void IfcElectricalBaseProperties::unsetFullLoadCurrent()
 
 bool IfcElectricalBaseProperties::testFullLoadCurrent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFullLoadCurrent()) == false;
 }
 
@@ -234,7 +230,6 @@ void IfcElectricalBaseProperties::unsetMinimumCircuitCurrent()
 
 bool IfcElectricalBaseProperties::testMinimumCircuitCurrent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMinimumCircuitCurrent()) == false;
 }
 
@@ -270,7 +265,6 @@ void IfcElectricalBaseProperties::unsetMaximumPowerInput()
 
 bool IfcElectricalBaseProperties::testMaximumPowerInput() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMaximumPowerInput()) == false;
 }
 
@@ -306,7 +300,6 @@ void IfcElectricalBaseProperties::unsetRatedPowerInput()
 
 bool IfcElectricalBaseProperties::testRatedPowerInput() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRatedPowerInput()) == false;
 }
 
@@ -342,7 +335,6 @@ void IfcElectricalBaseProperties::unsetInputPhase()
 
 bool IfcElectricalBaseProperties::testInputPhase() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInputPhase()) == false;
 }
 

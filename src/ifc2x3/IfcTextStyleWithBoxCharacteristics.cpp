@@ -88,7 +88,6 @@ void IfcTextStyleWithBoxCharacteristics::unsetBoxHeight()
 
 bool IfcTextStyleWithBoxCharacteristics::testBoxHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBoxHeight()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcTextStyleWithBoxCharacteristics::unsetBoxWidth()
 
 bool IfcTextStyleWithBoxCharacteristics::testBoxWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBoxWidth()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcTextStyleWithBoxCharacteristics::unsetBoxSlantAngle()
 
 bool IfcTextStyleWithBoxCharacteristics::testBoxSlantAngle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBoxSlantAngle()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcTextStyleWithBoxCharacteristics::unsetBoxRotateAngle()
 
 bool IfcTextStyleWithBoxCharacteristics::testBoxRotateAngle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBoxRotateAngle()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcTextStyleWithBoxCharacteristics::unsetCharacterSpacing()
 
 bool IfcTextStyleWithBoxCharacteristics::testCharacterSpacing() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCharacterSpacing()) == false;
 }
 

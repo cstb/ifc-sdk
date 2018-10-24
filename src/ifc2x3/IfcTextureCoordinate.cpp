@@ -69,7 +69,6 @@ const Inverse_Set_IfcAnnotationSurface_1_1 &IfcTextureCoordinate::getAnnotatedSu
 
 bool IfcTextureCoordinate::testAnnotatedSurface() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_AnnotatedSurface.isUnset() == false;
 }
 

@@ -86,7 +86,6 @@ void IfcTextureMap::unsetTextureMaps()
 
 bool IfcTextureMap::testTextureMaps() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_TextureMaps.isUnset() == false;
 }
 

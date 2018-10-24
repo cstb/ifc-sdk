@@ -69,7 +69,6 @@ const Inverse_Set_IfcLibraryInformation_0_1 &IfcLibraryReference::getReferenceIn
 
 bool IfcLibraryReference::testReferenceIntoLibrary() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ReferenceIntoLibrary.isUnset() == false;
 }
 

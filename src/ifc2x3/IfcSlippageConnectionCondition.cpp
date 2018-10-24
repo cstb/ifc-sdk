@@ -85,7 +85,6 @@ void IfcSlippageConnectionCondition::unsetSlippageX()
 
 bool IfcSlippageConnectionCondition::testSlippageX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSlippageX()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcSlippageConnectionCondition::unsetSlippageY()
 
 bool IfcSlippageConnectionCondition::testSlippageY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSlippageY()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcSlippageConnectionCondition::unsetSlippageZ()
 
 bool IfcSlippageConnectionCondition::testSlippageZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSlippageZ()) == false;
 }
 

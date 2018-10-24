@@ -125,7 +125,6 @@ void IfcTypeObject::unsetApplicableOccurrence()
 
 bool IfcTypeObject::testApplicableOccurrence() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApplicableOccurrence()) == false;
 }
 
@@ -156,7 +155,6 @@ void IfcTypeObject::unsetHasPropertySets()
 
 bool IfcTypeObject::testHasPropertySets() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasPropertySets.isUnset() == false;
 }
 
@@ -178,7 +176,6 @@ const Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() cons
 
 bool IfcTypeObject::testObjectTypeOf() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ObjectTypeOf.isUnset() == false;
 }
 

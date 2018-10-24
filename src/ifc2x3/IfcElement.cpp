@@ -95,7 +95,6 @@ void IfcElement::unsetTag()
 
 bool IfcElement::testTag() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTag()) == false;
 }
 
@@ -117,7 +116,6 @@ const Inverse_Set_IfcRelSpaceBoundary_0_n &IfcElement::getProvidesBoundaries() c
 
 bool IfcElement::testProvidesBoundaries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ProvidesBoundaries.isUnset() == false;
 }
 
@@ -139,7 +137,6 @@ const Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedFrom() con
 
 bool IfcElement::testConnectedFrom() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ConnectedFrom.isUnset() == false;
 }
 
@@ -161,7 +158,6 @@ const Inverse_Set_IfcRelCoversBldgElements_0_n &IfcElement::getHasCoverings() co
 
 bool IfcElement::testHasCoverings() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasCoverings.isUnset() == false;
 }
 
@@ -183,7 +179,6 @@ const Inverse_Set_IfcRelFillsElement_0_1 &IfcElement::getFillsVoids() const
 
 bool IfcElement::testFillsVoids() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_FillsVoids.isUnset() == false;
 }
 
@@ -205,7 +200,6 @@ const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcElement::getReferen
 
 bool IfcElement::testReferencedInStructures() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ReferencedInStructures.isUnset() == false;
 }
 
@@ -227,7 +221,6 @@ const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcElement::getContaine
 
 bool IfcElement::testContainedInStructure() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ContainedInStructure.isUnset() == false;
 }
 
@@ -249,7 +242,6 @@ const Inverse_Set_IfcRelVoidsElement_0_n &IfcElement::getHasOpenings() const
 
 bool IfcElement::testHasOpenings() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasOpenings.isUnset() == false;
 }
 
@@ -271,7 +263,6 @@ const Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedTo() const
 
 bool IfcElement::testConnectedTo() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ConnectedTo.isUnset() == false;
 }
 
@@ -293,7 +284,6 @@ const Inverse_Set_IfcRelProjectsElement_0_n &IfcElement::getHasProjections() con
 
 bool IfcElement::testHasProjections() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasProjections.isUnset() == false;
 }
 
@@ -315,7 +305,6 @@ const Inverse_Set_IfcRelConnectsPortToElement_0_n &IfcElement::getHasPorts() con
 
 bool IfcElement::testHasPorts() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasPorts.isUnset() == false;
 }
 
@@ -337,7 +326,6 @@ const Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &IfcElement::getIsConn
 
 bool IfcElement::testIsConnectionRealization() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsConnectionRealization.isUnset() == false;
 }
 
@@ -359,7 +347,6 @@ const Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcElement::getHasStructu
 
 bool IfcElement::testHasStructuralMember() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasStructuralMember.isUnset() == false;
 }
 

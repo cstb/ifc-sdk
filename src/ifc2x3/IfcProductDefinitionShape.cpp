@@ -70,7 +70,6 @@ const Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspe
 
 bool IfcProductDefinitionShape::testHasShapeAspects() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasShapeAspects.isUnset() == false;
 }
 
@@ -92,7 +91,6 @@ const Inverse_Set_IfcProduct_1_1 &IfcProductDefinitionShape::getShapeOfProduct()
 
 bool IfcProductDefinitionShape::testShapeOfProduct() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ShapeOfProduct.isUnset() == false;
 }
 

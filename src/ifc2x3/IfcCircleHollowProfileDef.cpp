@@ -83,7 +83,6 @@ void IfcCircleHollowProfileDef::unsetWallThickness()
 
 bool IfcCircleHollowProfileDef::testWallThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWallThickness()) == false;
 }
 

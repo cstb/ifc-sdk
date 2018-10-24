@@ -86,7 +86,6 @@ void IfcConnectionSurfaceGeometry::unsetSurfaceOnRelatingElement()
 
 bool IfcConnectionSurfaceGeometry::testSurfaceOnRelatingElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSurfaceOnRelatingElement()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcConnectionSurfaceGeometry::unsetSurfaceOnRelatedElement()
 
 bool IfcConnectionSurfaceGeometry::testSurfaceOnRelatedElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSurfaceOnRelatedElement()) == false;
 }
 

@@ -84,7 +84,6 @@ void IfcClassificationReference::unsetReferencedSource()
 
 bool IfcClassificationReference::testReferencedSource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getReferencedSource()) == false;
 }
 

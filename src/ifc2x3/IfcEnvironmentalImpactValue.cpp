@@ -85,7 +85,6 @@ void IfcEnvironmentalImpactValue::unsetImpactType()
 
 bool IfcEnvironmentalImpactValue::testImpactType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getImpactType()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcEnvironmentalImpactValue::unsetCategory()
 
 bool IfcEnvironmentalImpactValue::testCategory() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCategory()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcEnvironmentalImpactValue::unsetUserDefinedCategory()
 
 bool IfcEnvironmentalImpactValue::testUserDefinedCategory() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedCategory()) == false;
 }
 

@@ -85,7 +85,6 @@ void IfcTextureCoordinateGenerator::unsetMode()
 
 bool IfcTextureCoordinateGenerator::testMode() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMode()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcTextureCoordinateGenerator::unsetParameter()
 
 bool IfcTextureCoordinateGenerator::testParameter() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Parameter.isUnset() == false;
 }
 

@@ -69,7 +69,6 @@ const Inverse_Set_IfcRelServicesBuildings_0_1 &IfcSystem::getServicesBuildings()
 
 bool IfcSystem::testServicesBuildings() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ServicesBuildings.isUnset() == false;
 }
 

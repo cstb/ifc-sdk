@@ -69,7 +69,6 @@ const Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() const
 
 bool IfcShapeModel::testOfShapeAspect() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_OfShapeAspect.isUnset() == false;
 }
 

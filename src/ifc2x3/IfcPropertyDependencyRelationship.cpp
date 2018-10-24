@@ -89,7 +89,6 @@ void IfcPropertyDependencyRelationship::unsetName()
 
 bool IfcPropertyDependencyRelationship::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -125,7 +124,6 @@ void IfcPropertyDependencyRelationship::unsetDescription()
 
 bool IfcPropertyDependencyRelationship::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -161,7 +159,6 @@ void IfcPropertyDependencyRelationship::unsetExpression()
 
 bool IfcPropertyDependencyRelationship::testExpression() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getExpression()) == false;
 }
 
@@ -204,7 +201,6 @@ void IfcPropertyDependencyRelationship::unsetDependantProperty()
 
 bool IfcPropertyDependencyRelationship::testDependantProperty() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDependantProperty()) == false;
 }
 
@@ -247,7 +243,6 @@ void IfcPropertyDependencyRelationship::unsetDependingProperty()
 
 bool IfcPropertyDependencyRelationship::testDependingProperty() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDependingProperty()) == false;
 }
 

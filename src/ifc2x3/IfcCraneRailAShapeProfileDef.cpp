@@ -94,7 +94,6 @@ void IfcCraneRailAShapeProfileDef::unsetOverallHeight()
 
 bool IfcCraneRailAShapeProfileDef::testOverallHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOverallHeight()) == false;
 }
 
@@ -130,7 +129,6 @@ void IfcCraneRailAShapeProfileDef::unsetBaseWidth2()
 
 bool IfcCraneRailAShapeProfileDef::testBaseWidth2() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBaseWidth2()) == false;
 }
 
@@ -166,7 +164,6 @@ void IfcCraneRailAShapeProfileDef::unsetRadius()
 
 bool IfcCraneRailAShapeProfileDef::testRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRadius()) == false;
 }
 
@@ -202,7 +199,6 @@ void IfcCraneRailAShapeProfileDef::unsetHeadWidth()
 
 bool IfcCraneRailAShapeProfileDef::testHeadWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHeadWidth()) == false;
 }
 
@@ -238,7 +234,6 @@ void IfcCraneRailAShapeProfileDef::unsetHeadDepth2()
 
 bool IfcCraneRailAShapeProfileDef::testHeadDepth2() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHeadDepth2()) == false;
 }
 
@@ -274,7 +269,6 @@ void IfcCraneRailAShapeProfileDef::unsetHeadDepth3()
 
 bool IfcCraneRailAShapeProfileDef::testHeadDepth3() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHeadDepth3()) == false;
 }
 
@@ -310,7 +304,6 @@ void IfcCraneRailAShapeProfileDef::unsetWebThickness()
 
 bool IfcCraneRailAShapeProfileDef::testWebThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWebThickness()) == false;
 }
 
@@ -346,7 +339,6 @@ void IfcCraneRailAShapeProfileDef::unsetBaseWidth4()
 
 bool IfcCraneRailAShapeProfileDef::testBaseWidth4() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBaseWidth4()) == false;
 }
 
@@ -382,7 +374,6 @@ void IfcCraneRailAShapeProfileDef::unsetBaseDepth1()
 
 bool IfcCraneRailAShapeProfileDef::testBaseDepth1() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBaseDepth1()) == false;
 }
 
@@ -418,7 +409,6 @@ void IfcCraneRailAShapeProfileDef::unsetBaseDepth2()
 
 bool IfcCraneRailAShapeProfileDef::testBaseDepth2() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBaseDepth2()) == false;
 }
 
@@ -454,7 +444,6 @@ void IfcCraneRailAShapeProfileDef::unsetBaseDepth3()
 
 bool IfcCraneRailAShapeProfileDef::testBaseDepth3() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBaseDepth3()) == false;
 }
 
@@ -490,7 +479,6 @@ void IfcCraneRailAShapeProfileDef::unsetCentreOfGravityInY()
 
 bool IfcCraneRailAShapeProfileDef::testCentreOfGravityInY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCentreOfGravityInY()) == false;
 }
 

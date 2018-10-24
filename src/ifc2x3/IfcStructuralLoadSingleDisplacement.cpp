@@ -88,7 +88,6 @@ void IfcStructuralLoadSingleDisplacement::unsetDisplacementX()
 
 bool IfcStructuralLoadSingleDisplacement::testDisplacementX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDisplacementX()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcStructuralLoadSingleDisplacement::unsetDisplacementY()
 
 bool IfcStructuralLoadSingleDisplacement::testDisplacementY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDisplacementY()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcStructuralLoadSingleDisplacement::unsetDisplacementZ()
 
 bool IfcStructuralLoadSingleDisplacement::testDisplacementZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDisplacementZ()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRX()
 
 bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRotationalDisplacementRX()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRY()
 
 bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRotationalDisplacementRY()) == false;
 }
 
@@ -268,7 +263,6 @@ void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRZ()
 
 bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRotationalDisplacementRZ()) == false;
 }
 

@@ -87,7 +87,6 @@ void IfcConstructionResource::unsetResourceIdentifier()
 
 bool IfcConstructionResource::testResourceIdentifier() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getResourceIdentifier()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcConstructionResource::unsetResourceGroup()
 
 bool IfcConstructionResource::testResourceGroup() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getResourceGroup()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcConstructionResource::unsetResourceConsumption()
 
 bool IfcConstructionResource::testResourceConsumption() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getResourceConsumption()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcConstructionResource::unsetBaseQuantity()
 
 bool IfcConstructionResource::testBaseQuantity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBaseQuantity()) == false;
 }
 

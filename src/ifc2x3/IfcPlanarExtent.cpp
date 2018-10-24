@@ -84,7 +84,6 @@ void IfcPlanarExtent::unsetSizeInX()
 
 bool IfcPlanarExtent::testSizeInX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSizeInX()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcPlanarExtent::unsetSizeInY()
 
 bool IfcPlanarExtent::testSizeInY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSizeInY()) == false;
 }
 

@@ -87,7 +87,6 @@ void IfcMechanicalMaterialProperties::unsetDynamicViscosity()
 
 bool IfcMechanicalMaterialProperties::testDynamicViscosity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDynamicViscosity()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcMechanicalMaterialProperties::unsetYoungModulus()
 
 bool IfcMechanicalMaterialProperties::testYoungModulus() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getYoungModulus()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcMechanicalMaterialProperties::unsetShearModulus()
 
 bool IfcMechanicalMaterialProperties::testShearModulus() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShearModulus()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcMechanicalMaterialProperties::unsetPoissonRatio()
 
 bool IfcMechanicalMaterialProperties::testPoissonRatio() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPoissonRatio()) == false;
 }
 
@@ -231,7 +227,6 @@ void IfcMechanicalMaterialProperties::unsetThermalExpansionCoefficient()
 
 bool IfcMechanicalMaterialProperties::testThermalExpansionCoefficient() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThermalExpansionCoefficient()) == false;
 }
 

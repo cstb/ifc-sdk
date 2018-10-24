@@ -124,7 +124,6 @@ void IfcMaterialLayerSet::unsetLayerSetName()
 
 bool IfcMaterialLayerSet::testLayerSetName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLayerSetName()) == false;
 }
 
@@ -155,7 +154,6 @@ void IfcMaterialLayerSet::unsetMaterialLayers()
 
 bool IfcMaterialLayerSet::testMaterialLayers() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_MaterialLayers.isUnset() == false;
 }
 

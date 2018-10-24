@@ -85,7 +85,6 @@ void IfcRectangleHollowProfileDef::unsetWallThickness()
 
 bool IfcRectangleHollowProfileDef::testWallThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWallThickness()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcRectangleHollowProfileDef::unsetInnerFilletRadius()
 
 bool IfcRectangleHollowProfileDef::testInnerFilletRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInnerFilletRadius()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcRectangleHollowProfileDef::unsetOuterFilletRadius()
 
 bool IfcRectangleHollowProfileDef::testOuterFilletRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOuterFilletRadius()) == false;
 }
 

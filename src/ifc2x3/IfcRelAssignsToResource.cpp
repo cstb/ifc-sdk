@@ -91,7 +91,6 @@ void IfcRelAssignsToResource::unsetRelatingResource()
 
 bool IfcRelAssignsToResource::testRelatingResource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingResource()) == false;
 }
 

@@ -88,7 +88,6 @@ void IfcRelSequence::unsetTimeLag()
 
 bool IfcRelSequence::testTimeLag() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTimeLag()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcRelSequence::unsetSequenceType()
 
 bool IfcRelSequence::testSequenceType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSequenceType()) == false;
 }
 
@@ -167,7 +165,6 @@ void IfcRelSequence::unsetRelatingProcess()
 
 bool IfcRelSequence::testRelatingProcess() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingProcess()) == false;
 }
 
@@ -210,7 +207,6 @@ void IfcRelSequence::unsetRelatedProcess()
 
 bool IfcRelSequence::testRelatedProcess() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedProcess()) == false;
 }
 

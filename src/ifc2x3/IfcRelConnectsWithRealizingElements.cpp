@@ -124,7 +124,6 @@ void IfcRelConnectsWithRealizingElements::unsetConnectionType()
 
 bool IfcRelConnectsWithRealizingElements::testConnectionType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConnectionType()) == false;
 }
 
@@ -155,7 +154,6 @@ void IfcRelConnectsWithRealizingElements::unsetRealizingElements()
 
 bool IfcRelConnectsWithRealizingElements::testRealizingElements() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RealizingElements.isUnset() == false;
 }
 

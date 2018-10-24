@@ -89,7 +89,6 @@ void IfcTimeSeriesSchedule::unsetApplicableDates()
 
 bool IfcTimeSeriesSchedule::testApplicableDates() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ApplicableDates.isUnset() == false;
 }
 
@@ -125,7 +124,6 @@ void IfcTimeSeriesSchedule::unsetTimeSeriesScheduleType()
 
 bool IfcTimeSeriesSchedule::testTimeSeriesScheduleType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTimeSeriesScheduleType()) == false;
 }
 
@@ -161,7 +159,6 @@ void IfcTimeSeriesSchedule::unsetTimeSeries()
 
 bool IfcTimeSeriesSchedule::testTimeSeries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTimeSeries()) == false;
 }
 

@@ -148,7 +148,6 @@ void IfcDocumentInformation::unsetDocumentId()
 
 bool IfcDocumentInformation::testDocumentId() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDocumentId()) == false;
 }
 
@@ -184,7 +183,6 @@ void IfcDocumentInformation::unsetName()
 
 bool IfcDocumentInformation::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -220,7 +218,6 @@ void IfcDocumentInformation::unsetDescription()
 
 bool IfcDocumentInformation::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -256,7 +253,6 @@ void IfcDocumentInformation::unsetPurpose()
 
 bool IfcDocumentInformation::testPurpose() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPurpose()) == false;
 }
 
@@ -292,7 +288,6 @@ void IfcDocumentInformation::unsetIntendedUse()
 
 bool IfcDocumentInformation::testIntendedUse() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIntendedUse()) == false;
 }
 
@@ -328,7 +323,6 @@ void IfcDocumentInformation::unsetScope()
 
 bool IfcDocumentInformation::testScope() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getScope()) == false;
 }
 
@@ -364,7 +358,6 @@ void IfcDocumentInformation::unsetRevision()
 
 bool IfcDocumentInformation::testRevision() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRevision()) == false;
 }
 
@@ -400,7 +393,6 @@ void IfcDocumentInformation::unsetDocumentOwner()
 
 bool IfcDocumentInformation::testDocumentOwner() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDocumentOwner()) == false;
 }
 
@@ -438,7 +430,6 @@ void IfcDocumentInformation::unsetEditors()
 
 bool IfcDocumentInformation::testEditors() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Editors.isUnset() == false;
 }
 
@@ -474,7 +465,6 @@ void IfcDocumentInformation::unsetCreationTime()
 
 bool IfcDocumentInformation::testCreationTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCreationTime()) == false;
 }
 
@@ -510,7 +500,6 @@ void IfcDocumentInformation::unsetLastRevisionTime()
 
 bool IfcDocumentInformation::testLastRevisionTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLastRevisionTime()) == false;
 }
 
@@ -546,7 +535,6 @@ void IfcDocumentInformation::unsetElectronicFormat()
 
 bool IfcDocumentInformation::testElectronicFormat() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getElectronicFormat()) == false;
 }
 
@@ -582,7 +570,6 @@ void IfcDocumentInformation::unsetValidFrom()
 
 bool IfcDocumentInformation::testValidFrom() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getValidFrom()) == false;
 }
 
@@ -618,7 +605,6 @@ void IfcDocumentInformation::unsetValidUntil()
 
 bool IfcDocumentInformation::testValidUntil() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getValidUntil()) == false;
 }
 
@@ -654,7 +640,6 @@ void IfcDocumentInformation::unsetConfidentiality()
 
 bool IfcDocumentInformation::testConfidentiality() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConfidentiality()) == false;
 }
 
@@ -690,7 +675,6 @@ void IfcDocumentInformation::unsetStatus()
 
 bool IfcDocumentInformation::testStatus() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStatus()) == false;
 }
 
@@ -721,7 +705,6 @@ void IfcDocumentInformation::unsetDocumentReferences()
 
 bool IfcDocumentInformation::testDocumentReferences() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_DocumentReferences.isUnset() == false;
 }
 
@@ -743,7 +726,6 @@ const Inverse_Set_IfcDocumentInformationRelationship_0_1 &IfcDocumentInformation
 
 bool IfcDocumentInformation::testIsPointer() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsPointer.isUnset() == false;
 }
 
@@ -765,7 +747,6 @@ const Inverse_Set_IfcDocumentInformationRelationship_0_n &IfcDocumentInformation
 
 bool IfcDocumentInformation::testIsPointedTo() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsPointedTo.isUnset() == false;
 }
 

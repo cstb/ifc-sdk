@@ -85,7 +85,6 @@ void IfcRegularTimeSeries::unsetTimeStep()
 
 bool IfcRegularTimeSeries::testTimeStep() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTimeStep()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcRegularTimeSeries::unsetValues()
 
 bool IfcRegularTimeSeries::testValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Values.isUnset() == false;
 }
 

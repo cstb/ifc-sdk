@@ -86,7 +86,6 @@ void IfcRelAssignsToActor::unsetActingRole()
 
 bool IfcRelAssignsToActor::testActingRole() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getActingRole()) == false;
 }
 
@@ -129,7 +128,6 @@ void IfcRelAssignsToActor::unsetRelatingActor()
 
 bool IfcRelAssignsToActor::testRelatingActor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingActor()) == false;
 }
 

@@ -87,7 +87,6 @@ void IfcLightSourceSpot::unsetOrientation()
 
 bool IfcLightSourceSpot::testOrientation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOrientation()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcLightSourceSpot::unsetConcentrationExponent()
 
 bool IfcLightSourceSpot::testConcentrationExponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConcentrationExponent()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcLightSourceSpot::unsetSpreadAngle()
 
 bool IfcLightSourceSpot::testSpreadAngle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSpreadAngle()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcLightSourceSpot::unsetBeamWidthAngle()
 
 bool IfcLightSourceSpot::testBeamWidthAngle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBeamWidthAngle()) == false;
 }
 

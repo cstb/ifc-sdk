@@ -85,7 +85,6 @@ void IfcStructuralLoadPlanarForce::unsetPlanarForceX()
 
 bool IfcStructuralLoadPlanarForce::testPlanarForceX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPlanarForceX()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcStructuralLoadPlanarForce::unsetPlanarForceY()
 
 bool IfcStructuralLoadPlanarForce::testPlanarForceY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPlanarForceY()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcStructuralLoadPlanarForce::unsetPlanarForceZ()
 
 bool IfcStructuralLoadPlanarForce::testPlanarForceZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPlanarForceZ()) == false;
 }
 

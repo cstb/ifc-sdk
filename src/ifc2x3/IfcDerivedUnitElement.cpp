@@ -85,7 +85,6 @@ void IfcDerivedUnitElement::unsetUnit()
 
 bool IfcDerivedUnitElement::testUnit() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnit()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcDerivedUnitElement::unsetExponent()
 
 bool IfcDerivedUnitElement::testExponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getExponent()) == false;
 }
 

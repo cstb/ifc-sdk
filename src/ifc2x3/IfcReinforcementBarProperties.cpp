@@ -88,7 +88,6 @@ void IfcReinforcementBarProperties::unsetTotalCrossSectionArea()
 
 bool IfcReinforcementBarProperties::testTotalCrossSectionArea() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTotalCrossSectionArea()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcReinforcementBarProperties::unsetSteelGrade()
 
 bool IfcReinforcementBarProperties::testSteelGrade() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSteelGrade()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcReinforcementBarProperties::unsetBarSurface()
 
 bool IfcReinforcementBarProperties::testBarSurface() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBarSurface()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcReinforcementBarProperties::unsetEffectiveDepth()
 
 bool IfcReinforcementBarProperties::testEffectiveDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEffectiveDepth()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcReinforcementBarProperties::unsetNominalBarDiameter()
 
 bool IfcReinforcementBarProperties::testNominalBarDiameter() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getNominalBarDiameter()) == false;
 }
 
@@ -268,7 +263,6 @@ void IfcReinforcementBarProperties::unsetBarCount()
 
 bool IfcReinforcementBarProperties::testBarCount() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBarCount()) == false;
 }
 

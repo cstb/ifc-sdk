@@ -88,7 +88,6 @@ void IfcTextStyle::unsetTextCharacterAppearance()
 
 bool IfcTextStyle::testTextCharacterAppearance() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTextCharacterAppearance()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcTextStyle::unsetTextStyle()
 
 bool IfcTextStyle::testTextStyle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTextStyle()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcTextStyle::unsetTextFontStyle()
 
 bool IfcTextStyle::testTextFontStyle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTextFontStyle()) == false;
 }
 

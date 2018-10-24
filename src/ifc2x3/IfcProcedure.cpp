@@ -85,7 +85,6 @@ void IfcProcedure::unsetProcedureID()
 
 bool IfcProcedure::testProcedureID() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProcedureID()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcProcedure::unsetProcedureType()
 
 bool IfcProcedure::testProcedureType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProcedureType()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcProcedure::unsetUserDefinedProcedureType()
 
 bool IfcProcedure::testUserDefinedProcedureType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedProcedureType()) == false;
 }
 

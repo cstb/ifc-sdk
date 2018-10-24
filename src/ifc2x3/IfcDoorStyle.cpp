@@ -86,7 +86,6 @@ void IfcDoorStyle::unsetOperationType()
 
 bool IfcDoorStyle::testOperationType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOperationType()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcDoorStyle::unsetConstructionType()
 
 bool IfcDoorStyle::testConstructionType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getConstructionType()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcDoorStyle::unsetParameterTakesPrecedence()
 
 bool IfcDoorStyle::testParameterTakesPrecedence() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getParameterTakesPrecedence()) == false;
 }
 
@@ -194,7 +191,6 @@ void IfcDoorStyle::unsetSizeable()
 
 bool IfcDoorStyle::testSizeable() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSizeable()) == false;
 }
 

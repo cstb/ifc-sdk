@@ -85,7 +85,6 @@ void IfcBlock::unsetXLength()
 
 bool IfcBlock::testXLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getXLength()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcBlock::unsetYLength()
 
 bool IfcBlock::testYLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getYLength()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcBlock::unsetZLength()
 
 bool IfcBlock::testZLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getZLength()) == false;
 }
 

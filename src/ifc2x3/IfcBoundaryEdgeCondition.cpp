@@ -88,7 +88,6 @@ void IfcBoundaryEdgeCondition::unsetLinearStiffnessByLengthX()
 
 bool IfcBoundaryEdgeCondition::testLinearStiffnessByLengthX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearStiffnessByLengthX()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcBoundaryEdgeCondition::unsetLinearStiffnessByLengthY()
 
 bool IfcBoundaryEdgeCondition::testLinearStiffnessByLengthY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearStiffnessByLengthY()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcBoundaryEdgeCondition::unsetLinearStiffnessByLengthZ()
 
 bool IfcBoundaryEdgeCondition::testLinearStiffnessByLengthZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLinearStiffnessByLengthZ()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcBoundaryEdgeCondition::unsetRotationalStiffnessByLengthX()
 
 bool IfcBoundaryEdgeCondition::testRotationalStiffnessByLengthX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRotationalStiffnessByLengthX()) == false;
 }
 
@@ -232,7 +228,6 @@ void IfcBoundaryEdgeCondition::unsetRotationalStiffnessByLengthY()
 
 bool IfcBoundaryEdgeCondition::testRotationalStiffnessByLengthY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRotationalStiffnessByLengthY()) == false;
 }
 
@@ -268,7 +263,6 @@ void IfcBoundaryEdgeCondition::unsetRotationalStiffnessByLengthZ()
 
 bool IfcBoundaryEdgeCondition::testRotationalStiffnessByLengthZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRotationalStiffnessByLengthZ()) == false;
 }
 

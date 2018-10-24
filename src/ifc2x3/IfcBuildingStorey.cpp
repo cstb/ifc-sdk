@@ -83,7 +83,6 @@ void IfcBuildingStorey::unsetElevation()
 
 bool IfcBuildingStorey::testElevation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getElevation()) == false;
 }
 

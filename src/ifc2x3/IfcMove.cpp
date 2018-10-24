@@ -87,7 +87,6 @@ void IfcMove::unsetMoveFrom()
 
 bool IfcMove::testMoveFrom() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMoveFrom()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcMove::unsetMoveTo()
 
 bool IfcMove::testMoveTo() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMoveTo()) == false;
 }
 
@@ -161,7 +159,6 @@ void IfcMove::unsetPunchList()
 
 bool IfcMove::testPunchList() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PunchList.isUnset() == false;
 }
 

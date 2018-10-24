@@ -85,7 +85,6 @@ void IfcPhysicalQuantity::unsetName()
 
 bool IfcPhysicalQuantity::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcPhysicalQuantity::unsetDescription()
 
 bool IfcPhysicalQuantity::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -143,7 +141,6 @@ const Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOf
 
 bool IfcPhysicalQuantity::testPartOfComplex() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PartOfComplex.isUnset() == false;
 }
 

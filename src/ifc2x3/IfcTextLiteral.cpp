@@ -86,7 +86,6 @@ void IfcTextLiteral::unsetLiteral()
 
 bool IfcTextLiteral::testLiteral() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLiteral()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcTextLiteral::unsetPlacement()
 
 bool IfcTextLiteral::testPlacement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPlacement()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcTextLiteral::unsetPath()
 
 bool IfcTextLiteral::testPath() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPath()) == false;
 }
 

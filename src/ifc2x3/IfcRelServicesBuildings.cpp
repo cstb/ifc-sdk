@@ -132,7 +132,6 @@ void IfcRelServicesBuildings::unsetRelatingSystem()
 
 bool IfcRelServicesBuildings::testRelatingSystem() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingSystem()) == false;
 }
 
@@ -163,7 +162,6 @@ void IfcRelServicesBuildings::unsetRelatedBuildings()
 
 bool IfcRelServicesBuildings::testRelatedBuildings() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedBuildings.isUnset() == false;
 }
 

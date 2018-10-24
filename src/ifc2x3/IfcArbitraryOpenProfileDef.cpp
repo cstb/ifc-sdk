@@ -84,7 +84,6 @@ void IfcArbitraryOpenProfileDef::unsetCurve()
 
 bool IfcArbitraryOpenProfileDef::testCurve() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCurve()) == false;
 }
 

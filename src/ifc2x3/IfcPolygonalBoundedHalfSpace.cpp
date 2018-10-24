@@ -86,7 +86,6 @@ void IfcPolygonalBoundedHalfSpace::unsetPosition()
 
 bool IfcPolygonalBoundedHalfSpace::testPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPosition()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcPolygonalBoundedHalfSpace::unsetPolygonalBoundary()
 
 bool IfcPolygonalBoundedHalfSpace::testPolygonalBoundary() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPolygonalBoundary()) == false;
 }
 

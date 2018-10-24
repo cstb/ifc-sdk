@@ -84,7 +84,6 @@ void IfcServiceLife::unsetServiceLifeType()
 
 bool IfcServiceLife::testServiceLifeType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getServiceLifeType()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcServiceLife::unsetServiceLifeDuration()
 
 bool IfcServiceLife::testServiceLifeDuration() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getServiceLifeDuration()) == false;
 }
 

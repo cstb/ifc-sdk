@@ -84,7 +84,6 @@ void IfcSurfaceStyleShading::unsetSurfaceColour()
 
 bool IfcSurfaceStyleShading::testSurfaceColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSurfaceColour()) == false;
 }
 

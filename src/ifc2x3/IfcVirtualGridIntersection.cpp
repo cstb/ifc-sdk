@@ -126,7 +126,6 @@ void IfcVirtualGridIntersection::unsetOffsetDistances()
 
 bool IfcVirtualGridIntersection::testOffsetDistances() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_OffsetDistances.isUnset() == false;
 }
 
@@ -157,7 +156,6 @@ void IfcVirtualGridIntersection::unsetIntersectingAxes()
 
 bool IfcVirtualGridIntersection::testIntersectingAxes() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IntersectingAxes.isUnset() == false;
 }
 

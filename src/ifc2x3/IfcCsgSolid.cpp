@@ -84,7 +84,6 @@ void IfcCsgSolid::unsetTreeRootExpression()
 
 bool IfcCsgSolid::testTreeRootExpression() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTreeRootExpression()) == false;
 }
 

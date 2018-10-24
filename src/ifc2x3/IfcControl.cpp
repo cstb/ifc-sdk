@@ -69,7 +69,6 @@ const Inverse_Set_IfcRelAssignsToControl_0_n &IfcControl::getControls() const
 
 bool IfcControl::testControls() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Controls.isUnset() == false;
 }
 

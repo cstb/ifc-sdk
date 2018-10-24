@@ -85,7 +85,6 @@ void IfcActor::unsetTheActor()
 
 bool IfcActor::testTheActor() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTheActor()) == false;
 }
 
@@ -107,7 +106,6 @@ const Inverse_Set_IfcRelAssignsToActor_0_n &IfcActor::getIsActingUpon() const
 
 bool IfcActor::testIsActingUpon() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsActingUpon.isUnset() == false;
 }
 

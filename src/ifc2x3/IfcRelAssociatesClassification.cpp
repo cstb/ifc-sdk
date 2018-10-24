@@ -84,7 +84,6 @@ void IfcRelAssociatesClassification::unsetRelatingClassification()
 
 bool IfcRelAssociatesClassification::testRelatingClassification() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingClassification()) == false;
 }
 

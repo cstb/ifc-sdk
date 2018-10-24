@@ -83,7 +83,6 @@ void IfcReinforcingElement::unsetSteelGrade()
 
 bool IfcReinforcingElement::testSteelGrade() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSteelGrade()) == false;
 }
 

@@ -84,7 +84,6 @@ void IfcCostValue::unsetCostType()
 
 bool IfcCostValue::testCostType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCostType()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcCostValue::unsetCondition()
 
 bool IfcCostValue::testCondition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCondition()) == false;
 }
 

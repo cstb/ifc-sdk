@@ -87,7 +87,6 @@ void IfcRibPlateProfileProperties::unsetThickness()
 
 bool IfcRibPlateProfileProperties::testThickness() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThickness()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcRibPlateProfileProperties::unsetRibHeight()
 
 bool IfcRibPlateProfileProperties::testRibHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRibHeight()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcRibPlateProfileProperties::unsetRibWidth()
 
 bool IfcRibPlateProfileProperties::testRibWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRibWidth()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcRibPlateProfileProperties::unsetRibSpacing()
 
 bool IfcRibPlateProfileProperties::testRibSpacing() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRibSpacing()) == false;
 }
 
@@ -231,7 +227,6 @@ void IfcRibPlateProfileProperties::unsetDirection()
 
 bool IfcRibPlateProfileProperties::testDirection() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDirection()) == false;
 }
 

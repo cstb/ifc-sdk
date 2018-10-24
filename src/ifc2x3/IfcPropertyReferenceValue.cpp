@@ -85,7 +85,6 @@ void IfcPropertyReferenceValue::unsetUsageName()
 
 bool IfcPropertyReferenceValue::testUsageName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUsageName()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcPropertyReferenceValue::unsetPropertyReference()
 
 bool IfcPropertyReferenceValue::testPropertyReference() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPropertyReference()) == false;
 }
 

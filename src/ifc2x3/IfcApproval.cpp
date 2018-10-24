@@ -93,7 +93,6 @@ void IfcApproval::unsetDescription()
 
 bool IfcApproval::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -129,7 +128,6 @@ void IfcApproval::unsetApprovalDateTime()
 
 bool IfcApproval::testApprovalDateTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApprovalDateTime()) == false;
 }
 
@@ -165,7 +163,6 @@ void IfcApproval::unsetApprovalStatus()
 
 bool IfcApproval::testApprovalStatus() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApprovalStatus()) == false;
 }
 
@@ -201,7 +198,6 @@ void IfcApproval::unsetApprovalLevel()
 
 bool IfcApproval::testApprovalLevel() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApprovalLevel()) == false;
 }
 
@@ -237,7 +233,6 @@ void IfcApproval::unsetApprovalQualifier()
 
 bool IfcApproval::testApprovalQualifier() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApprovalQualifier()) == false;
 }
 
@@ -273,7 +268,6 @@ void IfcApproval::unsetName()
 
 bool IfcApproval::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -309,7 +303,6 @@ void IfcApproval::unsetIdentifier()
 
 bool IfcApproval::testIdentifier() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIdentifier()) == false;
 }
 
@@ -331,7 +324,6 @@ const Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getIsRelatedWith() c
 
 bool IfcApproval::testIsRelatedWith() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsRelatedWith.isUnset() == false;
 }
 
@@ -353,7 +345,6 @@ const Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getRelates() const
 
 bool IfcApproval::testRelates() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Relates.isUnset() == false;
 }
 
@@ -375,7 +366,6 @@ const Inverse_Set_IfcApprovalActorRelationship_0_n &IfcApproval::getActors() con
 
 bool IfcApproval::testActors() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Actors.isUnset() == false;
 }
 

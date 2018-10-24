@@ -86,7 +86,6 @@ void IfcDateAndTime::unsetDateComponent()
 
 bool IfcDateAndTime::testDateComponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDateComponent()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcDateAndTime::unsetTimeComponent()
 
 bool IfcDateAndTime::testTimeComponent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTimeComponent()) == false;
 }
 

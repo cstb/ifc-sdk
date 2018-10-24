@@ -94,7 +94,6 @@ void IfcOwnerHistory::unsetOwningUser()
 
 bool IfcOwnerHistory::testOwningUser() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOwningUser()) == false;
 }
 
@@ -130,7 +129,6 @@ void IfcOwnerHistory::unsetOwningApplication()
 
 bool IfcOwnerHistory::testOwningApplication() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOwningApplication()) == false;
 }
 
@@ -166,7 +164,6 @@ void IfcOwnerHistory::unsetState()
 
 bool IfcOwnerHistory::testState() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getState()) == false;
 }
 
@@ -202,7 +199,6 @@ void IfcOwnerHistory::unsetChangeAction()
 
 bool IfcOwnerHistory::testChangeAction() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getChangeAction()) == false;
 }
 
@@ -238,7 +234,6 @@ void IfcOwnerHistory::unsetLastModifiedDate()
 
 bool IfcOwnerHistory::testLastModifiedDate() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLastModifiedDate()) == false;
 }
 
@@ -274,7 +269,6 @@ void IfcOwnerHistory::unsetLastModifyingUser()
 
 bool IfcOwnerHistory::testLastModifyingUser() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLastModifyingUser()) == false;
 }
 
@@ -310,7 +304,6 @@ void IfcOwnerHistory::unsetLastModifyingApplication()
 
 bool IfcOwnerHistory::testLastModifyingApplication() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLastModifyingApplication()) == false;
 }
 
@@ -346,7 +339,6 @@ void IfcOwnerHistory::unsetCreationDate()
 
 bool IfcOwnerHistory::testCreationDate() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCreationDate()) == false;
 }
 

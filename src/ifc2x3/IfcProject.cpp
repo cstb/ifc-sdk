@@ -88,7 +88,6 @@ void IfcProject::unsetLongName()
 
 bool IfcProject::testLongName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLongName()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcProject::unsetPhase()
 
 bool IfcProject::testPhase() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPhase()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcProject::unsetRepresentationContexts()
 
 bool IfcProject::testRepresentationContexts() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RepresentationContexts.isUnset() == false;
 }
 
@@ -198,7 +195,6 @@ void IfcProject::unsetUnitsInContext()
 
 bool IfcProject::testUnitsInContext() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUnitsInContext()) == false;
 }
 

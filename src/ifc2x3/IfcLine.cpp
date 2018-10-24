@@ -86,7 +86,6 @@ void IfcLine::unsetPnt()
 
 bool IfcLine::testPnt() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPnt()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcLine::unsetDir()
 
 bool IfcLine::testDir() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDir()) == false;
 }
 

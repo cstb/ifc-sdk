@@ -86,7 +86,6 @@ void IfcPolyline::unsetPoints()
 
 bool IfcPolyline::testPoints() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Points.isUnset() == false;
 }
 

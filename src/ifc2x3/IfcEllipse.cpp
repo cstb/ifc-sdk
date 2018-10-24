@@ -84,7 +84,6 @@ void IfcEllipse::unsetSemiAxis1()
 
 bool IfcEllipse::testSemiAxis1() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSemiAxis1()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcEllipse::unsetSemiAxis2()
 
 bool IfcEllipse::testSemiAxis2() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSemiAxis2()) == false;
 }
 

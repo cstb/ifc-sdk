@@ -93,7 +93,6 @@ void IfcInventory::unsetInventoryType()
 
 bool IfcInventory::testInventoryType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInventoryType()) == false;
 }
 
@@ -129,7 +128,6 @@ void IfcInventory::unsetJurisdiction()
 
 bool IfcInventory::testJurisdiction() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getJurisdiction()) == false;
 }
 
@@ -167,7 +165,6 @@ void IfcInventory::unsetResponsiblePersons()
 
 bool IfcInventory::testResponsiblePersons() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ResponsiblePersons.isUnset() == false;
 }
 
@@ -203,7 +200,6 @@ void IfcInventory::unsetLastUpdateDate()
 
 bool IfcInventory::testLastUpdateDate() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLastUpdateDate()) == false;
 }
 
@@ -239,7 +235,6 @@ void IfcInventory::unsetCurrentValue()
 
 bool IfcInventory::testCurrentValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCurrentValue()) == false;
 }
 
@@ -275,7 +270,6 @@ void IfcInventory::unsetOriginalValue()
 
 bool IfcInventory::testOriginalValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOriginalValue()) == false;
 }
 

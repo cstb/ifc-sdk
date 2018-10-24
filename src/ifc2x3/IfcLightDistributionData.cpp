@@ -85,7 +85,6 @@ void IfcLightDistributionData::unsetMainPlaneAngle()
 
 bool IfcLightDistributionData::testMainPlaneAngle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMainPlaneAngle()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcLightDistributionData::unsetSecondaryPlaneAngle()
 
 bool IfcLightDistributionData::testSecondaryPlaneAngle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_SecondaryPlaneAngle.isUnset() == false;
 }
 
@@ -161,7 +159,6 @@ void IfcLightDistributionData::unsetLuminousIntensity()
 
 bool IfcLightDistributionData::testLuminousIntensity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_LuminousIntensity.isUnset() == false;
 }
 

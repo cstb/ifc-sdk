@@ -84,7 +84,6 @@ void IfcRectangleProfileDef::unsetXDim()
 
 bool IfcRectangleProfileDef::testXDim() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getXDim()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcRectangleProfileDef::unsetYDim()
 
 bool IfcRectangleProfileDef::testYDim() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getYDim()) == false;
 }
 

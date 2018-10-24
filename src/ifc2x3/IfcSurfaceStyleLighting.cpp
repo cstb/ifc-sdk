@@ -90,7 +90,6 @@ void IfcSurfaceStyleLighting::unsetDiffuseTransmissionColour()
 
 bool IfcSurfaceStyleLighting::testDiffuseTransmissionColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDiffuseTransmissionColour()) == false;
 }
 
@@ -126,7 +125,6 @@ void IfcSurfaceStyleLighting::unsetDiffuseReflectionColour()
 
 bool IfcSurfaceStyleLighting::testDiffuseReflectionColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDiffuseReflectionColour()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcSurfaceStyleLighting::unsetTransmissionColour()
 
 bool IfcSurfaceStyleLighting::testTransmissionColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTransmissionColour()) == false;
 }
 
@@ -198,7 +195,6 @@ void IfcSurfaceStyleLighting::unsetReflectanceColour()
 
 bool IfcSurfaceStyleLighting::testReflectanceColour() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getReflectanceColour()) == false;
 }
 

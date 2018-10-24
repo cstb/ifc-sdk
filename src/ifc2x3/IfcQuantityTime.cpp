@@ -83,7 +83,6 @@ void IfcQuantityTime::unsetTimeValue()
 
 bool IfcQuantityTime::testTimeValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTimeValue()) == false;
 }
 

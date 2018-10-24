@@ -131,7 +131,6 @@ void IfcOrganization::unsetId()
 
 bool IfcOrganization::testId() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getId()) == false;
 }
 
@@ -167,7 +166,6 @@ void IfcOrganization::unsetName()
 
 bool IfcOrganization::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -203,7 +201,6 @@ void IfcOrganization::unsetDescription()
 
 bool IfcOrganization::testDescription() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDescription()) == false;
 }
 
@@ -241,7 +238,6 @@ void IfcOrganization::unsetRoles()
 
 bool IfcOrganization::testRoles() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Roles.isUnset() == false;
 }
 
@@ -272,7 +268,6 @@ void IfcOrganization::unsetAddresses()
 
 bool IfcOrganization::testAddresses() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Addresses.isUnset() == false;
 }
 
@@ -294,7 +289,6 @@ const Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelated
 
 bool IfcOrganization::testIsRelatedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsRelatedBy.isUnset() == false;
 }
 
@@ -316,7 +310,6 @@ const Inverse_Set_IfcPersonAndOrganization_0_n &IfcOrganization::getEngages() co
 
 bool IfcOrganization::testEngages() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Engages.isUnset() == false;
 }
 
@@ -338,7 +331,6 @@ const Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getRelates()
 
 bool IfcOrganization::testRelates() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Relates.isUnset() == false;
 }
 

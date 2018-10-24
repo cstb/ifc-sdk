@@ -84,7 +84,6 @@ void IfcSurfaceOfRevolution::unsetAxisPosition()
 
 bool IfcSurfaceOfRevolution::testAxisPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAxisPosition()) == false;
 }
 

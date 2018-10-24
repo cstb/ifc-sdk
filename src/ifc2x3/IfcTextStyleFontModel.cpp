@@ -90,7 +90,6 @@ void IfcTextStyleFontModel::unsetFontFamily()
 
 bool IfcTextStyleFontModel::testFontFamily() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_FontFamily.isUnset() == false;
 }
 
@@ -126,7 +125,6 @@ void IfcTextStyleFontModel::unsetFontStyle()
 
 bool IfcTextStyleFontModel::testFontStyle() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFontStyle()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcTextStyleFontModel::unsetFontVariant()
 
 bool IfcTextStyleFontModel::testFontVariant() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFontVariant()) == false;
 }
 
@@ -198,7 +195,6 @@ void IfcTextStyleFontModel::unsetFontWeight()
 
 bool IfcTextStyleFontModel::testFontWeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFontWeight()) == false;
 }
 
@@ -234,7 +230,6 @@ void IfcTextStyleFontModel::unsetFontSize()
 
 bool IfcTextStyleFontModel::testFontSize() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFontSize()) == false;
 }
 

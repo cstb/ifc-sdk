@@ -83,7 +83,6 @@ void IfcControllerType::unsetPredefinedType()
 
 bool IfcControllerType::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 

@@ -86,7 +86,6 @@ void IfcFillAreaStyle::unsetFillStyles()
 
 bool IfcFillAreaStyle::testFillStyles() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_FillStyles.isUnset() == false;
 }
 

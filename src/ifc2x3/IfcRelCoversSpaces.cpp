@@ -132,7 +132,6 @@ void IfcRelCoversSpaces::unsetRelatedSpace()
 
 bool IfcRelCoversSpaces::testRelatedSpace() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedSpace()) == false;
 }
 
@@ -163,7 +162,6 @@ void IfcRelCoversSpaces::unsetRelatedCoverings()
 
 bool IfcRelCoversSpaces::testRelatedCoverings() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedCoverings.isUnset() == false;
 }
 

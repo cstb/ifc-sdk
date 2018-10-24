@@ -68,7 +68,6 @@ const IfcRelAssignsToGroup *IfcGroup::getIsGroupedBy() const
 
 bool IfcGroup::testIsGroupedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIsGroupedBy()) == false;
 }
 

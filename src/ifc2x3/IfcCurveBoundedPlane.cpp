@@ -88,7 +88,6 @@ void IfcCurveBoundedPlane::unsetBasisSurface()
 
 bool IfcCurveBoundedPlane::testBasisSurface() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getBasisSurface()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcCurveBoundedPlane::unsetOuterBoundary()
 
 bool IfcCurveBoundedPlane::testOuterBoundary() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOuterBoundary()) == false;
 }
 
@@ -162,7 +160,6 @@ void IfcCurveBoundedPlane::unsetInnerBoundaries()
 
 bool IfcCurveBoundedPlane::testInnerBoundaries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_InnerBoundaries.isUnset() == false;
 }
 

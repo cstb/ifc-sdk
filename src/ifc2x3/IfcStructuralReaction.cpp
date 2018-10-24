@@ -69,7 +69,6 @@ const Inverse_Set_IfcStructuralAction_0_n &IfcStructuralReaction::getCauses() co
 
 bool IfcStructuralReaction::testCauses() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Causes.isUnset() == false;
 }
 

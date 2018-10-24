@@ -86,7 +86,6 @@ void IfcPixelTexture::unsetWidth()
 
 bool IfcPixelTexture::testWidth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWidth()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcPixelTexture::unsetHeight()
 
 bool IfcPixelTexture::testHeight() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHeight()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcPixelTexture::unsetColourComponents()
 
 bool IfcPixelTexture::testColourComponents() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getColourComponents()) == false;
 }
 
@@ -196,7 +193,6 @@ void IfcPixelTexture::unsetPixel()
 
 bool IfcPixelTexture::testPixel() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Pixel.isUnset() == false;
 }
 

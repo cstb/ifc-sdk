@@ -83,7 +83,6 @@ void IfcEdgeFeature::unsetFeatureLength()
 
 bool IfcEdgeFeature::testFeatureLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFeatureLength()) == false;
 }
 

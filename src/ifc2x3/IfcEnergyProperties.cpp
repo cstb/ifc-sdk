@@ -84,7 +84,6 @@ void IfcEnergyProperties::unsetEnergySequence()
 
 bool IfcEnergyProperties::testEnergySequence() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEnergySequence()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcEnergyProperties::unsetUserDefinedEnergySequence()
 
 bool IfcEnergyProperties::testUserDefinedEnergySequence() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUserDefinedEnergySequence()) == false;
 }
 

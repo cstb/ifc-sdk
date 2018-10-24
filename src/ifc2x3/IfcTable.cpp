@@ -124,7 +124,6 @@ void IfcTable::unsetName()
 
 bool IfcTable::testName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getName()) == false;
 }
 
@@ -155,7 +154,6 @@ void IfcTable::unsetRows()
 
 bool IfcTable::testRows() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Rows.isUnset() == false;
 }
 

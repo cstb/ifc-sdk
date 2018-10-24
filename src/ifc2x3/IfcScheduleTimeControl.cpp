@@ -110,7 +110,6 @@ void IfcScheduleTimeControl::unsetActualStart()
 
 bool IfcScheduleTimeControl::testActualStart() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getActualStart()) == false;
 }
 
@@ -146,7 +145,6 @@ void IfcScheduleTimeControl::unsetEarlyStart()
 
 bool IfcScheduleTimeControl::testEarlyStart() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEarlyStart()) == false;
 }
 
@@ -168,21 +166,18 @@ const IfcDateTimeSelect *IfcScheduleTimeControl::getLateStart() const
     return const_cast<IfcScheduleTimeControl *>(this)->getLateStart();
 }
 
-void IfcScheduleTimeControl::setLateStart(const Step::RefPtr< IfcDateTimeSelect > &value)
+void IfcScheduleTimeControl::setLatestart(const Step::RefPtr< IfcDateTimeSelect > &value)
 {
-    Step::BaseObject::inited(); // make sure we are inited
     m_LateStart = value;
 }
 
-void IfcScheduleTimeControl::unsetLateStart()
+void IfcScheduleTimeControl::unsetLatestart()
 {
-    Step::BaseObject::inited(); // make sure we are inited
     m_LateStart = Step::getUnset(getLateStart());
 }
 
 bool IfcScheduleTimeControl::testLateStart() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLateStart()) == false;
 }
 
@@ -218,7 +213,6 @@ void IfcScheduleTimeControl::unsetScheduleStart()
 
 bool IfcScheduleTimeControl::testScheduleStart() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getScheduleStart()) == false;
 }
 
@@ -254,7 +248,6 @@ void IfcScheduleTimeControl::unsetActualFinish()
 
 bool IfcScheduleTimeControl::testActualFinish() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getActualFinish()) == false;
 }
 
@@ -290,7 +283,6 @@ void IfcScheduleTimeControl::unsetEarlyFinish()
 
 bool IfcScheduleTimeControl::testEarlyFinish() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getEarlyFinish()) == false;
 }
 
@@ -326,7 +318,6 @@ void IfcScheduleTimeControl::unsetLateFinish()
 
 bool IfcScheduleTimeControl::testLateFinish() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLateFinish()) == false;
 }
 
@@ -362,7 +353,6 @@ void IfcScheduleTimeControl::unsetScheduleFinish()
 
 bool IfcScheduleTimeControl::testScheduleFinish() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getScheduleFinish()) == false;
 }
 
@@ -398,7 +388,6 @@ void IfcScheduleTimeControl::unsetScheduleDuration()
 
 bool IfcScheduleTimeControl::testScheduleDuration() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getScheduleDuration()) == false;
 }
 
@@ -434,7 +423,6 @@ void IfcScheduleTimeControl::unsetActualDuration()
 
 bool IfcScheduleTimeControl::testActualDuration() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getActualDuration()) == false;
 }
 
@@ -470,7 +458,6 @@ void IfcScheduleTimeControl::unsetRemainingTime()
 
 bool IfcScheduleTimeControl::testRemainingTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRemainingTime()) == false;
 }
 
@@ -506,7 +493,6 @@ void IfcScheduleTimeControl::unsetFreeFloat()
 
 bool IfcScheduleTimeControl::testFreeFloat() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFreeFloat()) == false;
 }
 
@@ -542,7 +528,6 @@ void IfcScheduleTimeControl::unsetTotalFloat()
 
 bool IfcScheduleTimeControl::testTotalFloat() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTotalFloat()) == false;
 }
 
@@ -578,7 +563,6 @@ void IfcScheduleTimeControl::unsetIsCritical()
 
 bool IfcScheduleTimeControl::testIsCritical() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getIsCritical()) == false;
 }
 
@@ -614,7 +598,6 @@ void IfcScheduleTimeControl::unsetStatusTime()
 
 bool IfcScheduleTimeControl::testStatusTime() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStatusTime()) == false;
 }
 
@@ -650,7 +633,6 @@ void IfcScheduleTimeControl::unsetStartFloat()
 
 bool IfcScheduleTimeControl::testStartFloat() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getStartFloat()) == false;
 }
 
@@ -686,7 +668,6 @@ void IfcScheduleTimeControl::unsetFinishFloat()
 
 bool IfcScheduleTimeControl::testFinishFloat() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFinishFloat()) == false;
 }
 
@@ -722,7 +703,6 @@ void IfcScheduleTimeControl::unsetCompletion()
 
 bool IfcScheduleTimeControl::testCompletion() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCompletion()) == false;
 }
 
@@ -743,7 +723,6 @@ const IfcRelAssignsTasks *IfcScheduleTimeControl::getScheduleTimeControlAssigned
 
 bool IfcScheduleTimeControl::testScheduleTimeControlAssigned() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getScheduleTimeControlAssigned()) == false;
 }
 

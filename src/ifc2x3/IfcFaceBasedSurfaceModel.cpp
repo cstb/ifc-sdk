@@ -86,7 +86,6 @@ void IfcFaceBasedSurfaceModel::unsetFbsmFaces()
 
 bool IfcFaceBasedSurfaceModel::testFbsmFaces() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_FbsmFaces.isUnset() == false;
 }
 

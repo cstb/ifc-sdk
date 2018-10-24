@@ -72,7 +72,6 @@ const Inverse_Set_IfcRelAssigns_0_n &IfcObjectDefinition::getHasAssignments() co
 
 bool IfcObjectDefinition::testHasAssignments() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasAssignments.isUnset() == false;
 }
 
@@ -94,7 +93,6 @@ const Inverse_Set_IfcRelDecomposes_0_1 &IfcObjectDefinition::getDecomposes() con
 
 bool IfcObjectDefinition::testDecomposes() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Decomposes.isUnset() == false;
 }
 
@@ -116,7 +114,6 @@ const Inverse_Set_IfcRelAssociates_0_n &IfcObjectDefinition::getHasAssociations(
 
 bool IfcObjectDefinition::testHasAssociations() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasAssociations.isUnset() == false;
 }
 
@@ -138,7 +135,6 @@ const Inverse_Set_IfcRelDecomposes_0_n &IfcObjectDefinition::getIsDecomposedBy()
 
 bool IfcObjectDefinition::testIsDecomposedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_IsDecomposedBy.isUnset() == false;
 }
 

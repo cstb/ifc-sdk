@@ -88,7 +88,6 @@ void IfcTimeSeriesReferenceRelationship::unsetTimeSeriesReferences()
 
 bool IfcTimeSeriesReferenceRelationship::testTimeSeriesReferences() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_TimeSeriesReferences.isUnset() == false;
 }
 
@@ -131,7 +130,6 @@ void IfcTimeSeriesReferenceRelationship::unsetReferencedTimeSeries()
 
 bool IfcTimeSeriesReferenceRelationship::testReferencedTimeSeries() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getReferencedTimeSeries()) == false;
 }
 

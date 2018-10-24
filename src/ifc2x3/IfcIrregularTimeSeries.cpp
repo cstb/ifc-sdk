@@ -86,7 +86,6 @@ void IfcIrregularTimeSeries::unsetValues()
 
 bool IfcIrregularTimeSeries::testValues() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Values.isUnset() == false;
 }
 

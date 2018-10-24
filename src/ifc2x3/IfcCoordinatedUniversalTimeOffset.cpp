@@ -85,7 +85,6 @@ void IfcCoordinatedUniversalTimeOffset::unsetHourOffset()
 
 bool IfcCoordinatedUniversalTimeOffset::testHourOffset() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHourOffset()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcCoordinatedUniversalTimeOffset::unsetMinuteOffset()
 
 bool IfcCoordinatedUniversalTimeOffset::testMinuteOffset() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMinuteOffset()) == false;
 }
 
@@ -157,7 +155,6 @@ void IfcCoordinatedUniversalTimeOffset::unsetSense()
 
 bool IfcCoordinatedUniversalTimeOffset::testSense() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSense()) == false;
 }
 

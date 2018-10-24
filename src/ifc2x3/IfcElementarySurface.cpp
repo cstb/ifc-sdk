@@ -84,7 +84,6 @@ void IfcElementarySurface::unsetPosition()
 
 bool IfcElementarySurface::testPosition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPosition()) == false;
 }
 

@@ -86,7 +86,6 @@ void IfcStructuralActivity::unsetAppliedLoad()
 
 bool IfcStructuralActivity::testAppliedLoad() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAppliedLoad()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcStructuralActivity::unsetGlobalOrLocal()
 
 bool IfcStructuralActivity::testGlobalOrLocal() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getGlobalOrLocal()) == false;
 }
 
@@ -143,7 +141,6 @@ const IfcRelConnectsStructuralActivity *IfcStructuralActivity::getAssignedToStru
 
 bool IfcStructuralActivity::testAssignedToStructuralItem() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getAssignedToStructuralItem()) == false;
 }
 

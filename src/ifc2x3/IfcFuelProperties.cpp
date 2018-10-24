@@ -86,7 +86,6 @@ void IfcFuelProperties::unsetCombustionTemperature()
 
 bool IfcFuelProperties::testCombustionTemperature() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCombustionTemperature()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcFuelProperties::unsetCarbonContent()
 
 bool IfcFuelProperties::testCarbonContent() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCarbonContent()) == false;
 }
 
@@ -158,7 +156,6 @@ void IfcFuelProperties::unsetLowerHeatingValue()
 
 bool IfcFuelProperties::testLowerHeatingValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getLowerHeatingValue()) == false;
 }
 
@@ -194,7 +191,6 @@ void IfcFuelProperties::unsetHigherHeatingValue()
 
 bool IfcFuelProperties::testHigherHeatingValue() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHigherHeatingValue()) == false;
 }
 

@@ -86,7 +86,6 @@ void IfcGridPlacement::unsetPlacementLocation()
 
 bool IfcGridPlacement::testPlacementLocation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPlacementLocation()) == false;
 }
 
@@ -122,7 +121,6 @@ void IfcGridPlacement::unsetPlacementRefDirection()
 
 bool IfcGridPlacement::testPlacementRefDirection() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPlacementRefDirection()) == false;
 }
 

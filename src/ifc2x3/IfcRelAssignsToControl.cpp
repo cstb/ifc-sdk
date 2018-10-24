@@ -91,7 +91,6 @@ void IfcRelAssignsToControl::unsetRelatingControl()
 
 bool IfcRelAssignsToControl::testRelatingControl() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingControl()) == false;
 }
 

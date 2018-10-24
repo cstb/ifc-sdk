@@ -120,7 +120,6 @@ void IfcRelCoversBldgElements::unsetRelatedCoverings()
 
 bool IfcRelCoversBldgElements::testRelatedCoverings() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedCoverings.isUnset() == false;
 }
 
@@ -163,7 +162,6 @@ void IfcRelCoversBldgElements::unsetRelatingBuildingElement()
 
 bool IfcRelCoversBldgElements::testRelatingBuildingElement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingBuildingElement()) == false;
 }
 

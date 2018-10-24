@@ -90,7 +90,6 @@ void IfcMechanicalSteelMaterialProperties::unsetYieldStress()
 
 bool IfcMechanicalSteelMaterialProperties::testYieldStress() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getYieldStress()) == false;
 }
 
@@ -112,21 +111,18 @@ IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getUltimateStress() con
     return const_cast<IfcMechanicalSteelMaterialProperties *>(this)->getUltimateStress();
 }
 
-void IfcMechanicalSteelMaterialProperties::setUltimateStress(IfcPressureMeasure value)
+void IfcMechanicalSteelMaterialProperties::setUltimatestress(IfcPressureMeasure value)
 {
-    Step::BaseObject::inited(); // make sure we are inited
     m_UltimateStress = value;
 }
 
-void IfcMechanicalSteelMaterialProperties::unsetUltimateStress()
+void IfcMechanicalSteelMaterialProperties::unsetUltimatestress()
 {
-    Step::BaseObject::inited(); // make sure we are inited
     m_UltimateStress = Step::getUnset(getUltimateStress());
 }
 
 bool IfcMechanicalSteelMaterialProperties::testUltimateStress() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUltimateStress()) == false;
 }
 
@@ -148,21 +144,18 @@ IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getUltimateStrain(
     return const_cast<IfcMechanicalSteelMaterialProperties *>(this)->getUltimateStrain();
 }
 
-void IfcMechanicalSteelMaterialProperties::setUltimateStrain(IfcPositiveRatioMeasure value)
+void IfcMechanicalSteelMaterialProperties::setUltimatestrain(IfcPositiveRatioMeasure value)
 {
-    Step::BaseObject::inited(); // make sure we are inited
     m_UltimateStrain = value;
 }
 
-void IfcMechanicalSteelMaterialProperties::unsetUltimateStrain()
+void IfcMechanicalSteelMaterialProperties::unsetUltimatestrain()
 {
-    Step::BaseObject::inited(); // make sure we are inited
     m_UltimateStrain = Step::getUnset(getUltimateStrain());
 }
 
 bool IfcMechanicalSteelMaterialProperties::testUltimateStrain() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getUltimateStrain()) == false;
 }
 
@@ -198,7 +191,6 @@ void IfcMechanicalSteelMaterialProperties::unsetHardeningModule()
 
 bool IfcMechanicalSteelMaterialProperties::testHardeningModule() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getHardeningModule()) == false;
 }
 
@@ -234,7 +226,6 @@ void IfcMechanicalSteelMaterialProperties::unsetProportionalStress()
 
 bool IfcMechanicalSteelMaterialProperties::testProportionalStress() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProportionalStress()) == false;
 }
 
@@ -270,7 +261,6 @@ void IfcMechanicalSteelMaterialProperties::unsetPlasticStrain()
 
 bool IfcMechanicalSteelMaterialProperties::testPlasticStrain() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPlasticStrain()) == false;
 }
 
@@ -308,7 +298,6 @@ void IfcMechanicalSteelMaterialProperties::unsetRelaxations()
 
 bool IfcMechanicalSteelMaterialProperties::testRelaxations() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Relaxations.isUnset() == false;
 }
 

@@ -86,7 +86,6 @@ void IfcMappedItem::unsetMappingTarget()
 
 bool IfcMappedItem::testMappingTarget() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMappingTarget()) == false;
 }
 
@@ -129,7 +128,6 @@ void IfcMappedItem::unsetMappingSource()
 
 bool IfcMappedItem::testMappingSource() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMappingSource()) == false;
 }
 

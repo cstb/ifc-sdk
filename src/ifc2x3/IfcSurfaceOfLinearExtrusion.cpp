@@ -85,7 +85,6 @@ void IfcSurfaceOfLinearExtrusion::unsetExtrudedDirection()
 
 bool IfcSurfaceOfLinearExtrusion::testExtrudedDirection() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getExtrudedDirection()) == false;
 }
 
@@ -121,7 +120,6 @@ void IfcSurfaceOfLinearExtrusion::unsetDepth()
 
 bool IfcSurfaceOfLinearExtrusion::testDepth() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getDepth()) == false;
 }
 

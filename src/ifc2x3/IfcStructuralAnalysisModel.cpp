@@ -167,7 +167,6 @@ void IfcStructuralAnalysisModel::unsetPredefinedType()
 
 bool IfcStructuralAnalysisModel::testPredefinedType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPredefinedType()) == false;
 }
 
@@ -203,7 +202,6 @@ void IfcStructuralAnalysisModel::unsetOrientationOf2DPlane()
 
 bool IfcStructuralAnalysisModel::testOrientationOf2DPlane() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getOrientationOf2DPlane()) == false;
 }
 
@@ -234,7 +232,6 @@ void IfcStructuralAnalysisModel::unsetLoadedBy()
 
 bool IfcStructuralAnalysisModel::testLoadedBy() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_LoadedBy.isUnset() == false;
 }
 
@@ -265,7 +262,6 @@ void IfcStructuralAnalysisModel::unsetHasResults()
 
 bool IfcStructuralAnalysisModel::testHasResults() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_HasResults.isUnset() == false;
 }
 

@@ -88,7 +88,6 @@ void IfcRelAssociatesProfileProperties::unsetRelatingProfileProperties()
 
 bool IfcRelAssociatesProfileProperties::testRelatingProfileProperties() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatingProfileProperties()) == false;
 }
 
@@ -124,7 +123,6 @@ void IfcRelAssociatesProfileProperties::unsetProfileSectionLocation()
 
 bool IfcRelAssociatesProfileProperties::testProfileSectionLocation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProfileSectionLocation()) == false;
 }
 
@@ -160,7 +158,6 @@ void IfcRelAssociatesProfileProperties::unsetProfileOrientation()
 
 bool IfcRelAssociatesProfileProperties::testProfileOrientation() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getProfileOrientation()) == false;
 }
 

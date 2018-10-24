@@ -87,7 +87,6 @@ void IfcCompositeCurveSegment::unsetTransition()
 
 bool IfcCompositeCurveSegment::testTransition() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTransition()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcCompositeCurveSegment::unsetSameSense()
 
 bool IfcCompositeCurveSegment::testSameSense() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSameSense()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcCompositeCurveSegment::unsetParentCurve()
 
 bool IfcCompositeCurveSegment::testParentCurve() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getParentCurve()) == false;
 }
 
@@ -181,7 +178,6 @@ const Inverse_Set_IfcCompositeCurve_1_n &IfcCompositeCurveSegment::getUsingCurve
 
 bool IfcCompositeCurveSegment::testUsingCurves() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_UsingCurves.isUnset() == false;
 }
 

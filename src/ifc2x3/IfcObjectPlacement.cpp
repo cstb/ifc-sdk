@@ -70,7 +70,6 @@ const Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject() const
 
 bool IfcObjectPlacement::testPlacesObject() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PlacesObject.isUnset() == false;
 }
 
@@ -92,7 +91,6 @@ const Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlac
 
 bool IfcObjectPlacement::testReferencedByPlacements() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_ReferencedByPlacements.isUnset() == false;
 }
 

@@ -87,7 +87,6 @@ void IfcApplication::unsetApplicationDeveloper()
 
 bool IfcApplication::testApplicationDeveloper() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApplicationDeveloper()) == false;
 }
 
@@ -123,7 +122,6 @@ void IfcApplication::unsetVersion()
 
 bool IfcApplication::testVersion() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVersion()) == false;
 }
 
@@ -159,7 +157,6 @@ void IfcApplication::unsetApplicationFullName()
 
 bool IfcApplication::testApplicationFullName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApplicationFullName()) == false;
 }
 
@@ -195,7 +192,6 @@ void IfcApplication::unsetApplicationIdentifier()
 
 bool IfcApplication::testApplicationIdentifier() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getApplicationIdentifier()) == false;
 }
 

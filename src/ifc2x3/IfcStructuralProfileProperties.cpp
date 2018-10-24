@@ -98,7 +98,6 @@ void IfcStructuralProfileProperties::unsetTorsionalConstantX()
 
 bool IfcStructuralProfileProperties::testTorsionalConstantX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTorsionalConstantX()) == false;
 }
 
@@ -134,7 +133,6 @@ void IfcStructuralProfileProperties::unsetMomentOfInertiaYZ()
 
 bool IfcStructuralProfileProperties::testMomentOfInertiaYZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMomentOfInertiaYZ()) == false;
 }
 
@@ -170,7 +168,6 @@ void IfcStructuralProfileProperties::unsetMomentOfInertiaY()
 
 bool IfcStructuralProfileProperties::testMomentOfInertiaY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMomentOfInertiaY()) == false;
 }
 
@@ -206,7 +203,6 @@ void IfcStructuralProfileProperties::unsetMomentOfInertiaZ()
 
 bool IfcStructuralProfileProperties::testMomentOfInertiaZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMomentOfInertiaZ()) == false;
 }
 
@@ -242,7 +238,6 @@ void IfcStructuralProfileProperties::unsetWarpingConstant()
 
 bool IfcStructuralProfileProperties::testWarpingConstant() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getWarpingConstant()) == false;
 }
 
@@ -278,7 +273,6 @@ void IfcStructuralProfileProperties::unsetShearCentreZ()
 
 bool IfcStructuralProfileProperties::testShearCentreZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShearCentreZ()) == false;
 }
 
@@ -314,7 +308,6 @@ void IfcStructuralProfileProperties::unsetShearCentreY()
 
 bool IfcStructuralProfileProperties::testShearCentreY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShearCentreY()) == false;
 }
 
@@ -350,7 +343,6 @@ void IfcStructuralProfileProperties::unsetShearDeformationAreaZ()
 
 bool IfcStructuralProfileProperties::testShearDeformationAreaZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShearDeformationAreaZ()) == false;
 }
 
@@ -386,7 +378,6 @@ void IfcStructuralProfileProperties::unsetShearDeformationAreaY()
 
 bool IfcStructuralProfileProperties::testShearDeformationAreaY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getShearDeformationAreaY()) == false;
 }
 
@@ -422,7 +413,6 @@ void IfcStructuralProfileProperties::unsetMaximumSectionModulusY()
 
 bool IfcStructuralProfileProperties::testMaximumSectionModulusY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMaximumSectionModulusY()) == false;
 }
 
@@ -458,7 +448,6 @@ void IfcStructuralProfileProperties::unsetMinimumSectionModulusY()
 
 bool IfcStructuralProfileProperties::testMinimumSectionModulusY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMinimumSectionModulusY()) == false;
 }
 
@@ -494,7 +483,6 @@ void IfcStructuralProfileProperties::unsetMaximumSectionModulusZ()
 
 bool IfcStructuralProfileProperties::testMaximumSectionModulusZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMaximumSectionModulusZ()) == false;
 }
 
@@ -530,7 +518,6 @@ void IfcStructuralProfileProperties::unsetMinimumSectionModulusZ()
 
 bool IfcStructuralProfileProperties::testMinimumSectionModulusZ() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getMinimumSectionModulusZ()) == false;
 }
 
@@ -566,7 +553,6 @@ void IfcStructuralProfileProperties::unsetTorsionalSectionModulus()
 
 bool IfcStructuralProfileProperties::testTorsionalSectionModulus() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getTorsionalSectionModulus()) == false;
 }
 
@@ -602,7 +588,6 @@ void IfcStructuralProfileProperties::unsetCentreOfGravityInX()
 
 bool IfcStructuralProfileProperties::testCentreOfGravityInX() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCentreOfGravityInX()) == false;
 }
 
@@ -638,7 +623,6 @@ void IfcStructuralProfileProperties::unsetCentreOfGravityInY()
 
 bool IfcStructuralProfileProperties::testCentreOfGravityInY() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getCentreOfGravityInY()) == false;
 }
 

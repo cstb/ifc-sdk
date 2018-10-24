@@ -69,7 +69,6 @@ const Inverse_Set_IfcRelConnectsStructuralActivity_0_n &IfcStructuralItem::getAs
 
 bool IfcStructuralItem::testAssignedStructuralActivity() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_AssignedStructuralActivity.isUnset() == false;
 }
 

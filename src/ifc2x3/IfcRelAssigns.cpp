@@ -124,7 +124,6 @@ void IfcRelAssigns::unsetRelatedObjectsType()
 
 bool IfcRelAssigns::testRelatedObjectsType() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelatedObjectsType()) == false;
 }
 
@@ -155,7 +154,6 @@ void IfcRelAssigns::unsetRelatedObjects()
 
 bool IfcRelAssigns::testRelatedObjects() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_RelatedObjects.isUnset() == false;
 }
 

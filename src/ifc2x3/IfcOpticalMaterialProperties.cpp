@@ -91,7 +91,6 @@ void IfcOpticalMaterialProperties::unsetVisibleTransmittance()
 
 bool IfcOpticalMaterialProperties::testVisibleTransmittance() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVisibleTransmittance()) == false;
 }
 
@@ -127,7 +126,6 @@ void IfcOpticalMaterialProperties::unsetSolarTransmittance()
 
 bool IfcOpticalMaterialProperties::testSolarTransmittance() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSolarTransmittance()) == false;
 }
 
@@ -163,7 +161,6 @@ void IfcOpticalMaterialProperties::unsetThermalIrTransmittance()
 
 bool IfcOpticalMaterialProperties::testThermalIrTransmittance() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThermalIrTransmittance()) == false;
 }
 
@@ -199,7 +196,6 @@ void IfcOpticalMaterialProperties::unsetThermalIrEmissivityBack()
 
 bool IfcOpticalMaterialProperties::testThermalIrEmissivityBack() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThermalIrEmissivityBack()) == false;
 }
 
@@ -235,7 +231,6 @@ void IfcOpticalMaterialProperties::unsetThermalIrEmissivityFront()
 
 bool IfcOpticalMaterialProperties::testThermalIrEmissivityFront() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getThermalIrEmissivityFront()) == false;
 }
 
@@ -271,7 +266,6 @@ void IfcOpticalMaterialProperties::unsetVisibleReflectanceBack()
 
 bool IfcOpticalMaterialProperties::testVisibleReflectanceBack() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVisibleReflectanceBack()) == false;
 }
 
@@ -307,7 +301,6 @@ void IfcOpticalMaterialProperties::unsetVisibleReflectanceFront()
 
 bool IfcOpticalMaterialProperties::testVisibleReflectanceFront() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVisibleReflectanceFront()) == false;
 }
 
@@ -343,7 +336,6 @@ void IfcOpticalMaterialProperties::unsetSolarReflectanceFront()
 
 bool IfcOpticalMaterialProperties::testSolarReflectanceFront() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSolarReflectanceFront()) == false;
 }
 
@@ -379,7 +371,6 @@ void IfcOpticalMaterialProperties::unsetSolarReflectanceBack()
 
 bool IfcOpticalMaterialProperties::testSolarReflectanceBack() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getSolarReflectanceBack()) == false;
 }
 

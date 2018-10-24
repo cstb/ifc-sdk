@@ -85,7 +85,6 @@ void IfcRationalBezierCurve::unsetWeightsData()
 
 bool IfcRationalBezierCurve::testWeightsData() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_WeightsData.isUnset() == false;
 }
 

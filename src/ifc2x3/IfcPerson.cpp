@@ -132,7 +132,6 @@ void IfcPerson::unsetId()
 
 bool IfcPerson::testId() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getId()) == false;
 }
 
@@ -168,7 +167,6 @@ void IfcPerson::unsetFamilyName()
 
 bool IfcPerson::testFamilyName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getFamilyName()) == false;
 }
 
@@ -204,7 +202,6 @@ void IfcPerson::unsetGivenName()
 
 bool IfcPerson::testGivenName() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getGivenName()) == false;
 }
 
@@ -242,7 +239,6 @@ void IfcPerson::unsetMiddleNames()
 
 bool IfcPerson::testMiddleNames() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_MiddleNames.isUnset() == false;
 }
 
@@ -280,7 +276,6 @@ void IfcPerson::unsetPrefixTitles()
 
 bool IfcPerson::testPrefixTitles() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_PrefixTitles.isUnset() == false;
 }
 
@@ -318,7 +313,6 @@ void IfcPerson::unsetSuffixTitles()
 
 bool IfcPerson::testSuffixTitles() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_SuffixTitles.isUnset() == false;
 }
 
@@ -356,7 +350,6 @@ void IfcPerson::unsetRoles()
 
 bool IfcPerson::testRoles() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Roles.isUnset() == false;
 }
 
@@ -387,7 +380,6 @@ void IfcPerson::unsetAddresses()
 
 bool IfcPerson::testAddresses() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_Addresses.isUnset() == false;
 }
 
@@ -409,7 +401,6 @@ const Inverse_Set_IfcPersonAndOrganization_0_n &IfcPerson::getEngagedIn() const
 
 bool IfcPerson::testEngagedIn() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return m_EngagedIn.isUnset() == false;
 }
 

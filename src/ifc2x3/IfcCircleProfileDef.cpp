@@ -83,7 +83,6 @@ void IfcCircleProfileDef::unsetRadius()
 
 bool IfcCircleProfileDef::testRadius() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRadius()) == false;
 }
 

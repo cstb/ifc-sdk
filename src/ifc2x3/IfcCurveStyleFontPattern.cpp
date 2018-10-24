@@ -84,7 +84,6 @@ void IfcCurveStyleFontPattern::unsetVisibleSegmentLength()
 
 bool IfcCurveStyleFontPattern::testVisibleSegmentLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getVisibleSegmentLength()) == false;
 }
 
@@ -120,7 +119,6 @@ void IfcCurveStyleFontPattern::unsetInvisibleSegmentLength()
 
 bool IfcCurveStyleFontPattern::testInvisibleSegmentLength() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getInvisibleSegmentLength()) == false;
 }
 

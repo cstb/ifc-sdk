@@ -86,7 +86,6 @@ void IfcLocalPlacement::unsetRelativePlacement()
 
 bool IfcLocalPlacement::testRelativePlacement() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getRelativePlacement()) == false;
 }
 
@@ -129,7 +128,6 @@ void IfcLocalPlacement::unsetPlacementRelTo()
 
 bool IfcLocalPlacement::testPlacementRelTo() const
 {
-    Step::BaseObject::inited(); // make sure we are inited
     return Step::isUnset(getPlacementRelTo()) == false;
 }
 
