@@ -46,8 +46,8 @@ namespace ifc2x3
         IfcPhysicalOrVirtualEnum m_PhysicalOrVirtualBoundary;
         IfcInternalOrExternalEnum m_InternalOrExternalBoundary;
         // InvertedAttributes
-        Step::RefPtr< IfcSpace > m_RelatingSpace;
         Step::RefPtr< IfcElement > m_RelatedBuildingElement;
+        Step::RefPtr< IfcSpace > m_RelatingSpace;
 
         ClassType_definitions()
 
@@ -81,15 +81,6 @@ namespace ifc2x3
         virtual bool testInternalOrExternalBoundary() const;
         /// @}
 
-        /// Attribute RelatingSpace
-        /// @{
-        virtual IfcSpace *getRelatingSpace();
-        virtual const IfcSpace *getRelatingSpace() const;
-        virtual void setRelatingSpace(const Step::RefPtr< IfcSpace > &value);
-        virtual void unsetRelatingSpace();
-        virtual bool testRelatingSpace() const;
-        /// @}
-
         /// Attribute RelatedBuildingElement
         /// @{
         virtual IfcElement *getRelatedBuildingElement();
@@ -97,6 +88,15 @@ namespace ifc2x3
         virtual void setRelatedBuildingElement(const Step::RefPtr< IfcElement > &value);
         virtual void unsetRelatedBuildingElement();
         virtual bool testRelatedBuildingElement() const;
+        /// @}
+
+        /// Attribute RelatingSpace
+        /// @{
+        virtual IfcSpace *getRelatingSpace();
+        virtual const IfcSpace *getRelatingSpace() const;
+        virtual void setRelatingSpace(const Step::RefPtr< IfcSpace > &value);
+        virtual void unsetRelatingSpace();
+        virtual bool testRelatingSpace() const;
         /// @}
 
 

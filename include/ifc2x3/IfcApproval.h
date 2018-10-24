@@ -53,8 +53,8 @@ namespace ifc2x3
         IfcIdentifier m_Identifier;
         // InverseAttributes
         Inverse_Set_IfcApprovalRelationship_0_n m_IsRelatedWith;
-        Inverse_Set_IfcApprovalRelationship_0_n m_Relates;
         Inverse_Set_IfcApprovalActorRelationship_0_n m_Actors;
+        Inverse_Set_IfcApprovalRelationship_0_n m_Relates;
 
         ClassType_definitions()
 
@@ -133,15 +133,6 @@ namespace ifc2x3
         friend class IfcApprovalRelationship;
         /// @}
 
-        /// Inverse attribute Relates
-        /// @{
-        virtual Inverse_Set_IfcApprovalRelationship_0_n &getRelates();
-        virtual const Inverse_Set_IfcApprovalRelationship_0_n &getRelates() const;
-        virtual bool testRelates() const;
-
-        friend class IfcApprovalRelationship;
-        /// @}
-
         /// Inverse attribute Actors
         /// @{
         virtual Inverse_Set_IfcApprovalActorRelationship_0_n &getActors();
@@ -149,6 +140,15 @@ namespace ifc2x3
         virtual bool testActors() const;
 
         friend class IfcApprovalActorRelationship;
+        /// @}
+
+        /// Inverse attribute Relates
+        /// @{
+        virtual Inverse_Set_IfcApprovalRelationship_0_n &getRelates();
+        virtual const Inverse_Set_IfcApprovalRelationship_0_n &getRelates() const;
+        virtual bool testRelates() const;
+
+        friend class IfcApprovalRelationship;
         /// @}
 
 

@@ -26,8 +26,8 @@
 
 #include <ifc2x3/IfcMaterial.h>
 
-#include <ifc2x3/IfcMaterialClassificationRelationship.h>
 #include <ifc2x3/IfcMaterialDefinitionRepresentation.h>
+#include <ifc2x3/IfcMaterialClassificationRelationship.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -88,27 +88,6 @@ bool IfcMaterial::testName() const
     return Step::isUnset(getName()) == false;
 }
 
-Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifiedAs()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_ClassifiedAs;
-    }
- 
-    m_ClassifiedAs.setUnset(true);
-    return m_ClassifiedAs;
-}
-
-const Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifiedAs() const
-{
-    return  const_cast< IfcMaterial * > (this)->getClassifiedAs();
-}
-
-bool IfcMaterial::testClassifiedAs() const
-{
-    return m_ClassifiedAs.isUnset() == false;
-}
-
 Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &IfcMaterial::getHasRepresentation()
 {
     if (Step::BaseObject::inited())
@@ -130,6 +109,27 @@ bool IfcMaterial::testHasRepresentation() const
     return m_HasRepresentation.isUnset() == false;
 }
 
+Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifiedAs()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ClassifiedAs;
+    }
+ 
+    m_ClassifiedAs.setUnset(true);
+    return m_ClassifiedAs;
+}
+
+const Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifiedAs() const
+{
+    return  const_cast< IfcMaterial * > (this)->getClassifiedAs();
+}
+
+bool IfcMaterial::testClassifiedAs() const
+{
+    return m_ClassifiedAs.isUnset() == false;
+}
+
 bool IfcMaterial::init()
 {
     std::string arg;
@@ -144,16 +144,6 @@ bool IfcMaterial::init()
 ;
     }
     std::vector< Step::Id > *inverses;
-    inverses = m_args->getInverses(IfcMaterialClassificationRelationship::getClassType(), 1);
-    if (inverses)
-    {
-        unsigned int i;
-        m_ClassifiedAs.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_ClassifiedAs.insert(static_cast< IfcMaterialClassificationRelationship * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
     inverses = m_args->getInverses(IfcMaterialDefinitionRepresentation::getClassType(), 3);
     if (inverses)
     {
@@ -162,6 +152,16 @@ bool IfcMaterial::init()
         for (i = 0; i < inverses->size(); i++)
         {
             m_HasRepresentation.insert(static_cast< IfcMaterialDefinitionRepresentation * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcMaterialClassificationRelationship::getClassType(), 1);
+    if (inverses)
+    {
+        unsigned int i;
+        m_ClassifiedAs.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_ClassifiedAs.insert(static_cast< IfcMaterialClassificationRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

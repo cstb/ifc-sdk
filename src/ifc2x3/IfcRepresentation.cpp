@@ -28,9 +28,9 @@
 
 #include <ifc2x3/IfcRepresentationItem.h>
 #include <ifc2x3/IfcRepresentationContext.h>
+#include <ifc2x3/IfcPresentationLayerAssignment.h>
 #include <ifc2x3/IfcProductRepresentation.h>
 #include <ifc2x3/IfcRepresentationMap.h>
-#include <ifc2x3/IfcPresentationLayerAssignment.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -208,6 +208,27 @@ bool IfcRepresentation::testContextOfItems() const
     return Step::isUnset(getContextOfItems()) == false;
 }
 
+Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssignments()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_LayerAssignments;
+    }
+ 
+    m_LayerAssignments.setUnset(true);
+    return m_LayerAssignments;
+}
+
+const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssignments() const
+{
+    return  const_cast< IfcRepresentation * > (this)->getLayerAssignments();
+}
+
+bool IfcRepresentation::testLayerAssignments() const
+{
+    return m_LayerAssignments.isUnset() == false;
+}
+
 Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductRepresentation()
 {
     if (Step::BaseObject::inited())
@@ -248,27 +269,6 @@ const Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentation
 bool IfcRepresentation::testRepresentationMap() const
 {
     return m_RepresentationMap.isUnset() == false;
-}
-
-Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssignments()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_LayerAssignments;
-    }
- 
-    m_LayerAssignments.setUnset(true);
-    return m_LayerAssignments;
-}
-
-const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssignments() const
-{
-    return  const_cast< IfcRepresentation * > (this)->getLayerAssignments();
-}
-
-bool IfcRepresentation::testLayerAssignments() const
-{
-    return m_LayerAssignments.isUnset() == false;
 }
 
 bool IfcRepresentation::init()
@@ -328,6 +328,16 @@ bool IfcRepresentation::init()
 ;
     }
     std::vector< Step::Id > *inverses;
+    inverses = m_args->getInverses(IfcPresentationLayerAssignment::getClassType(), 2);
+    if (inverses)
+    {
+        unsigned int i;
+        m_LayerAssignments.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_LayerAssignments.insert(static_cast< IfcPresentationLayerAssignment * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
     inverses = m_args->getInverses(IfcProductRepresentation::getClassType(), 2);
     if (inverses)
     {
@@ -346,16 +356,6 @@ bool IfcRepresentation::init()
         for (i = 0; i < inverses->size(); i++)
         {
             m_RepresentationMap.insert(static_cast< IfcRepresentationMap * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
-    inverses = m_args->getInverses(IfcPresentationLayerAssignment::getClassType(), 2);
-    if (inverses)
-    {
-        unsigned int i;
-        m_LayerAssignments.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_LayerAssignments.insert(static_cast< IfcPresentationLayerAssignment * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

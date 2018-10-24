@@ -49,9 +49,6 @@ ENDIF(WIN32)
 
 SET(CMAKE_DEBUG_POSTFIX "_debug")
 
-SET(CMAKE_CXX_VISIBILITY_PRESET "hidden")
-SET(CMAKE_VISIBILITY_INLINES_HIDDEN True)
-
 OPTION(STATIC_LIBRARIES "Enables building of STATIC libraries need " OFF)
 
 if(STATIC_LIBRARIES)
@@ -175,4 +172,12 @@ include(${CMAKE_CURRENT_LIST_DIR}/cotire.cmake)
 endif()
 include_directories(BEFORE ${CMAKE_CURRENT_LIST_DIR}/include)
 
-add_subdirectory(src)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/src)
+
+if(EXISTS ${CMAKE_CURRENT_LIST_DIR}/tests)
+  option(ENABLE_TESTING "Enable testing" ON)
+  if(ENABLE_TESTING)
+    ENABLE_TESTING()
+  endif()
+  add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/tests)
+endif()

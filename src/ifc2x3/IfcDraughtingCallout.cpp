@@ -91,27 +91,6 @@ bool IfcDraughtingCallout::testContents() const
     return m_Contents.isUnset() == false;
 }
 
-Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedFromCallout()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_IsRelatedFromCallout;
-    }
- 
-    m_IsRelatedFromCallout.setUnset(true);
-    return m_IsRelatedFromCallout;
-}
-
-const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedFromCallout() const
-{
-    return  const_cast< IfcDraughtingCallout * > (this)->getIsRelatedFromCallout();
-}
-
-bool IfcDraughtingCallout::testIsRelatedFromCallout() const
-{
-    return m_IsRelatedFromCallout.isUnset() == false;
-}
-
 Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedToCallout()
 {
     if (Step::BaseObject::inited())
@@ -131,6 +110,27 @@ const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::ge
 bool IfcDraughtingCallout::testIsRelatedToCallout() const
 {
     return m_IsRelatedToCallout.isUnset() == false;
+}
+
+Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedFromCallout()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_IsRelatedFromCallout;
+    }
+ 
+    m_IsRelatedFromCallout.setUnset(true);
+    return m_IsRelatedFromCallout;
+}
+
+const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedFromCallout() const
+{
+    return  const_cast< IfcDraughtingCallout * > (this)->getIsRelatedFromCallout();
+}
+
+bool IfcDraughtingCallout::testIsRelatedFromCallout() const
+{
+    return m_IsRelatedFromCallout.isUnset() == false;
 }
 
 bool IfcDraughtingCallout::init()
@@ -180,16 +180,6 @@ bool IfcDraughtingCallout::init()
         }
     }
     std::vector< Step::Id > *inverses;
-    inverses = m_args->getInverses(IfcDraughtingCalloutRelationship::getClassType(), 3);
-    if (inverses)
-    {
-        unsigned int i;
-        m_IsRelatedFromCallout.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_IsRelatedFromCallout.insert(static_cast< IfcDraughtingCalloutRelationship * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
     inverses = m_args->getInverses(IfcDraughtingCalloutRelationship::getClassType(), 2);
     if (inverses)
     {
@@ -198,6 +188,16 @@ bool IfcDraughtingCallout::init()
         for (i = 0; i < inverses->size(); i++)
         {
             m_IsRelatedToCallout.insert(static_cast< IfcDraughtingCalloutRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcDraughtingCalloutRelationship::getClassType(), 3);
+    if (inverses)
+    {
+        unsigned int i;
+        m_IsRelatedFromCallout.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_IsRelatedFromCallout.insert(static_cast< IfcDraughtingCalloutRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

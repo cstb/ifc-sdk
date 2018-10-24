@@ -44,8 +44,8 @@ namespace ifc2x3
         // Attributes
         Step::RefPtr< IfcElement > m_RealizingElement;
         // InvertedAttributes
-        Step::RefPtr< IfcPort > m_RelatingPort;
         Step::RefPtr< IfcPort > m_RelatedPort;
+        Step::RefPtr< IfcPort > m_RelatingPort;
 
         ClassType_definitions()
 
@@ -61,15 +61,6 @@ namespace ifc2x3
         virtual bool testRealizingElement() const;
         /// @}
 
-        /// Attribute RelatingPort
-        /// @{
-        virtual IfcPort *getRelatingPort();
-        virtual const IfcPort *getRelatingPort() const;
-        virtual void setRelatingPort(const Step::RefPtr< IfcPort > &value);
-        virtual void unsetRelatingPort();
-        virtual bool testRelatingPort() const;
-        /// @}
-
         /// Attribute RelatedPort
         /// @{
         virtual IfcPort *getRelatedPort();
@@ -77,6 +68,15 @@ namespace ifc2x3
         virtual void setRelatedPort(const Step::RefPtr< IfcPort > &value);
         virtual void unsetRelatedPort();
         virtual bool testRelatedPort() const;
+        /// @}
+
+        /// Attribute RelatingPort
+        /// @{
+        virtual IfcPort *getRelatingPort();
+        virtual const IfcPort *getRelatingPort() const;
+        virtual void setRelatingPort(const Step::RefPtr< IfcPort > &value);
+        virtual void unsetRelatingPort();
+        virtual bool testRelatingPort() const;
         /// @}
 
 

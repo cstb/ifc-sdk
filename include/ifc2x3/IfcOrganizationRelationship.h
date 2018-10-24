@@ -99,8 +99,8 @@ namespace ifc2x3
         IfcLabel m_Name;
         IfcText m_Description;
         // InvertedAttributes
-        Inverted_IfcOrganizationRelationship_RelatedOrganizations_type m_RelatedOrganizations;
         Step::RefPtr< IfcOrganization > m_RelatingOrganization;
+        Inverted_IfcOrganizationRelationship_RelatedOrganizations_type m_RelatedOrganizations;
 
         ClassType_definitions()
 
@@ -125,14 +125,6 @@ namespace ifc2x3
         virtual bool testDescription() const;
         /// @}
 
-        /// Attribute RelatedOrganizations
-        /// @{
-        virtual Set_IfcOrganization_1_n &getRelatedOrganizations();
-        virtual const Set_IfcOrganization_1_n &getRelatedOrganizations() const;
-        virtual void unsetRelatedOrganizations();
-        virtual bool testRelatedOrganizations() const;
-        /// @}
-
         /// Attribute RelatingOrganization
         /// @{
         virtual IfcOrganization *getRelatingOrganization();
@@ -140,6 +132,14 @@ namespace ifc2x3
         virtual void setRelatingOrganization(const Step::RefPtr< IfcOrganization > &value);
         virtual void unsetRelatingOrganization();
         virtual bool testRelatingOrganization() const;
+        /// @}
+
+        /// Attribute RelatedOrganizations
+        /// @{
+        virtual Set_IfcOrganization_1_n &getRelatedOrganizations();
+        virtual const Set_IfcOrganization_1_n &getRelatedOrganizations() const;
+        virtual void unsetRelatedOrganizations();
+        virtual bool testRelatedOrganizations() const;
         /// @}
 
 

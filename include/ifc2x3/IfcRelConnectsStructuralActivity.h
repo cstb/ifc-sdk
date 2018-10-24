@@ -42,22 +42,13 @@ namespace ifc2x3
     {
 
         // InvertedAttributes
-        Step::RefPtr< IfcStructuralActivityAssignmentSelect > m_RelatingElement;
         Step::RefPtr< IfcStructuralActivity > m_RelatedStructuralActivity;
+        Step::RefPtr< IfcStructuralActivityAssignmentSelect > m_RelatingElement;
 
         ClassType_definitions()
 
     public:
         virtual bool acceptVisitor(Step::BaseVisitor *visitor);
-
-        /// Attribute RelatingElement
-        /// @{
-        virtual IfcStructuralActivityAssignmentSelect *getRelatingElement();
-        virtual const IfcStructuralActivityAssignmentSelect *getRelatingElement() const;
-        virtual void setRelatingElement(const Step::RefPtr< IfcStructuralActivityAssignmentSelect > &value);
-        virtual void unsetRelatingElement();
-        virtual bool testRelatingElement() const;
-        /// @}
 
         /// Attribute RelatedStructuralActivity
         /// @{
@@ -66,6 +57,15 @@ namespace ifc2x3
         virtual void setRelatedStructuralActivity(const Step::RefPtr< IfcStructuralActivity > &value);
         virtual void unsetRelatedStructuralActivity();
         virtual bool testRelatedStructuralActivity() const;
+        /// @}
+
+        /// Attribute RelatingElement
+        /// @{
+        virtual IfcStructuralActivityAssignmentSelect *getRelatingElement();
+        virtual const IfcStructuralActivityAssignmentSelect *getRelatingElement() const;
+        virtual void setRelatingElement(const Step::RefPtr< IfcStructuralActivityAssignmentSelect > &value);
+        virtual void unsetRelatingElement();
+        virtual bool testRelatingElement() const;
         /// @}
 
 

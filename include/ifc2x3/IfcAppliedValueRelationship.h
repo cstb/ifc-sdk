@@ -100,8 +100,8 @@ namespace ifc2x3
         IfcLabel m_Name;
         IfcText m_Description;
         // InvertedAttributes
-        Step::RefPtr< IfcAppliedValue > m_ComponentOfTotal;
         Inverted_IfcAppliedValueRelationship_Components_type m_Components;
+        Step::RefPtr< IfcAppliedValue > m_ComponentOfTotal;
 
         ClassType_definitions()
 
@@ -135,6 +135,14 @@ namespace ifc2x3
         virtual bool testDescription() const;
         /// @}
 
+        /// Attribute Components
+        /// @{
+        virtual Set_IfcAppliedValue_1_n &getComponents();
+        virtual const Set_IfcAppliedValue_1_n &getComponents() const;
+        virtual void unsetComponents();
+        virtual bool testComponents() const;
+        /// @}
+
         /// Attribute ComponentOfTotal
         /// @{
         virtual IfcAppliedValue *getComponentOfTotal();
@@ -142,14 +150,6 @@ namespace ifc2x3
         virtual void setComponentOfTotal(const Step::RefPtr< IfcAppliedValue > &value);
         virtual void unsetComponentOfTotal();
         virtual bool testComponentOfTotal() const;
-        /// @}
-
-        /// Attribute Components
-        /// @{
-        virtual Set_IfcAppliedValue_1_n &getComponents();
-        virtual const Set_IfcAppliedValue_1_n &getComponents() const;
-        virtual void unsetComponents();
-        virtual bool testComponents() const;
         /// @}
 
 

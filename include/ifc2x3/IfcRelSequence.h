@@ -45,8 +45,8 @@ namespace ifc2x3
         IfcTimeMeasure m_TimeLag;
         IfcSequenceEnum m_SequenceType;
         // InvertedAttributes
-        Step::RefPtr< IfcProcess > m_RelatingProcess;
         Step::RefPtr< IfcProcess > m_RelatedProcess;
+        Step::RefPtr< IfcProcess > m_RelatingProcess;
 
         ClassType_definitions()
 
@@ -71,15 +71,6 @@ namespace ifc2x3
         virtual bool testSequenceType() const;
         /// @}
 
-        /// Attribute RelatingProcess
-        /// @{
-        virtual IfcProcess *getRelatingProcess();
-        virtual const IfcProcess *getRelatingProcess() const;
-        virtual void setRelatingProcess(const Step::RefPtr< IfcProcess > &value);
-        virtual void unsetRelatingProcess();
-        virtual bool testRelatingProcess() const;
-        /// @}
-
         /// Attribute RelatedProcess
         /// @{
         virtual IfcProcess *getRelatedProcess();
@@ -87,6 +78,15 @@ namespace ifc2x3
         virtual void setRelatedProcess(const Step::RefPtr< IfcProcess > &value);
         virtual void unsetRelatedProcess();
         virtual bool testRelatedProcess() const;
+        /// @}
+
+        /// Attribute RelatingProcess
+        /// @{
+        virtual IfcProcess *getRelatingProcess();
+        virtual const IfcProcess *getRelatingProcess() const;
+        virtual void setRelatingProcess(const Step::RefPtr< IfcProcess > &value);
+        virtual void unsetRelatingProcess();
+        virtual bool testRelatingProcess() const;
         /// @}
 
 

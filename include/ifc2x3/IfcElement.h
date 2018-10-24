@@ -44,18 +44,18 @@ namespace ifc2x3
         // Attributes
         IfcIdentifier m_Tag;
         // InverseAttributes
-        Inverse_Set_IfcRelSpaceBoundary_0_n m_ProvidesBoundaries;
-        Inverse_Set_IfcRelConnectsElements_0_n m_ConnectedFrom;
-        Inverse_Set_IfcRelCoversBldgElements_0_n m_HasCoverings;
-        Inverse_Set_IfcRelFillsElement_0_1 m_FillsVoids;
-        Inverse_Set_IfcRelReferencedInSpatialStructure_0_n m_ReferencedInStructures;
-        Inverse_Set_IfcRelContainedInSpatialStructure_0_1 m_ContainedInStructure;
         Inverse_Set_IfcRelVoidsElement_0_n m_HasOpenings;
-        Inverse_Set_IfcRelConnectsElements_0_n m_ConnectedTo;
-        Inverse_Set_IfcRelProjectsElement_0_n m_HasProjections;
-        Inverse_Set_IfcRelConnectsPortToElement_0_n m_HasPorts;
+        Inverse_Set_IfcRelContainedInSpatialStructure_0_1 m_ContainedInStructure;
+        Inverse_Set_IfcRelReferencedInSpatialStructure_0_n m_ReferencedInStructures;
         Inverse_Set_IfcRelConnectsWithRealizingElements_0_n m_IsConnectionRealization;
         Inverse_Set_IfcRelConnectsStructuralElement_0_n m_HasStructuralMember;
+        Inverse_Set_IfcRelConnectsElements_0_n m_ConnectedTo;
+        Inverse_Set_IfcRelConnectsPortToElement_0_n m_HasPorts;
+        Inverse_Set_IfcRelSpaceBoundary_0_n m_ProvidesBoundaries;
+        Inverse_Set_IfcRelCoversBldgElements_0_n m_HasCoverings;
+        Inverse_Set_IfcRelFillsElement_0_1 m_FillsVoids;
+        Inverse_Set_IfcRelConnectsElements_0_n m_ConnectedFrom;
+        Inverse_Set_IfcRelProjectsElement_0_n m_HasProjections;
 
         ClassType_definitions()
 
@@ -71,6 +71,69 @@ namespace ifc2x3
         virtual bool testTag() const;
         /// @}
 
+        /// Inverse attribute HasOpenings
+        /// @{
+        virtual Inverse_Set_IfcRelVoidsElement_0_n &getHasOpenings();
+        virtual const Inverse_Set_IfcRelVoidsElement_0_n &getHasOpenings() const;
+        virtual bool testHasOpenings() const;
+
+        friend class IfcRelVoidsElement;
+        /// @}
+
+        /// Inverse attribute ContainedInStructure
+        /// @{
+        virtual Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure();
+        virtual const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure() const;
+        virtual bool testContainedInStructure() const;
+
+        friend class IfcRelContainedInSpatialStructure;
+        /// @}
+
+        /// Inverse attribute ReferencedInStructures
+        /// @{
+        virtual Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencedInStructures();
+        virtual const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencedInStructures() const;
+        virtual bool testReferencedInStructures() const;
+
+        friend class IfcRelReferencedInSpatialStructure;
+        /// @}
+
+        /// Inverse attribute IsConnectionRealization
+        /// @{
+        virtual Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &getIsConnectionRealization();
+        virtual const Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &getIsConnectionRealization() const;
+        virtual bool testIsConnectionRealization() const;
+
+        friend class IfcRelConnectsWithRealizingElements;
+        /// @}
+
+        /// Inverse attribute HasStructuralMember
+        /// @{
+        virtual Inverse_Set_IfcRelConnectsStructuralElement_0_n &getHasStructuralMember();
+        virtual const Inverse_Set_IfcRelConnectsStructuralElement_0_n &getHasStructuralMember() const;
+        virtual bool testHasStructuralMember() const;
+
+        friend class IfcRelConnectsStructuralElement;
+        /// @}
+
+        /// Inverse attribute ConnectedTo
+        /// @{
+        virtual Inverse_Set_IfcRelConnectsElements_0_n &getConnectedTo();
+        virtual const Inverse_Set_IfcRelConnectsElements_0_n &getConnectedTo() const;
+        virtual bool testConnectedTo() const;
+
+        friend class IfcRelConnectsElements;
+        /// @}
+
+        /// Inverse attribute HasPorts
+        /// @{
+        virtual Inverse_Set_IfcRelConnectsPortToElement_0_n &getHasPorts();
+        virtual const Inverse_Set_IfcRelConnectsPortToElement_0_n &getHasPorts() const;
+        virtual bool testHasPorts() const;
+
+        friend class IfcRelConnectsPortToElement;
+        /// @}
+
         /// Inverse attribute ProvidesBoundaries
         /// @{
         virtual Inverse_Set_IfcRelSpaceBoundary_0_n &getProvidesBoundaries();
@@ -78,15 +141,6 @@ namespace ifc2x3
         virtual bool testProvidesBoundaries() const;
 
         friend class IfcRelSpaceBoundary;
-        /// @}
-
-        /// Inverse attribute ConnectedFrom
-        /// @{
-        virtual Inverse_Set_IfcRelConnectsElements_0_n &getConnectedFrom();
-        virtual const Inverse_Set_IfcRelConnectsElements_0_n &getConnectedFrom() const;
-        virtual bool testConnectedFrom() const;
-
-        friend class IfcRelConnectsElements;
         /// @}
 
         /// Inverse attribute HasCoverings
@@ -107,38 +161,11 @@ namespace ifc2x3
         friend class IfcRelFillsElement;
         /// @}
 
-        /// Inverse attribute ReferencedInStructures
+        /// Inverse attribute ConnectedFrom
         /// @{
-        virtual Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencedInStructures();
-        virtual const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencedInStructures() const;
-        virtual bool testReferencedInStructures() const;
-
-        friend class IfcRelReferencedInSpatialStructure;
-        /// @}
-
-        /// Inverse attribute ContainedInStructure
-        /// @{
-        virtual Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure();
-        virtual const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure() const;
-        virtual bool testContainedInStructure() const;
-
-        friend class IfcRelContainedInSpatialStructure;
-        /// @}
-
-        /// Inverse attribute HasOpenings
-        /// @{
-        virtual Inverse_Set_IfcRelVoidsElement_0_n &getHasOpenings();
-        virtual const Inverse_Set_IfcRelVoidsElement_0_n &getHasOpenings() const;
-        virtual bool testHasOpenings() const;
-
-        friend class IfcRelVoidsElement;
-        /// @}
-
-        /// Inverse attribute ConnectedTo
-        /// @{
-        virtual Inverse_Set_IfcRelConnectsElements_0_n &getConnectedTo();
-        virtual const Inverse_Set_IfcRelConnectsElements_0_n &getConnectedTo() const;
-        virtual bool testConnectedTo() const;
+        virtual Inverse_Set_IfcRelConnectsElements_0_n &getConnectedFrom();
+        virtual const Inverse_Set_IfcRelConnectsElements_0_n &getConnectedFrom() const;
+        virtual bool testConnectedFrom() const;
 
         friend class IfcRelConnectsElements;
         /// @}
@@ -150,33 +177,6 @@ namespace ifc2x3
         virtual bool testHasProjections() const;
 
         friend class IfcRelProjectsElement;
-        /// @}
-
-        /// Inverse attribute HasPorts
-        /// @{
-        virtual Inverse_Set_IfcRelConnectsPortToElement_0_n &getHasPorts();
-        virtual const Inverse_Set_IfcRelConnectsPortToElement_0_n &getHasPorts() const;
-        virtual bool testHasPorts() const;
-
-        friend class IfcRelConnectsPortToElement;
-        /// @}
-
-        /// Inverse attribute IsConnectionRealization
-        /// @{
-        virtual Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &getIsConnectionRealization();
-        virtual const Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &getIsConnectionRealization() const;
-        virtual bool testIsConnectionRealization() const;
-
-        friend class IfcRelConnectsWithRealizingElements;
-        /// @}
-
-        /// Inverse attribute HasStructuralMember
-        /// @{
-        virtual Inverse_Set_IfcRelConnectsStructuralElement_0_n &getHasStructuralMember();
-        virtual const Inverse_Set_IfcRelConnectsStructuralElement_0_n &getHasStructuralMember() const;
-        virtual bool testHasStructuralMember() const;
-
-        friend class IfcRelConnectsStructuralElement;
         /// @}
 
 

@@ -51,9 +51,9 @@ namespace ifc2x3
         Step::RefPtr< IfcDateTimeSelect > m_ApplicableDate;
         Step::RefPtr< IfcDateTimeSelect > m_FixedUntilDate;
         // InverseAttributes
-        Inverse_Set_IfcReferencesValueDocument_0_n m_ValuesReferenced;
         Inverse_Set_IfcAppliedValueRelationship_0_n m_IsComponentIn;
         Inverse_Set_IfcAppliedValueRelationship_0_n m_ValueOfComponents;
+        Inverse_Set_IfcReferencesValueDocument_0_n m_ValuesReferenced;
 
         ClassType_definitions()
 
@@ -114,15 +114,6 @@ namespace ifc2x3
         virtual bool testFixedUntilDate() const;
         /// @}
 
-        /// Inverse attribute ValuesReferenced
-        /// @{
-        virtual Inverse_Set_IfcReferencesValueDocument_0_n &getValuesReferenced();
-        virtual const Inverse_Set_IfcReferencesValueDocument_0_n &getValuesReferenced() const;
-        virtual bool testValuesReferenced() const;
-
-        friend class IfcReferencesValueDocument;
-        /// @}
-
         /// Inverse attribute IsComponentIn
         /// @{
         virtual Inverse_Set_IfcAppliedValueRelationship_0_n &getIsComponentIn();
@@ -139,6 +130,15 @@ namespace ifc2x3
         virtual bool testValueOfComponents() const;
 
         friend class IfcAppliedValueRelationship;
+        /// @}
+
+        /// Inverse attribute ValuesReferenced
+        /// @{
+        virtual Inverse_Set_IfcReferencesValueDocument_0_n &getValuesReferenced();
+        virtual const Inverse_Set_IfcReferencesValueDocument_0_n &getValuesReferenced() const;
+        virtual bool testValuesReferenced() const;
+
+        friend class IfcReferencesValueDocument;
         /// @}
 
 

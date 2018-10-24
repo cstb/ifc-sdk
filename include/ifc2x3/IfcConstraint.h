@@ -52,12 +52,12 @@ namespace ifc2x3
         Step::RefPtr< IfcDateTimeSelect > m_CreationTime;
         IfcLabel m_UserDefinedGrade;
         // InverseAttributes
-        Inverse_Set_IfcConstraintAggregationRelationship_0_n m_Aggregates;
-        Inverse_Set_IfcPropertyConstraintRelationship_0_n m_PropertiesForConstraint;
-        Inverse_Set_IfcConstraintAggregationRelationship_0_n m_IsAggregatedIn;
-        Inverse_Set_IfcConstraintRelationship_0_n m_RelatesConstraints;
         Inverse_Set_IfcConstraintRelationship_0_n m_IsRelatedWith;
+        Inverse_Set_IfcConstraintRelationship_0_n m_RelatesConstraints;
+        Inverse_Set_IfcPropertyConstraintRelationship_0_n m_PropertiesForConstraint;
+        Inverse_Set_IfcConstraintAggregationRelationship_0_n m_Aggregates;
         Inverse_Set_IfcConstraintClassificationRelationship_0_n m_ClassifiedAs;
+        Inverse_Set_IfcConstraintAggregationRelationship_0_n m_IsAggregatedIn;
 
         ClassType_definitions()
 
@@ -127,31 +127,13 @@ namespace ifc2x3
         virtual bool testUserDefinedGrade() const;
         /// @}
 
-        /// Inverse attribute Aggregates
+        /// Inverse attribute IsRelatedWith
         /// @{
-        virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates();
-        virtual const Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates() const;
-        virtual bool testAggregates() const;
+        virtual Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith();
+        virtual const Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith() const;
+        virtual bool testIsRelatedWith() const;
 
-        friend class IfcConstraintAggregationRelationship;
-        /// @}
-
-        /// Inverse attribute PropertiesForConstraint
-        /// @{
-        virtual Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint();
-        virtual const Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint() const;
-        virtual bool testPropertiesForConstraint() const;
-
-        friend class IfcPropertyConstraintRelationship;
-        /// @}
-
-        /// Inverse attribute IsAggregatedIn
-        /// @{
-        virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn();
-        virtual const Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn() const;
-        virtual bool testIsAggregatedIn() const;
-
-        friend class IfcConstraintAggregationRelationship;
+        friend class IfcConstraintRelationship;
         /// @}
 
         /// Inverse attribute RelatesConstraints
@@ -163,13 +145,22 @@ namespace ifc2x3
         friend class IfcConstraintRelationship;
         /// @}
 
-        /// Inverse attribute IsRelatedWith
+        /// Inverse attribute PropertiesForConstraint
         /// @{
-        virtual Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith();
-        virtual const Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith() const;
-        virtual bool testIsRelatedWith() const;
+        virtual Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint();
+        virtual const Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint() const;
+        virtual bool testPropertiesForConstraint() const;
 
-        friend class IfcConstraintRelationship;
+        friend class IfcPropertyConstraintRelationship;
+        /// @}
+
+        /// Inverse attribute Aggregates
+        /// @{
+        virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates();
+        virtual const Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates() const;
+        virtual bool testAggregates() const;
+
+        friend class IfcConstraintAggregationRelationship;
         /// @}
 
         /// Inverse attribute ClassifiedAs
@@ -179,6 +170,15 @@ namespace ifc2x3
         virtual bool testClassifiedAs() const;
 
         friend class IfcConstraintClassificationRelationship;
+        /// @}
+
+        /// Inverse attribute IsAggregatedIn
+        /// @{
+        virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn();
+        virtual const Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn() const;
+        virtual bool testIsAggregatedIn() const;
+
+        friend class IfcConstraintAggregationRelationship;
         /// @}
 
 

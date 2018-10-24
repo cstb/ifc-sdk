@@ -44,8 +44,8 @@ namespace ifc2x3
         // Attributes
         Set_IfcDraughtingCalloutElement_1_n m_Contents;
         // InverseAttributes
-        Inverse_Set_IfcDraughtingCalloutRelationship_0_n m_IsRelatedFromCallout;
         Inverse_Set_IfcDraughtingCalloutRelationship_0_n m_IsRelatedToCallout;
+        Inverse_Set_IfcDraughtingCalloutRelationship_0_n m_IsRelatedFromCallout;
 
         ClassType_definitions()
 
@@ -61,20 +61,20 @@ namespace ifc2x3
         virtual bool testContents() const;
         /// @}
 
-        /// Inverse attribute IsRelatedFromCallout
-        /// @{
-        virtual Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedFromCallout();
-        virtual const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedFromCallout() const;
-        virtual bool testIsRelatedFromCallout() const;
-
-        friend class IfcDraughtingCalloutRelationship;
-        /// @}
-
         /// Inverse attribute IsRelatedToCallout
         /// @{
         virtual Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedToCallout();
         virtual const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedToCallout() const;
         virtual bool testIsRelatedToCallout() const;
+
+        friend class IfcDraughtingCalloutRelationship;
+        /// @}
+
+        /// Inverse attribute IsRelatedFromCallout
+        /// @{
+        virtual Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedFromCallout();
+        virtual const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedFromCallout() const;
+        virtual bool testIsRelatedFromCallout() const;
 
         friend class IfcDraughtingCalloutRelationship;
         /// @}

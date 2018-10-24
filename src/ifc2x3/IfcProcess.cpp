@@ -27,8 +27,8 @@
 #include <ifc2x3/IfcProcess.h>
 
 #include <ifc2x3/IfcRelSequence.h>
-#include <ifc2x3/IfcRelSequence.h>
 #include <ifc2x3/IfcRelAssignsToProcess.h>
+#include <ifc2x3/IfcRelSequence.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -74,27 +74,6 @@ bool IfcProcess::testIsPredecessorTo() const
     return m_IsPredecessorTo.isUnset() == false;
 }
 
-Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_IsSuccessorFrom;
-    }
- 
-    m_IsSuccessorFrom.setUnset(true);
-    return m_IsSuccessorFrom;
-}
-
-const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() const
-{
-    return  const_cast< IfcProcess * > (this)->getIsSuccessorFrom();
-}
-
-bool IfcProcess::testIsSuccessorFrom() const
-{
-    return m_IsSuccessorFrom.isUnset() == false;
-}
-
 Inverse_Set_IfcRelAssignsToProcess_0_n &IfcProcess::getOperatesOn()
 {
     if (Step::BaseObject::inited())
@@ -116,6 +95,27 @@ bool IfcProcess::testOperatesOn() const
     return m_OperatesOn.isUnset() == false;
 }
 
+Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_IsSuccessorFrom;
+    }
+ 
+    m_IsSuccessorFrom.setUnset(true);
+    return m_IsSuccessorFrom;
+}
+
+const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() const
+{
+    return  const_cast< IfcProcess * > (this)->getIsSuccessorFrom();
+}
+
+bool IfcProcess::testIsSuccessorFrom() const
+{
+    return m_IsSuccessorFrom.isUnset() == false;
+}
+
 bool IfcProcess::init()
 {
     if (IfcObject::init() == false)
@@ -133,16 +133,6 @@ bool IfcProcess::init()
             m_IsPredecessorTo.insert(static_cast< IfcRelSequence * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
-    inverses = m_args->getInverses(IfcRelSequence::getClassType(), 5);
-    if (inverses)
-    {
-        unsigned int i;
-        m_IsSuccessorFrom.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_IsSuccessorFrom.insert(static_cast< IfcRelSequence * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
     inverses = m_args->getInverses(IfcRelAssignsToProcess::getClassType(), 6);
     if (inverses)
     {
@@ -151,6 +141,16 @@ bool IfcProcess::init()
         for (i = 0; i < inverses->size(); i++)
         {
             m_OperatesOn.insert(static_cast< IfcRelAssignsToProcess * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcRelSequence::getClassType(), 5);
+    if (inverses)
+    {
+        unsigned int i;
+        m_IsSuccessorFrom.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_IsSuccessorFrom.insert(static_cast< IfcRelSequence * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

@@ -26,9 +26,9 @@
 
 #include <ifc2x3/IfcSpatialStructureElement.h>
 
-#include <ifc2x3/IfcRelServicesBuildings.h>
 #include <ifc2x3/IfcRelContainedInSpatialStructure.h>
 #include <ifc2x3/IfcRelReferencedInSpatialStructure.h>
+#include <ifc2x3/IfcRelServicesBuildings.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -125,27 +125,6 @@ bool IfcSpatialStructureElement::testCompositionType() const
     return Step::isUnset(getCompositionType()) == false;
 }
 
-Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServicedBySystems()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_ServicedBySystems;
-    }
- 
-    m_ServicedBySystems.setUnset(true);
-    return m_ServicedBySystems;
-}
-
-const Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServicedBySystems() const
-{
-    return  const_cast< IfcSpatialStructureElement * > (this)->getServicedBySystems();
-}
-
-bool IfcSpatialStructureElement::testServicedBySystems() const
-{
-    return m_ServicedBySystems.isUnset() == false;
-}
-
 Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElement::getContainsElements()
 {
     if (Step::BaseObject::inited())
@@ -188,6 +167,27 @@ bool IfcSpatialStructureElement::testReferencesElements() const
     return m_ReferencesElements.isUnset() == false;
 }
 
+Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServicedBySystems()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ServicedBySystems;
+    }
+ 
+    m_ServicedBySystems.setUnset(true);
+    return m_ServicedBySystems;
+}
+
+const Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServicedBySystems() const
+{
+    return  const_cast< IfcSpatialStructureElement * > (this)->getServicedBySystems();
+}
+
+bool IfcSpatialStructureElement::testServicedBySystems() const
+{
+    return m_ServicedBySystems.isUnset() == false;
+}
+
 bool IfcSpatialStructureElement::init()
 {
     if (IfcProduct::init() == false)
@@ -226,16 +226,6 @@ bool IfcSpatialStructureElement::init()
         }
     }
     std::vector< Step::Id > *inverses;
-    inverses = m_args->getInverses(IfcRelServicesBuildings::getClassType(), 5);
-    if (inverses)
-    {
-        unsigned int i;
-        m_ServicedBySystems.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_ServicedBySystems.insert(static_cast< IfcRelServicesBuildings * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
     inverses = m_args->getInverses(IfcRelContainedInSpatialStructure::getClassType(), 5);
     if (inverses)
     {
@@ -254,6 +244,16 @@ bool IfcSpatialStructureElement::init()
         for (i = 0; i < inverses->size(); i++)
         {
             m_ReferencesElements.insert(static_cast< IfcRelReferencedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcRelServicesBuildings::getClassType(), 5);
+    if (inverses)
+    {
+        unsigned int i;
+        m_ServicedBySystems.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_ServicedBySystems.insert(static_cast< IfcRelServicesBuildings * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

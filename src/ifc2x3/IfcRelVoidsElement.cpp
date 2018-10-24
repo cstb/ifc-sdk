@@ -26,8 +26,8 @@
 
 #include <ifc2x3/IfcRelVoidsElement.h>
 
-#include <ifc2x3/IfcFeatureElementSubtraction.h>
 #include <ifc2x3/IfcElement.h>
+#include <ifc2x3/IfcFeatureElementSubtraction.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -42,8 +42,8 @@ using namespace ifc2x3;
 IfcRelVoidsElement::IfcRelVoidsElement(Step::Id id, Step::SPFData *args) : 
     IfcRelConnects(id, args)
 {
-    m_RelatedOpeningElement = NULL;
     m_RelatingBuildingElement = NULL;
+    m_RelatedOpeningElement = NULL;
 }
 
 IfcRelVoidsElement::~IfcRelVoidsElement()
@@ -52,48 +52,6 @@ IfcRelVoidsElement::~IfcRelVoidsElement()
 bool IfcRelVoidsElement::acceptVisitor(Step::BaseVisitor *visitor)
 {
     return static_cast<Visitor *>(visitor)->visitIfcRelVoidsElement(this);
-}
-
-IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_RelatedOpeningElement.get();
-    }
-    else
-    {
-        return NULL;
-    }
-}
-
-const IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement() const
-{
-    return const_cast< IfcRelVoidsElement * > (this)->getRelatedOpeningElement();
-}
-
-void IfcRelVoidsElement::setRelatedOpeningElement(const Step::RefPtr< IfcFeatureElementSubtraction > &value)
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    if (m_RelatedOpeningElement.valid())
-    {
-        m_RelatedOpeningElement->m_VoidsElements = NULL;
-    }
-    if (value.valid() )
-    {
-        value->m_VoidsElements = this;
-    }
-    m_RelatedOpeningElement = value;
-}
-
-void IfcRelVoidsElement::unsetRelatedOpeningElement()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_RelatedOpeningElement = Step::getUnset(getRelatedOpeningElement());
-}
-
-bool IfcRelVoidsElement::testRelatedOpeningElement() const
-{
-    return Step::isUnset(getRelatedOpeningElement()) == false;
 }
 
 IfcElement *IfcRelVoidsElement::getRelatingBuildingElement()
@@ -138,6 +96,48 @@ bool IfcRelVoidsElement::testRelatingBuildingElement() const
     return Step::isUnset(getRelatingBuildingElement()) == false;
 }
 
+IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedOpeningElement.get();
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+const IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement() const
+{
+    return const_cast< IfcRelVoidsElement * > (this)->getRelatedOpeningElement();
+}
+
+void IfcRelVoidsElement::setRelatedOpeningElement(const Step::RefPtr< IfcFeatureElementSubtraction > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatedOpeningElement.valid())
+    {
+        m_RelatedOpeningElement->m_VoidsElements = NULL;
+    }
+    if (value.valid() )
+    {
+        value->m_VoidsElements = this;
+    }
+    m_RelatedOpeningElement = value;
+}
+
+void IfcRelVoidsElement::unsetRelatedOpeningElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedOpeningElement = Step::getUnset(getRelatedOpeningElement());
+}
+
+bool IfcRelVoidsElement::testRelatedOpeningElement() const
+{
+    return Step::isUnset(getRelatedOpeningElement()) == false;
+}
+
 bool IfcRelVoidsElement::init()
 {
     if (IfcRelConnects::init() == false)
@@ -148,21 +148,21 @@ bool IfcRelVoidsElement::init()
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
-        m_RelatedOpeningElement = NULL;
-    }
-    else
-    {
-        m_RelatedOpeningElement = static_cast< IfcFeatureElementSubtraction * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
         m_RelatingBuildingElement = NULL;
     }
     else
     {
         m_RelatingBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedOpeningElement = NULL;
+    }
+    else
+    {
+        m_RelatedOpeningElement = static_cast< IfcFeatureElementSubtraction * > (m_expressDataSet->get(Step::getIdParam(arg)))
 ;
     }
     return true;
@@ -171,8 +171,8 @@ bool IfcRelVoidsElement::init()
 void IfcRelVoidsElement::copy(const IfcRelVoidsElement &obj, const CopyOp &copyop)
 {
     IfcRelConnects::copy(obj, copyop);
-    setRelatedOpeningElement((IfcFeatureElementSubtraction*)copyop(obj.m_RelatedOpeningElement.get()));
     setRelatingBuildingElement((IfcElement*)copyop(obj.m_RelatingBuildingElement.get()));
+    setRelatedOpeningElement((IfcFeatureElementSubtraction*)copyop(obj.m_RelatedOpeningElement.get()));
     return;
 }
 

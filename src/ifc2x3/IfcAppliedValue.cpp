@@ -30,9 +30,9 @@
 #include <ifc2x3/IfcMeasureWithUnit.h>
 #include <ifc2x3/IfcDateTimeSelect.h>
 #include <ifc2x3/IfcDateTimeSelect.h>
+#include <ifc2x3/IfcAppliedValueRelationship.h>
+#include <ifc2x3/IfcAppliedValueRelationship.h>
 #include <ifc2x3/IfcReferencesValueDocument.h>
-#include <ifc2x3/IfcAppliedValueRelationship.h>
-#include <ifc2x3/IfcAppliedValueRelationship.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -273,27 +273,6 @@ bool IfcAppliedValue::testFixedUntilDate() const
     return Step::isUnset(getFixedUntilDate()) == false;
 }
 
-Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_ValuesReferenced;
-    }
- 
-    m_ValuesReferenced.setUnset(true);
-    return m_ValuesReferenced;
-}
-
-const Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced() const
-{
-    return  const_cast< IfcAppliedValue * > (this)->getValuesReferenced();
-}
-
-bool IfcAppliedValue::testValuesReferenced() const
-{
-    return m_ValuesReferenced.isUnset() == false;
-}
-
 Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsComponentIn()
 {
     if (Step::BaseObject::inited())
@@ -334,6 +313,27 @@ const Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getValueOfCo
 bool IfcAppliedValue::testValueOfComponents() const
 {
     return m_ValueOfComponents.isUnset() == false;
+}
+
+Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ValuesReferenced;
+    }
+ 
+    m_ValuesReferenced.setUnset(true);
+    return m_ValuesReferenced;
+}
+
+const Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced() const
+{
+    return  const_cast< IfcAppliedValue * > (this)->getValuesReferenced();
+}
+
+bool IfcAppliedValue::testValuesReferenced() const
+{
+    return m_ValuesReferenced.isUnset() == false;
 }
 
 bool IfcAppliedValue::init()
@@ -447,16 +447,6 @@ bool IfcAppliedValue::init()
         }
     }
     std::vector< Step::Id > *inverses;
-    inverses = m_args->getInverses(IfcReferencesValueDocument::getClassType(), 1);
-    if (inverses)
-    {
-        unsigned int i;
-        m_ValuesReferenced.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_ValuesReferenced.insert(static_cast< IfcReferencesValueDocument * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
     inverses = m_args->getInverses(IfcAppliedValueRelationship::getClassType(), 1);
     if (inverses)
     {
@@ -475,6 +465,16 @@ bool IfcAppliedValue::init()
         for (i = 0; i < inverses->size(); i++)
         {
             m_ValueOfComponents.insert(static_cast< IfcAppliedValueRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcReferencesValueDocument::getClassType(), 1);
+    if (inverses)
+    {
+        unsigned int i;
+        m_ValuesReferenced.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_ValuesReferenced.insert(static_cast< IfcReferencesValueDocument * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

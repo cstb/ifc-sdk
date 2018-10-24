@@ -42,13 +42,22 @@ namespace ifc2x3
     {
 
         // InverseAttributes
+        Inverse_Set_IfcProduct_1_n m_ShapeOfProduct;
         Inverse_Set_IfcShapeAspect_0_n m_HasShapeAspects;
-        Inverse_Set_IfcProduct_1_1 m_ShapeOfProduct;
 
         ClassType_definitions()
 
     public:
         virtual bool acceptVisitor(Step::BaseVisitor *visitor);
+
+        /// Inverse attribute ShapeOfProduct
+        /// @{
+        virtual Inverse_Set_IfcProduct_1_n &getShapeOfProduct();
+        virtual const Inverse_Set_IfcProduct_1_n &getShapeOfProduct() const;
+        virtual bool testShapeOfProduct() const;
+
+        friend class IfcProduct;
+        /// @}
 
         /// Inverse attribute HasShapeAspects
         /// @{
@@ -57,15 +66,6 @@ namespace ifc2x3
         virtual bool testHasShapeAspects() const;
 
         friend class IfcShapeAspect;
-        /// @}
-
-        /// Inverse attribute ShapeOfProduct
-        /// @{
-        virtual Inverse_Set_IfcProduct_1_1 &getShapeOfProduct();
-        virtual const Inverse_Set_IfcProduct_1_1 &getShapeOfProduct() const;
-        virtual bool testShapeOfProduct() const;
-
-        friend class IfcProduct;
         /// @}
 
 

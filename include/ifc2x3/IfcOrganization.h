@@ -103,9 +103,9 @@ namespace ifc2x3
         // InvertedAttributes
         Inverted_IfcOrganization_Addresses_type m_Addresses;
         // InverseAttributes
-        Inverse_Set_IfcOrganizationRelationship_0_n m_IsRelatedBy;
         Inverse_Set_IfcPersonAndOrganization_0_n m_Engages;
         Inverse_Set_IfcOrganizationRelationship_0_n m_Relates;
+        Inverse_Set_IfcOrganizationRelationship_0_n m_IsRelatedBy;
 
         ClassType_definitions()
 
@@ -156,15 +156,6 @@ namespace ifc2x3
         virtual bool testAddresses() const;
         /// @}
 
-        /// Inverse attribute IsRelatedBy
-        /// @{
-        virtual Inverse_Set_IfcOrganizationRelationship_0_n &getIsRelatedBy();
-        virtual const Inverse_Set_IfcOrganizationRelationship_0_n &getIsRelatedBy() const;
-        virtual bool testIsRelatedBy() const;
-
-        friend class IfcOrganizationRelationship;
-        /// @}
-
         /// Inverse attribute Engages
         /// @{
         virtual Inverse_Set_IfcPersonAndOrganization_0_n &getEngages();
@@ -179,6 +170,15 @@ namespace ifc2x3
         virtual Inverse_Set_IfcOrganizationRelationship_0_n &getRelates();
         virtual const Inverse_Set_IfcOrganizationRelationship_0_n &getRelates() const;
         virtual bool testRelates() const;
+
+        friend class IfcOrganizationRelationship;
+        /// @}
+
+        /// Inverse attribute IsRelatedBy
+        /// @{
+        virtual Inverse_Set_IfcOrganizationRelationship_0_n &getIsRelatedBy();
+        virtual const Inverse_Set_IfcOrganizationRelationship_0_n &getIsRelatedBy() const;
+        virtual bool testIsRelatedBy() const;
 
         friend class IfcOrganizationRelationship;
         /// @}

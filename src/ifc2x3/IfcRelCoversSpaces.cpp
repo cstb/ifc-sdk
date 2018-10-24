@@ -26,9 +26,9 @@
 
 #include <ifc2x3/IfcRelCoversSpaces.h>
 
+#include <ifc2x3/IfcCovering.h>
+#include <ifc2x3/IfcCovering.h>
 #include <ifc2x3/IfcSpace.h>
-#include <ifc2x3/IfcCovering.h>
-#include <ifc2x3/IfcCovering.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -80,9 +80,9 @@ void Inverted_IfcRelCoversSpaces_RelatedCoverings_type::clear()
 IfcRelCoversSpaces::IfcRelCoversSpaces(Step::Id id, Step::SPFData *args) : 
     IfcRelConnects(id, args)
 {
-    m_RelatedSpace = NULL;
     m_RelatedCoverings.setUnset(true);
     m_RelatedCoverings.setOwner(this);
+    m_RelatedSpace = NULL;
 }
 
 IfcRelCoversSpaces::~IfcRelCoversSpaces()
@@ -91,6 +91,36 @@ IfcRelCoversSpaces::~IfcRelCoversSpaces()
 bool IfcRelCoversSpaces::acceptVisitor(Step::BaseVisitor *visitor)
 {
     return static_cast<Visitor *>(visitor)->visitIfcRelCoversSpaces(this);
+}
+
+Set_IfcCovering_1_n &IfcRelCoversSpaces::getRelatedCoverings()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedCoverings;
+    }
+    else
+    {
+        m_RelatedCoverings.setUnset(true);
+        return m_RelatedCoverings;
+    }
+}
+
+const Set_IfcCovering_1_n &IfcRelCoversSpaces::getRelatedCoverings() const
+{
+    return const_cast< IfcRelCoversSpaces * > (this)->getRelatedCoverings();
+}
+
+void IfcRelCoversSpaces::unsetRelatedCoverings()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedCoverings.clear();
+    m_RelatedCoverings.setUnset(true);
+}
+
+bool IfcRelCoversSpaces::testRelatedCoverings() const
+{
+    return m_RelatedCoverings.isUnset() == false;
 }
 
 IfcSpace *IfcRelCoversSpaces::getRelatedSpace()
@@ -135,36 +165,6 @@ bool IfcRelCoversSpaces::testRelatedSpace() const
     return Step::isUnset(getRelatedSpace()) == false;
 }
 
-Set_IfcCovering_1_n &IfcRelCoversSpaces::getRelatedCoverings()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_RelatedCoverings;
-    }
-    else
-    {
-        m_RelatedCoverings.setUnset(true);
-        return m_RelatedCoverings;
-    }
-}
-
-const Set_IfcCovering_1_n &IfcRelCoversSpaces::getRelatedCoverings() const
-{
-    return const_cast< IfcRelCoversSpaces * > (this)->getRelatedCoverings();
-}
-
-void IfcRelCoversSpaces::unsetRelatedCoverings()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_RelatedCoverings.clear();
-    m_RelatedCoverings.setUnset(true);
-}
-
-bool IfcRelCoversSpaces::testRelatedCoverings() const
-{
-    return m_RelatedCoverings.isUnset() == false;
-}
-
 bool IfcRelCoversSpaces::init()
 {
     if (IfcRelConnects::init() == false)
@@ -172,16 +172,6 @@ bool IfcRelCoversSpaces::init()
         return false;
     }
     std::string arg;
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
-        m_RelatedSpace = NULL;
-    }
-    else
-    {
-        m_RelatedSpace = static_cast< IfcSpace * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
@@ -205,13 +195,22 @@ bool IfcRelCoversSpaces::init()
             }
         }
     }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedSpace = NULL;
+    }
+    else
+    {
+        m_RelatedSpace = static_cast< IfcSpace * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
     return true;
 }
 
 void IfcRelCoversSpaces::copy(const IfcRelCoversSpaces &obj, const CopyOp &copyop)
 {
     IfcRelConnects::copy(obj, copyop);
-    setRelatedSpace((IfcSpace*)copyop(obj.m_RelatedSpace.get()));
     Set_IfcCovering_1_n::const_iterator it_m_RelatedCoverings;
     for (it_m_RelatedCoverings = obj.m_RelatedCoverings.begin(); it_m_RelatedCoverings != obj.m_RelatedCoverings.end(); ++it_m_RelatedCoverings)
     {
@@ -219,6 +218,7 @@ void IfcRelCoversSpaces::copy(const IfcRelCoversSpaces &obj, const CopyOp &copyo
         m_RelatedCoverings.insert(copyTarget);
     }
     
+    setRelatedSpace((IfcSpace*)copyop(obj.m_RelatedSpace.get()));
     return;
 }
 

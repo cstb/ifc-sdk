@@ -44,8 +44,8 @@ namespace ifc2x3
         // Attributes
         Step::RefPtr< IfcConnectionGeometry > m_ConnectionGeometry;
         // InvertedAttributes
-        Step::RefPtr< IfcElement > m_RelatingElement;
         Step::RefPtr< IfcElement > m_RelatedElement;
+        Step::RefPtr< IfcElement > m_RelatingElement;
 
         ClassType_definitions()
 
@@ -61,15 +61,6 @@ namespace ifc2x3
         virtual bool testConnectionGeometry() const;
         /// @}
 
-        /// Attribute RelatingElement
-        /// @{
-        virtual IfcElement *getRelatingElement();
-        virtual const IfcElement *getRelatingElement() const;
-        virtual void setRelatingElement(const Step::RefPtr< IfcElement > &value);
-        virtual void unsetRelatingElement();
-        virtual bool testRelatingElement() const;
-        /// @}
-
         /// Attribute RelatedElement
         /// @{
         virtual IfcElement *getRelatedElement();
@@ -77,6 +68,15 @@ namespace ifc2x3
         virtual void setRelatedElement(const Step::RefPtr< IfcElement > &value);
         virtual void unsetRelatedElement();
         virtual bool testRelatedElement() const;
+        /// @}
+
+        /// Attribute RelatingElement
+        /// @{
+        virtual IfcElement *getRelatingElement();
+        virtual const IfcElement *getRelatingElement() const;
+        virtual void setRelatingElement(const Step::RefPtr< IfcElement > &value);
+        virtual void unsetRelatingElement();
+        virtual bool testRelatingElement() const;
         /// @}
 
 

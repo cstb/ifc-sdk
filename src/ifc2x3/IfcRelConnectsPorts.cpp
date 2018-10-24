@@ -44,8 +44,8 @@ IfcRelConnectsPorts::IfcRelConnectsPorts(Step::Id id, Step::SPFData *args) :
     IfcRelConnects(id, args)
 {
     m_RealizingElement = NULL;
-    m_RelatingPort = NULL;
     m_RelatedPort = NULL;
+    m_RelatingPort = NULL;
 }
 
 IfcRelConnectsPorts::~IfcRelConnectsPorts()
@@ -91,48 +91,6 @@ bool IfcRelConnectsPorts::testRealizingElement() const
     return Step::isUnset(getRealizingElement()) == false;
 }
 
-IfcPort *IfcRelConnectsPorts::getRelatingPort()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_RelatingPort.get();
-    }
-    else
-    {
-        return NULL;
-    }
-}
-
-const IfcPort *IfcRelConnectsPorts::getRelatingPort() const
-{
-    return const_cast< IfcRelConnectsPorts * > (this)->getRelatingPort();
-}
-
-void IfcRelConnectsPorts::setRelatingPort(const Step::RefPtr< IfcPort > &value)
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    if (m_RelatingPort.valid())
-    {
-        m_RelatingPort->m_ConnectedTo.erase(this);
-    }
-    if (value.valid() )
-    {
-       value->m_ConnectedTo.insert(this);
-    }
-    m_RelatingPort = value;
-}
-
-void IfcRelConnectsPorts::unsetRelatingPort()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_RelatingPort = Step::getUnset(getRelatingPort());
-}
-
-bool IfcRelConnectsPorts::testRelatingPort() const
-{
-    return Step::isUnset(getRelatingPort()) == false;
-}
-
 IfcPort *IfcRelConnectsPorts::getRelatedPort()
 {
     if (Step::BaseObject::inited())
@@ -175,6 +133,48 @@ bool IfcRelConnectsPorts::testRelatedPort() const
     return Step::isUnset(getRelatedPort()) == false;
 }
 
+IfcPort *IfcRelConnectsPorts::getRelatingPort()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingPort.get();
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+const IfcPort *IfcRelConnectsPorts::getRelatingPort() const
+{
+    return const_cast< IfcRelConnectsPorts * > (this)->getRelatingPort();
+}
+
+void IfcRelConnectsPorts::setRelatingPort(const Step::RefPtr< IfcPort > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingPort.valid())
+    {
+        m_RelatingPort->m_ConnectedTo.erase(this);
+    }
+    if (value.valid() )
+    {
+       value->m_ConnectedTo.insert(this);
+    }
+    m_RelatingPort = value;
+}
+
+void IfcRelConnectsPorts::unsetRelatingPort()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingPort = Step::getUnset(getRelatingPort());
+}
+
+bool IfcRelConnectsPorts::testRelatingPort() const
+{
+    return Step::isUnset(getRelatingPort()) == false;
+}
+
 bool IfcRelConnectsPorts::init()
 {
     if (IfcRelConnects::init() == false)
@@ -195,21 +195,21 @@ bool IfcRelConnectsPorts::init()
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
-        m_RelatingPort = NULL;
-    }
-    else
-    {
-        m_RelatingPort = static_cast< IfcPort * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
         m_RelatedPort = NULL;
     }
     else
     {
         m_RelatedPort = static_cast< IfcPort * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingPort = NULL;
+    }
+    else
+    {
+        m_RelatingPort = static_cast< IfcPort * > (m_expressDataSet->get(Step::getIdParam(arg)))
 ;
     }
     return true;
@@ -219,8 +219,8 @@ void IfcRelConnectsPorts::copy(const IfcRelConnectsPorts &obj, const CopyOp &cop
 {
     IfcRelConnects::copy(obj, copyop);
     setRealizingElement((IfcElement*)copyop(obj.m_RealizingElement.get()));
-    setRelatingPort((IfcPort*)copyop(obj.m_RelatingPort.get()));
     setRelatedPort((IfcPort*)copyop(obj.m_RelatedPort.get()));
+    setRelatingPort((IfcPort*)copyop(obj.m_RelatingPort.get()));
     return;
 }
 

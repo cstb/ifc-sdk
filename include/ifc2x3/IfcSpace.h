@@ -45,8 +45,8 @@ namespace ifc2x3
         IfcInternalOrExternalEnum m_InteriorOrExteriorSpace;
         IfcLengthMeasure m_ElevationWithFlooring;
         // InverseAttributes
-        Inverse_Set_IfcRelCoversSpaces_0_n m_HasCoverings;
         Inverse_Set_IfcRelSpaceBoundary_0_n m_BoundedBy;
+        Inverse_Set_IfcRelCoversSpaces_0_n m_HasCoverings;
 
         ClassType_definitions()
 
@@ -71,15 +71,6 @@ namespace ifc2x3
         virtual bool testElevationWithFlooring() const;
         /// @}
 
-        /// Inverse attribute HasCoverings
-        /// @{
-        virtual Inverse_Set_IfcRelCoversSpaces_0_n &getHasCoverings();
-        virtual const Inverse_Set_IfcRelCoversSpaces_0_n &getHasCoverings() const;
-        virtual bool testHasCoverings() const;
-
-        friend class IfcRelCoversSpaces;
-        /// @}
-
         /// Inverse attribute BoundedBy
         /// @{
         virtual Inverse_Set_IfcRelSpaceBoundary_0_n &getBoundedBy();
@@ -87,6 +78,15 @@ namespace ifc2x3
         virtual bool testBoundedBy() const;
 
         friend class IfcRelSpaceBoundary;
+        /// @}
+
+        /// Inverse attribute HasCoverings
+        /// @{
+        virtual Inverse_Set_IfcRelCoversSpaces_0_n &getHasCoverings();
+        virtual const Inverse_Set_IfcRelCoversSpaces_0_n &getHasCoverings() const;
+        virtual bool testHasCoverings() const;
+
+        friend class IfcRelCoversSpaces;
         /// @}
 
 

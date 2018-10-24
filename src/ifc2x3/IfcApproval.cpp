@@ -28,8 +28,8 @@
 
 #include <ifc2x3/IfcDateTimeSelect.h>
 #include <ifc2x3/IfcApprovalRelationship.h>
-#include <ifc2x3/IfcApprovalRelationship.h>
 #include <ifc2x3/IfcApprovalActorRelationship.h>
+#include <ifc2x3/IfcApprovalRelationship.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -327,27 +327,6 @@ bool IfcApproval::testIsRelatedWith() const
     return m_IsRelatedWith.isUnset() == false;
 }
 
-Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getRelates()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_Relates;
-    }
- 
-    m_Relates.setUnset(true);
-    return m_Relates;
-}
-
-const Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getRelates() const
-{
-    return  const_cast< IfcApproval * > (this)->getRelates();
-}
-
-bool IfcApproval::testRelates() const
-{
-    return m_Relates.isUnset() == false;
-}
-
 Inverse_Set_IfcApprovalActorRelationship_0_n &IfcApproval::getActors()
 {
     if (Step::BaseObject::inited())
@@ -367,6 +346,27 @@ const Inverse_Set_IfcApprovalActorRelationship_0_n &IfcApproval::getActors() con
 bool IfcApproval::testActors() const
 {
     return m_Actors.isUnset() == false;
+}
+
+Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getRelates()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_Relates;
+    }
+ 
+    m_Relates.setUnset(true);
+    return m_Relates;
+}
+
+const Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getRelates() const
+{
+    return  const_cast< IfcApproval * > (this)->getRelates();
+}
+
+bool IfcApproval::testRelates() const
+{
+    return m_Relates.isUnset() == false;
 }
 
 bool IfcApproval::init()
@@ -464,16 +464,6 @@ bool IfcApproval::init()
             m_IsRelatedWith.insert(static_cast< IfcApprovalRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
-    inverses = m_args->getInverses(IfcApprovalRelationship::getClassType(), 1);
-    if (inverses)
-    {
-        unsigned int i;
-        m_Relates.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_Relates.insert(static_cast< IfcApprovalRelationship * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
     inverses = m_args->getInverses(IfcApprovalActorRelationship::getClassType(), 1);
     if (inverses)
     {
@@ -482,6 +472,16 @@ bool IfcApproval::init()
         for (i = 0; i < inverses->size(); i++)
         {
             m_Actors.insert(static_cast< IfcApprovalActorRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcApprovalRelationship::getClassType(), 1);
+    if (inverses)
+    {
+        unsigned int i;
+        m_Relates.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_Relates.insert(static_cast< IfcApprovalRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

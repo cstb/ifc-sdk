@@ -48,10 +48,10 @@ namespace ifc2x3
         Step::RefPtr< IfcCurve > m_AxisCurve;
         IfcBoolean m_SameSense;
         // InverseAttributes
-        Inverse_Set_IfcVirtualGridIntersection_0_n m_HasIntersections;
-        Inverse_Set_IfcGrid_0_1 m_PartOfV;
         Inverse_Set_IfcGrid_0_1 m_PartOfU;
         Inverse_Set_IfcGrid_0_1 m_PartOfW;
+        Inverse_Set_IfcGrid_0_1 m_PartOfV;
+        Inverse_Set_IfcVirtualGridIntersection_0_n m_HasIntersections;
 
         ClassType_definitions()
 
@@ -85,24 +85,6 @@ namespace ifc2x3
         virtual bool testSameSense() const;
         /// @}
 
-        /// Inverse attribute HasIntersections
-        /// @{
-        virtual Inverse_Set_IfcVirtualGridIntersection_0_n &getHasIntersections();
-        virtual const Inverse_Set_IfcVirtualGridIntersection_0_n &getHasIntersections() const;
-        virtual bool testHasIntersections() const;
-
-        friend class IfcVirtualGridIntersection;
-        /// @}
-
-        /// Inverse attribute PartOfV
-        /// @{
-        virtual Inverse_Set_IfcGrid_0_1 &getPartOfV();
-        virtual const Inverse_Set_IfcGrid_0_1 &getPartOfV() const;
-        virtual bool testPartOfV() const;
-
-        friend class IfcGrid;
-        /// @}
-
         /// Inverse attribute PartOfU
         /// @{
         virtual Inverse_Set_IfcGrid_0_1 &getPartOfU();
@@ -119,6 +101,24 @@ namespace ifc2x3
         virtual bool testPartOfW() const;
 
         friend class IfcGrid;
+        /// @}
+
+        /// Inverse attribute PartOfV
+        /// @{
+        virtual Inverse_Set_IfcGrid_0_1 &getPartOfV();
+        virtual const Inverse_Set_IfcGrid_0_1 &getPartOfV() const;
+        virtual bool testPartOfV() const;
+
+        friend class IfcGrid;
+        /// @}
+
+        /// Inverse attribute HasIntersections
+        /// @{
+        virtual Inverse_Set_IfcVirtualGridIntersection_0_n &getHasIntersections();
+        virtual const Inverse_Set_IfcVirtualGridIntersection_0_n &getHasIntersections() const;
+        virtual bool testHasIntersections() const;
+
+        friend class IfcVirtualGridIntersection;
         /// @}
 
 

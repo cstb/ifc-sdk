@@ -46,8 +46,8 @@ IfcRelInteractionRequirements::IfcRelInteractionRequirements(Step::Id id, Step::
     m_DailyInteraction = Step::getUnset(m_DailyInteraction);
     m_ImportanceRating = Step::getUnset(m_ImportanceRating);
     m_LocationOfInteraction = NULL;
-    m_RelatedSpaceProgram = NULL;
     m_RelatingSpaceProgram = NULL;
+    m_RelatedSpaceProgram = NULL;
 }
 
 IfcRelInteractionRequirements::~IfcRelInteractionRequirements()
@@ -163,48 +163,6 @@ bool IfcRelInteractionRequirements::testLocationOfInteraction() const
     return Step::isUnset(getLocationOfInteraction()) == false;
 }
 
-IfcSpaceProgram *IfcRelInteractionRequirements::getRelatedSpaceProgram()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_RelatedSpaceProgram.get();
-    }
-    else
-    {
-        return NULL;
-    }
-}
-
-const IfcSpaceProgram *IfcRelInteractionRequirements::getRelatedSpaceProgram() const
-{
-    return const_cast< IfcRelInteractionRequirements * > (this)->getRelatedSpaceProgram();
-}
-
-void IfcRelInteractionRequirements::setRelatedSpaceProgram(const Step::RefPtr< IfcSpaceProgram > &value)
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    if (m_RelatedSpaceProgram.valid())
-    {
-        m_RelatedSpaceProgram->m_HasInteractionReqsFrom.erase(this);
-    }
-    if (value.valid() )
-    {
-       value->m_HasInteractionReqsFrom.insert(this);
-    }
-    m_RelatedSpaceProgram = value;
-}
-
-void IfcRelInteractionRequirements::unsetRelatedSpaceProgram()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_RelatedSpaceProgram = Step::getUnset(getRelatedSpaceProgram());
-}
-
-bool IfcRelInteractionRequirements::testRelatedSpaceProgram() const
-{
-    return Step::isUnset(getRelatedSpaceProgram()) == false;
-}
-
 IfcSpaceProgram *IfcRelInteractionRequirements::getRelatingSpaceProgram()
 {
     if (Step::BaseObject::inited())
@@ -245,6 +203,48 @@ void IfcRelInteractionRequirements::unsetRelatingSpaceProgram()
 bool IfcRelInteractionRequirements::testRelatingSpaceProgram() const
 {
     return Step::isUnset(getRelatingSpaceProgram()) == false;
+}
+
+IfcSpaceProgram *IfcRelInteractionRequirements::getRelatedSpaceProgram()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedSpaceProgram.get();
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+const IfcSpaceProgram *IfcRelInteractionRequirements::getRelatedSpaceProgram() const
+{
+    return const_cast< IfcRelInteractionRequirements * > (this)->getRelatedSpaceProgram();
+}
+
+void IfcRelInteractionRequirements::setRelatedSpaceProgram(const Step::RefPtr< IfcSpaceProgram > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatedSpaceProgram.valid())
+    {
+        m_RelatedSpaceProgram->m_HasInteractionReqsFrom.erase(this);
+    }
+    if (value.valid() )
+    {
+       value->m_HasInteractionReqsFrom.insert(this);
+    }
+    m_RelatedSpaceProgram = value;
+}
+
+void IfcRelInteractionRequirements::unsetRelatedSpaceProgram()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedSpaceProgram = Step::getUnset(getRelatedSpaceProgram());
+}
+
+bool IfcRelInteractionRequirements::testRelatedSpaceProgram() const
+{
+    return Step::isUnset(getRelatedSpaceProgram()) == false;
 }
 
 bool IfcRelInteractionRequirements::init()
@@ -289,21 +289,21 @@ bool IfcRelInteractionRequirements::init()
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
-        m_RelatedSpaceProgram = NULL;
-    }
-    else
-    {
-        m_RelatedSpaceProgram = static_cast< IfcSpaceProgram * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
         m_RelatingSpaceProgram = NULL;
     }
     else
     {
         m_RelatingSpaceProgram = static_cast< IfcSpaceProgram * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedSpaceProgram = NULL;
+    }
+    else
+    {
+        m_RelatedSpaceProgram = static_cast< IfcSpaceProgram * > (m_expressDataSet->get(Step::getIdParam(arg)))
 ;
     }
     return true;
@@ -315,8 +315,8 @@ void IfcRelInteractionRequirements::copy(const IfcRelInteractionRequirements &ob
     setDailyInteraction(obj.m_DailyInteraction);
     setImportanceRating(obj.m_ImportanceRating);
     setLocationOfInteraction((IfcSpatialStructureElement*)copyop(obj.m_LocationOfInteraction.get()));
-    setRelatedSpaceProgram((IfcSpaceProgram*)copyop(obj.m_RelatedSpaceProgram.get()));
     setRelatingSpaceProgram((IfcSpaceProgram*)copyop(obj.m_RelatingSpaceProgram.get()));
+    setRelatedSpaceProgram((IfcSpaceProgram*)copyop(obj.m_RelatedSpaceProgram.get()));
     return;
 }
 

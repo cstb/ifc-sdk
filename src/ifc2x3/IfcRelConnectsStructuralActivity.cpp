@@ -26,9 +26,9 @@
 
 #include <ifc2x3/IfcRelConnectsStructuralActivity.h>
 
+#include <ifc2x3/IfcStructuralActivity.h>
 #include <ifc2x3/IfcStructuralActivityAssignmentSelect.h>
 #include <ifc2x3/IfcStructuralItem.h>
-#include <ifc2x3/IfcStructuralActivity.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -43,8 +43,8 @@ using namespace ifc2x3;
 IfcRelConnectsStructuralActivity::IfcRelConnectsStructuralActivity(Step::Id id, Step::SPFData *args) : 
     IfcRelConnects(id, args)
 {
-    m_RelatingElement = NULL;
     m_RelatedStructuralActivity = NULL;
+    m_RelatingElement = NULL;
 }
 
 IfcRelConnectsStructuralActivity::~IfcRelConnectsStructuralActivity()
@@ -53,45 +53,6 @@ IfcRelConnectsStructuralActivity::~IfcRelConnectsStructuralActivity()
 bool IfcRelConnectsStructuralActivity::acceptVisitor(Step::BaseVisitor *visitor)
 {
     return static_cast<Visitor *>(visitor)->visitIfcRelConnectsStructuralActivity(this);
-}
-
-IfcStructuralActivityAssignmentSelect *IfcRelConnectsStructuralActivity::getRelatingElement()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_RelatingElement.get();
-    }
-    else
-    {
-        return NULL;
-    }
-}
-
-const IfcStructuralActivityAssignmentSelect *IfcRelConnectsStructuralActivity::getRelatingElement() const
-{
-    return const_cast< IfcRelConnectsStructuralActivity * > (this)->getRelatingElement();
-}
-
-void IfcRelConnectsStructuralActivity::setRelatingElement(const Step::RefPtr< IfcStructuralActivityAssignmentSelect > &value)
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    if (m_RelatingElement->getIfcStructuralItem() != NULL) 
-    {
-        IfcStructuralItem * object = m_RelatingElement->getIfcStructuralItem();
-        object->m_AssignedStructuralActivity.insert(this);
-    }
-    m_RelatingElement = value;
-}
-
-void IfcRelConnectsStructuralActivity::unsetRelatingElement()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_RelatingElement = Step::getUnset(getRelatingElement());
-}
-
-bool IfcRelConnectsStructuralActivity::testRelatingElement() const
-{
-    return Step::isUnset(getRelatingElement()) == false;
 }
 
 IfcStructuralActivity *IfcRelConnectsStructuralActivity::getRelatedStructuralActivity()
@@ -136,6 +97,45 @@ bool IfcRelConnectsStructuralActivity::testRelatedStructuralActivity() const
     return Step::isUnset(getRelatedStructuralActivity()) == false;
 }
 
+IfcStructuralActivityAssignmentSelect *IfcRelConnectsStructuralActivity::getRelatingElement()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingElement.get();
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+const IfcStructuralActivityAssignmentSelect *IfcRelConnectsStructuralActivity::getRelatingElement() const
+{
+    return const_cast< IfcRelConnectsStructuralActivity * > (this)->getRelatingElement();
+}
+
+void IfcRelConnectsStructuralActivity::setRelatingElement(const Step::RefPtr< IfcStructuralActivityAssignmentSelect > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingElement->getIfcStructuralItem() != NULL) 
+    {
+        IfcStructuralItem * object = m_RelatingElement->getIfcStructuralItem();
+        object->m_AssignedStructuralActivity.insert(this);
+    }
+    m_RelatingElement = value;
+}
+
+void IfcRelConnectsStructuralActivity::unsetRelatingElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingElement = Step::getUnset(getRelatingElement());
+}
+
+bool IfcRelConnectsStructuralActivity::testRelatingElement() const
+{
+    return Step::isUnset(getRelatingElement()) == false;
+}
+
 bool IfcRelConnectsStructuralActivity::init()
 {
     if (IfcRelConnects::init() == false)
@@ -143,6 +143,16 @@ bool IfcRelConnectsStructuralActivity::init()
         return false;
     }
     std::string arg;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatedStructuralActivity = NULL;
+    }
+    else
+    {
+        m_RelatedStructuralActivity = static_cast< IfcStructuralActivity * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
@@ -164,24 +174,14 @@ bool IfcRelConnectsStructuralActivity::init()
             }
         }
     }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
-        m_RelatedStructuralActivity = NULL;
-    }
-    else
-    {
-        m_RelatedStructuralActivity = static_cast< IfcStructuralActivity * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
     return true;
 }
 
 void IfcRelConnectsStructuralActivity::copy(const IfcRelConnectsStructuralActivity &obj, const CopyOp &copyop)
 {
     IfcRelConnects::copy(obj, copyop);
-    setRelatingElement((IfcStructuralActivityAssignmentSelect*)copyop(obj.m_RelatingElement.get()));
     setRelatedStructuralActivity((IfcStructuralActivity*)copyop(obj.m_RelatedStructuralActivity.get()));
+    setRelatingElement((IfcStructuralActivityAssignmentSelect*)copyop(obj.m_RelatingElement.get()));
     return;
 }
 

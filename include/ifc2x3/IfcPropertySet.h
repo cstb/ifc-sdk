@@ -32,6 +32,58 @@
 
 namespace ifc2x3
 {
+    /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     *
+     */
+    class Inverted_IfcPropertySet_HasProperties_type : public Set_IfcProperty_1_n
+    {
+
+    public:
+        /**
+         */
+        typedef Set_IfcProperty_1_n::size_type size_type;
+
+        /**
+         */
+        Inverted_IfcPropertySet_HasProperties_type();
+        
+        /**
+         * Insert a value in the aggregate.
+         *
+         * @param value The object to act upon.
+         */
+    #ifdef STEP_CHECK_RANGE
+        virtual void insert(const Step::RefPtr< IfcProperty > &value) throw(std::out_of_range);
+    #else
+        virtual void insert(const Step::RefPtr< IfcProperty > &value);
+    #endif
+
+        /**
+         * Remove a value from the aggregate.
+         *
+         * @param value The object to act upon.
+         */
+        virtual size_type erase(const Step::RefPtr< IfcProperty > &value);
+        
+        /**
+         * Remove all values from the aggregate.
+         *
+         */
+        void clear();
+        friend class IfcPropertySet;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         *
+         */
+       IfcPropertySet *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcPropertySet *owner);
+    };
 
 
     /**
@@ -41,8 +93,8 @@ namespace ifc2x3
     class IFC2X3_EXPORT IfcPropertySet : public IfcPropertySetDefinition
     {
 
-        // Attributes
-        Set_IfcProperty_1_n m_HasProperties;
+        // InvertedAttributes
+        Inverted_IfcPropertySet_HasProperties_type m_HasProperties;
 
         ClassType_definitions()
 
@@ -53,7 +105,6 @@ namespace ifc2x3
         /// @{
         virtual Set_IfcProperty_1_n &getHasProperties();
         virtual const Set_IfcProperty_1_n &getHasProperties() const;
-        virtual void setHasProperties(const Set_IfcProperty_1_n &value);
         virtual void unsetHasProperties();
         virtual bool testHasProperties() const;
         /// @}

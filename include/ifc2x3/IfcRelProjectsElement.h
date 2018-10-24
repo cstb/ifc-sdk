@@ -42,22 +42,13 @@ namespace ifc2x3
     {
 
         // InvertedAttributes
-        Step::RefPtr< IfcElement > m_RelatingElement;
         Step::RefPtr< IfcFeatureElementAddition > m_RelatedFeatureElement;
+        Step::RefPtr< IfcElement > m_RelatingElement;
 
         ClassType_definitions()
 
     public:
         virtual bool acceptVisitor(Step::BaseVisitor *visitor);
-
-        /// Attribute RelatingElement
-        /// @{
-        virtual IfcElement *getRelatingElement();
-        virtual const IfcElement *getRelatingElement() const;
-        virtual void setRelatingElement(const Step::RefPtr< IfcElement > &value);
-        virtual void unsetRelatingElement();
-        virtual bool testRelatingElement() const;
-        /// @}
 
         /// Attribute RelatedFeatureElement
         /// @{
@@ -66,6 +57,15 @@ namespace ifc2x3
         virtual void setRelatedFeatureElement(const Step::RefPtr< IfcFeatureElementAddition > &value);
         virtual void unsetRelatedFeatureElement();
         virtual bool testRelatedFeatureElement() const;
+        /// @}
+
+        /// Attribute RelatingElement
+        /// @{
+        virtual IfcElement *getRelatingElement();
+        virtual const IfcElement *getRelatingElement() const;
+        virtual void setRelatingElement(const Step::RefPtr< IfcElement > &value);
+        virtual void unsetRelatingElement();
+        virtual bool testRelatingElement() const;
         /// @}
 
 

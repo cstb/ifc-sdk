@@ -45,9 +45,9 @@ namespace ifc2x3
         IfcLabel m_LongName;
         IfcElementCompositionEnum m_CompositionType;
         // InverseAttributes
-        Inverse_Set_IfcRelServicesBuildings_0_n m_ServicedBySystems;
         Inverse_Set_IfcRelContainedInSpatialStructure_0_n m_ContainsElements;
         Inverse_Set_IfcRelReferencedInSpatialStructure_0_n m_ReferencesElements;
+        Inverse_Set_IfcRelServicesBuildings_0_n m_ServicedBySystems;
 
         ClassType_definitions()
 
@@ -72,15 +72,6 @@ namespace ifc2x3
         virtual bool testCompositionType() const;
         /// @}
 
-        /// Inverse attribute ServicedBySystems
-        /// @{
-        virtual Inverse_Set_IfcRelServicesBuildings_0_n &getServicedBySystems();
-        virtual const Inverse_Set_IfcRelServicesBuildings_0_n &getServicedBySystems() const;
-        virtual bool testServicedBySystems() const;
-
-        friend class IfcRelServicesBuildings;
-        /// @}
-
         /// Inverse attribute ContainsElements
         /// @{
         virtual Inverse_Set_IfcRelContainedInSpatialStructure_0_n &getContainsElements();
@@ -97,6 +88,15 @@ namespace ifc2x3
         virtual bool testReferencesElements() const;
 
         friend class IfcRelReferencedInSpatialStructure;
+        /// @}
+
+        /// Inverse attribute ServicedBySystems
+        /// @{
+        virtual Inverse_Set_IfcRelServicesBuildings_0_n &getServicedBySystems();
+        virtual const Inverse_Set_IfcRelServicesBuildings_0_n &getServicedBySystems() const;
+        virtual bool testServicedBySystems() const;
+
+        friend class IfcRelServicesBuildings;
         /// @}
 
 

@@ -26,9 +26,10 @@
 
 #include <ifc2x3/IfcProperty.h>
 
-#include <ifc2x3/IfcPropertyDependencyRelationship.h>
-#include <ifc2x3/IfcPropertyDependencyRelationship.h>
 #include <ifc2x3/IfcComplexProperty.h>
+#include <ifc2x3/IfcPropertyDependencyRelationship.h>
+#include <ifc2x3/IfcPropertySet.h>
+#include <ifc2x3/IfcPropertyDependencyRelationship.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -125,6 +126,27 @@ bool IfcProperty::testDescription() const
     return Step::isUnset(getDescription()) == false;
 }
 
+Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_PartOfComplex;
+    }
+ 
+    m_PartOfComplex.setUnset(true);
+    return m_PartOfComplex;
+}
+
+const Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() const
+{
+    return  const_cast< IfcProperty * > (this)->getPartOfComplex();
+}
+
+bool IfcProperty::testPartOfComplex() const
+{
+    return m_PartOfComplex.isUnset() == false;
+}
+
 Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyDependsOn()
 {
     if (Step::BaseObject::inited())
@@ -146,6 +168,27 @@ bool IfcProperty::testPropertyDependsOn() const
     return m_PropertyDependsOn.isUnset() == false;
 }
 
+Inverse_Set_IfcPropertySet_0_n &IfcProperty::getPartOfPset()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_PartOfPset;
+    }
+ 
+    m_PartOfPset.setUnset(true);
+    return m_PartOfPset;
+}
+
+const Inverse_Set_IfcPropertySet_0_n &IfcProperty::getPartOfPset() const
+{
+    return  const_cast< IfcProperty * > (this)->getPartOfPset();
+}
+
+bool IfcProperty::testPartOfPset() const
+{
+    return m_PartOfPset.isUnset() == false;
+}
+
 Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyForDependance()
 {
     if (Step::BaseObject::inited())
@@ -165,27 +208,6 @@ const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropert
 bool IfcProperty::testPropertyForDependance() const
 {
     return m_PropertyForDependance.isUnset() == false;
-}
-
-Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_PartOfComplex;
-    }
- 
-    m_PartOfComplex.setUnset(true);
-    return m_PartOfComplex;
-}
-
-const Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() const
-{
-    return  const_cast< IfcProperty * > (this)->getPartOfComplex();
-}
-
-bool IfcProperty::testPartOfComplex() const
-{
-    return m_PartOfComplex.isUnset() == false;
 }
 
 bool IfcProperty::init()
@@ -212,6 +234,16 @@ bool IfcProperty::init()
 ;
     }
     std::vector< Step::Id > *inverses;
+    inverses = m_args->getInverses(IfcComplexProperty::getClassType(), 3);
+    if (inverses)
+    {
+        unsigned int i;
+        m_PartOfComplex.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_PartOfComplex.insert(static_cast< IfcComplexProperty * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
     inverses = m_args->getInverses(IfcPropertyDependencyRelationship::getClassType(), 1);
     if (inverses)
     {
@@ -222,6 +254,16 @@ bool IfcProperty::init()
             m_PropertyDependsOn.insert(static_cast< IfcPropertyDependencyRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
+    inverses = m_args->getInverses(IfcPropertySet::getClassType(), 4);
+    if (inverses)
+    {
+        unsigned int i;
+        m_PartOfPset.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_PartOfPset.insert(static_cast< IfcPropertySet * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
     inverses = m_args->getInverses(IfcPropertyDependencyRelationship::getClassType(), 0);
     if (inverses)
     {
@@ -230,16 +272,6 @@ bool IfcProperty::init()
         for (i = 0; i < inverses->size(); i++)
         {
             m_PropertyForDependance.insert(static_cast< IfcPropertyDependencyRelationship * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
-    inverses = m_args->getInverses(IfcComplexProperty::getClassType(), 3);
-    if (inverses)
-    {
-        unsigned int i;
-        m_PartOfComplex.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_PartOfComplex.insert(static_cast< IfcComplexProperty * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

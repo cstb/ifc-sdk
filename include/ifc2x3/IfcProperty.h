@@ -47,9 +47,10 @@ namespace ifc2x3
         IfcIdentifier m_Name;
         IfcText m_Description;
         // InverseAttributes
-        Inverse_Set_IfcPropertyDependencyRelationship_0_n m_PropertyDependsOn;
-        Inverse_Set_IfcPropertyDependencyRelationship_0_n m_PropertyForDependance;
         Inverse_Set_IfcComplexProperty_0_1 m_PartOfComplex;
+        Inverse_Set_IfcPropertyDependencyRelationship_0_n m_PropertyDependsOn;
+        Inverse_Set_IfcPropertySet_0_n m_PartOfPset;
+        Inverse_Set_IfcPropertyDependencyRelationship_0_n m_PropertyForDependance;
 
         ClassType_definitions()
 
@@ -74,6 +75,15 @@ namespace ifc2x3
         virtual bool testDescription() const;
         /// @}
 
+        /// Inverse attribute PartOfComplex
+        /// @{
+        virtual Inverse_Set_IfcComplexProperty_0_1 &getPartOfComplex();
+        virtual const Inverse_Set_IfcComplexProperty_0_1 &getPartOfComplex() const;
+        virtual bool testPartOfComplex() const;
+
+        friend class IfcComplexProperty;
+        /// @}
+
         /// Inverse attribute PropertyDependsOn
         /// @{
         virtual Inverse_Set_IfcPropertyDependencyRelationship_0_n &getPropertyDependsOn();
@@ -81,6 +91,15 @@ namespace ifc2x3
         virtual bool testPropertyDependsOn() const;
 
         friend class IfcPropertyDependencyRelationship;
+        /// @}
+
+        /// Inverse attribute PartOfPset
+        /// @{
+        virtual Inverse_Set_IfcPropertySet_0_n &getPartOfPset();
+        virtual const Inverse_Set_IfcPropertySet_0_n &getPartOfPset() const;
+        virtual bool testPartOfPset() const;
+
+        friend class IfcPropertySet;
         /// @}
 
         /// Inverse attribute PropertyForDependance
@@ -92,17 +111,9 @@ namespace ifc2x3
         friend class IfcPropertyDependencyRelationship;
         /// @}
 
-        /// Inverse attribute PartOfComplex
-        /// @{
-        virtual Inverse_Set_IfcComplexProperty_0_1 &getPartOfComplex();
-        virtual const Inverse_Set_IfcComplexProperty_0_1 &getPartOfComplex() const;
-        virtual bool testPartOfComplex() const;
-
-        friend class IfcComplexProperty;
-        /// @}
 
 
-
+        friend class Inverted_IfcPropertySet_HasProperties_type;
         friend class Inverted_IfcComplexProperty_HasProperties_type;
 
 

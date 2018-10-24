@@ -2518,6 +2518,10 @@ namespace ifc2x3
 
     typedef Step::Set< Step::RefPtr< IfcProperty > , 1> Set_IfcProperty_1_n;
 
+    typedef Step::Set< Step::ObsPtr< IfcPropertySet > > Inverse_Set_IfcPropertySet_0_n;
+
+    typedef Step::Set< Step::RefPtr< IfcProperty > , 1> Set_IfcProperty_1_n;
+
     typedef Step::Set< Step::ObsPtr< IfcPropertyDependencyRelationship > > Inverse_Set_IfcPropertyDependencyRelationship_0_n;
 
     typedef Step::Set< Step::ObsPtr< IfcPropertyDependencyRelationship > > Inverse_Set_IfcPropertyDependencyRelationship_0_n;
@@ -2578,7 +2582,7 @@ namespace ifc2x3
 
     typedef Step::Set< Step::ObsPtr< IfcShapeAspect > , 0, 1> Inverse_Set_IfcShapeAspect_0_1;
 
-    typedef Step::Set< Step::ObsPtr< IfcProduct > , 1, 1> Inverse_Set_IfcProduct_1_1;
+    typedef Step::Set< Step::ObsPtr< IfcProduct > , 1> Inverse_Set_IfcProduct_1_n;
 
     typedef Step::Set< Step::ObsPtr< IfcShapeAspect > > Inverse_Set_IfcShapeAspect_0_n;
 
@@ -2655,8 +2659,6 @@ namespace ifc2x3
     typedef Step::List< Step::RefPtr< IfcValue > , 1> List_IfcValue_1_n;
 
     typedef Step::List< Step::RefPtr< IfcValue > , 1> List_IfcValue_1_n;
-
-    typedef Step::Set< Step::RefPtr< IfcProperty > , 1> Set_IfcProperty_1_n;
 
     typedef Step::List< Step::RefPtr< IfcValue > , 1> List_IfcValue_1_n;
 

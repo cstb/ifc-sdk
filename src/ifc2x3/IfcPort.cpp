@@ -26,9 +26,9 @@
 
 #include <ifc2x3/IfcPort.h>
 
+#include <ifc2x3/IfcRelConnectsPorts.h>
+#include <ifc2x3/IfcRelConnectsPorts.h>
 #include <ifc2x3/IfcRelConnectsPortToElement.h>
-#include <ifc2x3/IfcRelConnectsPorts.h>
-#include <ifc2x3/IfcRelConnectsPorts.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -51,26 +51,6 @@ IfcPort::~IfcPort()
 bool IfcPort::acceptVisitor(Step::BaseVisitor *visitor)
 {
     return static_cast<Visitor *>(visitor)->visitIfcPort(this);
-}
-
-IfcRelConnectsPortToElement *IfcPort::getContainedIn()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_ContainedIn.get();
-    }
- 
-    return NULL;
-}
-
-const IfcRelConnectsPortToElement *IfcPort::getContainedIn() const
-{
-    return  const_cast< IfcPort * > (this)->getContainedIn();
-}
-
-bool IfcPort::testContainedIn() const
-{
-    return Step::isUnset(getContainedIn()) == false;
 }
 
 Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo()
@@ -115,6 +95,26 @@ bool IfcPort::testConnectedFrom() const
     return m_ConnectedFrom.isUnset() == false;
 }
 
+IfcRelConnectsPortToElement *IfcPort::getContainedIn()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_ContainedIn.get();
+    }
+ 
+    return NULL;
+}
+
+const IfcRelConnectsPortToElement *IfcPort::getContainedIn() const
+{
+    return  const_cast< IfcPort * > (this)->getContainedIn();
+}
+
+bool IfcPort::testContainedIn() const
+{
+    return Step::isUnset(getContainedIn()) == false;
+}
+
 bool IfcPort::init()
 {
     if (IfcProduct::init() == false)
@@ -122,11 +122,6 @@ bool IfcPort::init()
         return false;
     }
     std::vector< Step::Id > *inverses;
-    inverses = m_args->getInverses(IfcRelConnectsPortToElement::getClassType(), 4);
-    if (inverses)
-    {
-        m_ContainedIn = static_cast< IfcRelConnectsPortToElement * > (m_expressDataSet->get((*inverses)[0]));
-    }
     inverses = m_args->getInverses(IfcRelConnectsPorts::getClassType(), 4);
     if (inverses)
     {
@@ -146,6 +141,11 @@ bool IfcPort::init()
         {
             m_ConnectedFrom.insert(static_cast< IfcRelConnectsPorts * > (m_expressDataSet->get((*inverses)[i])));
         }
+    }
+    inverses = m_args->getInverses(IfcRelConnectsPortToElement::getClassType(), 4);
+    if (inverses)
+    {
+        m_ContainedIn = static_cast< IfcRelConnectsPortToElement * > (m_expressDataSet->get((*inverses)[0]));
     }
     return true;
 }

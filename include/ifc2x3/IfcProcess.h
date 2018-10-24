@@ -43,8 +43,8 @@ namespace ifc2x3
 
         // InverseAttributes
         Inverse_Set_IfcRelSequence_0_n m_IsPredecessorTo;
-        Inverse_Set_IfcRelSequence_0_n m_IsSuccessorFrom;
         Inverse_Set_IfcRelAssignsToProcess_0_n m_OperatesOn;
+        Inverse_Set_IfcRelSequence_0_n m_IsSuccessorFrom;
 
         ClassType_definitions()
 
@@ -60,15 +60,6 @@ namespace ifc2x3
         friend class IfcRelSequence;
         /// @}
 
-        /// Inverse attribute IsSuccessorFrom
-        /// @{
-        virtual Inverse_Set_IfcRelSequence_0_n &getIsSuccessorFrom();
-        virtual const Inverse_Set_IfcRelSequence_0_n &getIsSuccessorFrom() const;
-        virtual bool testIsSuccessorFrom() const;
-
-        friend class IfcRelSequence;
-        /// @}
-
         /// Inverse attribute OperatesOn
         /// @{
         virtual Inverse_Set_IfcRelAssignsToProcess_0_n &getOperatesOn();
@@ -76,6 +67,15 @@ namespace ifc2x3
         virtual bool testOperatesOn() const;
 
         friend class IfcRelAssignsToProcess;
+        /// @}
+
+        /// Inverse attribute IsSuccessorFrom
+        /// @{
+        virtual Inverse_Set_IfcRelSequence_0_n &getIsSuccessorFrom();
+        virtual const Inverse_Set_IfcRelSequence_0_n &getIsSuccessorFrom() const;
+        virtual bool testIsSuccessorFrom() const;
+
+        friend class IfcRelSequence;
         /// @}
 
 

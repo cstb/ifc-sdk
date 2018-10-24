@@ -29,8 +29,8 @@
 #include <ifc2x3/IfcActorRole.h>
 #include <ifc2x3/IfcAddress.h>
 #include <ifc2x3/IfcAddress.h>
-#include <ifc2x3/IfcOrganizationRelationship.h>
 #include <ifc2x3/IfcPersonAndOrganization.h>
+#include <ifc2x3/IfcOrganizationRelationship.h>
 #include <ifc2x3/IfcOrganizationRelationship.h>
 
 #include <ifc2x3/CopyOp.h>
@@ -271,27 +271,6 @@ bool IfcOrganization::testAddresses() const
     return m_Addresses.isUnset() == false;
 }
 
-Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelatedBy()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_IsRelatedBy;
-    }
- 
-    m_IsRelatedBy.setUnset(true);
-    return m_IsRelatedBy;
-}
-
-const Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelatedBy() const
-{
-    return  const_cast< IfcOrganization * > (this)->getIsRelatedBy();
-}
-
-bool IfcOrganization::testIsRelatedBy() const
-{
-    return m_IsRelatedBy.isUnset() == false;
-}
-
 Inverse_Set_IfcPersonAndOrganization_0_n &IfcOrganization::getEngages()
 {
     if (Step::BaseObject::inited())
@@ -332,6 +311,27 @@ const Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getRelates()
 bool IfcOrganization::testRelates() const
 {
     return m_Relates.isUnset() == false;
+}
+
+Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelatedBy()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_IsRelatedBy;
+    }
+ 
+    m_IsRelatedBy.setUnset(true);
+    return m_IsRelatedBy;
+}
+
+const Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelatedBy() const
+{
+    return  const_cast< IfcOrganization * > (this)->getIsRelatedBy();
+}
+
+bool IfcOrganization::testIsRelatedBy() const
+{
+    return m_IsRelatedBy.isUnset() == false;
 }
 
 bool IfcOrganization::init()
@@ -414,16 +414,6 @@ bool IfcOrganization::init()
         }
     }
     std::vector< Step::Id > *inverses;
-    inverses = m_args->getInverses(IfcOrganizationRelationship::getClassType(), 3);
-    if (inverses)
-    {
-        unsigned int i;
-        m_IsRelatedBy.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_IsRelatedBy.insert(static_cast< IfcOrganizationRelationship * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
     inverses = m_args->getInverses(IfcPersonAndOrganization::getClassType(), 1);
     if (inverses)
     {
@@ -442,6 +432,16 @@ bool IfcOrganization::init()
         for (i = 0; i < inverses->size(); i++)
         {
             m_Relates.insert(static_cast< IfcOrganizationRelationship * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcOrganizationRelationship::getClassType(), 3);
+    if (inverses)
+    {
+        unsigned int i;
+        m_IsRelatedBy.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_IsRelatedBy.insert(static_cast< IfcOrganizationRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

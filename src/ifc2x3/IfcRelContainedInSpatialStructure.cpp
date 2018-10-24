@@ -26,11 +26,11 @@
 
 #include <ifc2x3/IfcRelContainedInSpatialStructure.h>
 
-#include <ifc2x3/IfcSpatialStructureElement.h>
 #include <ifc2x3/IfcProduct.h>
 #include <ifc2x3/IfcElement.h>
 #include <ifc2x3/IfcAnnotation.h>
 #include <ifc2x3/IfcGrid.h>
+#include <ifc2x3/IfcSpatialStructureElement.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -104,9 +104,9 @@ void Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::clear()
 IfcRelContainedInSpatialStructure::IfcRelContainedInSpatialStructure(Step::Id id, Step::SPFData *args) : 
     IfcRelConnects(id, args)
 {
-    m_RelatingStructure = NULL;
     m_RelatedElements.setUnset(true);
     m_RelatedElements.setOwner(this);
+    m_RelatingStructure = NULL;
 }
 
 IfcRelContainedInSpatialStructure::~IfcRelContainedInSpatialStructure()
@@ -115,6 +115,36 @@ IfcRelContainedInSpatialStructure::~IfcRelContainedInSpatialStructure()
 bool IfcRelContainedInSpatialStructure::acceptVisitor(Step::BaseVisitor *visitor)
 {
     return static_cast<Visitor *>(visitor)->visitIfcRelContainedInSpatialStructure(this);
+}
+
+Set_IfcProduct_1_n &IfcRelContainedInSpatialStructure::getRelatedElements()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedElements;
+    }
+    else
+    {
+        m_RelatedElements.setUnset(true);
+        return m_RelatedElements;
+    }
+}
+
+const Set_IfcProduct_1_n &IfcRelContainedInSpatialStructure::getRelatedElements() const
+{
+    return const_cast< IfcRelContainedInSpatialStructure * > (this)->getRelatedElements();
+}
+
+void IfcRelContainedInSpatialStructure::unsetRelatedElements()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedElements.clear();
+    m_RelatedElements.setUnset(true);
+}
+
+bool IfcRelContainedInSpatialStructure::testRelatedElements() const
+{
+    return m_RelatedElements.isUnset() == false;
 }
 
 IfcSpatialStructureElement *IfcRelContainedInSpatialStructure::getRelatingStructure()
@@ -159,36 +189,6 @@ bool IfcRelContainedInSpatialStructure::testRelatingStructure() const
     return Step::isUnset(getRelatingStructure()) == false;
 }
 
-Set_IfcProduct_1_n &IfcRelContainedInSpatialStructure::getRelatedElements()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_RelatedElements;
-    }
-    else
-    {
-        m_RelatedElements.setUnset(true);
-        return m_RelatedElements;
-    }
-}
-
-const Set_IfcProduct_1_n &IfcRelContainedInSpatialStructure::getRelatedElements() const
-{
-    return const_cast< IfcRelContainedInSpatialStructure * > (this)->getRelatedElements();
-}
-
-void IfcRelContainedInSpatialStructure::unsetRelatedElements()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_RelatedElements.clear();
-    m_RelatedElements.setUnset(true);
-}
-
-bool IfcRelContainedInSpatialStructure::testRelatedElements() const
-{
-    return m_RelatedElements.isUnset() == false;
-}
-
 bool IfcRelContainedInSpatialStructure::init()
 {
     if (IfcRelConnects::init() == false)
@@ -196,16 +196,6 @@ bool IfcRelContainedInSpatialStructure::init()
         return false;
     }
     std::string arg;
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
-        m_RelatingStructure = NULL;
-    }
-    else
-    {
-        m_RelatingStructure = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
@@ -229,13 +219,22 @@ bool IfcRelContainedInSpatialStructure::init()
             }
         }
     }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingStructure = NULL;
+    }
+    else
+    {
+        m_RelatingStructure = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
     return true;
 }
 
 void IfcRelContainedInSpatialStructure::copy(const IfcRelContainedInSpatialStructure &obj, const CopyOp &copyop)
 {
     IfcRelConnects::copy(obj, copyop);
-    setRelatingStructure((IfcSpatialStructureElement*)copyop(obj.m_RelatingStructure.get()));
     Set_IfcProduct_1_n::const_iterator it_m_RelatedElements;
     for (it_m_RelatedElements = obj.m_RelatedElements.begin(); it_m_RelatedElements != obj.m_RelatedElements.end(); ++it_m_RelatedElements)
     {
@@ -243,6 +242,7 @@ void IfcRelContainedInSpatialStructure::copy(const IfcRelContainedInSpatialStruc
         m_RelatedElements.insert(copyTarget);
     }
     
+    setRelatingStructure((IfcSpatialStructureElement*)copyop(obj.m_RelatingStructure.get()));
     return;
 }
 

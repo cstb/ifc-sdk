@@ -27,6 +27,7 @@
 #include <ifc2x3/IfcPropertySet.h>
 
 #include <ifc2x3/IfcProperty.h>
+#include <ifc2x3/IfcProperty.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -38,10 +39,48 @@
 
 using namespace ifc2x3;
 
+Inverted_IfcPropertySet_HasProperties_type::Inverted_IfcPropertySet_HasProperties_type()
+{
+
+}
+
+void Inverted_IfcPropertySet_HasProperties_type::setOwner(IfcPropertySet *owner)
+{
+    mOwner = owner;
+}
+
+void Inverted_IfcPropertySet_HasProperties_type::insert(const Step::RefPtr< IfcProperty > &value)
+#ifdef STEP_CHECK_RANGE
+    throw(std::out_of_range)
+#endif
+{
+    IfcProperty *inverse = const_cast< IfcProperty * > (value.get());
+    Set_IfcProperty_1_n::insert(value);
+    inverse->m_PartOfPset.insert(mOwner);
+}
+
+
+Inverted_IfcPropertySet_HasProperties_type::size_type Inverted_IfcPropertySet_HasProperties_type::erase(const Step::RefPtr< IfcProperty > &value)
+{
+    IfcProperty *inverse = const_cast< IfcProperty * > (value.get());
+    inverse->m_PartOfPset.erase(mOwner);
+    return Set_IfcProperty_1_n::erase(value);
+}
+
+void Inverted_IfcPropertySet_HasProperties_type::clear()
+{
+    while (size())
+    {
+        erase(*begin());
+    }
+}
+
+
 IfcPropertySet::IfcPropertySet(Step::Id id, Step::SPFData *args) : 
     IfcPropertySetDefinition(id, args)
 {
     m_HasProperties.setUnset(true);
+    m_HasProperties.setOwner(this);
 }
 
 IfcPropertySet::~IfcPropertySet()
@@ -52,29 +91,22 @@ bool IfcPropertySet::acceptVisitor(Step::BaseVisitor *visitor)
     return static_cast<Visitor *>(visitor)->visitIfcPropertySet(this);
 }
 
-
 Set_IfcProperty_1_n &IfcPropertySet::getHasProperties()
 {
-    if (Step::BaseObject::inited()) 
+    if (Step::BaseObject::inited())
     {
         return m_HasProperties;
     }
-    else 
+    else
     {
         m_HasProperties.setUnset(true);
         return m_HasProperties;
-    }    
+    }
 }
 
 const Set_IfcProperty_1_n &IfcPropertySet::getHasProperties() const
 {
-    return const_cast<IfcPropertySet *>(this)->getHasProperties();
-}
-
-void IfcPropertySet::setHasProperties(const Set_IfcProperty_1_n &value)
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_HasProperties = value;
+    return const_cast< IfcPropertySet * > (this)->getHasProperties();
 }
 
 void IfcPropertySet::unsetHasProperties()

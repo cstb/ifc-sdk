@@ -241,6 +241,7 @@
 #include <ifc2x3/IfcApprovalRelationship.h>
 #include <ifc2x3/IfcApprovalPropertyRelationship.h>
 #include <ifc2x3/IfcProperty.h>
+#include <ifc2x3/IfcPropertySet.h>
 #include <ifc2x3/IfcPropertyDependencyRelationship.h>
 #include <ifc2x3/IfcComplexProperty.h>
 #include <ifc2x3/IfcArbitraryClosedProfileDef.h>
@@ -516,7 +517,6 @@
 #include <ifc2x3/IfcPropertyEnumeration.h>
 #include <ifc2x3/IfcPropertyListValue.h>
 #include <ifc2x3/IfcPropertyReferenceValue.h>
-#include <ifc2x3/IfcPropertySet.h>
 #include <ifc2x3/IfcPropertySingleValue.h>
 #include <ifc2x3/IfcPropertyTableValue.h>
 #include <ifc2x3/IfcProtectiveDeviceType.h>
@@ -5016,6 +5016,26 @@ bool DeepCopyOp::visitIfcProperty(IfcProperty *obj)
         if (!clone)
         {
             CopyOp::_bo = static_cast< ExpressDataSet * > (obj->getExpressDataSet())->cloneIfcProperty(*obj, *this);
+        }
+        else
+        {
+            CopyOp::_bo = clone;
+        }
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+bool DeepCopyOp::visitIfcPropertySet(IfcPropertySet *obj)
+{
+    if (obj)
+    {
+        IfcPropertySet *clone = static_cast< IfcPropertySet * > (find(obj));
+        if (!clone)
+        {
+            CopyOp::_bo = static_cast< ExpressDataSet * > (obj->getExpressDataSet())->cloneIfcPropertySet(*obj, *this);
         }
         else
         {
@@ -10528,26 +10548,6 @@ bool DeepCopyOp::visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj)
         return false;
     }
 }
-bool DeepCopyOp::visitIfcPropertySet(IfcPropertySet *obj)
-{
-    if (obj)
-    {
-        IfcPropertySet *clone = static_cast< IfcPropertySet * > (find(obj));
-        if (!clone)
-        {
-            CopyOp::_bo = static_cast< ExpressDataSet * > (obj->getExpressDataSet())->cloneIfcPropertySet(*obj, *this);
-        }
-        else
-        {
-            CopyOp::_bo = clone;
-        }
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
 bool DeepCopyOp::visitIfcPropertySingleValue(IfcPropertySingleValue *obj)
 {
     if (obj)
@@ -14889,6 +14889,11 @@ bool ShallowCopyOp::visitIfcProperty(IfcProperty *obj)
     CopyOp::_bo = const_cast< IfcProperty * > (obj);
     return true;
 }
+bool ShallowCopyOp::visitIfcPropertySet(IfcPropertySet *obj)
+{
+    CopyOp::_bo = const_cast< IfcPropertySet * > (obj);
+    return true;
+}
 bool ShallowCopyOp::visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj)
 {
     CopyOp::_bo = const_cast< IfcPropertyDependencyRelationship * > (obj);
@@ -16262,11 +16267,6 @@ bool ShallowCopyOp::visitIfcPropertyListValue(IfcPropertyListValue *obj)
 bool ShallowCopyOp::visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj)
 {
     CopyOp::_bo = const_cast< IfcPropertyReferenceValue * > (obj);
-    return true;
-}
-bool ShallowCopyOp::visitIfcPropertySet(IfcPropertySet *obj)
-{
-    CopyOp::_bo = const_cast< IfcPropertySet * > (obj);
     return true;
 }
 bool ShallowCopyOp::visitIfcPropertySingleValue(IfcPropertySingleValue *obj)
@@ -21368,6 +21368,26 @@ bool ReparentCopyOp::visitIfcProperty(IfcProperty *obj)
         if (!clone)
         {
             CopyOp::_bo = _dataset->cloneIfcProperty(*obj, *this);
+        }
+        else
+        {
+            CopyOp::_bo = clone;
+        }
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+bool ReparentCopyOp::visitIfcPropertySet(IfcPropertySet *obj)
+{
+    if (obj)
+    {
+        IfcPropertySet *clone = static_cast< IfcPropertySet * > (find(obj));
+        if (!clone)
+        {
+            CopyOp::_bo = _dataset->cloneIfcPropertySet(*obj, *this);
         }
         else
         {
@@ -26868,26 +26888,6 @@ bool ReparentCopyOp::visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *o
         if (!clone)
         {
             CopyOp::_bo = _dataset->cloneIfcPropertyReferenceValue(*obj, *this);
-        }
-        else
-        {
-            CopyOp::_bo = clone;
-        }
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-bool ReparentCopyOp::visitIfcPropertySet(IfcPropertySet *obj)
-{
-    if (obj)
-    {
-        IfcPropertySet *clone = static_cast< IfcPropertySet * > (find(obj));
-        if (!clone)
-        {
-            CopyOp::_bo = _dataset->cloneIfcPropertySet(*obj, *this);
         }
         else
         {

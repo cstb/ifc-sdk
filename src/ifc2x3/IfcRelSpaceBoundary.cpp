@@ -27,8 +27,8 @@
 #include <ifc2x3/IfcRelSpaceBoundary.h>
 
 #include <ifc2x3/IfcConnectionGeometry.h>
-#include <ifc2x3/IfcSpace.h>
 #include <ifc2x3/IfcElement.h>
+#include <ifc2x3/IfcSpace.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -46,8 +46,8 @@ IfcRelSpaceBoundary::IfcRelSpaceBoundary(Step::Id id, Step::SPFData *args) :
     m_ConnectionGeometry = NULL;
     m_PhysicalOrVirtualBoundary = IfcPhysicalOrVirtualEnum_UNSET;
     m_InternalOrExternalBoundary = IfcInternalOrExternalEnum_UNSET;
-    m_RelatingSpace = NULL;
     m_RelatedBuildingElement = NULL;
+    m_RelatingSpace = NULL;
 }
 
 IfcRelSpaceBoundary::~IfcRelSpaceBoundary()
@@ -163,48 +163,6 @@ bool IfcRelSpaceBoundary::testInternalOrExternalBoundary() const
     return Step::isUnset(getInternalOrExternalBoundary()) == false;
 }
 
-IfcSpace *IfcRelSpaceBoundary::getRelatingSpace()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_RelatingSpace.get();
-    }
-    else
-    {
-        return NULL;
-    }
-}
-
-const IfcSpace *IfcRelSpaceBoundary::getRelatingSpace() const
-{
-    return const_cast< IfcRelSpaceBoundary * > (this)->getRelatingSpace();
-}
-
-void IfcRelSpaceBoundary::setRelatingSpace(const Step::RefPtr< IfcSpace > &value)
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    if (m_RelatingSpace.valid())
-    {
-        m_RelatingSpace->m_BoundedBy.erase(this);
-    }
-    if (value.valid() )
-    {
-       value->m_BoundedBy.insert(this);
-    }
-    m_RelatingSpace = value;
-}
-
-void IfcRelSpaceBoundary::unsetRelatingSpace()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_RelatingSpace = Step::getUnset(getRelatingSpace());
-}
-
-bool IfcRelSpaceBoundary::testRelatingSpace() const
-{
-    return Step::isUnset(getRelatingSpace()) == false;
-}
-
 IfcElement *IfcRelSpaceBoundary::getRelatedBuildingElement()
 {
     if (Step::BaseObject::inited())
@@ -245,6 +203,48 @@ void IfcRelSpaceBoundary::unsetRelatedBuildingElement()
 bool IfcRelSpaceBoundary::testRelatedBuildingElement() const
 {
     return Step::isUnset(getRelatedBuildingElement()) == false;
+}
+
+IfcSpace *IfcRelSpaceBoundary::getRelatingSpace()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingSpace.get();
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+const IfcSpace *IfcRelSpaceBoundary::getRelatingSpace() const
+{
+    return const_cast< IfcRelSpaceBoundary * > (this)->getRelatingSpace();
+}
+
+void IfcRelSpaceBoundary::setRelatingSpace(const Step::RefPtr< IfcSpace > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingSpace.valid())
+    {
+        m_RelatingSpace->m_BoundedBy.erase(this);
+    }
+    if (value.valid() )
+    {
+       value->m_BoundedBy.insert(this);
+    }
+    m_RelatingSpace = value;
+}
+
+void IfcRelSpaceBoundary::unsetRelatingSpace()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingSpace = Step::getUnset(getRelatingSpace());
+}
+
+bool IfcRelSpaceBoundary::testRelatingSpace() const
+{
+    return Step::isUnset(getRelatingSpace()) == false;
 }
 
 bool IfcRelSpaceBoundary::init()
@@ -307,21 +307,21 @@ bool IfcRelSpaceBoundary::init()
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
-        m_RelatingSpace = NULL;
-    }
-    else
-    {
-        m_RelatingSpace = static_cast< IfcSpace * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
         m_RelatedBuildingElement = NULL;
     }
     else
     {
         m_RelatedBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingSpace = NULL;
+    }
+    else
+    {
+        m_RelatingSpace = static_cast< IfcSpace * > (m_expressDataSet->get(Step::getIdParam(arg)))
 ;
     }
     return true;
@@ -333,8 +333,8 @@ void IfcRelSpaceBoundary::copy(const IfcRelSpaceBoundary &obj, const CopyOp &cop
     setConnectionGeometry((IfcConnectionGeometry*)copyop(obj.m_ConnectionGeometry.get()));
     setPhysicalOrVirtualBoundary(obj.m_PhysicalOrVirtualBoundary);
     setInternalOrExternalBoundary(obj.m_InternalOrExternalBoundary);
-    setRelatingSpace((IfcSpace*)copyop(obj.m_RelatingSpace.get()));
     setRelatedBuildingElement((IfcElement*)copyop(obj.m_RelatedBuildingElement.get()));
+    setRelatingSpace((IfcSpace*)copyop(obj.m_RelatingSpace.get()));
     return;
 }
 

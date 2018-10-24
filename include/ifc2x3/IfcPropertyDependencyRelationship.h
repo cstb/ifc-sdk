@@ -48,8 +48,8 @@ namespace ifc2x3
         IfcText m_Description;
         IfcText m_Expression;
         // InvertedAttributes
-        Step::RefPtr< IfcProperty > m_DependantProperty;
         Step::RefPtr< IfcProperty > m_DependingProperty;
+        Step::RefPtr< IfcProperty > m_DependantProperty;
 
         ClassType_definitions()
 
@@ -83,15 +83,6 @@ namespace ifc2x3
         virtual bool testExpression() const;
         /// @}
 
-        /// Attribute DependantProperty
-        /// @{
-        virtual IfcProperty *getDependantProperty();
-        virtual const IfcProperty *getDependantProperty() const;
-        virtual void setDependantProperty(const Step::RefPtr< IfcProperty > &value);
-        virtual void unsetDependantProperty();
-        virtual bool testDependantProperty() const;
-        /// @}
-
         /// Attribute DependingProperty
         /// @{
         virtual IfcProperty *getDependingProperty();
@@ -99,6 +90,15 @@ namespace ifc2x3
         virtual void setDependingProperty(const Step::RefPtr< IfcProperty > &value);
         virtual void unsetDependingProperty();
         virtual bool testDependingProperty() const;
+        /// @}
+
+        /// Attribute DependantProperty
+        /// @{
+        virtual IfcProperty *getDependantProperty();
+        virtual const IfcProperty *getDependantProperty() const;
+        virtual void setDependantProperty(const Step::RefPtr< IfcProperty > &value);
+        virtual void unsetDependantProperty();
+        virtual bool testDependantProperty() const;
         /// @}
 
 

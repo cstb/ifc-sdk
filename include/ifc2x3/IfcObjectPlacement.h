@@ -44,22 +44,13 @@ namespace ifc2x3
     {
 
         // InverseAttributes
-        Inverse_Set_IfcProduct_1_1 m_PlacesObject;
         Inverse_Set_IfcLocalPlacement_0_n m_ReferencedByPlacements;
+        Inverse_Set_IfcProduct_1_1 m_PlacesObject;
 
         ClassType_definitions()
 
     public:
         virtual bool acceptVisitor(Step::BaseVisitor *visitor);
-
-        /// Inverse attribute PlacesObject
-        /// @{
-        virtual Inverse_Set_IfcProduct_1_1 &getPlacesObject();
-        virtual const Inverse_Set_IfcProduct_1_1 &getPlacesObject() const;
-        virtual bool testPlacesObject() const;
-
-        friend class IfcProduct;
-        /// @}
 
         /// Inverse attribute ReferencedByPlacements
         /// @{
@@ -68,6 +59,15 @@ namespace ifc2x3
         virtual bool testReferencedByPlacements() const;
 
         friend class IfcLocalPlacement;
+        /// @}
+
+        /// Inverse attribute PlacesObject
+        /// @{
+        virtual Inverse_Set_IfcProduct_1_1 &getPlacesObject();
+        virtual const Inverse_Set_IfcProduct_1_1 &getPlacesObject() const;
+        virtual bool testPlacesObject() const;
+
+        friend class IfcProduct;
         /// @}
 
 

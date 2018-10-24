@@ -49,8 +49,8 @@ namespace ifc2x3
         // InvertedAttributes
         Step::RefPtr< IfcClassification > m_ItemOf;
         // InverseAttributes
-        Inverse_Set_IfcClassificationItemRelationship_0_1 m_IsClassifyingItemIn;
         Inverse_Set_IfcClassificationItemRelationship_0_1 m_IsClassifiedItemIn;
+        Inverse_Set_IfcClassificationItemRelationship_0_1 m_IsClassifyingItemIn;
 
         ClassType_definitions()
 
@@ -84,20 +84,20 @@ namespace ifc2x3
         virtual bool testItemOf() const;
         /// @}
 
-        /// Inverse attribute IsClassifyingItemIn
-        /// @{
-        virtual Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn();
-        virtual const Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn() const;
-        virtual bool testIsClassifyingItemIn() const;
-
-        friend class IfcClassificationItemRelationship;
-        /// @}
-
         /// Inverse attribute IsClassifiedItemIn
         /// @{
         virtual Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifiedItemIn();
         virtual const Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifiedItemIn() const;
         virtual bool testIsClassifiedItemIn() const;
+
+        friend class IfcClassificationItemRelationship;
+        /// @}
+
+        /// Inverse attribute IsClassifyingItemIn
+        /// @{
+        virtual Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn();
+        virtual const Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn() const;
+        virtual bool testIsClassifyingItemIn() const;
 
         friend class IfcClassificationItemRelationship;
         /// @}

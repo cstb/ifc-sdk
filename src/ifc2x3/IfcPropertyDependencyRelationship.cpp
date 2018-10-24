@@ -45,8 +45,8 @@ IfcPropertyDependencyRelationship::IfcPropertyDependencyRelationship(Step::Id id
     m_Name = Step::getUnset(m_Name);
     m_Description = Step::getUnset(m_Description);
     m_Expression = Step::getUnset(m_Expression);
-    m_DependantProperty = NULL;
     m_DependingProperty = NULL;
+    m_DependantProperty = NULL;
 }
 
 IfcPropertyDependencyRelationship::~IfcPropertyDependencyRelationship()
@@ -162,48 +162,6 @@ bool IfcPropertyDependencyRelationship::testExpression() const
     return Step::isUnset(getExpression()) == false;
 }
 
-IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_DependantProperty.get();
-    }
-    else
-    {
-        return NULL;
-    }
-}
-
-const IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty() const
-{
-    return const_cast< IfcPropertyDependencyRelationship * > (this)->getDependantProperty();
-}
-
-void IfcPropertyDependencyRelationship::setDependantProperty(const Step::RefPtr< IfcProperty > &value)
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    if (m_DependantProperty.valid())
-    {
-        m_DependantProperty->m_PropertyDependsOn.erase(this);
-    }
-    if (value.valid() )
-    {
-       value->m_PropertyDependsOn.insert(this);
-    }
-    m_DependantProperty = value;
-}
-
-void IfcPropertyDependencyRelationship::unsetDependantProperty()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_DependantProperty = Step::getUnset(getDependantProperty());
-}
-
-bool IfcPropertyDependencyRelationship::testDependantProperty() const
-{
-    return Step::isUnset(getDependantProperty()) == false;
-}
-
 IfcProperty *IfcPropertyDependencyRelationship::getDependingProperty()
 {
     if (Step::BaseObject::inited())
@@ -246,6 +204,48 @@ bool IfcPropertyDependencyRelationship::testDependingProperty() const
     return Step::isUnset(getDependingProperty()) == false;
 }
 
+IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_DependantProperty.get();
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+const IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty() const
+{
+    return const_cast< IfcPropertyDependencyRelationship * > (this)->getDependantProperty();
+}
+
+void IfcPropertyDependencyRelationship::setDependantProperty(const Step::RefPtr< IfcProperty > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_DependantProperty.valid())
+    {
+        m_DependantProperty->m_PropertyDependsOn.erase(this);
+    }
+    if (value.valid() )
+    {
+       value->m_PropertyDependsOn.insert(this);
+    }
+    m_DependantProperty = value;
+}
+
+void IfcPropertyDependencyRelationship::unsetDependantProperty()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_DependantProperty = Step::getUnset(getDependantProperty());
+}
+
+bool IfcPropertyDependencyRelationship::testDependantProperty() const
+{
+    return Step::isUnset(getDependantProperty()) == false;
+}
+
 bool IfcPropertyDependencyRelationship::init()
 {
     std::string arg;
@@ -282,21 +282,21 @@ bool IfcPropertyDependencyRelationship::init()
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
-        m_DependantProperty = NULL;
-    }
-    else
-    {
-        m_DependantProperty = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
         m_DependingProperty = NULL;
     }
     else
     {
         m_DependingProperty = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_DependantProperty = NULL;
+    }
+    else
+    {
+        m_DependantProperty = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(arg)))
 ;
     }
     return true;
@@ -308,8 +308,8 @@ void IfcPropertyDependencyRelationship::copy(const IfcPropertyDependencyRelation
     setName(obj.m_Name);
     setDescription(obj.m_Description);
     setExpression(obj.m_Expression);
-    setDependantProperty((IfcProperty*)copyop(obj.m_DependantProperty.get()));
     setDependingProperty((IfcProperty*)copyop(obj.m_DependingProperty.get()));
+    setDependantProperty((IfcProperty*)copyop(obj.m_DependantProperty.get()));
     return;
 }
 

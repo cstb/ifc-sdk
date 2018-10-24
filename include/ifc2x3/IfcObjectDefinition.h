@@ -42,30 +42,21 @@ namespace ifc2x3
     {
 
         // InverseAttributes
-        Inverse_Set_IfcRelAssigns_0_n m_HasAssignments;
-        Inverse_Set_IfcRelDecomposes_0_1 m_Decomposes;
-        Inverse_Set_IfcRelAssociates_0_n m_HasAssociations;
         Inverse_Set_IfcRelDecomposes_0_n m_IsDecomposedBy;
+        Inverse_Set_IfcRelAssociates_0_n m_HasAssociations;
+        Inverse_Set_IfcRelDecomposes_0_1 m_Decomposes;
+        Inverse_Set_IfcRelAssigns_0_n m_HasAssignments;
 
         ClassType_definitions()
 
     public:
         virtual bool acceptVisitor(Step::BaseVisitor *visitor);
 
-        /// Inverse attribute HasAssignments
+        /// Inverse attribute IsDecomposedBy
         /// @{
-        virtual Inverse_Set_IfcRelAssigns_0_n &getHasAssignments();
-        virtual const Inverse_Set_IfcRelAssigns_0_n &getHasAssignments() const;
-        virtual bool testHasAssignments() const;
-
-        friend class IfcRelAssigns;
-        /// @}
-
-        /// Inverse attribute Decomposes
-        /// @{
-        virtual Inverse_Set_IfcRelDecomposes_0_1 &getDecomposes();
-        virtual const Inverse_Set_IfcRelDecomposes_0_1 &getDecomposes() const;
-        virtual bool testDecomposes() const;
+        virtual Inverse_Set_IfcRelDecomposes_0_n &getIsDecomposedBy();
+        virtual const Inverse_Set_IfcRelDecomposes_0_n &getIsDecomposedBy() const;
+        virtual bool testIsDecomposedBy() const;
 
         friend class IfcRelDecomposes;
         /// @}
@@ -79,13 +70,22 @@ namespace ifc2x3
         friend class IfcRelAssociates;
         /// @}
 
-        /// Inverse attribute IsDecomposedBy
+        /// Inverse attribute Decomposes
         /// @{
-        virtual Inverse_Set_IfcRelDecomposes_0_n &getIsDecomposedBy();
-        virtual const Inverse_Set_IfcRelDecomposes_0_n &getIsDecomposedBy() const;
-        virtual bool testIsDecomposedBy() const;
+        virtual Inverse_Set_IfcRelDecomposes_0_1 &getDecomposes();
+        virtual const Inverse_Set_IfcRelDecomposes_0_1 &getDecomposes() const;
+        virtual bool testDecomposes() const;
 
         friend class IfcRelDecomposes;
+        /// @}
+
+        /// Inverse attribute HasAssignments
+        /// @{
+        virtual Inverse_Set_IfcRelAssigns_0_n &getHasAssignments();
+        virtual const Inverse_Set_IfcRelAssigns_0_n &getHasAssignments() const;
+        virtual bool testHasAssignments() const;
+
+        friend class IfcRelAssigns;
         /// @}
 
 

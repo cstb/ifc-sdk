@@ -42,8 +42,8 @@ namespace ifc2x3
     {
 
         // InvertedAttributes
-        Step::RefPtr< IfcProductRepresentation > m_Representation;
         Step::RefPtr< IfcObjectPlacement > m_ObjectPlacement;
+        Step::RefPtr< IfcProductRepresentation > m_Representation;
         // InverseAttributes
         Inverse_Set_IfcRelAssignsToProduct_0_n m_ReferencedBy;
 
@@ -52,15 +52,6 @@ namespace ifc2x3
     public:
         virtual bool acceptVisitor(Step::BaseVisitor *visitor);
 
-        /// Attribute Representation
-        /// @{
-        virtual IfcProductRepresentation *getRepresentation();
-        virtual const IfcProductRepresentation *getRepresentation() const;
-        virtual void setRepresentation(const Step::RefPtr< IfcProductRepresentation > &value);
-        virtual void unsetRepresentation();
-        virtual bool testRepresentation() const;
-        /// @}
-
         /// Attribute ObjectPlacement
         /// @{
         virtual IfcObjectPlacement *getObjectPlacement();
@@ -68,6 +59,15 @@ namespace ifc2x3
         virtual void setObjectPlacement(const Step::RefPtr< IfcObjectPlacement > &value);
         virtual void unsetObjectPlacement();
         virtual bool testObjectPlacement() const;
+        /// @}
+
+        /// Attribute Representation
+        /// @{
+        virtual IfcProductRepresentation *getRepresentation();
+        virtual const IfcProductRepresentation *getRepresentation() const;
+        virtual void setRepresentation(const Step::RefPtr< IfcProductRepresentation > &value);
+        virtual void unsetRepresentation();
+        virtual bool testRepresentation() const;
         /// @}
 
         /// Inverse attribute ReferencedBy

@@ -26,9 +26,9 @@
 
 #include <ifc2x3/IfcProduct.h>
 
+#include <ifc2x3/IfcObjectPlacement.h>
 #include <ifc2x3/IfcProductRepresentation.h>
 #include <ifc2x3/IfcProductDefinitionShape.h>
-#include <ifc2x3/IfcObjectPlacement.h>
 #include <ifc2x3/IfcRelAssignsToProduct.h>
 
 #include <ifc2x3/CopyOp.h>
@@ -44,8 +44,8 @@ using namespace ifc2x3;
 IfcProduct::IfcProduct(Step::Id id, Step::SPFData *args) : 
     IfcObject(id, args)
 {
-    m_Representation = NULL;
     m_ObjectPlacement = NULL;
+    m_Representation = NULL;
 }
 
 IfcProduct::~IfcProduct()
@@ -54,48 +54,6 @@ IfcProduct::~IfcProduct()
 bool IfcProduct::acceptVisitor(Step::BaseVisitor *visitor)
 {
     return static_cast<Visitor *>(visitor)->visitIfcProduct(this);
-}
-
-IfcProductRepresentation *IfcProduct::getRepresentation()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_Representation.get();
-    }
-    else
-    {
-        return NULL;
-    }
-}
-
-const IfcProductRepresentation *IfcProduct::getRepresentation() const
-{
-    return const_cast< IfcProduct * > (this)->getRepresentation();
-}
-
-void IfcProduct::setRepresentation(const Step::RefPtr< IfcProductRepresentation > &value)
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    if (m_Representation.valid() && m_Representation->isOfType(IfcProductDefinitionShape::getClassType()))
-    {
-        static_cast<IfcProductDefinitionShape*>(m_Representation.get())->m_ShapeOfProduct.erase(this);
-    }
-    if (value.valid() && value->isOfType(IfcProductDefinitionShape::getClassType()))
-    {
-       static_cast<IfcProductDefinitionShape*>(value.get())->m_ShapeOfProduct.insert(this);
-    }
-    m_Representation = value;
-}
-
-void IfcProduct::unsetRepresentation()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_Representation = Step::getUnset(getRepresentation());
-}
-
-bool IfcProduct::testRepresentation() const
-{
-    return Step::isUnset(getRepresentation()) == false;
 }
 
 IfcObjectPlacement *IfcProduct::getObjectPlacement()
@@ -140,6 +98,48 @@ bool IfcProduct::testObjectPlacement() const
     return Step::isUnset(getObjectPlacement()) == false;
 }
 
+IfcProductRepresentation *IfcProduct::getRepresentation()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_Representation.get();
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+const IfcProductRepresentation *IfcProduct::getRepresentation() const
+{
+    return const_cast< IfcProduct * > (this)->getRepresentation();
+}
+
+void IfcProduct::setRepresentation(const Step::RefPtr< IfcProductRepresentation > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_Representation.valid() && m_Representation->isOfType(IfcProductDefinitionShape::getClassType()))
+    {
+        static_cast<IfcProductDefinitionShape*>(m_Representation.get())->m_ShapeOfProduct.erase(this);
+    }
+    if (value.valid() && value->isOfType(IfcProductDefinitionShape::getClassType()))
+    {
+       static_cast<IfcProductDefinitionShape*>(value.get())->m_ShapeOfProduct.insert(this);
+    }
+    m_Representation = value;
+}
+
+void IfcProduct::unsetRepresentation()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Representation = Step::getUnset(getRepresentation());
+}
+
+bool IfcProduct::testRepresentation() const
+{
+    return Step::isUnset(getRepresentation()) == false;
+}
+
 Inverse_Set_IfcRelAssignsToProduct_0_n &IfcProduct::getReferencedBy()
 {
     if (Step::BaseObject::inited())
@@ -171,21 +171,21 @@ bool IfcProduct::init()
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
-        m_Representation = NULL;
-    }
-    else
-    {
-        m_Representation = static_cast< IfcProductRepresentation * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
         m_ObjectPlacement = NULL;
     }
     else
     {
         m_ObjectPlacement = static_cast< IfcObjectPlacement * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_Representation = NULL;
+    }
+    else
+    {
+        m_Representation = static_cast< IfcProductRepresentation * > (m_expressDataSet->get(Step::getIdParam(arg)))
 ;
     }
     std::vector< Step::Id > *inverses;
@@ -205,8 +205,8 @@ bool IfcProduct::init()
 void IfcProduct::copy(const IfcProduct &obj, const CopyOp &copyop)
 {
     IfcObject::copy(obj, copyop);
-    setRepresentation((IfcProductRepresentation*)copyop(obj.m_Representation.get()));
     setObjectPlacement((IfcObjectPlacement*)copyop(obj.m_ObjectPlacement.get()));
+    setRepresentation((IfcProductRepresentation*)copyop(obj.m_Representation.get()));
     return;
 }
 

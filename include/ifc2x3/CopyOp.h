@@ -253,6 +253,7 @@ namespace ifc2x3
     class IfcApprovalRelationship;
     class IfcApprovalPropertyRelationship;
     class IfcProperty;
+    class IfcPropertySet;
     class IfcPropertyDependencyRelationship;
     class IfcComplexProperty;
     class IfcArbitraryClosedProfileDef;
@@ -528,7 +529,6 @@ namespace ifc2x3
     class IfcPropertyEnumeration;
     class IfcPropertyListValue;
     class IfcPropertyReferenceValue;
-    class IfcPropertySet;
     class IfcPropertySingleValue;
     class IfcPropertyTableValue;
     class IfcProtectiveDeviceType;
@@ -1567,6 +1567,10 @@ namespace ifc2x3
          * @param obj
          */
         virtual bool visitIfcProperty(IfcProperty *obj) = 0;
+        /**
+         * @param obj
+         */
+        virtual bool visitIfcPropertySet(IfcPropertySet *obj) = 0;
         /**
          * @param obj
          */
@@ -2667,10 +2671,6 @@ namespace ifc2x3
          * @param obj
          */
         virtual bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj) = 0;
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPropertySet(IfcPropertySet *obj) = 0;
         /**
          * @param obj
          */
@@ -4242,6 +4242,10 @@ namespace ifc2x3
         /**
          * @param obj
          */
+        virtual bool visitIfcPropertySet(IfcPropertySet *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
         /**
          * @param obj
@@ -5339,10 +5343,6 @@ namespace ifc2x3
          * @param obj
          */
         virtual bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPropertySet(IfcPropertySet *obj);
         /**
          * @param obj
          */
@@ -6903,6 +6903,10 @@ namespace ifc2x3
         /**
          * @param obj
          */
+        virtual bool visitIfcPropertySet(IfcPropertySet *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
         /**
          * @param obj
@@ -8000,10 +8004,6 @@ namespace ifc2x3
          * @param obj
          */
         virtual bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPropertySet(IfcPropertySet *obj);
         /**
          * @param obj
          */
@@ -9540,6 +9540,10 @@ namespace ifc2x3
         /**
          * @param obj
          */
+        virtual bool visitIfcPropertySet(IfcPropertySet *obj);
+        /**
+         * @param obj
+         */
         virtual bool visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *obj);
         /**
          * @param obj
@@ -10637,10 +10641,6 @@ namespace ifc2x3
          * @param obj
          */
         virtual bool visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *obj);
-        /**
-         * @param obj
-         */
-        virtual bool visitIfcPropertySet(IfcPropertySet *obj);
         /**
          * @param obj
          */

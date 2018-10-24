@@ -46,8 +46,8 @@ namespace ifc2x3
         IfcNormalisedRatioMeasure m_ImportanceRating;
         Step::RefPtr< IfcSpatialStructureElement > m_LocationOfInteraction;
         // InvertedAttributes
-        Step::RefPtr< IfcSpaceProgram > m_RelatedSpaceProgram;
         Step::RefPtr< IfcSpaceProgram > m_RelatingSpaceProgram;
+        Step::RefPtr< IfcSpaceProgram > m_RelatedSpaceProgram;
 
         ClassType_definitions()
 
@@ -81,15 +81,6 @@ namespace ifc2x3
         virtual bool testLocationOfInteraction() const;
         /// @}
 
-        /// Attribute RelatedSpaceProgram
-        /// @{
-        virtual IfcSpaceProgram *getRelatedSpaceProgram();
-        virtual const IfcSpaceProgram *getRelatedSpaceProgram() const;
-        virtual void setRelatedSpaceProgram(const Step::RefPtr< IfcSpaceProgram > &value);
-        virtual void unsetRelatedSpaceProgram();
-        virtual bool testRelatedSpaceProgram() const;
-        /// @}
-
         /// Attribute RelatingSpaceProgram
         /// @{
         virtual IfcSpaceProgram *getRelatingSpaceProgram();
@@ -97,6 +88,15 @@ namespace ifc2x3
         virtual void setRelatingSpaceProgram(const Step::RefPtr< IfcSpaceProgram > &value);
         virtual void unsetRelatingSpaceProgram();
         virtual bool testRelatingSpaceProgram() const;
+        /// @}
+
+        /// Attribute RelatedSpaceProgram
+        /// @{
+        virtual IfcSpaceProgram *getRelatedSpaceProgram();
+        virtual const IfcSpaceProgram *getRelatedSpaceProgram() const;
+        virtual void setRelatedSpaceProgram(const Step::RefPtr< IfcSpaceProgram > &value);
+        virtual void unsetRelatedSpaceProgram();
+        virtual bool testRelatedSpaceProgram() const;
         /// @}
 
 

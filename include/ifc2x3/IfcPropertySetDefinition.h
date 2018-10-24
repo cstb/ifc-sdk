@@ -42,22 +42,13 @@ namespace ifc2x3
     {
 
         // InverseAttributes
-        Inverse_Set_IfcTypeObject_0_1 m_DefinesType;
         Inverse_Set_IfcRelDefinesByProperties_0_1 m_PropertyDefinitionOf;
+        Inverse_Set_IfcTypeObject_0_1 m_DefinesType;
 
         ClassType_definitions()
 
     public:
         virtual bool acceptVisitor(Step::BaseVisitor *visitor);
-
-        /// Inverse attribute DefinesType
-        /// @{
-        virtual Inverse_Set_IfcTypeObject_0_1 &getDefinesType();
-        virtual const Inverse_Set_IfcTypeObject_0_1 &getDefinesType() const;
-        virtual bool testDefinesType() const;
-
-        friend class IfcTypeObject;
-        /// @}
 
         /// Inverse attribute PropertyDefinitionOf
         /// @{
@@ -66,6 +57,15 @@ namespace ifc2x3
         virtual bool testPropertyDefinitionOf() const;
 
         friend class IfcRelDefinesByProperties;
+        /// @}
+
+        /// Inverse attribute DefinesType
+        /// @{
+        virtual Inverse_Set_IfcTypeObject_0_1 &getDefinesType();
+        virtual const Inverse_Set_IfcTypeObject_0_1 &getDefinesType() const;
+        virtual bool testDefinesType() const;
+
+        friend class IfcTypeObject;
         /// @}
 
 

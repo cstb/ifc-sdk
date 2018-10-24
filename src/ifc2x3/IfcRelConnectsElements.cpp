@@ -44,8 +44,8 @@ IfcRelConnectsElements::IfcRelConnectsElements(Step::Id id, Step::SPFData *args)
     IfcRelConnects(id, args)
 {
     m_ConnectionGeometry = NULL;
-    m_RelatingElement = NULL;
     m_RelatedElement = NULL;
+    m_RelatingElement = NULL;
 }
 
 IfcRelConnectsElements::~IfcRelConnectsElements()
@@ -91,48 +91,6 @@ bool IfcRelConnectsElements::testConnectionGeometry() const
     return Step::isUnset(getConnectionGeometry()) == false;
 }
 
-IfcElement *IfcRelConnectsElements::getRelatingElement()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_RelatingElement.get();
-    }
-    else
-    {
-        return NULL;
-    }
-}
-
-const IfcElement *IfcRelConnectsElements::getRelatingElement() const
-{
-    return const_cast< IfcRelConnectsElements * > (this)->getRelatingElement();
-}
-
-void IfcRelConnectsElements::setRelatingElement(const Step::RefPtr< IfcElement > &value)
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    if (m_RelatingElement.valid())
-    {
-        m_RelatingElement->m_ConnectedTo.erase(this);
-    }
-    if (value.valid() )
-    {
-       value->m_ConnectedTo.insert(this);
-    }
-    m_RelatingElement = value;
-}
-
-void IfcRelConnectsElements::unsetRelatingElement()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_RelatingElement = Step::getUnset(getRelatingElement());
-}
-
-bool IfcRelConnectsElements::testRelatingElement() const
-{
-    return Step::isUnset(getRelatingElement()) == false;
-}
-
 IfcElement *IfcRelConnectsElements::getRelatedElement()
 {
     if (Step::BaseObject::inited())
@@ -175,6 +133,48 @@ bool IfcRelConnectsElements::testRelatedElement() const
     return Step::isUnset(getRelatedElement()) == false;
 }
 
+IfcElement *IfcRelConnectsElements::getRelatingElement()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatingElement.get();
+    }
+    else
+    {
+        return NULL;
+    }
+}
+
+const IfcElement *IfcRelConnectsElements::getRelatingElement() const
+{
+    return const_cast< IfcRelConnectsElements * > (this)->getRelatingElement();
+}
+
+void IfcRelConnectsElements::setRelatingElement(const Step::RefPtr< IfcElement > &value)
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    if (m_RelatingElement.valid())
+    {
+        m_RelatingElement->m_ConnectedTo.erase(this);
+    }
+    if (value.valid() )
+    {
+       value->m_ConnectedTo.insert(this);
+    }
+    m_RelatingElement = value;
+}
+
+void IfcRelConnectsElements::unsetRelatingElement()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatingElement = Step::getUnset(getRelatingElement());
+}
+
+bool IfcRelConnectsElements::testRelatingElement() const
+{
+    return Step::isUnset(getRelatingElement()) == false;
+}
+
 bool IfcRelConnectsElements::init()
 {
     if (IfcRelConnects::init() == false)
@@ -195,21 +195,21 @@ bool IfcRelConnectsElements::init()
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
-        m_RelatingElement = NULL;
-    }
-    else
-    {
-        m_RelatingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
         m_RelatedElement = NULL;
     }
     else
     {
         m_RelatedElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_RelatingElement = NULL;
+    }
+    else
+    {
+        m_RelatingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)))
 ;
     }
     return true;
@@ -219,8 +219,8 @@ void IfcRelConnectsElements::copy(const IfcRelConnectsElements &obj, const CopyO
 {
     IfcRelConnects::copy(obj, copyop);
     setConnectionGeometry((IfcConnectionGeometry*)copyop(obj.m_ConnectionGeometry.get()));
-    setRelatingElement((IfcElement*)copyop(obj.m_RelatingElement.get()));
     setRelatedElement((IfcElement*)copyop(obj.m_RelatedElement.get()));
+    setRelatingElement((IfcElement*)copyop(obj.m_RelatingElement.get()));
     return;
 }
 

@@ -94,13 +94,21 @@ namespace ifc2x3
     {
 
         // InvertedAttributes
-        Step::RefPtr< IfcSpace > m_RelatedSpace;
         Inverted_IfcRelCoversSpaces_RelatedCoverings_type m_RelatedCoverings;
+        Step::RefPtr< IfcSpace > m_RelatedSpace;
 
         ClassType_definitions()
 
     public:
         virtual bool acceptVisitor(Step::BaseVisitor *visitor);
+
+        /// Attribute RelatedCoverings
+        /// @{
+        virtual Set_IfcCovering_1_n &getRelatedCoverings();
+        virtual const Set_IfcCovering_1_n &getRelatedCoverings() const;
+        virtual void unsetRelatedCoverings();
+        virtual bool testRelatedCoverings() const;
+        /// @}
 
         /// Attribute RelatedSpace
         /// @{
@@ -109,14 +117,6 @@ namespace ifc2x3
         virtual void setRelatedSpace(const Step::RefPtr< IfcSpace > &value);
         virtual void unsetRelatedSpace();
         virtual bool testRelatedSpace() const;
-        /// @}
-
-        /// Attribute RelatedCoverings
-        /// @{
-        virtual Set_IfcCovering_1_n &getRelatedCoverings();
-        virtual const Set_IfcCovering_1_n &getRelatedCoverings() const;
-        virtual void unsetRelatedCoverings();
-        virtual bool testRelatedCoverings() const;
         /// @}
 
 

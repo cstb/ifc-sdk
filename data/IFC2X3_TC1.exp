@@ -5945,7 +5945,7 @@ END_ENTITY;
 ENTITY IfcProductDefinitionShape
  SUBTYPE OF (IfcProductRepresentation);
  INVERSE
-	ShapeOfProduct : SET [1:1] OF IfcProduct FOR Representation;
+	ShapeOfProduct : SET [1:?] OF IfcProduct FOR Representation;
 	HasShapeAspects : SET [0:?] OF IfcShapeAspect FOR PartOfProductDefinitionShape;
  WHERE
 	WR11 : SIZEOF(QUERY(temp <* Representations | 
@@ -6035,6 +6035,7 @@ ENTITY IfcProperty
 	Name : IfcIdentifier;
 	Description : OPTIONAL IfcText;
  INVERSE
+    PartOfPset	:	SET OF IfcPropertySet FOR HasProperties;
 	PropertyForDependance : SET [0:?] OF IfcPropertyDependencyRelationship FOR DependingProperty;
 	PropertyDependsOn : SET [0:?] OF IfcPropertyDependencyRelationship FOR DependantProperty;
 	PartOfComplex : SET [0:1] OF IfcComplexProperty FOR HasProperties;

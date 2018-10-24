@@ -82,9 +82,9 @@ IfcOrganizationRelationship::IfcOrganizationRelationship(Step::Id id, Step::SPFD
 {
     m_Name = Step::getUnset(m_Name);
     m_Description = Step::getUnset(m_Description);
+    m_RelatingOrganization = NULL;
     m_RelatedOrganizations.setUnset(true);
     m_RelatedOrganizations.setOwner(this);
-    m_RelatingOrganization = NULL;
 }
 
 IfcOrganizationRelationship::~IfcOrganizationRelationship()
@@ -165,36 +165,6 @@ bool IfcOrganizationRelationship::testDescription() const
     return Step::isUnset(getDescription()) == false;
 }
 
-Set_IfcOrganization_1_n &IfcOrganizationRelationship::getRelatedOrganizations()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_RelatedOrganizations;
-    }
-    else
-    {
-        m_RelatedOrganizations.setUnset(true);
-        return m_RelatedOrganizations;
-    }
-}
-
-const Set_IfcOrganization_1_n &IfcOrganizationRelationship::getRelatedOrganizations() const
-{
-    return const_cast< IfcOrganizationRelationship * > (this)->getRelatedOrganizations();
-}
-
-void IfcOrganizationRelationship::unsetRelatedOrganizations()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_RelatedOrganizations.clear();
-    m_RelatedOrganizations.setUnset(true);
-}
-
-bool IfcOrganizationRelationship::testRelatedOrganizations() const
-{
-    return m_RelatedOrganizations.isUnset() == false;
-}
-
 IfcOrganization *IfcOrganizationRelationship::getRelatingOrganization()
 {
     if (Step::BaseObject::inited())
@@ -237,6 +207,36 @@ bool IfcOrganizationRelationship::testRelatingOrganization() const
     return Step::isUnset(getRelatingOrganization()) == false;
 }
 
+Set_IfcOrganization_1_n &IfcOrganizationRelationship::getRelatedOrganizations()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_RelatedOrganizations;
+    }
+    else
+    {
+        m_RelatedOrganizations.setUnset(true);
+        return m_RelatedOrganizations;
+    }
+}
+
+const Set_IfcOrganization_1_n &IfcOrganizationRelationship::getRelatedOrganizations() const
+{
+    return const_cast< IfcOrganizationRelationship * > (this)->getRelatedOrganizations();
+}
+
+void IfcOrganizationRelationship::unsetRelatedOrganizations()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_RelatedOrganizations.clear();
+    m_RelatedOrganizations.setUnset(true);
+}
+
+bool IfcOrganizationRelationship::testRelatedOrganizations() const
+{
+    return m_RelatedOrganizations.isUnset() == false;
+}
+
 bool IfcOrganizationRelationship::init()
 {
     std::string arg;
@@ -263,6 +263,16 @@ bool IfcOrganizationRelationship::init()
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
+        m_RelatingOrganization = NULL;
+    }
+    else
+    {
+        m_RelatingOrganization = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
         m_RelatedOrganizations.setUnset(true);
     }
     else
@@ -283,16 +293,6 @@ bool IfcOrganizationRelationship::init()
             }
         }
     }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
-        m_RelatingOrganization = NULL;
-    }
-    else
-    {
-        m_RelatingOrganization = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
     return true;
 }
 
@@ -301,6 +301,7 @@ void IfcOrganizationRelationship::copy(const IfcOrganizationRelationship &obj, c
     Step::BaseEntity::copy(obj, copyop);
     setName(obj.m_Name);
     setDescription(obj.m_Description);
+    setRelatingOrganization((IfcOrganization*)copyop(obj.m_RelatingOrganization.get()));
     Set_IfcOrganization_1_n::const_iterator it_m_RelatedOrganizations;
     for (it_m_RelatedOrganizations = obj.m_RelatedOrganizations.begin(); it_m_RelatedOrganizations != obj.m_RelatedOrganizations.end(); ++it_m_RelatedOrganizations)
     {
@@ -308,7 +309,6 @@ void IfcOrganizationRelationship::copy(const IfcOrganizationRelationship &obj, c
         m_RelatedOrganizations.insert(copyTarget);
     }
     
-    setRelatingOrganization((IfcOrganization*)copyop(obj.m_RelatingOrganization.get()));
     return;
 }
 

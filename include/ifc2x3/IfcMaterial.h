@@ -46,8 +46,8 @@ namespace ifc2x3
         // Attributes
         IfcLabel m_Name;
         // InverseAttributes
-        Inverse_Set_IfcMaterialClassificationRelationship_0_1 m_ClassifiedAs;
         Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 m_HasRepresentation;
+        Inverse_Set_IfcMaterialClassificationRelationship_0_1 m_ClassifiedAs;
 
         ClassType_definitions()
 
@@ -63,15 +63,6 @@ namespace ifc2x3
         virtual bool testName() const;
         /// @}
 
-        /// Inverse attribute ClassifiedAs
-        /// @{
-        virtual Inverse_Set_IfcMaterialClassificationRelationship_0_1 &getClassifiedAs();
-        virtual const Inverse_Set_IfcMaterialClassificationRelationship_0_1 &getClassifiedAs() const;
-        virtual bool testClassifiedAs() const;
-
-        friend class IfcMaterialClassificationRelationship;
-        /// @}
-
         /// Inverse attribute HasRepresentation
         /// @{
         virtual Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &getHasRepresentation();
@@ -79,6 +70,15 @@ namespace ifc2x3
         virtual bool testHasRepresentation() const;
 
         friend class IfcMaterialDefinitionRepresentation;
+        /// @}
+
+        /// Inverse attribute ClassifiedAs
+        /// @{
+        virtual Inverse_Set_IfcMaterialClassificationRelationship_0_1 &getClassifiedAs();
+        virtual const Inverse_Set_IfcMaterialClassificationRelationship_0_1 &getClassifiedAs() const;
+        virtual bool testClassifiedAs() const;
+
+        friend class IfcMaterialClassificationRelationship;
         /// @}
 
 

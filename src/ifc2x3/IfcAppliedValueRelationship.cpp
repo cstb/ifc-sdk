@@ -83,9 +83,9 @@ IfcAppliedValueRelationship::IfcAppliedValueRelationship(Step::Id id, Step::SPFD
     m_ArithmeticOperator = IfcArithmeticOperatorEnum_UNSET;
     m_Name = Step::getUnset(m_Name);
     m_Description = Step::getUnset(m_Description);
-    m_ComponentOfTotal = NULL;
     m_Components.setUnset(true);
     m_Components.setOwner(this);
+    m_ComponentOfTotal = NULL;
 }
 
 IfcAppliedValueRelationship::~IfcAppliedValueRelationship()
@@ -201,6 +201,36 @@ bool IfcAppliedValueRelationship::testDescription() const
     return Step::isUnset(getDescription()) == false;
 }
 
+Set_IfcAppliedValue_1_n &IfcAppliedValueRelationship::getComponents()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_Components;
+    }
+    else
+    {
+        m_Components.setUnset(true);
+        return m_Components;
+    }
+}
+
+const Set_IfcAppliedValue_1_n &IfcAppliedValueRelationship::getComponents() const
+{
+    return const_cast< IfcAppliedValueRelationship * > (this)->getComponents();
+}
+
+void IfcAppliedValueRelationship::unsetComponents()
+{
+    Step::BaseObject::inited(); // make sure we are inited
+    m_Components.clear();
+    m_Components.setUnset(true);
+}
+
+bool IfcAppliedValueRelationship::testComponents() const
+{
+    return m_Components.isUnset() == false;
+}
+
 IfcAppliedValue *IfcAppliedValueRelationship::getComponentOfTotal()
 {
     if (Step::BaseObject::inited())
@@ -241,36 +271,6 @@ void IfcAppliedValueRelationship::unsetComponentOfTotal()
 bool IfcAppliedValueRelationship::testComponentOfTotal() const
 {
     return Step::isUnset(getComponentOfTotal()) == false;
-}
-
-Set_IfcAppliedValue_1_n &IfcAppliedValueRelationship::getComponents()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_Components;
-    }
-    else
-    {
-        m_Components.setUnset(true);
-        return m_Components;
-    }
-}
-
-const Set_IfcAppliedValue_1_n &IfcAppliedValueRelationship::getComponents() const
-{
-    return const_cast< IfcAppliedValueRelationship * > (this)->getComponents();
-}
-
-void IfcAppliedValueRelationship::unsetComponents()
-{
-    Step::BaseObject::inited(); // make sure we are inited
-    m_Components.clear();
-    m_Components.setUnset(true);
-}
-
-bool IfcAppliedValueRelationship::testComponents() const
-{
-    return m_Components.isUnset() == false;
 }
 
 bool IfcAppliedValueRelationship::init()
@@ -323,16 +323,6 @@ bool IfcAppliedValueRelationship::init()
     arg = m_args->getNext();
     if (arg == "$" || arg == "*")
     {
-        m_ComponentOfTotal = NULL;
-    }
-    else
-    {
-        m_ComponentOfTotal = static_cast< IfcAppliedValue * > (m_expressDataSet->get(Step::getIdParam(arg)))
-;
-    }
-    arg = m_args->getNext();
-    if (arg == "$" || arg == "*")
-    {
         m_Components.setUnset(true);
     }
     else
@@ -353,6 +343,16 @@ bool IfcAppliedValueRelationship::init()
             }
         }
     }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*")
+    {
+        m_ComponentOfTotal = NULL;
+    }
+    else
+    {
+        m_ComponentOfTotal = static_cast< IfcAppliedValue * > (m_expressDataSet->get(Step::getIdParam(arg)))
+;
+    }
     return true;
 }
 
@@ -362,7 +362,6 @@ void IfcAppliedValueRelationship::copy(const IfcAppliedValueRelationship &obj, c
     setArithmeticOperator(obj.m_ArithmeticOperator);
     setName(obj.m_Name);
     setDescription(obj.m_Description);
-    setComponentOfTotal((IfcAppliedValue*)copyop(obj.m_ComponentOfTotal.get()));
     Set_IfcAppliedValue_1_n::const_iterator it_m_Components;
     for (it_m_Components = obj.m_Components.begin(); it_m_Components != obj.m_Components.end(); ++it_m_Components)
     {
@@ -370,6 +369,7 @@ void IfcAppliedValueRelationship::copy(const IfcAppliedValueRelationship &obj, c
         m_Components.insert(copyTarget);
     }
     
+    setComponentOfTotal((IfcAppliedValue*)copyop(obj.m_ComponentOfTotal.get()));
     return;
 }
 

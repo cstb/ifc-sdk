@@ -27,10 +27,10 @@
 #include <ifc2x3/IfcGridAxis.h>
 
 #include <ifc2x3/IfcCurve.h>
+#include <ifc2x3/IfcGrid.h>
+#include <ifc2x3/IfcGrid.h>
+#include <ifc2x3/IfcGrid.h>
 #include <ifc2x3/IfcVirtualGridIntersection.h>
-#include <ifc2x3/IfcGrid.h>
-#include <ifc2x3/IfcGrid.h>
-#include <ifc2x3/IfcGrid.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -163,48 +163,6 @@ bool IfcGridAxis::testSameSense() const
     return Step::isUnset(getSameSense()) == false;
 }
 
-Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_HasIntersections;
-    }
- 
-    m_HasIntersections.setUnset(true);
-    return m_HasIntersections;
-}
-
-const Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections() const
-{
-    return  const_cast< IfcGridAxis * > (this)->getHasIntersections();
-}
-
-bool IfcGridAxis::testHasIntersections() const
-{
-    return m_HasIntersections.isUnset() == false;
-}
-
-Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_PartOfV;
-    }
- 
-    m_PartOfV.setUnset(true);
-    return m_PartOfV;
-}
-
-const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() const
-{
-    return  const_cast< IfcGridAxis * > (this)->getPartOfV();
-}
-
-bool IfcGridAxis::testPartOfV() const
-{
-    return m_PartOfV.isUnset() == false;
-}
-
 Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfU()
 {
     if (Step::BaseObject::inited())
@@ -247,6 +205,48 @@ bool IfcGridAxis::testPartOfW() const
     return m_PartOfW.isUnset() == false;
 }
 
+Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_PartOfV;
+    }
+ 
+    m_PartOfV.setUnset(true);
+    return m_PartOfV;
+}
+
+const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() const
+{
+    return  const_cast< IfcGridAxis * > (this)->getPartOfV();
+}
+
+bool IfcGridAxis::testPartOfV() const
+{
+    return m_PartOfV.isUnset() == false;
+}
+
+Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_HasIntersections;
+    }
+ 
+    m_HasIntersections.setUnset(true);
+    return m_HasIntersections;
+}
+
+const Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections() const
+{
+    return  const_cast< IfcGridAxis * > (this)->getHasIntersections();
+}
+
+bool IfcGridAxis::testHasIntersections() const
+{
+    return m_HasIntersections.isUnset() == false;
+}
+
 bool IfcGridAxis::init()
 {
     std::string arg;
@@ -281,26 +281,6 @@ bool IfcGridAxis::init()
 ;
     }
     std::vector< Step::Id > *inverses;
-    inverses = m_args->getInverses(IfcVirtualGridIntersection::getClassType(), 0);
-    if (inverses)
-    {
-        unsigned int i;
-        m_HasIntersections.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_HasIntersections.insert(static_cast< IfcVirtualGridIntersection * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
-    inverses = m_args->getInverses(IfcGrid::getClassType(), 8);
-    if (inverses)
-    {
-        unsigned int i;
-        m_PartOfV.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_PartOfV.insert(static_cast< IfcGrid * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
     inverses = m_args->getInverses(IfcGrid::getClassType(), 7);
     if (inverses)
     {
@@ -319,6 +299,26 @@ bool IfcGridAxis::init()
         for (i = 0; i < inverses->size(); i++)
         {
             m_PartOfW.insert(static_cast< IfcGrid * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcGrid::getClassType(), 8);
+    if (inverses)
+    {
+        unsigned int i;
+        m_PartOfV.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_PartOfV.insert(static_cast< IfcGrid * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcVirtualGridIntersection::getClassType(), 0);
+    if (inverses)
+    {
+        unsigned int i;
+        m_HasIntersections.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_HasIntersections.insert(static_cast< IfcVirtualGridIntersection * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

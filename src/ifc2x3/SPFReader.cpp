@@ -243,6 +243,7 @@
 #include <ifc2x3/IfcApprovalRelationship.h>
 #include <ifc2x3/IfcApprovalPropertyRelationship.h>
 #include <ifc2x3/IfcProperty.h>
+#include <ifc2x3/IfcPropertySet.h>
 #include <ifc2x3/IfcPropertyDependencyRelationship.h>
 #include <ifc2x3/IfcComplexProperty.h>
 #include <ifc2x3/IfcArbitraryClosedProfileDef.h>
@@ -518,7 +519,6 @@
 #include <ifc2x3/IfcPropertyEnumeration.h>
 #include <ifc2x3/IfcPropertyListValue.h>
 #include <ifc2x3/IfcPropertyReferenceValue.h>
-#include <ifc2x3/IfcPropertySet.h>
 #include <ifc2x3/IfcPropertySingleValue.h>
 #include <ifc2x3/IfcPropertyTableValue.h>
 #include <ifc2x3/IfcProtectiveDeviceType.h>
@@ -1649,18 +1649,6 @@ bool SPFReader::loadIFCAPPLIEDVALUERELATIONSHIP(bool isFirst)
         m_currentType = &ExpressDataSet::allocateIfcAppliedValueRelationship;
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcAppliedValueRelationship_Map[m_currentId] = m_currentObj;
     }
-    Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 0)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 0 of IfcAppliedValueRelationship, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(0));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 0 of IfcAppliedValueRelationship, line " << m_currentLineNb);
-        return false;
-    }
     std::vector< Step::Id > currentRefList;
     Step::getIdListParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(1), currentRefList);
     if (currentRefList[0] == Step::Id_UNDEF)
@@ -1674,6 +1662,18 @@ bool SPFReader::loadIFCAPPLIEDVALUERELATIONSHIP(bool isFirst)
         {
             m_expressDataSet->getArgs(currentRefList[i])->addInverse(IfcAppliedValueRelationship::getClassType(), 1, m_currentId);
         }
+    }
+    Step::Id currentRef;
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 0)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 0 of IfcAppliedValueRelationship, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(0));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 0 of IfcAppliedValueRelationship, line " << m_currentLineNb);
+        return false;
     }
     return true;
 }
@@ -6068,6 +6068,18 @@ bool SPFReader::loadIFCORGANIZATIONRELATIONSHIP(bool isFirst)
         m_currentType = &ExpressDataSet::allocateIfcOrganizationRelationship;
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcOrganizationRelationship_Map[m_currentId] = m_currentObj;
     }
+    Step::Id currentRef;
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 2)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 2 of IfcOrganizationRelationship, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(2));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 2 of IfcOrganizationRelationship, line " << m_currentLineNb);
+        return false;
+    }
     std::vector< Step::Id > currentRefList;
     Step::getIdListParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(3), currentRefList);
     if (currentRefList[0] == Step::Id_UNDEF)
@@ -6081,18 +6093,6 @@ bool SPFReader::loadIFCORGANIZATIONRELATIONSHIP(bool isFirst)
         {
             m_expressDataSet->getArgs(currentRefList[i])->addInverse(IfcOrganizationRelationship::getClassType(), 3, m_currentId);
         }
-    }
-    Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 2)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 2 of IfcOrganizationRelationship, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(2));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 2 of IfcOrganizationRelationship, line " << m_currentLineNb);
-        return false;
     }
     return true;
 }
@@ -6702,17 +6702,6 @@ bool SPFReader::loadIFCPRODUCT(bool isFirst)
         return false;
     }
     Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 6)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 6 of IfcProduct, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(6));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 6 of IfcProduct, line " << m_currentLineNb);
-        return false;
-    }
     if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcProduct, line " << m_currentLineNb);
@@ -6722,6 +6711,17 @@ bool SPFReader::loadIFCPRODUCT(bool isFirst)
     if (currentRef == Step::Id_UNDEF)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcProduct, line " << m_currentLineNb);
+        return false;
+    }
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 6)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 6 of IfcProduct, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(6));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 6 of IfcProduct, line " << m_currentLineNb);
         return false;
     }
     return true;
@@ -6917,17 +6917,6 @@ bool SPFReader::loadIFCPROPERTYDEPENDENCYRELATIONSHIP(bool isFirst)
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcPropertyDependencyRelationship_Map[m_currentId] = m_currentObj;
     }
     Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 1)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 1 of IfcPropertyDependencyRelationship, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(1));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 1 of IfcPropertyDependencyRelationship, line " << m_currentLineNb);
-        return false;
-    }
     if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 0)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 0 of IfcPropertyDependencyRelationship, line " << m_currentLineNb);
@@ -6937,6 +6926,17 @@ bool SPFReader::loadIFCPROPERTYDEPENDENCYRELATIONSHIP(bool isFirst)
     if (currentRef == Step::Id_UNDEF)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 0 of IfcPropertyDependencyRelationship, line " << m_currentLineNb);
+        return false;
+    }
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 1)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 1 of IfcPropertyDependencyRelationship, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(1));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 1 of IfcPropertyDependencyRelationship, line " << m_currentLineNb);
         return false;
     }
     return true;
@@ -7004,6 +7004,20 @@ bool SPFReader::loadIFCPROPERTYSET(bool isFirst)
     {
         m_currentType = &ExpressDataSet::allocateIfcPropertySet;
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcPropertySet_Map[m_currentId] = m_currentObj;
+    }
+    std::vector< Step::Id > currentRefList;
+    Step::getIdListParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4), currentRefList);
+    if (currentRefList[0] == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcPropertySet, line " << m_currentLineNb);
+        return false;
+    }
+    if (currentRefList[0] != Step::Id_UNSET)
+    {
+        for (unsigned int i = 0; i < currentRefList.size(); i++)
+        {
+            m_expressDataSet->getArgs(currentRefList[i])->addInverse(IfcPropertySet::getClassType(), 4, m_currentId);
+        }
     }
     return true;
 }
@@ -7837,17 +7851,6 @@ bool SPFReader::loadIFCRELCONNECTSELEMENTS(bool isFirst)
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcRelConnectsElements_Map[m_currentId] = m_currentObj;
     }
     Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelConnectsElements, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(5));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelConnectsElements, line " << m_currentLineNb);
-        return false;
-    }
     if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 6)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 6 of IfcRelConnectsElements, line " << m_currentLineNb);
@@ -7857,6 +7860,17 @@ bool SPFReader::loadIFCRELCONNECTSELEMENTS(bool isFirst)
     if (currentRef == Step::Id_UNDEF)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 6 of IfcRelConnectsElements, line " << m_currentLineNb);
+        return false;
+    }
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelConnectsElements, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(5));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelConnectsElements, line " << m_currentLineNb);
         return false;
     }
     return true;
@@ -7888,17 +7902,6 @@ bool SPFReader::loadIFCRELCONNECTSPORTS(bool isFirst)
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcRelConnectsPorts_Map[m_currentId] = m_currentObj;
     }
     Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelConnectsPorts, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelConnectsPorts, line " << m_currentLineNb);
-        return false;
-    }
     if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelConnectsPorts, line " << m_currentLineNb);
@@ -7908,6 +7911,17 @@ bool SPFReader::loadIFCRELCONNECTSPORTS(bool isFirst)
     if (currentRef == Step::Id_UNDEF)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelConnectsPorts, line " << m_currentLineNb);
+        return false;
+    }
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelConnectsPorts, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelConnectsPorts, line " << m_currentLineNb);
         return false;
     }
     return true;
@@ -8103,18 +8117,6 @@ bool SPFReader::loadIFCRELCONTAINEDINSPATIALSTRUCTURE(bool isFirst)
         m_currentType = &ExpressDataSet::allocateIfcRelContainedInSpatialStructure;
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcRelContainedInSpatialStructure_Map[m_currentId] = m_currentObj;
     }
-    Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelContainedInSpatialStructure, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(5));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelContainedInSpatialStructure, line " << m_currentLineNb);
-        return false;
-    }
     std::vector< Step::Id > currentRefList;
     Step::getIdListParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4), currentRefList);
     if (currentRefList[0] == Step::Id_UNDEF)
@@ -8128,6 +8130,18 @@ bool SPFReader::loadIFCRELCONTAINEDINSPATIALSTRUCTURE(bool isFirst)
         {
             m_expressDataSet->getArgs(currentRefList[i])->addInverse(IfcRelContainedInSpatialStructure::getClassType(), 4, m_currentId);
         }
+    }
+    Step::Id currentRef;
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelContainedInSpatialStructure, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(5));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelContainedInSpatialStructure, line " << m_currentLineNb);
+        return false;
     }
     return true;
 }
@@ -8183,18 +8197,6 @@ bool SPFReader::loadIFCRELCOVERSSPACES(bool isFirst)
         m_currentType = &ExpressDataSet::allocateIfcRelCoversSpaces;
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcRelCoversSpaces_Map[m_currentId] = m_currentObj;
     }
-    Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelCoversSpaces, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelCoversSpaces, line " << m_currentLineNb);
-        return false;
-    }
     std::vector< Step::Id > currentRefList;
     Step::getIdListParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(5), currentRefList);
     if (currentRefList[0] == Step::Id_UNDEF)
@@ -8208,6 +8210,18 @@ bool SPFReader::loadIFCRELCOVERSSPACES(bool isFirst)
         {
             m_expressDataSet->getArgs(currentRefList[i])->addInverse(IfcRelCoversSpaces::getClassType(), 5, m_currentId);
         }
+    }
+    Step::Id currentRef;
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelCoversSpaces, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelCoversSpaces, line " << m_currentLineNb);
+        return false;
     }
     return true;
 }
@@ -8411,17 +8425,6 @@ bool SPFReader::loadIFCRELINTERACTIONREQUIREMENTS(bool isFirst)
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcRelInteractionRequirements_Map[m_currentId] = m_currentObj;
     }
     Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 7)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 7 of IfcRelInteractionRequirements, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(7));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 7 of IfcRelInteractionRequirements, line " << m_currentLineNb);
-        return false;
-    }
     if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 8)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 8 of IfcRelInteractionRequirements, line " << m_currentLineNb);
@@ -8431,6 +8434,17 @@ bool SPFReader::loadIFCRELINTERACTIONREQUIREMENTS(bool isFirst)
     if (currentRef == Step::Id_UNDEF)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 8 of IfcRelInteractionRequirements, line " << m_currentLineNb);
+        return false;
+    }
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 7)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 7 of IfcRelInteractionRequirements, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(7));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 7 of IfcRelInteractionRequirements, line " << m_currentLineNb);
         return false;
     }
     return true;
@@ -8490,17 +8504,6 @@ bool SPFReader::loadIFCRELPROJECTSELEMENT(bool isFirst)
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcRelProjectsElement_Map[m_currentId] = m_currentObj;
     }
     Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelProjectsElement, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelProjectsElement, line " << m_currentLineNb);
-        return false;
-    }
     if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelProjectsElement, line " << m_currentLineNb);
@@ -8510,6 +8513,17 @@ bool SPFReader::loadIFCRELPROJECTSELEMENT(bool isFirst)
     if (currentRef == Step::Id_UNDEF)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelProjectsElement, line " << m_currentLineNb);
+        return false;
+    }
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelProjectsElement, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelProjectsElement, line " << m_currentLineNb);
         return false;
     }
     return true;
@@ -8581,17 +8595,6 @@ bool SPFReader::loadIFCRELSEQUENCE(bool isFirst)
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcRelSequence_Map[m_currentId] = m_currentObj;
     }
     Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelSequence, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelSequence, line " << m_currentLineNb);
-        return false;
-    }
     if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelSequence, line " << m_currentLineNb);
@@ -8601,6 +8604,17 @@ bool SPFReader::loadIFCRELSEQUENCE(bool isFirst)
     if (currentRef == Step::Id_UNDEF)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelSequence, line " << m_currentLineNb);
+        return false;
+    }
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelSequence, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelSequence, line " << m_currentLineNb);
         return false;
     }
     return true;
@@ -8658,17 +8672,6 @@ bool SPFReader::loadIFCRELSPACEBOUNDARY(bool isFirst)
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcRelSpaceBoundary_Map[m_currentId] = m_currentObj;
     }
     Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelSpaceBoundary, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelSpaceBoundary, line " << m_currentLineNb);
-        return false;
-    }
     if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelSpaceBoundary, line " << m_currentLineNb);
@@ -8678,6 +8681,17 @@ bool SPFReader::loadIFCRELSPACEBOUNDARY(bool isFirst)
     if (currentRef == Step::Id_UNDEF)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelSpaceBoundary, line " << m_currentLineNb);
+        return false;
+    }
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelSpaceBoundary, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(4));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelSpaceBoundary, line " << m_currentLineNb);
         return false;
     }
     return true;
@@ -8695,17 +8709,6 @@ bool SPFReader::loadIFCRELVOIDSELEMENT(bool isFirst)
         static_cast< ExpressDataSet * > (m_expressDataSet)->m_IfcRelVoidsElement_Map[m_currentId] = m_currentObj;
     }
     Step::Id currentRef;
-    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelVoidsElement, line " << m_currentLineNb);
-        return false;
-    }
-    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(5));
-    if (currentRef == Step::Id_UNDEF)
-    {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelVoidsElement, line " << m_currentLineNb);
-        return false;
-    }
     if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 4)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelVoidsElement, line " << m_currentLineNb);
@@ -8715,6 +8718,17 @@ bool SPFReader::loadIFCRELVOIDSELEMENT(bool isFirst)
     if (currentRef == Step::Id_UNDEF)
     {
         STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 4 of IfcRelVoidsElement, line " << m_currentLineNb);
+        return false;
+    }
+    if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelVoidsElement, line " << m_currentLineNb);
+        return false;
+    }
+    currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(5));
+    if (currentRef == Step::Id_UNDEF)
+    {
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcRelVoidsElement, line " << m_currentLineNb);
         return false;
     }
     return true;

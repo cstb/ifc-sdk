@@ -50,9 +50,9 @@ namespace ifc2x3
         // InvertedAttributes
         Step::RefPtr< IfcRepresentationContext > m_ContextOfItems;
         // InverseAttributes
+        Inverse_Set_IfcPresentationLayerAssignment_0_n m_LayerAssignments;
         Inverse_Set_IfcProductRepresentation_0_1 m_OfProductRepresentation;
         Inverse_Set_IfcRepresentationMap_0_1 m_RepresentationMap;
-        Inverse_Set_IfcPresentationLayerAssignment_0_n m_LayerAssignments;
 
         ClassType_definitions()
 
@@ -95,6 +95,15 @@ namespace ifc2x3
         virtual bool testContextOfItems() const;
         /// @}
 
+        /// Inverse attribute LayerAssignments
+        /// @{
+        virtual Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments();
+        virtual const Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments() const;
+        virtual bool testLayerAssignments() const;
+
+        friend class IfcPresentationLayerAssignment;
+        /// @}
+
         /// Inverse attribute OfProductRepresentation
         /// @{
         virtual Inverse_Set_IfcProductRepresentation_0_1 &getOfProductRepresentation();
@@ -111,15 +120,6 @@ namespace ifc2x3
         virtual bool testRepresentationMap() const;
 
         friend class IfcRepresentationMap;
-        /// @}
-
-        /// Inverse attribute LayerAssignments
-        /// @{
-        virtual Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments();
-        virtual const Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments() const;
-        virtual bool testLayerAssignments() const;
-
-        friend class IfcPresentationLayerAssignment;
         /// @}
 
 

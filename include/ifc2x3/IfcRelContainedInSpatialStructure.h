@@ -94,13 +94,21 @@ namespace ifc2x3
     {
 
         // InvertedAttributes
-        Step::RefPtr< IfcSpatialStructureElement > m_RelatingStructure;
         Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type m_RelatedElements;
+        Step::RefPtr< IfcSpatialStructureElement > m_RelatingStructure;
 
         ClassType_definitions()
 
     public:
         virtual bool acceptVisitor(Step::BaseVisitor *visitor);
+
+        /// Attribute RelatedElements
+        /// @{
+        virtual Set_IfcProduct_1_n &getRelatedElements();
+        virtual const Set_IfcProduct_1_n &getRelatedElements() const;
+        virtual void unsetRelatedElements();
+        virtual bool testRelatedElements() const;
+        /// @}
 
         /// Attribute RelatingStructure
         /// @{
@@ -109,14 +117,6 @@ namespace ifc2x3
         virtual void setRelatingStructure(const Step::RefPtr< IfcSpatialStructureElement > &value);
         virtual void unsetRelatingStructure();
         virtual bool testRelatingStructure() const;
-        /// @}
-
-        /// Attribute RelatedElements
-        /// @{
-        virtual Set_IfcProduct_1_n &getRelatedElements();
-        virtual const Set_IfcProduct_1_n &getRelatedElements() const;
-        virtual void unsetRelatedElements();
-        virtual bool testRelatedElements() const;
         /// @}
 
 

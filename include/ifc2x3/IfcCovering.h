@@ -44,8 +44,8 @@ namespace ifc2x3
         // Attributes
         IfcCoveringTypeEnum m_PredefinedType;
         // InverseAttributes
-        Inverse_Set_IfcRelCoversSpaces_0_1 m_CoversSpaces;
         Inverse_Set_IfcRelCoversBldgElements_0_1 m_Covers;
+        Inverse_Set_IfcRelCoversSpaces_0_1 m_CoversSpaces;
 
         ClassType_definitions()
 
@@ -61,15 +61,6 @@ namespace ifc2x3
         virtual bool testPredefinedType() const;
         /// @}
 
-        /// Inverse attribute CoversSpaces
-        /// @{
-        virtual Inverse_Set_IfcRelCoversSpaces_0_1 &getCoversSpaces();
-        virtual const Inverse_Set_IfcRelCoversSpaces_0_1 &getCoversSpaces() const;
-        virtual bool testCoversSpaces() const;
-
-        friend class IfcRelCoversSpaces;
-        /// @}
-
         /// Inverse attribute Covers
         /// @{
         virtual Inverse_Set_IfcRelCoversBldgElements_0_1 &getCovers();
@@ -77,6 +68,15 @@ namespace ifc2x3
         virtual bool testCovers() const;
 
         friend class IfcRelCoversBldgElements;
+        /// @}
+
+        /// Inverse attribute CoversSpaces
+        /// @{
+        virtual Inverse_Set_IfcRelCoversSpaces_0_1 &getCoversSpaces();
+        virtual const Inverse_Set_IfcRelCoversSpaces_0_1 &getCoversSpaces() const;
+        virtual bool testCoversSpaces() const;
+
+        friend class IfcRelCoversSpaces;
         /// @}
 
 

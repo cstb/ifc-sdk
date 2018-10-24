@@ -26,8 +26,8 @@
 
 #include <ifc2x3/IfcObjectPlacement.h>
 
-#include <ifc2x3/IfcProduct.h>
 #include <ifc2x3/IfcLocalPlacement.h>
+#include <ifc2x3/IfcProduct.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/Visitor.h>
@@ -52,27 +52,6 @@ bool IfcObjectPlacement::acceptVisitor(Step::BaseVisitor *visitor)
     return static_cast<Visitor *>(visitor)->visitIfcObjectPlacement(this);
 }
 
-Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject()
-{
-    if (Step::BaseObject::inited())
-    {
-        return m_PlacesObject;
-    }
- 
-    m_PlacesObject.setUnset(true);
-    return m_PlacesObject;
-}
-
-const Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject() const
-{
-    return  const_cast< IfcObjectPlacement * > (this)->getPlacesObject();
-}
-
-bool IfcObjectPlacement::testPlacesObject() const
-{
-    return m_PlacesObject.isUnset() == false;
-}
-
 Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements()
 {
     if (Step::BaseObject::inited())
@@ -94,19 +73,30 @@ bool IfcObjectPlacement::testReferencedByPlacements() const
     return m_ReferencedByPlacements.isUnset() == false;
 }
 
+Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject()
+{
+    if (Step::BaseObject::inited())
+    {
+        return m_PlacesObject;
+    }
+ 
+    m_PlacesObject.setUnset(true);
+    return m_PlacesObject;
+}
+
+const Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject() const
+{
+    return  const_cast< IfcObjectPlacement * > (this)->getPlacesObject();
+}
+
+bool IfcObjectPlacement::testPlacesObject() const
+{
+    return m_PlacesObject.isUnset() == false;
+}
+
 bool IfcObjectPlacement::init()
 {
     std::vector< Step::Id > *inverses;
-    inverses = m_args->getInverses(IfcProduct::getClassType(), 5);
-    if (inverses)
-    {
-        unsigned int i;
-        m_PlacesObject.setUnset(false);
-        for (i = 0; i < inverses->size(); i++)
-        {
-            m_PlacesObject.insert(static_cast< IfcProduct * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
     inverses = m_args->getInverses(IfcLocalPlacement::getClassType(), 0);
     if (inverses)
     {
@@ -115,6 +105,16 @@ bool IfcObjectPlacement::init()
         for (i = 0; i < inverses->size(); i++)
         {
             m_ReferencedByPlacements.insert(static_cast< IfcLocalPlacement * > (m_expressDataSet->get((*inverses)[i])));
+        }
+    }
+    inverses = m_args->getInverses(IfcProduct::getClassType(), 5);
+    if (inverses)
+    {
+        unsigned int i;
+        m_PlacesObject.setUnset(false);
+        for (i = 0; i < inverses->size(); i++)
+        {
+            m_PlacesObject.insert(static_cast< IfcProduct * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

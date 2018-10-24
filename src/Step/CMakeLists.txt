@@ -17,9 +17,12 @@ LIST(APPEND PROJECT_INCLUDES ${CMAKE_CURRENT_BINARY_DIR}/Step/Config.h)
 
 include(GenerateExportHeader)
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
 ADD_LIBRARY(Step ${SHARED_OR_STATIC} ${PROJECT_SOURCES} ${PROJECT_INCLUDES})
+
+target_include_directories(Step PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
+set_target_properties(Step PROPERTIES
+    CXX_VISIBILITY_PRESET "hidden"
+    VISIBILITY_INLINES_HIDDEN True)
 
 OPTION(STEP_CHECK_RANGE "Make Collection check ranges" ON)
 
@@ -39,7 +42,7 @@ INSTALL(TARGETS Step
     ARCHIVE DESTINATION lib${LIB_POSTFIX}
 )
 
-if(WIN32)
+if(WIN32 OR APPLE)
     install_pdb(Step Debug)
     install_pdb(Step RelWithDebInfo)
 endif()

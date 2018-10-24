@@ -42,23 +42,14 @@ namespace ifc2x3
     {
 
         // InverseAttributes
-        Step::ObsPtr< IfcRelConnectsPortToElement > m_ContainedIn;
         Inverse_Set_IfcRelConnectsPorts_0_1 m_ConnectedTo;
         Inverse_Set_IfcRelConnectsPorts_0_1 m_ConnectedFrom;
+        Step::ObsPtr< IfcRelConnectsPortToElement > m_ContainedIn;
 
         ClassType_definitions()
 
     public:
         virtual bool acceptVisitor(Step::BaseVisitor *visitor);
-
-        /// Inverse attribute ContainedIn
-        /// @{
-        virtual IfcRelConnectsPortToElement *getContainedIn();
-        virtual const IfcRelConnectsPortToElement *getContainedIn() const;
-        virtual bool testContainedIn() const;
-
-        friend class IfcRelConnectsPortToElement;
-        /// @}
 
         /// Inverse attribute ConnectedTo
         /// @{
@@ -76,6 +67,15 @@ namespace ifc2x3
         virtual bool testConnectedFrom() const;
 
         friend class IfcRelConnectsPorts;
+        /// @}
+
+        /// Inverse attribute ContainedIn
+        /// @{
+        virtual IfcRelConnectsPortToElement *getContainedIn();
+        virtual const IfcRelConnectsPortToElement *getContainedIn() const;
+        virtual bool testContainedIn() const;
+
+        friend class IfcRelConnectsPortToElement;
         /// @}
 
 

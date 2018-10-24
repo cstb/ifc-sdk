@@ -240,6 +240,7 @@
 #include <ifc2x3/IfcApprovalRelationship.h>
 #include <ifc2x3/IfcApprovalPropertyRelationship.h>
 #include <ifc2x3/IfcProperty.h>
+#include <ifc2x3/IfcPropertySet.h>
 #include <ifc2x3/IfcPropertyDependencyRelationship.h>
 #include <ifc2x3/IfcComplexProperty.h>
 #include <ifc2x3/IfcArbitraryClosedProfileDef.h>
@@ -515,7 +516,6 @@
 #include <ifc2x3/IfcPropertyEnumeration.h>
 #include <ifc2x3/IfcPropertyListValue.h>
 #include <ifc2x3/IfcPropertyReferenceValue.h>
-#include <ifc2x3/IfcPropertySet.h>
 #include <ifc2x3/IfcPropertySingleValue.h>
 #include <ifc2x3/IfcPropertyTableValue.h>
 #include <ifc2x3/IfcProtectiveDeviceType.h>
