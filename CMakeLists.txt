@@ -91,6 +91,7 @@ else()
 endif()
 
 IF(MSVC)
+  SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)
   add_definitions(-D_UNICODE)
   SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /Zm377")
 

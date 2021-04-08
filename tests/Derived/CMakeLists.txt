@@ -1,4 +1,6 @@
-SUBDIRS(	IfcAxis1Placement 
+string(REPLACE "${CMAKE_SOURCE_DIR}/" "" KEEP_CURRENT_FOLDER_LIST "${CMAKE_CURRENT_LIST_DIR}")
+
+set(subdirs	IfcAxis1Placement 
 		IfcAxis2Placement2D 
 		IfcAxis2Placement3D 
 		IfcBooleanResult 
@@ -45,3 +47,8 @@ SUBDIRS(	IfcAxis1Placement
 		IfcTable
 		IfcVector		
 	)
+
+foreach(subdir ${subdirs})
+    set(CURRENT_FOLDER_LIST ${KEEP_CURRENT_FOLDER_LIST})
+    add_subdirectory(${subdir})
+endforeach(subdir)
