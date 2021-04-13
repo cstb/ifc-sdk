@@ -52,27 +52,7 @@ bool CreateConstructionPointVisitor::visitIfcExtrudedAreaSolid(
     {
         if(value->getSweptArea()->acceptVisitor(this))
         {
-            Matrix4 transformation = ComputePlacementVisitor::getTransformation(
-                                         value->getPosition());
-
-            std::list<Vec3> tmpPoint = _points;
-
-            _points.clear();
-
-            for(const auto& point : tmpPoint)
-            {
-                _points.push_back(transformation * point);
-            }
-
-            Vec3 extrudedDirection = ComputePlacementVisitor::getDirection(
-                                         value->getExtrudedDirection());
-            extrudedDirection.Normalize();
-            extrudedDirection *= value->getDepth();
-
-            for(const auto& point : tmpPoint)
-            {
-                _points.push_back(transformation * (point + extrudedDirection));
-            }
+            // TODO
 
             return true;
         }
@@ -86,7 +66,7 @@ bool CreateConstructionPointVisitor::visitIfcArbitraryClosedProfileDef(
 {
     if(value->testOuterCurve())
     {
-        return value->getOuterCurve()->acceptVisitor(this);
+        // TODO
     }
 
     return false;
