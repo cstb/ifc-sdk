@@ -52,7 +52,13 @@ bool CreateConstructionPointVisitor::visitIfcMappedItem(
     {
         if(value->getMappingSource()->acceptVisitor(this))
         {
-            // TODO MappingTarget
+            if(value->testMappingTarget())
+            {
+                Matrix4 transform = ComputePlacementVisitor::getTransformation(
+                                        value->getMappingTarget());
+
+                transformPoints(transform);
+            }
 
             return true;
         }
@@ -68,7 +74,15 @@ bool CreateConstructionPointVisitor::visitIfcRepresentationMap(
     {
         if(value->getMappedRepresentation()->acceptVisitor(this))
         {
-            // TODO MappingOrigin
+            if(value->testMappingOrigin()
+               && value->getMappingOrigin()->currentType() ==
+               ifc2x3::IfcAxis2Placement::IFCAXIS2PLACEMENT3D)
+            {
+                Matrix4 transformation = ComputePlacementVisitor::getTransformation(
+                                             value->getMappingOrigin()->getIfcAxis2Placement3D());
+
+                transformPoints(transformation);
+            }
 
             return true;
         }
@@ -84,17 +98,12 @@ bool CreateConstructionPointVisitor::visitIfcExtrudedAreaSolid(
     {
         if(value->getSweptArea()->acceptVisitor(this))
         {
+            std::list<Vec3> tmpPoint = _points;
+
             Matrix4 transformation = ComputePlacementVisitor::getTransformation(
                                          value->getPosition());
 
-            std::list<Vec3> tmpPoint = _points;
-
-            _points.clear();
-
-            for(const auto& point : tmpPoint)
-            {
-                _points.push_back(transformation * point);
-            }
+            transformPoints(transformation);
 
             Vec3 extrudedDirection = ComputePlacementVisitor::getDirection(
                                          value->getExtrudedDirection());
@@ -140,4 +149,16 @@ bool CreateConstructionPointVisitor::visitIfcPolyline(ifc2x3::IfcPolyline*
 std::list<Vec3> CreateConstructionPointVisitor::getPoints() const
 {
     return _points;
+}
+
+void CreateConstructionPointVisitor::transformPoints(const Matrix4& transform)
+{
+    std::list<Vec3> tmpPoint = _points;
+
+    _points.clear();
+
+    for(const auto& point : tmpPoint)
+    {
+        _points.push_back(transform * point);
+    }
 }
