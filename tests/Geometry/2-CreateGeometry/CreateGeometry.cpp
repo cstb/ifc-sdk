@@ -1,127 +1,70 @@
 #include <ifc2x3/all.h>
 #include <ifc2x3/SPFReader.h>
 
+#include "CreateConstructionPointVisitor.h"
+
 #include "../../tests.h"
 
 #include <sstream>
 #include <fstream>
 
+#define DISTANCE_TOLERANCE 0.001
 
-/// tests for ticket5
+bool equals(const Vec3& lhs, const Vec3& rhs)
+{
+    return (lhs - rhs).Length() < DISTANCE_TOLERANCE;
+}
 
-/**
- Referencing an undeclared or undefined entity make the reader hang abruptly.
-*/
+std::ostream& operator<<(std::ostream& os, const Vec3& v)
+{
+    os << "[ " << v.x() << ", "
+       << v.y() << ", "
+       << v.z() << " ]";
+    return os;
+}
 
-int main (int n, char **p)
+#define PRINT_VALUE(x) \
+    std::cout << "    " << #x << " = " << x << std::endl;
+
+int main(int n, char** p)
 {
     ifc2x3::SPFReader reader;
 
-    if (n==2)
+    if(n != 2)
     {
-        std::ifstream input(p[1]);
-        bool result = reader.read(input);
-
-        TEST_ASSERT(result);
-
-        ifc2x3::ExpressDataSet *eds = static_cast<ifc2x3::ExpressDataSet *>(reader.getExpressDataSet());
-
-        TEST_ASSERT(eds);
-        // check for baseSPFObject that would have remained not initialized
-
-//        Step::MapOfEntities entities = eds->getAll();
-
-
-//
-//
-//        //Step::RefLinkedList< ifc2x3::IfcFooting > allIfcFooting = eds->getAllIfcFooting();
-//        ifc2x3::IfcFooting &footing = *(eds->getAllIfcFooting().begin());
-//
-//
-//
-//        footing.getObjectPlacement();
-//        //allIfcFooting
-
-        //eds->get(47228);
-        eds->instantiateAll();
-        std::cout << "eds->instantiateAll();" << std::endl;
-
-        Step::MapOfEntities::const_iterator end = eds->getAll().end();
-        Step::MapOfEntities::const_iterator it  = eds->getAll().begin();
-        while (it!=end)
-        {
-            if ((*it).second->isOfType(Step::BaseSPFObject::getClassType()))
-            {
-                std::cout << "OOOPS #" << (*it).first << "  is still a BaseSPFObject" << std::endl;
-            }
-            ++it;
-        }
-    }
-    else
-    {
-        std::cout << "Usage : " << p[0] << " test_file.ifc" << std::endl;
-
-        unsigned lastSize=0;
-#define DSIZEOF(T)  std::cout << #T << " : " << sizeof(T) << "( +" << sizeof(T) - lastSize << " ) " << std::endl; lastSize = sizeof(T)
-        DSIZEOF(Step::Referenced);
-        DSIZEOF(Step::ClientDataHandler);
-        DSIZEOF(Step::BaseObject);
-        DSIZEOF(Step::BaseEntity);
-        DSIZEOF(ifc2x3::IfcRepresentationItem);
-        DSIZEOF(ifc2x3::IfcGeometricRepresentationItem);
-        DSIZEOF(ifc2x3::IfcPoint);
-        DSIZEOF(ifc2x3::IfcCartesianPoint);
-
-        std::cout << std::endl;
-        lastSize=0;
-        DSIZEOF(std::set<Step::ObsPtr< ifc2x3::IfcPresentationLayerAssignment > >);
-        DSIZEOF(ifc2x3::Inverse_Set_IfcPresentationLayerAssignment_0_n);
-
-        std::cout << std::endl;
-        lastSize=0;
-        DSIZEOF(ifc2x3::Inverse_Set_IfcStyledItem_0_1);
-
-        std::cout << std::endl;
-        lastSize=0;
-        DSIZEOF(std::vector<double>);
-        DSIZEOF(ifc2x3::List_IfcLengthMeasure_1_3);
-
-
-        std::cout << std::endl;
-        lastSize=0;
-        DSIZEOF(Step::Referenced);
-        DSIZEOF(Step::ClientDataHandler);
-        DSIZEOF(Step::BaseObject);
-        DSIZEOF(Step::BaseEntity);
-        DSIZEOF(ifc2x3::IfcProperty);
-        DSIZEOF(ifc2x3::IfcSimpleProperty);
-        DSIZEOF(ifc2x3::IfcPropertySingleValue);
-
-        std::cout << std::endl;
-        lastSize=0;
-
-        DSIZEOF(Step::Referenced);
-        DSIZEOF(Step::ClientDataHandler);
-        DSIZEOF(Step::BaseObject);
-        DSIZEOF(Step::BaseEntity);
-        DSIZEOF(ifc2x3::IfcRoot);
-        DSIZEOF(ifc2x3::IfcPropertyDefinition);
-        DSIZEOF(ifc2x3::IfcPropertySetDefinition);
-        DSIZEOF(ifc2x3::IfcPropertySet);
-        
-
-        std::cout << std::endl;
-        lastSize=0;
-
-        DSIZEOF(Step::Referenced);
-        DSIZEOF(Step::ClientDataHandler);
-        DSIZEOF(Step::BaseObject);
-        DSIZEOF(ifc2x3::IfcValue);
         ++failure_results;
+        std::cout << "Missing input file " << std::endl;
+        return failure_results;
     }
 
+    std::ifstream input(p[1]);
+    bool result = reader.read(input);
 
-    std::cout << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
+    TEST_ASSERT(result);
+
+    ifc2x3::ExpressDataSet* dataSet = static_cast<ifc2x3::ExpressDataSet*>
+                                      (reader.getExpressDataSet());
+
+    TEST_ASSERT(dataSet != nullptr);
+
+    dataSet->instantiateAll();
+    CreateConstructionPointVisitor visitor;
+
+    // First wall
+    Step::RefPtr<ifc2x3::IfcWall> wall1 = dataSet->getIfcWall(37);
+    wall1->acceptVisitor(&visitor);
+
+    std::list<Vec3> points = visitor.getPoints();
+
+    for(const auto& point : points)
+    {
+        PRINT_VALUE(point)
+    }
+
+    TEST_ASSERT(points.size() == 8);
+
+    std::cout << std::endl << "Failure : " << failure_results << " Success : " <<
+              success_results << std::endl;
 
     return failure_results;
 }
