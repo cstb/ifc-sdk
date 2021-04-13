@@ -119,8 +119,8 @@ int main(int n, char** p)
     TEST_ASSERT(points3.size() == 4);
 
     writePolygon(points1);
-    writePolygon(points2);
     writePolygon(points3);
+    writePolygon(points2);
 
     std::cout << std::endl << "Failure : " << failure_results << " Success : " <<
               success_results << std::endl;
