@@ -21,7 +21,6 @@ public:
 
     bool visitIfcProduct(ifc2x3::IfcProduct* value) override;
     bool visitIfcLocalPlacement(ifc2x3::IfcLocalPlacement* value) override;
-    bool visitIfcAxis2Placement3D(ifc2x3::IfcAxis2Placement3D* value) override;
 
     Matrix4 getTransformation(ifc2x3::IfcLocalPlacement* value) const;
     Matrix4 getTransformation(ifc2x3::IfcAxis2Placement3D* value) const;

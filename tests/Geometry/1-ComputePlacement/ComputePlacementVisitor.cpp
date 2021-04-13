@@ -22,48 +22,7 @@ bool ComputePlacementVisitor::visitIfcLocalPlacement(
     if(value->testRelativePlacement())
     {
         _transformation = getTransformation(value);
-        //return value->getRelativePlacement()->acceptVisitor(this);
     }
-
-    return true;
-}
-
-bool ComputePlacementVisitor::visitIfcAxis2Placement3D(
-    ifc2x3::IfcAxis2Placement3D* value)
-{
-    /*  Vec3 location(0.f);
-
-        if(value->testLocation())
-        {
-        location = getPoint(value->getLocation());
-        }
-
-        Vec3 refDirection(1.0f, 0.0f, 0.0f);
-
-        if(value->testRefDirection())
-        {
-        refDirection = getDirection(value->getRefDirection());
-        refDirection.Normalize();
-        }
-
-        Vec3 axis(0.0f, 0.0f, 1.0f);
-
-        if(value->testAxis())
-        {
-        axis = getDirection(value->getAxis());
-        axis.Normalize();
-        }
-
-        Vec3 yAxis = Vec3::CrossProduct(axis, refDirection);
-
-        Matrix4 transformation(
-        refDirection.x(), refDirection.y(), refDirection.z(), 0.0f,
-        yAxis.x(), yAxis.y(), yAxis.z(), 0.0f,
-        axis.x(), axis.y(), axis.z(), 0.0f,
-        location.x(), location.y(), location.z(), 1.0f
-        );*/
-
-
 
     return true;
 }

@@ -23,6 +23,9 @@ std::ostream& operator<<(std::ostream& os, const Vec3& v)
     return os;
 }
 
+#define PRINT_VALUE(x) \
+    std::cout << "    " << #x << " = " << x << std::endl;
+
 int main(int n, char** p)
 {
     ifc2x3::SPFReader reader;
@@ -52,8 +55,16 @@ int main(int n, char** p)
     wall1->acceptVisitor(&visitor);
 
     Vec3 wall1Origin = visitor.getOrigin();
-    std::cout << "wall1Origin = " << wall1Origin << std::endl;
-    TEST_ASSERT(equals(wall1Origin, Vec3(10., 20., 30.)));
+    PRINT_VALUE(wall1Origin)
+    TEST_ASSERT(equals(wall1Origin, Vec3(10., 20., 0.)));
+
+    // Second wall
+    Step::RefPtr<ifc2x3::IfcWall> wall2 = dataSet->getIfcWall(65);
+    wall2->acceptVisitor(&visitor);
+
+    Vec3 wall2Origin = visitor.getOrigin();
+    PRINT_VALUE(wall2Origin)
+    TEST_ASSERT(equals(wall2Origin, Vec3(10., 26., 3.)));
 
     std::cout << std::endl << "Failure : " << failure_results << " Success : " <<
               success_results << std::endl;
