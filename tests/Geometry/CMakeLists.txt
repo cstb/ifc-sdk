@@ -5,6 +5,7 @@ set(subdirs
 		1-ComputePlacement 
 		2-CreateGeometry 
 		3-PlacementAndMappedItem	
+        4-Wall2Slopes
 	)
 
 foreach(subdir ${subdirs})
