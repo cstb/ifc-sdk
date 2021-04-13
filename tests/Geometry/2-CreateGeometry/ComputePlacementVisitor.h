@@ -28,4 +28,5 @@ public:
     static Vec3 getDirection(ifc2x3::IfcDirection* direction);
 
     Vec3 getOrigin() const;
+    Matrix4 getTransformation() const;
 };

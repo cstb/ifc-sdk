@@ -125,3 +125,8 @@ Vec3 ComputePlacementVisitor::getOrigin() const
 {
     return _transformation.TranslationVector3D();
 }
+
+Matrix4 ComputePlacementVisitor::getTransformation() const
+{
+    return _transformation;
+}
