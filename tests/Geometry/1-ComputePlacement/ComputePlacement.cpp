@@ -10,23 +10,24 @@
 
 #define DISTANCE_TOLERANCE 0.001
 
-bool equals(const vectorial::vec3f& lhs, const vectorial::vec3f& rhs)
+bool equals(const Vec3& lhs, const Vec3& rhs)
 {
-    return (lhs - rhs).() < DISTANCE_TOLERANCE;
-    //return false;
+    return (lhs - rhs).Length() < DISTANCE_TOLERANCE;
 }
 
-/// tests for ticket5
-
-/**
-    Referencing an undeclared or undefined entity make the reader hang abruptly.
-*/
+std::ostream& operator<<(std::ostream& os, const Vec3& v)
+{
+    os << "[ " << v.x() << ", "
+       << v.y() << ", "
+       << v.z() << " ]";
+    return os;
+}
 
 int main(int n, char** p)
 {
     ifc2x3::SPFReader reader;
 
-    if(n != 1)
+    if(n != 2)
     {
         ++failure_results;
         std::cout << "Missing input file " << std::endl;
@@ -50,7 +51,9 @@ int main(int n, char** p)
     Step::RefPtr<ifc2x3::IfcWall> wall1 = dataSet->getIfcWall(37);
     wall1->acceptVisitor(&visitor);
 
-    TEST_ASSERT(equals(visitor.getOrigin(), vectorial::vec3f(10., 20., 30.)));
+    Vec3 wall1Origin = visitor.getOrigin();
+    std::cout << "wall1Origin = " << wall1Origin << std::endl;
+    TEST_ASSERT(equals(wall1Origin, Vec3(10., 20., 30.)));
 
     std::cout << std::endl << "Failure : " << failure_results << " Success : " <<
               success_results << std::endl;
