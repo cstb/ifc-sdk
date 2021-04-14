@@ -153,7 +153,13 @@ bool CreateConstructionPointVisitor::visitIfcPolygonalBoundedHalfSpace(
     {
         if(value->getPolygonalBoundary()->acceptVisitor(this))
         {
-            // TODO
+            if(value->testPosition())
+            {
+                Matrix4 transform = ComputePlacementVisitor::getTransformation(
+                                        value->getPosition());
+
+                transformPoints(transform);
+            }
 
             return true;
         }

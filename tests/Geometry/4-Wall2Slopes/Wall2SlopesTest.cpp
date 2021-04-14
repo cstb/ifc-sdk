@@ -1,8 +1,10 @@
 #include <ifc2x3/all.h>
 #include <ifc2x3/SPFReader.h>
+#include <ifc2x3/SPFWriter.h>
 
 #include "CreateConstructionPointVisitor.h"
 #include "ComputePlacementVisitor.h"
+#include "FilterVisitor.h"
 
 #include "../../tests.h"
 
@@ -68,6 +70,33 @@ int main(int n, char** p)
     TEST_ASSERT(dataSet != nullptr);
 
     dataSet->instantiateAll();
+
+    // Filter part
+    FilterVisitor filterVisitor;
+
+    for(auto& product : dataSet->getAllIfcProduct())
+    {
+        if(product.acceptVisitor(&filterVisitor))
+        {
+            CreateConstructionPointVisitor constructionVisitor;
+            product.acceptVisitor(&constructionVisitor);
+        }
+    }
+
+    // Creation part
+    Step::RefPtr<ifc2x3::ExpressDataSet> newDataSet = new ifc2x3::ExpressDataSet;
+    Step::RefPtr<ifc2x3::IfcProject> project = newDataSet->createIfcProject();
+    project->setName("My project");
+    Step::RefPtr<ifc2x3::IfcSite> site = newDataSet->createIfcSite();
+    site->setName("My site");
+
+    ifc2x3::SPFWriter writer(newDataSet.get());
+
+    std::ofstream output("D:/tmp/test.ifc");
+    result = writer.write(output);
+    TEST_ASSERT(result);
+
+    // ============
     ComputePlacementVisitor placementVisitor;
 
     // Base footprint

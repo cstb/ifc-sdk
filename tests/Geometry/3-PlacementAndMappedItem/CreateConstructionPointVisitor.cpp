@@ -50,7 +50,18 @@ bool CreateConstructionPointVisitor::visitIfcMappedItem(
 {
     if(value->testMappingSource())
     {
-        // TODO
+        if(value->getMappingSource()->acceptVisitor(this))
+        {
+            if(value->testMappingTarget())
+            {
+                Matrix4 transform = ComputePlacementVisitor::getTransformation(
+                                        value->getMappingTarget());
+
+                transformPoints(transform);
+            }
+
+            return true;
+        }
     }
 
     return false;
@@ -67,7 +78,10 @@ bool CreateConstructionPointVisitor::visitIfcRepresentationMap(
                && value->getMappingOrigin()->currentType() ==
                ifc2x3::IfcAxis2Placement::IFCAXIS2PLACEMENT3D)
             {
-                // TODO
+                Matrix4 transform = ComputePlacementVisitor::getTransformation(
+                                        value->getMappingOrigin()->getIfcAxis2Placement3D());
+
+                transformPoints(transform);
             }
 
             return true;

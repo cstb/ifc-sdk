@@ -52,7 +52,30 @@ bool CreateConstructionPointVisitor::visitIfcExtrudedAreaSolid(
     {
         if(value->getSweptArea()->acceptVisitor(this))
         {
-            // TODO
+            Matrix4 transformation = ComputePlacementVisitor::getTransformation(
+                                         value->getPosition());
+
+            transformPoints(transformation);
+
+            Vec3 extrusionVector(0., 0., 1.);
+
+            if(value->testExtrudedDirection())
+            {
+                extrusionVector = ComputePlacementVisitor::getDirection(
+                                      value->getExtrudedDirection());
+                extrusionVector.Normalize();
+
+                extrusionVector *= value->getDepth();
+            }
+
+            extrusionVector = transformation * extrusionVector;
+
+            std::list<Vec3> tmpPoints = _points;
+
+            for(const auto& point : tmpPoints)
+            {
+                _points.push_back(point + extrusionVector);
+            }
 
             return true;
         }
@@ -66,7 +89,7 @@ bool CreateConstructionPointVisitor::visitIfcArbitraryClosedProfileDef(
 {
     if(value->testOuterCurve())
     {
-        // TODO
+        return value->getOuterCurve()->acceptVisitor(this);
     }
 
     return false;
@@ -88,4 +111,16 @@ bool CreateConstructionPointVisitor::visitIfcPolyline(ifc2x3::IfcPolyline*
 std::list<Vec3> CreateConstructionPointVisitor::getPoints() const
 {
     return _points;
+}
+
+void CreateConstructionPointVisitor::transformPoints(const Matrix4& transform)
+{
+    std::list<Vec3> tmpPoints = _points;
+
+    _points.clear();
+
+    for(const auto& point : tmpPoints)
+    {
+        _points.push_back(transform * point);
+    }
 }

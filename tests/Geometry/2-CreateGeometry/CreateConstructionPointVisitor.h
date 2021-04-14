@@ -31,4 +31,5 @@ public:
     bool visitIfcPolyline(ifc2x3::IfcPolyline* value) override;
 
     std::list<Vec3> getPoints() const;
+    void transformPoints(const Matrix4& transform);
 };

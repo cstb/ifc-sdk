@@ -64,14 +64,14 @@ int main(int n, char** p)
         PRINT_VALUE(point)
     }
 
-    /*  std::cout << "    => Wall 1 transformed" << std::endl;
-        wall1->acceptVisitor(&placementVisitor);
-        Matrix4 transform1 = placementVisitor.getTransformation();
+    std::cout << "    => Wall 1 transformed" << std::endl;
+    wall1->acceptVisitor(&placementVisitor);
+    Matrix4 transform1 = placementVisitor.getTransformation();
 
-        for(const auto& point : points1)
-        {
+    for(const auto& point : points1)
+    {
         PRINT_VALUE(transform1 * point)
-        }*/
+    }
 
     TEST_ASSERT(points1.size() == 8);
 
@@ -88,14 +88,14 @@ int main(int n, char** p)
         PRINT_VALUE(point)
     }
 
-    /*  std::cout << "    => Wall 2 transformed" << std::endl;
-        wall2->acceptVisitor(&placementVisitor);
-        Matrix4 transform2 = placementVisitor.getTransformation();
+    std::cout << "    => Wall 2 transformed" << std::endl;
+    wall2->acceptVisitor(&placementVisitor);
+    Matrix4 transform2 = placementVisitor.getTransformation();
 
-        for(const auto& point : points2)
-        {
+    for(const auto& point : points2)
+    {
         PRINT_VALUE(transform2 * point)
-        }*/
+    }
 
     TEST_ASSERT(points2.size() == 8);
 

@@ -21,7 +21,7 @@ bool ComputePlacementVisitor::visitIfcLocalPlacement(
 {
     if(value->testRelativePlacement())
     {
-        // TODO
+        _transformation = getTransformation(value);
     }
 
     return true;
@@ -46,7 +46,8 @@ Matrix4 ComputePlacementVisitor::getTransformation(ifc2x3::IfcLocalPlacement*
        && value->getPlacementRelTo()->isOfType(
            ifc2x3::IfcLocalPlacement::getClassType()))
     {
-        // TODO
+        totalTransformation = getTransformation(static_cast<ifc2x3::IfcLocalPlacement*>
+                                                (value->getPlacementRelTo())) * currentTransformation;
     }
 
     return totalTransformation;
